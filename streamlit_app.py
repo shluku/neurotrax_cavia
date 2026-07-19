@@ -60,6 +60,14 @@ PATHS = {
     / "output/analysis_candidates/phase2_accelerometer_framework/accelerometer_raw_phase2a_json_key_summary.csv",
     "accelerometer_raw_window_summary": ROOT
     / "output/analysis_candidates/phase2_accelerometer_framework/accelerometer_raw_phase2a_candidate_window_summary.csv",
+    "accelerometer_24h_pilot_readme": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/raw_24h_pilot/README_accelerometer_24h_pilot.md",
+    "accelerometer_24h_pilot_manifest": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/raw_24h_pilot/accelerometer_24h_pilot_manifest.csv",
+    "accelerometer_24h_pilot_chunk_log": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/raw_24h_pilot/accelerometer_24h_pilot_chunk_log.csv",
+    "accelerometer_24h_pilot_candidate_scan": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/raw_24h_pilot/accelerometer_24h_pilot_candidate_scan.csv",
     "phase2_exploratory_feature_dir": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/exploratory_t1_week_24h",
     "phase3_all_t1_feature_dir": ROOT
@@ -808,6 +816,9 @@ def phase2_tables_page() -> None:
     accelerometer_raw_sample = load_csv(PATHS["accelerometer_raw_sample_expanded"])
     accelerometer_raw_keys = load_csv(PATHS["accelerometer_raw_keys"])
     accelerometer_raw_window_summary = load_csv(PATHS["accelerometer_raw_window_summary"])
+    accelerometer_24h_manifest = load_csv(PATHS["accelerometer_24h_pilot_manifest"])
+    accelerometer_24h_chunk_log = load_csv(PATHS["accelerometer_24h_pilot_chunk_log"])
+    accelerometer_24h_candidate_scan = load_csv(PATHS["accelerometer_24h_pilot_candidate_scan"])
     review_sample = load_csv(PATHS["applications_foreground_review_sample"])
     json_keys = load_csv(PATHS["applications_foreground_json_keys"])
     highest_t1_features = load_csv(PATHS["applications_foreground_highest_t1_36h_features"])
@@ -1102,6 +1113,29 @@ def phase2_tables_page() -> None:
             show_dataframe(accelerometer_raw_keys, height=180)
             with st.expander("Raw accelerometer targeted window summary"):
                 show_dataframe(accelerometer_raw_window_summary, height=220)
+            st.subheader("Raw Accelerometer 24h Local Pilot")
+            pilot_readme = load_text(PATHS["accelerometer_24h_pilot_readme"])
+            if pilot_readme:
+                st.markdown(pilot_readme)
+            if not accelerometer_24h_manifest.empty:
+                row = accelerometer_24h_manifest.iloc[0]
+                metric_row(
+                    [
+                        ("Pilot subject", row.get("Subject_ID_D", "")),
+                        ("Downloaded rows", int(row.get("downloaded_rows", 0)) if pd.notna(row.get("downloaded_rows", pd.NA)) else 0),
+                        ("Raw file MB", f"{float(row.get('raw_size_mb', 0)):.1f}" if pd.notna(row.get("raw_size_mb", pd.NA)) else ""),
+                        (
+                            "Signal file MB",
+                            f"{float(row.get('signal_size_mb', 0)):.1f}" if pd.notna(row.get("signal_size_mb", pd.NA)) else "",
+                        ),
+                    ]
+                )
+                show_dataframe(accelerometer_24h_manifest, height=180)
+            if not accelerometer_24h_chunk_log.empty:
+                st.caption("Chunk-level download log. The million-row raw/signal files are kept on disk and are not loaded into Streamlit.")
+                show_dataframe(accelerometer_24h_chunk_log.tail(30), height=260)
+            with st.expander("24h pilot candidate scan"):
+                show_dataframe(accelerometer_24h_candidate_scan, height=180)
         with acc_tabs[1]:
             st.subheader("Patient-Level QC")
             show_dataframe(sensor_linear_qc_patient, height=360)

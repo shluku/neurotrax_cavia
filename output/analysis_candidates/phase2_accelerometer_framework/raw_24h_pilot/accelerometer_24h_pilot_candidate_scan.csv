@@ -1,0 +1,2 @@
+Subject_ID_D,Subject_ID_N,global_T1,T1_date_iso,device_id,candidate_window_start_ms,candidate_window_end_ms,candidate_window_start_local,candidate_window_end_local,first_raw_ts,first_raw_local,status,search_mode,note
+041,15,119.4,2025-01-08,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,1736320047852,1736406447852,2025-01-08 09:07:27+0200,2025-01-09 09:07:27+0200,1736320047852,2025-01-08 09:07:27+0200,known_verified_from_10min_phase2a_raw_sample,known_verified_window_no_24h_count,Avoids slow raw accelerometer 24h COUNT; row count is produced during chunked download.

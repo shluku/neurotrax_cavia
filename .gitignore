@@ -14,5 +14,9 @@ last_5_minutes_accelerometer.csv
 # Large local presentation assets; keep out of the initial code repository.
 infographs/*.png
 
+# Large local raw-signal pilots; track only manifests/logs/README files.
+output/analysis_candidates/phase2_accelerometer_framework/raw_24h_pilot/*_raw.csv.gz
+output/analysis_candidates/phase2_accelerometer_framework/raw_24h_pilot/*_signal.csv.gz
+
 # Temporary office lock files.
 ~$*
