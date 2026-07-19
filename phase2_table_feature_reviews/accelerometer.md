@@ -74,6 +74,82 @@ Likely future feature families:
 | high-motion bursts | count segments above threshold | bursts of phone movement | threshold must be validated |
 | frequency domain | band power from chunked/resampled magnitude | rhythmic phone motion | only after sampling QC |
 
+## Proposed Signal-Analysis Candidates
+
+These candidates require signal processing and are not selected yet.
+
+| Candidate feature | Purpose | Processing requirement |
+|---|---|---|
+| `accelerometer_valid_signal_minutes` | Usable raw signal exposure | Count valid chunk-minutes after duplicate, gap, and sample-density checks |
+| `accelerometer_median_sampling_interval_ms` | Observed sampling behavior | Timestamp interval summary before resampling |
+| `accelerometer_gap_burden_fraction` | Continuity limitation | Fraction of chunk time affected by large gaps |
+| `accelerometer_dynamic_magnitude_mean` | Phone-motion intensity | Gravity-baseline correction plus smoothing |
+| `accelerometer_dynamic_magnitude_sd` | Phone-motion variability | Same filtered dynamic magnitude signal |
+| `accelerometer_high_motion_burst_count` | Discrete movement bursts | Thresholded contiguous events with minimum duration and refractory rule |
+| `accelerometer_stillness_fraction` | Phone-still context | Fraction of valid signal below dynamic-motion threshold |
+| `accelerometer_jerk_median` | Motion abruptness | Derivative of filtered dynamic magnitude after resampling |
+| `accelerometer_low_frequency_power` | Slow rhythmic motion content | FFT or bandpower on valid chunks |
+| `accelerometer_dominant_motion_frequency_hz` | Repeated motion frequency | Detrending, windowing, FFT, and valid chunk-length criteria |
+
+## Proposed Processing Pipeline
+
+This pipeline should be validated on small chunks before any Phase 2B extraction.
+
+1. Use only metadata-anchored bounded raw windows.
+2. Fetch data in small chunks, for example 5 minutes at a time.
+3. Parse `double_values_0`, `double_values_1`, and `double_values_2`.
+4. Drop rows with missing or nonnumeric axes.
+5. Sort by timestamp and remove exact duplicate timestamp/value rows.
+6. Compute raw magnitude:
+
+```text
+magnitude = sqrt(x^2 + y^2 + z^2)
+```
+
+7. Estimate local gravity baseline using a robust rolling median or low-pass component.
+8. Compute dynamic magnitude:
+
+```text
+dynamic_magnitude = abs(magnitude - local_gravity_baseline)
+```
+
+9. Resample only within sufficiently continuous chunks.
+10. Apply filtering only after sampling rate is estimated.
+
+Candidate filter plan:
+
+- Use a low-pass Butterworth filter for motion-intensity smoothing.
+- Use a high-pass or baseline-removal step to separate gravity/static orientation from dynamic phone motion.
+- Use zero-phase filtering such as `filtfilt` only when chunks are long enough.
+- If chunks are short or irregular, use rolling median/rolling mean instead of forcing Butterworth filtering.
+
+Initial thresholds to evaluate, not final:
+
+| Parameter | Starting value to test | Reason |
+|---|---:|---|
+| chunk length | 5 minutes | Already observed 3202 rows in 5 minutes for patient `041` |
+| large gap threshold | 1 second | Separates continuous signal from logging gaps |
+| minimum valid samples per 5-minute chunk | 100 | Conservative lower bound for summary features |
+| dynamic stillness threshold | 0.05 to 0.10 m/s^2 | Needs empirical validation by sample distribution |
+| high-motion threshold | 0.5 to 1.0 m/s^2 | Needs empirical validation by observed bursts |
+| burst minimum duration | 0.5 seconds | Avoids single-sample spikes |
+| burst refractory period | 1 second | Avoids splitting one movement into many bursts |
+
+## Feature Selection Status
+
+Current status: candidates proposed only.
+
+Before selecting features, we should run a small Phase 2B pilot on the patient `041` 10-minute raw sample window and produce:
+
+- sample-rate summary
+- gap summary
+- magnitude distribution
+- dynamic-magnitude distribution
+- candidate threshold sensitivity table
+- one small chunk-level feature table
+
+Only after reviewing that pilot should accelerometer features be marked as selected.
+
 ## Interpretation Boundary
 
 - This is not physical activity recognition.

@@ -50,3 +50,13 @@ Generated files:
 - `accelerometer_raw_phase2a_sample_rows.jsonl`
 - `accelerometer_raw_phase2a_json_key_summary.csv`
 - `accelerometer_raw_phase2a_candidate_window_summary.csv`
+
+Next signal-analysis candidates:
+
+- raw signal QC: valid minutes, sampling interval, gap burden
+- dynamic phone-motion intensity: gravity-corrected magnitude mean and SD
+- burst behavior: high-motion burst count and stillness fraction
+- abruptness: jerk from filtered dynamic magnitude
+- frequency domain: low-frequency power and dominant motion frequency
+
+These are candidates only. They require a small Phase 2B pilot with documented filtering, chunking, gap handling, and threshold sensitivity before selection.
