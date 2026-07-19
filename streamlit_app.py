@@ -46,6 +46,12 @@ PATHS = {
     / "output/analysis_candidates/phase2_accelerometer_framework/sensor_linear_accelerometer_qc_by_patient.csv",
     "sensor_linear_accelerometer_qc_by_device": ROOT
     / "output/analysis_candidates/phase2_accelerometer_framework/sensor_linear_accelerometer_qc_by_device_window.csv",
+    "sensor_accelerometer_qc_readme": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/README_sensor_accelerometer_qc.md",
+    "sensor_accelerometer_qc_by_patient": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/sensor_accelerometer_qc_by_patient.csv",
+    "sensor_accelerometer_qc_by_device": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/sensor_accelerometer_qc_by_device_window.csv",
     "phase2_exploratory_feature_dir": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/exploratory_t1_week_24h",
     "phase3_all_t1_feature_dir": ROOT
@@ -789,6 +795,8 @@ def phase2_tables_page() -> None:
     large_sensor_summary = load_csv(PATHS["large_sensor_summary"])
     sensor_linear_qc_patient = load_csv(PATHS["sensor_linear_accelerometer_qc_by_patient"])
     sensor_linear_qc_device = load_csv(PATHS["sensor_linear_accelerometer_qc_by_device"])
+    sensor_acc_qc_patient = load_csv(PATHS["sensor_accelerometer_qc_by_patient"])
+    sensor_acc_qc_device = load_csv(PATHS["sensor_accelerometer_qc_by_device"])
     review_sample = load_csv(PATHS["applications_foreground_review_sample"])
     json_keys = load_csv(PATHS["applications_foreground_json_keys"])
     highest_t1_features = load_csv(PATHS["applications_foreground_highest_t1_36h_features"])
@@ -981,40 +989,100 @@ def phase2_tables_page() -> None:
     with tabs[7]:
         st.subheader("Accelerometer Framework")
         st.caption(
-            "`sensor_linear_accelerometer` is the QC/device-context layer. "
-            "`linear_accelerometer` will be used later for bounded phone-motion signal features."
+            "Sensor metadata tables are QC/device-context layers. Raw `accelerometer` and "
+            "`linear_accelerometer` motion streams come later."
         )
-        metadata_count = 0
-        available_count = 0
-        if not sensor_linear_qc_patient.empty:
-            if "has_sensor_linear_accelerometer_metadata_after_T1" in sensor_linear_qc_patient.columns:
-                metadata_count = int(
-                    sensor_linear_qc_patient["has_sensor_linear_accelerometer_metadata_after_T1"].astype(str).str.lower().isin(
-                        ["true", "1", "yes"]
-                    ).sum()
-                )
-            if "qc_readiness_level" in sensor_linear_qc_patient.columns:
-                available_count = int(
-                    sensor_linear_qc_patient["qc_readiness_level"]
-                    .astype(str)
-                    .eq("metadata_available_for_device_context")
-                    .sum()
-                )
+
+        def qc_summary_row(table_name: str, df: pd.DataFrame, device_df: pd.DataFrame, has_col: str) -> dict[str, object]:
+            metadata_count = 0
+            available_count = 0
+            sparse_count = 0
+            very_sparse_count = 0
+            no_metadata_count = 0
+            if not df.empty:
+                if has_col in df.columns:
+                    metadata_count = int(df[has_col].astype(str).str.lower().isin(["true", "1", "yes"]).sum())
+                if "qc_readiness_level" in df.columns:
+                    levels = df["qc_readiness_level"].astype(str)
+                    available_count = int(levels.eq("metadata_available_for_device_context").sum())
+                    sparse_count = int(levels.eq("sparse_metadata").sum())
+                    very_sparse_count = int(levels.eq("very_sparse_metadata").sum())
+                    no_metadata_count = int(levels.eq("no_metadata_after_T1").sum())
+            return {
+                "table_name": table_name,
+                "patients_checked": len(df),
+                "patients_with_metadata_after_T1": metadata_count,
+                "metadata_available_for_device_context": available_count,
+                "sparse_metadata": sparse_count,
+                "very_sparse_metadata": very_sparse_count,
+                "no_metadata_after_T1": no_metadata_count,
+                "device_window_rows": len(device_df),
+            }
+
+        qc_comparison = pd.DataFrame(
+            [
+                qc_summary_row(
+                    "sensor_accelerometer",
+                    sensor_acc_qc_patient,
+                    sensor_acc_qc_device,
+                    "has_sensor_accelerometer_metadata_after_T1",
+                ),
+                qc_summary_row(
+                    "sensor_linear_accelerometer",
+                    sensor_linear_qc_patient,
+                    sensor_linear_qc_device,
+                    "has_sensor_linear_accelerometer_metadata_after_T1",
+                ),
+            ]
+        )
         metric_row(
             [
-                ("Patients in QC file", len(sensor_linear_qc_patient)),
-                ("Patients with metadata", metadata_count),
-                ("Device-window rows", len(sensor_linear_qc_device)),
-                ("Metadata available", available_count),
+                (
+                    "General acc metadata patients",
+                    int(
+                        qc_comparison.loc[
+                            qc_comparison["table_name"].eq("sensor_accelerometer"),
+                            "patients_with_metadata_after_T1",
+                        ].iloc[0]
+                    )
+                    if not qc_comparison.empty
+                    else 0,
+                ),
+                (
+                    "Linear acc metadata patients",
+                    int(
+                        qc_comparison.loc[
+                            qc_comparison["table_name"].eq("sensor_linear_accelerometer"),
+                            "patients_with_metadata_after_T1",
+                        ].iloc[0]
+                    )
+                    if not qc_comparison.empty
+                    else 0,
+                ),
+                ("General acc device windows", len(sensor_acc_qc_device)),
+                ("Linear acc device windows", len(sensor_linear_qc_device)),
             ]
         )
         readme = load_text(PATHS["accelerometer_framework_readme"])
         if readme:
             st.markdown(readme)
-        st.subheader("Patient-Level QC")
-        show_dataframe(sensor_linear_qc_patient, height=360)
-        st.subheader("Device-Window QC")
-        show_dataframe(sensor_linear_qc_device, height=360)
+        st.subheader("QC Comparison")
+        show_dataframe(qc_comparison, height=180)
+
+        acc_tabs = st.tabs(["General Accelerometer Metadata", "Linear Accelerometer Metadata"])
+        with acc_tabs[0]:
+            readme = load_text(PATHS["sensor_accelerometer_qc_readme"])
+            if readme:
+                st.markdown(readme)
+            st.subheader("Patient-Level QC")
+            show_dataframe(sensor_acc_qc_patient, height=360)
+            st.subheader("Device-Window QC")
+            show_dataframe(sensor_acc_qc_device, height=360)
+        with acc_tabs[1]:
+            st.subheader("Patient-Level QC")
+            show_dataframe(sensor_linear_qc_patient, height=360)
+            st.subheader("Device-Window QC")
+            show_dataframe(sensor_linear_qc_device, height=360)
     with tabs[8]:
         st.caption("This may be partial if a sampling run was stopped.")
         show_dataframe(sample_summary, height=520)

@@ -66,6 +66,29 @@ No `sensor_accelerometer` features are selected yet.
 
 Current recommendation: do not use this table as a behavioral phenotype feature source. If used later, keep it as hardware/data-quality support only.
 
+## Accelerometer Framework QC
+
+An identical bounded QC scan was run after the `sensor_linear_accelerometer` QC framework.
+
+Rule:
+
+- mapped T1 patients only
+- Subject_ID_D `001` excluded
+- first `sensor_accelerometer` timestamp at or after T1 for each mapped device
+- bounded 7-day window from that timestamp
+- metadata and timestamp-readiness summaries only
+- no raw `accelerometer` movement extraction
+
+Current result:
+
+- patients checked: `81`
+- patients with any post-T1 `sensor_accelerometer` metadata: `77`
+- sparse metadata: `76`
+- very sparse metadata: `1`
+- no metadata after T1: `4`
+
+This means general accelerometer metadata is much more broadly available than `sensor_linear_accelerometer` metadata, but it is still mostly sparse metadata, not continuous motion signal.
+
 ## Output Files
 
 - `output/analysis_candidates/phase2_feature_review/sensor_accelerometer/sensor_accelerometer_sample_rows.csv`
@@ -73,6 +96,9 @@ Current recommendation: do not use this table as a behavioral phenotype feature 
 - `output/analysis_candidates/phase2_feature_review/sensor_accelerometer/sensor_accelerometer_sample_rows.jsonl`
 - `output/analysis_candidates/phase2_feature_review/sensor_accelerometer/sensor_accelerometer_json_key_summary.csv`
 - `output/analysis_candidates/phase2_feature_review/sensor_accelerometer/sensor_accelerometer_phase2a_t1_ranked_coverage_scan.csv`
+- `output/analysis_candidates/phase2_accelerometer_framework/sensor_accelerometer_qc_by_patient.csv`
+- `output/analysis_candidates/phase2_accelerometer_framework/sensor_accelerometer_qc_by_device_window.csv`
+- `output/analysis_candidates/phase2_accelerometer_framework/README_sensor_accelerometer_qc.md`
 
 ## Interpretation Rules
 
