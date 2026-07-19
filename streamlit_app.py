@@ -40,6 +40,12 @@ PATHS = {
     / "output/analysis_candidates/phase2_large_sensor_metadata/phase2_large_sensor_bounded_patient_summary.csv",
     "large_sensor_readme": ROOT
     / "output/analysis_candidates/phase2_large_sensor_metadata/README_phase2_large_sensor_table_metadata_scan.md",
+    "accelerometer_framework_readme": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/README_accelerometer_framework.md",
+    "sensor_linear_accelerometer_qc_by_patient": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/sensor_linear_accelerometer_qc_by_patient.csv",
+    "sensor_linear_accelerometer_qc_by_device": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/sensor_linear_accelerometer_qc_by_device_window.csv",
     "phase2_exploratory_feature_dir": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/exploratory_t1_week_24h",
     "phase3_all_t1_feature_dir": ROOT
@@ -781,6 +787,8 @@ def phase2_tables_page() -> None:
     large_sensor_indexes = load_csv(PATHS["large_sensor_indexes"])
     large_sensor_availability = load_csv(PATHS["large_sensor_availability"])
     large_sensor_summary = load_csv(PATHS["large_sensor_summary"])
+    sensor_linear_qc_patient = load_csv(PATHS["sensor_linear_accelerometer_qc_by_patient"])
+    sensor_linear_qc_device = load_csv(PATHS["sensor_linear_accelerometer_qc_by_device"])
     review_sample = load_csv(PATHS["applications_foreground_review_sample"])
     json_keys = load_csv(PATHS["applications_foreground_json_keys"])
     highest_t1_features = load_csv(PATHS["applications_foreground_highest_t1_36h_features"])
@@ -807,6 +815,7 @@ def phase2_tables_page() -> None:
             "Candidate Features",
             "SQL Inventory",
             "Large Sensor Metadata",
+            "Accelerometer Framework",
             "Sampling Summary",
         ]
     )
@@ -970,6 +979,43 @@ def phase2_tables_page() -> None:
             with st.expander("Metadata scan README"):
                 st.markdown(readme)
     with tabs[7]:
+        st.subheader("Accelerometer Framework")
+        st.caption(
+            "`sensor_linear_accelerometer` is the QC/device-context layer. "
+            "`linear_accelerometer` will be used later for bounded phone-motion signal features."
+        )
+        metadata_count = 0
+        available_count = 0
+        if not sensor_linear_qc_patient.empty:
+            if "has_sensor_linear_accelerometer_metadata_after_T1" in sensor_linear_qc_patient.columns:
+                metadata_count = int(
+                    sensor_linear_qc_patient["has_sensor_linear_accelerometer_metadata_after_T1"].astype(str).str.lower().isin(
+                        ["true", "1", "yes"]
+                    ).sum()
+                )
+            if "qc_readiness_level" in sensor_linear_qc_patient.columns:
+                available_count = int(
+                    sensor_linear_qc_patient["qc_readiness_level"]
+                    .astype(str)
+                    .eq("metadata_available_for_device_context")
+                    .sum()
+                )
+        metric_row(
+            [
+                ("Patients in QC file", len(sensor_linear_qc_patient)),
+                ("Patients with metadata", metadata_count),
+                ("Device-window rows", len(sensor_linear_qc_device)),
+                ("Metadata available", available_count),
+            ]
+        )
+        readme = load_text(PATHS["accelerometer_framework_readme"])
+        if readme:
+            st.markdown(readme)
+        st.subheader("Patient-Level QC")
+        show_dataframe(sensor_linear_qc_patient, height=360)
+        st.subheader("Device-Window QC")
+        show_dataframe(sensor_linear_qc_device, height=360)
+    with tabs[8]:
         st.caption("This may be partial if a sampling run was stopped.")
         show_dataframe(sample_summary, height=520)
 

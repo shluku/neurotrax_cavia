@@ -400,6 +400,40 @@ phase2_table_feature_reviews/<table_name>.md
 
 SQL may use a global `GROUP BY device_id` for moderate tables. For very large high-frequency tables, if the query exceeds a safe execution limit, record the coverage status as an error/pending rather than running an unsafe long query. Missing coverage summary values must not be interpreted as zero activity.
 
+## Accelerometer Framework
+
+Accelerometer-family analysis should be staged rather than treating all motion tables as immediately model-facing.
+
+Order:
+
+1. Analyze `sensor_linear_accelerometer` first as a QC and device-context table.
+2. Use that QC to decide whether `linear_accelerometer` can support phone-motion signal features.
+3. Only after QC, define raw linear acceleration features from x/y/z values.
+
+`sensor_linear_accelerometer` is not a behavior table. It provides Android sensor metadata such as sensor name, vendor, type, resolution, maximum range, power, and minimum delay. These values help document the hardware and sampling context before high-frequency signal analysis.
+
+Current bounded QC rule:
+
+- Use mapped T1 patients only.
+- Exclude Subject_ID_D `001`.
+- For each mapped device, find the first `sensor_linear_accelerometer` timestamp at or after T1.
+- Build a bounded 7-day window from that first available timestamp.
+- Query only that device/time window.
+- Summarize metadata availability, active days/hours, timestamp intervals, gaps, sensor vendor/type, resolution, maximum range, power, minimum delay, and implied maximum sampling rate.
+
+Outputs:
+
+```text
+output/analysis_candidates/phase2_accelerometer_framework/
+```
+
+Important interpretation:
+
+- These QC summaries are not movement biomarkers.
+- Missing metadata is missing metadata, not no movement.
+- `linear_accelerometer` measures phone motion with gravity removed; it is not direct body movement.
+- Future Fourier or frequency-domain features require confirmed x/y/z columns, enough continuous signal, timestamp regularity, duplicate handling, vector magnitude, and consistent resampling.
+
 ## Interpretation Boundary
 
 Manual row review is not feature extraction. It is fieldwork for deciding which features are safe, interpretable, and worth implementing later.
