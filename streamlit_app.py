@@ -68,6 +68,8 @@ PATHS = {
     / "output/analysis_candidates/phase2_accelerometer_framework/raw_24h_pilot/accelerometer_24h_pilot_chunk_log.csv",
     "accelerometer_24h_pilot_candidate_scan": ROOT
     / "output/analysis_candidates/phase2_accelerometer_framework/raw_24h_pilot/accelerometer_24h_pilot_candidate_scan.csv",
+    "accelerometer_tomorrow_work_readme": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/README_ACCELEROMETER_TOMORROW_WORK.md",
     "phase2_exploratory_feature_dir": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/exploratory_t1_week_24h",
     "phase3_all_t1_feature_dir": ROOT
@@ -1093,6 +1095,10 @@ def phase2_tables_page() -> None:
 
         acc_tabs = st.tabs(["General Accelerometer Metadata", "Linear Accelerometer Metadata"])
         with acc_tabs[0]:
+            tomorrow_readme = load_text(PATHS["accelerometer_tomorrow_work_readme"])
+            if tomorrow_readme:
+                with st.expander("Accelerometer tomorrow work summary", expanded=True):
+                    st.markdown(tomorrow_readme)
             readme = load_text(PATHS["sensor_accelerometer_qc_readme"])
             if readme:
                 st.markdown(readme)
