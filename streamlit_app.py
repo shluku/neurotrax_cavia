@@ -52,6 +52,14 @@ PATHS = {
     / "output/analysis_candidates/phase2_accelerometer_framework/sensor_accelerometer_qc_by_patient.csv",
     "sensor_accelerometer_qc_by_device": ROOT
     / "output/analysis_candidates/phase2_accelerometer_framework/sensor_accelerometer_qc_by_device_window.csv",
+    "accelerometer_raw_readme": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/README_accelerometer_raw_signal_framework.md",
+    "accelerometer_raw_sample_expanded": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/accelerometer_raw_phase2a_sample_rows_expanded.csv",
+    "accelerometer_raw_keys": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/accelerometer_raw_phase2a_json_key_summary.csv",
+    "accelerometer_raw_window_summary": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/accelerometer_raw_phase2a_candidate_window_summary.csv",
     "phase2_exploratory_feature_dir": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/exploratory_t1_week_24h",
     "phase3_all_t1_feature_dir": ROOT
@@ -797,6 +805,9 @@ def phase2_tables_page() -> None:
     sensor_linear_qc_device = load_csv(PATHS["sensor_linear_accelerometer_qc_by_device"])
     sensor_acc_qc_patient = load_csv(PATHS["sensor_accelerometer_qc_by_patient"])
     sensor_acc_qc_device = load_csv(PATHS["sensor_accelerometer_qc_by_device"])
+    accelerometer_raw_sample = load_csv(PATHS["accelerometer_raw_sample_expanded"])
+    accelerometer_raw_keys = load_csv(PATHS["accelerometer_raw_keys"])
+    accelerometer_raw_window_summary = load_csv(PATHS["accelerometer_raw_window_summary"])
     review_sample = load_csv(PATHS["applications_foreground_review_sample"])
     json_keys = load_csv(PATHS["applications_foreground_json_keys"])
     highest_t1_features = load_csv(PATHS["applications_foreground_highest_t1_36h_features"])
@@ -1078,6 +1089,19 @@ def phase2_tables_page() -> None:
             show_dataframe(sensor_acc_qc_patient, height=360)
             st.subheader("Device-Window QC")
             show_dataframe(sensor_acc_qc_device, height=360)
+            st.subheader("Raw Accelerometer Phase 2A Targeted Sample")
+            raw_readme = load_text(PATHS["accelerometer_raw_readme"])
+            if raw_readme:
+                st.markdown(raw_readme)
+            st.caption(
+                "First bounded raw-signal sample anchored to a known sensor_accelerometer metadata timestamp. "
+                "This is manual fieldwork, not feature extraction."
+            )
+            show_dataframe(accelerometer_raw_sample, height=300)
+            st.subheader("Raw Accelerometer JSON Keys")
+            show_dataframe(accelerometer_raw_keys, height=180)
+            with st.expander("Raw accelerometer targeted window summary"):
+                show_dataframe(accelerometer_raw_window_summary, height=220)
         with acc_tabs[1]:
             st.subheader("Patient-Level QC")
             show_dataframe(sensor_linear_qc_patient, height=360)

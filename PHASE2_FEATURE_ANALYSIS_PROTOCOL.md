@@ -434,6 +434,16 @@ Important interpretation:
 - `linear_accelerometer` measures phone motion with gravity removed; it is not direct body movement.
 - Future Fourier or frequency-domain features require confirmed x/y/z columns, enough continuous signal, timestamp regularity, duplicate handling, vector magnitude, and consistent resampling.
 
+Raw general accelerometer addition:
+
+- Because `sensor_accelerometer` metadata was available for many more patients than `sensor_linear_accelerometer`, raw `accelerometer` is the first raw motion stream to investigate.
+- Raw `accelerometer` is very large, approximately 1.56 TB.
+- Do not start raw `accelerometer` work with broad 24-hour scans.
+- First use metadata-anchored 10-minute raw windows based on known `sensor_accelerometer` timestamps.
+- Fetch only small manual samples first.
+- Use short density checks, such as 5-minute counts, before deciding chunk sizes.
+- General accelerometer includes gravity. Magnitude near 9.8 can reflect a still phone under gravity, not movement.
+
 ## Interpretation Boundary
 
 Manual row review is not feature extraction. It is fieldwork for deciding which features are safe, interpretable, and worth implementing later.
