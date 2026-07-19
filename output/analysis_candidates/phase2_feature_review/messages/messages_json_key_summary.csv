@@ -1,0 +1,5 @@
+json_key,n_rows_with_key,value_type_counts
+device_id,20,string:20
+message_type,20,string:20
+timestamp,20,integer:20
+trace,20,string:20

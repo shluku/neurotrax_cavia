@@ -1,0 +1,11 @@
+Subject_ID_D,keyboard_early_has_data,keyboard_late_has_data,touch_early_has_data,touch_late_has_data,activity_early_has_data,activity_late_has_data,phase1b_baseline_usable,phase1b_change_usable
+001,True,False,True,False,True,False,True,False
+024,True,False,True,False,True,True,True,True
+030,True,False,True,False,True,False,True,False
+044,False,True,False,False,False,False,False,False
+062,True,False,True,False,True,False,True,False
+074,False,False,False,False,False,False,False,False
+077,True,True,True,False,True,True,True,True
+087,True,False,True,False,True,False,True,False
+093,True,False,True,False,True,False,True,False
+095,True,False,True,False,True,False,True,False

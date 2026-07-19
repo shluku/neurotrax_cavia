@@ -1,0 +1,2 @@
+sample_index,_id,timestamp,local_datetime,device_id,sample_context,trace,message_type
+1,1661,1737629476993,2025-01-23 12:51:16+0200,e361ed72-5d8b-48b9-b2eb-c5eeb03da274,phase2a_distinct_observation_review_sample,e321ad373e57ee78d6a16402bdb4c6a832128ec7,1

@@ -1,0 +1,15 @@
+table_name,total_rows_across_top10,n_subjects_with_any_data,n_devices_with_any_data,n_early_windows_with_data,n_late_windows_with_data,n_full_windows_with_data,table_error_count
+applications_foreground,0,0,0,0,0,0,66
+aware_log,0,0,0,0,0,0,64
+battery,0,0,0,0,0,0,66
+calls,0,0,0,0,0,0,66
+gsm,0,0,0,0,0,0,66
+gsm_neighbor,0,0,0,0,0,0,66
+keyboard,0,0,0,0,0,0,66
+locations,0,0,0,0,0,0,66
+messages,0,0,0,0,0,0,66
+plugin_google_activity_recognition,0,0,0,0,0,0,66
+screen,0,0,0,0,0,0,66
+telephony,0,0,0,0,0,0,66
+touch,0,0,0,0,0,0,66
+wifi,0,0,0,0,0,0,66

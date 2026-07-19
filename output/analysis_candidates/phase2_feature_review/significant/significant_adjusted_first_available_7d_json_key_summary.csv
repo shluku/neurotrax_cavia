@@ -1,0 +1,4 @@
+json_key,n_rows_with_key,value_type_counts
+device_id,20,string:20
+is_moving,20,string:20
+timestamp,20,integer:20

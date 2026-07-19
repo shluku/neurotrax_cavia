@@ -1,0 +1,21 @@
+sample_index,_id,timestamp,local_datetime,device_id,sample_context,screen_status
+1,3749,1736395202196,2025-01-09 06:00:02+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,1
+2,3750,1736395202217,2025-01-09 06:00:02+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,2
+3,3751,1736395229140,2025-01-09 06:00:29+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,0
+4,3752,1736395229152,2025-01-09 06:00:29+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,2
+5,3757,1736397093926,2025-01-09 06:31:33+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,1
+6,3758,1736397093957,2025-01-09 06:31:33+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,2
+7,3759,1736397104611,2025-01-09 06:31:44+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,0
+8,3760,1736397104619,2025-01-09 06:31:44+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,2
+9,3761,1736397105621,2025-01-09 06:31:45+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,1
+10,3762,1736397105636,2025-01-09 06:31:45+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,2
+11,3763,1736397117278,2025-01-09 06:31:57+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,0
+12,3764,1736397117341,2025-01-09 06:31:57+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,2
+13,3781,1736398649952,2025-01-09 06:57:29+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,1
+14,3782,1736398649979,2025-01-09 06:57:29+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,2
+15,3783,1736398654058,2025-01-09 06:57:34+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,3
+16,3784,1736398694652,2025-01-09 06:58:14+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,0
+17,3785,1736398694660,2025-01-09 06:58:14+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,2
+18,3786,1736398833913,2025-01-09 07:00:33+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,1
+19,3787,1736398833925,2025-01-09 07:00:33+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,2
+20,3788,1736398834923,2025-01-09 07:00:34+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,3

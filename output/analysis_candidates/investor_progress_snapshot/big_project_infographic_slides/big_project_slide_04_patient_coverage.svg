@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<rect width="100%" height="100%" fill="#f7f7f5"/>
+<rect x="0" y="0" width="1400" height="118" fill="#2f3a42"/>
+<text x="56" y="56" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#ffffff">Patient-device data coverage</text>
+<text x="56" y="90" font-family="Arial, sans-serif" font-size="17" fill="#d7dde1">Available local summary: data-day span by patient/device</text>
+<rect x="56" y="150" width="295" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="76" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Patients with phone days</text>
+<text x="76" y="236" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">54</text>
+<text x="76" y="262" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">From significant-device time ranges</text>
+<rect x="378" y="150" width="295" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="398" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Total device-days</text>
+<text x="398" y="236" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">2,943</text>
+<text x="398" y="262" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Sum across device episodes</text>
+<rect x="700" y="150" width="295" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="720" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Median device span</text>
+<text x="720" y="236" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">0.0 d</text>
+<text x="720" y="262" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Among devices with data</text>
+<rect x="1022" y="150" width="322" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="1042" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Max device span</text>
+<text x="1042" y="236" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">224.8 d</text>
+<text x="1042" y="262" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Largest observed device episode</text>
+<text x="56" y="328" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#2b2f33">Top patient/device data spans</text>
+<text x="56" y="377" font-family="Arial, sans-serif" font-size="13" fill="#2b2f33">Patient 1</text>
+<rect x="160" y="362" width="620" height="18" rx="4" fill="#e5e5df"/>
+<rect x="160" y="362" width="620.0" height="18" rx="4" fill="#6f7d6b"/>
+<text x="800" y="377" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#2b2f33">295.8 device-days</text>
+<text x="970" y="377" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">153 devices with data</text>
+<text x="56" y="413" font-family="Arial, sans-serif" font-size="13" fill="#2b2f33">Patient 061</text>
+<rect x="160" y="398" width="620" height="18" rx="4" fill="#e5e5df"/>
+<rect x="160" y="398" width="471.2" height="18" rx="4" fill="#6f7d6b"/>
+<text x="800" y="413" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#2b2f33">224.8 device-days</text>
+<text x="970" y="413" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">1 devices with data</text>
+<text x="56" y="449" font-family="Arial, sans-serif" font-size="13" fill="#2b2f33">Patient 018</text>
+<rect x="160" y="434" width="620" height="18" rx="4" fill="#e5e5df"/>
+<rect x="160" y="434" width="467.9" height="18" rx="4" fill="#6f7d6b"/>
+<text x="800" y="449" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#2b2f33">223.3 device-days</text>
+<text x="970" y="449" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">1 devices with data</text>
+<text x="56" y="485" font-family="Arial, sans-serif" font-size="13" fill="#2b2f33">Patient 007</text>
+<rect x="160" y="470" width="620" height="18" rx="4" fill="#e5e5df"/>
+<rect x="160" y="470" width="411.6" height="18" rx="4" fill="#6f7d6b"/>
+<text x="800" y="485" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#2b2f33">196.4 device-days</text>
+<text x="970" y="485" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">1 devices with data</text>
+<text x="56" y="521" font-family="Arial, sans-serif" font-size="13" fill="#2b2f33">Patient 015</text>
+<rect x="160" y="506" width="620" height="18" rx="4" fill="#e5e5df"/>
+<rect x="160" y="506" width="243.7" height="18" rx="4" fill="#6f7d6b"/>
+<text x="800" y="521" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#2b2f33">116.3 device-days</text>
+<text x="970" y="521" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">2 devices with data</text>
+<text x="56" y="557" font-family="Arial, sans-serif" font-size="13" fill="#2b2f33">Patient 072</text>
+<rect x="160" y="542" width="620" height="18" rx="4" fill="#e5e5df"/>
+<rect x="160" y="542" width="227.4" height="18" rx="4" fill="#6f7d6b"/>
+<text x="800" y="557" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#2b2f33">108.5 device-days</text>
+<text x="970" y="557" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">1 devices with data</text>
+<text x="56" y="593" font-family="Arial, sans-serif" font-size="13" fill="#2b2f33">Patient 031</text>
+<rect x="160" y="578" width="620" height="18" rx="4" fill="#e5e5df"/>
+<rect x="160" y="578" width="215.4" height="18" rx="4" fill="#6f7d6b"/>
+<text x="800" y="593" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#2b2f33">102.8 device-days</text>
+<text x="970" y="593" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">2 devices with data</text>
+<text x="56" y="629" font-family="Arial, sans-serif" font-size="13" fill="#2b2f33">Patient 045</text>
+<rect x="160" y="614" width="620" height="18" rx="4" fill="#e5e5df"/>
+<rect x="160" y="614" width="214.9" height="18" rx="4" fill="#6f7d6b"/>
+<text x="800" y="629" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#2b2f33">102.6 device-days</text>
+<text x="970" y="629" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">1 devices with data</text>
+<text x="56" y="665" font-family="Arial, sans-serif" font-size="13" fill="#2b2f33">Patient 044</text>
+<rect x="160" y="650" width="620" height="18" rx="4" fill="#e5e5df"/>
+<rect x="160" y="650" width="211.7" height="18" rx="4" fill="#6f7d6b"/>
+<text x="800" y="665" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#2b2f33">101.0 device-days</text>
+<text x="970" y="665" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">1 devices with data</text>
+<text x="56" y="701" font-family="Arial, sans-serif" font-size="13" fill="#2b2f33">Patient 038</text>
+<rect x="160" y="686" width="620" height="18" rx="4" fill="#e5e5df"/>
+<rect x="160" y="686" width="204.2" height="18" rx="4" fill="#6f7d6b"/>
+<text x="800" y="701" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#2b2f33">97.4 device-days</text>
+<text x="970" y="701" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">2 devices with data</text>
+<text x="56" y="737" font-family="Arial, sans-serif" font-size="13" fill="#2b2f33">Patient 077</text>
+<rect x="160" y="722" width="620" height="18" rx="4" fill="#e5e5df"/>
+<rect x="160" y="722" width="195.4" height="18" rx="4" fill="#6f7d6b"/>
+<text x="800" y="737" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#2b2f33">93.3 device-days</text>
+<text x="970" y="737" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">1 devices with data</text>
+<text x="56" y="773" font-family="Arial, sans-serif" font-size="13" fill="#2b2f33">Patient 022</text>
+<rect x="160" y="758" width="620" height="18" rx="4" fill="#e5e5df"/>
+<rect x="160" y="758" width="144.3" height="18" rx="4" fill="#6f7d6b"/>
+<text x="800" y="773" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#2b2f33">68.8 device-days</text>
+<text x="970" y="773" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">1 devices with data</text>
+<rect x="56" y="806" width="1288" height="62" rx="8" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="86" y="829" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#2b2f33">Approximate storage scale: 10 TB / 83 NeuroTrax patients ≈ 120 GB per patient.</text>
+<text x="86" y="850" font-family="Arial, sans-serif" font-size="13" fill="#6b7280">This is a rough presentation estimate, not an exact patient-level storage calculation. Exact per-patient GB can be estimated later by device/table row counts.</text>
+</svg>

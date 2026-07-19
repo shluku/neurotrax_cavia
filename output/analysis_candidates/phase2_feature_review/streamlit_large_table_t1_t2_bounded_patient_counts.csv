@@ -1,0 +1,11 @@
+table_name,t1_day_after_patients_with_data,t1_eligible_patients,t1_day_after_percentage,t2_day_before_patients_with_data,t2_eligible_patients,t2_day_before_percentage,query_rule,error_count,first_error
+accelerometer,0,82,0.0,0,62,0.0,timestamp_window_and_device_id_in_bounded_exists,5,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+aware_log,62,82,75.6,6,62,9.7,timestamp_window_and_device_id_in_bounded_exists,0,
+barometer,0,82,0.0,0,62,0.0,timestamp_window_and_device_id_in_bounded_exists,0,
+gravity,0,82,0.0,2,62,3.2,timestamp_window_and_device_id_in_bounded_exists,10,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+gyroscope,0,82,0.0,0,62,0.0,timestamp_window_and_device_id_in_bounded_exists,5,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+light,7,82,8.5,4,62,6.5,timestamp_window_and_device_id_in_bounded_exists,8,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+linear_accelerometer,0,82,0.0,1,62,1.6,timestamp_window_and_device_id_in_bounded_exists,5,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+magnetometer,0,82,0.0,2,62,3.2,timestamp_window_and_device_id_in_bounded_exists,1,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+proximity,11,82,13.4,7,62,11.3,timestamp_window_and_device_id_in_bounded_exists,0,
+rotation,0,82,0.0,2,62,3.2,timestamp_window_and_device_id_in_bounded_exists,9,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"

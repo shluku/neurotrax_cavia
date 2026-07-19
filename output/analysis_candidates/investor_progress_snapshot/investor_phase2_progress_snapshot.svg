@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="48" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#1f2937">NeuroTrax-SensorDB Digital Phenotyping: Current Fieldwork Progress</text>
+<text x="40" y="82" font-family="Arial, sans-serif" font-size="15" fill="#4b5563">Exploratory research pipeline progress snapshot. Not diagnostic or confirmatory.</text>
+<text x="60" y="130" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#111827">Project Progress</text>
+<rect x="70" y="310.4" width="70" height="229.6" rx="4" fill="#4C78A8"/>
+<text x="105.0" y="300.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">44</text>
+<text x="105.0" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#374151">Tracked</text>
+<text x="105.0" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#374151">tables</text>
+<rect x="175" y="487.8" width="70" height="52.2" rx="4" fill="#72B7B2"/>
+<text x="210.0" y="477.8" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">10</text>
+<text x="210.0" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#374151">Reviewed</text>
+<text x="210.0" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#374151">tables</text>
+<rect x="280" y="180.0" width="70" height="360.0" rx="4" fill="#F58518"/>
+<text x="315.0" y="170.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">69</text>
+<text x="315.0" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#374151">Candidate</text>
+<text x="315.0" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#374151">features</text>
+<rect x="385" y="388.7" width="70" height="151.3" rx="4" fill="#54A24B"/>
+<text x="420.0" y="378.7" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">29</text>
+<text x="420.0" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#374151">Selected</text>
+<text x="420.0" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#374151">features</text>
+<rect x="490" y="399.1" width="70" height="140.9" rx="4" fill="#E45756"/>
+<text x="525.0" y="389.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">27</text>
+<text x="525.0" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#374151">Calculated</text>
+<text x="525.0" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#374151">values</text>
+<text x="650" y="130" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#111827">Calculated Features by Table</text>
+<text x="650" y="184" font-family="Arial, sans-serif" font-size="14" fill="#111827">keyboard</text>
+<rect x="820" y="168" width="360.0" height="22" rx="4" fill="#4C78A8"/>
+<text x="1190.0" y="184" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#111827">6</text>
+<text x="650" y="226" font-family="Arial, sans-serif" font-size="14" fill="#111827">calls</text>
+<rect x="820" y="210" width="300.0" height="22" rx="4" fill="#4C78A8"/>
+<text x="1130.0" y="226" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#111827">5</text>
+<text x="650" y="268" font-family="Arial, sans-serif" font-size="14" fill="#111827">light</text>
+<rect x="820" y="252" width="240.0" height="22" rx="4" fill="#4C78A8"/>
+<text x="1070.0" y="268" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#111827">4</text>
+<text x="650" y="310" font-family="Arial, sans-serif" font-size="14" fill="#111827">applications_foreground</text>
+<rect x="820" y="294" width="180.0" height="22" rx="4" fill="#4C78A8"/>
+<text x="1010.0" y="310" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#111827">3</text>
+<text x="650" y="352" font-family="Arial, sans-serif" font-size="14" fill="#111827">gsm</text>
+<rect x="820" y="336" width="180.0" height="22" rx="4" fill="#4C78A8"/>
+<text x="1010.0" y="352" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#111827">3</text>
+<text x="650" y="394" font-family="Arial, sans-serif" font-size="14" fill="#111827">locations</text>
+<rect x="820" y="378" width="120.0" height="22" rx="4" fill="#4C78A8"/>
+<text x="950.0" y="394" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#111827">2</text>
+<text x="650" y="436" font-family="Arial, sans-serif" font-size="14" fill="#111827">messages</text>
+<rect x="820" y="420" width="120.0" height="22" rx="4" fill="#4C78A8"/>
+<text x="950.0" y="436" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#111827">2</text>
+<text x="650" y="478" font-family="Arial, sans-serif" font-size="14" fill="#111827">bluetooth</text>
+<rect x="820" y="462" width="120.0" height="22" rx="4" fill="#4C78A8"/>
+<text x="950.0" y="478" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#111827">2</text>
+<line x1="40" y1="640" x2="1160" y2="640" stroke="#e5e7eb"/>
+<text x="40" y="670" font-family="Arial, sans-serif" font-size="14" fill="#4b5563">Current status: 44 tables tracked, 10 reviewed table files, 69 candidate feature definitions, 29 selected features, 27 numeric feature values calculated.</text>
+</svg>

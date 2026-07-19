@@ -1,0 +1,41 @@
+table_name,Field,Type,Null,Key,Default,Extra
+accelerometer,_id,int unsigned,NO,PRI,,auto_increment
+accelerometer,timestamp,double,NO,MUL,,
+accelerometer,device_id,varchar(128),NO,,,
+accelerometer,data,json,NO,,,
+aware_log,_id,int unsigned,NO,PRI,,auto_increment
+aware_log,timestamp,double,NO,MUL,,
+aware_log,device_id,varchar(128),NO,,,
+aware_log,data,json,NO,,,
+barometer,_id,int unsigned,NO,PRI,,auto_increment
+barometer,timestamp,double,NO,MUL,,
+barometer,device_id,varchar(128),NO,,,
+barometer,data,json,NO,,,
+gravity,_id,int unsigned,NO,PRI,,auto_increment
+gravity,timestamp,double,NO,MUL,,
+gravity,device_id,varchar(128),NO,,,
+gravity,data,json,NO,,,
+gyroscope,_id,int unsigned,NO,PRI,,auto_increment
+gyroscope,timestamp,double,NO,MUL,,
+gyroscope,device_id,varchar(128),NO,,,
+gyroscope,data,json,NO,,,
+light,_id,int unsigned,NO,PRI,,auto_increment
+light,timestamp,double,NO,MUL,,
+light,device_id,varchar(128),NO,,,
+light,data,json,NO,,,
+linear_accelerometer,_id,int unsigned,NO,PRI,,auto_increment
+linear_accelerometer,timestamp,double,NO,MUL,,
+linear_accelerometer,device_id,varchar(128),NO,,,
+linear_accelerometer,data,json,NO,,,
+magnetometer,_id,int unsigned,NO,PRI,,auto_increment
+magnetometer,timestamp,double,NO,MUL,,
+magnetometer,device_id,varchar(128),NO,,,
+magnetometer,data,json,NO,,,
+proximity,_id,int unsigned,NO,PRI,,auto_increment
+proximity,timestamp,double,NO,MUL,,
+proximity,device_id,varchar(128),NO,,,
+proximity,data,json,NO,,,
+rotation,_id,int unsigned,NO,PRI,,auto_increment
+rotation,timestamp,double,NO,MUL,,
+rotation,device_id,varchar(128),NO,,,
+rotation,data,json,NO,,,

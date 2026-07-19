@@ -1,0 +1,6 @@
+json_key,n_rows_with_key,value_type_counts
+application_name,20,string:20
+device_id,20,string:20
+is_system_app,20,string:20
+package_name,20,string:20
+timestamp,20,integer:20

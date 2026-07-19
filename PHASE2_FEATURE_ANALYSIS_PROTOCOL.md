@@ -141,10 +141,45 @@ Duplicate-heavy table rule:
   - `bt_rssi`
 - For `bluetooth`, the distinct-observation file should be treated as the primary Phase A inspection view because raw rows can contain many duplicate database copies.
 - For `bluetooth`, `bt_rssi` is currently the main candidate signal. `bt_name` and `bt_address` may be visible in authorized manual inspection tables, but they are currently used only for inspection/deduplication and are not selected phenotype outputs.
+- For `locations`, the first raw Phase A sample can contain repeated copies of the same timestamp/location. Preserve the raw sample, but also create a distinct-observation inspection file using:
+  - `timestamp`
+  - `data`
+- For `locations`, the distinct-observation file should be treated as the primary Phase A inspection view for feature decisions.
+- For `messages`, raw rows can contain repeated copies of the same message event. Preserve the redacted raw sample, but also create a distinct-observation inspection file using:
+  - `timestamp`
+  - `trace`
+  - `message_type`
+- For `messages`, message body, address, phone-number-like fields, and contact identifiers must be redacted in review files. `message_type` may remain visible because it is a non-content event code.
+- For `messages`, the distinct-observation file should be treated as the primary Phase A inspection view for feature decisions.
+- For `touch`, raw rows can contain repeated database copies of the same touch event. Preserve the raw sample, but also create a distinct-observation inspection file using:
+  - `timestamp`
+  - `device_id`
+  - `touch_app`
+  - `touch_action`
+  - `scroll_items`
+  - `scroll_to_index`
+  - `scroll_from_index`
+  - `touch_action_text`
+- For `touch`, the distinct-observation file should be treated as the primary Phase A inspection view for feature decisions.
 - Save the distinct-observation file as:
   - `<table_name>_sample_rows_distinct_observations.csv`
 
 If no ranked patient has a protocol-valid 24-hour T1-week window with enough rows, mark Phase A as unavailable for that table. Optionally, a separate "general table sanity sample" may be used later only to understand JSON keys, but it must be labeled as not clinically anchored and not used for patient-level interpretation.
+
+High-frequency sensor table rule:
+
+- Tables such as `linear_accelerometer`, `accelerometer`, `gyroscope`, and related `sensor_*` motion tables can be extremely large.
+- For these tables, do not broaden SQL searches across long date ranges just to find rows.
+- First apply the same protocol-valid T1-week 24-hour search.
+- If no ranked patient has data in the T1-week protocol window, mark the table as `phase2_later_high_frequency_no_protocol_coverage`.
+- Any later review of these tables should use a dedicated bounded script with strict query timeouts, one patient/device/window at a time.
+- Fourier or frequency-domain features require a confirmed sampling pattern and a bounded continuous window. They should not be computed until:
+  - the x/y/z acceleration columns or JSON keys are confirmed,
+  - timestamps are inspected for sampling regularity,
+  - duplicate rows are handled,
+  - the signal is transformed into vector magnitude,
+  - the signal is resampled or segmented consistently.
+- Missing high-frequency sensor data remains missing. It is not interpreted as no movement.
 
 ### Phase B: Feature Decision and Clinical-Window Extraction
 
@@ -335,7 +370,35 @@ Recommended files:
 - `<table_name>_sample_rows_expanded.csv`
 - `<table_name>_sample_rows_distinct_observations.csv` when a duplicate-heavy rule is needed
 - `<table_name>_json_key_summary.csv`
+- `<table_name>_global_device_coverage_summary.csv`
 - `README_<table_name>_feature_review.md`
+
+## Global Coverage Summary
+
+For every reviewed table, Phase 2A should include a compact global coverage summary. This is a planning and data-availability support artifact, not feature extraction.
+
+The summary should report:
+
+- Devices with `<table_name>` rows
+- Mapped study patients with `<table_name>` rows
+- Mapped devices with rows
+- Unmapped devices with rows
+- Rows mapped to study patients
+- Rows on unmapped devices
+
+The summary should be written into:
+
+```text
+output/analysis_candidates/phase2_feature_review/<table_name>/<table_name>_global_device_coverage_summary.csv
+```
+
+and appended to:
+
+```text
+phase2_table_feature_reviews/<table_name>.md
+```
+
+SQL may use a global `GROUP BY device_id` for moderate tables. For very large high-frequency tables, if the query exceeds a safe execution limit, record the coverage status as an error/pending rather than running an unsafe long query. Missing coverage summary values must not be interpreted as zero activity.
 
 ## Interpretation Boundary
 

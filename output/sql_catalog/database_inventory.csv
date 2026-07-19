@@ -1,0 +1,4 @@
+schema_name,table_count,total_rows_estimate,total_size_mb,data_size_mb,index_size_mb
+information_schema,81,0,0.0,0.0,0.0
+performance_schema,8,133623,0.0,0.0,0.0
+sensordata,44,17156126863,7026543.0156,5426134.4062,1600408.6094

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<rect width="100%" height="100%" fill="#f7f7f5"/>
+<rect x="0" y="0" width="1400" height="118" fill="#2f3a42"/>
+<text x="56" y="56" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#ffffff">Current calculable feature families</text>
+<text x="56" y="90" font-family="Arial, sans-serif" font-size="17" fill="#d7dde1">The pipeline already produces numeric exploratory feature values</text>
+<text x="56" y="158" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#2b2f33">Calculated numeric feature values by table</text>
+<text x="56" y="207" font-family="Arial, sans-serif" font-size="14" fill="#2b2f33">keyboard</text>
+<rect x="285" y="190" width="760" height="22" rx="4" fill="#e5e5df"/>
+<rect x="285" y="190" width="760.0" height="22" rx="4" fill="#5b6770"/>
+<text x="1060" y="207" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#2b2f33">6</text>
+<text x="56" y="249" font-family="Arial, sans-serif" font-size="14" fill="#2b2f33">calls</text>
+<rect x="285" y="232" width="760" height="22" rx="4" fill="#e5e5df"/>
+<rect x="285" y="232" width="633.3" height="22" rx="4" fill="#5b6770"/>
+<text x="1060" y="249" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#2b2f33">5</text>
+<text x="56" y="291" font-family="Arial, sans-serif" font-size="14" fill="#2b2f33">light</text>
+<rect x="285" y="274" width="760" height="22" rx="4" fill="#e5e5df"/>
+<rect x="285" y="274" width="506.7" height="22" rx="4" fill="#5b6770"/>
+<text x="1060" y="291" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#2b2f33">4</text>
+<text x="56" y="333" font-family="Arial, sans-serif" font-size="14" fill="#2b2f33">applications_foreground</text>
+<rect x="285" y="316" width="760" height="22" rx="4" fill="#e5e5df"/>
+<rect x="285" y="316" width="380.0" height="22" rx="4" fill="#5b6770"/>
+<text x="1060" y="333" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#2b2f33">3</text>
+<text x="56" y="375" font-family="Arial, sans-serif" font-size="14" fill="#2b2f33">gsm</text>
+<rect x="285" y="358" width="760" height="22" rx="4" fill="#e5e5df"/>
+<rect x="285" y="358" width="380.0" height="22" rx="4" fill="#5b6770"/>
+<text x="1060" y="375" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#2b2f33">3</text>
+<text x="56" y="417" font-family="Arial, sans-serif" font-size="14" fill="#2b2f33">bluetooth</text>
+<rect x="285" y="400" width="760" height="22" rx="4" fill="#e5e5df"/>
+<rect x="285" y="400" width="253.3" height="22" rx="4" fill="#5b6770"/>
+<text x="1060" y="417" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#2b2f33">2</text>
+<text x="56" y="459" font-family="Arial, sans-serif" font-size="14" fill="#2b2f33">locations</text>
+<rect x="285" y="442" width="760" height="22" rx="4" fill="#e5e5df"/>
+<rect x="285" y="442" width="253.3" height="22" rx="4" fill="#5b6770"/>
+<text x="1060" y="459" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#2b2f33">2</text>
+<text x="56" y="501" font-family="Arial, sans-serif" font-size="14" fill="#2b2f33">messages</text>
+<rect x="285" y="484" width="760" height="22" rx="4" fill="#e5e5df"/>
+<rect x="285" y="484" width="253.3" height="22" rx="4" fill="#5b6770"/>
+<text x="1060" y="501" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#2b2f33">2</text>
+<text x="56" y="590" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#2b2f33">Feature families already represented</text>
+<rect x="56" y="624" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="68" y="641" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">app_use_intensity</text>
+<rect x="486" y="624" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="498" y="641" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">app_use_breadth</text>
+<rect x="916" y="624" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="928" y="641" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">battery_context</text>
+<rect x="56" y="658" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="68" y="675" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">bluetooth_proximity_context</text>
+<rect x="486" y="658" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="498" y="675" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">call_communication_context</text>
+<rect x="916" y="658" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="928" y="675" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">call_direction_context</text>
+<rect x="56" y="692" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="68" y="709" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">call_unanswered_context</text>
+<rect x="486" y="692" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="498" y="709" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">call_duration_context</text>
+<rect x="916" y="692" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="928" y="709" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">gsm_cell_context</text>
+<rect x="56" y="726" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="68" y="743" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">keyboard_typing_dynamics</text>
+<rect x="486" y="726" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="498" y="743" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">keyboard_typing_pause</text>
+<rect x="916" y="726" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="928" y="743" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">keyboard_typing_burst</text>
+<rect x="56" y="760" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="68" y="777" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">keyboard_word_timing</text>
+<rect x="486" y="760" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="498" y="777" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">keyboard_correction_behavior</text>
+<rect x="916" y="760" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="928" y="777" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">light_environment_context</text>
+<rect x="56" y="794" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="68" y="811" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">light_circadian_context</text>
+<rect x="486" y="794" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="498" y="811" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">light_environment_variability</text>
+<rect x="916" y="794" width="390" height="24" rx="5" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="928" y="811" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">location_data_coverage</text>
+<rect x="56" y="832" width="1288" height="42" rx="8" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="86" y="858" font-family="Arial, sans-serif" font-size="14" fill="#2b2f33">Current values are examples from protocol-valid T1 windows; final modeling will apply finalized features across the broader eligible cohort.</text>
+</svg>

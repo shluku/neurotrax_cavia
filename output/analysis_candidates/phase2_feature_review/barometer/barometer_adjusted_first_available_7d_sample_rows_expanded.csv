@@ -1,0 +1,21 @@
+sample_index,_id,timestamp,local_datetime,device_id,sample_context,label,accuracy,double_values_0
+1,21751,1752132967011,2025-07-10 10:36:07+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.5224609375
+2,21752,1752132967188,2025-07-10 10:36:07+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.476318359375
+3,21753,1752132967369,2025-07-10 10:36:07+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.476806640625
+4,21754,1752132967548,2025-07-10 10:36:07+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.49755859375
+5,21755,1752132967736,2025-07-10 10:36:07+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.521240234375
+6,21756,1752132967908,2025-07-10 10:36:07+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.505859375
+7,21757,1752132968095,2025-07-10 10:36:08+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.474853515625
+8,21758,1752132968268,2025-07-10 10:36:08+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.458984375
+9,21759,1752132968457,2025-07-10 10:36:08+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.47900390625
+10,21760,1752132968628,2025-07-10 10:36:08+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.48193359375
+11,21761,1752132968811,2025-07-10 10:36:08+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.477294921875
+12,21762,1752132968990,2025-07-10 10:36:08+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.482421875
+13,21763,1752132969389,2025-07-10 10:36:09+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.485107421875
+14,21764,1752132969401,2025-07-10 10:36:09+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.4794921875
+15,21765,1752132969536,2025-07-10 10:36:09+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.46435546875
+16,21766,1752132969709,2025-07-10 10:36:09+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.468994140625
+17,21767,1752132969895,2025-07-10 10:36:09+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.4580078125
+18,21768,1752132970074,2025-07-10 10:36:10+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.45703125
+19,21769,1752132970255,2025-07-10 10:36:10+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.476806640625
+20,21770,1752132970429,2025-07-10 10:36:10+0300,fdce7e53-e549-45b0-a477-8c300329c656,adjusted_first_available_7d_manual_review_sample_not_T1_baseline,,3,972.465087890625

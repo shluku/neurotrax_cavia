@@ -1,0 +1,21 @@
+_id,timestamp,device_id,data,sample_index,local_datetime
+3749,1736395202196.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736395202196, ""screen_status"": ""1""}",1,2025-01-09 06:00:02+0200
+3750,1736395202217.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736395202217, ""screen_status"": ""2""}",2,2025-01-09 06:00:02+0200
+3751,1736395229140.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736395229140, ""screen_status"": ""0""}",3,2025-01-09 06:00:29+0200
+3752,1736395229152.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736395229152, ""screen_status"": ""2""}",4,2025-01-09 06:00:29+0200
+3757,1736397093926.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736397093926, ""screen_status"": ""1""}",5,2025-01-09 06:31:33+0200
+3758,1736397093957.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736397093957, ""screen_status"": ""2""}",6,2025-01-09 06:31:33+0200
+3759,1736397104611.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736397104611, ""screen_status"": ""0""}",7,2025-01-09 06:31:44+0200
+3760,1736397104619.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736397104619, ""screen_status"": ""2""}",8,2025-01-09 06:31:44+0200
+3761,1736397105621.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736397105621, ""screen_status"": ""1""}",9,2025-01-09 06:31:45+0200
+3762,1736397105636.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736397105636, ""screen_status"": ""2""}",10,2025-01-09 06:31:45+0200
+3763,1736397117278.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736397117278, ""screen_status"": ""0""}",11,2025-01-09 06:31:57+0200
+3764,1736397117341.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736397117341, ""screen_status"": ""2""}",12,2025-01-09 06:31:57+0200
+3781,1736398649952.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736398649952, ""screen_status"": ""1""}",13,2025-01-09 06:57:29+0200
+3782,1736398649979.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736398649979, ""screen_status"": ""2""}",14,2025-01-09 06:57:29+0200
+3783,1736398654058.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736398654058, ""screen_status"": ""3""}",15,2025-01-09 06:57:34+0200
+3784,1736398694652.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736398694652, ""screen_status"": ""0""}",16,2025-01-09 06:58:14+0200
+3785,1736398694660.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736398694660, ""screen_status"": ""2""}",17,2025-01-09 06:58:14+0200
+3786,1736398833913.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736398833913, ""screen_status"": ""1""}",18,2025-01-09 07:00:33+0200
+3787,1736398833925.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736398833925, ""screen_status"": ""2""}",19,2025-01-09 07:00:33+0200
+3788,1736398834923.0,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,"{""device_id"": ""d74f7acf-f82f-491d-90b9-d7321e6d4bcf"", ""timestamp"": 1736398834923, ""screen_status"": ""3""}",20,2025-01-09 07:00:34+0200

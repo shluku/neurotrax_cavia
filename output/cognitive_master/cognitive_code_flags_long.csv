@@ -1,0 +1,333 @@
+source_sheet,source_column,master_column,row_index,Subject_ID_N,Subject_ID_D,raw_value
+Overall scores,Processing speed T1,overall_Processing speed T1,10,13,030,DI
+Overall scores,Processing speed T1,overall_Processing speed T1,33,37,057,DI
+Overall scores,Processing speed T1,overall_Processing speed T1,38,42,043,DI
+Overall scores,Processing speed T1,overall_Processing speed T1,41,45,028,DI
+Overall scores,Processing speed T1,overall_Processing speed T1,47,51,045,DI
+Overall scores,Processing speed T1,overall_Processing speed T1,54,58,061,DI
+Overall scores,Processing speed T1,overall_Processing speed T1,56,60,091,DI
+Overall scores,Processing speed T1,overall_Processing speed T1,67,71,076,DI
+Overall scores,Processing speed T1,overall_Processing speed T1,73,77,077,DI
+Overall scores,Processing speed T1,overall_Processing speed T1,77,82,093,DI
+Overall scores,Processing speed T2,overall_Processing speed T2,4,7,048,DI
+Overall scores,Processing speed T2,overall_Processing speed T2,5,8,006,DI
+Overall scores,Processing speed T2,overall_Processing speed T2,56,60,091,DI
+Overall scores,Processing speed T2,overall_Processing speed T2,60,64,002,DI
+Overall scores,Processing speed T2,overall_Processing speed T2,73,77,077,DI
+Overall scores,Processing speed Δ,overall_Processing speed Δ,4,7,048,NA
+Overall scores,Processing speed Δ,overall_Processing speed Δ,5,8,006,NA
+Overall scores,Processing speed Δ,overall_Processing speed Δ,10,13,030,NA
+Overall scores,Processing speed Δ,overall_Processing speed Δ,33,37,057,NA
+Overall scores,Processing speed Δ,overall_Processing speed Δ,47,51,045,NA
+Overall scores,Processing speed Δ,overall_Processing speed Δ,56,60,091,NA
+Overall scores,Processing speed Δ,overall_Processing speed Δ,60,64,002,NA
+Overall scores,Processing speed Δ,overall_Processing speed Δ,67,71,076,NA
+Overall scores,Processing speed Δ,overall_Processing speed Δ,73,77,077,NA
+Overall scores,Processing speed Δ,overall_Processing speed Δ,77,82,093,NA
+Overall scores,Visual Spatial T1,overall_Visual Spatial T1,19,22,052,DI
+Overall scores,Visual Spatial T1,overall_Visual Spatial T1,68,72,087,DI
+Overall scores,Visual Spatial T2,overall_Visual Spatial T2,28,32,053,DI
+Overall scores,Visual Spatial T2,overall_Visual Spatial T2,46,50,038,DI
+Overall scores,Visual spatial Δ,overall_Visual spatial Δ,28,32,053,NA
+Overall scores,Visual spatial Δ,overall_Visual spatial Δ,46,50,038,NA
+Overall scores,Visual spatial Δ,overall_Visual spatial Δ,68,72,087,NA
+Overall scores,Verbal fun T1,overall_Verbal fun T1,70,74,011,DI
+Overall scores,Verbal fun T2,overall_Verbal fun T2,28,32,053,DI
+Overall scores,Verbal fun T2,overall_Verbal fun T2,46,50,038,DI
+Overall scores,Verbal fun Δ,overall_Verbal fun Δ,28,32,053,NA
+Overall scores,Verbal fun Δ,overall_Verbal fun Δ,46,50,038,NA
+Overall scores,Verbal fun Δ,overall_Verbal fun Δ,70,74,011,NA
+Overall scores,Motor T1,overall_Motor T1,23,27,039,DI
+Overall scores,Motor T1,overall_Motor T1,61,65,040,DI
+Overall scores,Motor T2,overall_Motor T2,56,60,091,DI
+Overall scores,Motor T2,overall_Motor T2,69,73,034,DI
+Overall scores,Motor Δ,overall_Motor Δ,23,27,039,NA
+Overall scores,Motor Δ,overall_Motor Δ,56,60,091,NA
+Overall scores,Motor Δ,overall_Motor Δ,61,65,040,NA
+Overall scores,Motor Δ,overall_Motor Δ,69,73,034,NA
+Overall scores,IQ T1,overall_IQ T1,19,22,052,DI
+Overall scores,IQ T1,overall_IQ T1,68,72,087,DI
+Overall scores,IQ Δ,overall_IQ Δ,68,72,087,NA
+Memory,VM T1,mem_VM T1,5,8,,FP
+Memory,VM T1,mem_VM T1,8,11,,FP
+Memory,VM T1,mem_VM T1,11,14,,FP
+Memory,VM T1,mem_VM T1,49,52,,DI
+Memory,VM T1,mem_VM T1,53,56,,FP
+Memory,VM T1,mem_VM T1,70,73,,DI
+Memory,VM T2,mem_VM T2,49,52,,DI
+Memory,VM Δ,mem_VM Δ,5,8,,NA
+Memory,VM Δ,mem_VM Δ,8,11,,NA
+Memory,VM Δ,mem_VM Δ,49,52,,NA
+Memory,VM Δ,mem_VM Δ,53,56,,NA
+Memory,VM Δ,mem_VM Δ,70,73,,NA
+Memory,VM del T1,mem_VM del T1,5,8,,FP
+Memory,VM del T1,mem_VM del T1,8,11,,FP
+Memory,VM del T1,mem_VM del T1,11,14,,FP
+Memory,VM del T1,mem_VM del T1,49,52,,DI
+Memory,VM del T1,mem_VM del T1,53,56,,FP
+Memory,VM del T1,mem_VM del T1,70,73,,DI
+Memory,VM del T2,mem_VM del T2,49,52,,DI
+Memory,VM del Δ,mem_VM del Δ,5,8,,NA
+Memory,VM del Δ,mem_VM del Δ,8,11,,NA
+Memory,VM del Δ,mem_VM del Δ,49,52,,NA
+Memory,VM del Δ,mem_VM del Δ,53,56,,NA
+Memory,VM del Δ,mem_VM del Δ,70,73,,NA
+Memory,SM T1,mem_SM T1,48,51,,FP
+Memory,SM T1,mem_SM T1,69,72,,DI
+Memory,SM T2,mem_SM T2,67,70,,DI
+Memory,SM Δ,mem_SM Δ,48,51,,NA
+Memory,SM Δ,mem_SM Δ,67,70,,NA
+Memory,SM Δ,mem_SM Δ,69,72,,NA
+Memory,SM del T1,mem_SM del T1,4,7,,DI
+Memory,SM del T1,mem_SM del T1,48,51,,FP
+Memory,SM del T1,mem_SM del T1,69,72,,DI
+Memory,SM del T2,mem_SM del T2,67,70,,DI
+Memory,SM del Δ,mem_SM del Δ,4,7,,NA
+Memory,SM del Δ,mem_SM del Δ,48,51,,NA
+Memory,SM del Δ,mem_SM del Δ,67,70,,NA
+Memory,SM del Δ,mem_SM del Δ,69,72,,NA
+Memory,V Learning T1,mem_V Learning T1,5,8,,FP
+Memory,V Learning T1,mem_V Learning T1,8,11,,FP
+Memory,V Learning T1,mem_V Learning T1,11,14,,FP
+Memory,V Learning T1,mem_V Learning T1,49,52,,DI
+Memory,V Learning T1,mem_V Learning T1,70,73,,DI
+Memory,V Learning Δ,mem_V Learning Δ,5,8,,NA
+Memory,V Learning Δ,mem_V Learning Δ,8,11,,NA
+Memory,V Learning Δ,mem_V Learning Δ,49,52,,NA
+Memory,V Learning Δ,mem_V Learning Δ,70,73,,NA
+Memory,S Learning T1,mem_S Learning T1,48,51,,FP
+Memory,S Learning T1,mem_S Learning T1,53,56,,FP
+Memory,S Learning T1,mem_S Learning T1,69,72,,DI
+Memory,S Learning T2,mem_S Learning T2,67,70,,DI
+Memory,S Learning Δ,mem_S Learning Δ,48,51,,NA
+Memory,S Learning Δ,mem_S Learning Δ,53,56,,NA
+Memory,S Learning Δ,mem_S Learning Δ,67,70,,NA
+Memory,S Learning Δ,mem_S Learning Δ,69,72,,NA
+EF,GnG T1,ef_GnG T1,53,56,,FP
+EF,GnG Δ,ef_GnG Δ,53,56,,NA
+EF,Stroop int T1,ef_Stroop int T1,1,4,,DI
+EF,Stroop int T1,ef_Stroop int T1,53,56,,FP
+EF,Stroop int T2,ef_Stroop int T2,57,60,,DI
+EF,Stroop int T2,ef_Stroop int T2,74,77,,DI
+EF,Stroop int Δ,ef_Stroop int Δ,1,4,,NA
+EF,Stroop int Δ,ef_Stroop int Δ,53,56,,NA
+EF,Stroop int Δ,ef_Stroop int Δ,57,60,,NA
+EF,Stroop int Δ,ef_Stroop int Δ,74,77,,NA
+EF,CG TS T1,ef_CG TS T1,25,28,,DI
+EF,CG TS T1,ef_CG TS T1,48,51,,FP
+EF,CG TS Δ,ef_CG TS Δ,25,28,,NA
+EF,CG TS Δ,ef_CG TS Δ,48,51,,NA
+Attention,ACC T1,attn_ACC T1,11,14,,FP
+Attention,ACC T1,attn_ACC T1,16,19,,FP
+Attention,ACC T1,attn_ACC T1,22,25,,FP
+Attention,ACC T1,attn_ACC T1,32,35,,FP
+Attention,ACC T1,attn_ACC T1,53,56,,FP
+Attention,ACC T1,attn_ACC T1,74,77,,FP
+Attention,ACC T2,attn_ACC T2,41,44,,FP
+Attention,ACC T2,attn_ACC T2,67,70,,FP
+Attention,ACC T2,attn_ACC T2,74,77,,FP
+Attention,ACC Δ,attn_ACC Δ,16,19,,NA
+Attention,ACC Δ,attn_ACC Δ,22,25,,NA
+Attention,ACC Δ,attn_ACC Δ,32,35,,NA
+Attention,ACC Δ,attn_ACC Δ,41,44,,NA
+Attention,ACC Δ,attn_ACC Δ,53,56,,NA
+Attention,ACC Δ,attn_ACC Δ,67,70,,NA
+Attention,ACC Δ,attn_ACC Δ,74,77,,NA
+Attention,RT T1,attn_RT T1,11,14,,FP
+Attention,RT T1,attn_RT T1,16,19,,FP
+Attention,RT T1,attn_RT T1,22,25,,FP
+Attention,RT T1,attn_RT T1,32,35,,FP
+Attention,RT T1,attn_RT T1,53,56,,FP
+Attention,RT T1,attn_RT T1,74,77,,FP
+Attention,RT T2,attn_RT T2,41,44,,FP
+Attention,RT T2,attn_RT T2,67,70,,FP
+Attention,RT T2,attn_RT T2,74,77,,FP
+Attention,RT Δ,attn_RT Δ,16,19,,NA
+Attention,RT Δ,attn_RT Δ,22,25,,NA
+Attention,RT Δ,attn_RT Δ,32,35,,NA
+Attention,RT Δ,attn_RT Δ,41,44,,NA
+Attention,RT Δ,attn_RT Δ,53,56,,NA
+Attention,RT Δ,attn_RT Δ,67,70,,NA
+Attention,RT Δ,attn_RT Δ,74,77,,NA
+Attention,RT sd T1,attn_RT sd T1,11,14,,FP
+Attention,RT sd T1,attn_RT sd T1,16,19,,FP
+Attention,RT sd T1,attn_RT sd T1,22,25,,FP
+Attention,RT sd T1,attn_RT sd T1,32,35,,FP
+Attention,RT sd T1,attn_RT sd T1,74,77,,FP
+Attention,RT sd T2,attn_RT sd T2,41,44,,FP
+Attention,RT sd T2,attn_RT sd T2,67,70,,FP
+Attention,RT sd T2,attn_RT sd T2,74,77,,FP
+Attention,RT sd Δ,attn_RT sd Δ,16,19,,NA
+Attention,RT sd Δ,attn_RT sd Δ,22,25,,NA
+Attention,RT sd Δ,attn_RT sd Δ,32,35,,NA
+Attention,RT sd Δ,attn_RT sd Δ,41,44,,NA
+Attention,RT sd Δ,attn_RT sd Δ,67,70,,NA
+Attention,RT sd Δ,attn_RT sd Δ,74,77,,NA
+Attention,Commission T1,attn_Commission T1,11,14,,FP
+Attention,Commission T1,attn_Commission T1,16,19,,FP
+Attention,Commission T1,attn_Commission T1,22,25,,FP
+Attention,Commission T1,attn_Commission T1,32,35,,FP
+Attention,Commission T1,attn_Commission T1,74,77,,FP
+Attention,Commission T2,attn_Commission T2,41,44,,FP
+Attention,Commission T2,attn_Commission T2,67,70,,FP
+Attention,Commission T2,attn_Commission T2,74,77,,FP
+Attention,Commission Δ,attn_Commission Δ,16,19,,NA
+Attention,Commission Δ,attn_Commission Δ,22,25,,NA
+Attention,Commission Δ,attn_Commission Δ,32,35,,NA
+Attention,Commission Δ,attn_Commission Δ,41,44,,NA
+Attention,Commission Δ,attn_Commission Δ,67,70,,NA
+Attention,Commission Δ,attn_Commission Δ,74,77,,NA
+Attention,Omission T1,attn_Omission T1,11,14,,FP
+Attention,Omission T1,attn_Omission T1,16,19,,FP
+Attention,Omission T1,attn_Omission T1,22,25,,FP
+Attention,Omission T1,attn_Omission T1,32,35,,FP
+Attention,Omission T1,attn_Omission T1,74,77,,FP
+Attention,Omission T2,attn_Omission T2,41,44,,FP
+Attention,Omission T2,attn_Omission T2,67,70,,FP
+Attention,Omission T2,attn_Omission T2,74,77,,FP
+Attention,Omission Δ,attn_Omission Δ,16,19,,NA
+Attention,Omission Δ,attn_Omission Δ,22,25,,NA
+Attention,Omission Δ,attn_Omission Δ,32,35,,NA
+Attention,Omission Δ,attn_Omission Δ,41,44,,NA
+Attention,Omission Δ,attn_Omission Δ,67,70,,NA
+Attention,Omission Δ,attn_Omission Δ,74,77,,NA
+Processing speed,Level 1.1 T1,ps_Level 1.1 T1,6,9,,FP
+Processing speed,Level 1.1 T1,ps_Level 1.1 T1,34,37,,DI
+Processing speed,Level 1.1 T1,ps_Level 1.1 T1,48,51,,DI
+Processing speed,Level 1.1 T1,ps_Level 1.1 T1,53,56,,FP
+Processing speed,Level 1.1 T1,ps_Level 1.1 T1,57,60,,DI
+Processing speed,Level 1.1 T1,ps_Level 1.1 T1,74,77,,DI
+Processing speed,Level 1.1 T1,ps_Level 1.1 T1,79,82,,DI
+Processing speed,Level 1.1 T2,ps_Level 1.1 T2,4,7,,DI
+Processing speed,Level 1.1 T2,ps_Level 1.1 T2,5,8,,DI
+Processing speed,Level 1.1 T2,ps_Level 1.1 T2,57,60,,DI
+Processing speed,Level 1.1 T2,ps_Level 1.1 T2,61,64,,DI
+Processing speed,Level 1.1 T2,ps_Level 1.1 T2,74,77,,DI
+Processing speed,Level 1.1 Δ,ps_Level 1.1 Δ,4,7,,NA
+Processing speed,Level 1.1 Δ,ps_Level 1.1 Δ,5,8,,NA
+Processing speed,Level 1.1 Δ,ps_Level 1.1 Δ,6,9,,NA
+Processing speed,Level 1.1 Δ,ps_Level 1.1 Δ,34,37,,NA
+Processing speed,Level 1.1 Δ,ps_Level 1.1 Δ,48,51,,NA
+Processing speed,Level 1.1 Δ,ps_Level 1.1 Δ,53,56,,NA
+Processing speed,Level 1.1 Δ,ps_Level 1.1 Δ,57,60,,NA
+Processing speed,Level 1.1 Δ,ps_Level 1.1 Δ,61,64,,NA
+Processing speed,Level 1.1 Δ,ps_Level 1.1 Δ,74,77,,NA
+Processing speed,Level 1.1 Δ,ps_Level 1.1 Δ,79,82,,NA
+Processing speed,Level 1.3 T1,ps_Level 1.3 T1,6,9,,FP
+Processing speed,Level 1.3 T1,ps_Level 1.3 T1,34,37,,DI
+Processing speed,Level 1.3 T1,ps_Level 1.3 T1,48,51,,DI
+Processing speed,Level 1.3 T1,ps_Level 1.3 T1,53,56,,FP
+Processing speed,Level 1.3 T1,ps_Level 1.3 T1,57,60,,DI
+Processing speed,Level 1.3 T1,ps_Level 1.3 T1,74,77,,DI
+Processing speed,Level 1.3 T1,ps_Level 1.3 T1,79,82,,DI
+Processing speed,Level 1.3 T2,ps_Level 1.3 T2,4,7,,DI
+Processing speed,Level 1.3 T2,ps_Level 1.3 T2,5,8,,DI
+Processing speed,Level 1.3 T2,ps_Level 1.3 T2,57,60,,DI
+Processing speed,Level 1.3 T2,ps_Level 1.3 T2,61,64,,DI
+Processing speed,Level 1.3 T2,ps_Level 1.3 T2,74,77,,DI
+Processing speed,Level 1.3 Δ,ps_Level 1.3 Δ,4,7,,NA
+Processing speed,Level 1.3 Δ,ps_Level 1.3 Δ,5,8,,NA
+Processing speed,Level 1.3 Δ,ps_Level 1.3 Δ,6,9,,NA
+Processing speed,Level 1.3 Δ,ps_Level 1.3 Δ,34,37,,NA
+Processing speed,Level 1.3 Δ,ps_Level 1.3 Δ,48,51,,NA
+Processing speed,Level 1.3 Δ,ps_Level 1.3 Δ,53,56,,NA
+Processing speed,Level 1.3 Δ,ps_Level 1.3 Δ,57,60,,NA
+Processing speed,Level 1.3 Δ,ps_Level 1.3 Δ,61,64,,NA
+Processing speed,Level 1.3 Δ,ps_Level 1.3 Δ,74,77,,NA
+Processing speed,Level 1.3 Δ,ps_Level 1.3 Δ,79,82,,NA
+Processing speed,Level 2.1 T1,ps_Level 2.1 T1,6,9,,FP
+Processing speed,Level 2.1 T1,ps_Level 2.1 T1,10,13,,DI
+Processing speed,Level 2.1 T1,ps_Level 2.1 T1,34,37,,DI
+Processing speed,Level 2.1 T1,ps_Level 2.1 T1,48,51,,DI
+Processing speed,Level 2.1 T1,ps_Level 2.1 T1,57,60,,DI
+Processing speed,Level 2.1 T1,ps_Level 2.1 T1,68,71,,DI
+Processing speed,Level 2.1 T1,ps_Level 2.1 T1,74,77,,DI
+Processing speed,Level 2.1 T1,ps_Level 2.1 T1,79,82,,DI
+Processing speed,Level 2.1 T2,ps_Level 2.1 T2,4,7,,DI
+Processing speed,Level 2.1 T2,ps_Level 2.1 T2,5,8,,DI
+Processing speed,Level 2.1 T2,ps_Level 2.1 T2,57,60,,DI
+Processing speed,Level 2.1 T2,ps_Level 2.1 T2,61,64,,DI
+Processing speed,Level 2.1 T2,ps_Level 2.1 T2,74,77,,DI
+Processing speed,Level 2.1 Δ,ps_Level 2.1 Δ,4,7,,NA
+Processing speed,Level 2.1 Δ,ps_Level 2.1 Δ,5,8,,NA
+Processing speed,Level 2.1 Δ,ps_Level 2.1 Δ,6,9,,NA
+Processing speed,Level 2.1 Δ,ps_Level 2.1 Δ,10,13,,NA
+Processing speed,Level 2.1 Δ,ps_Level 2.1 Δ,34,37,,NA
+Processing speed,Level 2.1 Δ,ps_Level 2.1 Δ,48,51,,NA
+Processing speed,Level 2.1 Δ,ps_Level 2.1 Δ,57,60,,NA
+Processing speed,Level 2.1 Δ,ps_Level 2.1 Δ,61,64,,NA
+Processing speed,Level 2.1 Δ,ps_Level 2.1 Δ,68,71,,NA
+Processing speed,Level 2.1 Δ,ps_Level 2.1 Δ,74,77,,NA
+Processing speed,Level 2.1 Δ,ps_Level 2.1 Δ,79,82,,NA
+Processing speed,Level 2.2 T1,ps_Level 2.2 T1,6,9,,FP
+Processing speed,Level 2.2 T1,ps_Level 2.2 T1,10,13,,DI
+Processing speed,Level 2.2 T1,ps_Level 2.2 T1,34,37,,DI
+Processing speed,Level 2.2 T1,ps_Level 2.2 T1,48,51,,DI
+Processing speed,Level 2.2 T1,ps_Level 2.2 T1,57,60,,DI
+Processing speed,Level 2.2 T1,ps_Level 2.2 T1,68,71,,DI
+Processing speed,Level 2.2 T1,ps_Level 2.2 T1,74,77,,DI
+Processing speed,Level 2.2 T1,ps_Level 2.2 T1,79,82,,DI
+Processing speed,Level 2.2 T2,ps_Level 2.2 T2,4,7,,DI
+Processing speed,Level 2.2 T2,ps_Level 2.2 T2,5,8,,DI
+Processing speed,Level 2.2 T2,ps_Level 2.2 T2,57,60,,DI
+Processing speed,Level 2.2 T2,ps_Level 2.2 T2,61,64,,DI
+Processing speed,Level 2.2 T2,ps_Level 2.2 T2,74,77,,DI
+Processing speed,Level 2.2 Δ,ps_Level 2.2 Δ,4,7,,NA
+Processing speed,Level 2.2 Δ,ps_Level 2.2 Δ,5,8,,NA
+Processing speed,Level 2.2 Δ,ps_Level 2.2 Δ,6,9,,NA
+Processing speed,Level 2.2 Δ,ps_Level 2.2 Δ,10,13,,NA
+Processing speed,Level 2.2 Δ,ps_Level 2.2 Δ,34,37,,NA
+Processing speed,Level 2.2 Δ,ps_Level 2.2 Δ,48,51,,NA
+Processing speed,Level 2.2 Δ,ps_Level 2.2 Δ,57,60,,NA
+Processing speed,Level 2.2 Δ,ps_Level 2.2 Δ,61,64,,NA
+Processing speed,Level 2.2 Δ,ps_Level 2.2 Δ,68,71,,NA
+Processing speed,Level 2.2 Δ,ps_Level 2.2 Δ,74,77,,NA
+Processing speed,Level 2.2 Δ,ps_Level 2.2 Δ,79,82,,NA
+Verbal Fun,Matching T1,verbal_Matching T1,53,56,,FP
+Verbal Fun,Matching T1,verbal_Matching T1,67,70,,FP
+Verbal Fun,Matching T1,verbal_Matching T1,71,74,,DI
+Verbal Fun,Matching T2,verbal_Matching T2,1,4,,FP
+Verbal Fun,Matching T2,verbal_Matching T2,29,32,,DI
+Verbal Fun,Matching T2,verbal_Matching T2,38,41,,FP
+Verbal Fun,Matching T2,verbal_Matching T2,47,50,,DI
+Verbal Fun,Matching Δ,verbal_Matching Δ,1,4,,NA
+Verbal Fun,Matching Δ,verbal_Matching Δ,29,32,,NA
+Verbal Fun,Matching Δ,verbal_Matching Δ,38,41,,NA
+Verbal Fun,Matching Δ,verbal_Matching Δ,47,50,,NA
+Verbal Fun,Matching Δ,verbal_Matching Δ,53,56,,NA
+Verbal Fun,Matching Δ,verbal_Matching Δ,67,70,,NA
+Verbal Fun,Matching Δ,verbal_Matching Δ,71,74,,NA
+Verbal Fun,Rhyming T1,verbal_Rhyming T1,53,56,,FP
+Verbal Fun,Rhyming T1,verbal_Rhyming T1,67,70,,FP
+Verbal Fun,Rhyming T1,verbal_Rhyming T1,71,74,,DI
+Verbal Fun,Rhyming T2,verbal_Rhyming T2,1,4,,FP
+Verbal Fun,Rhyming T2,verbal_Rhyming T2,29,32,,DI
+Verbal Fun,Rhyming T2,verbal_Rhyming T2,38,41,,FP
+Verbal Fun,Rhyming T2,verbal_Rhyming T2,47,50,,DI
+Verbal Fun,Rhyming Δ,verbal_Rhyming Δ,1,4,,NA
+Verbal Fun,Rhyming Δ,verbal_Rhyming Δ,29,32,,NA
+Verbal Fun,Rhyming Δ,verbal_Rhyming Δ,38,41,,NA
+Verbal Fun,Rhyming Δ,verbal_Rhyming Δ,47,50,,NA
+Verbal Fun,Rhyming Δ,verbal_Rhyming Δ,53,56,,NA
+Verbal Fun,Rhyming Δ,verbal_Rhyming Δ,67,70,,NA
+Verbal Fun,Rhyming Δ,verbal_Rhyming Δ,71,74,,NA
+Motor,FT Interval T1,motor_FT Interval T1,24,27,,DI
+Motor,FT Interval T1,motor_FT Interval T1,62,65,,DI
+Motor,FT Interval T2,motor_FT Interval T2,57,60,,DI
+Motor,FT Interval T2,motor_FT Interval T2,70,73,,DI
+Motor,FT Interval Δ,motor_FT Interval Δ,24,27,,NA
+Motor,FT Interval Δ,motor_FT Interval Δ,57,60,,NA
+Motor,FT Interval Δ,motor_FT Interval Δ,62,65,,NA
+Motor,FT Interval Δ,motor_FT Interval Δ,70,73,,NA
+Motor,FT interval sd T1,motor_FT interval sd T1,24,27,,DI
+Motor,FT interval sd T1,motor_FT interval sd T1,62,65,,DI
+Motor,FT interval sd T2,motor_FT interval sd T2,57,60,,DI
+Motor,FT interval sd T2,motor_FT interval sd T2,70,73,,DI
+Motor,FT interval sd Δ,motor_FT interval sd Δ,24,27,,NA
+Motor,FT interval sd Δ,motor_FT interval sd Δ,57,60,,NA
+Motor,FT interval sd Δ,motor_FT interval sd Δ,62,65,,NA
+Motor,FT interval sd Δ,motor_FT interval sd Δ,70,73,,NA
+Motor,CG 1st  move T1,motor_CG 1st  move T1,25,28,,DI
+Motor,CG 1st  move T2,motor_CG 1st  move T2,71,74,,FP
+Motor,CG 1st  move Δ,motor_CG 1st  move Δ,25,28,,NA
+Motor,CG 1st  move Δ,motor_CG 1st  move Δ,71,74,,NA

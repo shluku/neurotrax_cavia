@@ -1,0 +1,6 @@
+json_key,n_rows_with_key,value_type_counts
+call_duration,5,string:5
+call_type,5,string:5
+device_id,5,string:5
+timestamp,5,integer:5
+trace,5,string:5

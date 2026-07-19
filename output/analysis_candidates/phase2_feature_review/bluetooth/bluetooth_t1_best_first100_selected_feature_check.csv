@@ -1,0 +1,2 @@
+table_name,sample_context,Subject_ID_D,Subject_ID_N,global_T1,T1_date_iso,device_id,rows_sampled,distinct_observation_count,dedup_key,first_local_datetime,last_local_datetime,json_parse_errors,unique_bluetooth_addresses,bluetooth_address_diversity_ratio
+bluetooth,t1_best_patient_with_at_least_100_bluetooth_rows_first100,007,57,108.2,2025-01-23,1abb2d18-29ea-492a-808b-b01e865ebaa5,100,100,timestamp+device_id+bt_address+bt_rssi,2025-07-15 17:35:48+0300,2025-07-15 17:40:40+0300,0,81,0.81

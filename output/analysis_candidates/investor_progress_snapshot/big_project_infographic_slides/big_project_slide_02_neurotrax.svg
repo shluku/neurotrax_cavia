@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<rect width="100%" height="100%" fill="#f7f7f5"/>
+<rect x="0" y="0" width="1400" height="118" fill="#2f3a42"/>
+<text x="56" y="56" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#ffffff">NeuroTrax clinical data foundation</text>
+<text x="56" y="90" font-family="Arial, sans-serif" font-size="17" fill="#d7dde1">Cognitive outcomes and timeline feeding the digital model</text>
+<rect x="56" y="150" width="245" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="76" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Subjects</text>
+<text x="76" y="236" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">83</text>
+<text x="76" y="262" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Prepared in cognitive master</text>
+<rect x="324" y="150" width="245" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="344" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">T1 available</text>
+<text x="344" y="236" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">83</text>
+<text x="344" y="262" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Baseline assessment</text>
+<rect x="592" y="150" width="245" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="612" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">T1 + T2 available</text>
+<text x="612" y="236" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">62</text>
+<text x="612" y="262" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Longitudinal follow-up</text>
+<rect x="860" y="150" width="245" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="880" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Median follow-up</text>
+<text x="880" y="236" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">246 d</text>
+<text x="880" y="262" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">T1-to-T2 gap</text>
+<rect x="1128" y="150" width="216" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="1148" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Study span</text>
+<text x="1148" y="236" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">359 d</text>
+<text x="1148" y="262" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">2025-01-05 to 2025-12-30</text>
+<text x="56" y="322" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#2b2f33">Core NeuroTrax domains used as cognitive targets</text>
+<rect x="56" y="352" width="295" height="48" rx="8" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="74" y="382" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#2b2f33">Global / overall</text>
+<rect x="378" y="352" width="295" height="48" rx="8" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="396" y="382" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#2b2f33">Memory</text>
+<rect x="700" y="352" width="295" height="48" rx="8" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="718" y="382" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#2b2f33">Executive function</text>
+<rect x="1022" y="352" width="295" height="48" rx="8" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="1040" y="382" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#2b2f33">Attention</text>
+<rect x="56" y="424" width="295" height="48" rx="8" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="74" y="454" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#2b2f33">Processing speed</text>
+<rect x="378" y="424" width="295" height="48" rx="8" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="396" y="454" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#2b2f33">Verbal</text>
+<rect x="700" y="424" width="295" height="48" rx="8" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="718" y="454" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#2b2f33">Motor</text>
+<rect x="1022" y="424" width="295" height="48" rx="8" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="1040" y="454" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#2b2f33">IQ</text>
+<rect x="56" y="550" width="395" height="132" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="76" y="583" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">NeuroTrax master columns</text>
+<text x="76" y="636" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">112</text>
+<text x="76" y="662" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Wide cognitive table includes T1, T2, deltas,</text>
+<text x="76" y="678" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">subtests, metadata</text>
+<rect x="502" y="550" width="395" height="132" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="522" y="583" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Core domain score columns</text>
+<text x="522" y="636" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">27</text>
+<text x="522" y="662" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Overall domain T1/T2/delta fields</text>
+<rect x="948" y="550" width="396" height="132" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="968" y="583" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Subtest-level columns</text>
+<text x="968" y="636" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">71</text>
+<text x="968" y="662" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Memory, EF, attention, speed, verbal, motor</text>
+<text x="968" y="678" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">measures</text>
+<text x="56" y="748" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#2b2f33">Timeline structure</text>
+<rect x="56" y="780" width="1288" height="54" rx="8" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="86" y="813" font-family="Arial, sans-serif" font-size="15" fill="#2b2f33">Each patient can contribute: T1 cognitive assessment → early digital window → T2 cognitive assessment → late digital window → digital change features.</text>
+</svg>

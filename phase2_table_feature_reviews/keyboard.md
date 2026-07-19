@@ -135,3 +135,16 @@ Sources reviewed:
 - DeepMood: Modeling Mobile Phone Typing Dynamics for Mood Detection: https://arxiv.org/abs/1803.08986
 - A Survey of Biometric Keystroke Dynamics: Approaches, Security and Challenges: https://arxiv.org/abs/0910.0817
 - Digital phenotyping overview: https://en.wikipedia.org/wiki/Digital_phenotyping
+
+## Global Coverage Summary
+
+This compact summary describes global `keyboard` availability across the SensorDB table, mapped back to the current study device map.
+
+- Devices with `keyboard` rows: `159`
+- Mapped study patients with `keyboard` rows: `80`
+- Mapped devices with rows: `121`
+- Unmapped devices with rows: `38`
+- Rows mapped to study patients: `3,150,391`
+- Rows on unmapped devices: `532,154`
+
+Protocol note: this is a global table-coverage summary for Phase 2A planning. It is not feature extraction, not a T1-window phenotype result, and missing data is not interpreted as zero activity.

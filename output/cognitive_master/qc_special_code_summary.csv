@@ -1,0 +1,62 @@
+summary_type,key,count
+by_code,DI,106
+by_code,FP,75
+by_source_sheet,Attention,42
+by_source_sheet,EF,7
+by_source_sheet,Memory,30
+by_source_sheet,Motor,10
+by_source_sheet,Overall scores,28
+by_source_sheet,Processing speed,50
+by_source_sheet,Verbal Fun,14
+by_source_column,ACC T1,6
+by_source_column,ACC T2,3
+by_source_column,CG 1st  move T1,1
+by_source_column,CG 1st  move T2,1
+by_source_column,CG TS T1,2
+by_source_column,Commission T1,5
+by_source_column,Commission T2,3
+by_source_column,FT Interval T1,2
+by_source_column,FT Interval T2,2
+by_source_column,FT interval sd T1,2
+by_source_column,FT interval sd T2,2
+by_source_column,GnG T1,1
+by_source_column,IQ T1,2
+by_source_column,Level 1.1 T1,7
+by_source_column,Level 1.1 T2,5
+by_source_column,Level 1.3 T1,7
+by_source_column,Level 1.3 T2,5
+by_source_column,Level 2.1 T1,8
+by_source_column,Level 2.1 T2,5
+by_source_column,Level 2.2 T1,8
+by_source_column,Level 2.2 T2,5
+by_source_column,Matching T1,3
+by_source_column,Matching T2,4
+by_source_column,Motor T1,2
+by_source_column,Motor T2,2
+by_source_column,Omission T1,5
+by_source_column,Omission T2,3
+by_source_column,Processing speed T1,10
+by_source_column,Processing speed T2,5
+by_source_column,RT T1,6
+by_source_column,RT T2,3
+by_source_column,RT sd T1,5
+by_source_column,RT sd T2,3
+by_source_column,Rhyming T1,3
+by_source_column,Rhyming T2,4
+by_source_column,S Learning T1,3
+by_source_column,S Learning T2,1
+by_source_column,SM T1,2
+by_source_column,SM T2,1
+by_source_column,SM del T1,3
+by_source_column,SM del T2,1
+by_source_column,Stroop int T1,2
+by_source_column,Stroop int T2,2
+by_source_column,V Learning T1,5
+by_source_column,VM T1,6
+by_source_column,VM T2,1
+by_source_column,VM del T1,6
+by_source_column,VM del T2,1
+by_source_column,Verbal fun T1,1
+by_source_column,Verbal fun T2,2
+by_source_column,Visual Spatial T1,2
+by_source_column,Visual Spatial T2,2

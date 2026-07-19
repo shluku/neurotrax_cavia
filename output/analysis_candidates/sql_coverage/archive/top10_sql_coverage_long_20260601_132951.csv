@@ -1,0 +1,3 @@
+Subject_ID_N,Subject_ID_D,device_id,device_episode_index,n_devices_for_subject,table_name,window_name,window_start_ms,window_end_ms,window_start_iso,window_end_iso,n_rows,first_timestamp_ms,last_timestamp_ms,first_day_local,last_day_local,n_days_with_data,coverage_status,error_type,error_message,query_stage,coverage_note
+41,074,4870fb6a-a6a6-458d-aba8-56ed070c200e,1,2,aware_log,early_window,1736978400000,1737583200000,2025-01-16 00:00:00+0200,2025-01-23 00:00:00+0200,0,,,,,0,ok_no_data,,,early_late_count_min_max_days,
+41,074,4870fb6a-a6a6-458d-aba8-56ed070c200e,1,2,aware_log,late_window,1757365200000,1757970000000,2025-09-09 00:00:00+0300,2025-09-16 00:00:00+0300,0,,,,,0,ok_no_data,,,early_late_count_min_max_days,

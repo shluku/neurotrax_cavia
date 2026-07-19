@@ -1,0 +1,11 @@
+sample_index,_id,timestamp,local_datetime,device_id,sample_context,before_text,is_password,current_text,package_name
+1,9541,1736398665593,2025-01-09 06:57:45+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,,0,[a],com.whatsapp
+3,9542,1736398666026,2025-01-09 06:57:46+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,a,0,[aa],com.whatsapp
+5,9543,1736398666461,2025-01-09 06:57:46+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,aa,0,[aaa],com.whatsapp
+7,9544,1736398666818,2025-01-09 06:57:46+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,aaa,0,[aaa ],com.whatsapp
+9,9545,1736398667239,2025-01-09 06:57:47+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,aaa ,0,[aaa a],com.whatsapp
+11,9546,1736398667814,2025-01-09 06:57:47+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,aaa a,0,[aaa aa],com.whatsapp
+13,9547,1736398668309,2025-01-09 06:57:48+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,aaa aa,0,[aaa aaa],com.whatsapp
+15,9548,1736398668607,2025-01-09 06:57:48+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,aaa aaa,0,[aaa aaaa],com.whatsapp
+17,9549,1736398669072,2025-01-09 06:57:49+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,aaa aaaa,0,[aaa aaaaa],com.whatsapp
+19,9550,1736398673566,2025-01-09 06:57:53+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,aaa aaaaa,0,[aaa aaaaauD83DuDE05],com.whatsapp

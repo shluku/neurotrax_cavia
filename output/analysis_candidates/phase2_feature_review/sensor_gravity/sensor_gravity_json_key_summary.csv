@@ -1,0 +1,11 @@
+json_key,n_rows_with_key,value_type_counts
+device_id,20,string:20
+double_sensor_maximum_range,20,number:20
+double_sensor_minimum_delay,20,integer:20
+double_sensor_power_ma,20,number:20
+double_sensor_resolution,20,number:20
+sensor_name,20,string:20
+sensor_type,20,string:20
+sensor_vendor,20,string:20
+sensor_version,20,string:20
+timestamp,20,integer:20

@@ -1,0 +1,11 @@
+json_key,n_rows_with_key,value_type_counts
+accuracy,20,string:20
+device_id,20,string:20
+double_altitude,20,number:20
+double_bearing,20,integer:20
+double_latitude,20,number:20
+double_longitude,20,number:20
+double_speed,20,integer:20
+label,20,string:20
+provider,20,string:20
+timestamp,20,integer:20

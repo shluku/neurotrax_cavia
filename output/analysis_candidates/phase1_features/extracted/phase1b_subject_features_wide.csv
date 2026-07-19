@@ -1,0 +1,11 @@
+Subject_ID_N,Subject_ID_D,keyboard_early_event_count,keyboard_late_event_count,keyboard_delta_event_count,keyboard_pct_change_event_count,keyboard_delta_status,touch_early_event_count,touch_late_event_count,touch_delta_event_count,touch_pct_change_event_count,touch_delta_status,activity_early_event_count,activity_late_event_count,activity_early_still_event_count,activity_late_still_event_count,activity_early_walking_event_count,activity_late_walking_event_count,activity_early_in_vehicle_event_count,activity_late_in_vehicle_event_count,activity_early_mean_confidence,activity_late_mean_confidence,activity_delta_event_count,activity_pct_change_event_count,activity_delta_status
+3,001,8569.0,,,,missing_early_or_late,2970.0,,,,missing_early_or_late,284.0,,209.0,,0.0,,2.0,,82.45070422535211,,,,missing_early_or_late
+68,024,205.0,,,,missing_early_or_late,1521.0,,,,missing_early_or_late,597.0,476.0,320.0,264.0,0.0,0.0,9.0,21.0,84.21608040201005,84.03781512605042,-121.0,-0.20268006700167504,ok_both_windows
+13,030,1950.0,,,,missing_early_or_late,33675.0,,,,missing_early_or_late,1508.0,,769.0,,0.0,,47.0,,79.27718832891247,,,,missing_early_or_late
+44,044,,50.0,,,missing_early_or_late,,,,,missing_early_or_late,,,,,,,,,,,,,missing_early_or_late
+40,062,2948.0,,,,missing_early_or_late,2334.0,,,,missing_early_or_late,2443.0,,1006.0,,0.0,,316.0,,81.39787146950471,,,,missing_early_or_late
+41,074,,,,,missing_early_or_late,,,,,missing_early_or_late,,,,,,,,,,,,,missing_early_or_late
+77,077,221.0,1.0,-220.0,-0.995475113122172,ok_both_windows,2613.0,,,,missing_early_or_late,1835.0,1697.0,1091.0,949.0,0.0,0.0,147.0,219.0,86.99128065395095,85.76900412492634,-138.0,-0.07520435967302452,ok_both_windows
+72,087,261.0,,,,missing_early_or_late,1160.0,,,,missing_early_or_late,878.0,,576.0,,0.0,,29.0,,89.19248291571753,,,,missing_early_or_late
+82,093,81.0,,,,missing_early_or_late,953.0,,,,missing_early_or_late,1404.0,,690.0,,0.0,,80.0,,79.7094017094017,,,,missing_early_or_late
+86,095,418.0,,,,missing_early_or_late,2394.0,,,,missing_early_or_late,1379.0,,668.0,,0.0,,125.0,,83.70340826686004,,,,missing_early_or_late

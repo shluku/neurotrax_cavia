@@ -1,0 +1,4 @@
+table_name,Subject_ID_D,Subject_ID_N,global_T1,T1_date_iso,device_id,window_candidate,window_start_ms,window_end_ms,window_start_local,window_end_local,n_rows,first_ts,last_ts,first_local,last_local
+keyboard,041,15,119.4,2025-01-08,3cb4ec3a-332a-441a-9617-a9d2576c6a33,primary_day_after_T1,1736373600000,1736460000000,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,0,,,,
+keyboard,041,15,119.4,2025-01-08,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,primary_day_after_T1,1736373600000,1736460000000,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,0,,,,
+keyboard,041,15,119.4,2025-01-08,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,primary_day_after_T1,1736373600000,1736460000000,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,1832,1736398665593.0,1736443559735.0,2025-01-09 06:57:45+0200,2025-01-09 19:25:59+0200

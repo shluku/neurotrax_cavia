@@ -1,0 +1,9 @@
+json_key,n_rows_with_key,value_type_counts
+device_id,20,string:20
+scroll_from_index,20,string:20
+scroll_items,20,string:20
+scroll_to_index,20,string:20
+timestamp,20,integer:20
+touch_action,20,string:20
+touch_action_text,20,string:20
+touch_app,20,string:20

@@ -1,0 +1,7 @@
+json_key,n_rows_with_key,value_type_counts
+bt_address,20,string:20
+bt_name,20,string:20
+bt_rssi,20,string:20
+device_id,20,string:20
+label,20,string:20
+timestamp,20,integer:20

@@ -1,0 +1,7 @@
+json_key,n_rows_with_key,value_type_counts
+activities,20,string:20
+activity_name,20,string:20
+activity_type,20,string:20
+confidence,20,string:20
+device_id,20,string:20
+timestamp,20,integer:20

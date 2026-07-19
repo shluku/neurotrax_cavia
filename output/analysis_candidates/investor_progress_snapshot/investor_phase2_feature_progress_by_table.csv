@@ -1,0 +1,11 @@
+table_name,candidate_features,selected_features,currently_calculated_values,status
+keyboard,15,6,6,calculated
+calls,6,5,5,calculated
+light,7,4,4,calculated
+applications_foreground,8,3,3,calculated
+gsm,6,3,3,calculated
+locations,7,2,2,calculated
+messages,5,2,2,calculated
+bluetooth,2,2,2,calculated
+battery,6,2,0,selected_not_calculated
+linear_accelerometer,7,0,0,reviewed_or_candidate

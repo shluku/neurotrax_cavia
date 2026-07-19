@@ -1,0 +1,30 @@
+table_name,feature_name,feature_value,Subject_ID_D,global_T1,T1_date_iso,window_rule,window_start_local,window_end_local,feature_status
+applications_foreground,app_foreground_event_count,698.0,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+applications_foreground,unique_foreground_apps,22.0,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+applications_foreground,app_use_diversity,3.593296482573857,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+battery,low_battery_event_count,,,,,no_protocol_valid_24h_window_in_T1_week,,,no_protocol_valid_patient_found
+battery,charging_or_plugged_event_count,,,,,no_protocol_valid_24h_window_in_T1_week,,,no_protocol_valid_patient_found
+bluetooth,unique_bluetooth_addresses,302.0,085,100.0,2025-03-04,exploratory_fallback_first_24h_span_within_T1_week,2025-03-04 10:26:13+0200,2025-03-05 10:26:13+0200,calculated
+bluetooth,bluetooth_address_diversity_ratio,0.1719817767653758,085,100.0,2025-03-04,exploratory_fallback_first_24h_span_within_T1_week,2025-03-04 10:26:13+0200,2025-03-05 10:26:13+0200,calculated
+calls,call_event_count,5.0,032,110.6,2025-01-23,exploratory_primary_day_after_T1,2025-01-24 00:00:00+0200,2025-01-25 00:00:00+0200,calculated
+calls,incoming_call_count,1.0,032,110.6,2025-01-23,exploratory_primary_day_after_T1,2025-01-24 00:00:00+0200,2025-01-25 00:00:00+0200,calculated
+calls,outgoing_call_count,4.0,032,110.6,2025-01-23,exploratory_primary_day_after_T1,2025-01-24 00:00:00+0200,2025-01-25 00:00:00+0200,calculated
+calls,missed_rejected_blocked_call_count,0.0,032,110.6,2025-01-23,exploratory_primary_day_after_T1,2025-01-24 00:00:00+0200,2025-01-25 00:00:00+0200,calculated
+calls,total_call_duration_seconds,210.0,032,110.6,2025-01-23,exploratory_primary_day_after_T1,2025-01-24 00:00:00+0200,2025-01-25 00:00:00+0200,calculated
+gsm,unique_gsm_cell_count,16,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+gsm,unique_gsm_lac_count,2,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+gsm,gsm_cell_transition_count,35,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+keyboard,keyboard_median_inter_event_interval_ms,482.5,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+keyboard,keyboard_inter_event_interval_iqr_ms,281.5,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+keyboard,keyboard_long_pause_count_2s,72.0,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+keyboard,keyboard_typing_burst_count,26.0,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+keyboard,keyboard_median_word_completion_time_ms,2339.5,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+keyboard,keyboard_deletion_event_count,109.0,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+light,median_light_lux,0.0,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+light,percent_dark_samples,64.99485134631817,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+light,night_mean_light_lux,2.705371515143317e-06,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+light,light_lux_iqr,18.1,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+locations,location_distinct_observation_count,185.0,085,100.0,2025-03-04,exploratory_fallback_first_24h_span_within_T1_week,2025-03-04 10:26:12+0200,2025-03-05 10:26:12+0200,calculated
+locations,location_total_distance_km,2.007705439786249,085,100.0,2025-03-04,exploratory_fallback_first_24h_span_within_T1_week,2025-03-04 10:26:12+0200,2025-03-05 10:26:12+0200,calculated
+messages,message_distinct_event_count,9,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated
+messages,outgoing_message_count,0,041,119.4,2025-01-08,exploratory_primary_day_after_T1,2025-01-09 00:00:00+0200,2025-01-10 00:00:00+0200,calculated

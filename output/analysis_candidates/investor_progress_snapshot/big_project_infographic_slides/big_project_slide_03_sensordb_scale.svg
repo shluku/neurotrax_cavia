@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<rect width="100%" height="100%" fill="#f7f7f5"/>
+<rect x="0" y="0" width="1400" height="118" fill="#2f3a42"/>
+<text x="56" y="56" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#ffffff">SensorDB (SQL) scale and complexity</text>
+<text x="56" y="90" font-family="Arial, sans-serif" font-size="17" fill="#d7dde1">Raw tables are large, diverse, and require careful reduction into features</text>
+<rect x="56" y="150" width="250" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="76" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Raw SQL tables</text>
+<text x="76" y="236" font-family="Arial, sans-serif" font-size="40" font-weight="800" fill="#2f3a42">44</text>
+<text x="76" y="260" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Full database inventory</text>
+<rect x="328" y="150" width="250" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="348" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Table families</text>
+<text x="348" y="236" font-family="Arial, sans-serif" font-size="40" font-weight="800" fill="#2f3a42">33</text>
+<text x="348" y="260" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">sensor_* aliases merged</text>
+<rect x="600" y="150" width="250" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="620" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Estimated DB size</text>
+<text x="620" y="236" font-family="Arial, sans-serif" font-size="40" font-weight="800" fill="#2f3a42">6,862 GB</text>
+<text x="620" y="260" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Table-level SQL estimate</text>
+<rect x="872" y="150" width="250" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="892" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Focused phase tables</text>
+<text x="892" y="236" font-family="Arial, sans-serif" font-size="40" font-weight="800" fill="#2f3a42">21</text>
+<text x="892" y="260" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Clinically relevant target set</text>
+<rect x="1144" y="150" width="200" height="116" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="1164" y="183" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Use-now GB</text>
+<text x="1164" y="236" font-family="Arial, sans-serif" font-size="40" font-weight="800" fill="#2f3a42">28.3</text>
+<text x="1164" y="260" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Safe current tables</text>
+<text x="56" y="324" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#2b2f33">Largest SQL tables by estimated size</text>
+<text x="56" y="371" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">rotation</text>
+<rect x="300" y="356" width="500" height="18" rx="4" fill="#e5e5df"/>
+<rect x="300" y="356" width="500.0" height="18" rx="4" fill="#5b6770"/>
+<text x="815" y="371" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#2b2f33">1,617 GB</text>
+<text x="930" y="371" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">3,832,771,332 rows est.</text>
+<text x="56" y="406" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">accelerometer</text>
+<rect x="300" y="391" width="500" height="18" rx="4" fill="#e5e5df"/>
+<rect x="300" y="391" width="482.4" height="18" rx="4" fill="#5b6770"/>
+<text x="815" y="406" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#2b2f33">1,560 GB</text>
+<text x="930" y="406" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">3,899,894,130 rows est.</text>
+<text x="56" y="441" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">gyroscope</text>
+<rect x="300" y="426" width="500" height="18" rx="4" fill="#e5e5df"/>
+<rect x="300" y="426" width="468.3" height="18" rx="4" fill="#5b6770"/>
+<text x="815" y="441" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#2b2f33">1,514 GB</text>
+<text x="930" y="441" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">3,758,319,628 rows est.</text>
+<text x="56" y="476" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">gravity</text>
+<rect x="300" y="461" width="500" height="18" rx="4" fill="#e5e5df"/>
+<rect x="300" y="461" width="468.1" height="18" rx="4" fill="#5b6770"/>
+<text x="815" y="476" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#2b2f33">1,513 GB</text>
+<text x="930" y="476" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">3,753,182,543 rows est.</text>
+<text x="56" y="511" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">light</text>
+<rect x="300" y="496" width="500" height="18" rx="4" fill="#e5e5df"/>
+<rect x="300" y="496" width="78.8" height="18" rx="4" fill="#5b6770"/>
+<text x="815" y="511" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#2b2f33">255 GB</text>
+<text x="930" y="511" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">813,602,413 rows est.</text>
+<text x="56" y="546" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">linear_accelerometer</text>
+<rect x="300" y="531" width="500" height="18" rx="4" fill="#e5e5df"/>
+<rect x="300" y="531" width="64.0" height="18" rx="4" fill="#5b6770"/>
+<text x="815" y="546" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#2b2f33">207 GB</text>
+<text x="930" y="546" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">539,195,233 rows est.</text>
+<text x="56" y="581" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">magnetometer</text>
+<rect x="300" y="566" width="500" height="18" rx="4" fill="#e5e5df"/>
+<rect x="300" y="566" width="40.7" height="18" rx="4" fill="#5b6770"/>
+<text x="815" y="581" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#2b2f33">132 GB</text>
+<text x="930" y="581" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">346,894,235 rows est.</text>
+<text x="56" y="616" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">proximity</text>
+<rect x="300" y="601" width="500" height="18" rx="4" fill="#e5e5df"/>
+<rect x="300" y="601" width="8.7" height="18" rx="4" fill="#5b6770"/>
+<text x="815" y="616" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#2b2f33">28 GB</text>
+<text x="930" y="616" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">106,477,137 rows est.</text>
+<text x="56" y="651" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">aware_log</text>
+<rect x="300" y="636" width="500" height="18" rx="4" fill="#e5e5df"/>
+<rect x="300" y="636" width="5.6" height="18" rx="4" fill="#5b6770"/>
+<text x="815" y="651" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#2b2f33">18 GB</text>
+<text x="930" y="651" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">55,096,302 rows est.</text>
+<text x="56" y="686" font-family="Arial, sans-serif" font-size="12" fill="#2b2f33">barometer</text>
+<rect x="300" y="671" width="500" height="18" rx="4" fill="#e5e5df"/>
+<rect x="300" y="671" width="2.3" height="18" rx="4" fill="#5b6770"/>
+<text x="815" y="686" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#2b2f33">8 GB</text>
+<text x="930" y="686" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">25,763,375 rows est.</text>
+<text x="56" y="732" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#2b2f33">Deduplicated table families by name</text>
+<text x="56" y="755" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">sensor_accelerometer and accelerometer are counted as one family.</text>
+<text x="56" y="784" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• accelerometer</text>
+<text x="274" y="784" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• applications_foreground</text>
+<text x="492" y="784" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• aware_device</text>
+<text x="710" y="784" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• aware_log</text>
+<text x="928" y="784" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• aware_studies</text>
+<text x="1146" y="784" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• barometer</text>
+<text x="56" y="803" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• battery</text>
+<text x="274" y="803" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• battery_charges</text>
+<text x="492" y="803" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• battery_discharges</text>
+<text x="710" y="803" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• bluetooth</text>
+<text x="928" y="803" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• calls</text>
+<text x="1146" y="803" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• gravity</text>
+<text x="56" y="822" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• gsm</text>
+<text x="274" y="822" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• gsm_neighbor</text>
+<text x="492" y="822" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• gyroscope</text>
+<text x="710" y="822" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• keyboard</text>
+<text x="928" y="822" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• light</text>
+<text x="1146" y="822" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• linear_accelerometer</text>
+<text x="56" y="841" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• locations</text>
+<text x="274" y="841" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• magnetometer</text>
+<text x="492" y="841" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• messages</text>
+<text x="710" y="841" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• network</text>
+<text x="928" y="841" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• network_traffic</text>
+<text x="1146" y="841" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• plugin_google_activity_recognition</text>
+<text x="56" y="860" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• proximity</text>
+<text x="274" y="860" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• rotation</text>
+<text x="492" y="860" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• screen</text>
+<text x="710" y="860" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• significant</text>
+<text x="928" y="860" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• telephony</text>
+<text x="1146" y="860" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• temperature</text>
+<text x="56" y="879" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• timezone</text>
+<text x="274" y="879" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• touch</text>
+<text x="492" y="879" font-family="Arial, sans-serif" font-size="10.5" fill="#2b2f33">• wifi</text>
+</svg>

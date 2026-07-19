@@ -1,0 +1,6 @@
+json_key,n_rows_with_key,value_type_counts
+accuracy,20,string:20
+device_id,20,string:20
+double_light_lux,20,integer:20
+label,20,string:20
+timestamp,20,integer:20

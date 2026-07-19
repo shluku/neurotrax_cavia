@@ -84,3 +84,16 @@ Important interpretation rules:
 ## Possible Future Derived Features
 
 If `gsm` features are selected later, prioritize simple aggregate cell-context features first. Signal-quality features should be used only after confirming enough non-sentinel signal values exist.
+
+## Global Coverage Summary
+
+This compact summary describes global `gsm` availability across the SensorDB table, mapped back to the current study device map.
+
+- Devices with `gsm` rows: `502`
+- Mapped study patients with `gsm` rows: `83`
+- Mapped devices with rows: `147`
+- Unmapped devices with rows: `355`
+- Rows mapped to study patients: `1,005,161`
+- Rows on unmapped devices: `88,946`
+
+Protocol note: this is a global table-coverage summary for Phase 2A planning. It is not feature extraction, not a T1-window phenotype result, and missing data is not interpreted as zero activity.

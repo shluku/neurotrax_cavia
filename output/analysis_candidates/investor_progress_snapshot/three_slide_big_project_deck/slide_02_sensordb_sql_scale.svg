@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="950" viewBox="0 0 1600 950">
+<rect width="100%" height="100%" fill="#f7f7f3"/>
+<rect x="0" y="0" width="1600" height="122" fill="#28323a"/>
+<text x="58" y="58" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">Slide 2 - SensorDB (SQL) scale</text>
+<text x="58" y="94" font-family="Arial, sans-serif" font-size="18" fill="#d8dee2">The project is large because every patient is linked to high-volume smartphone SQL streams</text>
+<rect x="58" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="76" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Presentation storage scale</text>
+<text x="76" y="232" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#28323a">10 TB</text>
+<text x="76" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">Approximate raw project scale</text>
+<rect x="364" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="382" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Approx. per patient</text>
+<text x="382" y="232" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#28323a">120 GB</text>
+<text x="382" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">10 TB / 83 patients</text>
+<rect x="670" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="688" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Raw SQL tables</text>
+<text x="688" y="232" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#28323a">44</text>
+<text x="688" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">Current table tracking inventory</text>
+<rect x="976" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="994" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Deduplicated table families</text>
+<text x="994" y="232" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#28323a">33</text>
+<text x="994" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">sensor_* aliases merged</text>
+<rect x="1282" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="1300" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Target analysis tables</text>
+<text x="1300" y="232" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#28323a">21</text>
+<text x="1300" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">Focused Phase 2 table set</text>
+<rect x="58" y="315" width="718" height="255" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="78" y="349" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#22272b">Why the SQL side is complex</text>
+<text x="88" y="370" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• Estimated SQL row scale from catalog: 17,156,126,863 rows across tables</text>
+<text x="88" y="395" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• High-frequency sensor tables identified: 6</text>
+<text x="88" y="420" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• Currently safe/use-now table set: 21 tables</text>
+<text x="88" y="445" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• Mapped device IDs in label map: 324</text>
+<text x="88" y="470" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• Patients with mapped device labels: 92</text>
+<text x="88" y="495" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• Some tables contain billions of rows and cannot be scanned naively</text>
+<text x="88" y="520" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• Every SQL query must be bounded by device_id and timestamp</text>
+<rect x="820" y="315" width="722" height="255" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="840" y="349" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#22272b">Table families by data type</text>
+<text x="850" y="368" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• operational: 12 SQL tables</text>
+<text x="850" y="392" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• location_context: 8 SQL tables</text>
+<text x="850" y="416" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• phone_usage: 7 SQL tables</text>
+<text x="850" y="440" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• environment: 6 SQL tables</text>
+<text x="850" y="464" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• motion: 6 SQL tables</text>
+<text x="850" y="488" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• metadata: 2 SQL tables</text>
+<text x="850" y="512" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• unknown: 2 SQL tables</text>
+<text x="850" y="536" font-family="Arial, sans-serif" font-size="15" fill="#22272b">• system: 1 SQL tables</text>
+<rect x="58" y="610" width="1484" height="245" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="78" y="644" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#22272b">Deduplicated SensorDB table families</text>
+<text x="88" y="653" font-family="Arial, sans-serif" font-size="13" fill="#626b73">Duplicates such as sensor_accelerometer and accelerometer are counted as one family for presentation.</text>
+<text x="88" y="690" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• accelerometer</text>
+<text x="378" y="690" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• applications_foreground</text>
+<text x="668" y="690" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• aware_device</text>
+<text x="958" y="690" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• aware_log</text>
+<text x="1248" y="690" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• aware_studies</text>
+<text x="88" y="717" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• barometer</text>
+<text x="378" y="717" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• battery</text>
+<text x="668" y="717" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• battery_charges</text>
+<text x="958" y="717" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• battery_discharges</text>
+<text x="1248" y="717" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• bluetooth</text>
+<text x="88" y="744" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• calls</text>
+<text x="378" y="744" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• gravity</text>
+<text x="668" y="744" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• gsm</text>
+<text x="958" y="744" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• gsm_neighbor</text>
+<text x="1248" y="744" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• gyroscope</text>
+<text x="88" y="771" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• keyboard</text>
+<text x="378" y="771" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• light</text>
+<text x="668" y="771" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• linear_accelerometer</text>
+<text x="958" y="771" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• locations</text>
+<text x="1248" y="771" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• magnetometer</text>
+<text x="88" y="798" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• messages</text>
+<text x="378" y="798" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• network</text>
+<text x="668" y="798" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• network_traffic</text>
+<text x="958" y="798" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• plugin_google_activity_recognition</text>
+<text x="1248" y="798" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• proximity</text>
+<text x="88" y="825" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• rotation</text>
+<text x="378" y="825" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• screen</text>
+<text x="668" y="825" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• significant</text>
+<text x="958" y="825" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• telephony</text>
+<text x="1248" y="825" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• temperature</text>
+<text x="88" y="852" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• timezone</text>
+<text x="378" y="852" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• touch</text>
+<text x="668" y="852" font-family="Arial, sans-serif" font-size="13" fill="#22272b">• wifi</text>
+<rect x="58" y="878" width="1484" height="34" rx="8" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="88" y="900" font-family="Arial, sans-serif" font-size="13" fill="#626b73">This slide emphasizes scale: 10 TB approximate raw storage, many SQL table families, many devices, and high-frequency streams.</text>
+</svg>

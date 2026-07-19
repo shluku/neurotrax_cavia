@@ -1,0 +1,7 @@
+feature_family,source_table,role,number_of_features,baseline_available,change_available,interpretation_strength,key_limitations
+screen,screen,core_phenotype,4,yes,limited,moderate,late-window missingness for most subjects
+applications_foreground,applications_foreground,core_phenotype,4,yes,limited,moderate,late-window missingness for most subjects
+keyboard,keyboard,core_phenotype,4,yes,very_limited,moderate,late-window sparse; privacy-restricted to non-text metrics
+touch,touch,core_phenotype,4,yes,no,moderate,no late touch coverage in current top10
+activity_recognition,plugin_google_activity_recognition,core_phenotype,10,yes,yes_for_024_077_only,moderate,activity label availability varies; change sample very small
+aware_log,aware_log,data_quality_only,4,yes,yes_for_024_077_only,supporting_only,not a behavioral endpoint

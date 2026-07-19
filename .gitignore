@@ -8,13 +8,11 @@ __pycache__/
 
 .idea/
 
-# Generated and potentially sensitive analysis outputs.
-output/
+# Local environment and dependency folders stay outside Git.
 last_5_minutes_accelerometer.csv
 
 # Large local presentation assets; keep out of the initial code repository.
 infographs/*.png
 
-# Local SQL/raw sample exports should stay outside Git unless manually sanitized.
-*_unredacted*
-*.jsonl
+# Temporary office lock files.
+~$*

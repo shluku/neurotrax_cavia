@@ -22,6 +22,22 @@ CHUNK_SIZE = 5000
 
 
 def main():
+    if os.path.exists(".env"):
+        with open(".env", encoding="utf-8") as handle:
+            for line in handle:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    key, value = line.split("=", 1)
+                    os.environ.setdefault(key.strip(), value.strip())
+        DB_CONFIG.update(
+            {
+                "host": os.getenv("DB_HOST"),
+                "port": int(os.getenv("DB_PORT", "3306")),
+                "user": os.getenv("DB_USER"),
+                "password": os.getenv("DB_PASSWORD"),
+                "database": os.getenv("DB_NAME", "sensordata"),
+            }
+        )
     if not DB_CONFIG["host"] or not DB_CONFIG["user"] or not DB_CONFIG["password"]:
         raise RuntimeError("Set DB_HOST, DB_USER, and DB_PASSWORD before connecting to SensorDB.")
     conn = mysql.connector.connect(**DB_CONFIG)

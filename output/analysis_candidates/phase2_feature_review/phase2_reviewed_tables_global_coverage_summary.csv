@@ -1,0 +1,12 @@
+table_name,devices_with_rows,mapped_study_patients_with_rows,mapped_devices_with_rows,unmapped_devices_with_rows,rows_mapped_to_study_patients,rows_on_unmapped_devices,total_rows_from_device_grouping,metadata_estimated_rows,coverage_status,error_message
+applications_foreground,441,86,145,296,2020313,296776,2317089,2171452,ok,
+battery,19,6,6,13,42013,71,42084,40896,ok,
+bluetooth,10,9,9,1,606700,8221,614921,539084,ok,
+calls,123,45,54,69,25655,940,26595,26163,ok,
+gsm,502,83,147,355,1005161,88946,1094107,1058407,ok,
+keyboard,159,80,121,38,3150391,532154,3682545,3731637,ok,
+light,,,,,,,,813603017,error,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+linear_accelerometer,,,,,,,,539755483,error,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+locations,65,47,53,12,285927,64920,350847,339409,ok,
+messages,151,80,121,30,39295,1274,40569,39764,ok,
+network,13,5,5,8,160426,79,160505,158491,ok,

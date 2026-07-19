@@ -89,3 +89,16 @@ If later coverage supports reliable extraction, add parallel context or data-qua
 - low-battery fraction rather than count, if row frequency varies strongly
 
 These would be new features, not replacements for the two selected battery features.
+
+## Global Coverage Summary
+
+This compact summary describes global `battery` availability across the SensorDB table, mapped back to the current study device map.
+
+- Devices with `battery` rows: `19`
+- Mapped study patients with `battery` rows: `6`
+- Mapped devices with rows: `6`
+- Unmapped devices with rows: `13`
+- Rows mapped to study patients: `42,013`
+- Rows on unmapped devices: `71`
+
+Protocol note: this is a global table-coverage summary for Phase 2A planning. It is not feature extraction, not a T1-window phenotype result, and missing data is not interpreted as zero activity.

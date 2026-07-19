@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1660" viewBox="0 0 1600 1660">
+<defs>
+<linearGradient id="hero" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#17212b"/><stop offset="1" stop-color="#3b4b59"/></linearGradient>
+<linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8aa29e"/><stop offset="1" stop-color="#c9b27d"/></linearGradient>
+<style> .title{font-family:Arial Black,Arial,sans-serif;font-weight:900}.sans{font-family:Arial,Helvetica,sans-serif}.num{font-family:Impact,Arial Black,Arial,sans-serif;letter-spacing:.5px}</style>
+</defs>
+<rect width="100%" height="100%" fill="#f6f4ef"/>
+<rect x="0" y="0" width="1600" height="190" fill="url(#hero)"/>
+<text x="70" y="76" class="title" font-size="42" fill="#ffffff">NeuroTrax SensorDB CAVIA</text>
+<text x="70" y="120" class="sans" font-size="22" fill="#dbe3e7">Project overview: cognitive assessments + large-scale smartphone SQL digital phenotyping</text>
+<text x="70" y="160" class="sans" font-size="18" fill="#edf2f4">A growing pipeline for a rich digital biomarker model: baseline phenotype and T1-to-T2 change phenotype.</text>
+<text x="70" y="250" class="title" font-size="34" fill="#20282f">Data Scale First</text>
+<rect x="70" y="285" width="455" height="142" rx="18" fill="#ffffff" stroke="#d6d0c4"/>
+<rect x="70" y="285" width="12" height="142" rx="6" fill="url(#accent)"/>
+<text x="100" y="325" class="sans" font-size="19" font-weight="900" fill="#555f67">Raw data scale</text>
+<text x="100" y="383" class="num" font-size="56" fill="#26343d">10 TB</text>
+<text x="100" y="409" class="sans" font-size="13" fill="#6a737b">approximate project storage scale</text>
+<rect x="575" y="285" width="455" height="142" rx="18" fill="#ffffff" stroke="#d6d0c4"/>
+<rect x="575" y="285" width="12" height="142" rx="6" fill="url(#accent)"/>
+<text x="605" y="325" class="sans" font-size="19" font-weight="900" fill="#555f67">Approx. per patient</text>
+<text x="605" y="383" class="num" font-size="56" fill="#26343d">122 GB</text>
+<text x="605" y="409" class="sans" font-size="13" fill="#6a737b">10 TB divided across NeuroTrax patients</text>
+<rect x="1080" y="285" width="455" height="142" rx="18" fill="#ffffff" stroke="#d6d0c4"/>
+<rect x="1080" y="285" width="12" height="142" rx="6" fill="url(#accent)"/>
+<text x="1110" y="325" class="sans" font-size="19" font-weight="900" fill="#555f67">Assessment span</text>
+<text x="1110" y="383" class="num" font-size="56" fill="#26343d">359 days</text>
+<text x="70" y="500" class="title" font-size="30" fill="#20282f">Patient and NeuroTrax Overview</text>
+<rect x="70" y="535" width="455" height="108" rx="16" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="94" y="570" class="sans" font-size="17" font-weight="800" fill="#555f67">Patients total</text>
+<text x="94" y="621" class="num" font-size="46" fill="#26343d">83</text>
+<rect x="575" y="535" width="455" height="108" rx="16" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="599" y="570" class="sans" font-size="17" font-weight="800" fill="#555f67">Patients with T1</text>
+<text x="599" y="621" class="num" font-size="46" fill="#26343d">83</text>
+<rect x="1080" y="535" width="455" height="108" rx="16" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="1104" y="570" class="sans" font-size="17" font-weight="800" fill="#555f67">Patients with T1 + T2</text>
+<text x="1104" y="621" class="num" font-size="46" fill="#26343d">62</text>
+<rect x="70" y="670" width="455" height="108" rx="16" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="94" y="705" class="sans" font-size="17" font-weight="800" fill="#555f67">Patients with global delta</text>
+<text x="94" y="756" class="num" font-size="46" fill="#26343d">62</text>
+<rect x="575" y="670" width="455" height="108" rx="16" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="599" y="705" class="sans" font-size="17" font-weight="800" fill="#555f67">Cognitive patients with device label</text>
+<text x="599" y="756" class="num" font-size="46" fill="#26343d">82</text>
+<rect x="1080" y="670" width="455" height="108" rx="16" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="1104" y="705" class="sans" font-size="17" font-weight="800" fill="#555f67">Median T1-to-T2 gap</text>
+<text x="1104" y="756" class="num" font-size="46" fill="#26343d">246 d</text>
+<text x="70" y="840" class="title" font-size="30" fill="#20282f">Phase 2 Work Underway</text>
+<rect x="70" y="875" width="335" height="110" rx="16" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="92" y="910" class="sans" font-size="16" font-weight="800" fill="#555f67">Target analysis tables</text>
+<text x="92" y="963" class="num" font-size="48" fill="#31424a">21</text>
+<rect x="447" y="875" width="335" height="110" rx="16" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="469" y="910" class="sans" font-size="16" font-weight="800" fill="#555f67">Reviewed table files</text>
+<text x="469" y="963" class="num" font-size="48" fill="#31424a">10</text>
+<rect x="824" y="875" width="335" height="110" rx="16" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="846" y="910" class="sans" font-size="16" font-weight="800" fill="#555f67">Selected features</text>
+<text x="846" y="963" class="num" font-size="48" fill="#31424a">29</text>
+<rect x="1201" y="875" width="335" height="110" rx="16" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="1223" y="910" class="sans" font-size="16" font-weight="800" fill="#555f67">Inventory rows</text>
+<text x="1223" y="963" class="num" font-size="48" fill="#31424a">44</text>
+<text x="70" y="1057" class="title" font-size="30" fill="#20282f">Two Main Project Outcomes</text>
+<rect x="70" y="1092" width="705" height="124" rx="16" fill="#ffffff" stroke="#d6d0c4"/>
+<circle cx="112" cy="1138" r="24" fill="#59656e"/>
+<text x="104" y="1147" class="title" font-size="25" fill="#ffffff">1</text>
+<text x="152" y="1132" class="sans" font-size="20" font-weight="900" fill="#26343d">T1 baseline digital phenotype</text>
+<text x="152" y="1162" class="sans" font-size="15" fill="#59636b">Describe smartphone-derived behavior/context around the first cognitive</text>
+<text x="152" y="1182" class="sans" font-size="15" fill="#59636b">assessment and later test prediction of NeuroTrax T1 score.</text>
+<rect x="825" y="1092" width="705" height="124" rx="16" fill="#ffffff" stroke="#d6d0c4"/>
+<circle cx="867" cy="1138" r="24" fill="#59656e"/>
+<text x="859" y="1147" class="title" font-size="25" fill="#ffffff">2</text>
+<text x="907" y="1132" class="sans" font-size="20" font-weight="900" fill="#26343d">T1-to-T2 digital phenotype delta</text>
+<text x="907" y="1162" class="sans" font-size="15" fill="#59636b">Quantify digital changes between visits and later test whether they</text>
+<text x="907" y="1182" class="sans" font-size="15" fill="#59636b">help predict NeuroTrax T2 cognitive outcome.</text>
+<text x="70" y="1282" class="title" font-size="30" fill="#20282f">Experiment Time Span</text>
+<rect x="70" y="1317" width="455" height="84" rx="15" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="94" y="1348" class="sans" font-size="16" font-weight="800" fill="#555f67">First T1</text>
+<text x="94" y="1381" class="title" font-size="25" fill="#26343d">2025-01-05</text>
+<rect x="575" y="1317" width="455" height="84" rx="15" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="599" y="1348" class="sans" font-size="16" font-weight="800" fill="#555f67">Last T2</text>
+<text x="599" y="1381" class="title" font-size="25" fill="#26343d">2025-12-30</text>
+<rect x="1080" y="1317" width="455" height="84" rx="15" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="1104" y="1348" class="sans" font-size="16" font-weight="800" fill="#555f67">All-candidate span</text>
+<text x="1104" y="1381" class="title" font-size="25" fill="#26343d">359 d</text>
+<text x="70" y="1460" class="title" font-size="34" fill="#20282f">NeuroTrax Feature Domains</text>
+<rect x="70" y="1490" width="335" height="62" rx="12" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="88" y="1514" class="sans" font-size="19" font-weight="900" fill="#26343d">Overall / Global</text>
+<text x="88" y="1537" class="sans" font-size="13" fill="#6a737b">global_T1, global_T2, global_delta</text>
+<rect x="447" y="1490" width="335" height="62" rx="12" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="465" y="1514" class="sans" font-size="19" font-weight="900" fill="#26343d">Memory</text>
+<text x="465" y="1537" class="sans" font-size="13" fill="#6a737b">memory_T1, memory_T2, memory_delta</text>
+<rect x="824" y="1490" width="335" height="62" rx="12" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="842" y="1514" class="sans" font-size="19" font-weight="900" fill="#26343d">Executive function</text>
+<text x="842" y="1537" class="sans" font-size="13" fill="#6a737b">ef_T1, ef_T2, ef_delta</text>
+<rect x="1201" y="1490" width="335" height="62" rx="12" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="1219" y="1514" class="sans" font-size="19" font-weight="900" fill="#26343d">Attention</text>
+<text x="1219" y="1537" class="sans" font-size="13" fill="#6a737b">attention_T1, attention_T2, attention_delta</text>
+<rect x="70" y="1562" width="335" height="62" rx="12" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="88" y="1586" class="sans" font-size="19" font-weight="900" fill="#26343d">Processing speed</text>
+<text x="88" y="1609" class="sans" font-size="13" fill="#6a737b">processing_speed_T1/T2/delta</text>
+<rect x="447" y="1562" width="335" height="62" rx="12" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="465" y="1586" class="sans" font-size="19" font-weight="900" fill="#26343d">Verbal</text>
+<text x="465" y="1609" class="sans" font-size="13" fill="#6a737b">verbal_T1, verbal_T2, verbal_delta</text>
+<rect x="824" y="1562" width="335" height="62" rx="12" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="842" y="1586" class="sans" font-size="19" font-weight="900" fill="#26343d">Motor</text>
+<text x="842" y="1609" class="sans" font-size="13" fill="#6a737b">motor_T1, motor_T2, motor_delta</text>
+<rect x="1201" y="1562" width="335" height="62" rx="12" fill="#ffffff" stroke="#d6d0c4"/>
+<text x="1219" y="1586" class="sans" font-size="19" font-weight="900" fill="#26343d">IQ</text>
+<text x="1219" y="1609" class="sans" font-size="13" fill="#6a737b">iq_T1, iq_T2, iq_delta</text>
+</svg>

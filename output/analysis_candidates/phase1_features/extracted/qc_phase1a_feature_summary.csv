@@ -1,0 +1,12 @@
+feature,non_missing,min,median,mean,max,zeros,negative_values
+screen_early_event_count,10,0.0,324.0,852.8,4725.0,2,0
+screen_late_event_count,10,0.0,0.0,3.2,20.0,8,0
+screen_delta_event_count,1,-408.0,-408.0,-408.0,-408.0,0,1
+screen_pct_change_event_count,1,-0.9532710280373832,-0.9532710280373832,-0.9532710280373832,-0.9532710280373832,0,1
+app_early_foreground_event_count,10,0.0,546.0,2611.0,18975.0,2,0
+app_late_foreground_event_count,10,0.0,0.0,76.3,762.0,8,0
+app_delta_foreground_event_count,1,-385.0,-385.0,-385.0,-385.0,0,1
+app_pct_change_foreground_event_count,1,-0.9974093264248703,-0.9974093264248703,-0.9974093264248703,-0.9974093264248703,0,1
+aware_log_early_rows,10,0.0,8740.5,27245.7,150201.0,2,0
+aware_log_late_rows,10,0.0,0.0,7562.5,68897.0,8,0
+aware_log_delta_rows,2,31.0,29776.5,29776.5,59522.0,0,0

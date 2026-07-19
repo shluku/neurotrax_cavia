@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<rect width="100%" height="100%" fill="#f7f7f5"/>
+<rect x="0" y="0" width="1400" height="118" fill="#2f3a42"/>
+<text x="56" y="56" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#ffffff">NeuroTrax SensorDB CAVIA</text>
+<text x="56" y="90" font-family="Arial, sans-serif" font-size="17" fill="#d7dde1">Why this is a large digital phenotyping project</text>
+<rect x="56" y="148" width="1288" height="94" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="86" y="187" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#2b2f33">A rich multi-source model is being built from cognitive testing plus passive smartphone SQL data.</text>
+<text x="86" y="217" font-family="Arial, sans-serif" font-size="16" fill="#6b7280">The goal is to transform raw high-volume SensorDB streams into curated, clinically interpretable exploratory feature families.</text>
+<rect x="56" y="280" width="295" height="126" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="76" y="313" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">NeuroTrax subjects</text>
+<text x="76" y="366" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">83</text>
+<text x="76" y="392" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Cognitive rows prepared</text>
+<rect x="378" y="280" width="295" height="126" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="398" y="313" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Patients with T1</text>
+<text x="398" y="366" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">83</text>
+<text x="398" y="392" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">First cognitive assessment</text>
+<rect x="700" y="280" width="295" height="126" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="720" y="313" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Patients with T1 + T2</text>
+<text x="720" y="366" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">62</text>
+<text x="720" y="392" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Longitudinal cognitive data</text>
+<rect x="1022" y="280" width="295" height="126" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="1042" y="313" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Mapped device labels</text>
+<text x="1042" y="366" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">92</text>
+<text x="1042" y="392" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">324 device IDs mapped</text>
+<rect x="56" y="446" width="295" height="126" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="76" y="479" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Relevant tables this phase</text>
+<text x="76" y="532" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">21</text>
+<text x="76" y="558" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Focused SensorDB table fieldwork</text>
+<rect x="378" y="446" width="295" height="126" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="398" y="479" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Raw SQL tables inventoried</text>
+<text x="398" y="532" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">44</text>
+<text x="398" y="558" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Before table-family deduplication</text>
+<rect x="700" y="446" width="295" height="126" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="720" y="479" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">DB size estimate</text>
+<text x="720" y="532" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">6,862 GB</text>
+<text x="720" y="558" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Table-level SQL size estimate</text>
+<rect x="1022" y="446" width="322" height="126" rx="10" fill="#ffffff" stroke="#d8d8d2"/>
+<text x="1042" y="479" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#4a4f54">Selected features now</text>
+<text x="1042" y="532" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#2f3a42">29</text>
+<text x="1042" y="558" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">27 numeric values already calculated</text>
+<text x="56" y="635" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#2b2f33">Two modeling outcomes</text>
+<rect x="56" y="668" width="1288" height="62" rx="8" fill="#ffffff" stroke="#d8d8d2"/>
+<circle cx="88" cy="699" r="16" fill="#5b6770"/>
+<text x="83" y="705" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">1</text>
+<text x="122" y="693" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#2b2f33">T1 baseline digital phenotype</text>
+<text x="122" y="715" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">Use smartphone-derived behavior/context around T1 to describe baseline digital phenotype and later test prediction of NeuroTrax T1 score.</text>
+<rect x="56" y="746" width="1288" height="62" rx="8" fill="#ffffff" stroke="#d8d8d2"/>
+<circle cx="88" cy="777" r="16" fill="#5b6770"/>
+<text x="83" y="783" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">2</text>
+<text x="122" y="771" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#2b2f33">T1-to-T2 digital change phenotype</text>
+<text x="122" y="793" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">Quantify digital change between visits and later test whether it helps predict NeuroTrax T2 cognitive outcome.</text>
+</svg>

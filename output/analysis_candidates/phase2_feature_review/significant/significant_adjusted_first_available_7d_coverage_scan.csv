@@ -1,0 +1,4 @@
+Subject_ID_D,Subject_ID_N,global_T1,T1_date_iso,device_id,window_rule,first_available_ts,first_available_local,n_rows,days_first_available_after_T1,window_start_ms,window_end_ms,window_start_local,window_end_local,first_ts,last_ts,first_local,last_local
+041,15,119.4,2025-01-08,3cb4ec3a-332a-441a-9617-a9d2576c6a33,adjusted_first_available_7d_lookup,,,0,,,,,,,,,
+041,15,119.4,2025-01-08,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,adjusted_first_available_7d,1751961314443.0,2025-07-08 10:55:14+0300,776,180.0,1751961314443.0,1752566114443.0,2025-07-08 10:55:14+0300,2025-07-15 10:55:14+0300,1751961314443.0,1752463141481.0,2025-07-08 10:55:14+0300,2025-07-14 06:19:01+0300
+041,15,119.4,2025-01-08,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,adjusted_first_available_7d_lookup,,,0,,,,,,,,,

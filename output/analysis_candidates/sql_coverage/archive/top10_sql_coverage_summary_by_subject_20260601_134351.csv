@@ -1,0 +1,11 @@
+Subject_ID_N,Subject_ID_D,total_device_episodes,tables_with_any_data,early_tables_with_data,late_tables_with_data,full_window_tables_with_data,total_rows_all_scanned_tables,coverage_note
+13,030,3,8,8,0,0,218886,early_only
+3,001,1,10,10,0,0,21509,early_only
+40,062,3,9,9,0,0,17968,early_only
+41,074,2,0,0,0,0,0,no_data_across_scanned_tables
+44,044,3,4,0,4,0,827,late_only
+68,024,2,10,10,7,0,89824,has_data
+72,087,3,9,9,0,0,15723,early_only
+77,077,2,8,8,3,0,20626,has_data
+82,093,1,10,10,0,0,38710,early_only
+86,095,2,9,9,0,0,66989,early_only

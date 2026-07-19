@@ -1,0 +1,3 @@
+patient_label,device_id,day_local,start_local,end_local,n_samples,fs_est_hz,mean_s2,var_s2,movement_index,intensity_index,noise_score,status
+001,877c14a8-9ab8-48d4-8fe3-ad3df98c3750,2025-01-05,2025-01-05 00:00:00+02:00,2025-01-06 00:00:00+02:00,0,,0.0,0.0,0.0,0.0,0.0,skipped_no_data
+001,877c14a8-9ab8-48d4-8fe3-ad3df98c3750,2025-01-06,2025-01-06 00:00:00+02:00,2025-01-07 00:00:00+02:00,0,,0.0,0.0,0.0,0.0,0.0,skipped_no_data

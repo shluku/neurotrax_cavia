@@ -21,7 +21,22 @@ SELECTED_FEATURES_PATH = ROOT / "phase2_selected_features.csv"
 COGNITIVE_CANDIDATES_PATH = ROOT / "output/analysis_candidates/cognitive_candidates_all.csv"
 LABEL_DEVICE_MAP_PATH = ROOT / "output/label_device_map.csv"
 
-SAFE_TABLES = {"applications_foreground", "battery", "bluetooth", "calls", "gsm", "keyboard"}
+SAFE_TABLES = {
+    "applications_foreground",
+    "battery",
+    "bluetooth",
+    "calls",
+    "gsm",
+    "gsm_neighbor",
+    "keyboard",
+    "light",
+    "locations",
+    "messages",
+    "plugin_google_activity_recognition",
+    "screen",
+    "telephony",
+    "touch",
+}
 EXCLUDED_EXPLORATORY_SUBJECTS = {"001"}
 
 
@@ -157,6 +172,34 @@ def fetch_rows(conn, table_name: str, device_id: str, start_ms: int, end_ms: int
         )
         while True:
             batch = cur.fetchmany(5000)
+            if not batch:
+                break
+            out.extend(batch)
+    finally:
+        cur.close()
+    return out
+
+
+def fetch_light_lux_values(conn, device_id: str, start_ms: int, end_ms: int) -> list[dict[str, Any]]:
+    cur = conn.cursor(dictionary=True)
+    out: list[dict[str, Any]] = []
+    try:
+        cur.execute(
+            """
+            SELECT
+                timestamp,
+                CAST(JSON_UNQUOTE(JSON_EXTRACT(data, '$.double_light_lux')) AS DECIMAL(18,6)) AS lux
+            FROM `light`
+            WHERE device_id = %s
+              AND timestamp >= %s
+              AND timestamp < %s
+              AND JSON_EXTRACT(data, '$.double_light_lux') IS NOT NULL
+            ORDER BY timestamp ASC
+            """,
+            (device_id, int(start_ms), int(end_ms)),
+        )
+        while True:
+            batch = cur.fetchmany(20000)
             if not batch:
                 break
             out.extend(batch)
@@ -350,6 +393,77 @@ def compute_gsm(rows: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def valid_cell_value(value: Any) -> str:
+    if value is None or pd.isna(value):
+        return ""
+    text = str(value).strip()
+    if not text or text.lower() in {"nan", "none", "null"} or text == "-1":
+        return ""
+    return text
+
+
+def distinct_gsm_neighbor_observations(rows: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], int]:
+    seen = set()
+    observations = []
+    parse_errors = 0
+    for row in rows:
+        obj = parse_json(row.get("data"))
+        if obj is None:
+            parse_errors += 1
+            continue
+        timestamp = pd.to_numeric(row.get("timestamp"), errors="coerce")
+        if pd.isna(timestamp):
+            continue
+        cid = str(obj.get("cid") or "").strip()
+        lac = str(obj.get("lac") or "").strip()
+        psc = str(obj.get("psc") or "").strip()
+        signal_strength = str(obj.get("signal_strength") or "").strip()
+        key = (int(timestamp), cid, lac, psc, signal_strength)
+        if key in seen:
+            continue
+        seen.add(key)
+        observations.append(
+            {
+                "timestamp": int(timestamp),
+                "cid": cid,
+                "lac": lac,
+                "psc": psc,
+                "signal_strength": signal_strength,
+            }
+        )
+    return sorted(observations, key=lambda item: (item["timestamp"], item["cid"], item["lac"], item["psc"])), parse_errors
+
+
+def compute_gsm_neighbor(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    observations, parse_errors = distinct_gsm_neighbor_observations(rows)
+    valid_cids = [valid_cell_value(obs["cid"]) for obs in observations]
+    valid_cids = [cid for cid in valid_cids if cid]
+    valid_lacs = [valid_cell_value(obs["lac"]) for obs in observations]
+    valid_lacs = [lac for lac in valid_lacs if lac]
+
+    transitions = 0
+    previous_cid = None
+    for obs in observations:
+        cid = valid_cell_value(obs["cid"])
+        if not cid:
+            continue
+        if previous_cid is not None and cid != previous_cid:
+            transitions += 1
+        previous_cid = cid
+
+    return {
+        "unique_gsm_neighbor_cell_count": len(set(valid_cids)) if valid_cids else pd.NA,
+        "unique_gsm_neighbor_lac_count": len(set(valid_lacs)) if valid_lacs else pd.NA,
+        "gsm_neighbor_cell_transition_count": transitions if valid_cids else pd.NA,
+        "gsm_neighbor_raw_rows_in_window": len(rows),
+        "gsm_neighbor_distinct_observation_count": len(observations),
+        "gsm_neighbor_valid_cid_observations": len(valid_cids),
+        "gsm_neighbor_valid_lac_observations": len(valid_lacs),
+        "json_parse_errors": parse_errors,
+        "feature_status": "calculated" if valid_cids else "insufficient_data_no_valid_neighbor_cell_ids",
+    }
+
+
 def normalize_keyboard_text(value: Any) -> str:
     if value is None or pd.isna(value):
         return ""
@@ -480,6 +594,443 @@ def compute_keyboard(rows: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def compute_light_from_values(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    values = []
+    night_values = []
+    for row in rows:
+        lux = numeric(row.get("lux"))
+        timestamp = pd.to_numeric(row.get("timestamp"), errors="coerce")
+        if lux is None or pd.isna(timestamp):
+            continue
+        values.append(lux)
+        local_hour = pd.to_datetime(int(timestamp), unit="ms", utc=True).tz_convert(TZ).hour
+        if local_hour >= 22 or local_hour < 6:
+            night_values.append(lux)
+
+    if not values:
+        return {
+            "median_light_lux": pd.NA,
+            "percent_dark_samples": pd.NA,
+            "night_mean_light_lux": pd.NA,
+            "light_lux_iqr": pd.NA,
+            "light_valid_lux_rows": 0,
+            "light_night_lux_rows": 0,
+            "feature_status": "insufficient_data_no_valid_lux",
+        }
+
+    series = pd.Series(values, dtype="float64")
+    q1 = float(series.quantile(0.25))
+    q3 = float(series.quantile(0.75))
+    dark_n = int((series < 10).sum())
+    return {
+        "median_light_lux": float(series.median()),
+        "percent_dark_samples": 100.0 * dark_n / len(series),
+        "night_mean_light_lux": float(pd.Series(night_values, dtype="float64").mean()) if night_values else pd.NA,
+        "light_lux_iqr": q3 - q1,
+        "light_valid_lux_rows": len(values),
+        "light_night_lux_rows": len(night_values),
+        "light_dark_threshold_lux": 10,
+        "feature_status": "calculated",
+    }
+
+
+def haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+    radius_km = 6371.0088
+    phi1 = math.radians(lat1)
+    phi2 = math.radians(lat2)
+    d_phi = math.radians(lat2 - lat1)
+    d_lambda = math.radians(lon2 - lon1)
+    a = math.sin(d_phi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(d_lambda / 2) ** 2
+    return 2 * radius_km * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+
+
+def distinct_location_observations(rows: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], int]:
+    seen = set()
+    out = []
+    parse_errors = 0
+    for row in rows:
+        obj = parse_json(row.get("data"))
+        if obj is None:
+            parse_errors += 1
+            continue
+        timestamp = pd.to_numeric(row.get("timestamp"), errors="coerce")
+        lat = numeric(obj.get("double_latitude"))
+        lon = numeric(obj.get("double_longitude"))
+        if pd.isna(timestamp):
+            continue
+        key = (
+            int(timestamp),
+            str(obj.get("double_latitude")),
+            str(obj.get("double_longitude")),
+            str(obj.get("provider")),
+            str(obj.get("accuracy")),
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(
+            {
+                "timestamp": int(timestamp),
+                "latitude": lat,
+                "longitude": lon,
+                "provider": obj.get("provider"),
+                "accuracy": numeric(obj.get("accuracy")),
+            }
+        )
+    return sorted(out, key=lambda x: x["timestamp"]), parse_errors
+
+
+def compute_locations(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    observations, parse_errors = distinct_location_observations(rows)
+    valid_points = [
+        obs
+        for obs in observations
+        if obs["latitude"] is not None
+        and obs["longitude"] is not None
+        and -90 <= obs["latitude"] <= 90
+        and -180 <= obs["longitude"] <= 180
+    ]
+
+    total_distance_km = 0.0
+    for previous, current in zip(valid_points, valid_points[1:]):
+        total_distance_km += haversine_km(
+            previous["latitude"],
+            previous["longitude"],
+            current["latitude"],
+            current["longitude"],
+        )
+
+    return {
+        "location_distinct_observation_count": len(observations) if rows else pd.NA,
+        "location_total_distance_km": total_distance_km if len(valid_points) >= 2 else pd.NA,
+        "location_raw_rows_in_window": len(rows),
+        "location_valid_coordinate_observations": len(valid_points),
+        "json_parse_errors": parse_errors,
+        "feature_status": "calculated" if observations else "insufficient_data_no_distinct_location_observations",
+    }
+
+
+def distinct_message_observations(rows: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], int]:
+    seen = set()
+    out = []
+    parse_errors = 0
+    for row in rows:
+        obj = parse_json(row.get("data"))
+        if obj is None:
+            parse_errors += 1
+            continue
+        timestamp = pd.to_numeric(row.get("timestamp"), errors="coerce")
+        if pd.isna(timestamp):
+            continue
+        message_type = str(obj.get("message_type") or "").strip()
+        trace = str(obj.get("trace") or "").strip()
+        key = (int(timestamp), trace, message_type)
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(
+            {
+                "timestamp": int(timestamp),
+                "trace": trace,
+                "message_type": message_type,
+            }
+        )
+    return sorted(out, key=lambda x: x["timestamp"]), parse_errors
+
+
+def compute_messages(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    observations, parse_errors = distinct_message_observations(rows)
+    outgoing_count = sum(1 for obs in observations if obs["message_type"] == "2")
+    return {
+        "message_distinct_event_count": len(observations) if rows else pd.NA,
+        "outgoing_message_count": outgoing_count if observations else pd.NA,
+        "message_raw_rows_in_window": len(rows),
+        "message_distinct_observations": len(observations),
+        "json_parse_errors": parse_errors,
+        "feature_status": "calculated" if observations else "insufficient_data_no_distinct_message_observations",
+    }
+
+
+def normalize_activity_name(value: Any) -> str:
+    if value is None or pd.isna(value):
+        return ""
+    return str(value).strip().lower()
+
+
+def compute_plugin_google_activity_recognition(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    labels: list[str] = []
+    active_hours: set[str] = set()
+    parse_errors = 0
+
+    for row in rows:
+        obj = parse_json(row.get("data"))
+        if obj is None:
+            parse_errors += 1
+            continue
+
+        label = normalize_activity_name(obj.get("activity_name"))
+        if not label:
+            continue
+        labels.append(label)
+
+        timestamp = pd.to_numeric(row.get("timestamp"), errors="coerce")
+        if pd.notna(timestamp):
+            local_hour = pd.to_datetime(int(timestamp), unit="ms", utc=True).tz_convert(TZ).strftime("%Y-%m-%d %H")
+            active_hours.add(local_hour)
+
+    label_counts = Counter(labels)
+    transitions = 0
+    previous_label = None
+    for label in labels:
+        if previous_label is not None and label != previous_label:
+            transitions += 1
+        previous_label = label
+
+    total_labels = len(labels)
+    return {
+        "activity_still_fraction": (
+            label_counts.get("still", 0) / total_labels if total_labels else pd.NA
+        ),
+        "activity_unknown_fraction": (
+            label_counts.get("unknown", 0) / total_labels if total_labels else pd.NA
+        ),
+        "activity_state_diversity": shannon_entropy(label_counts.values()) if total_labels else pd.NA,
+        "activity_transition_count": transitions if total_labels else pd.NA,
+        "activity_active_hour_count": len(active_hours) if total_labels else pd.NA,
+        "activity_recognition_raw_rows_in_window": len(rows),
+        "activity_recognition_valid_label_rows": total_labels,
+        "json_parse_errors": parse_errors,
+        "feature_status": "calculated" if total_labels else "insufficient_data_no_valid_activity_labels",
+    }
+
+
+def screen_status_value(obj: dict[str, Any]) -> int | None:
+    value = numeric(obj.get("screen_status"))
+    if value is None:
+        return None
+    return int(value)
+
+
+def compute_screen(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    events: list[dict[str, int]] = []
+    active_hours: set[str] = set()
+    parse_errors = 0
+
+    for row in rows:
+        obj = parse_json(row.get("data"))
+        if obj is None:
+            parse_errors += 1
+            continue
+        timestamp = pd.to_numeric(row.get("timestamp"), errors="coerce")
+        status = screen_status_value(obj)
+        if pd.isna(timestamp) or status is None:
+            continue
+        ts = int(timestamp)
+        events.append({"timestamp": ts, "screen_status": status})
+        local_dt = pd.to_datetime(ts, unit="ms", utc=True).tz_convert(TZ)
+        active_hours.add(local_dt.strftime("%Y-%m-%d %H"))
+
+    events = sorted(events, key=lambda event: event["timestamp"])
+    status_counts = Counter(event["screen_status"] for event in events)
+
+    night_count = 0
+    for event in events:
+        hour = pd.to_datetime(event["timestamp"], unit="ms", utc=True).tz_convert(TZ).hour
+        if hour >= 22 or hour < 6:
+            night_count += 1
+
+    transitions = 0
+    previous_status = None
+    for event in events:
+        status = event["screen_status"]
+        if previous_status is not None and status != previous_status:
+            transitions += 1
+        previous_status = status
+
+    unlocked_durations_sec: list[float] = []
+    unlock_start: int | None = None
+    for event in events:
+        status = event["screen_status"]
+        if status == 3:
+            unlock_start = event["timestamp"]
+        elif status in {0, 2} and unlock_start is not None and event["timestamp"] >= unlock_start:
+            unlocked_durations_sec.append((event["timestamp"] - unlock_start) / 1000.0)
+            unlock_start = None
+
+    median_unlocked = percentile(unlocked_durations_sec, 0.5)
+    return {
+        "screen_event_count": len(events) if events else pd.NA,
+        "screen_unlock_event_count": status_counts.get(3, 0) if events else pd.NA,
+        "screen_on_event_count": status_counts.get(1, 0) if events else pd.NA,
+        "screen_off_event_count": status_counts.get(0, 0) if events else pd.NA,
+        "screen_active_hour_count": len(active_hours) if events else pd.NA,
+        "night_screen_event_count": night_count if events else pd.NA,
+        "screen_transition_count": transitions if events else pd.NA,
+        "median_unlocked_session_duration_seconds": median_unlocked if median_unlocked is not None else pd.NA,
+        "screen_raw_rows_in_window": len(rows),
+        "screen_valid_status_rows": len(events),
+        "screen_unlocked_session_count": len(unlocked_durations_sec),
+        "json_parse_errors": parse_errors,
+        "feature_status": "calculated" if events else "insufficient_data_no_valid_screen_status",
+    }
+
+
+def telephony_data_enabled_value(value: Any) -> bool | None:
+    if value is None or pd.isna(value):
+        return None
+    text = str(value).strip().lower()
+    if text in {"", "nan", "none", "null"}:
+        return None
+    if text in {"true", "enabled", "on", "connected", "yes"}:
+        return True
+    if text in {"false", "disabled", "off", "disconnected", "no"}:
+        return False
+    number = numeric(value)
+    if number is None:
+        return None
+    return int(number) in {1, 2}
+
+
+def compute_telephony(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    parse_errors = 0
+    data_enabled_values: list[bool] = []
+    network_types: list[str] = []
+
+    for row in rows:
+        obj = parse_json(row.get("data"))
+        if obj is None:
+            parse_errors += 1
+            continue
+
+        enabled = telephony_data_enabled_value(obj.get("data_enabled"))
+        if enabled is not None:
+            data_enabled_values.append(enabled)
+
+        network_type = obj.get("network_type")
+        if network_type is not None and str(network_type).strip():
+            network_types.append(str(network_type).strip())
+
+    network_counts = Counter(network_types)
+    return {
+        "telephony_event_count": len(rows) if rows else pd.NA,
+        "telephony_mobile_data_enabled_fraction": (
+            sum(data_enabled_values) / len(data_enabled_values) if data_enabled_values else pd.NA
+        ),
+        "telephony_network_type_diversity": shannon_entropy(network_counts.values()) if network_types else pd.NA,
+        "telephony_raw_rows_in_window": len(rows),
+        "telephony_valid_data_enabled_rows": len(data_enabled_values),
+        "telephony_valid_network_type_rows": len(network_types),
+        "json_parse_errors": parse_errors,
+        "feature_status": "calculated" if rows else "insufficient_data_no_rows",
+    }
+
+
+def distinct_touch_observations(rows: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], int]:
+    seen = set()
+    observations = []
+    parse_errors = 0
+    for row in rows:
+        obj = parse_json(row.get("data"))
+        if obj is None:
+            parse_errors += 1
+            continue
+        timestamp = pd.to_numeric(row.get("timestamp"), errors="coerce")
+        if pd.isna(timestamp):
+            continue
+        touch_app = str(obj.get("touch_app") or "").strip()
+        touch_action = str(obj.get("touch_action") or "").strip()
+        scroll_items = str(obj.get("scroll_items") or "").strip()
+        scroll_to_index = str(obj.get("scroll_to_index") or "").strip()
+        scroll_from_index = str(obj.get("scroll_from_index") or "").strip()
+        touch_action_text = str(obj.get("touch_action_text") or "").strip()
+        key = (
+            int(timestamp),
+            str(row.get("device_id")),
+            touch_app,
+            touch_action,
+            scroll_items,
+            scroll_to_index,
+            scroll_from_index,
+            touch_action_text,
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        observations.append(
+            {
+                "timestamp": int(timestamp),
+                "device_id": str(row.get("device_id")),
+                "touch_app": touch_app,
+                "touch_action": touch_action,
+                "scroll_items": scroll_items,
+                "scroll_to_index": scroll_to_index,
+                "scroll_from_index": scroll_from_index,
+            }
+        )
+    return sorted(observations, key=lambda item: (item["timestamp"], item["device_id"], item["touch_app"])), parse_errors
+
+
+def touch_scroll_direction(action: str) -> str:
+    text = str(action).upper()
+    if "SCROLLED_UP" in text:
+        return "up"
+    if "SCROLLED_DOWN" in text:
+        return "down"
+    return ""
+
+
+def compute_touch(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    observations, parse_errors = distinct_touch_observations(rows)
+    actions = [obs["touch_action"] for obs in observations]
+    apps = [obs["touch_app"] for obs in observations if obs["touch_app"]]
+    app_counts = Counter(apps)
+
+    click_count = sum(1 for action in actions if action == "ACTION_AWARE_TOUCH_CLICKED")
+    scroll_events = [obs for obs in observations if "SCROLLED" in obs["touch_action"].upper()]
+    scroll_count = len(scroll_events)
+
+    direction_changes = 0
+    previous_direction = ""
+    for obs in scroll_events:
+        direction = touch_scroll_direction(obs["touch_action"])
+        if not direction:
+            continue
+        if previous_direction and direction != previous_direction:
+            direction_changes += 1
+        previous_direction = direction
+
+    active_hours: set[str] = set()
+    for obs in observations:
+        local_hour = pd.to_datetime(obs["timestamp"], unit="ms", utc=True).tz_convert(TZ).strftime("%Y-%m-%d %H")
+        active_hours.add(local_hour)
+
+    scroll_index_changes = []
+    for obs in scroll_events:
+        to_index = numeric(obs["scroll_to_index"])
+        from_index = numeric(obs["scroll_from_index"])
+        if to_index is None or from_index is None or to_index < 0 or from_index < 0:
+            continue
+        scroll_index_changes.append(abs(to_index - from_index))
+
+    median_scroll_change = percentile([float(value) for value in scroll_index_changes], 0.5)
+    return {
+        "touch_distinct_event_count": len(observations) if observations else pd.NA,
+        "touch_click_event_count": click_count if observations else pd.NA,
+        "touch_scroll_event_count": scroll_count if observations else pd.NA,
+        "touch_scroll_direction_change_count": direction_changes if scroll_events else pd.NA,
+        "touch_unique_app_count": len(set(apps)) if apps else pd.NA,
+        "touch_app_diversity": shannon_entropy(app_counts.values()) if apps else pd.NA,
+        "touch_active_hour_count": len(active_hours) if observations else pd.NA,
+        "touch_scroll_index_change_median": median_scroll_change if median_scroll_change is not None else pd.NA,
+        "touch_raw_rows_in_window": len(rows),
+        "touch_distinct_observations": len(observations),
+        "touch_valid_app_rows": len(apps),
+        "touch_scroll_rows_with_valid_index_change": len(scroll_index_changes),
+        "json_parse_errors": parse_errors,
+        "feature_status": "calculated" if observations else "insufficient_data_no_distinct_touch_observations",
+    }
+
+
 def compute_features(table_name: str, rows: list[dict[str, Any]]) -> dict[str, Any]:
     if table_name == "applications_foreground":
         return compute_applications_foreground(rows)
@@ -491,8 +1042,24 @@ def compute_features(table_name: str, rows: list[dict[str, Any]]) -> dict[str, A
         return compute_calls(rows)
     if table_name == "gsm":
         return compute_gsm(rows)
+    if table_name == "gsm_neighbor":
+        return compute_gsm_neighbor(rows)
     if table_name == "keyboard":
         return compute_keyboard(rows)
+    if table_name == "light":
+        return compute_light_from_values(rows)
+    if table_name == "locations":
+        return compute_locations(rows)
+    if table_name == "messages":
+        return compute_messages(rows)
+    if table_name == "plugin_google_activity_recognition":
+        return compute_plugin_google_activity_recognition(rows)
+    if table_name == "screen":
+        return compute_screen(rows)
+    if table_name == "telephony":
+        return compute_telephony(rows)
+    if table_name == "touch":
+        return compute_touch(rows)
     raise ValueError(f"Unsupported table: {table_name}")
 
 
@@ -623,6 +1190,8 @@ def main() -> None:
         for table_name in tables:
             print(f"scanning_table={table_name}", flush=True)
             chosen = None
+            selected_for_table = selected[selected["source_table"].astype(str) == table_name]
+            selected_feature_names = selected_for_table["feature_name"].dropna().astype(str).tolist()
             for _, patient in ranked_patients.iterrows():
                 device_ids = device_map.get(patient["Subject_ID_D"], [])
                 if not device_ids:
@@ -636,19 +1205,39 @@ def main() -> None:
                 if "start_ms" not in window:
                     continue
                 rows = []
+                device_ids_with_rows = set()
                 for device_id in device_ids:
-                    rows.extend(fetch_rows(conn, table_name, device_id, window["start_ms"], window["end_ms"]))
+                    if table_name == "light":
+                        device_rows = fetch_light_lux_values(conn, device_id, window["start_ms"], window["end_ms"])
+                    else:
+                        device_rows = fetch_rows(conn, table_name, device_id, window["start_ms"], window["end_ms"])
+                    if device_rows:
+                        device_ids_with_rows.add(device_id)
+                    rows.extend(device_rows)
                 if not rows:
                     continue
-                rows = sorted(rows, key=lambda r: (int(r["timestamp"]), str(r["device_id"])))
+                rows = sorted(rows, key=lambda r: (int(r["timestamp"]), str(r.get("device_id", ""))))
                 features = compute_features(table_name, rows)
+                has_selected_values = False
+                for feature_name in selected_feature_names:
+                    value = features.get(feature_name)
+                    numeric_value = pd.to_numeric(value, errors="coerce")
+                    if not pd.isna(numeric_value):
+                        has_selected_values = True
+                        break
+                if not has_selected_values:
+                    print(
+                        f"  insufficient_selected_feature_signal patient={patient['Subject_ID_D']} rows={len(rows)} status={features.get('feature_status', '')}",
+                        flush=True,
+                    )
+                    continue
                 chosen = {
                     "table_name": table_name,
                     "Subject_ID_D": patient["Subject_ID_D"],
                     "Subject_ID_N": patient.get("Subject_ID_N", ""),
                     "global_T1": patient.get("global_T1", ""),
                     "T1_date_iso": patient.get("T1_date_iso", ""),
-                    "device_ids_used": ";".join(device_ids),
+                    "device_ids_used": ";".join(sorted(device_ids_with_rows)),
                     "window_rule": window["window_rule"],
                     "window_start_local": window["start_local"],
                     "window_end_local": window["end_local"],
@@ -662,7 +1251,6 @@ def main() -> None:
 
             if chosen is None:
                 print(f"  no_protocol_valid_patient_found_for={table_name}", flush=True)
-                selected_for_table = selected[selected["source_table"].astype(str) == table_name]
                 for _, selected_feature in selected_for_table.iterrows():
                     feature_rows.append(
                         {
@@ -684,7 +1272,6 @@ def main() -> None:
                     )
                 continue
 
-            selected_for_table = selected[selected["source_table"].astype(str) == table_name]
             for _, selected_feature in selected_for_table.iterrows():
                 feature_name = str(selected_feature["feature_name"])
                 value = chosen.get(feature_name)

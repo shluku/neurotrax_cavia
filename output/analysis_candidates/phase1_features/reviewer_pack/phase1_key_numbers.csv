@@ -1,0 +1,12 @@
+metric,value
+cognitive_subjects_total,83
+top_decline_subjects,10
+device_episodes,22
+baseline_usable_subjects,8
+change_usable_subjects,2
+merged_phase1_rows,10
+merged_phase1_columns,56
+digital_feature_columns,37
+phase1a_qc_issues,0
+phase1b_qc_issues,0
+real_sql_coverage_errors,0

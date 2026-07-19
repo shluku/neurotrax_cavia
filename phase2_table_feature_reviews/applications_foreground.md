@@ -77,3 +77,16 @@ If later validation shows that duplicates or system-app transitions materially d
 - system-event fraction
 
 These would be new features, not replacements for the current raw feature.
+
+## Global Coverage Summary
+
+This compact summary describes global `applications_foreground` availability across the SensorDB table, mapped back to the current study device map.
+
+- Devices with `applications_foreground` rows: `441`
+- Mapped study patients with `applications_foreground` rows: `86`
+- Mapped devices with rows: `145`
+- Unmapped devices with rows: `296`
+- Rows mapped to study patients: `2,020,313`
+- Rows on unmapped devices: `296,776`
+
+Protocol note: this is a global table-coverage summary for Phase 2A planning. It is not feature extraction, not a T1-window phenotype result, and missing data is not interpreted as zero activity.

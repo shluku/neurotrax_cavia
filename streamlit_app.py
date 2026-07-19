@@ -13,12 +13,87 @@ PATHS = {
     "protocol_summary": ROOT / "README_PROTOCOL_PROJECT_SUMMARY.md",
     "phase2_feature_protocol": ROOT / "PHASE2_FEATURE_ANALYSIS_PROTOCOL.md",
     "phase2_table_feature_reviews": ROOT / "phase2_table_feature_reviews",
+    "phase2_output_feature_reviews": ROOT / "output/analysis_candidates/phase2_feature_review",
     "phase2_tracking": ROOT / "phase2_table_tracking.csv",
     "phase2_feature_plan": ROOT / "phase2_candidate_feature_plan.csv",
     "phase2_selected_features": ROOT / "phase2_selected_features.csv",
     "phase2_highest_t1_calculated_feature_values": ROOT / "phase2_highest_t1_calculated_feature_values.csv",
+    "phase2_reviewed_tables_global_coverage_summary": ROOT
+    / "output/analysis_candidates/phase2_feature_review/phase2_reviewed_tables_global_coverage_summary.csv",
+    "global_patient_coverage_preview": ROOT
+    / "output/analysis_candidates/phase2_feature_review/streamlit_global_patient_coverage_preview.csv",
+    "global_patient_coverage_status": ROOT
+    / "output/analysis_candidates/phase2_feature_review/streamlit_global_patient_coverage_status.csv",
+    "timeout_table_patient_counts": ROOT
+    / "output/analysis_candidates/phase2_feature_review/streamlit_timeout_table_patient_counts.csv",
+    "large_table_t1_t2_bounded_counts": ROOT
+    / "output/analysis_candidates/phase2_feature_review/streamlit_large_table_t1_t2_bounded_patient_counts.csv",
+    "large_sensor_metadata": ROOT
+    / "output/analysis_candidates/phase2_large_sensor_metadata/phase2_large_sensor_table_metadata.csv",
+    "large_sensor_columns": ROOT
+    / "output/analysis_candidates/phase2_large_sensor_metadata/phase2_large_sensor_table_columns.csv",
+    "large_sensor_indexes": ROOT
+    / "output/analysis_candidates/phase2_large_sensor_metadata/phase2_large_sensor_table_indexes.csv",
+    "large_sensor_availability": ROOT
+    / "output/analysis_candidates/phase2_large_sensor_metadata/phase2_large_sensor_bounded_patient_availability.csv",
+    "large_sensor_summary": ROOT
+    / "output/analysis_candidates/phase2_large_sensor_metadata/phase2_large_sensor_bounded_patient_summary.csv",
+    "large_sensor_readme": ROOT
+    / "output/analysis_candidates/phase2_large_sensor_metadata/README_phase2_large_sensor_table_metadata_scan.md",
     "phase2_exploratory_feature_dir": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/exploratory_t1_week_24h",
+    "phase3_all_t1_feature_dir": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features",
+    "phase3_all_t1_long": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/phase2_all_t1_selected_features_long.csv",
+    "phase3_all_t1_wide": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/phase2_all_t1_selected_features_wide.csv",
+    "phase3_all_t1_status": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/phase2_all_t1_selected_features_patient_table_status.csv",
+    "phase3_all_t1_coverage": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/phase2_all_t1_selected_features_coverage.csv",
+    "phase3_all_t1_readme": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/README_phase2_all_t1_selected_features.md",
+    "rd_calls_t1_week_long": ROOT
+    / "output/analysis_candidates/phase3_rd/calls_t1_week_any_data_pilot/phase3_rd_calls_t1_week_any_data_long.csv",
+    "rd_calls_t1_week_wide": ROOT
+    / "output/analysis_candidates/phase3_rd/calls_t1_week_any_data_pilot/phase3_rd_calls_t1_week_any_data_wide.csv",
+    "rd_calls_t1_week_status": ROOT
+    / "output/analysis_candidates/phase3_rd/calls_t1_week_any_data_pilot/phase3_rd_calls_t1_week_any_data_status.csv",
+    "rd_calls_t1_week_readme": ROOT
+    / "output/analysis_candidates/phase3_rd/calls_t1_week_any_data_pilot/README_phase3_rd_calls_t1_week_any_data.md",
+    "rd_calls_t1_2week_long": ROOT
+    / "output/analysis_candidates/phase3_rd/calls_t1_2week_any_data_pilot/phase3_rd_calls_t1_2week_any_data_long.csv",
+    "rd_calls_t1_2week_wide": ROOT
+    / "output/analysis_candidates/phase3_rd/calls_t1_2week_any_data_pilot/phase3_rd_calls_t1_2week_any_data_wide.csv",
+    "rd_calls_t1_2week_status": ROOT
+    / "output/analysis_candidates/phase3_rd/calls_t1_2week_any_data_pilot/phase3_rd_calls_t1_2week_any_data_status.csv",
+    "rd_calls_t1_2week_readme": ROOT
+    / "output/analysis_candidates/phase3_rd/calls_t1_2week_any_data_pilot/README_phase3_rd_calls_t1_2week_any_data.md",
+    "rd_calls_t1_30day_long": ROOT
+    / "output/analysis_candidates/phase3_rd/calls_t1_30day_any_data_pilot/phase3_rd_calls_t1_30day_any_data_long.csv",
+    "rd_calls_t1_30day_wide": ROOT
+    / "output/analysis_candidates/phase3_rd/calls_t1_30day_any_data_pilot/phase3_rd_calls_t1_30day_any_data_wide.csv",
+    "rd_calls_t1_30day_status": ROOT
+    / "output/analysis_candidates/phase3_rd/calls_t1_30day_any_data_pilot/phase3_rd_calls_t1_30day_any_data_status.csv",
+    "rd_calls_t1_30day_readme": ROOT
+    / "output/analysis_candidates/phase3_rd/calls_t1_30day_any_data_pilot/README_phase3_rd_calls_t1_30day_any_data.md",
+    "rd_bluetooth_t1_week_long": ROOT
+    / "output/analysis_candidates/phase3_rd/bluetooth_t1_week_any_data_pilot/phase3_rd_bluetooth_t1_week_any_data_long.csv",
+    "rd_bluetooth_t1_week_wide": ROOT
+    / "output/analysis_candidates/phase3_rd/bluetooth_t1_week_any_data_pilot/phase3_rd_bluetooth_t1_week_any_data_wide.csv",
+    "rd_bluetooth_t1_week_status": ROOT
+    / "output/analysis_candidates/phase3_rd/bluetooth_t1_week_any_data_pilot/phase3_rd_bluetooth_t1_week_any_data_status.csv",
+    "rd_bluetooth_t1_week_readme": ROOT
+    / "output/analysis_candidates/phase3_rd/bluetooth_t1_week_any_data_pilot/README_phase3_rd_bluetooth_t1_week_any_data.md",
+    "rd_bluetooth_t1_30day_long": ROOT
+    / "output/analysis_candidates/phase3_rd/bluetooth_t1_30day_any_data_pilot/phase3_rd_bluetooth_t1_30day_any_data_long.csv",
+    "rd_bluetooth_t1_30day_wide": ROOT
+    / "output/analysis_candidates/phase3_rd/bluetooth_t1_30day_any_data_pilot/phase3_rd_bluetooth_t1_30day_any_data_wide.csv",
+    "rd_bluetooth_t1_30day_status": ROOT
+    / "output/analysis_candidates/phase3_rd/bluetooth_t1_30day_any_data_pilot/phase3_rd_bluetooth_t1_30day_any_data_status.csv",
+    "rd_bluetooth_t1_30day_readme": ROOT
+    / "output/analysis_candidates/phase3_rd/bluetooth_t1_30day_any_data_pilot/README_phase3_rd_bluetooth_t1_30day_any_data.md",
     "cognitive_candidates": ROOT / "output/analysis_candidates/cognitive_candidates_all.csv",
     "cognitive_master": ROOT / "output/cognitive_master/master_cognitive_wide.csv",
     "label_device_map": ROOT / "output/label_device_map.csv",
@@ -72,9 +147,8 @@ st.markdown(
     """
     <style>
     [data-testid="stSidebar"] div[role="radiogroup"] label:nth-of-type(1) p,
-    [data-testid="stSidebar"] div[role="radiogroup"] label:nth-of-type(2) p,
-    [data-testid="stSidebar"] div[role="radiogroup"] label:nth-of-type(3) p,
-    [data-testid="stSidebar"] div[role="radiogroup"] label:nth-of-type(6) p {
+    [data-testid="stSidebar"] div[role="radiogroup"] label:nth-of-type(6) p,
+    [data-testid="stSidebar"] div[role="radiogroup"] label:nth-of-type(7) p {
         font-size: 1.08rem;
         font-weight: 800;
     }
@@ -215,10 +289,17 @@ def simplify_applications_foreground_sample(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def available_table_reviews() -> dict[str, Path]:
+    reviews: dict[str, Path] = {}
     review_dir = PATHS["phase2_table_feature_reviews"]
-    if not review_dir.exists():
-        return {}
-    return {path.stem: path for path in sorted(review_dir.glob("*.md"))}
+    if review_dir.exists():
+        reviews.update({path.stem: path for path in sorted(review_dir.glob("*.md"))})
+
+    output_review_dir = PATHS["phase2_output_feature_reviews"]
+    if output_review_dir.exists():
+        for path in sorted(output_review_dir.glob("*/README_*_feature_review.md")):
+            table_name = path.parent.name
+            reviews.setdefault(table_name, path)
+    return reviews
 
 
 def table_review_output_paths(table_name: str) -> dict[str, Path]:
@@ -380,6 +461,20 @@ def overview_page() -> None:
     candidates = load_csv(PATHS["cognitive_candidates"])
     label_map = load_csv(PATHS["label_device_map"])
     device_counts = device_counts_from_label_map(label_map)
+    phase2_tracking = load_csv(PATHS["phase2_tracking"])
+    phase2_inventory = load_csv(PATHS["table_inventory"])
+    phase2_feature_plan = load_csv(PATHS["phase2_feature_plan"])
+    phase2_selected_features = load_csv(PATHS["phase2_selected_features"])
+    phase3_long = load_csv(PATHS["phase3_all_t1_long"])
+    phase3_wide = load_csv(PATHS["phase3_all_t1_wide"])
+    phase3_status = load_csv(PATHS["phase3_all_t1_status"])
+    global_patient_coverage = load_csv(PATHS["global_patient_coverage_preview"])
+    global_patient_coverage_status = load_csv(PATHS["global_patient_coverage_status"])
+    timeout_table_patient_counts = load_csv(PATHS["timeout_table_patient_counts"])
+    large_table_t1_t2_counts = load_csv(PATHS["large_table_t1_t2_bounded_counts"])
+    large_sensor_metadata = load_csv(PATHS["large_sensor_metadata"])
+    large_sensor_summary = load_csv(PATHS["large_sensor_summary"])
+    phase2_reviews = available_table_reviews()
 
     n_total = len(candidates)
     n_t1 = int(pd.to_datetime(candidates.get("T1_date_iso", pd.Series(dtype=str)), errors="coerce").notna().sum())
@@ -403,6 +498,47 @@ def overview_page() -> None:
             ("Median T1-to-T2 gap", median_followup_days(candidates)),
         ]
     )
+
+    st.subheader("Phase 2 Work Underway")
+    metric_row(
+        [
+            ("Phase 2 tracked tables", len(phase2_tracking)),
+            ("Reviewed table pages", len(phase2_reviews)),
+            ("Selected features", len(phase2_selected_features)),
+            ("Candidate feature rows", len(phase2_feature_plan)),
+        ]
+    )
+
+    if not phase3_long.empty or not phase3_wide.empty:
+        st.subheader("Phase 3 Algorithm Implementation")
+        phase3_patients = (
+            phase3_wide["Subject_ID_D"].nunique()
+            if not phase3_wide.empty and "Subject_ID_D" in phase3_wide.columns
+            else 0
+        )
+        phase3_tables = (
+            phase3_status["table_name"].nunique()
+            if not phase3_status.empty and "table_name" in phase3_status.columns
+            else 0
+        )
+        phase3_features = (
+            phase3_long["feature_name"].nunique()
+            if not phase3_long.empty and "feature_name" in phase3_long.columns
+            else 0
+        )
+        phase3_calculated = (
+            int(phase3_long["feature_status"].astype(str).eq("calculated").sum())
+            if not phase3_long.empty and "feature_status" in phase3_long.columns
+            else 0
+        )
+        metric_row(
+            [
+                ("T1 patients implemented", phase3_patients),
+                ("Tables implemented", phase3_tables),
+                ("Selected algorithms", phase3_features),
+                ("Calculated feature values", phase3_calculated),
+            ]
+        )
 
     st.subheader("Two Main Project Outcomes")
     left, right = st.columns(2)
@@ -432,6 +568,107 @@ def overview_page() -> None:
             ("All candidates span", all_days),
         ]
     )
+
+    st.subheader("Global Coverage Summary")
+    if global_patient_coverage.empty:
+        st.info("Global patient coverage preview is not available yet.")
+    else:
+        patient_denominator = n_cognitive_with_device_label or n_t1 or n_total
+        table_summary = (
+            global_patient_coverage.groupby("table_name", as_index=False)
+            .agg(number_of_patients_with_data=("Subject_ID_D", "nunique"))
+            .sort_values(["number_of_patients_with_data", "table_name"], ascending=[False, True])
+        )
+        table_summary["percentage"] = (
+            100 * table_summary["number_of_patients_with_data"] / patient_denominator
+        ).round(1)
+        table_summary = table_summary.rename(columns={"table_name": "table name"})
+        if not timeout_table_patient_counts.empty:
+            timeout_summary = timeout_table_patient_counts.copy()
+            timeout_summary["number_of_patients_with_data"] = pd.to_numeric(
+                timeout_summary["number_of_patients_with_data"], errors="coerce"
+            )
+            timeout_summary["percentage"] = pd.NA
+            has_count = timeout_summary["number_of_patients_with_data"].notna()
+            timeout_summary.loc[has_count, "number_of_patients_with_data"] = timeout_summary.loc[
+                has_count, "number_of_patients_with_data"
+            ].astype(int)
+            timeout_summary.loc[has_count, "percentage"] = (
+                100 * timeout_summary.loc[has_count, "number_of_patients_with_data"] / patient_denominator
+            ).round(1)
+            timeout_summary["number_of_patients_with_data"] = timeout_summary[
+                "number_of_patients_with_data"
+            ].astype("object")
+            timeout_summary.loc[~has_count, "number_of_patients_with_data"] = "unavailable"
+            timeout_summary["percentage"] = timeout_summary["percentage"].astype("object")
+            timeout_summary.loc[~has_count, "percentage"] = ""
+            timeout_summary = timeout_summary.rename(columns={"table_name": "table name"})
+            timeout_summary = timeout_summary[["table name", "number_of_patients_with_data", "percentage"]]
+            table_summary = pd.concat([table_summary, timeout_summary], ignore_index=True)
+            table_summary["_sort_count"] = pd.to_numeric(
+                table_summary["number_of_patients_with_data"], errors="coerce"
+            ).fillna(-1)
+            table_summary = (
+                table_summary.sort_values(["_sort_count", "table name"], ascending=[False, True])
+                .drop_duplicates("table name", keep="first")
+                .drop(columns=["_sort_count"])
+                .reset_index(drop=True)
+            )
+        st.dataframe(table_summary, use_container_width=True, height=300)
+
+        table_options = sorted(global_patient_coverage["table_name"].dropna().astype(str).unique().tolist())
+        selected_table = st.selectbox("Table", table_options, index=table_options.index("network") if "network" in table_options else 0)
+        coverage_view = global_patient_coverage[
+            global_patient_coverage["table_name"].astype(str) == selected_table
+        ].copy()
+        coverage_view = coverage_view[["Subject_ID_D", "rows", "devices", "first row", "last row"]]
+        if "rows" in coverage_view.columns:
+            coverage_view["rows"] = pd.to_numeric(coverage_view["rows"], errors="coerce").astype("Int64")
+        if "devices" in coverage_view.columns:
+            coverage_view["devices"] = pd.to_numeric(coverage_view["devices"], errors="coerce").astype("Int64")
+        show_dataframe(coverage_view, height=300)
+        if not global_patient_coverage_status.empty:
+            skipped = global_patient_coverage_status[
+                global_patient_coverage_status["status"].astype(str).str.startswith("skipped")
+                | global_patient_coverage_status["status"].astype(str).eq("error")
+            ]
+            if not skipped.empty:
+                with st.expander("Skipped or unavailable tables"):
+                    show_dataframe(skipped, height=260)
+
+        if not large_table_t1_t2_counts.empty:
+            st.subheader("T1/T2 Bounded Coverage for Large Tables")
+            bounded_view = large_table_t1_t2_counts[
+                [
+                    "table_name",
+                    "t1_day_after_patients_with_data",
+                    "t1_day_after_percentage",
+                    "t2_day_before_patients_with_data",
+                    "t2_day_before_percentage",
+                ]
+            ].copy()
+            show_dataframe(bounded_view, height=300)
+
+        if not large_sensor_metadata.empty:
+            st.subheader("Large Sensor Metadata")
+            st.caption("Metadata-only scan for large/raw sensor tables. Approximate size comes from database table status; availability uses bounded patient/window EXISTS checks.")
+            metadata_cols = [
+                col
+                for col in [
+                    "table_name",
+                    "metadata_estimated_rows",
+                    "total_size_gb",
+                    "has_device_id",
+                    "has_timestamp",
+                    "has_data",
+                    "metadata_status",
+                ]
+                if col in large_sensor_metadata.columns
+            ]
+            show_dataframe(large_sensor_metadata[metadata_cols], height=260)
+            if not large_sensor_summary.empty:
+                st.caption("Bounded availability summary around T1/T2 windows.")
+                show_dataframe(large_sensor_summary, height=260)
 
     st.subheader("NeuroTrax Feature Domains")
     neurotrax_domains = pd.DataFrame(
@@ -531,13 +768,19 @@ def phase1_change_page() -> None:
 
 
 def phase2_tables_page() -> None:
-    st.title("Phase 2 Table Tracking")
+    st.title("Phase 2 Tables and Feature Fieldwork")
     tracking = load_csv(PATHS["phase2_tracking"])
     inventory = load_csv(PATHS["table_inventory"])
     sample_summary = load_csv(PATHS["sample_summary"])
     feature_plan = load_csv(PATHS["phase2_feature_plan"])
     selected_features = load_csv(PATHS["phase2_selected_features"])
     highest_t1_calculated_values = load_csv(PATHS["phase2_highest_t1_calculated_feature_values"])
+    global_coverage_summary = load_csv(PATHS["phase2_reviewed_tables_global_coverage_summary"])
+    large_sensor_metadata = load_csv(PATHS["large_sensor_metadata"])
+    large_sensor_columns = load_csv(PATHS["large_sensor_columns"])
+    large_sensor_indexes = load_csv(PATHS["large_sensor_indexes"])
+    large_sensor_availability = load_csv(PATHS["large_sensor_availability"])
+    large_sensor_summary = load_csv(PATHS["large_sensor_summary"])
     review_sample = load_csv(PATHS["applications_foreground_review_sample"])
     json_keys = load_csv(PATHS["applications_foreground_json_keys"])
     highest_t1_features = load_csv(PATHS["applications_foreground_highest_t1_36h_features"])
@@ -549,9 +792,9 @@ def phase2_tables_page() -> None:
     metric_row(
         [
             ("Tracked tables", len(tracking)),
-            ("Reviewed table files", len(table_reviews)),
+            ("Reviewed table pages", len(table_reviews)),
             ("Selected features", len(selected_features)),
-            ("Inventory rows", len(inventory)),
+            ("Candidate feature rows", len(feature_plan)),
         ]
     )
 
@@ -563,6 +806,7 @@ def phase2_tables_page() -> None:
             "Feature Analysis Protocol",
             "Candidate Features",
             "SQL Inventory",
+            "Large Sensor Metadata",
             "Sampling Summary",
         ]
     )
@@ -577,7 +821,15 @@ def phase2_tables_page() -> None:
         st.subheader("Table Review Status")
         st.caption("One row per reviewed or feature-planned SensorDB table. Current feature values use the exploratory T1-week 24h protocol.")
         show_dataframe(review_status, height=360)
+
+        st.subheader("Global Coverage Summary")
+        st.caption("Compact table-level availability summary added to the Phase 2A protocol. This is global coverage, not T1-window feature extraction.")
+        show_dataframe(global_coverage_summary, height=360)
     with tabs[1]:
+        st.markdown(
+            "<div style='font-size:2rem;font-weight:900;margin:0.2rem 0 1rem 0;'>Reviewed Table Detail</div>",
+            unsafe_allow_html=True,
+        )
         if not table_reviews:
             st.info("No reviewed table markdown files are available yet.")
         else:
@@ -654,6 +906,9 @@ def phase2_tables_page() -> None:
 
             **Feature finding: exploratory T1-ranked 24h protocol**  
             After Phase A is understood, choose candidate features, then scan patients from highest T1 score downward until the first protocol-valid 24-hour window inside that patient's T1 week is found. If no valid patient/window exists, keep the selected features visible as missing rather than converting missing data to zero.
+
+            **High-frequency sensor tables**  
+            Motion tables such as `linear_accelerometer` need stricter handling. If no T1-week 24-hour protocol window exists, defer the table rather than widening SQL searches. Fourier-style features require confirmed x/y/z fields, timestamp regularity, duplicate handling, vector magnitude, and consistent resampling/segmentation.
             """
         )
         st.divider()
@@ -687,8 +942,483 @@ def phase2_tables_page() -> None:
     with tabs[5]:
         show_dataframe(inventory, height=520)
     with tabs[6]:
+        st.subheader("Large Sensor Table Metadata")
+        st.caption("Cheap metadata and bounded availability for large/raw sensor tables. No full-table grouped counts and no raw extraction.")
+        show_dataframe(large_sensor_metadata, height=320)
+
+        st.subheader("Bounded Patient Availability")
+        show_dataframe(large_sensor_summary, height=260)
+
+        if not large_sensor_availability.empty and "table_name" in large_sensor_availability.columns:
+            table_options = ["All"] + sorted(large_sensor_availability["table_name"].dropna().astype(str).unique().tolist())
+            selected_large_sensor_table = st.selectbox("Large sensor table", table_options)
+            availability_view = large_sensor_availability.copy()
+            if selected_large_sensor_table != "All":
+                availability_view = availability_view[
+                    availability_view["table_name"].astype(str) == selected_large_sensor_table
+                ]
+            show_dataframe(availability_view, height=360)
+        else:
+            show_dataframe(large_sensor_availability, height=360)
+
+        with st.expander("Columns"):
+            show_dataframe(large_sensor_columns, height=420)
+        with st.expander("Indexes"):
+            show_dataframe(large_sensor_indexes, height=420)
+        readme = load_text(PATHS["large_sensor_readme"])
+        if readme:
+            with st.expander("Metadata scan README"):
+                st.markdown(readme)
+    with tabs[7]:
         st.caption("This may be partial if a sampling run was stopped.")
         show_dataframe(sample_summary, height=520)
+
+
+def phase3_algorithm_page() -> None:
+    st.title("Phase 3 algorithm implementation")
+    st.caption("Current selected-feature algorithms applied across T1 patients using the bounded T1-week 24-hour protocol.")
+
+    long_df = load_csv(PATHS["phase3_all_t1_long"])
+    wide_df = load_csv(PATHS["phase3_all_t1_wide"])
+    status_df = load_csv(PATHS["phase3_all_t1_status"])
+    coverage_df = load_csv(PATHS["phase3_all_t1_coverage"])
+
+    if long_df.empty and wide_df.empty and status_df.empty:
+        st.info("The all-patient selected-feature extraction output is not available yet.")
+        st.code(".venv/bin/python3 phase2_extract_selected_features_all_t1_patients.py")
+        return
+
+    n_patients = wide_df["Subject_ID_D"].nunique() if not wide_df.empty and "Subject_ID_D" in wide_df.columns else 0
+    n_features = long_df["feature_name"].nunique() if not long_df.empty and "feature_name" in long_df.columns else 0
+    n_tables = status_df["table_name"].nunique() if not status_df.empty and "table_name" in status_df.columns else 0
+    n_calculated = int(long_df["feature_status"].astype(str).eq("calculated").sum()) if "feature_status" in long_df.columns else 0
+    n_total_feature_rows = len(long_df)
+    pct_calculated = f"{100 * n_calculated / n_total_feature_rows:.1f}%" if n_total_feature_rows else "n/a"
+
+    metric_row(
+        [
+            ("T1 patients processed", n_patients),
+            ("Reviewed tables implemented", n_tables),
+            ("Selected algorithms", n_features),
+            ("Calculated feature values", n_calculated),
+            ("Feature rows", n_total_feature_rows),
+            ("Calculated share", pct_calculated),
+        ]
+    )
+
+    st.subheader("Implementation Meaning")
+    st.markdown(
+        """
+        This phase takes the features already selected during Phase 2 table review and applies them patient-by-patient.
+        It is the first model-facing implementation layer: one long table for auditability and one wide table for future statistical modeling.
+
+        Missing values mean the selected table did not have a protocol-valid 24-hour window for that patient/table, or the required feature signal was not available. Missing is not zero activity.
+        """
+    )
+
+    tabs = st.tabs(
+        [
+            "Cohort Feature Overview",
+            "Model-Ready Wide Table",
+            "Patient-Table Status",
+            "Coverage Audit",
+            "README",
+        ]
+    )
+
+    with tabs[0]:
+        if long_df.empty:
+            st.info("No long feature table available.")
+        else:
+            st.subheader("Calculated Values by Table")
+            if {"table_name", "feature_status"}.issubset(long_df.columns):
+                table_summary = (
+                    long_df.assign(calculated=long_df["feature_status"].astype(str).eq("calculated"))
+                    .groupby("table_name", dropna=False)
+                    .agg(
+                        calculated_feature_values=("calculated", "sum"),
+                        total_feature_rows=("feature_name", "count"),
+                        selected_features=("feature_name", "nunique"),
+                        patients_seen=("Subject_ID_D", "nunique"),
+                    )
+                    .reset_index()
+                )
+                table_summary["calculated_percent"] = (
+                    100 * table_summary["calculated_feature_values"] / table_summary["total_feature_rows"]
+                ).round(1)
+                show_dataframe(table_summary, height=320)
+                st.bar_chart(table_summary.set_index("table_name")["calculated_feature_values"])
+
+            st.subheader("Feature Availability")
+            if {"feature_name", "feature_status", "table_name"}.issubset(long_df.columns):
+                feature_summary = (
+                    long_df.assign(calculated=long_df["feature_status"].astype(str).eq("calculated"))
+                    .groupby(["table_name", "feature_name"], dropna=False)
+                    .agg(
+                        calculated_patients=("calculated", "sum"),
+                        total_patients=("Subject_ID_D", "nunique"),
+                    )
+                    .reset_index()
+                )
+                feature_summary["calculated_percent"] = (
+                    100 * feature_summary["calculated_patients"] / feature_summary["total_patients"]
+                ).round(1)
+                show_dataframe(feature_summary, height=420)
+
+            st.subheader("Long Feature Table")
+            show_dataframe(long_df, height=520)
+
+    with tabs[1]:
+        st.caption("One row per patient. Selected features become columns for later modeling.")
+        show_dataframe(wide_df, height=620)
+
+    with tabs[2]:
+        st.caption("One row per patient-table showing whether the algorithm found a protocol-valid window and calculated values.")
+        if not status_df.empty and "table_status" in status_df.columns:
+            status_counts = status_df["table_status"].value_counts(dropna=False).reset_index()
+            status_counts.columns = ["table_status", "n_patient_table_blocks"]
+            show_dataframe(status_counts, height=180)
+        show_dataframe(status_df, height=520)
+
+    with tabs[3]:
+        st.caption("Bounded coverage checks used to choose primary or fallback 24-hour T1-week windows.")
+        show_dataframe(coverage_df, height=620)
+
+    with tabs[4]:
+        readme = load_text(PATHS["phase3_all_t1_readme"])
+        st.markdown(readme if readme else "No README available yet.")
+
+
+def rd_page() -> None:
+    st.title("R&D")
+    st.caption("Protocol experiments that test alternative acquisition rules without overwriting Phase 3 outputs.")
+
+    calls_long = load_csv(PATHS["rd_calls_t1_week_long"])
+    calls_wide = load_csv(PATHS["rd_calls_t1_week_wide"])
+    calls_status = load_csv(PATHS["rd_calls_t1_week_status"])
+    calls_2week_long = load_csv(PATHS["rd_calls_t1_2week_long"])
+    calls_2week_wide = load_csv(PATHS["rd_calls_t1_2week_wide"])
+    calls_2week_status = load_csv(PATHS["rd_calls_t1_2week_status"])
+    calls_30day_long = load_csv(PATHS["rd_calls_t1_30day_long"])
+    calls_30day_wide = load_csv(PATHS["rd_calls_t1_30day_wide"])
+    calls_30day_status = load_csv(PATHS["rd_calls_t1_30day_status"])
+    bluetooth_week_long = load_csv(PATHS["rd_bluetooth_t1_week_long"])
+    bluetooth_week_wide = load_csv(PATHS["rd_bluetooth_t1_week_wide"])
+    bluetooth_week_status = load_csv(PATHS["rd_bluetooth_t1_week_status"])
+    bluetooth_30day_long = load_csv(PATHS["rd_bluetooth_t1_30day_long"])
+    bluetooth_30day_wide = load_csv(PATHS["rd_bluetooth_t1_30day_wide"])
+    bluetooth_30day_status = load_csv(PATHS["rd_bluetooth_t1_30day_status"])
+    strict_long = load_csv(PATHS["phase3_all_t1_long"])
+    strict_status = load_csv(PATHS["phase3_all_t1_status"])
+
+    st.subheader("Calls: Window-Length R&D")
+    st.markdown(
+        """
+        This pilot tests a relaxed acquisition rule for sparse event tables:
+        use a longer post-T1 window and calculate call features if any `calls` rows exist.
+
+        This is separate from the strict Phase 3 rule, which requires a protocol-valid 24-hour span.
+        """
+    )
+
+    if (
+        calls_long.empty
+        and calls_status.empty
+        and calls_2week_long.empty
+        and calls_2week_status.empty
+        and calls_30day_long.empty
+        and calls_30day_status.empty
+    ):
+        st.info("R&D calls pilot outputs are not available yet.")
+        st.code(".venv/bin/python3 phase3_rd_calls_t1_week_any_data_pilot.py")
+        st.code(".venv/bin/python3 phase3_rd_calls_t1_2week_any_data_pilot.py")
+        st.code(".venv/bin/python3 phase3_rd_calls_t1_30day_any_data_pilot.py")
+        return
+
+    rd_patients = calls_status["Subject_ID_D"].nunique() if "Subject_ID_D" in calls_status.columns else 0
+    rd_calculated_patients = (
+        int(calls_status["table_status"].astype(str).eq("calculated").sum())
+        if "table_status" in calls_status.columns
+        else 0
+    )
+    rd_calculated_features = (
+        int(calls_long["feature_status"].astype(str).eq("calculated").sum())
+        if "feature_status" in calls_long.columns
+        else 0
+    )
+    rd_2week_patients = calls_2week_status["Subject_ID_D"].nunique() if "Subject_ID_D" in calls_2week_status.columns else 0
+    rd_2week_calculated_patients = (
+        int(calls_2week_status["table_status"].astype(str).eq("calculated").sum())
+        if "table_status" in calls_2week_status.columns
+        else 0
+    )
+    rd_2week_calculated_features = (
+        int(calls_2week_long["feature_status"].astype(str).eq("calculated").sum())
+        if "feature_status" in calls_2week_long.columns
+        else 0
+    )
+    rd_30day_patients = calls_30day_status["Subject_ID_D"].nunique() if "Subject_ID_D" in calls_30day_status.columns else 0
+    rd_30day_calculated_patients = (
+        int(calls_30day_status["table_status"].astype(str).eq("calculated").sum())
+        if "table_status" in calls_30day_status.columns
+        else 0
+    )
+    rd_30day_calculated_features = (
+        int(calls_30day_long["feature_status"].astype(str).eq("calculated").sum())
+        if "feature_status" in calls_30day_long.columns
+        else 0
+    )
+
+    strict_calls = pd.DataFrame()
+    if not strict_long.empty and "table_name" in strict_long.columns:
+        strict_calls = strict_long[strict_long["table_name"].astype(str) == "calls"].copy()
+    strict_call_patients = (
+        int(
+            strict_status[
+                (strict_status.get("table_name", pd.Series(dtype=str)).astype(str) == "calls")
+                & (strict_status.get("table_status", pd.Series(dtype=str)).astype(str) == "calculated")
+            ].shape[0]
+        )
+        if not strict_status.empty and {"table_name", "table_status"}.issubset(strict_status.columns)
+        else 0
+    )
+    strict_call_feature_values = (
+        int(strict_calls["feature_status"].astype(str).eq("calculated").sum())
+        if not strict_calls.empty and "feature_status" in strict_calls.columns
+        else 0
+    )
+
+    metric_row(
+        [
+            ("Patients tested", max(rd_patients, rd_2week_patients, rd_30day_patients)),
+            ("Strict calls patients", strict_call_patients),
+            ("1-week calls patients", rd_calculated_patients),
+            ("2-week calls patients", rd_2week_calculated_patients),
+            ("30-day calls patients", rd_30day_calculated_patients),
+            ("30-day call values", rd_30day_calculated_features),
+        ]
+    )
+
+    call_tabs = st.tabs(
+        [
+            "Comparison",
+            "1-Week Long",
+            "1-Week Wide",
+            "1-Week Status",
+            "2-Week Long",
+            "2-Week Wide",
+            "2-Week Status",
+            "30-Day Long",
+            "30-Day Wide",
+            "30-Day Status",
+            "README",
+        ]
+    )
+    with call_tabs[0]:
+        comparison = pd.DataFrame(
+            [
+                {
+                    "rule": "strict_phase3_24h_valid_span",
+                    "patients_with_calculated_calls": strict_call_patients,
+                    "calculated_call_feature_values": strict_call_feature_values,
+                    "window": "first valid 24h span inside T1 week",
+                },
+                {
+                    "rule": "rd_t1_week_any_calls_data",
+                    "patients_with_calculated_calls": rd_calculated_patients,
+                    "calculated_call_feature_values": rd_calculated_features,
+                    "window": "entire first week after T1 if any rows exist",
+                },
+                {
+                    "rule": "rd_t1_2week_any_calls_data",
+                    "patients_with_calculated_calls": rd_2week_calculated_patients,
+                    "calculated_call_feature_values": rd_2week_calculated_features,
+                    "window": "first 14 days after T1 if any rows exist",
+                },
+                {
+                    "rule": "rd_t1_30day_any_calls_data",
+                    "patients_with_calculated_calls": rd_30day_calculated_patients,
+                    "calculated_call_feature_values": rd_30day_calculated_features,
+                    "window": "first 30 days after T1 if any rows exist",
+                },
+            ]
+        )
+        show_dataframe(comparison, height=160)
+        st.bar_chart(comparison.set_index("rule")["patients_with_calculated_calls"])
+
+        if not calls_long.empty and {"feature_name", "feature_status", "Subject_ID_D"}.issubset(calls_long.columns):
+            feature_summary = (
+                calls_long.assign(calculated=calls_long["feature_status"].astype(str).eq("calculated"))
+                .groupby("feature_name", dropna=False)
+                .agg(calculated_patients=("calculated", "sum"), total_patients=("Subject_ID_D", "nunique"))
+                .reset_index()
+            )
+            feature_summary["calculated_percent"] = (
+                100 * feature_summary["calculated_patients"] / feature_summary["total_patients"]
+            ).round(1)
+            st.subheader("R&D Calls Feature Availability")
+            show_dataframe(feature_summary, height=260)
+
+    with call_tabs[1]:
+        show_dataframe(calls_long, height=560)
+    with call_tabs[2]:
+        show_dataframe(calls_wide, height=560)
+    with call_tabs[3]:
+        show_dataframe(calls_status, height=560)
+    with call_tabs[4]:
+        show_dataframe(calls_2week_long, height=560)
+    with call_tabs[5]:
+        show_dataframe(calls_2week_wide, height=560)
+    with call_tabs[6]:
+        show_dataframe(calls_2week_status, height=560)
+    with call_tabs[7]:
+        show_dataframe(calls_30day_long, height=560)
+    with call_tabs[8]:
+        show_dataframe(calls_30day_wide, height=560)
+    with call_tabs[9]:
+        show_dataframe(calls_30day_status, height=560)
+    with call_tabs[10]:
+        st.markdown("### 1-Week Pilot")
+        st.markdown(load_text(PATHS["rd_calls_t1_week_readme"]) or "No 1-week README available yet.")
+        st.markdown("### 2-Week Pilot")
+        st.markdown(load_text(PATHS["rd_calls_t1_2week_readme"]) or "No 2-week README available yet.")
+        st.markdown("### 30-Day Pilot")
+        st.markdown(load_text(PATHS["rd_calls_t1_30day_readme"]) or "No 30-day README available yet.")
+
+    st.divider()
+    st.subheader("Bluetooth: T1-Week and 30-Day Any-Data Pilots")
+    st.markdown(
+        """
+        This pilot tests whether Bluetooth coverage improves when the first T1 week is used directly,
+        instead of requiring a strict protocol-valid 24-hour span.
+        """
+    )
+
+    if bluetooth_week_long.empty and bluetooth_week_status.empty and bluetooth_30day_long.empty and bluetooth_30day_status.empty:
+        st.info("Bluetooth R&D pilot output is not available yet.")
+        st.code(".venv/bin/python3 phase3_rd_bluetooth_t1_week_any_data_pilot.py")
+        st.code(".venv/bin/python3 phase3_rd_bluetooth_t1_30day_any_data_pilot.py")
+    else:
+        strict_bluetooth = pd.DataFrame()
+        if not strict_long.empty and "table_name" in strict_long.columns:
+            strict_bluetooth = strict_long[strict_long["table_name"].astype(str) == "bluetooth"].copy()
+        strict_bluetooth_patients = (
+            int(
+                strict_status[
+                    (strict_status.get("table_name", pd.Series(dtype=str)).astype(str) == "bluetooth")
+                    & (strict_status.get("table_status", pd.Series(dtype=str)).astype(str) == "calculated")
+                ].shape[0]
+            )
+            if not strict_status.empty and {"table_name", "table_status"}.issubset(strict_status.columns)
+            else 0
+        )
+        strict_bluetooth_values = (
+            int(strict_bluetooth["feature_status"].astype(str).eq("calculated").sum())
+            if not strict_bluetooth.empty and "feature_status" in strict_bluetooth.columns
+            else 0
+        )
+        bluetooth_week_patients = (
+            int(bluetooth_week_status["table_status"].astype(str).eq("calculated").sum())
+            if "table_status" in bluetooth_week_status.columns
+            else 0
+        )
+        bluetooth_week_values = (
+            int(bluetooth_week_long["feature_status"].astype(str).eq("calculated").sum())
+            if "feature_status" in bluetooth_week_long.columns
+            else 0
+        )
+        bluetooth_30day_patients = (
+            int(bluetooth_30day_status["table_status"].astype(str).eq("calculated").sum())
+            if "table_status" in bluetooth_30day_status.columns
+            else 0
+        )
+        bluetooth_30day_values = (
+            int(bluetooth_30day_long["feature_status"].astype(str).eq("calculated").sum())
+            if "feature_status" in bluetooth_30day_long.columns
+            else 0
+        )
+
+        metric_row(
+            [
+                ("Strict Bluetooth patients", strict_bluetooth_patients),
+                ("1-week Bluetooth patients", bluetooth_week_patients),
+                ("30-day Bluetooth patients", bluetooth_30day_patients),
+                ("1-week Bluetooth values", bluetooth_week_values),
+                ("30-day Bluetooth values", bluetooth_30day_values),
+            ]
+        )
+
+        bluetooth_tabs = st.tabs(
+            [
+                "Comparison",
+                "1-Week Long",
+                "1-Week Wide",
+                "1-Week Status",
+                "30-Day Long",
+                "30-Day Wide",
+                "30-Day Status",
+                "README",
+            ]
+        )
+        with bluetooth_tabs[0]:
+            bluetooth_comparison = pd.DataFrame(
+                [
+                    {
+                        "rule": "strict_phase3_24h_valid_span",
+                        "patients_with_calculated_bluetooth": strict_bluetooth_patients,
+                        "calculated_bluetooth_feature_values": strict_bluetooth_values,
+                        "window": "first valid 24h span inside T1 week",
+                    },
+                    {
+                        "rule": "rd_t1_week_any_bluetooth_data",
+                        "patients_with_calculated_bluetooth": bluetooth_week_patients,
+                        "calculated_bluetooth_feature_values": bluetooth_week_values,
+                        "window": "entire first week after T1 if any rows exist",
+                    },
+                    {
+                        "rule": "rd_t1_30day_any_bluetooth_data",
+                        "patients_with_calculated_bluetooth": bluetooth_30day_patients,
+                        "calculated_bluetooth_feature_values": bluetooth_30day_values,
+                        "window": "first 30 days after T1 if any rows exist",
+                    },
+                ]
+            )
+            show_dataframe(bluetooth_comparison, height=160)
+            st.bar_chart(bluetooth_comparison.set_index("rule")["patients_with_calculated_bluetooth"])
+
+            if not bluetooth_week_long.empty and {"feature_name", "feature_status", "Subject_ID_D"}.issubset(
+                bluetooth_week_long.columns
+            ):
+                feature_summary = (
+                    bluetooth_week_long.assign(
+                        calculated=bluetooth_week_long["feature_status"].astype(str).eq("calculated")
+                    )
+                    .groupby("feature_name", dropna=False)
+                    .agg(calculated_patients=("calculated", "sum"), total_patients=("Subject_ID_D", "nunique"))
+                    .reset_index()
+                )
+                feature_summary["calculated_percent"] = (
+                    100 * feature_summary["calculated_patients"] / feature_summary["total_patients"]
+                ).round(1)
+                st.subheader("Bluetooth Feature Availability")
+                show_dataframe(feature_summary, height=220)
+        with bluetooth_tabs[1]:
+            show_dataframe(bluetooth_week_long, height=560)
+        with bluetooth_tabs[2]:
+            show_dataframe(bluetooth_week_wide, height=560)
+        with bluetooth_tabs[3]:
+            show_dataframe(bluetooth_week_status, height=560)
+        with bluetooth_tabs[4]:
+            show_dataframe(bluetooth_30day_long, height=560)
+        with bluetooth_tabs[5]:
+            show_dataframe(bluetooth_30day_wide, height=560)
+        with bluetooth_tabs[6]:
+            show_dataframe(bluetooth_30day_status, height=560)
+        with bluetooth_tabs[7]:
+            st.markdown("### 1-Week Pilot")
+            st.markdown(load_text(PATHS["rd_bluetooth_t1_week_readme"]) or "No Bluetooth README available yet.")
+            st.markdown("### 30-Day Pilot")
+            st.markdown(load_text(PATHS["rd_bluetooth_t1_30day_readme"]) or "No Bluetooth 30-day README available yet.")
 
 
 def neurotrax_page() -> None:
@@ -817,6 +1547,8 @@ PAGES = {
     "NeuroTrax Columns": neurotrax_page,
     "Rich Wide Table": rich_wide_page,
     "Phase 2 Tables": phase2_tables_page,
+    "Phase 3 algorithm implementation": phase3_algorithm_page,
+    "R&D": rd_page,
     "SQL Samples": samples_page,
     "Files": files_page,
 }

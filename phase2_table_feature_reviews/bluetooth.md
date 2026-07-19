@@ -157,3 +157,16 @@ If Bluetooth features are selected later, possible aggregate features include:
 - RSSI variability
 
 These would be new features and require explicit manual selection before extraction.
+
+## Global Coverage Summary
+
+This compact summary describes global `bluetooth` availability across the SensorDB table, mapped back to the current study device map.
+
+- Devices with `bluetooth` rows: `10`
+- Mapped study patients with `bluetooth` rows: `9`
+- Mapped devices with rows: `9`
+- Unmapped devices with rows: `1`
+- Rows mapped to study patients: `606,700`
+- Rows on unmapped devices: `8,221`
+
+Protocol note: this is a global table-coverage summary for Phase 2A planning. It is not feature extraction, not a T1-window phenotype result, and missing data is not interpreted as zero activity.

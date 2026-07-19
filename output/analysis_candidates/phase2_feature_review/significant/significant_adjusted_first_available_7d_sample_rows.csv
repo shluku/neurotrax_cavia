@@ -1,0 +1,21 @@
+_id,timestamp,device_id,data,sample_index,local_datetime
+20728,1751961314443.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961314443}",1,2025-07-08 10:55:14+0300
+20729,1751961314502.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961314502}",2,2025-07-08 10:55:14+0300
+20730,1751961316651.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961316651}",3,2025-07-08 10:55:16+0300
+20731,1751961316941.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961316941}",4,2025-07-08 10:55:16+0300
+20732,1751961316998.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961316998}",5,2025-07-08 10:55:16+0300
+20733,1751961317017.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961317017}",6,2025-07-08 10:55:17+0300
+20734,1751961317306.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961317306}",7,2025-07-08 10:55:17+0300
+20735,1751961317333.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961317333}",8,2025-07-08 10:55:17+0300
+20799,1751961320231.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961320231}",9,2025-07-08 10:55:20+0300
+20800,1751961320299.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961320299}",10,2025-07-08 10:55:20+0300
+20801,1751961320522.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961320522}",11,2025-07-08 10:55:20+0300
+20802,1751961320545.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961320545}",12,2025-07-08 10:55:20+0300
+20803,1751961320725.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961320725}",13,2025-07-08 10:55:20+0300
+20804,1751961320754.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961320754}",14,2025-07-08 10:55:20+0300
+20805,1751961320975.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961320975}",15,2025-07-08 10:55:20+0300
+20806,1751961321005.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961321005}",16,2025-07-08 10:55:21+0300
+20807,1751961321236.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961321236}",17,2025-07-08 10:55:21+0300
+20808,1751961321267.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961321267}",18,2025-07-08 10:55:21+0300
+20809,1751961321528.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961321528}",19,2025-07-08 10:55:21+0300
+20810,1751961321547.0,bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b,"{""device_id"": ""bce3e6dc-a61a-4fc5-8d6f-41ff16761f5b"", ""is_moving"": ""1"", ""timestamp"": 1751961321547}",20,2025-07-08 10:55:21+0300

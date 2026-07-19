@@ -1,0 +1,11 @@
+Subject_ID_N,Subject_ID_D,total_device_episodes,tables_with_any_data,early_tables_with_data,late_tables_with_data,full_window_tables_with_data,total_rows_all_scanned_tables,coverage_note
+3,1,1,0,0,0,0,0,no_data_across_scanned_tables
+13,30,3,0,0,0,0,0,no_data_across_scanned_tables
+40,62,3,0,0,0,0,0,no_data_across_scanned_tables
+41,74,2,0,0,0,0,0,no_data_across_scanned_tables
+44,44,3,0,0,0,0,0,no_data_across_scanned_tables
+68,24,2,0,0,0,0,0,no_data_across_scanned_tables
+72,87,3,0,0,0,0,0,no_data_across_scanned_tables
+77,77,2,0,0,0,0,0,no_data_across_scanned_tables
+82,93,1,0,0,0,0,0,no_data_across_scanned_tables
+86,95,2,0,0,0,0,0,no_data_across_scanned_tables

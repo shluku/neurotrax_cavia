@@ -1,0 +1,99 @@
+source_sheet,source_column,master_column,number_of_non_missing_values,number_of_numeric_convertible_values,special_codes_seen
+Overall scores,Global score T1,overall_Global score T1,83,83,
+Overall scores,Global score T2,overall_Global score T2,62,62,
+Overall scores,Global score Δ,overall_Global score Δ,62,62,
+Overall scores,Memory T1,overall_Memory T1,83,83,
+Overall scores,Memory T2,overall_Memory T2,62,62,
+Overall scores,Memory Δ,overall_Memory Δ,62,62,
+Overall scores,EF T1,overall_EF T1,83,83,
+Overall scores,EF T2,overall_EF T2,62,62,
+Overall scores,EF Δ,overall_EF Δ,62,62,
+Overall scores,Attention T1,overall_Attention T1,83,83,
+Overall scores,Attention T2,overall_Attention T2,62,62,
+Overall scores,Attention Δ,overall_Attention Δ,62,62,
+Overall scores,Processing speed T1,overall_Processing speed T1,83,73,DI
+Overall scores,Processing speed T2,overall_Processing speed T2,62,57,DI
+Overall scores,Processing speed Δ,overall_Processing speed Δ,62,52,NA
+Overall scores,Visual Spatial T1,overall_Visual Spatial T1,83,81,DI
+Overall scores,Visual Spatial T2,overall_Visual Spatial T2,62,60,DI
+Overall scores,Visual spatial Δ,overall_Visual spatial Δ,62,59,NA
+Overall scores,Verbal fun T1,overall_Verbal fun T1,83,82,DI
+Overall scores,Verbal fun T2,overall_Verbal fun T2,62,60,DI
+Overall scores,Verbal fun Δ,overall_Verbal fun Δ,62,59,NA
+Overall scores,Motor T1,overall_Motor T1,83,81,DI
+Overall scores,Motor T2,overall_Motor T2,62,60,DI
+Overall scores,Motor Δ,overall_Motor Δ,62,58,NA
+Overall scores,IQ T1,overall_IQ T1,83,81,DI
+Overall scores,IQ T2,overall_IQ T2,62,62,
+Overall scores,IQ Δ,overall_IQ Δ,62,61,NA
+Memory,VM T1,mem_VM T1,63,57,DI|FP
+Memory,VM T2,mem_VM T2,62,61,DI
+Memory,VM Δ,mem_VM Δ,62,57,NA
+Memory,VM del T1,mem_VM del T1,63,57,DI|FP
+Memory,VM del T2,mem_VM del T2,62,61,DI
+Memory,VM del Δ,mem_VM del Δ,62,57,NA
+Memory,SM T1,mem_SM T1,63,61,DI|FP
+Memory,SM T2,mem_SM T2,62,61,DI
+Memory,SM Δ,mem_SM Δ,62,59,NA
+Memory,SM del T1,mem_SM del T1,63,60,DI|FP
+Memory,SM del T2,mem_SM del T2,62,61,DI
+Memory,SM del Δ,mem_SM del Δ,62,58,NA
+Memory,V Learning T1,mem_V Learning T1,63,58,DI|FP
+Memory,V Learning T2,mem_V Learning T2,62,62,
+Memory,V Learning Δ,mem_V Learning Δ,62,58,NA
+Memory,S Learning T1,mem_S Learning T1,63,60,DI|FP
+Memory,S Learning T2,mem_S Learning T2,62,61,DI
+Memory,S Learning Δ,mem_S Learning Δ,62,58,NA
+EF,GnG T1,ef_GnG T1,62,61,FP
+EF,GnG T2,ef_GnG T2,62,62,
+EF,GnG Δ,ef_GnG Δ,62,61,NA
+EF,Stroop int T1,ef_Stroop int T1,62,60,DI|FP
+EF,Stroop int T2,ef_Stroop int T2,62,60,DI
+EF,Stroop int Δ,ef_Stroop int Δ,62,58,NA
+EF,CG TS T1,ef_CG TS T1,62,60,DI|FP
+EF,CG TS T2,ef_CG TS T2,62,62,
+EF,CG TS Δ,ef_CG TS Δ,62,60,NA
+EF,הערות,ef_הערות,6,0,
+Attention,ACC T1,attn_ACC T1,63,57,FP
+Attention,ACC T2,attn_ACC T2,62,59,FP
+Attention,ACC Δ,attn_ACC Δ,62,55,NA
+Attention,RT T1,attn_RT T1,63,57,FP
+Attention,RT T2,attn_RT T2,62,59,FP
+Attention,RT Δ,attn_RT Δ,62,55,NA
+Attention,RT sd T1,attn_RT sd T1,63,58,FP
+Attention,RT sd T2,attn_RT sd T2,62,59,FP
+Attention,RT sd Δ,attn_RT sd Δ,62,56,NA
+Attention,Commission T1,attn_Commission T1,63,58,FP
+Attention,Commission T2,attn_Commission T2,62,59,FP
+Attention,Commission Δ,attn_Commission Δ,62,56,NA
+Attention,Omission T1,attn_Omission T1,63,58,FP
+Attention,Omission T2,attn_Omission T2,62,59,FP
+Attention,Omission Δ,attn_Omission Δ,62,56,NA
+Processing speed,Level 1.1 T1,ps_Level 1.1 T1,62,55,DI|FP
+Processing speed,Level 1.1 T2,ps_Level 1.1 T2,62,57,DI
+Processing speed,Level 1.1 Δ,ps_Level 1.1 Δ,62,52,NA
+Processing speed,Level 1.3 T1,ps_Level 1.3 T1,62,55,DI|FP
+Processing speed,Level 1.3 T2,ps_Level 1.3 T2,62,57,DI
+Processing speed,Level 1.3 Δ,ps_Level 1.3 Δ,62,52,NA
+Processing speed,Level 2.1 T1,ps_Level 2.1 T1,62,54,DI|FP
+Processing speed,Level 2.1 T2,ps_Level 2.1 T2,62,57,DI
+Processing speed,Level 2.1 Δ,ps_Level 2.1 Δ,62,51,NA
+Processing speed,Level 2.2 T1,ps_Level 2.2 T1,62,54,DI|FP
+Processing speed,Level 2.2 T2,ps_Level 2.2 T2,62,57,DI
+Processing speed,Level 2.2 Δ,ps_Level 2.2 Δ,62,51,NA
+Processing speed,col_14,ps_col_14,1,0,
+Verbal Fun,Matching T1,verbal_Matching T1,62,59,DI|FP
+Verbal Fun,Matching T2,verbal_Matching T2,62,58,DI|FP
+Verbal Fun,Matching Δ,verbal_Matching Δ,62,55,NA
+Verbal Fun,Rhyming T1,verbal_Rhyming T1,62,59,DI|FP
+Verbal Fun,Rhyming T2,verbal_Rhyming T2,62,58,DI|FP
+Verbal Fun,Rhyming Δ,verbal_Rhyming Δ,62,55,NA
+Motor,FT Interval T1,motor_FT Interval T1,62,60,DI
+Motor,FT Interval T2,motor_FT Interval T2,62,60,DI
+Motor,FT Interval Δ,motor_FT Interval Δ,62,58,NA
+Motor,FT interval sd T1,motor_FT interval sd T1,62,60,DI
+Motor,FT interval sd T2,motor_FT interval sd T2,62,60,DI
+Motor,FT interval sd Δ,motor_FT interval sd Δ,62,58,NA
+Motor,CG 1st  move T1,motor_CG 1st  move T1,62,61,DI
+Motor,CG 1st  move T2,motor_CG 1st  move T2,62,61,FP
+Motor,CG 1st  move Δ,motor_CG 1st  move Δ,62,60,NA

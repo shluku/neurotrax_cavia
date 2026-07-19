@@ -1,0 +1,3 @@
+patient_label,device_id,day_local,day_start_ms_utc,day_end_ms_utc,n_samples,signal_power,status
+2,60e31068-dd5d-4fab-8b27-13f1c90c8ec0,2025-06-23,1750636800000,1750723200000,8500,0.20566568335594487,ok
+2,717fb40c-9a84-4ce5-834a-ad48e5220a75,2025-06-07,1749254400000,1749340800000,0,,low_samples

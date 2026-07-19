@@ -1,0 +1,7 @@
+json_key,n_rows_with_key,value_type_counts
+before_text,20,string:20
+current_text,20,string:20
+device_id,20,string:20
+is_password,20,string:20
+package_name,20,string:20
+timestamp,20,integer:20

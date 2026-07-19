@@ -1,0 +1,11 @@
+table_name,number_of_patients_with_data,mapped_devices_with_data,mapped_devices_checked,source_status,coverage_method,error_message
+accelerometer,,,323,skipped_above_200gb,per_mapped_device_exists_query,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+aware_log,,,323,error,per_mapped_device_exists_query,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+barometer,,,323,error,per_mapped_device_exists_query,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+gravity,,,323,skipped_above_200gb,per_mapped_device_exists_query,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+gyroscope,,,323,skipped_above_200gb,per_mapped_device_exists_query,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+light,,,323,error,per_mapped_device_exists_query,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+linear_accelerometer,,,323,error,per_mapped_device_exists_query,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+magnetometer,,,323,error,per_mapped_device_exists_query,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+proximity,,,323,error,per_mapped_device_exists_query,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"
+rotation,,,323,skipped_above_200gb,per_mapped_device_exists_query,"3024 (HY000): Query execution was interrupted, maximum statement execution time exceeded"

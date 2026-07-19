@@ -1,0 +1,11 @@
+Subject_ID_N,Subject_ID_D,n_devices_for_subject,early_total_rows,late_total_rows,early_tables_with_data,late_tables_with_data,has_early_data,has_late_data,early_late_coverage_group
+13,030,3,218886,0,8,0,True,False,early_only
+3,001,1,21509,0,10,0,True,False,early_only
+40,062,3,17968,0,9,0,True,False,early_only
+41,074,2,0,0,0,0,False,False,no_early_or_late_data
+44,044,3,0,827,0,4,False,True,late_only
+68,024,2,20415,69409,10,7,True,True,early_and_late_data
+72,087,3,15723,0,9,0,True,False,early_only
+77,077,2,12200,8426,8,3,True,True,early_and_late_data
+82,093,1,38710,0,10,0,True,False,early_only
+86,095,2,66989,0,9,0,True,False,early_only

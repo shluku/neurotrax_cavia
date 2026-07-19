@@ -1,0 +1,15 @@
+table_name,early_total_rows,late_total_rows,early_subjects_with_data,late_subjects_with_data,subjects_with_both_early_and_late,early_devices_with_data,late_devices_with_data,total_rows_early_late,phenotype_domain_guess,readiness_status,recommended_next_action
+aware_log,272457,75625,8,2,2,8,2,348082,data_quality/system_log,high_priority_feature_candidate,extract baseline + early_late change features first
+touch,47620,0,8,0,0,8,0,47620,phone_interaction,baseline_only_candidate,extract baseline features now; postpone change features
+applications_foreground,26110,763,8,2,1,8,2,26873,phone_usage / app_use,high_priority_feature_candidate,extract baseline + early_late change features first
+gsm_neighbor,15870,5,5,1,1,5,1,15875,cellular_context / mobility_proxy,baseline_only_candidate,extract baseline features now; postpone change features
+keyboard,14653,51,8,2,1,8,2,14704,phone_interaction,high_priority_feature_candidate,extract baseline + early_late change features first
+plugin_google_activity_recognition,10328,2173,8,2,2,8,2,12501,activity_pattern,high_priority_feature_candidate,extract baseline + early_late change features first
+screen,8528,32,8,2,1,8,2,8560,phone_usage,high_priority_feature_candidate,extract baseline + early_late change features first
+telephony,8297,5,8,1,1,8,1,8302,social_communication,baseline_only_candidate,extract baseline features now; postpone change features
+gsm,8218,5,8,1,1,8,1,8223,cellular_context / mobility_proxy,baseline_only_candidate,extract baseline features now; postpone change features
+messages,319,0,4,0,0,4,0,319,social_communication,limited_candidate,keep optional; use only if clinically motivated
+locations,0,3,0,1,0,0,1,3,mobility,limited_candidate,keep optional; use only if clinically motivated
+battery,0,0,0,0,0,0,0,0,device_routine / data_quality,not_useful_current_poc,skip for current top10 poc
+calls,0,0,0,0,0,0,0,0,social_communication,not_useful_current_poc,skip for current top10 poc
+wifi,0,0,0,0,0,0,0,0,environment_context,not_useful_current_poc,skip for current top10 poc

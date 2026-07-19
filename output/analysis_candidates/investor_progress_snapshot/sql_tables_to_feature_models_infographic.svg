@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1960" viewBox="0 0 1700 1960">
+<defs>
+<linearGradient id="hero" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#17212b"/><stop offset="1" stop-color="#3b4b59"/></linearGradient>
+<style>.title{font-family:Arial Black,Arial,sans-serif;font-weight:900}.sans{font-family:Arial,Helvetica,sans-serif}.num{font-family:Impact,Arial Black,Arial,sans-serif}</style>
+</defs>
+<rect width="100%" height="100%" fill="#f6f4ef"/>
+<rect x="0" y="0" width="1700" height="138" fill="url(#hero)"/>
+<text x="64" y="60" class="title" font-size="38" fill="#ffffff">From dozens of SQL tables to digital biomarker features</text>
+<text x="64" y="102" class="sans" font-size="20" fill="#dbe3e7">Every raw table must be transformed before it can become a clinically interpretable feature family.</text>
+<rect x="64" y="174" width="285" height="112" rx="14" fill="#ffffff" stroke="#d8d3c8"/>
+<text x="84" y="208" class="sans" font-size="15" font-weight="800" fill="#4b5359">SQL tables tracked</text>
+<text x="84" y="259" class="num" font-size="46" fill="#28323a">44</text>
+<rect x="382" y="174" width="285" height="112" rx="14" fill="#ffffff" stroke="#d8d3c8"/>
+<text x="402" y="208" class="sans" font-size="15" font-weight="800" fill="#4b5359">Reviewed tables</text>
+<text x="402" y="259" class="num" font-size="46" fill="#28323a">10</text>
+<rect x="700" y="174" width="285" height="112" rx="14" fill="#ffffff" stroke="#d8d3c8"/>
+<text x="720" y="208" class="sans" font-size="15" font-weight="800" fill="#4b5359">Candidate features</text>
+<text x="720" y="259" class="num" font-size="46" fill="#28323a">69</text>
+<rect x="1018" y="174" width="285" height="112" rx="14" fill="#ffffff" stroke="#d8d3c8"/>
+<text x="1038" y="208" class="sans" font-size="15" font-weight="800" fill="#4b5359">Selected features</text>
+<text x="1038" y="259" class="num" font-size="46" fill="#28323a">29</text>
+<rect x="1336" y="174" width="285" height="112" rx="14" fill="#ffffff" stroke="#d8d3c8"/>
+<text x="1356" y="208" class="sans" font-size="15" font-weight="800" fill="#4b5359">Calculated values</text>
+<text x="1356" y="259" class="num" font-size="46" fill="#28323a">27</text>
+<rect x="64" y="326" width="1572" height="150" rx="16" fill="#edf0ed" stroke="#c6cec5"/>
+<text x="94" y="370" class="title" font-size="29" fill="#22272b">Each SensorDB table needs a dedicated extraction algorithm</text>
+<text x="94" y="410" class="sans" font-size="20" font-weight="700" fill="#22272b">before it can contribute reliable model features.</text>
+<text x="94" y="446" class="sans" font-size="15" fill="#626b73">This means table-by-table SQL logic, row interpretation, deduplication, privacy handling, feature calculation, and validation.</text>
+<rect x="64" y="520" width="640" height="1210" rx="14" fill="#ffffff" stroke="#d8d3c8"/>
+<text x="94" y="560" class="title" font-size="24" fill="#22272b">All SQL tables</text>
+<rect x="94" y="592" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="104" y="612" class="sans" font-size="12" font-weight="700" fill="#22272b">• accelerometer</text>
+<rect x="94" y="637" width="270" height="30" rx="7" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="104" y="657" class="sans" font-size="12" font-weight="700" fill="#22272b">✓ applications_foreground</text>
+<rect x="94" y="682" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="104" y="702" class="sans" font-size="12" font-weight="700" fill="#22272b">• aware_device</text>
+<rect x="94" y="727" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="104" y="747" class="sans" font-size="12" font-weight="700" fill="#22272b">• aware_log</text>
+<rect x="94" y="772" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="104" y="792" class="sans" font-size="12" font-weight="700" fill="#22272b">• aware_studies</text>
+<rect x="94" y="817" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="104" y="837" class="sans" font-size="12" font-weight="700" fill="#22272b">• barometer</text>
+<rect x="94" y="862" width="270" height="30" rx="7" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="104" y="882" class="sans" font-size="12" font-weight="700" fill="#22272b">✓ battery</text>
+<rect x="94" y="907" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="104" y="927" class="sans" font-size="12" font-weight="700" fill="#22272b">• battery_charges</text>
+<rect x="94" y="952" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="104" y="972" class="sans" font-size="12" font-weight="700" fill="#22272b">• battery_discharges</text>
+<rect x="94" y="997" width="270" height="30" rx="7" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="104" y="1017" class="sans" font-size="12" font-weight="700" fill="#22272b">✓ bluetooth</text>
+<rect x="94" y="1042" width="270" height="30" rx="7" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="104" y="1062" class="sans" font-size="12" font-weight="700" fill="#22272b">✓ calls</text>
+<rect x="94" y="1087" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="104" y="1107" class="sans" font-size="12" font-weight="700" fill="#22272b">• gravity</text>
+<rect x="94" y="1132" width="270" height="30" rx="7" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="104" y="1152" class="sans" font-size="12" font-weight="700" fill="#22272b">✓ gsm</text>
+<rect x="94" y="1177" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="104" y="1197" class="sans" font-size="12" font-weight="700" fill="#22272b">• gsm_neighbor</text>
+<rect x="94" y="1222" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="104" y="1242" class="sans" font-size="12" font-weight="700" fill="#22272b">• gyroscope</text>
+<rect x="94" y="1267" width="270" height="30" rx="7" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="104" y="1287" class="sans" font-size="12" font-weight="700" fill="#22272b">✓ keyboard</text>
+<rect x="94" y="1312" width="270" height="30" rx="7" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="104" y="1332" class="sans" font-size="12" font-weight="700" fill="#22272b">✓ light</text>
+<rect x="94" y="1357" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="104" y="1377" class="sans" font-size="12" font-weight="700" fill="#22272b">• linear_accelerometer</text>
+<rect x="94" y="1402" width="270" height="30" rx="7" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="104" y="1422" class="sans" font-size="12" font-weight="700" fill="#22272b">✓ locations</text>
+<rect x="94" y="1447" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="104" y="1467" class="sans" font-size="12" font-weight="700" fill="#22272b">• magnetometer</text>
+<rect x="94" y="1492" width="270" height="30" rx="7" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="104" y="1512" class="sans" font-size="12" font-weight="700" fill="#22272b">✓ messages</text>
+<rect x="94" y="1537" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="104" y="1557" class="sans" font-size="12" font-weight="700" fill="#22272b">• network</text>
+<rect x="394" y="592" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="612" class="sans" font-size="12" font-weight="700" fill="#22272b">• network_traffic</text>
+<rect x="394" y="637" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="657" class="sans" font-size="12" font-weight="700" fill="#22272b">• plugin_google_activity_recognition</text>
+<rect x="394" y="682" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="702" class="sans" font-size="12" font-weight="700" fill="#22272b">• proximity</text>
+<rect x="394" y="727" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="747" class="sans" font-size="12" font-weight="700" fill="#22272b">• rotation</text>
+<rect x="394" y="772" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="792" class="sans" font-size="12" font-weight="700" fill="#22272b">• screen</text>
+<rect x="394" y="817" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="837" class="sans" font-size="12" font-weight="700" fill="#22272b">• sensor_accelerometer</text>
+<rect x="394" y="862" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="882" class="sans" font-size="12" font-weight="700" fill="#22272b">• sensor_barometer</text>
+<rect x="394" y="907" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="927" class="sans" font-size="12" font-weight="700" fill="#22272b">• sensor_bluetooth</text>
+<rect x="394" y="952" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="972" class="sans" font-size="12" font-weight="700" fill="#22272b">• sensor_gravity</text>
+<rect x="394" y="997" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="1017" class="sans" font-size="12" font-weight="700" fill="#22272b">• sensor_gyroscope</text>
+<rect x="394" y="1042" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="1062" class="sans" font-size="12" font-weight="700" fill="#22272b">• sensor_light</text>
+<rect x="394" y="1087" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="1107" class="sans" font-size="12" font-weight="700" fill="#22272b">• sensor_linear_accelerometer</text>
+<rect x="394" y="1132" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="1152" class="sans" font-size="12" font-weight="700" fill="#22272b">• sensor_magnetometer</text>
+<rect x="394" y="1177" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="1197" class="sans" font-size="12" font-weight="700" fill="#22272b">• sensor_proximity</text>
+<rect x="394" y="1222" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="1242" class="sans" font-size="12" font-weight="700" fill="#22272b">• sensor_rotation</text>
+<rect x="394" y="1267" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="1287" class="sans" font-size="12" font-weight="700" fill="#22272b">• sensor_temperature</text>
+<rect x="394" y="1312" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="1332" class="sans" font-size="12" font-weight="700" fill="#22272b">• sensor_wifi</text>
+<rect x="394" y="1357" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="1377" class="sans" font-size="12" font-weight="700" fill="#22272b">• significant</text>
+<rect x="394" y="1402" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="1422" class="sans" font-size="12" font-weight="700" fill="#22272b">• telephony</text>
+<rect x="394" y="1447" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="1467" class="sans" font-size="12" font-weight="700" fill="#22272b">• timezone</text>
+<rect x="394" y="1492" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="1512" class="sans" font-size="12" font-weight="700" fill="#22272b">• touch</text>
+<rect x="394" y="1537" width="270" height="30" rx="7" fill="#f8f8f6" stroke="#e4e0d7"/>
+<text x="404" y="1557" class="sans" font-size="12" font-weight="700" fill="#22272b">• wifi</text>
+<rect x="744" y="520" width="892" height="1390" rx="14" fill="#ffffff" stroke="#d8d3c8"/>
+<rect x="762" y="538" width="856" height="52" rx="10" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="784" y="571" class="title" font-size="23" fill="#22272b">Selected features already defined</text>
+<text x="1364" y="571" class="sans" font-size="13" font-weight="800" fill="#626b73">29 selected features</text>
+<rect x="772" y="612" width="836" height="122" rx="10" fill="#ffffff" stroke="#e1ddd3"/>
+<rect x="772" y="612" width="836" height="30" rx="10" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="786" y="632" class="sans" font-size="14" font-weight="900" fill="#22272b">applications_foreground</text>
+<text x="1422" y="632" class="sans" font-size="11.5" fill="#626b73">3 selected / 3 calculated</text>
+<rect x="786" y="646" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="660" class="sans" font-size="11.2" fill="#22272b">• app_foreground_event_count</text>
+<rect x="786" y="670" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="684" class="sans" font-size="11.2" fill="#22272b">• unique_foreground_apps</text>
+<rect x="786" y="694" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="708" class="sans" font-size="11.2" fill="#22272b">• app_use_diversity</text>
+<rect x="772" y="746" width="836" height="98" rx="10" fill="#ffffff" stroke="#e1ddd3"/>
+<rect x="772" y="746" width="836" height="30" rx="10" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="786" y="766" class="sans" font-size="14" font-weight="900" fill="#22272b">battery</text>
+<text x="1422" y="766" class="sans" font-size="11.5" fill="#626b73">2 selected / 0 calculated</text>
+<rect x="786" y="780" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="794" class="sans" font-size="11.2" fill="#22272b">• low_battery_event_count</text>
+<rect x="786" y="804" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="818" class="sans" font-size="11.2" fill="#22272b">• charging_or_plugged_event_count</text>
+<rect x="772" y="856" width="836" height="98" rx="10" fill="#ffffff" stroke="#e1ddd3"/>
+<rect x="772" y="856" width="836" height="30" rx="10" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="786" y="876" class="sans" font-size="14" font-weight="900" fill="#22272b">bluetooth</text>
+<text x="1422" y="876" class="sans" font-size="11.5" fill="#626b73">2 selected / 2 calculated</text>
+<rect x="786" y="890" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="904" class="sans" font-size="11.2" fill="#22272b">• unique_bluetooth_addresses</text>
+<rect x="786" y="914" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="928" class="sans" font-size="11.2" fill="#22272b">• bluetooth_address_diversity_ratio</text>
+<rect x="772" y="966" width="836" height="170" rx="10" fill="#ffffff" stroke="#e1ddd3"/>
+<rect x="772" y="966" width="836" height="30" rx="10" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="786" y="986" class="sans" font-size="14" font-weight="900" fill="#22272b">calls</text>
+<text x="1422" y="986" class="sans" font-size="11.5" fill="#626b73">5 selected / 5 calculated</text>
+<rect x="786" y="1000" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1014" class="sans" font-size="11.2" fill="#22272b">• call_event_count</text>
+<rect x="786" y="1024" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1038" class="sans" font-size="11.2" fill="#22272b">• incoming_call_count</text>
+<rect x="786" y="1048" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1062" class="sans" font-size="11.2" fill="#22272b">• outgoing_call_count</text>
+<rect x="786" y="1072" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1086" class="sans" font-size="11.2" fill="#22272b">• missed_rejected_blocked_call_count</text>
+<rect x="786" y="1096" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1110" class="sans" font-size="11.2" fill="#22272b">• total_call_duration_seconds</text>
+<rect x="772" y="1148" width="836" height="122" rx="10" fill="#ffffff" stroke="#e1ddd3"/>
+<rect x="772" y="1148" width="836" height="30" rx="10" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="786" y="1168" class="sans" font-size="14" font-weight="900" fill="#22272b">gsm</text>
+<text x="1422" y="1168" class="sans" font-size="11.5" fill="#626b73">3 selected / 3 calculated</text>
+<rect x="786" y="1182" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1196" class="sans" font-size="11.2" fill="#22272b">• unique_gsm_cell_count</text>
+<rect x="786" y="1206" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1220" class="sans" font-size="11.2" fill="#22272b">• unique_gsm_lac_count</text>
+<rect x="786" y="1230" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1244" class="sans" font-size="11.2" fill="#22272b">• gsm_cell_transition_count</text>
+<rect x="772" y="1282" width="836" height="194" rx="10" fill="#ffffff" stroke="#e1ddd3"/>
+<rect x="772" y="1282" width="836" height="30" rx="10" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="786" y="1302" class="sans" font-size="14" font-weight="900" fill="#22272b">keyboard</text>
+<text x="1422" y="1302" class="sans" font-size="11.5" fill="#626b73">6 selected / 6 calculated</text>
+<rect x="786" y="1316" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1330" class="sans" font-size="11.2" fill="#22272b">• keyboard_median_inter_event_interval_ms</text>
+<rect x="786" y="1340" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1354" class="sans" font-size="11.2" fill="#22272b">• keyboard_inter_event_interval_iqr_ms</text>
+<rect x="786" y="1364" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1378" class="sans" font-size="11.2" fill="#22272b">• keyboard_long_pause_count_2s</text>
+<rect x="786" y="1388" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1402" class="sans" font-size="11.2" fill="#22272b">• keyboard_typing_burst_count</text>
+<rect x="786" y="1412" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1426" class="sans" font-size="11.2" fill="#22272b">• keyboard_median_word_completion_time_ms</text>
+<rect x="786" y="1436" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1450" class="sans" font-size="11.2" fill="#22272b">• keyboard_deletion_event_count</text>
+<rect x="772" y="1488" width="836" height="146" rx="10" fill="#ffffff" stroke="#e1ddd3"/>
+<rect x="772" y="1488" width="836" height="30" rx="10" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="786" y="1508" class="sans" font-size="14" font-weight="900" fill="#22272b">light</text>
+<text x="1422" y="1508" class="sans" font-size="11.5" fill="#626b73">4 selected / 4 calculated</text>
+<rect x="786" y="1522" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1536" class="sans" font-size="11.2" fill="#22272b">• median_light_lux</text>
+<rect x="786" y="1546" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1560" class="sans" font-size="11.2" fill="#22272b">• percent_dark_samples</text>
+<rect x="786" y="1570" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1584" class="sans" font-size="11.2" fill="#22272b">• night_mean_light_lux</text>
+<rect x="786" y="1594" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1608" class="sans" font-size="11.2" fill="#22272b">• light_lux_iqr</text>
+<rect x="772" y="1646" width="836" height="98" rx="10" fill="#ffffff" stroke="#e1ddd3"/>
+<rect x="772" y="1646" width="836" height="30" rx="10" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="786" y="1666" class="sans" font-size="14" font-weight="900" fill="#22272b">locations</text>
+<text x="1422" y="1666" class="sans" font-size="11.5" fill="#626b73">2 selected / 2 calculated</text>
+<rect x="786" y="1680" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1694" class="sans" font-size="11.2" fill="#22272b">• location_distinct_observation_count</text>
+<rect x="786" y="1704" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1718" class="sans" font-size="11.2" fill="#22272b">• location_total_distance_km</text>
+<rect x="772" y="1756" width="836" height="98" rx="10" fill="#ffffff" stroke="#e1ddd3"/>
+<rect x="772" y="1756" width="836" height="30" rx="10" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="786" y="1776" class="sans" font-size="14" font-weight="900" fill="#22272b">messages</text>
+<text x="1422" y="1776" class="sans" font-size="11.5" fill="#626b73">2 selected / 2 calculated</text>
+<rect x="786" y="1790" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1804" class="sans" font-size="11.2" fill="#22272b">• message_distinct_event_count</text>
+<rect x="786" y="1814" width="808" height="20" rx="5" fill="#faf9f5" stroke="#eee9de"/>
+<text x="796" y="1828" class="sans" font-size="11.2" fill="#22272b">• outgoing_message_count</text>
+</svg>

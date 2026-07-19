@@ -1,0 +1,11 @@
+json_key,n_rows_with_key,value_type_counts
+battery_adaptor,100,string:100
+battery_health,100,string:100
+battery_level,100,string:100
+battery_scale,100,string:100
+battery_status,100,string:100
+battery_technology,100,string:100
+battery_temperature,100,string:100
+battery_voltage,100,string:100
+device_id,100,string:100
+timestamp,100,integer:100

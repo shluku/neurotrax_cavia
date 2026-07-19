@@ -1,0 +1,177 @@
+table_name,column_name,data_type,column_type,is_nullable,column_key,ordinal_position,has_timestamp_column,has_device_id_column,has_data_json_column
+accelerometer,_id,int,int unsigned,NO,PRI,1,True,True,True
+accelerometer,timestamp,double,double,NO,MUL,2,True,True,True
+accelerometer,device_id,varchar,varchar(128),NO,,3,True,True,True
+accelerometer,data,json,json,NO,,4,True,True,True
+applications_foreground,_id,int,int unsigned,NO,PRI,1,True,True,True
+applications_foreground,timestamp,double,double,NO,MUL,2,True,True,True
+applications_foreground,device_id,varchar,varchar(128),NO,,3,True,True,True
+applications_foreground,data,json,json,NO,,4,True,True,True
+aware_device,_id,int,int unsigned,NO,PRI,1,True,True,True
+aware_device,timestamp,double,double,NO,MUL,2,True,True,True
+aware_device,device_id,varchar,varchar(128),NO,,3,True,True,True
+aware_device,data,json,json,NO,,4,True,True,True
+aware_log,_id,int,int unsigned,NO,PRI,1,True,True,True
+aware_log,timestamp,double,double,NO,MUL,2,True,True,True
+aware_log,device_id,varchar,varchar(128),NO,,3,True,True,True
+aware_log,data,json,json,NO,,4,True,True,True
+aware_studies,_id,int,int unsigned,NO,PRI,1,True,True,True
+aware_studies,timestamp,double,double,NO,MUL,2,True,True,True
+aware_studies,device_id,varchar,varchar(128),NO,,3,True,True,True
+aware_studies,data,json,json,NO,,4,True,True,True
+barometer,_id,int,int unsigned,NO,PRI,1,True,True,True
+barometer,timestamp,double,double,NO,MUL,2,True,True,True
+barometer,device_id,varchar,varchar(128),NO,,3,True,True,True
+barometer,data,json,json,NO,,4,True,True,True
+battery,_id,int,int unsigned,NO,PRI,1,True,True,True
+battery,timestamp,double,double,NO,MUL,2,True,True,True
+battery,device_id,varchar,varchar(128),NO,,3,True,True,True
+battery,data,json,json,NO,,4,True,True,True
+battery_charges,_id,int,int unsigned,NO,PRI,1,True,True,True
+battery_charges,timestamp,double,double,NO,MUL,2,True,True,True
+battery_charges,device_id,varchar,varchar(128),NO,,3,True,True,True
+battery_charges,data,json,json,NO,,4,True,True,True
+battery_discharges,_id,int,int unsigned,NO,PRI,1,True,True,True
+battery_discharges,timestamp,double,double,NO,MUL,2,True,True,True
+battery_discharges,device_id,varchar,varchar(128),NO,,3,True,True,True
+battery_discharges,data,json,json,NO,,4,True,True,True
+bluetooth,_id,int,int unsigned,NO,PRI,1,True,True,True
+bluetooth,timestamp,double,double,NO,MUL,2,True,True,True
+bluetooth,device_id,varchar,varchar(128),NO,,3,True,True,True
+bluetooth,data,json,json,NO,,4,True,True,True
+calls,_id,int,int unsigned,NO,PRI,1,True,True,True
+calls,timestamp,double,double,NO,MUL,2,True,True,True
+calls,device_id,varchar,varchar(128),NO,,3,True,True,True
+calls,data,json,json,NO,,4,True,True,True
+gravity,_id,int,int unsigned,NO,PRI,1,True,True,True
+gravity,timestamp,double,double,NO,MUL,2,True,True,True
+gravity,device_id,varchar,varchar(128),NO,,3,True,True,True
+gravity,data,json,json,NO,,4,True,True,True
+gsm,_id,int,int unsigned,NO,PRI,1,True,True,True
+gsm,timestamp,double,double,NO,MUL,2,True,True,True
+gsm,device_id,varchar,varchar(128),NO,,3,True,True,True
+gsm,data,json,json,NO,,4,True,True,True
+gsm_neighbor,_id,int,int unsigned,NO,PRI,1,True,True,True
+gsm_neighbor,timestamp,double,double,NO,MUL,2,True,True,True
+gsm_neighbor,device_id,varchar,varchar(128),NO,,3,True,True,True
+gsm_neighbor,data,json,json,NO,,4,True,True,True
+gyroscope,_id,int,int unsigned,NO,PRI,1,True,True,True
+gyroscope,timestamp,double,double,NO,MUL,2,True,True,True
+gyroscope,device_id,varchar,varchar(128),NO,,3,True,True,True
+gyroscope,data,json,json,NO,,4,True,True,True
+keyboard,_id,int,int unsigned,NO,PRI,1,True,True,True
+keyboard,timestamp,double,double,NO,MUL,2,True,True,True
+keyboard,device_id,varchar,varchar(128),NO,,3,True,True,True
+keyboard,data,json,json,NO,,4,True,True,True
+light,_id,int,int unsigned,NO,PRI,1,True,True,True
+light,timestamp,double,double,NO,MUL,2,True,True,True
+light,device_id,varchar,varchar(128),NO,,3,True,True,True
+light,data,json,json,NO,,4,True,True,True
+linear_accelerometer,_id,int,int unsigned,NO,PRI,1,True,True,True
+linear_accelerometer,timestamp,double,double,NO,MUL,2,True,True,True
+linear_accelerometer,device_id,varchar,varchar(128),NO,,3,True,True,True
+linear_accelerometer,data,json,json,NO,,4,True,True,True
+locations,_id,int,int unsigned,NO,PRI,1,True,True,True
+locations,timestamp,double,double,NO,MUL,2,True,True,True
+locations,device_id,varchar,varchar(128),NO,,3,True,True,True
+locations,data,json,json,NO,,4,True,True,True
+magnetometer,_id,int,int unsigned,NO,PRI,1,True,True,True
+magnetometer,timestamp,double,double,NO,MUL,2,True,True,True
+magnetometer,device_id,varchar,varchar(128),NO,,3,True,True,True
+magnetometer,data,json,json,NO,,4,True,True,True
+messages,_id,int,int unsigned,NO,PRI,1,True,True,True
+messages,timestamp,double,double,NO,MUL,2,True,True,True
+messages,device_id,varchar,varchar(128),NO,,3,True,True,True
+messages,data,json,json,NO,,4,True,True,True
+network,_id,int,int unsigned,NO,PRI,1,True,True,True
+network,timestamp,double,double,NO,MUL,2,True,True,True
+network,device_id,varchar,varchar(128),NO,,3,True,True,True
+network,data,json,json,NO,,4,True,True,True
+network_traffic,_id,int,int unsigned,NO,PRI,1,True,True,True
+network_traffic,timestamp,double,double,NO,MUL,2,True,True,True
+network_traffic,device_id,varchar,varchar(128),NO,,3,True,True,True
+network_traffic,data,json,json,NO,,4,True,True,True
+plugin_google_activity_recognition,_id,int,int unsigned,NO,PRI,1,True,True,True
+plugin_google_activity_recognition,timestamp,double,double,NO,MUL,2,True,True,True
+plugin_google_activity_recognition,device_id,varchar,varchar(128),NO,,3,True,True,True
+plugin_google_activity_recognition,data,json,json,NO,,4,True,True,True
+proximity,_id,int,int unsigned,NO,PRI,1,True,True,True
+proximity,timestamp,double,double,NO,MUL,2,True,True,True
+proximity,device_id,varchar,varchar(128),NO,,3,True,True,True
+proximity,data,json,json,NO,,4,True,True,True
+rotation,_id,int,int unsigned,NO,PRI,1,True,True,True
+rotation,timestamp,double,double,NO,MUL,2,True,True,True
+rotation,device_id,varchar,varchar(128),NO,,3,True,True,True
+rotation,data,json,json,NO,,4,True,True,True
+screen,_id,int,int unsigned,NO,PRI,1,True,True,True
+screen,timestamp,double,double,NO,MUL,2,True,True,True
+screen,device_id,varchar,varchar(128),NO,,3,True,True,True
+screen,data,json,json,NO,,4,True,True,True
+sensor_accelerometer,_id,int,int unsigned,NO,PRI,1,True,True,True
+sensor_accelerometer,timestamp,double,double,NO,MUL,2,True,True,True
+sensor_accelerometer,device_id,varchar,varchar(128),NO,,3,True,True,True
+sensor_accelerometer,data,json,json,NO,,4,True,True,True
+sensor_barometer,_id,int,int unsigned,NO,PRI,1,True,True,True
+sensor_barometer,timestamp,double,double,NO,MUL,2,True,True,True
+sensor_barometer,device_id,varchar,varchar(128),NO,,3,True,True,True
+sensor_barometer,data,json,json,NO,,4,True,True,True
+sensor_bluetooth,_id,int,int unsigned,NO,PRI,1,True,True,True
+sensor_bluetooth,timestamp,double,double,NO,MUL,2,True,True,True
+sensor_bluetooth,device_id,varchar,varchar(128),NO,,3,True,True,True
+sensor_bluetooth,data,json,json,NO,,4,True,True,True
+sensor_gravity,_id,int,int unsigned,NO,PRI,1,True,True,True
+sensor_gravity,timestamp,double,double,NO,MUL,2,True,True,True
+sensor_gravity,device_id,varchar,varchar(128),NO,,3,True,True,True
+sensor_gravity,data,json,json,NO,,4,True,True,True
+sensor_gyroscope,_id,int,int unsigned,NO,PRI,1,True,True,True
+sensor_gyroscope,timestamp,double,double,NO,MUL,2,True,True,True
+sensor_gyroscope,device_id,varchar,varchar(128),NO,,3,True,True,True
+sensor_gyroscope,data,json,json,NO,,4,True,True,True
+sensor_light,_id,int,int unsigned,NO,PRI,1,True,True,True
+sensor_light,timestamp,double,double,NO,MUL,2,True,True,True
+sensor_light,device_id,varchar,varchar(128),NO,,3,True,True,True
+sensor_light,data,json,json,NO,,4,True,True,True
+sensor_linear_accelerometer,_id,int,int unsigned,NO,PRI,1,True,True,True
+sensor_linear_accelerometer,timestamp,double,double,NO,MUL,2,True,True,True
+sensor_linear_accelerometer,device_id,varchar,varchar(128),NO,,3,True,True,True
+sensor_linear_accelerometer,data,json,json,NO,,4,True,True,True
+sensor_magnetometer,_id,int,int unsigned,NO,PRI,1,True,True,True
+sensor_magnetometer,timestamp,double,double,NO,MUL,2,True,True,True
+sensor_magnetometer,device_id,varchar,varchar(128),NO,,3,True,True,True
+sensor_magnetometer,data,json,json,NO,,4,True,True,True
+sensor_proximity,_id,int,int unsigned,NO,PRI,1,True,True,True
+sensor_proximity,timestamp,double,double,NO,MUL,2,True,True,True
+sensor_proximity,device_id,varchar,varchar(128),NO,,3,True,True,True
+sensor_proximity,data,json,json,NO,,4,True,True,True
+sensor_rotation,_id,int,int unsigned,NO,PRI,1,True,True,True
+sensor_rotation,timestamp,double,double,NO,MUL,2,True,True,True
+sensor_rotation,device_id,varchar,varchar(128),NO,,3,True,True,True
+sensor_rotation,data,json,json,NO,,4,True,True,True
+sensor_temperature,_id,int,int unsigned,NO,PRI,1,True,True,True
+sensor_temperature,timestamp,double,double,NO,MUL,2,True,True,True
+sensor_temperature,device_id,varchar,varchar(128),NO,,3,True,True,True
+sensor_temperature,data,json,json,NO,,4,True,True,True
+sensor_wifi,_id,int,int unsigned,NO,PRI,1,True,True,True
+sensor_wifi,timestamp,double,double,NO,MUL,2,True,True,True
+sensor_wifi,device_id,varchar,varchar(128),NO,,3,True,True,True
+sensor_wifi,data,json,json,NO,,4,True,True,True
+significant,_id,int,int unsigned,NO,PRI,1,True,True,True
+significant,timestamp,double,double,NO,MUL,2,True,True,True
+significant,device_id,varchar,varchar(128),NO,,3,True,True,True
+significant,data,json,json,NO,,4,True,True,True
+telephony,_id,int,int unsigned,NO,PRI,1,True,True,True
+telephony,timestamp,double,double,NO,MUL,2,True,True,True
+telephony,device_id,varchar,varchar(128),NO,,3,True,True,True
+telephony,data,json,json,NO,,4,True,True,True
+timezone,_id,int,int unsigned,NO,PRI,1,True,True,True
+timezone,timestamp,double,double,NO,MUL,2,True,True,True
+timezone,device_id,varchar,varchar(128),NO,,3,True,True,True
+timezone,data,json,json,NO,,4,True,True,True
+touch,_id,int,int unsigned,NO,PRI,1,True,True,True
+touch,timestamp,double,double,NO,MUL,2,True,True,True
+touch,device_id,varchar,varchar(128),NO,,3,True,True,True
+touch,data,json,json,NO,,4,True,True,True
+wifi,_id,int,int unsigned,NO,PRI,1,True,True,True
+wifi,timestamp,double,double,NO,MUL,2,True,True,True
+wifi,device_id,varchar,varchar(128),NO,,3,True,True,True
+wifi,data,json,json,NO,,4,True,True,True

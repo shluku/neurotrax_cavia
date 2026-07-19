@@ -1,0 +1,2 @@
+Subject_ID_D,Subject_ID_N,device_id,transition_index,start_local,end_local,duration_seconds,elevation_delta_m,direction
+045,51,fdce7e53-e549-45b0-a477-8c300329c656,1,2025-07-10 10:36:07+0300,2025-07-10 17:01:02+0300,23095.0,21.351376024528943,upward

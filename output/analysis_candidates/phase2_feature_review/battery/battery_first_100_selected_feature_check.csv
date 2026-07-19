@@ -1,0 +1,2 @@
+table_name,sample_context,device_id,rows_sampled,first_local_datetime,last_local_datetime,low_battery_threshold_percent,low_battery_event_count,charging_or_plugged_event_count,usable_battery_level_rows,usable_charging_status_rows,interpretation_scope
+battery,general_first_100_existing_rows_not_clinically_anchored,fdce7e53-e549-45b0-a477-8c300329c656,100,2025-07-10 10:22:44+0300,2025-07-11 00:42:59+0300,20,0,53,100,100,manual_inspection_only_not_patient_level

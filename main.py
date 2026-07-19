@@ -6,6 +6,18 @@ from typing import Optional
 import mysql.connector
 
 
+def load_local_env(path: Path = Path(".env")) -> None:
+    """Load simple KEY=VALUE pairs from a local .env file if present."""
+    if not path.exists():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        os.environ.setdefault(key.strip(), value.strip())
+
+
 def connect_sensordata_db(
     host: Optional[str] = None,
     port: Optional[int] = None,
@@ -14,6 +26,7 @@ def connect_sensordata_db(
     password: Optional[str] = None,
 ):
     """Return a MySQL connection to the sensordata database."""
+    load_local_env()
     resolved_host = host or os.getenv("DB_HOST")
     resolved_database = database or os.getenv("DB_NAME", "sensordata")
     resolved_user = user or os.getenv("DB_USER")

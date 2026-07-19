@@ -93,3 +93,16 @@ Important interpretation rules:
 ## Possible Future Derived Features
 
 If `calls` features are selected later, use only aggregate values and document the exact handling of zero-duration calls and `call_type` codes.
+
+## Global Coverage Summary
+
+This compact summary describes global `calls` availability across the SensorDB table, mapped back to the current study device map.
+
+- Devices with `calls` rows: `123`
+- Mapped study patients with `calls` rows: `45`
+- Mapped devices with rows: `54`
+- Unmapped devices with rows: `69`
+- Rows mapped to study patients: `25,655`
+- Rows on unmapped devices: `940`
+
+Protocol note: this is a global table-coverage summary for Phase 2A planning. It is not feature extraction, not a T1-window phenotype result, and missing data is not interpreted as zero activity.

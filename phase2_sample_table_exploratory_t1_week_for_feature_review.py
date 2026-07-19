@@ -19,6 +19,27 @@ COGNITIVE_CANDIDATES_PATH = ROOT / "output/analysis_candidates/cognitive_candida
 LABEL_DEVICE_MAP_PATH = ROOT / "output/label_device_map.csv"
 SAFE_TABLE_RE = re.compile(r"^[A-Za-z0-9_]+$")
 EXCLUDED_EXPLORATORY_SUBJECTS = {"001"}
+SENSITIVE_KEY_PARTS = {
+    "text",
+    "current_text",
+    "before_text",
+    "message",
+    "body",
+    "phone",
+    "number",
+    "line_number",
+    "subscriber",
+    "imei",
+    "imei_meid_esn",
+    "sim_serial",
+    "contact",
+    "email",
+    "address",
+    "name",
+    "ssid",
+    "bssid",
+}
+SENSITIVE_REDACTION = "[REDACTED_SENSITIVE_FIELD]"
 
 
 def normalize_subject_id_d(value: Any) -> str:
@@ -66,6 +87,37 @@ def value_type(value: Any) -> str:
     return type(value).__name__
 
 
+def is_sensitive_key(key: Any) -> bool:
+    key_text = str(key).strip().lower()
+    if key_text in {"application_name", "message_type", "activity_name", "sensor_name"}:
+        return False
+    return any(part in key_text for part in SENSITIVE_KEY_PARTS)
+
+
+def sanitize_value(key: Any, value: Any) -> Any:
+    if is_sensitive_key(key):
+        return SENSITIVE_REDACTION
+    if isinstance(value, dict):
+        return {str(k): sanitize_value(k, v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [sanitize_value(key, item) for item in value]
+    return value
+
+
+def sanitize_row(row: dict[str, Any]) -> dict[str, Any]:
+    clean = {}
+    for key, value in row.items():
+        if str(key) == "data":
+            obj = parse_json(value)
+            if obj is not None:
+                clean[key] = json.dumps({str(k): sanitize_value(k, v) for k, v in obj.items()}, ensure_ascii=False)
+            else:
+                clean[key] = SENSITIVE_REDACTION if is_sensitive_key(key) else value
+            continue
+        clean[key] = sanitize_value(key, value)
+    return clean
+
+
 def ms_to_local(ms: Any) -> str:
     ts = pd.to_numeric(ms, errors="coerce")
     if pd.isna(ts):
@@ -107,10 +159,23 @@ def load_ranked_patients() -> pd.DataFrame:
 def load_device_map() -> dict[str, list[str]]:
     label_map = pd.read_csv(LABEL_DEVICE_MAP_PATH, dtype=str)
     out: dict[str, list[str]] = {}
+    exact_label_seen: set[str] = set()
     for _, row in label_map.iterrows():
-        subject_id = normalize_subject_id_d(row.get("label"))
-        raw = str(row.get("device_ids", ""))
-        out[subject_id] = [x.strip() for x in raw.split(";") if x.strip() and x.strip().lower() != "nan"]
+        raw_label = "" if pd.isna(row.get("label")) else str(row.get("label")).strip()
+        subject_id = normalize_subject_id_d(raw_label)
+        if not subject_id or subject_id.lower() in {"nan", "none"}:
+            continue
+        is_exact_three_digit_label = raw_label.isdigit() and len(raw_label) == 3
+        if subject_id in exact_label_seen and not is_exact_three_digit_label:
+            continue
+        raw = "" if pd.isna(row.get("device_ids")) else str(row.get("device_ids", ""))
+        out[subject_id] = [
+            x.strip()
+            for x in raw.split(";")
+            if x.strip() and x.strip().lower() not in {"nan", "none"}
+        ]
+        if is_exact_three_digit_label:
+            exact_label_seen.add(subject_id)
     return out
 
 
@@ -333,11 +398,12 @@ def write_outputs(table_name: str, columns: list[str], window: dict[str, Any] | 
     expanded_out = []
     key_counts: dict[str, Counter[str]] = defaultdict(Counter)
     for index, row in enumerate(rows, start=1):
-        out = dict(row)
+        out = sanitize_row(dict(row))
         out["sample_index"] = index
         out["local_datetime"] = ms_to_local(row.get("timestamp"))
         sample_out.append(out)
         obj = parse_json(row.get("data"))
+        sanitized_obj = {str(key): sanitize_value(key, value) for key, value in obj.items()} if obj else {}
         expanded = {
             "sample_index": index,
             "_id": row.get("_id"),
@@ -349,7 +415,7 @@ def write_outputs(table_name: str, columns: list[str], window: dict[str, Any] | 
         if obj:
             for key, value in obj.items():
                 key_counts[str(key)][value_type(value)] += 1
-                expanded[str(key)] = value
+                expanded[str(key)] = sanitized_obj.get(str(key))
         expanded_out.append(expanded)
 
     pd.DataFrame(sample_out).to_csv(sample_path, index=False)

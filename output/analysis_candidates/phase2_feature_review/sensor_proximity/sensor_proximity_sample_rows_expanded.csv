@@ -1,0 +1,21 @@
+sample_index,_id,timestamp,local_datetime,device_id,sample_context,sensor_name,sensor_type,sensor_vendor,sensor_version,double_sensor_power_ma,double_sensor_resolution,double_sensor_maximum_range,double_sensor_minimum_delay
+1,19,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+2,34,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+3,587,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+4,643,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+5,692,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+6,742,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+7,795,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+8,851,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+9,905,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+10,958,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+11,1015,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+12,1069,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+13,1123,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+14,1185,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+15,1239,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+16,1295,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+17,1358,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+18,1412,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+19,1474,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0
+20,1534,1736320048052,2025-01-08 09:07:28+0200,d74f7acf-f82f-491d-90b9-d7321e6d4bcf,phase2a_t1_ranked_24h_t1_week_review_sample,proximity-tcs3701,8,ams,1,0.75,5,5,0

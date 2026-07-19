@@ -1,0 +1,8 @@
+json_key,n_rows_with_key,value_type_counts
+bit_error_rate,20,string:20
+cid,20,string:20
+device_id,20,string:20
+lac,20,string:20
+psc,20,string:20
+signal_strength,20,string:20
+timestamp,20,integer:20

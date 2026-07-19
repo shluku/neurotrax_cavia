@@ -1,0 +1,666 @@
+{
+  "aware_log": {
+    "device_id": [
+      "\"4870fb6a-a6a6-458d-aba8-56ed070c200e\""
+    ],
+    "timestamp": [
+      "1743325072850",
+      "1743325072862",
+      "1743325073674",
+      "1743325073796",
+      "1743325073835",
+      "1743325073836",
+      "1743325073848",
+      "1743325073853",
+      "1743325073857",
+      "1743325073858",
+      "1743325073862",
+      "1743325073863",
+      "1743325073872",
+      "1743325073874",
+      "1743325074198",
+      "1743325074209",
+      "1743325074258",
+      "1743325074281",
+      "1743325074296",
+      "1743325074308"
+    ],
+    "log_message": [
+      "\"Scheduler triggered: schedule_aware_keep_alive schedule: {\\\"schedule\\\":{\\\"schedule_id\\\":\\\"schedule_aware_keep_alive\\\",\\\"action\\\":{\\\"type\\\":\\\"service\\\",\\\"intent_action\\\":\\\"ACTION_AWARE_KEEP_ALIVE\\\",\\\"class\\\":\\\"com.aware.phone\\\\/com.aware.Aware\\\"},\\\"trigger\\\":{\\\"interval\\\":30,\\\"random\\\":{},\\\"context\\\":[],\\\"condition\\\":[],\\\"hour\\\":[],\\\"minute\\\":[],\\\"month\\\":[],\\\"weekday\\\":[]}}} package: com.aware.phone\"",
+      "\"Scheduler triggered: schedule_aware_study_compliance schedule: {\\\"schedule\\\":{\\\"schedule_id\\\":\\\"schedule_aware_study_compliance\\\",\\\"action\\\":{\\\"type\\\":\\\"service\\\",\\\"intent_action\\\":\\\"ACTION_AWARE_STUDY_COMPLIANCE\\\",\\\"class\\\":\\\"com.aware.phone\\\\/com.aware.Aware\\\"},\\\"trigger\\\":{\\\"interval\\\":10,\\\"random\\\":{},\\\"context\\\":[],\\\"condition\\\":[],\\\"hour\\\":[],\\\"minute\\\":[],\\\"month\\\":[],\\\"weekday\\\":[]}}} package: com.aware.phone\"",
+      "\"STUDY-SYNC: aware_device\"",
+      "\"{\\\"internet\\\":true,\\\"wifi\\\":true,\\\"bt\\\":true,\\\"network\\\":true,\\\"airplane\\\":false,\\\"roaming\\\":false,\\\"location_gps\\\":true,\\\"location_network\\\":true}\"",
+      "\"STUDY-SYNC: screen\"",
+      "\"STUDY-SYNC: sensor_accelerometer\"",
+      "\"STUDY-SYNC: calls\"",
+      "\"STUDY-SYNC: sensor_gyroscope\"",
+      "\"STUDY-SYNC: sensor_rotation\"",
+      "\"STUDY-SYNC: sensor_light\"",
+      "\"STUDY-SYNC: keyboard\"",
+      "\"STUDY-SYNC: telephony\"",
+      "\"STUDY-SYNC: sensor_proximity\"",
+      "\"STUDY-SYNC: sensor_gravity\"",
+      "\"STUDY-SYNC: gsm\"",
+      "\"STUDY-SYNC: messages\"",
+      "\"{\\\"table\\\":\\\"aware_device\\\",\\\"last_sync_timestamp\\\":1743325046197}\"",
+      "\"{\\\"table\\\":\\\"sensor_accelerometer\\\",\\\"last_sync_timestamp\\\":1743325072887}\"",
+      "\"STUDY-SYNC: aware_studies\"",
+      "\"{\\\"table\\\":\\\"screen\\\",\\\"last_sync_timestamp\\\":1743325072941}\""
+    ]
+  },
+  "aware_device": {
+    "sdk": [
+      "\"35\""
+    ],
+    "board": [
+      "\"houji\""
+    ],
+    "brand": [
+      "\"Xiaomi\""
+    ],
+    "label": [
+      "\"074\""
+    ],
+    "model": [
+      "\"23127PN0CG\""
+    ],
+    "device": [
+      "\"houji\""
+    ],
+    "serial": [
+      "\"unknown\""
+    ],
+    "product": [
+      "\"houji_global\""
+    ],
+    "release": [
+      "\"15\""
+    ],
+    "build_id": [
+      "\"AQ3A.240627.003\""
+    ],
+    "hardware": [
+      "\"qcom\""
+    ],
+    "device_id": [
+      "\"4870fb6a-a6a6-458d-aba8-56ed070c200e\""
+    ],
+    "timestamp": [
+      "1743325046197"
+    ],
+    "manufacturer": [
+      "\"Xiaomi\""
+    ],
+    "release_type": [
+      "\"user\""
+    ]
+  },
+  "battery": {
+    "device_id": [
+      "\"c3b613d0-daa4-4d16-b116-1dcf30024a39\""
+    ],
+    "timestamp": [
+      "1744033165511",
+      "1744181962432",
+      "1745491003013",
+      "1747656708332",
+      "1748192824149",
+      "1748724379881",
+      "1750149255083",
+      "1750353152774",
+      "1751834195599",
+      "1752610894279"
+    ],
+    "battery_level": [
+      "\"46\"",
+      "\"35\"",
+      "\"100\"",
+      "\"47\"",
+      "\"54\"",
+      "\"76\"",
+      "\"20\"",
+      "\"73\"",
+      "\"33\"",
+      "\"18\""
+    ],
+    "battery_scale": [
+      "\"100\""
+    ],
+    "battery_health": [
+      "\"2\""
+    ],
+    "battery_status": [
+      "\"-3\""
+    ],
+    "battery_adaptor": [
+      "\"1\"",
+      "\"0\""
+    ],
+    "battery_voltage": [
+      "\"3641\"",
+      "\"3656\"",
+      "\"4284\"",
+      "\"3815\"",
+      "\"3440\"",
+      "\"4161\"",
+      "\"3346\"",
+      "\"3926\"",
+      "\"3334\"",
+      "\"4009\""
+    ],
+    "battery_technology": [
+      "\"Li-poly\""
+    ],
+    "battery_temperature": [
+      "\"37\"",
+      "\"38\"",
+      "\"31\"",
+      "\"39\"",
+      "\"33\""
+    ]
+  },
+  "screen": {
+    "device_id": [
+      "\"4870fb6a-a6a6-458d-aba8-56ed070c200e\""
+    ],
+    "timestamp": [
+      "1743325072931",
+      "1743325072941",
+      "1743325243273",
+      "1743325243279",
+      "1743325258001",
+      "1743325258010",
+      "1743326233607",
+      "1743326233922",
+      "1743326245035"
+    ],
+    "screen_status": [
+      "\"1\"",
+      "\"3\"",
+      "\"0\"",
+      "\"2\""
+    ]
+  },
+  "wifi": {
+    "rssi": [
+      "\"0\""
+    ],
+    "ssid": [
+      "\"\""
+    ],
+    "bssid": [
+      "\"\""
+    ],
+    "label": [
+      "\"disabled\""
+    ],
+    "security": [
+      "\"\""
+    ],
+    "device_id": [
+      "\"444ce4c5-7ef7-4be0-a6f6-58e98a35ca12\""
+    ],
+    "frequency": [
+      "\"0\""
+    ],
+    "timestamp": [
+      "1753079230057",
+      "1753079234971",
+      "1753079287342",
+      "1753079347532",
+      "1753079407757",
+      "1753079468050"
+    ]
+  },
+  "calls": {
+    "trace": [
+      "\"f89b1a2e031356b0f6c9337f09417c61fdbb1a99\"",
+      "\"129456eef4ea52c13e1809d6988859a4b6cb6758\"",
+      "\"f556a176967e4f6e9fd3e1cd296d9b361f46d64b\"",
+      "\"4e2297c7bb872ff58594136ba5ecaf73b26ad8ad\"",
+      "\"f534f7cd83f162c0fb2fe99f98301d0582aad2a9\""
+    ],
+    "call_type": [
+      "\"1\"",
+      "\"2\"",
+      "\"3\""
+    ],
+    "device_id": [
+      "\"6faf770c-e0bf-4100-9b63-c6167630c854\"",
+      "\"ea530d49-d351-4456-8892-510264486b17\""
+    ],
+    "timestamp": [
+      "1754294565132",
+      "1752077942160",
+      "1752079162941",
+      "1752126881306",
+      "1752126916664",
+      "1752140982425",
+      "1752143308001"
+    ],
+    "call_duration": [
+      "\"122\"",
+      "\"1040\"",
+      "\"0\"",
+      "\"59\"",
+      "\"582\"",
+      "\"698\""
+    ]
+  },
+  "messages": {
+    "trace": [
+      "\"09f4d3fa2ec3e109e9806a3a32b196038336603c\"",
+      "\"5a49662cb89f53be3dfa6eb9763dcfc9532b2b02\"",
+      "\"4d2dffaa6e4803fadfc3d0439abc898838340572\"",
+      "\"fab9fa5af6726f4fbc7c7dbc87a28acfc40a63e9\""
+    ],
+    "device_id": [
+      "\"4870fb6a-a6a6-458d-aba8-56ed070c200e\""
+    ],
+    "timestamp": [
+      "1743326859147",
+      "1745140398223",
+      "1746943626661",
+      "1747545326541"
+    ],
+    "message_type": [
+      "\"1\""
+    ]
+  },
+  "locations": {
+    "label": [
+      "\"\""
+    ],
+    "accuracy": [
+      "\"12.9421\"",
+      "\"206.692\"",
+      "\"97.282\"",
+      "\"260.213\"",
+      "\"48.1386\"",
+      "\"223.416\"",
+      "\"166.695\"",
+      "\"15.5833\"",
+      "\"46.8462\"",
+      "\"33.2251\"",
+      "\"184.041\"",
+      "\"148.32\"",
+      "\"254.972\"",
+      "\"109.31\"",
+      "\"179.945\"",
+      "\"39.6\"",
+      "\"1500\"",
+      "\"41.9817\"",
+      "\"56.0223\"",
+      "\"41.2977\""
+    ],
+    "provider": [
+      "\"gps\"",
+      "\"network\""
+    ],
+    "device_id": [
+      "\"6faf770c-e0bf-4100-9b63-c6167630c854\""
+    ],
+    "timestamp": [
+      "1752135897727",
+      "1752139151580",
+      "1752142008038",
+      "1752160862066",
+      "1752164693587",
+      "1752177404948",
+      "1752178228025",
+      "1752186529982",
+      "1752212269063",
+      "1752222672000",
+      "1752245276942",
+      "1752249945336",
+      "1752250705910",
+      "1752250895917",
+      "1752274737773",
+      "1752275948812",
+      "1752275951410",
+      "1752304065499",
+      "1752306470358",
+      "1752309788472"
+    ],
+    "double_speed": [
+      "0.6899999976158142",
+      "0",
+      "0.18000000715255737",
+      "0.949999988079071",
+      "0.4300000071525574",
+      "1.7000000476837158",
+      "1.6299999952316284",
+      "3.109999895095825"
+    ],
+    "double_bearing": [
+      "255.6999969482422",
+      "0",
+      "324.3999938964844",
+      "304.8999938964844",
+      "238.6000061035156",
+      "273",
+      "279.5",
+      "2.700000047683716"
+    ],
+    "double_altitude": [
+      "353.302978515625",
+      "340.5120849609375",
+      "325.45361328125",
+      "362.9879150390625",
+      "344.0352783203125",
+      "342.7578125",
+      "374.3223876953125",
+      "908.9930419921876",
+      "331.6053466796875",
+      "312.91259765625",
+      "347.36749267578125",
+      "810.203125",
+      "297.16046142578125",
+      "302.0751953125",
+      "328.88623046875",
+      "341.8000183105469",
+      "0",
+      "386.315673828125",
+      "1023.34326171875",
+      "1006.184326171875"
+    ],
+    "double_latitude": [
+      "31.36392917",
+      "31.36361061",
+      "31.36372855",
+      "31.36373553",
+      "31.36362801",
+      "31.36341757",
+      "31.3635774",
+      "31.71716965",
+      "31.36317162",
+      "31.36371619",
+      "31.36378213",
+      "31.36502428",
+      "31.36342177",
+      "31.3633549",
+      "31.36376729",
+      "31.3638969",
+      "31.3711518",
+      "31.36365023",
+      "31.71705377",
+      "31.7171569"
+    ],
+    "double_longitude": [
+      "34.81607257",
+      "34.81581218",
+      "34.81574985",
+      "34.81629798",
+      "34.81584249",
+      "34.81560176",
+      "34.81574077",
+      "35.99955239",
+      "34.81567975",
+      "34.81595935",
+      "34.8160946",
+      "34.81468067",
+      "34.8160809",
+      "34.81570453",
+      "34.81601022",
+      "34.8161534",
+      "34.8094596",
+      "34.81547996",
+      "35.99920519",
+      "35.99933704"
+    ]
+  },
+  "applications_foreground": {
+    "device_id": [
+      "\"4870fb6a-a6a6-458d-aba8-56ed070c200e\""
+    ],
+    "timestamp": [
+      "1743325074320"
+    ],
+    "package_name": [
+      "\"com.aware.phone\""
+    ],
+    "is_system_app": [
+      "\"0\""
+    ],
+    "application_name": [
+      "\"CAVIA\""
+    ]
+  },
+  "keyboard": {
+    "device_id": [
+      "\"4870fb6a-a6a6-458d-aba8-56ed070c200e\""
+    ],
+    "timestamp": [
+      "1743325161331"
+    ],
+    "before_text": [
+      "\"\""
+    ],
+    "is_password": [
+      "\"0\""
+    ],
+    "current_text": [
+      "\"[a]\""
+    ],
+    "package_name": [
+      "\"com.android.settings\""
+    ]
+  },
+  "touch": {
+    "device_id": [
+      "\"4870fb6a-a6a6-458d-aba8-56ed070c200e\""
+    ],
+    "timestamp": [
+      "1743325078530"
+    ],
+    "touch_app": [
+      "\"com.miui.securitycenter\""
+    ],
+    "scroll_items": [
+      "\"-1\""
+    ],
+    "touch_action": [
+      "\"ACTION_AWARE_TOUCH_CLICKED\""
+    ],
+    "scroll_to_index": [
+      "\"-1\""
+    ],
+    "scroll_from_index": [
+      "\"-1\""
+    ],
+    "touch_action_text": [
+      "\"[]\""
+    ]
+  },
+  "telephony": {
+    "device_id": [
+      "\"4870fb6a-a6a6-458d-aba8-56ed070c200e\""
+    ],
+    "sim_state": [
+      "\"5\""
+    ],
+    "timestamp": [
+      "1743325074200",
+      "1743325074260",
+      "1743325075030",
+      "1743325078711",
+      "1743325078758",
+      "1743325105306",
+      "1743325134652",
+      "1743325143924",
+      "1743325243795"
+    ],
+    "phone_type": [
+      "\"1\""
+    ],
+    "sim_serial": [
+      "\"\""
+    ],
+    "line_number": [
+      "\"2876cded74c58537176f252dce8ad1b50c1cfb5c\""
+    ],
+    "data_enabled": [
+      "\"2\""
+    ],
+    "network_type": [
+      "\"13\""
+    ],
+    "imei_meid_esn": [
+      "\"\""
+    ],
+    "subscriber_id": [
+      "\"\""
+    ],
+    "software_version": [
+      "\"00\""
+    ],
+    "sim_operator_code": [
+      "\"42502\""
+    ],
+    "sim_operator_name": [
+      "\"Cellcom\""
+    ],
+    "network_operator_code": [
+      "\"42502\""
+    ],
+    "network_operator_name": [
+      "\"Cellcom IL\""
+    ],
+    "network_country_iso_mcc": [
+      "\"il\""
+    ]
+  },
+  "gsm": {
+    "cid": [
+      "\"3949591\"",
+      "\"-1\"",
+      "\"3949601\"",
+      "\"3538966\""
+    ],
+    "lac": [
+      "\"923\"",
+      "\"65535\""
+    ],
+    "psc": [
+      "\"0\""
+    ],
+    "device_id": [
+      "\"4870fb6a-a6a6-458d-aba8-56ed070c200e\""
+    ],
+    "timestamp": [
+      "1743325074184",
+      "1743325074254",
+      "1743325075029",
+      "1743325078699",
+      "1743325078756",
+      "1743325105236",
+      "1743325134624",
+      "1743325143911",
+      "1743325243777"
+    ],
+    "bit_error_rate": [
+      "\"2147483647\""
+    ],
+    "signal_strength": [
+      "\"99\""
+    ]
+  },
+  "gsm_neighbor": {
+    "cid": [
+      "\"-1\""
+    ],
+    "lac": [
+      "\"-1\""
+    ],
+    "psc": [
+      "\"233\"",
+      "\"274\"",
+      "\"275\"",
+      "\"234\"",
+      "\"70\""
+    ],
+    "device_id": [
+      "\"4870fb6a-a6a6-458d-aba8-56ed070c200e\""
+    ],
+    "timestamp": [
+      "1743325243777",
+      "1743326254249"
+    ],
+    "signal_strength": [
+      "\"2\"",
+      "\"0\"",
+      "\"1\"",
+      "\"8\"",
+      "\"7\"",
+      "\"3\""
+    ]
+  },
+  "plugin_google_activity_recognition": {
+    "device_id": [
+      "\"4870fb6a-a6a6-458d-aba8-56ed070c200e\""
+    ],
+    "timestamp": [
+      "1743325121630",
+      "1743325189249",
+      "1743325189276",
+      "1743325241718",
+      "1743325309337",
+      "1743325376952",
+      "1743325444539",
+      "1743326352964",
+      "1743326364962",
+      "1743328122131",
+      "1743329272043",
+      "1743329333806",
+      "1743329393829",
+      "1743329453906",
+      "1743329513951",
+      "1743329574013",
+      "1743329625481",
+      "1743329686835",
+      "1743329686866",
+      "1743329746906"
+    ],
+    "activities": [
+      "\"[{\\\"activity\\\":\\\"unknown\\\",\\\"confidence\\\":40},{\\\"activity\\\":\\\"in_vehicle\\\",\\\"confidence\\\":10},{\\\"activity\\\":\\\"on_bicycle\\\",\\\"confidence\\\":10},{\\\"activity\\\":\\\"on_foot\\\",\\\"confidence\\\":10},{\\\"activity\\\":\\\"walking\\\",\\\"confidence\\\":10},{\\\"activity\\\":\\\"running\\\",\\\"confidence\\\":10},{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":10}]\"",
+      "\"[{\\\"activity\\\":\\\"tilting\\\",\\\"confidence\\\":100}]\"",
+      "\"[{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":96},{\\\"activity\\\":\\\"unknown\\\",\\\"confidence\\\":2},{\\\"activity\\\":\\\"in_vehicle\\\",\\\"confidence\\\":1}]\"",
+      "\"[{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":99},{\\\"activity\\\":\\\"unknown\\\",\\\"confidence\\\":1}]\"",
+      "\"[{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":100}]\"",
+      "\"[{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":28},{\\\"activity\\\":\\\"on_foot\\\",\\\"confidence\\\":22},{\\\"activity\\\":\\\"walking\\\",\\\"confidence\\\":22},{\\\"activity\\\":\\\"in_vehicle\\\",\\\"confidence\\\":19},{\\\"activity\\\":\\\"on_bicycle\\\",\\\"confidence\\\":13},{\\\"activity\\\":\\\"unknown\\\",\\\"confidence\\\":2}]\"",
+      "\"[{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":96},{\\\"activity\\\":\\\"in_vehicle\\\",\\\"confidence\\\":2},{\\\"activity\\\":\\\"on_foot\\\",\\\"confidence\\\":1},{\\\"activity\\\":\\\"walking\\\",\\\"confidence\\\":1},{\\\"activity\\\":\\\"unknown\\\",\\\"confidence\\\":1}]\"",
+      "\"[{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":97},{\\\"activity\\\":\\\"unknown\\\",\\\"confidence\\\":2},{\\\"activity\\\":\\\"in_vehicle\\\",\\\"confidence\\\":1}]\"",
+      "\"[{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":98},{\\\"activity\\\":\\\"in_vehicle\\\",\\\"confidence\\\":1},{\\\"activity\\\":\\\"unknown\\\",\\\"confidence\\\":1}]\"",
+      "\"[{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":97},{\\\"activity\\\":\\\"in_vehicle\\\",\\\"confidence\\\":1},{\\\"activity\\\":\\\"on_foot\\\",\\\"confidence\\\":1},{\\\"activity\\\":\\\"walking\\\",\\\"confidence\\\":1},{\\\"activity\\\":\\\"unknown\\\",\\\"confidence\\\":1}]\"",
+      "\"[{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":51},{\\\"activity\\\":\\\"on_foot\\\",\\\"confidence\\\":27},{\\\"activity\\\":\\\"walking\\\",\\\"confidence\\\":27},{\\\"activity\\\":\\\"in_vehicle\\\",\\\"confidence\\\":9},{\\\"activity\\\":\\\"on_bicycle\\\",\\\"confidence\\\":5},{\\\"activity\\\":\\\"running\\\",\\\"confidence\\\":1},{\\\"activity\\\":\\\"unknown\\\",\\\"confidence\\\":1}]\"",
+      "\"[{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":53},{\\\"activity\\\":\\\"in_vehicle\\\",\\\"confidence\\\":16},{\\\"activity\\\":\\\"on_foot\\\",\\\"confidence\\\":12},{\\\"activity\\\":\\\"walking\\\",\\\"confidence\\\":12},{\\\"activity\\\":\\\"unknown\\\",\\\"confidence\\\":3},{\\\"activity\\\":\\\"on_bicycle\\\",\\\"confidence\\\":2}]\"",
+      "\"[{\\\"activity\\\":\\\"on_foot\\\",\\\"confidence\\\":88},{\\\"activity\\\":\\\"walking\\\",\\\"confidence\\\":88},{\\\"activity\\\":\\\"on_bicycle\\\",\\\"confidence\\\":3},{\\\"activity\\\":\\\"in_vehicle\\\",\\\"confidence\\\":2},{\\\"activity\\\":\\\"running\\\",\\\"confidence\\\":2},{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":2},{\\\"activity\\\":\\\"unknown\\\",\\\"confidence\\\":2}]\"",
+      "\"[{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":96},{\\\"activity\\\":\\\"in_vehicle\\\",\\\"confidence\\\":2},{\\\"activity\\\":\\\"unknown\\\",\\\"confidence\\\":1}]\"",
+      "\"[{\\\"activity\\\":\\\"still\\\",\\\"confidence\\\":98},{\\\"activity\\\":\\\"unknown\\\",\\\"confidence\\\":2}]\""
+    ],
+    "confidence": [
+      "\"40\"",
+      "\"100\"",
+      "\"96\"",
+      "\"99\"",
+      "\"28\"",
+      "\"97\"",
+      "\"98\"",
+      "\"51\"",
+      "\"53\"",
+      "\"88\""
+    ],
+    "activity_name": [
+      "\"unknown\"",
+      "\"tilting\"",
+      "\"still\"",
+      "\"on_foot\""
+    ],
+    "activity_type": [
+      "\"4\"",
+      "\"5\"",
+      "\"3\"",
+      "\"2\""
+    ]
+  }
+}

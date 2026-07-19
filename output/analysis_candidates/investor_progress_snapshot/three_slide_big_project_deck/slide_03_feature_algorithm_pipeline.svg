@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="950" viewBox="0 0 1600 950">
+<rect width="100%" height="100%" fill="#f7f7f3"/>
+<rect x="0" y="0" width="1600" height="122" fill="#28323a"/>
+<text x="58" y="58" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">Slide 3 - From each SQL table to model features</text>
+<text x="58" y="94" font-family="Arial, sans-serif" font-size="18" fill="#d8dee2">Each table requires a custom algorithmic pipeline before it can become a useful biomarker</text>
+<rect x="58" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="76" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Reviewed table files</text>
+<text x="76" y="232" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#28323a">10</text>
+<text x="76" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">Manual scientific review</text>
+<rect x="364" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="382" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Candidate definitions</text>
+<text x="382" y="232" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#28323a">69</text>
+<text x="382" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">Potential feature ideas</text>
+<rect x="670" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="688" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Selected features</text>
+<text x="688" y="232" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#28323a">29</text>
+<text x="688" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">Chosen for extraction</text>
+<rect x="976" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="994" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Calculated values</text>
+<text x="994" y="232" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#28323a">27</text>
+<text x="994" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">Already numeric now</text>
+<rect x="1282" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="1300" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Tables producing values</text>
+<text x="1300" y="232" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#28323a">8</text>
+<text x="1300" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">Current exploratory outputs</text>
+<rect x="58" y="315" width="1484" height="142" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="78" y="349" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#22272b">Per-table extraction algorithm</text>
+<circle cx="88" cy="370" r="17" fill="#59656e"/>
+<text x="83" y="376" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#fff">1</text>
+<text x="116" y="366" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#22272b">Safe SQL window</text>
+<text x="116" y="386" font-family="Arial, sans-serif" font-size="11" fill="#626b73">device_id + timestamp filters</text>
+<text x="266" y="378" font-family="Arial, sans-serif" font-size="21" fill="#9aa0a4">→</text>
+<circle cx="323" cy="370" r="17" fill="#59656e"/>
+<text x="318" y="376" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#fff">2</text>
+<text x="351" y="366" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#22272b">Raw sample review</text>
+<text x="351" y="386" font-family="Arial, sans-serif" font-size="11" fill="#626b73">understand rows and JSON keys</text>
+<text x="501" y="378" font-family="Arial, sans-serif" font-size="21" fill="#9aa0a4">→</text>
+<circle cx="558" cy="370" r="17" fill="#59656e"/>
+<text x="553" y="376" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#fff">3</text>
+<text x="586" y="366" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#22272b">Deduplication</text>
+<text x="586" y="386" font-family="Arial, sans-serif" font-size="11" fill="#626b73">remove repeated database copies</text>
+<text x="736" y="378" font-family="Arial, sans-serif" font-size="21" fill="#9aa0a4">→</text>
+<circle cx="793" cy="370" r="17" fill="#59656e"/>
+<text x="788" y="376" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#fff">4</text>
+<text x="821" y="366" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#22272b">Feature selection</text>
+<text x="821" y="386" font-family="Arial, sans-serif" font-size="11" fill="#626b73">choose clinically meaningful aggregates</text>
+<text x="971" y="378" font-family="Arial, sans-serif" font-size="21" fill="#9aa0a4">→</text>
+<circle cx="1028" cy="370" r="17" fill="#59656e"/>
+<text x="1023" y="376" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#fff">5</text>
+<text x="1056" y="366" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#22272b">Calculation script</text>
+<text x="1056" y="386" font-family="Arial, sans-serif" font-size="11" fill="#626b73">implement table-specific algorithm</text>
+<text x="1206" y="378" font-family="Arial, sans-serif" font-size="21" fill="#9aa0a4">→</text>
+<circle cx="1263" cy="370" r="17" fill="#59656e"/>
+<text x="1258" y="376" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#fff">6</text>
+<text x="1291" y="366" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#22272b">Validation</text>
+<text x="1291" y="386" font-family="Arial, sans-serif" font-size="11" fill="#626b73">write values + limitations</text>
+<rect x="58" y="500" width="1484" height="355" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="78" y="534" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#22272b">Keyboard table example: selected feature algorithms</text>
+<text x="88" y="542" font-family="Arial, sans-serif" font-size="14" fill="#626b73">Raw text is not model-facing. The algorithm converts keyboard text-state observations into aggregate timing, pause, burst, word-boundary, and correction features.</text>
+<rect x="88" y="575" width="670" height="58" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="104" y="595" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#22272b">keyboard_median_inter_event_interval_ms</text>
+<text x="104" y="615" font-family="Arial, sans-serif" font-size="12" fill="#626b73">median time gap between deduplicated keyboard observations</text>
+<text x="648" y="610" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#28323a">482.5</text>
+<rect x="808" y="575" width="670" height="58" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="824" y="595" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#22272b">keyboard_inter_event_interval_iqr_ms</text>
+<text x="824" y="615" font-family="Arial, sans-serif" font-size="12" fill="#626b73">variability of keyboard-event timing</text>
+<text x="1368" y="610" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#28323a">281.5</text>
+<rect x="88" y="653" width="670" height="58" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="104" y="673" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#22272b">keyboard_long_pause_count_2s</text>
+<text x="104" y="693" font-family="Arial, sans-serif" font-size="12" fill="#626b73">number of within-typing gaps longer than 2 seconds</text>
+<text x="648" y="688" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#28323a">72.0</text>
+<rect x="808" y="653" width="670" height="58" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="824" y="673" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#22272b">keyboard_typing_burst_count</text>
+<text x="824" y="693" font-family="Arial, sans-serif" font-size="12" fill="#626b73">typing bursts separated by long inactivity gaps</text>
+<text x="1368" y="688" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#28323a">26.0</text>
+<rect x="88" y="731" width="670" height="58" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="104" y="751" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#22272b">keyboard_median_word_completion_time_ms</text>
+<text x="104" y="771" font-family="Arial, sans-serif" font-size="12" fill="#626b73">approximate word completion timing from space transitions</text>
+<text x="648" y="766" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#28323a">2,339.5</text>
+<rect x="808" y="731" width="670" height="58" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="824" y="751" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#22272b">keyboard_deletion_event_count</text>
+<text x="824" y="771" font-family="Arial, sans-serif" font-size="12" fill="#626b73">text-length decreases as deletion/correction proxy</text>
+<text x="1368" y="766" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#28323a">109.0</text>
+<rect x="58" y="878" width="1484" height="34" rx="8" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="88" y="900" font-family="Arial, sans-serif" font-size="13" fill="#22272b">The same table-specific process is repeated across app use, calls, GSM, light, location, messages, Bluetooth, and future tables.</text>
+</svg>

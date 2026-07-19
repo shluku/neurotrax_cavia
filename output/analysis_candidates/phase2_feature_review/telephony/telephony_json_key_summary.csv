@@ -1,0 +1,17 @@
+json_key,n_rows_with_key,value_type_counts
+data_enabled,20,string:20
+device_id,20,string:20
+imei_meid_esn,20,string:20
+line_number,20,string:20
+network_country_iso_mcc,20,string:20
+network_operator_code,20,string:20
+network_operator_name,20,string:20
+network_type,20,string:20
+phone_type,20,string:20
+sim_operator_code,20,string:20
+sim_operator_name,20,string:20
+sim_serial,20,string:20
+sim_state,20,string:20
+software_version,20,string:20
+subscriber_id,20,string:20
+timestamp,20,integer:20

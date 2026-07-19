@@ -1,0 +1,11 @@
+Subject_ID_N,Subject_ID_D,global_delta,global_decline_amount,phase1a_baseline_usable,phase1a_change_usable,phase1b_baseline_usable,phase1b_change_usable,phase1_baseline_usable,phase1_change_usable,baseline_profile_available,change_profile_available,interpretation_scope,data_availability_note,early_late_coverage_group
+13,030,-4.299999999999997,4.299999999999997,True,False,True,False,True,False,True,False,baseline_only,baseline phenotype available; missing late windows limit change analysis,early_only
+3,001,-3.7999999999999967,3.7999999999999967,True,False,True,False,True,False,True,False,baseline_only,baseline phenotype available; missing late windows limit change analysis,early_only
+40,062,-6.700000000000003,6.700000000000003,True,False,True,False,True,False,True,False,baseline_only,baseline phenotype available; missing late windows limit change analysis,early_only
+41,074,-10.200000000000005,10.200000000000005,False,False,False,False,False,False,False,False,insufficient_phase1_data,insufficient early/late digital coverage in Phase 1 tables,no_early_or_late_data
+44,044,-8.399999999999991,8.399999999999991,False,False,False,False,False,False,False,False,insufficient_phase1_data,insufficient early/late digital coverage in Phase 1 tables,late_only
+68,024,-6.5,6.5,True,True,True,True,True,True,True,True,baseline_and_change_available,change analysis exploratory and limited; do not use as confirmatory evidence,early_and_late_data
+72,087,-5.700000000000003,5.700000000000003,True,False,True,False,True,False,True,False,baseline_only,baseline phenotype available; missing late windows limit change analysis,early_only
+77,077,-5.099999999999994,5.099999999999994,True,False,True,True,True,True,True,True,baseline_and_change_available,change analysis exploratory and limited; do not use as confirmatory evidence,early_and_late_data
+82,093,-7.299999999999997,7.299999999999997,True,False,True,False,True,False,True,False,baseline_only,baseline phenotype available; missing late windows limit change analysis,early_only
+86,095,-3.7000000000000033,3.7000000000000033,True,False,True,False,True,False,True,False,baseline_only,baseline phenotype available; missing late windows limit change analysis,early_only

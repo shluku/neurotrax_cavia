@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="950" viewBox="0 0 1600 950">
+<rect width="100%" height="100%" fill="#f7f7f3"/>
+<rect x="0" y="0" width="1600" height="122" fill="#28323a"/>
+<text x="58" y="58" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">Slide 1 - NeuroTrax clinical data overview</text>
+<text x="58" y="94" font-family="Arial, sans-serif" font-size="18" fill="#d8dee2">The cognitive foundation: patients, timeline, domains, and target outcomes</text>
+<rect x="58" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="76" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Patients total</text>
+<text x="76" y="232" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#28323a">83</text>
+<text x="76" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">NeuroTrax rows prepared</text>
+<rect x="364" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="382" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Patients with T1</text>
+<text x="382" y="232" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#28323a">83</text>
+<text x="382" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">Baseline cognitive exam</text>
+<rect x="670" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="688" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Patients with T1 + T2</text>
+<text x="688" y="232" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#28323a">62</text>
+<text x="688" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">Longitudinal follow-up</text>
+<rect x="976" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="994" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Global delta available</text>
+<text x="994" y="232" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#28323a">62</text>
+<text x="994" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">Change score usable</text>
+<rect x="1282" y="150" width="282" height="126" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="1300" y="181" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#4b5359">Median follow-up</text>
+<text x="1300" y="232" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#28323a">246 d</text>
+<text x="1300" y="258" font-family="Arial, sans-serif" font-size="12" fill="#626b73">T1 to T2</text>
+<rect x="58" y="312" width="718" height="205" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="78" y="346" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#22272b">Timeline and cohort scale</text>
+<text x="88" y="365" font-family="Arial, sans-serif" font-size="16" fill="#22272b">• First T1 assessment: 2025-01-05</text>
+<text x="88" y="389" font-family="Arial, sans-serif" font-size="16" fill="#22272b">• Last T2 assessment: 2025-12-30</text>
+<text x="88" y="413" font-family="Arial, sans-serif" font-size="16" fill="#22272b">• Overall assessment span: 359 days</text>
+<text x="88" y="437" font-family="Arial, sans-serif" font-size="16" fill="#22272b">• Age range: 60-89; mean age: 79.7</text>
+<text x="88" y="461" font-family="Arial, sans-serif" font-size="16" fill="#22272b">• Gender coding count: 21 male-coded, 62 female-coded</text>
+<text x="88" y="485" font-family="Arial, sans-serif" font-size="16" fill="#22272b">• Mean education: 15.1 years</text>
+<rect x="820" y="312" width="722" height="205" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="840" y="346" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#22272b">NeuroTrax score range</text>
+<text x="850" y="365" font-family="Arial, sans-serif" font-size="16" fill="#22272b">• Global T1 range: 75.6-119.4</text>
+<text x="850" y="392" font-family="Arial, sans-serif" font-size="16" fill="#22272b">• Global T2 values are paired for 62 patients</text>
+<text x="850" y="419" font-family="Arial, sans-serif" font-size="16" fill="#22272b">• Global delta range: -10.2 to 22.3</text>
+<text x="850" y="446" font-family="Arial, sans-serif" font-size="16" fill="#22272b">• Scores are organized as T1, T2, and delta fields</text>
+<text x="850" y="473" font-family="Arial, sans-serif" font-size="16" fill="#22272b">• This gives the clinical target layer for digital phenotype modeling</text>
+<rect x="58" y="555" width="1484" height="275" rx="10" fill="#ffffff" stroke="#d7d7cf"/>
+<text x="78" y="589" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#22272b">Main NeuroTrax domains</text>
+<rect x="88" y="608" width="430" height="50" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="104" y="628" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#22272b">Global / overall</text>
+<text x="104" y="647" font-family="Arial, sans-serif" font-size="12" fill="#626b73">primary cognitive summary score</text>
+<rect x="568" y="608" width="430" height="50" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="584" y="628" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#22272b">Memory</text>
+<text x="584" y="647" font-family="Arial, sans-serif" font-size="12" fill="#626b73">visual/verbal memory and delayed memory</text>
+<rect x="1048" y="608" width="430" height="50" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="1064" y="628" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#22272b">Executive function</text>
+<text x="1064" y="647" font-family="Arial, sans-serif" font-size="12" fill="#626b73">inhibition, switching, cognitive control</text>
+<rect x="88" y="676" width="430" height="50" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="104" y="696" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#22272b">Attention</text>
+<text x="104" y="715" font-family="Arial, sans-serif" font-size="12" fill="#626b73">accuracy, reaction time, omissions/commissions</text>
+<rect x="568" y="676" width="430" height="50" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="584" y="696" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#22272b">Processing speed</text>
+<text x="584" y="715" font-family="Arial, sans-serif" font-size="12" fill="#626b73">timed processing levels</text>
+<rect x="1048" y="676" width="430" height="50" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="1064" y="696" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#22272b">Visual spatial</text>
+<text x="1064" y="715" font-family="Arial, sans-serif" font-size="12" fill="#626b73">visual-spatial domain</text>
+<rect x="88" y="744" width="430" height="50" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="104" y="764" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#22272b">Verbal function</text>
+<text x="104" y="783" font-family="Arial, sans-serif" font-size="12" fill="#626b73">matching and rhyming</text>
+<rect x="568" y="744" width="430" height="50" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="584" y="764" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#22272b">Motor</text>
+<text x="584" y="783" font-family="Arial, sans-serif" font-size="12" fill="#626b73">finger tapping and motor timing</text>
+<rect x="1048" y="744" width="430" height="50" rx="8" fill="#f8f8f6" stroke="#d7d7cf"/>
+<text x="1064" y="764" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#22272b">IQ</text>
+<text x="1064" y="783" font-family="Arial, sans-serif" font-size="12" fill="#626b73">summary cognitive index</text>
+<rect x="58" y="858" width="1484" height="54" rx="10" fill="#edf0ed" stroke="#cfd6cf"/>
+<text x="88" y="881" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#22272b">Modeling objective:</text>
+<text x="230" y="881" font-family="Arial, sans-serif" font-size="15" fill="#22272b">Outcome 1: T1 baseline digital phenotype. Outcome 2: T1-to-T2 digital change phenotype linked to later cognitive outcome.</text>
+</svg>

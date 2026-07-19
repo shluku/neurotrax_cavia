@@ -1,0 +1,21 @@
+sample_index,_id,timestamp,local_datetime,Subject_ID_D,device_id,sample_context,network_type,network_state,network_subtype
+1,1,1747993844606,2025-05-23 12:50:44+0300,NOT_MAPPED,afed394e-f4e2-4372-89b9-df56506976b3,phase2a_network_global_earliest_20_manual_review,1,1,WIFI
+2,2,1747993844620,2025-05-23 12:50:44+0300,NOT_MAPPED,afed394e-f4e2-4372-89b9-df56506976b3,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+3,3,1747993889623,2025-05-23 12:51:29+0300,NOT_MAPPED,afed394e-f4e2-4372-89b9-df56506976b3,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+4,4,1747993930288,2025-05-23 12:52:10+0300,NOT_MAPPED,afed394e-f4e2-4372-89b9-df56506976b3,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+5,5,1747993936683,2025-05-23 12:52:16+0300,NOT_MAPPED,afed394e-f4e2-4372-89b9-df56506976b3,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+6,6,1747995795391,2025-05-23 13:23:15+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,1,1,WIFI
+7,7,1747995795403,2025-05-23 13:23:15+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+8,8,1747995988875,2025-05-23 13:26:28+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,1,1,WIFI
+9,9,1747995988880,2025-05-23 13:26:28+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+10,10,1747996313502,2025-05-23 13:31:53+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,1,1,WIFI
+11,11,1747996313506,2025-05-23 13:31:53+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+12,12,1747996490169,2025-05-23 13:34:50+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,1,1,WIFI
+13,13,1747996490173,2025-05-23 13:34:50+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+14,14,1747997183760,2025-05-23 13:46:23+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+15,15,1747997372740,2025-05-23 13:49:32+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+16,16,1747997805106,2025-05-23 13:56:45+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+17,17,1747998023788,2025-05-23 14:00:23+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+18,18,1747998803840,2025-05-23 14:13:23+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+19,19,1747998951679,2025-05-23 14:15:51+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
+20,20,1747999938558,2025-05-23 14:32:18+0300,NOT_MAPPED,a182f886-53f6-4d1f-a535-ae20e5a2060e,phase2a_network_global_earliest_20_manual_review,4,1,MOBILE
