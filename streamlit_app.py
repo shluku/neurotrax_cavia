@@ -100,6 +100,18 @@ PATHS = {
     / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/phase2_all_t1_selected_features_coverage.csv",
     "phase3_all_t1_readme": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/README_phase2_all_t1_selected_features.md",
+    "phase3_accelerometer_pilot_readme": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/table_runs/accelerometer/phase3_accelerometer_24h_pilot/README_phase3_accelerometer_24h_pilot.md",
+    "phase3_accelerometer_pilot_wide": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/table_runs/accelerometer/phase3_accelerometer_24h_pilot/phase3_accelerometer_24h_pilot_features_wide.csv",
+    "phase3_accelerometer_pilot_status": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/table_runs/accelerometer/phase3_accelerometer_24h_pilot/phase3_accelerometer_24h_pilot_patient_status.csv",
+    "phase3_accelerometer_pilot_bandpass": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/table_runs/accelerometer/phase3_accelerometer_24h_pilot/phase3_accelerometer_24h_pilot_bandpass_summary.csv",
+    "phase3_accelerometer_pilot_thresholds": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/table_runs/accelerometer/phase3_accelerometer_24h_pilot/phase3_accelerometer_24h_pilot_threshold_sensitivity.csv",
+    "phase3_accelerometer_pilot_download": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/table_runs/accelerometer/phase3_accelerometer_24h_pilot/phase3_accelerometer_24h_pilot_download_chunk_log.csv",
     "rd_calls_t1_week_long": ROOT
     / "output/analysis_candidates/phase3_rd/calls_t1_week_any_data_pilot/phase3_rd_calls_t1_week_any_data_long.csv",
     "rd_calls_t1_week_wide": ROOT
@@ -1221,6 +1233,11 @@ def phase3_algorithm_page() -> None:
     wide_df = load_csv(PATHS["phase3_all_t1_wide"])
     status_df = load_csv(PATHS["phase3_all_t1_status"])
     coverage_df = load_csv(PATHS["phase3_all_t1_coverage"])
+    acc_pilot_wide = load_csv(PATHS["phase3_accelerometer_pilot_wide"])
+    acc_pilot_status = load_csv(PATHS["phase3_accelerometer_pilot_status"])
+    acc_pilot_bandpass = load_csv(PATHS["phase3_accelerometer_pilot_bandpass"])
+    acc_pilot_thresholds = load_csv(PATHS["phase3_accelerometer_pilot_thresholds"])
+    acc_pilot_download = load_csv(PATHS["phase3_accelerometer_pilot_download"])
 
     if long_df.empty and wide_df.empty and status_df.empty:
         st.info("The all-patient selected-feature extraction output is not available yet.")
@@ -1261,6 +1278,7 @@ def phase3_algorithm_page() -> None:
             "Model-Ready Wide Table",
             "Patient-Table Status",
             "Coverage Audit",
+            "Special Accelerometer Pilot",
             "README",
         ]
     )
@@ -1324,6 +1342,35 @@ def phase3_algorithm_page() -> None:
         show_dataframe(coverage_df, height=620)
 
     with tabs[4]:
+        st.subheader("Special Accelerometer Phase 3 Pilot")
+        st.caption("Isolated pilot only. These accelerometer rows are not merged into the shared Phase 3 matrix yet.")
+        acc_readme = load_text(PATHS["phase3_accelerometer_pilot_readme"])
+        if acc_readme:
+            st.markdown(acc_readme)
+        if not acc_pilot_status.empty:
+            calculated = int(acc_pilot_status["table_status"].astype(str).eq("calculated").sum())
+            attempted = len(acc_pilot_status)
+            raw_rows = pd.to_numeric(acc_pilot_status.get("raw_rows_downloaded", pd.Series(dtype=str)), errors="coerce").fillna(0).sum()
+            metric_row(
+                [
+                    ("Candidates attempted", attempted),
+                    ("Calculated patients", calculated),
+                    ("Raw rows downloaded", f"{int(raw_rows):,}"),
+                    ("Feature rows", len(acc_pilot_wide)),
+                ]
+            )
+        st.subheader("Pilot Patient Status")
+        show_dataframe(acc_pilot_status, height=300)
+        st.subheader("Pilot Feature Values")
+        show_dataframe(acc_pilot_wide, height=220)
+        st.subheader("Pilot Bandpass Summary")
+        show_dataframe(acc_pilot_bandpass, height=320)
+        with st.expander("Pilot threshold sensitivity"):
+            show_dataframe(acc_pilot_thresholds, height=280)
+        with st.expander("Pilot download chunk log"):
+            show_dataframe(acc_pilot_download.tail(80), height=360)
+
+    with tabs[5]:
         readme = load_text(PATHS["phase3_all_t1_readme"])
         st.markdown(readme if readme else "No README available yet.")
 
