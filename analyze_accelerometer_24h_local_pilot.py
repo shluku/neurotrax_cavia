@@ -313,7 +313,8 @@ def build_bandpass_feature_summary(chunk_df: pd.DataFrame) -> pd.DataFrame:
     for name, (low, high) in BANDS.items():
         ratio_col = band_ratio_cols[name]
         power_col = f"{name}_power"
-        nyquist_ok = valid["effective_nyquist_hz_from_median_interval"] >= high
+        analysis_nyquist_hz = min(RESAMPLE_HZ / 2.0, high)
+        nyquist_ok = (valid["effective_nyquist_hz_from_median_interval"] >= high) & ((RESAMPLE_HZ / 2.0) >= high)
         dynamic_gate = valid["dynamic_magnitude_mean"] >= HANDLING_DYNAMIC_THRESHOLD
         dominant_gate = dominant_band.eq(name)
         ratio_gate = valid[ratio_col] >= 0.35
@@ -324,6 +325,9 @@ def build_bandpass_feature_summary(chunk_df: pd.DataFrame) -> pd.DataFrame:
                 "clinical_candidate_label": CLINICAL_BAND_LABELS[name],
                 "frequency_low_hz": low,
                 "frequency_high_hz": high,
+                "resample_hz": RESAMPLE_HZ,
+                "analysis_nyquist_hz": analysis_nyquist_hz,
+                "full_band_measurable_with_current_resampling": bool((RESAMPLE_HZ / 2.0) >= high),
                 "chunks_with_sampling_feasible": int(nyquist_ok.sum()),
                 "minutes_with_sampling_feasible": float(nyquist_ok.sum() * CHUNK_MINUTES),
                 "mean_power_ratio_all_valid_chunks": float(valid[ratio_col].mean()),
@@ -356,7 +360,7 @@ def build_bandpass_hourly_summary(chunk_df: pd.DataFrame) -> pd.DataFrame:
             "median_dynamic_magnitude": float(group["dynamic_magnitude_median"].median()),
         }
         for name, (_, high) in BANDS.items():
-            feasible = group["effective_nyquist_hz_from_median_interval"] >= high
+            feasible = (group["effective_nyquist_hz_from_median_interval"] >= high) & ((RESAMPLE_HZ / 2.0) >= high)
             selected = (
                 feasible
                 & (group["dynamic_magnitude_mean"] >= HANDLING_DYNAMIC_THRESHOLD)
