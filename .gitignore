@@ -18,6 +18,7 @@ infographs/*.png
 output/analysis_candidates/phase2_accelerometer_framework/raw_24h_pilot/*_raw.csv.gz
 output/analysis_candidates/phase2_accelerometer_framework/raw_24h_pilot/*_signal.csv.gz
 output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/table_runs/accelerometer/phase3_accelerometer_24h_pilot/_temporary_local_signal_files/
+output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/table_runs/accelerometer/phase3_accelerometer_24h_streaming_smoke_test*/
 
 # Temporary office lock files.
 ~$*
