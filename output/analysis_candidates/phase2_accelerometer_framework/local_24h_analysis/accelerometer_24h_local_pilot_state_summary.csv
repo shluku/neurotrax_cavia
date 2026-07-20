@@ -1,0 +1,5 @@
+chunk_state_candidate,chunks,minutes
+still_phone_candidate,244,1220
+low_motion_phone_candidate,24,120
+phone_handling_motion_candidate,19,95
+insufficient_signal,1,5

@@ -70,6 +70,18 @@ PATHS = {
     / "output/analysis_candidates/phase2_accelerometer_framework/raw_24h_pilot/accelerometer_24h_pilot_candidate_scan.csv",
     "accelerometer_tomorrow_work_readme": ROOT
     / "output/analysis_candidates/phase2_accelerometer_framework/README_ACCELEROMETER_TOMORROW_WORK.md",
+    "accelerometer_local_24h_readme": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/local_24h_analysis/README_accelerometer_24h_local_signal_analysis.md",
+    "accelerometer_local_24h_features": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/local_24h_analysis/accelerometer_24h_local_pilot_overall_features.csv",
+    "accelerometer_local_24h_chunks": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/local_24h_analysis/accelerometer_24h_local_pilot_chunk_summary.csv",
+    "accelerometer_local_24h_hourly": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/local_24h_analysis/accelerometer_24h_local_pilot_hourly_summary.csv",
+    "accelerometer_local_24h_states": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/local_24h_analysis/accelerometer_24h_local_pilot_state_summary.csv",
+    "accelerometer_local_24h_thresholds": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/local_24h_analysis/accelerometer_24h_local_pilot_threshold_sensitivity.csv",
     "phase2_exploratory_feature_dir": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/exploratory_t1_week_24h",
     "phase3_all_t1_feature_dir": ROOT
@@ -821,6 +833,11 @@ def phase2_tables_page() -> None:
     accelerometer_24h_manifest = load_csv(PATHS["accelerometer_24h_pilot_manifest"])
     accelerometer_24h_chunk_log = load_csv(PATHS["accelerometer_24h_pilot_chunk_log"])
     accelerometer_24h_candidate_scan = load_csv(PATHS["accelerometer_24h_pilot_candidate_scan"])
+    accelerometer_local_24h_features = load_csv(PATHS["accelerometer_local_24h_features"])
+    accelerometer_local_24h_chunks = load_csv(PATHS["accelerometer_local_24h_chunks"])
+    accelerometer_local_24h_hourly = load_csv(PATHS["accelerometer_local_24h_hourly"])
+    accelerometer_local_24h_states = load_csv(PATHS["accelerometer_local_24h_states"])
+    accelerometer_local_24h_thresholds = load_csv(PATHS["accelerometer_local_24h_thresholds"])
     review_sample = load_csv(PATHS["applications_foreground_review_sample"])
     json_keys = load_csv(PATHS["applications_foreground_json_keys"])
     highest_t1_features = load_csv(PATHS["applications_foreground_highest_t1_36h_features"])
@@ -1142,6 +1159,37 @@ def phase2_tables_page() -> None:
                 show_dataframe(accelerometer_24h_chunk_log.tail(30), height=260)
             with st.expander("24h pilot candidate scan"):
                 show_dataframe(accelerometer_24h_candidate_scan, height=180)
+            st.subheader("24h Local Signal Analysis")
+            local_readme = load_text(PATHS["accelerometer_local_24h_readme"])
+            if local_readme:
+                st.markdown(local_readme)
+            if not accelerometer_local_24h_features.empty:
+                row = accelerometer_local_24h_features.iloc[0]
+                metric_row(
+                    [
+                        ("Rows after QC", int(row.get("accelerometer_total_rows_loaded", 0))),
+                        ("Duplicates removed", int(row.get("accelerometer_exact_duplicate_rows_removed", 0))),
+                        ("Valid minutes", int(float(row.get("accelerometer_valid_signal_minutes", 0)))),
+                        ("Still-phone minutes", int(float(row.get("accelerometer_still_phone_minutes", 0)))),
+                        ("Handling minutes", int(float(row.get("accelerometer_phone_handling_minutes", 0)))),
+                    ]
+                )
+                show_dataframe(accelerometer_local_24h_features, height=180)
+            cols = st.columns(2)
+            with cols[0]:
+                st.subheader("Phone-State Candidate Summary")
+                show_dataframe(accelerometer_local_24h_states, height=180)
+            with cols[1]:
+                st.subheader("Threshold Sensitivity")
+                show_dataframe(accelerometer_local_24h_thresholds, height=240)
+            st.subheader("Hourly Motion Summary")
+            show_dataframe(accelerometer_local_24h_hourly, height=260)
+            with st.expander("Top 20 chunks by dynamic magnitude"):
+                if not accelerometer_local_24h_chunks.empty and "dynamic_magnitude_mean" in accelerometer_local_24h_chunks.columns:
+                    top_chunks = accelerometer_local_24h_chunks.sort_values("dynamic_magnitude_mean", ascending=False).head(20)
+                    show_dataframe(top_chunks, height=360)
+                else:
+                    show_dataframe(accelerometer_local_24h_chunks, height=360)
         with acc_tabs[1]:
             st.subheader("Patient-Level QC")
             show_dataframe(sensor_linear_qc_patient, height=360)
