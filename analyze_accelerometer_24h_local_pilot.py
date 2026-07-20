@@ -34,6 +34,14 @@ BANDS = {
     "shaking_like_3_8hz": SHAKING_BAND,
     "high_freq_8_12hz": (8.0, 12.0),
 }
+CLINICAL_BAND_LABELS = {
+    "very_low_lt_0_3hz": "slow orientation/drift",
+    "handling_0_3_1hz": "irregular phone handling",
+    "walking_like_1_3hz": "walking-like rhythmic phone motion",
+    "vigorous_2_5_4hz": "vigorous rhythmic phone motion",
+    "shaking_like_3_8hz": "shaking/tremor-like phone motion",
+    "high_freq_8_12hz": "high-frequency vibration check",
+}
 
 
 def load_manifest() -> dict[str, Any]:
@@ -186,6 +194,10 @@ def analyze_chunk(chunk_index: int, start_ms: int, end_ms: int, chunk: pd.DataFr
     dominant_frequency = np.nan
     band_values: dict[str, float] = {name: np.nan for name in BANDS}
     if len(chunk) >= MIN_SAMPLES_PER_CHUNK and observed_span_seconds >= 30 and row["gap_burden_fraction"] <= 0.50:
+        effective_hz = 1000.0 / row["median_interval_ms"] if row["median_interval_ms"] and not math.isnan(row["median_interval_ms"]) else np.nan
+        nyquist_hz = effective_hz / 2.0 if effective_hz and not math.isnan(effective_hz) else np.nan
+        row["effective_sampling_hz_from_median_interval"] = effective_hz
+        row["effective_nyquist_hz_from_median_interval"] = nyquist_hz
         series = pd.Series(dynamic, index=chunk["dt_utc"])
         resampled = series.resample(f"{int(1000 / RESAMPLE_HZ)}ms").mean().interpolate(limit_direction="both")
         values = resampled.to_numpy(dtype=float)
@@ -200,6 +212,9 @@ def analyze_chunk(chunk_index: int, start_ms: int, end_ms: int, chunk: pd.DataFr
             for name, (low, high) in BANDS.items():
                 high = min(high, RESAMPLE_HZ / 2)
                 band_values[name] = bandpower(freq, power, low, high) if low < high else np.nan
+    else:
+        row["effective_sampling_hz_from_median_interval"] = np.nan
+        row["effective_nyquist_hz_from_median_interval"] = np.nan
 
     row["dominant_frequency_hz"] = dominant_frequency
     row["total_power"] = total_power
@@ -285,6 +300,75 @@ def build_threshold_sensitivity(chunk_df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def build_bandpass_feature_summary(chunk_df: pd.DataFrame) -> pd.DataFrame:
+    valid = chunk_df[chunk_df["status"].eq("ok")].copy()
+    rows: list[dict[str, Any]] = []
+    if valid.empty:
+        return pd.DataFrame(rows)
+    band_ratio_cols = {name: f"{name}_power_ratio" for name in BANDS}
+    candidate_band_names = list(BANDS.keys())
+    ratio_frame = valid[[band_ratio_cols[name] for name in candidate_band_names]].copy()
+    ratio_frame.columns = candidate_band_names
+    dominant_band = ratio_frame.idxmax(axis=1)
+    for name, (low, high) in BANDS.items():
+        ratio_col = band_ratio_cols[name]
+        power_col = f"{name}_power"
+        nyquist_ok = valid["effective_nyquist_hz_from_median_interval"] >= high
+        dynamic_gate = valid["dynamic_magnitude_mean"] >= HANDLING_DYNAMIC_THRESHOLD
+        dominant_gate = dominant_band.eq(name)
+        ratio_gate = valid[ratio_col] >= 0.35
+        selected = nyquist_ok & dynamic_gate & dominant_gate & ratio_gate
+        rows.append(
+            {
+                "band_name": name,
+                "clinical_candidate_label": CLINICAL_BAND_LABELS[name],
+                "frequency_low_hz": low,
+                "frequency_high_hz": high,
+                "chunks_with_sampling_feasible": int(nyquist_ok.sum()),
+                "minutes_with_sampling_feasible": float(nyquist_ok.sum() * CHUNK_MINUTES),
+                "mean_power_ratio_all_valid_chunks": float(valid[ratio_col].mean()),
+                "median_power_ratio_all_valid_chunks": float(valid[ratio_col].median()),
+                "mean_power_all_valid_chunks": float(valid[power_col].mean()),
+                "candidate_chunks_after_dynamic_and_frequency_gates": int(selected.sum()),
+                "candidate_minutes_after_dynamic_and_frequency_gates": float(selected.sum() * CHUNK_MINUTES),
+                "day_candidate_minutes": float((selected & ~valid["is_night_22_06"].astype(bool)).sum() * CHUNK_MINUTES),
+                "night_candidate_minutes": float((selected & valid["is_night_22_06"].astype(bool)).sum() * CHUNK_MINUTES),
+                "interpretation_caution": "phone-state candidate only; sampling feasibility and phone placement limit clinical interpretation",
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def build_bandpass_hourly_summary(chunk_df: pd.DataFrame) -> pd.DataFrame:
+    valid = chunk_df[chunk_df["status"].eq("ok")].copy()
+    rows: list[dict[str, Any]] = []
+    if valid.empty:
+        return pd.DataFrame(rows)
+    ratio_frame = valid[[f"{name}_power_ratio" for name in BANDS]].copy()
+    ratio_frame.columns = list(BANDS.keys())
+    valid = valid.assign(dominant_band=ratio_frame.idxmax(axis=1))
+    for hour, group in valid.groupby("local_hour"):
+        row: dict[str, Any] = {
+            "local_hour": int(hour),
+            "valid_chunks": len(group),
+            "valid_minutes": float(len(group) * CHUNK_MINUTES),
+            "mean_dynamic_magnitude": float(group["dynamic_magnitude_mean"].mean()),
+            "median_dynamic_magnitude": float(group["dynamic_magnitude_median"].median()),
+        }
+        for name, (_, high) in BANDS.items():
+            feasible = group["effective_nyquist_hz_from_median_interval"] >= high
+            selected = (
+                feasible
+                & (group["dynamic_magnitude_mean"] >= HANDLING_DYNAMIC_THRESHOLD)
+                & group["dominant_band"].eq(name)
+                & (group[f"{name}_power_ratio"] >= 0.35)
+            )
+            row[f"{name}_candidate_minutes"] = float(selected.sum() * CHUNK_MINUTES)
+            row[f"{name}_mean_power_ratio"] = float(group[f"{name}_power_ratio"].mean())
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
 def build_readme(manifest: dict[str, Any], feature_df: pd.DataFrame) -> str:
     row = feature_df.iloc[0].to_dict() if not feature_df.empty else {}
     return f"""# Accelerometer 24h Local Signal Analysis Pilot
@@ -349,6 +433,8 @@ Generated files:
 - `accelerometer_24h_local_pilot_state_summary.csv`
 - `accelerometer_24h_local_pilot_bandpower_summary.csv`
 - `accelerometer_24h_local_pilot_threshold_sensitivity.csv`
+- `accelerometer_24h_local_pilot_bandpass_feature_summary.csv`
+- `accelerometer_24h_local_pilot_bandpass_hourly_summary.csv`
 """
 
 
@@ -392,6 +478,8 @@ def main() -> None:
     )
     band_cols = [f"{name}_power_ratio" for name in BANDS]
     threshold_df = build_threshold_sensitivity(chunk_df)
+    bandpass_feature_df = build_bandpass_feature_summary(chunk_df)
+    bandpass_hourly_df = build_bandpass_hourly_summary(chunk_df)
     bandpower_df = (
         chunk_df[chunk_df["status"].eq("ok")][["chunk_index", "chunk_start_local", "chunk_state_candidate", "dominant_frequency_hz", *band_cols]]
         .copy()
@@ -404,6 +492,8 @@ def main() -> None:
         "states": OUT_DIR / "accelerometer_24h_local_pilot_state_summary.csv",
         "bandpower": OUT_DIR / "accelerometer_24h_local_pilot_bandpower_summary.csv",
         "thresholds": OUT_DIR / "accelerometer_24h_local_pilot_threshold_sensitivity.csv",
+        "bandpass_features": OUT_DIR / "accelerometer_24h_local_pilot_bandpass_feature_summary.csv",
+        "bandpass_hourly": OUT_DIR / "accelerometer_24h_local_pilot_bandpass_hourly_summary.csv",
         "readme": OUT_DIR / "README_accelerometer_24h_local_signal_analysis.md",
     }
     features_df.to_csv(outputs["features"], index=False)
@@ -412,6 +502,8 @@ def main() -> None:
     state_df.to_csv(outputs["states"], index=False)
     bandpower_df.to_csv(outputs["bandpower"], index=False)
     threshold_df.to_csv(outputs["thresholds"], index=False)
+    bandpass_feature_df.to_csv(outputs["bandpass_features"], index=False)
+    bandpass_hourly_df.to_csv(outputs["bandpass_hourly"], index=False)
     outputs["readme"].write_text(build_readme(manifest, features_df), encoding="utf-8")
 
     print("accelerometer_24h_local_analysis_complete")

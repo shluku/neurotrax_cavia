@@ -82,6 +82,10 @@ PATHS = {
     / "output/analysis_candidates/phase2_accelerometer_framework/local_24h_analysis/accelerometer_24h_local_pilot_state_summary.csv",
     "accelerometer_local_24h_thresholds": ROOT
     / "output/analysis_candidates/phase2_accelerometer_framework/local_24h_analysis/accelerometer_24h_local_pilot_threshold_sensitivity.csv",
+    "accelerometer_local_24h_bandpass_features": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/local_24h_analysis/accelerometer_24h_local_pilot_bandpass_feature_summary.csv",
+    "accelerometer_local_24h_bandpass_hourly": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/local_24h_analysis/accelerometer_24h_local_pilot_bandpass_hourly_summary.csv",
     "phase2_exploratory_feature_dir": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/exploratory_t1_week_24h",
     "phase3_all_t1_feature_dir": ROOT
@@ -838,6 +842,8 @@ def phase2_tables_page() -> None:
     accelerometer_local_24h_hourly = load_csv(PATHS["accelerometer_local_24h_hourly"])
     accelerometer_local_24h_states = load_csv(PATHS["accelerometer_local_24h_states"])
     accelerometer_local_24h_thresholds = load_csv(PATHS["accelerometer_local_24h_thresholds"])
+    accelerometer_local_24h_bandpass_features = load_csv(PATHS["accelerometer_local_24h_bandpass_features"])
+    accelerometer_local_24h_bandpass_hourly = load_csv(PATHS["accelerometer_local_24h_bandpass_hourly"])
     review_sample = load_csv(PATHS["applications_foreground_review_sample"])
     json_keys = load_csv(PATHS["applications_foreground_json_keys"])
     highest_t1_features = load_csv(PATHS["applications_foreground_highest_t1_36h_features"])
@@ -1182,6 +1188,13 @@ def phase2_tables_page() -> None:
             with cols[1]:
                 st.subheader("Threshold Sensitivity")
                 show_dataframe(accelerometer_local_24h_thresholds, height=240)
+            st.subheader("Bandpass Candidate Feature Summary")
+            st.caption(
+                "Frequency-band outputs are phone-state candidates. Sampling feasibility is shown per band before interpreting candidate minutes."
+            )
+            show_dataframe(accelerometer_local_24h_bandpass_features, height=260)
+            with st.expander("Bandpass candidate minutes by hour"):
+                show_dataframe(accelerometer_local_24h_bandpass_hourly, height=320)
             st.subheader("Hourly Motion Summary")
             show_dataframe(accelerometer_local_24h_hourly, height=260)
             with st.expander("Top 20 chunks by dynamic magnitude"):

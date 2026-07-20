@@ -60,3 +60,5 @@ Generated files:
 - `accelerometer_24h_local_pilot_state_summary.csv`
 - `accelerometer_24h_local_pilot_bandpower_summary.csv`
 - `accelerometer_24h_local_pilot_threshold_sensitivity.csv`
+- `accelerometer_24h_local_pilot_bandpass_feature_summary.csv`
+- `accelerometer_24h_local_pilot_bandpass_hourly_summary.csv`
