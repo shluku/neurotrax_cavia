@@ -163,6 +163,7 @@ Rows:
 
 - Patient rows: {len(patient_frame)}
 - Device-window metadata rows available for drill-down: {len(device_qc)}
+- Pending raw-validation rows are also written separately as `accelerometer_pending_raw_validation_metadata_windows.csv`.
 
 Patient status counts:
 
@@ -182,13 +183,19 @@ def main() -> None:
     patient_frame, summary, readme = build_patient_frame()
     patient_csv = OUT_DIR / "accelerometer_all_patient_data_window_frame.csv"
     summary_csv = OUT_DIR / "accelerometer_all_patient_data_window_summary.csv"
+    pending_csv = OUT_DIR / "accelerometer_pending_raw_validation_metadata_windows.csv"
     readme_path = OUT_DIR / "README_accelerometer_all_patient_data_window_frame.md"
+    pending = patient_frame[
+        patient_frame["data_window_status"].eq("sensor_metadata_window_candidate_pending_raw_validation")
+    ].copy()
     patient_frame.to_csv(patient_csv, index=False)
     summary.to_csv(summary_csv, index=False)
+    pending.to_csv(pending_csv, index=False)
     readme_path.write_text(readme, encoding="utf-8")
     print("accelerometer_all_patient_data_window_frame_complete")
     print(f"patient_csv: {patient_csv}")
     print(f"summary_csv: {summary_csv}")
+    print(f"pending_csv: {pending_csv}")
     print(f"readme: {readme_path}")
     print(summary.to_string(index=False))
 

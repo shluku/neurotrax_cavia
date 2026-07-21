@@ -20,6 +20,7 @@ Rows:
 
 - Patient rows: 81
 - Device-window metadata rows available for drill-down: 159
+- Pending raw-validation rows are also written separately as `accelerometer_pending_raw_validation_metadata_windows.csv`.
 
 Patient status counts:
 
