@@ -1,5 +1,5 @@
 data_window_status,patient_count
-no_raw_rows_in_validated_metadata_window,38
-raw_24h_window_validated,37
+raw_24h_window_validated,43
+no_raw_rows_in_broad_weekly_t1_t2_probe,32
 no_sensor_accelerometer_metadata_after_T1,4
 likely_no_usable_raw_accelerometer,2

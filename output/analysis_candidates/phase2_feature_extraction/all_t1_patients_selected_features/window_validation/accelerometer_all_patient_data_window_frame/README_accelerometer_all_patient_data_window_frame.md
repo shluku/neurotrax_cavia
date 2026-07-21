@@ -16,6 +16,7 @@ Inputs:
 - `/Users/ofirfizitsky/PycharmProjects/research_dbeaver/output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/window_validation/accelerometer_top10_sensor_anchor_daily_jump_bounded_v3/accelerometer_top10_sensor_anchor_raw_probe_patient_windows.csv`
 - `/Users/ofirfizitsky/PycharmProjects/research_dbeaver/output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/window_validation/accelerometer_misses_weekly_backward_probe/accelerometer_misses_weekly_backward_probe.csv`
 - `/Users/ofirfizitsky/PycharmProjects/research_dbeaver/output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/window_validation/accelerometer_pending_raw_validation/accelerometer_pending_raw_validation_patient_windows.csv`
+- `/Users/ofirfizitsky/PycharmProjects/research_dbeaver/output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/window_validation/accelerometer_no_raw_38_weekly_t1_t2_probe/accelerometer_no_raw_38_weekly_t1_t2_patient_windows.csv`
 
 Rows:
 
@@ -26,14 +27,15 @@ Rows:
 Patient status counts:
 
 - `likely_no_usable_raw_accelerometer`: 2
-- `no_raw_rows_in_validated_metadata_window`: 38
+- `no_raw_rows_in_broad_weekly_t1_t2_probe`: 32
 - `no_sensor_accelerometer_metadata_after_T1`: 4
-- `raw_24h_window_validated`: 37
+- `raw_24h_window_validated`: 43
 
 Interpretation:
 
 - `raw_24h_window_validated`: raw accelerometer rows were found and a candidate 24h raw window is recorded.
 - `likely_no_usable_raw_accelerometer`: metadata exists, but targeted raw probes found no raw samples.
 - `no_raw_rows_in_validated_metadata_window`: metadata exists, but bounded daily raw probes across the metadata week found no raw samples.
+- `no_raw_rows_in_broad_weekly_t1_t2_probe`: metadata exists, but broader weekly probes from T2 backward to T1 found no raw samples.
 - `sensor_metadata_window_candidate_pending_raw_validation`: metadata suggests a candidate window, but raw data has not yet been checked.
 - `no_sensor_accelerometer_metadata_after_T1`: no post-T1 metadata candidate exists in the current framework.

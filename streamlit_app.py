@@ -84,6 +84,10 @@ PATHS = {
     / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/window_validation/accelerometer_pending_raw_validation/accelerometer_pending_raw_validation_patient_windows.csv",
     "accelerometer_pending_raw_validation_probes": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/window_validation/accelerometer_pending_raw_validation/accelerometer_pending_raw_validation_probes.csv",
+    "accelerometer_no_raw_38_weekly_t1_t2_windows": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/window_validation/accelerometer_no_raw_38_weekly_t1_t2_probe/accelerometer_no_raw_38_weekly_t1_t2_patient_windows.csv",
+    "accelerometer_no_raw_38_weekly_t1_t2_probes": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/window_validation/accelerometer_no_raw_38_weekly_t1_t2_probe/accelerometer_no_raw_38_weekly_t1_t2_probes.csv",
     "accelerometer_local_24h_readme": ROOT
     / "output/analysis_candidates/phase2_accelerometer_framework/local_24h_analysis/README_accelerometer_24h_local_signal_analysis.md",
     "accelerometer_local_24h_features": ROOT
@@ -876,6 +880,8 @@ def phase2_tables_page() -> None:
     accelerometer_miss_weekly_backward_probe = load_csv(PATHS["accelerometer_miss_weekly_backward_probe"])
     accelerometer_pending_raw_validation_windows = load_csv(PATHS["accelerometer_pending_raw_validation_windows"])
     accelerometer_pending_raw_validation_probes = load_csv(PATHS["accelerometer_pending_raw_validation_probes"])
+    accelerometer_no_raw_38_weekly_t1_t2_windows = load_csv(PATHS["accelerometer_no_raw_38_weekly_t1_t2_windows"])
+    accelerometer_no_raw_38_weekly_t1_t2_probes = load_csv(PATHS["accelerometer_no_raw_38_weekly_t1_t2_probes"])
     review_sample = load_csv(PATHS["applications_foreground_review_sample"])
     json_keys = load_csv(PATHS["applications_foreground_json_keys"])
     highest_t1_features = load_csv(PATHS["applications_foreground_highest_t1_36h_features"])
@@ -1180,7 +1186,7 @@ def phase2_tables_page() -> None:
                         ("All patients", len(accelerometer_all_patient_window_frame)),
                         ("Raw validated", int(status_counts.get("raw_24h_window_validated", 0))),
                         ("Likely no raw ACC", int(status_counts.get("likely_no_usable_raw_accelerometer", 0))),
-                        ("No raw in probed metadata week", int(status_counts.get("no_raw_rows_in_validated_metadata_window", 0))),
+                        ("No raw in broad weekly T1-T2 probe", int(status_counts.get("no_raw_rows_in_broad_weekly_t1_t2_probe", 0))),
                         (
                             "Pending raw validation",
                             int(status_counts.get("sensor_metadata_window_candidate_pending_raw_validation", 0)),
@@ -1222,6 +1228,10 @@ def phase2_tables_page() -> None:
                 show_dataframe(accelerometer_pending_raw_validation_windows, height=320)
             with st.expander("67 pending-window raw validation probe details"):
                 show_dataframe(accelerometer_pending_raw_validation_probes, height=360)
+            with st.expander("38 no-raw metadata-week patients: broad weekly T1-T2 validation"):
+                show_dataframe(accelerometer_no_raw_38_weekly_t1_t2_windows, height=320)
+            with st.expander("38 no-raw metadata-week patients: broad weekly T1-T2 probe details"):
+                show_dataframe(accelerometer_no_raw_38_weekly_t1_t2_probes, height=360)
             with st.expander("Weekly-backward probes for likely raw misses"):
                 show_dataframe(accelerometer_miss_weekly_backward_probe, height=220)
             st.subheader("Raw Accelerometer Phase 2A Targeted Sample")
