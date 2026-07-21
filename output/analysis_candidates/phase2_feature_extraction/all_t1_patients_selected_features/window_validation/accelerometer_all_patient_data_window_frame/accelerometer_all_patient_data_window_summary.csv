@@ -1,0 +1,5 @@
+data_window_status,patient_count
+sensor_metadata_window_candidate_pending_raw_validation,67
+raw_24h_window_validated,8
+no_sensor_accelerometer_metadata_after_T1,4
+likely_no_usable_raw_accelerometer,2

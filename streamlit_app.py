@@ -70,6 +70,16 @@ PATHS = {
     / "output/analysis_candidates/phase2_accelerometer_framework/raw_24h_pilot/accelerometer_24h_pilot_candidate_scan.csv",
     "accelerometer_tomorrow_work_readme": ROOT
     / "output/analysis_candidates/phase2_accelerometer_framework/README_ACCELEROMETER_TOMORROW_WORK.md",
+    "accelerometer_all_patient_window_frame": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/window_validation/accelerometer_all_patient_data_window_frame/accelerometer_all_patient_data_window_frame.csv",
+    "accelerometer_all_patient_window_summary": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/window_validation/accelerometer_all_patient_data_window_frame/accelerometer_all_patient_data_window_summary.csv",
+    "accelerometer_all_patient_window_readme": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/window_validation/accelerometer_all_patient_data_window_frame/README_accelerometer_all_patient_data_window_frame.md",
+    "accelerometer_top10_window_candidates": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/window_validation/accelerometer_top10_sensor_anchor_daily_jump_bounded_v3/accelerometer_top10_sensor_anchor_raw_probe_candidates.csv",
+    "accelerometer_miss_weekly_backward_probe": ROOT
+    / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/window_validation/accelerometer_misses_weekly_backward_probe/accelerometer_misses_weekly_backward_probe.csv",
     "accelerometer_local_24h_readme": ROOT
     / "output/analysis_candidates/phase2_accelerometer_framework/local_24h_analysis/README_accelerometer_24h_local_signal_analysis.md",
     "accelerometer_local_24h_features": ROOT
@@ -856,6 +866,10 @@ def phase2_tables_page() -> None:
     accelerometer_local_24h_thresholds = load_csv(PATHS["accelerometer_local_24h_thresholds"])
     accelerometer_local_24h_bandpass_features = load_csv(PATHS["accelerometer_local_24h_bandpass_features"])
     accelerometer_local_24h_bandpass_hourly = load_csv(PATHS["accelerometer_local_24h_bandpass_hourly"])
+    accelerometer_all_patient_window_frame = load_csv(PATHS["accelerometer_all_patient_window_frame"])
+    accelerometer_all_patient_window_summary = load_csv(PATHS["accelerometer_all_patient_window_summary"])
+    accelerometer_top10_window_candidates = load_csv(PATHS["accelerometer_top10_window_candidates"])
+    accelerometer_miss_weekly_backward_probe = load_csv(PATHS["accelerometer_miss_weekly_backward_probe"])
     review_sample = load_csv(PATHS["applications_foreground_review_sample"])
     json_keys = load_csv(PATHS["applications_foreground_json_keys"])
     highest_t1_features = load_csv(PATHS["applications_foreground_highest_t1_36h_features"])
@@ -1141,6 +1155,64 @@ def phase2_tables_page() -> None:
             show_dataframe(sensor_acc_qc_patient, height=360)
             st.subheader("Device-Window QC")
             show_dataframe(sensor_acc_qc_device, height=360)
+            st.subheader("All-Patient Raw ACC Window Frame")
+            st.caption(
+                "One planning row per mapped T1 patient. Metadata windows come from `sensor_accelerometer`; "
+                "raw 24h windows are filled only where bounded raw `accelerometer` validation has already succeeded."
+            )
+            if accelerometer_all_patient_window_frame.empty:
+                st.info("All-patient accelerometer data-window frame is not available yet.")
+                st.code(".venv/bin/python3 build_accelerometer_data_window_frame.py")
+            else:
+                status_counts = (
+                    accelerometer_all_patient_window_frame["data_window_status"].astype(str).value_counts().to_dict()
+                    if "data_window_status" in accelerometer_all_patient_window_frame.columns
+                    else {}
+                )
+                metric_row(
+                    [
+                        ("All patients", len(accelerometer_all_patient_window_frame)),
+                        ("Raw validated", int(status_counts.get("raw_24h_window_validated", 0))),
+                        ("Likely no raw ACC", int(status_counts.get("likely_no_usable_raw_accelerometer", 0))),
+                        (
+                            "Pending raw validation",
+                            int(status_counts.get("sensor_metadata_window_candidate_pending_raw_validation", 0)),
+                        ),
+                    ]
+                )
+                show_dataframe(accelerometer_all_patient_window_summary, height=180)
+
+                frame_view = accelerometer_all_patient_window_frame.copy()
+                if "data_window_status" in frame_view.columns:
+                    status_options = ["All"] + sorted(frame_view["data_window_status"].dropna().astype(str).unique().tolist())
+                    selected_window_status = st.selectbox("ACC window status", status_options)
+                    if selected_window_status != "All":
+                        frame_view = frame_view[frame_view["data_window_status"].astype(str).eq(selected_window_status)]
+                display_cols = [
+                    "Subject_ID_D",
+                    "global_T1",
+                    "T1_date_iso",
+                    "selected_device_id",
+                    "metadata_window_start_local",
+                    "metadata_window_end_local",
+                    "metadata_n_rows",
+                    "raw_validation_status",
+                    "candidate_raw_24h_window_start_local",
+                    "candidate_raw_24h_window_end_local",
+                    "data_window_status",
+                    "next_action",
+                ]
+                display_cols = [col for col in display_cols if col in frame_view.columns]
+                show_dataframe(frame_view[display_cols] if display_cols else frame_view, height=420)
+
+            frame_readme = load_text(PATHS["accelerometer_all_patient_window_readme"])
+            if frame_readme:
+                with st.expander("All-patient ACC window frame README"):
+                    st.markdown(frame_readme)
+            with st.expander("Top-10 raw validation candidate probes"):
+                show_dataframe(accelerometer_top10_window_candidates, height=320)
+            with st.expander("Weekly-backward probes for likely raw misses"):
+                show_dataframe(accelerometer_miss_weekly_backward_probe, height=220)
             st.subheader("Raw Accelerometer Phase 2A Targeted Sample")
             raw_readme = load_text(PATHS["accelerometer_raw_readme"])
             if raw_readme:
