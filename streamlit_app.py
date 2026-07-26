@@ -137,6 +137,16 @@ PATHS = {
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/phase4_t1_ridge_feature_set.csv",
     "phase4_model_readme": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/README_phase4_t1_ridge.md",
+    "phase4_cluster_assignments": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_assignments.csv",
+    "phase4_cluster_quality": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_quality.csv",
+    "phase4_cluster_feature_summary": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_feature_summary.csv",
+    "phase4_cluster_pca_loadings": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_pca_loadings.csv",
+    "phase4_cluster_readme": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/README_phase4_t1_clustering.md",
     "phase3_accelerometer_pilot_readme": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/table_runs/accelerometer/phase3_accelerometer_24h_pilot/README_phase3_accelerometer_24h_pilot.md",
     "phase3_accelerometer_pilot_wide": ROOT
@@ -1500,6 +1510,11 @@ def phase4_baseline_page() -> None:
     model_metrics = load_csv(PATHS["phase4_model_metrics"])
     model_feature_set = load_csv(PATHS["phase4_model_feature_set"])
     model_readme = load_text(PATHS["phase4_model_readme"])
+    cluster_assignments = load_csv(PATHS["phase4_cluster_assignments"])
+    cluster_quality = load_csv(PATHS["phase4_cluster_quality"])
+    cluster_feature_summary = load_csv(PATHS["phase4_cluster_feature_summary"])
+    cluster_pca_loadings = load_csv(PATHS["phase4_cluster_pca_loadings"])
+    cluster_readme = load_text(PATHS["phase4_cluster_readme"])
 
     if dataset.empty:
         st.info("The Phase 4 baseline dataset is not available yet.")
@@ -1523,7 +1538,7 @@ def phase4_baseline_page() -> None:
     )
 
     st.markdown(readme if readme else "")
-    tabs = st.tabs(["Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Model Results", "Protocol"])
+    tabs = st.tabs(["Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Model Results", "Clustering", "Protocol"])
 
     with tabs[0]:
         st.caption("Raw patient-level values are preserved. Missingness indicators and coverage summaries are included for modeling audit.")
@@ -1563,6 +1578,22 @@ def phase4_baseline_page() -> None:
             with st.expander("Fold-level predictions"):
                 show_dataframe(model_predictions, height=520)
     with tabs[5]:
+        if cluster_quality.empty:
+            st.info("The exploratory clustering analysis has not been run yet.")
+            st.code(".venv/bin/python3 phase4_cluster_t1_baseline.py")
+        else:
+            st.markdown(cluster_readme if cluster_readme else "")
+            st.subheader("Candidate cluster quality")
+            show_dataframe(cluster_quality, height=240)
+            if {"k", "mean_silhouette", "mean_pairwise_ari"}.issubset(cluster_quality.columns):
+                st.line_chart(cluster_quality.set_index("k")[["mean_silhouette", "mean_pairwise_ari"]])
+            st.subheader("Patient assignments")
+            show_dataframe(cluster_assignments, height=440)
+            with st.expander("PCA loadings"):
+                show_dataframe(cluster_pca_loadings, height=440)
+            with st.expander("Feature summaries by cluster"):
+                show_dataframe(cluster_feature_summary, height=520)
+    with tabs[6]:
         st.markdown(load_text(PATHS["phase4_protocol"]) or "No Phase 4 protocol available.")
 
 

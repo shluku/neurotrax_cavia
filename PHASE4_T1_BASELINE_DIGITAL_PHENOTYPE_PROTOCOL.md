@@ -94,6 +94,14 @@ After the first model run, the model directory should also contain:
 - `model_t1_ridge/phase4_t1_ridge_feature_set.csv`: primary versus sensitivity feature decisions.
 - `model_t1_ridge/README_phase4_t1_ridge.md`: generated model report.
 
+## Exploratory Clustering
+
+After the supervised comparison, an exploratory clustering run may use the 37 primary T1-week features. The clustering representation uses cohort-median imputation, standardization, and PCA, but does not include missingness indicators in the clustering input. Missingness and table coverage are retained for post hoc audit.
+
+The first clustering run evaluates `k=2` through `k=5` using silhouette score and repeated K-means stability. Cluster labels are descriptive IDs only. A cluster must not be interpreted as a clinical subtype without checking whether it is mainly defined by coverage, device episode, age, or other acquisition factors.
+
+Current clustering outputs are stored under `output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/`.
+
 ## Current Limitation
 
 The current dataset is a cohort-level exploratory extraction, not yet a locked final biomarker panel. Feature definitions, coverage thresholds, and the model inclusion list must be reviewed before any performance estimate is treated as meaningful.
