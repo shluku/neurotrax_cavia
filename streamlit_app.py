@@ -145,6 +145,18 @@ PATHS = {
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_feature_summary.csv",
     "phase4_cluster_pca_loadings": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_pca_loadings.csv",
+    "phase4_cluster_patient_audit": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_cluster_patient_audit.csv",
+    "phase4_cluster_audit_summary": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_cluster_audit_summary.csv",
+    "phase4_cluster_feature_differences": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_cluster_feature_differences.csv",
+    "phase4_cluster_pca_scatter": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_cluster_pca_scatter.csv",
+    "phase4_cluster_high_assignments": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_cluster_high_coverage_assignments.csv",
+    "phase4_cluster_high_quality": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_cluster_high_coverage_quality.csv",
     "phase4_cluster_readme": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/README_phase4_t1_clustering.md",
     "phase3_accelerometer_pilot_readme": ROOT
@@ -1514,6 +1526,12 @@ def phase4_baseline_page() -> None:
     cluster_quality = load_csv(PATHS["phase4_cluster_quality"])
     cluster_feature_summary = load_csv(PATHS["phase4_cluster_feature_summary"])
     cluster_pca_loadings = load_csv(PATHS["phase4_cluster_pca_loadings"])
+    cluster_patient_audit = load_csv(PATHS["phase4_cluster_patient_audit"])
+    cluster_audit_summary = load_csv(PATHS["phase4_cluster_audit_summary"])
+    cluster_feature_differences = load_csv(PATHS["phase4_cluster_feature_differences"])
+    cluster_pca_scatter = load_csv(PATHS["phase4_cluster_pca_scatter"])
+    cluster_high_assignments = load_csv(PATHS["phase4_cluster_high_assignments"])
+    cluster_high_quality = load_csv(PATHS["phase4_cluster_high_quality"])
     cluster_readme = load_text(PATHS["phase4_cluster_readme"])
 
     if dataset.empty:
@@ -1589,8 +1607,24 @@ def phase4_baseline_page() -> None:
                 st.line_chart(cluster_quality.set_index("k")[["mean_silhouette", "mean_pairwise_ari"]])
             st.subheader("Patient assignments")
             show_dataframe(cluster_assignments, height=440)
+            st.subheader("PCA coordinates")
+            if {"PC1", "PC2", "cluster_label"}.issubset(cluster_pca_scatter.columns):
+                st.scatter_chart(cluster_pca_scatter, x="PC1", y="PC2", color="cluster_label")
+            show_dataframe(cluster_pca_scatter, height=360)
+            st.subheader("Cluster audit summary")
+            show_dataframe(cluster_audit_summary, height=260)
+            st.subheader("High-coverage sensitivity clustering")
+            st.caption("Subset rule: feature missingness <= 50% and table coverage >= 50%.")
+            if {"PC1", "PC2", "cluster_label"}.issubset(cluster_high_assignments.columns):
+                st.scatter_chart(cluster_high_assignments, x="PC1", y="PC2", color="cluster_label")
+            show_dataframe(cluster_high_quality, height=220)
+            show_dataframe(cluster_high_assignments, height=360)
             with st.expander("PCA loadings"):
                 show_dataframe(cluster_pca_loadings, height=440)
+            with st.expander("Ranked standardized feature differences"):
+                show_dataframe(cluster_feature_differences, height=520)
+            with st.expander("Patient acquisition audit"):
+                show_dataframe(cluster_patient_audit, height=520)
             with st.expander("Feature summaries by cluster"):
                 show_dataframe(cluster_feature_summary, height=520)
     with tabs[6]:
