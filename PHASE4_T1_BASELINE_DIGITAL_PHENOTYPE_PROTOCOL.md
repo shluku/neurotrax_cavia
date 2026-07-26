@@ -87,6 +87,13 @@ Hardware metadata and table-availability fields are coverage/context variables. 
 - `phase4_t1_baseline_table_coverage.csv`: patient-table status and window coverage summary.
 - `README_phase4_t1_baseline_dataset.md`: generated run summary.
 
+After the first model run, the model directory should also contain:
+
+- `model_t1_ridge/phase4_t1_ridge_predictions.csv`: repeated outer-fold predictions.
+- `model_t1_ridge/phase4_t1_ridge_metrics.csv`: per-repeat and pooled metrics.
+- `model_t1_ridge/phase4_t1_ridge_feature_set.csv`: primary versus sensitivity feature decisions.
+- `model_t1_ridge/README_phase4_t1_ridge.md`: generated model report.
+
 ## Current Limitation
 
 The current dataset is a cohort-level exploratory extraction, not yet a locked final biomarker panel. Feature definitions, coverage thresholds, and the model inclusion list must be reviewed before any performance estimate is treated as meaningful.

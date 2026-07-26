@@ -129,6 +129,14 @@ PATHS = {
     / "output/analysis_candidates/phase4_t1_baseline/phase4_t1_baseline_table_coverage.csv",
     "phase4_readme": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/README_phase4_t1_baseline_dataset.md",
+    "phase4_model_predictions": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/phase4_t1_ridge_predictions.csv",
+    "phase4_model_metrics": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/phase4_t1_ridge_metrics.csv",
+    "phase4_model_feature_set": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/phase4_t1_ridge_feature_set.csv",
+    "phase4_model_readme": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/README_phase4_t1_ridge.md",
     "phase3_accelerometer_pilot_readme": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/table_runs/accelerometer/phase3_accelerometer_24h_pilot/README_phase3_accelerometer_24h_pilot.md",
     "phase3_accelerometer_pilot_wide": ROOT
@@ -1488,6 +1496,10 @@ def phase4_baseline_page() -> None:
     missingness = load_csv(PATHS["phase4_missingness"])
     coverage = load_csv(PATHS["phase4_table_coverage"])
     readme = load_text(PATHS["phase4_readme"])
+    model_predictions = load_csv(PATHS["phase4_model_predictions"])
+    model_metrics = load_csv(PATHS["phase4_model_metrics"])
+    model_feature_set = load_csv(PATHS["phase4_model_feature_set"])
+    model_readme = load_text(PATHS["phase4_model_readme"])
 
     if dataset.empty:
         st.info("The Phase 4 baseline dataset is not available yet.")
@@ -1511,7 +1523,7 @@ def phase4_baseline_page() -> None:
     )
 
     st.markdown(readme if readme else "")
-    tabs = st.tabs(["Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Protocol"])
+    tabs = st.tabs(["Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Model Results", "Protocol"])
 
     with tabs[0]:
         st.caption("Raw patient-level values are preserved. Missingness indicators and coverage summaries are included for modeling audit.")
@@ -1534,6 +1546,23 @@ def phase4_baseline_page() -> None:
             show_dataframe(summary, height=260)
         show_dataframe(coverage, height=520)
     with tabs[4]:
+        if model_metrics.empty:
+            st.info("The ridge model has not been run yet.")
+            st.code(".venv/bin/python3 phase4_model_t1_ridge.py")
+        else:
+            pooled = model_metrics[model_metrics.get("analysis_scope", pd.Series(dtype=str)).astype(str).eq("pooled")]
+            if not pooled.empty and {"model", "rmse", "mae", "r2"}.issubset(pooled.columns):
+                st.subheader("Pooled repeated cross-validation metrics")
+                show_dataframe(pooled, height=180)
+                chart = pooled.set_index("model")[["rmse", "mae"]]
+                st.bar_chart(chart)
+            st.subheader("Model report")
+            st.markdown(model_readme if model_readme else "")
+            with st.expander("Feature inclusion decisions"):
+                show_dataframe(model_feature_set, height=420)
+            with st.expander("Fold-level predictions"):
+                show_dataframe(model_predictions, height=520)
+    with tabs[5]:
         st.markdown(load_text(PATHS["phase4_protocol"]) or "No Phase 4 protocol available.")
 
 
