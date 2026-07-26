@@ -1,31 +1,37 @@
-# Phase 4 T1 Ridge Model
+# Phase 4 T1 Ridge Sensitivity Models
 
-This is the first exploratory patient-level model for Outcome 1. It compares a training-set mean predictor with ridge regression for continuous `global_T1`.
+This run compares four baseline feature scopes against the same training-fold mean predictor for continuous `global_T1`.
 
 ## Design
 
 - Patients with non-missing `global_T1`: `81`.
-- Primary features: `37`.
-- Non-primary features retained for sensitivity analysis: `34`.
 - Outer validation: repeated `5`-fold cross-validation, `20` repeats.
-- Ridge alpha: selected inside each outer training fold using 4-fold inner cross-validation.
-- Preprocessing: training-fold median imputation, missingness indicators, then standardization.
-- The reference mean predictor uses only the training-fold target mean.
+- Every scope uses the same outer splits and the same mean-baseline predictions within each split.
+- Ridge alpha is selected inside each outer training fold using 4-fold inner cross-validation.
+- Preprocessing is fit inside each training fold: median imputation, missingness indicators, then standardization.
+
+## Feature Scopes
+
+- `primary_37`: the 37 T1-week features observed in at least 50% of patients.
+- `t1_week_all_available`: primary plus lower-coverage T1-week features; adjusted-window features excluded.
+- `primary_plus_adjusted`: primary plus adjusted first-available features; lower-coverage T1-week features excluded.
+- `all_available`: all observed T1-week and adjusted-window features except zero-coverage features.
 
 ## Pooled Cross-Validated Results
 
-- `mean_baseline`: RMSE `8.532`, MAE `6.797`, R2 `-0.000`.
-- `ridge`: RMSE `8.725`, MAE `6.916`, R2 `-0.046`.
-- Ridge pooled RMSE minus mean-baseline pooled RMSE: `0.193`.
+- `primary_37`: mean RMSE `8.532`, ridge RMSE `8.725`, ridge minus mean `0.193`, ridge R2 `-0.046`.
+- `t1_week_all_available`: mean RMSE `8.532`, ridge RMSE `9.506`, ridge minus mean `0.974`, ridge R2 `-0.242`.
+- `primary_plus_adjusted`: mean RMSE `8.532`, ridge RMSE `8.625`, ridge minus mean `0.093`, ridge R2 `-0.022`.
+- `all_available`: mean RMSE `8.532`, ridge RMSE `9.048`, ridge minus mean `0.516`, ridge R2 `-0.125`.
 
 ## Interpretation Boundary
 
-These are exploratory cross-validated associations in a small proof-of-concept cohort. They are not an externally validated prediction estimate. Repeated cross-validation gives a stability view, not an independent test-set result.
+These are exploratory POC comparisons, not independent validation estimates. Adding features with lower coverage or a different acquisition rule can improve apparent fit while reducing interpretability and increasing instability.
 
-The non-primary features are not discarded. Adjusted-window features, low-coverage T1-week features, and zero-coverage features are retained in the feature-set audit and should be tested in separately labeled sensitivity analyses.
+The mean baseline is deliberately identical in meaning across all four comparisons: it predicts the training-fold mean `global_T1`. The results should be read as whether each feature scope adds value beyond that reference under the same resampling design.
 
 ## Files
 
-- `phase4_t1_ridge_predictions.csv`: fold-level predictions for both models.
+- `phase4_t1_ridge_predictions.csv`: repeated outer-fold predictions for every scope and model.
 - `phase4_t1_ridge_metrics.csv`: per-repeat and pooled metrics.
-- `phase4_t1_ridge_feature_set.csv`: primary versus sensitivity feature decisions.
+- `phase4_t1_ridge_feature_set.csv`: feature membership by scope.
