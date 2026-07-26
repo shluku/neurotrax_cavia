@@ -118,6 +118,17 @@ PATHS = {
     / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/phase2_all_t1_selected_features_coverage.csv",
     "phase3_all_t1_readme": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/README_phase2_all_t1_selected_features.md",
+    "phase4_protocol": ROOT / "PHASE4_T1_BASELINE_DIGITAL_PHENOTYPE_PROTOCOL.md",
+    "phase4_baseline_dataset": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/phase4_t1_baseline_patient_dataset.csv",
+    "phase4_feature_metadata": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/phase4_t1_baseline_feature_metadata.csv",
+    "phase4_missingness": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/phase4_t1_baseline_missingness_summary.csv",
+    "phase4_table_coverage": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/phase4_t1_baseline_table_coverage.csv",
+    "phase4_readme": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/README_phase4_t1_baseline_dataset.md",
     "phase3_accelerometer_pilot_readme": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/table_runs/accelerometer/phase3_accelerometer_24h_pilot/README_phase3_accelerometer_24h_pilot.md",
     "phase3_accelerometer_pilot_wide": ROOT
@@ -1468,6 +1479,64 @@ def phase3_algorithm_page() -> None:
         st.markdown(readme if readme else "No README available yet.")
 
 
+def phase4_baseline_page() -> None:
+    st.title("Phase 4 T1 Baseline Digital Phenotype")
+    st.caption("Patient-level baseline dataset for Outcome 1 using the first valid 24-hour T1-week protocol.")
+
+    dataset = load_csv(PATHS["phase4_baseline_dataset"])
+    metadata = load_csv(PATHS["phase4_feature_metadata"])
+    missingness = load_csv(PATHS["phase4_missingness"])
+    coverage = load_csv(PATHS["phase4_table_coverage"])
+    readme = load_text(PATHS["phase4_readme"])
+
+    if dataset.empty:
+        st.info("The Phase 4 baseline dataset is not available yet.")
+        st.code(".venv/bin/python3 build_phase4_t1_baseline_dataset.py")
+        st.markdown(load_text(PATHS["phase4_protocol"]))
+        return
+
+    feature_columns = metadata["feature_name"].tolist() if "feature_name" in metadata.columns else []
+    primary_count = int(metadata["primary_model_recommendation"].eq("include_primary").sum()) if "primary_model_recommendation" in metadata.columns else 0
+    sensitivity_count = int((~metadata["primary_model_recommendation"].eq("include_primary")).sum()) if "primary_model_recommendation" in metadata.columns else 0
+    mean_missing = float(dataset["baseline_feature_missing_fraction"].mean() * 100) if "baseline_feature_missing_fraction" in dataset.columns else float("nan")
+
+    metric_row(
+        [
+            ("Patients", dataset["Subject_ID_D"].nunique() if "Subject_ID_D" in dataset.columns else len(dataset)),
+            ("Selected features", len(feature_columns)),
+            ("Primary-model features", primary_count),
+            ("Sensitivity-only features", sensitivity_count),
+            ("Mean feature missingness", f"{mean_missing:.1f}%"),
+        ]
+    )
+
+    st.markdown(readme if readme else "")
+    tabs = st.tabs(["Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Protocol"])
+
+    with tabs[0]:
+        st.caption("Raw patient-level values are preserved. Missingness indicators and coverage summaries are included for modeling audit.")
+        show_dataframe(dataset, height=650)
+    with tabs[1]:
+        show_dataframe(metadata, height=520)
+    with tabs[2]:
+        if not missingness.empty and {"feature_name", "missing_percent"}.issubset(missingness.columns):
+            st.bar_chart(missingness.set_index("feature_name")["missing_percent"])
+        show_dataframe(missingness, height=520)
+    with tabs[3]:
+        if not coverage.empty and {"table_name", "table_status"}.issubset(coverage.columns):
+            summary = (
+                coverage.assign(calculated=coverage["table_status"].astype(str).eq("calculated"))
+                .groupby("table_name", dropna=False)
+                .agg(patient_table_blocks=("table_status", "size"), calculated_blocks=("calculated", "sum"))
+                .reset_index()
+            )
+            summary["calculated_percent"] = (100 * summary["calculated_blocks"] / summary["patient_table_blocks"]).round(1)
+            show_dataframe(summary, height=260)
+        show_dataframe(coverage, height=520)
+    with tabs[4]:
+        st.markdown(load_text(PATHS["phase4_protocol"]) or "No Phase 4 protocol available.")
+
+
 def rd_page() -> None:
     st.title("R&D")
     st.caption("Protocol experiments that test alternative acquisition rules without overwriting Phase 3 outputs.")
@@ -1927,6 +1996,7 @@ PAGES = {
     "Rich Wide Table": rich_wide_page,
     "Phase 2 Tables": phase2_tables_page,
     "Phase 3 algorithm implementation": phase3_algorithm_page,
+    "Phase 4 T1 Baseline": phase4_baseline_page,
     "R&D": rd_page,
     "SQL Samples": samples_page,
     "Files": files_page,
