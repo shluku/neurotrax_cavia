@@ -157,6 +157,14 @@ PATHS = {
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_cluster_high_coverage_assignments.csv",
     "phase4_cluster_high_quality": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_cluster_high_coverage_quality.csv",
+    "phase4_cluster_profiles": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_cluster_profiles.csv",
+    "phase4_cluster_profile_features": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_cluster_profile_features.csv",
+    "phase4_cluster_stability": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_cluster_stability.csv",
+    "phase4_cluster_profiles_readme": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/README_phase4_cluster_profiles.md",
     "phase4_cluster_readme": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/README_phase4_t1_clustering.md",
     "phase3_accelerometer_pilot_readme": ROOT
@@ -1532,6 +1540,10 @@ def phase4_baseline_page() -> None:
     cluster_pca_scatter = load_csv(PATHS["phase4_cluster_pca_scatter"])
     cluster_high_assignments = load_csv(PATHS["phase4_cluster_high_assignments"])
     cluster_high_quality = load_csv(PATHS["phase4_cluster_high_quality"])
+    cluster_profiles = load_csv(PATHS["phase4_cluster_profiles"])
+    cluster_profile_features = load_csv(PATHS["phase4_cluster_profile_features"])
+    cluster_stability = load_csv(PATHS["phase4_cluster_stability"])
+    cluster_profiles_readme = load_text(PATHS["phase4_cluster_profiles_readme"])
     cluster_readme = load_text(PATHS["phase4_cluster_readme"])
 
     if dataset.empty:
@@ -1623,6 +1635,13 @@ def phase4_baseline_page() -> None:
                 show_dataframe(cluster_pca_loadings, height=440)
             with st.expander("Ranked standardized feature differences"):
                 show_dataframe(cluster_feature_differences, height=520)
+            st.subheader("Exploratory phenotype profiles")
+            st.markdown(cluster_profiles_readme if cluster_profiles_readme else "")
+            show_dataframe(cluster_profiles, height=280)
+            st.subheader("Coverage-controlled cluster stability")
+            show_dataframe(cluster_stability, height=280)
+            with st.expander("Profile feature details"):
+                show_dataframe(cluster_profile_features, height=520)
             with st.expander("Patient acquisition audit"):
                 show_dataframe(cluster_patient_audit, height=520)
             with st.expander("Feature summaries by cluster"):
