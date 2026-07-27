@@ -167,6 +167,10 @@ PATHS = {
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_alternatives/phase4_t1_alternative_patient_predictions.csv",
     "phase4_alternative_metrics": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_alternatives/phase4_t1_alternative_metrics.csv",
+    "phase4_domain_patient_predictions": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_cognitive_domains/phase4_t1_cognitive_domain_patient_predictions.csv",
+    "phase4_domain_metrics": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_cognitive_domains/phase4_t1_cognitive_domain_metrics.csv",
     "phase4_cluster_assignments": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_assignments.csv",
     "phase4_cluster_quality": ROOT
@@ -1579,6 +1583,8 @@ def phase4_baseline_page() -> None:
     direction_constrained_metrics = load_csv(PATHS["phase4_direction_constrained_metrics"])
     alternative_patient_predictions = load_csv(PATHS["phase4_alternative_patient_predictions"])
     alternative_metrics = load_csv(PATHS["phase4_alternative_metrics"])
+    domain_patient_predictions = load_csv(PATHS["phase4_domain_patient_predictions"])
+    domain_metrics = load_csv(PATHS["phase4_domain_metrics"])
     cluster_assignments = load_csv(PATHS["phase4_cluster_assignments"])
     cluster_quality = load_csv(PATHS["phase4_cluster_quality"])
     cluster_feature_summary = load_csv(PATHS["phase4_cluster_feature_summary"])
@@ -2301,7 +2307,7 @@ def phase4_baseline_page() -> None:
         st.altair_chart(slope_chart, use_container_width=True)
 
     st.markdown(readme if readme else "")
-    tabs = st.tabs(["Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Model Results", "Clustering", "Protocol"])
+    tabs = st.tabs(["Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Model Results", "Clustering", "Cognitive Domain Models", "Protocol"])
 
     with tabs[0]:
         st.caption("Raw patient-level values are preserved. Missingness indicators and coverage summaries are included for modeling audit.")
@@ -2392,6 +2398,82 @@ def phase4_baseline_page() -> None:
             with st.expander("Feature summaries by cluster"):
                 show_dataframe(cluster_feature_summary, height=520)
     with tabs[6]:
+        st.subheader("Cognitive domain digital phenotype estimates")
+        st.caption(
+            "Each graph uses the same 37 primary digital features and the same cross-validation design as Outcome 1, "
+            "but predicts one T1 cognitive domain at a time."
+        )
+        domain_colors = {
+            "Memory": "#2563eb",
+            "Executive function": "#16a34a",
+            "Processing speed": "#d97706",
+            "Attention": "#9333ea",
+            "Motor": "#0891b2",
+        }
+        if domain_patient_predictions.empty:
+            st.info("Cognitive domain models are not available yet.")
+            st.code(".venv/bin/python3 phase4_model_t1_cognitive_domains.py")
+        else:
+            for domain, color in domain_colors.items():
+                domain_frame = domain_patient_predictions[
+                    domain_patient_predictions["domain"].astype(str).eq(domain)
+                ].copy()
+                if domain_frame.empty:
+                    continue
+                domain_frame = domain_frame.sort_values("actual_T1").reset_index(drop=True)
+                domain_frame["patient_rank"] = range(1, len(domain_frame) + 1)
+                domain_plot = domain_frame.rename(
+                    columns={
+                        "Subject_ID_D": "Patient ID",
+                        "actual_T1": "Observed domain T1 score",
+                        "ridge_prediction": "Digital domain estimate",
+                    }
+                )[["patient_rank", "Patient ID", "Observed domain T1 score", "Digital domain estimate"]].melt(
+                    id_vars=["patient_rank", "Patient ID"],
+                    var_name="score_type",
+                    value_name="score",
+                )
+                st.markdown(f"**{domain} T1**")
+                st.caption(
+                    "Patients are ordered from lowest to highest observed domain score. "
+                    "The black line is observed; the colored line is the cross-validated digital estimate."
+                )
+                domain_min = int(domain_plot["score"].min()) - 1
+                domain_max = int(domain_plot["score"].max()) + 1
+                domain_chart = (
+                    alt.Chart(domain_plot)
+                    .mark_line(point=alt.OverlayMarkDef(size=45))
+                    .encode(
+                        x=alt.X(
+                            "patient_rank:Q",
+                            title="Patients ordered by observed domain score",
+                            axis=alt.Axis(format="d"),
+                        ),
+                        y=alt.Y(
+                            "score:Q",
+                            title=f"{domain} T1 score",
+                            scale=alt.Scale(domain=[domain_min, domain_max]),
+                        ),
+                        color=alt.Color(
+                            "score_type:N",
+                            title="Measure",
+                            scale=alt.Scale(
+                                domain=["Observed domain T1 score", "Digital domain estimate"],
+                                range=["#111827", color],
+                            ),
+                        ),
+                        tooltip=[
+                            alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                            alt.Tooltip("Patient ID:N", title="Patient ID"),
+                            alt.Tooltip("score_type:N", title="Measure"),
+                            alt.Tooltip("score:Q", title="Score", format=".2f"),
+                        ],
+                    )
+                )
+                st.altair_chart(domain_chart.properties(height=360), use_container_width=True)
+                domain_metric_frame = domain_metrics[domain_metrics["domain"].astype(str).eq(domain)]
+                show_fit_legend(domain_metric_frame, "ridge", domain)
+    with tabs[7]:
         st.markdown(load_text(PATHS["phase4_protocol"]) or "No Phase 4 protocol available.")
 
 
