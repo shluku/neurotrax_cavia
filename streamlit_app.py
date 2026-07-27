@@ -157,6 +157,8 @@ PATHS = {
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_slope_selected/phase4_t1_slope_selected_patient_predictions.csv",
     "phase4_direction_constrained_patient_predictions": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_direction_constrained/phase4_t1_direction_constrained_patient_predictions.csv",
+    "phase4_alternative_patient_predictions": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_alternatives/phase4_t1_alternative_patient_predictions.csv",
     "phase4_cluster_assignments": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_assignments.csv",
     "phase4_cluster_quality": ROOT
@@ -1564,6 +1566,7 @@ def phase4_baseline_page() -> None:
     gradient_patient_predictions = load_csv(PATHS["phase4_gradient_patient_predictions"])
     slope_selected_patient_predictions = load_csv(PATHS["phase4_slope_selected_patient_predictions"])
     direction_constrained_patient_predictions = load_csv(PATHS["phase4_direction_constrained_patient_predictions"])
+    alternative_patient_predictions = load_csv(PATHS["phase4_alternative_patient_predictions"])
     cluster_assignments = load_csv(PATHS["phase4_cluster_assignments"])
     cluster_quality = load_csv(PATHS["phase4_cluster_quality"])
     cluster_feature_summary = load_csv(PATHS["phase4_cluster_feature_summary"])
@@ -1842,6 +1845,72 @@ def phase4_baseline_page() -> None:
             )
         )
         st.altair_chart(weighted_chart.properties(height=430), use_container_width=True)
+
+    st.subheader("Alternative model estimates")
+    st.caption(
+        "These are additional exploratory models using the same 37 primary features and validation design. "
+        "They do not replace the original Outcome 1 model."
+    )
+    alternative_models = [
+        ("elastic_net_prediction", "Elastic Net estimate", "#16a34a"),
+        ("pls_prediction", "PLS estimate", "#ea580c"),
+        ("spline_ridge_prediction", "Spline Ridge estimate", "#9333ea"),
+    ]
+    for prediction_column, prediction_label, prediction_color in alternative_models:
+        if alternative_patient_predictions.empty:
+            st.info("Alternative model comparisons are not available yet.")
+            break
+        alternative_patients = alternative_patient_predictions.sort_values("actual_global_T1").reset_index(drop=True)
+        alternative_patients["patient_rank"] = range(1, len(alternative_patients) + 1)
+        alternative_plot_data = alternative_patients.rename(
+            columns={
+                "Subject_ID_D": "Patient ID",
+                "actual_global_T1": "Observed T1 score",
+                prediction_column: prediction_label,
+            }
+        )[["patient_rank", "Patient ID", "Observed T1 score", prediction_label]].melt(
+            id_vars=["patient_rank", "Patient ID"],
+            var_name="score_type",
+            value_name="t1_score",
+        )
+        st.markdown(f"**{prediction_label}**")
+        st.caption(
+            "Same patient ordering as the main graph. The colored line is the model estimate; "
+            "the black line is the observed T1 score."
+        )
+        alternative_plot_min = int(alternative_plot_data["t1_score"].min()) - 1
+        alternative_plot_max = int(alternative_plot_data["t1_score"].max()) + 1
+        alternative_chart = (
+            alt.Chart(alternative_plot_data)
+            .mark_line(point=alt.OverlayMarkDef(size=45))
+            .encode(
+                x=alt.X(
+                    "patient_rank:Q",
+                    title="Patients ordered by observed T1 score",
+                    axis=alt.Axis(format="d"),
+                ),
+                y=alt.Y(
+                    "t1_score:Q",
+                    title="T1 score",
+                    scale=alt.Scale(domain=[alternative_plot_min, alternative_plot_max]),
+                ),
+                color=alt.Color(
+                    "score_type:N",
+                    title="Measure",
+                    scale=alt.Scale(
+                        domain=["Observed T1 score", prediction_label],
+                        range=["#111827", prediction_color],
+                    ),
+                ),
+                tooltip=[
+                    alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                    alt.Tooltip("Patient ID:N", title="Patient ID"),
+                    alt.Tooltip("score_type:N", title="Measure"),
+                    alt.Tooltip("t1_score:Q", title="T1 score", format=".2f"),
+                ],
+            )
+        )
+        st.altair_chart(alternative_chart.properties(height=360), use_container_width=True)
 
     st.subheader("Exploratory feature patterns")
     st.caption(
