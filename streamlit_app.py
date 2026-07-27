@@ -153,6 +153,8 @@ PATHS = {
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/README_phase4_t1_score_calibration.md",
     "phase4_gradient_patient_predictions": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_gradient_weighted/phase4_t1_gradient_weighted_patient_predictions.csv",
+    "phase4_slope_selected_patient_predictions": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_slope_selected/phase4_t1_slope_selected_patient_predictions.csv",
     "phase4_cluster_assignments": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_assignments.csv",
     "phase4_cluster_quality": ROOT
@@ -1558,6 +1560,7 @@ def phase4_baseline_page() -> None:
     coefficient_summary = load_csv(PATHS["phase4_coefficient_summary"])
     score_calibration_readme = load_text(PATHS["phase4_score_calibration_readme"])
     gradient_patient_predictions = load_csv(PATHS["phase4_gradient_patient_predictions"])
+    slope_selected_patient_predictions = load_csv(PATHS["phase4_slope_selected_patient_predictions"])
     cluster_assignments = load_csv(PATHS["phase4_cluster_assignments"])
     cluster_quality = load_csv(PATHS["phase4_cluster_quality"])
     cluster_feature_summary = load_csv(PATHS["phase4_cluster_feature_summary"])
@@ -1671,6 +1674,61 @@ def phase4_baseline_page() -> None:
                     ("Actual-predicted correlation", f"{float(row['actual_predicted_correlation']):.2f}"),
                 ]
             )
+
+    st.markdown("**Slope-selected 8-feature digital estimate**")
+    if slope_selected_patient_predictions.empty:
+        st.info("The slope-selected comparison is not available yet.")
+    else:
+        selected_patients = slope_selected_patient_predictions.sort_values("actual_global_T1").reset_index(drop=True)
+        selected_patients["patient_rank"] = range(1, len(selected_patients) + 1)
+        selected_plot_data = selected_patients.rename(
+            columns={
+                "Subject_ID_D": "Patient ID",
+                "actual_global_T1": "Observed T1 score",
+                "slope_selected_prediction": "Slope-selected estimate",
+            }
+        )[["patient_rank", "Patient ID", "Observed T1 score", "Slope-selected estimate"]].melt(
+            id_vars=["patient_rank", "Patient ID"],
+            var_name="score_type",
+            value_name="t1_score",
+        )
+        st.caption(
+            "Same patient order and graph interpretation as the main result. This model uses only eight features: "
+            "the five highest positive and three lowest negative fold-local linear slopes."
+        )
+        selected_plot_min = int(selected_plot_data["t1_score"].min()) - 1
+        selected_plot_max = int(selected_plot_data["t1_score"].max()) + 1
+        selected_chart = (
+            alt.Chart(selected_plot_data)
+            .mark_line(point=alt.OverlayMarkDef(size=45))
+            .encode(
+                x=alt.X(
+                    "patient_rank:Q",
+                    title="Patients ordered by observed T1 score",
+                    axis=alt.Axis(format="d"),
+                ),
+                y=alt.Y(
+                    "t1_score:Q",
+                    title="T1 score",
+                    scale=alt.Scale(domain=[selected_plot_min, selected_plot_max]),
+                ),
+                color=alt.Color(
+                    "score_type:N",
+                    title="Measure",
+                    scale=alt.Scale(
+                        domain=["Observed T1 score", "Slope-selected estimate"],
+                        range=["#111827", "#7c3aed"],
+                    ),
+                ),
+                tooltip=[
+                    alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                    alt.Tooltip("Patient ID:N", title="Patient ID"),
+                    alt.Tooltip("score_type:N", title="Measure"),
+                    alt.Tooltip("t1_score:Q", title="T1 score", format=".2f"),
+                ],
+            )
+        )
+        st.altair_chart(selected_chart.properties(height=430), use_container_width=True)
 
     st.markdown("**Gradient-weighted digital estimate**")
     if gradient_patient_predictions.empty:
