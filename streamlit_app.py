@@ -1592,62 +1592,64 @@ def phase4_baseline_page() -> None:
     )
 
     st.subheader("Outcome 1: Digital phenotype estimate of T1 score")
-    primary_bins = score_calibration_bins[
-        (score_calibration_bins["feature_scope"] == "primary_37")
-        & (score_calibration_bins["model"] == "ridge")
+    primary_patients = score_calibration[
+        score_calibration["feature_scope"] == "primary_37"
     ].copy()
-    if primary_bins.empty:
+    if primary_patients.empty:
         st.info("The primary T1 score prediction graph is not available yet.")
     else:
-        primary_bins = primary_bins.rename(
+        primary_patients = primary_patients.sort_values("actual_global_T1").reset_index(drop=True)
+        primary_patients["patient_rank"] = range(1, len(primary_patients) + 1)
+        plot_data = primary_patients.rename(
             columns={
-                "mean_predicted_global_T1": "predicted_T1_score",
-                "mean_actual_global_T1": "observed_T1_score",
+                "actual_global_T1": "Observed T1 score",
+                "ridge_prediction": "Digital estimate",
             }
+        )[["patient_rank", "Observed T1 score", "Digital estimate"]].melt(
+            id_vars="patient_rank", var_name="score_type", value_name="t1_score"
         )
         st.caption(
-            "Each point is a quartile of patients grouped by predicted T1 score. "
-            "The diagonal is perfect agreement. Points below the diagonal indicate overprediction."
+            "Each position represents one patient, ordered from lowest to highest observed T1 score. "
+            "The two lines show the observed score and the cross-validated digital estimate. "
+            "Closer lines indicate a closer patient-level estimate."
         )
         plot_min = int(
-            min(primary_bins["predicted_T1_score"].min(), primary_bins["observed_T1_score"].min())
+            plot_data["t1_score"].min()
         ) - 1
         plot_max = int(
-            max(primary_bins["predicted_T1_score"].max(), primary_bins["observed_T1_score"].max())
+            plot_data["t1_score"].max()
         ) + 1
         plot_domain = [plot_min, plot_max]
-        points = (
-            alt.Chart(primary_bins)
-            .mark_circle(size=130, color="#2563eb")
+        chart = (
+            alt.Chart(plot_data)
+            .mark_line(point=alt.OverlayMarkDef(size=45))
             .encode(
                 x=alt.X(
-                    "predicted_T1_score:Q",
-                    title="Predicted T1 score",
-                    scale=alt.Scale(domain=plot_domain),
+                    "patient_rank:Q",
+                    title="Patients ordered by observed T1 score",
+                    axis=alt.Axis(format="d"),
                 ),
                 y=alt.Y(
-                    "observed_T1_score:Q",
-                    title="Observed T1 score",
+                    "t1_score:Q",
+                    title="T1 score",
                     scale=alt.Scale(domain=plot_domain),
                 ),
+                color=alt.Color(
+                    "score_type:N",
+                    title="Measure",
+                    scale=alt.Scale(
+                        domain=["Observed T1 score", "Digital estimate"],
+                        range=["#111827", "#2563eb"],
+                    ),
+                ),
                 tooltip=[
-                    alt.Tooltip("prediction_bin:N", title="Prediction group"),
-                    alt.Tooltip("predicted_T1_score:Q", title="Predicted", format=".2f"),
-                    alt.Tooltip("observed_T1_score:Q", title="Observed", format=".2f"),
-                    alt.Tooltip("n_patients:Q", title="Patients"),
+                    alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                    alt.Tooltip("score_type:N", title="Measure"),
+                    alt.Tooltip("t1_score:Q", title="T1 score", format=".2f"),
                 ],
             )
         )
-        reference = pd.DataFrame({"score": [plot_min, plot_max]})
-        diagonal = (
-            alt.Chart(reference)
-            .mark_line(color="#6b7280", strokeDash=[5, 4])
-            .encode(
-                x=alt.X("score:Q", scale=alt.Scale(domain=plot_domain)),
-                y=alt.Y("score:Q", scale=alt.Scale(domain=plot_domain)),
-            )
-        )
-        st.altair_chart((diagonal + points).properties(height=430), use_container_width=True)
+        st.altair_chart(chart.properties(height=430), use_container_width=True)
         primary_metrics = score_calibration_metrics[
             (score_calibration_metrics["feature_scope"] == "primary_37")
             & (score_calibration_metrics["model"] == "ridge")
