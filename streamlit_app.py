@@ -153,12 +153,20 @@ PATHS = {
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/README_phase4_t1_score_calibration.md",
     "phase4_gradient_patient_predictions": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_gradient_weighted/phase4_t1_gradient_weighted_patient_predictions.csv",
+    "phase4_gradient_metrics": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_gradient_weighted/phase4_t1_gradient_weighted_metrics.csv",
     "phase4_slope_selected_patient_predictions": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_slope_selected/phase4_t1_slope_selected_patient_predictions.csv",
+    "phase4_slope_selected_metrics": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_slope_selected/phase4_t1_slope_selected_metrics.csv",
     "phase4_direction_constrained_patient_predictions": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_direction_constrained/phase4_t1_direction_constrained_patient_predictions.csv",
+    "phase4_direction_constrained_metrics": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_direction_constrained/phase4_t1_direction_constrained_metrics.csv",
     "phase4_alternative_patient_predictions": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_alternatives/phase4_t1_alternative_patient_predictions.csv",
+    "phase4_alternative_metrics": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_alternatives/phase4_t1_alternative_metrics.csv",
     "phase4_cluster_assignments": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_assignments.csv",
     "phase4_cluster_quality": ROOT
@@ -1564,9 +1572,13 @@ def phase4_baseline_page() -> None:
     coefficient_summary = load_csv(PATHS["phase4_coefficient_summary"])
     score_calibration_readme = load_text(PATHS["phase4_score_calibration_readme"])
     gradient_patient_predictions = load_csv(PATHS["phase4_gradient_patient_predictions"])
+    gradient_metrics = load_csv(PATHS["phase4_gradient_metrics"])
     slope_selected_patient_predictions = load_csv(PATHS["phase4_slope_selected_patient_predictions"])
+    slope_selected_metrics = load_csv(PATHS["phase4_slope_selected_metrics"])
     direction_constrained_patient_predictions = load_csv(PATHS["phase4_direction_constrained_patient_predictions"])
+    direction_constrained_metrics = load_csv(PATHS["phase4_direction_constrained_metrics"])
     alternative_patient_predictions = load_csv(PATHS["phase4_alternative_patient_predictions"])
+    alternative_metrics = load_csv(PATHS["phase4_alternative_metrics"])
     cluster_assignments = load_csv(PATHS["phase4_cluster_assignments"])
     cluster_quality = load_csv(PATHS["phase4_cluster_quality"])
     cluster_feature_summary = load_csv(PATHS["phase4_cluster_feature_summary"])
@@ -1603,6 +1615,23 @@ def phase4_baseline_page() -> None:
             ("Mean feature missingness", f"{mean_missing:.1f}%"),
         ]
     )
+
+    def show_fit_legend(metrics_frame: pd.DataFrame, model_name: str, label: str) -> None:
+        if metrics_frame.empty or "analysis_scope" not in metrics_frame.columns:
+            return
+        pooled_rows = metrics_frame[metrics_frame["analysis_scope"].astype(str).eq("pooled")]
+        model_rows = pooled_rows[pooled_rows["model"].astype(str).eq(model_name)]
+        if model_rows.empty:
+            return
+        row = model_rows.iloc[0]
+        baseline_rows = pooled_rows[pooled_rows["model"].astype(str).eq("mean_baseline")]
+        baseline_rmse = float(baseline_rows.iloc[0]["rmse"]) if not baseline_rows.empty else float("nan")
+        delta = float(row["rmse"]) - baseline_rmse if not np.isnan(baseline_rmse) else float("nan")
+        delta_text = f"{delta:+.2f} vs mean baseline" if not np.isnan(delta) else "baseline unavailable"
+        st.caption(
+            f"Fit summary ({label}): RMSE {float(row['rmse']):.2f} | "
+            f"MAE {float(row['mae']):.2f} | R2 {float(row['r2']):.2f} | {delta_text}"
+        )
 
     st.subheader("Outcome 1: Digital phenotype estimate of T1 score")
     primary_patients = score_calibration[
@@ -1680,6 +1709,11 @@ def phase4_baseline_page() -> None:
                     ("Actual-predicted correlation", f"{float(row['actual_predicted_correlation']):.2f}"),
                 ]
             )
+        primary_model_metrics = model_metrics[
+            (model_metrics["feature_scope"] == "primary_37")
+            & (model_metrics["model"].isin(["mean_baseline", "ridge"]))
+        ]
+        show_fit_legend(primary_model_metrics, "ridge", "primary 37-feature Ridge")
 
     st.markdown("**Slope-selected 8-feature digital estimate**")
     if slope_selected_patient_predictions.empty:
@@ -1735,6 +1769,7 @@ def phase4_baseline_page() -> None:
             )
         )
         st.altair_chart(selected_chart.properties(height=430), use_container_width=True)
+        show_fit_legend(slope_selected_metrics, "slope_selected_ridge", "slope-selected 8-feature Ridge")
 
     st.markdown("**Direction-constrained slope model**")
     if direction_constrained_patient_predictions.empty:
@@ -1790,6 +1825,11 @@ def phase4_baseline_page() -> None:
             )
         )
         st.altair_chart(constrained_chart.properties(height=430), use_container_width=True)
+        show_fit_legend(
+            direction_constrained_metrics,
+            "direction_constrained_ridge",
+            "direction-constrained Ridge",
+        )
 
     st.markdown("**Gradient-weighted digital estimate**")
     if gradient_patient_predictions.empty:
@@ -1845,6 +1885,7 @@ def phase4_baseline_page() -> None:
             )
         )
         st.altair_chart(weighted_chart.properties(height=430), use_container_width=True)
+        show_fit_legend(gradient_metrics, "gradient_weighted_ridge", "gradient-weighted Ridge")
 
     st.subheader("Alternative model estimates")
     st.caption(
@@ -1852,11 +1893,11 @@ def phase4_baseline_page() -> None:
         "They do not replace the original Outcome 1 model."
     )
     alternative_models = [
-        ("elastic_net_prediction", "Elastic Net estimate", "#16a34a"),
-        ("pls_prediction", "PLS estimate", "#ea580c"),
-        ("spline_ridge_prediction", "Spline Ridge estimate", "#9333ea"),
+        ("elastic_net_prediction", "Elastic Net estimate", "#16a34a", "elastic_net"),
+        ("pls_prediction", "PLS estimate", "#ea580c", "pls"),
+        ("spline_ridge_prediction", "Spline Ridge estimate", "#9333ea", "spline_ridge"),
     ]
-    for prediction_column, prediction_label, prediction_color in alternative_models:
+    for prediction_column, prediction_label, prediction_color, metric_model_name in alternative_models:
         if alternative_patient_predictions.empty:
             st.info("Alternative model comparisons are not available yet.")
             break
@@ -1911,6 +1952,63 @@ def phase4_baseline_page() -> None:
             )
         )
         st.altair_chart(alternative_chart.properties(height=360), use_container_width=True)
+        show_fit_legend(alternative_metrics, metric_model_name, prediction_label)
+
+    comparison_rows = []
+    comparison_sources = [
+        (model_metrics, "ridge", "Primary Ridge"),
+        (gradient_metrics, "gradient_weighted_ridge", "Gradient-weighted"),
+        (slope_selected_metrics, "slope_selected_ridge", "Slope-selected"),
+        (direction_constrained_metrics, "direction_constrained_ridge", "Direction-constrained"),
+        (alternative_metrics, "elastic_net", "Elastic Net"),
+        (alternative_metrics, "pls", "PLS"),
+        (alternative_metrics, "spline_ridge", "Spline Ridge"),
+    ]
+    for metrics_frame, model_name, display_name in comparison_sources:
+        rows = metrics_frame[
+            metrics_frame["analysis_scope"].astype(str).eq("pooled")
+            & metrics_frame["model"].astype(str).eq(model_name)
+        ]
+        if metrics_frame is model_metrics:
+            rows = rows[rows["feature_scope"].astype(str).eq("primary_37")]
+        if not rows.empty:
+            row = rows.iloc[0]
+            comparison_rows.append(
+                {
+                    "model": display_name,
+                    "RMSE": float(row["rmse"]),
+                    "MAE": float(row["mae"]),
+                }
+            )
+    baseline_comparison = model_metrics[
+        (model_metrics["analysis_scope"].astype(str) == "pooled")
+        & (model_metrics["feature_scope"].astype(str) == "primary_37")
+        & (model_metrics["model"].astype(str) == "mean_baseline")
+    ]
+    if not baseline_comparison.empty:
+        row = baseline_comparison.iloc[0]
+        comparison_rows.append({"model": "Mean baseline", "RMSE": float(row["rmse"]), "MAE": float(row["mae"])})
+    comparison_frame = pd.DataFrame(comparison_rows)
+    if not comparison_frame.empty:
+        st.markdown("**Fit comparison across models**")
+        st.caption("Lower RMSE and MAE indicate smaller prediction errors. All values use the same pooled repeated cross-validation design.")
+        comparison_plot = comparison_frame.melt("model", var_name="metric", value_name="error")
+        comparison_chart = (
+            alt.Chart(comparison_plot)
+            .mark_bar()
+            .encode(
+                x=alt.X("error:Q", title="Error (lower is better)"),
+                y=alt.Y("model:N", title=None, sort="-x"),
+                color=alt.Color("metric:N", title="Metric"),
+                tooltip=[
+                    alt.Tooltip("model:N", title="Model"),
+                    alt.Tooltip("metric:N", title="Metric"),
+                    alt.Tooltip("error:Q", title="Value", format=".2f"),
+                ],
+            )
+            .properties(height=300)
+        )
+        st.altair_chart(comparison_chart, use_container_width=True)
 
     st.subheader("Exploratory feature patterns")
     st.caption(
