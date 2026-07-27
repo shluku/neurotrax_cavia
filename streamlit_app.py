@@ -1591,25 +1591,27 @@ def phase4_baseline_page() -> None:
     )
 
     st.subheader("Outcome 1: Digital phenotype estimate of T1 score")
-    primary_calibration = score_calibration[score_calibration["feature_scope"].eq("primary_37")].copy()
-    if primary_calibration.empty:
+    primary_bins = score_calibration_bins[
+        (score_calibration_bins["feature_scope"] == "primary_37")
+        & (score_calibration_bins["model"] == "ridge")
+    ].copy()
+    if primary_bins.empty:
         st.info("The primary T1 score prediction graph is not available yet.")
     else:
-        primary_calibration = primary_calibration.rename(
+        primary_bins = primary_bins.rename(
             columns={
-                "ridge_prediction": "digital_phenotype_prediction",
-                "mean_baseline_prediction": "mean_baseline",
+                "mean_predicted_global_T1": "predicted_T1_score",
+                "mean_actual_global_T1": "observed_T1_score",
             }
         )
-        primary_calibration["perfect_agreement"] = primary_calibration["actual_global_T1"]
         st.caption(
-            "Each point represents one patient after averaging repeated out-of-fold predictions. "
-            "The diagonal is perfect agreement; the mean baseline shows the simplest reference."
+            "Each point is a quartile of patients grouped by predicted T1 score. "
+            "The diagonal is perfect agreement. Points below the diagonal indicate overprediction."
         )
         st.scatter_chart(
-            primary_calibration,
-            x="actual_global_T1",
-            y=["digital_phenotype_prediction", "mean_baseline", "perfect_agreement"],
+            primary_bins.assign(perfect_agreement=primary_bins["predicted_T1_score"]),
+            x="predicted_T1_score",
+            y=["observed_T1_score", "perfect_agreement"],
         )
         primary_metrics = score_calibration_metrics[
             (score_calibration_metrics["feature_scope"] == "primary_37")
