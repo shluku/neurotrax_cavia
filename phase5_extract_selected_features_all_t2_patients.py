@@ -206,41 +206,83 @@ def calculate_features(table_name: str, rows: list[dict[str, Any]]) -> dict[str,
     return compute_features(table_name, rows)
 
 
+def load_existing_output(path: Path) -> pd.DataFrame:
+    if not path.exists() or path.stat().st_size == 0:
+        return pd.DataFrame()
+    frame = pd.read_csv(path, dtype=str)
+    if "Subject_ID_D" in frame.columns:
+        frame["Subject_ID_D"] = frame["Subject_ID_D"].map(normalize_subject_id_d)
+    return frame
+
+
+def append_records(path: Path, records: list[dict[str, Any]]) -> None:
+    if not records:
+        return
+    pd.DataFrame(records).to_csv(path, mode="a", header=not path.exists() or path.stat().st_size == 0, index=False)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Extract selected Phase 2 features around T2.")
     parser.add_argument("--max-patients", type=int, default=0)
     parser.add_argument("--resume", action="store_true", help="Skip patients already recorded in the checkpoint file.")
     args = parser.parse_args()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    completed_subjects: set[str] = set()
+    selected = pd.read_csv(SELECTED_PATH, dtype=str)
+    selected = selected[selected["source_table"].isin(ALL_SUPPORTED_TABLES)].copy()
+    tables = selected["source_table"].dropna().unique().tolist()
+    all_patients = load_t2_patients()
+    resumable_subjects: set[str] = set()
+    existing_long = pd.DataFrame()
+    existing_status = pd.DataFrame()
+    existing_coverage = pd.DataFrame()
+    if args.resume:
+        existing_long = load_existing_output(LONG_PATH)
+        existing_status = load_existing_output(STATUS_PATH)
+        existing_coverage = load_existing_output(COVERAGE_PATH)
     if args.resume and CHECKPOINT_PATH.exists():
         for line in CHECKPOINT_PATH.read_text(encoding="utf-8").splitlines():
             try:
                 record = json.loads(line)
             except json.JSONDecodeError:
                 continue
-            if record.get("status") == "completed":
-                completed_subjects.add(str(record.get("Subject_ID_D")))
+            subject_id = normalize_subject_id_d(record.get("Subject_ID_D"))
+            if record.get("status") != "completed" or not subject_id or existing_status.empty:
+                continue
+            subject_status = existing_status[existing_status["Subject_ID_D"].eq(subject_id)]
+            table_statuses = set(subject_status.get("table_status", pd.Series(dtype=str)).astype(str))
+            if len(subject_status) == len(tables) and not table_statuses.intersection({"error", "retryable_error"}):
+                resumable_subjects.add(subject_id)
     elif not args.resume:
         CHECKPOINT_PATH.write_text("", encoding="utf-8")
-    selected = pd.read_csv(SELECTED_PATH, dtype=str)
-    selected = selected[selected["source_table"].isin(ALL_SUPPORTED_TABLES)].copy()
-    tables = selected["source_table"].dropna().unique().tolist()
-    patients = load_t2_patients()
-    if completed_subjects:
-        patients = patients[~patients["Subject_ID_D"].isin(completed_subjects)].copy()
+    if args.resume:
+        existing_long = existing_long[existing_long["Subject_ID_D"].isin(resumable_subjects)].copy()
+        existing_status = existing_status[existing_status["Subject_ID_D"].isin(resumable_subjects)].copy()
+        existing_coverage = existing_coverage[existing_coverage["Subject_ID_D"].isin(resumable_subjects)].copy()
+        # Remove only rows belonging to interrupted/failed patients. Completed
+        # patient rows remain intact and new patients are appended below.
+        existing_long.to_csv(LONG_PATH, index=False)
+        existing_status.to_csv(STATUS_PATH, index=False)
+        existing_coverage.to_csv(COVERAGE_PATH, index=False)
+    else:
+        for path in (LONG_PATH, STATUS_PATH, COVERAGE_PATH, WIDE_PATH):
+            if path.exists():
+                path.unlink()
+    patients = all_patients[~all_patients["Subject_ID_D"].isin(resumable_subjects)].copy()
     if args.max_patients > 0:
         patients = patients.head(args.max_patients).copy()
     device_map = load_device_map_strict()
-    long_rows: list[dict[str, Any]] = []
-    status_rows: list[dict[str, Any]] = []
-    coverage_rows: list[dict[str, Any]] = []
+    long_rows: list[dict[str, Any]] = existing_long.to_dict("records")
+    status_rows: list[dict[str, Any]] = existing_status.to_dict("records")
+    coverage_rows: list[dict[str, Any]] = existing_coverage.to_dict("records")
     conn = connect_sensordata_db()
     try:
         for patient_index, (_, patient) in enumerate(patients.iterrows(), start=1):
             subject_id = patient["Subject_ID_D"]
             device_ids = device_map.get(subject_id, [])
             print(f"patient {patient_index}/{len(patients)} Subject_ID_D={subject_id} tables={len(tables)}", flush=True)
+            long_start = len(long_rows)
+            status_start = len(status_rows)
+            coverage_start = len(coverage_rows)
             for table_name in tables:
                 selected_for_table = selected[selected["source_table"].eq(table_name)]
                 window: dict[str, Any] = {}
@@ -338,21 +380,21 @@ def main() -> None:
                             "error_message": error_message,
                         }
                     )
+            patient_statuses = [row["table_status"] for row in status_rows if row.get("Subject_ID_D") == subject_id]
+            checkpoint_status = "completed" if not set(patient_statuses).intersection({"error", "retryable_error"}) else "needs_retry"
             with CHECKPOINT_PATH.open("a", encoding="utf-8") as handle:
-                handle.write(json.dumps({"Subject_ID_D": subject_id, "patient_index": patient_index, "status": "completed"}) + "\n")
-            pd.DataFrame(status_rows).to_csv(STATUS_PATH, index=False)
-            pd.DataFrame(coverage_rows).to_csv(COVERAGE_PATH, index=False)
+                handle.write(json.dumps({"Subject_ID_D": subject_id, "patient_index": patient_index, "status": checkpoint_status}) + "\n")
+            append_records(LONG_PATH, long_rows[long_start:])
+            append_records(STATUS_PATH, status_rows[status_start:])
+            append_records(COVERAGE_PATH, coverage_rows[coverage_start:])
     finally:
         conn.close()
 
     long_df = pd.DataFrame(long_rows)
     status_df = pd.DataFrame(status_rows)
     coverage_df = pd.DataFrame(coverage_rows)
-    long_df.to_csv(LONG_PATH, index=False)
-    status_df.to_csv(STATUS_PATH, index=False)
-    coverage_df.to_csv(COVERAGE_PATH, index=False)
-    base_cols = [column for column in COGNITIVE_COLUMNS if column in patients.columns]
-    base = patients[base_cols].drop_duplicates("Subject_ID_D")
+    base_cols = [column for column in COGNITIVE_COLUMNS if column in all_patients.columns]
+    base = all_patients[base_cols].drop_duplicates("Subject_ID_D")
     if long_df.empty:
         wide = base.copy()
     else:
@@ -363,11 +405,11 @@ def main() -> None:
         wide = base.merge(pivot, on="Subject_ID_D", how="left")
     wide.to_csv(WIDE_PATH, index=False)
     README_PATH.write_text(
-        f"# Phase 5 T2 Selected Feature Extraction\n\nPatients processed: `{len(patients)}`. Tables: `{len(tables)}`. Selected features: `{len(selected)}`.\n\n"
+        f"# Phase 5 T2 Selected Feature Extraction\n\nPatients represented: `{status_df['Subject_ID_D'].nunique() if not status_df.empty else 0}`. Tables: `{len(tables)}`. Selected features: `{len(selected)}`.\n\n"
         "Standard features use the first valid pre-T2 24-hour window within the preceding week. If unavailable, the latest pre-T2 fallback is searched back to 30 days. Adjusted sensor tables retain a 7-day pre-assessment calculation window.\n",
         encoding="utf-8",
     )
-    print(f"patients_processed: {len(patients)}")
+    print(f"patients_processed: {status_df['Subject_ID_D'].nunique() if not status_df.empty else 0}")
     print(f"tables_processed: {len(tables)}")
     print(f"feature_rows: {len(long_df)}")
     print(status_df["table_status"].value_counts(dropna=False).to_string())
