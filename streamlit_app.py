@@ -2514,17 +2514,8 @@ def phase4_baseline_page() -> None:
         st.markdown(load_text(PATHS["phase4_protocol"]) or "No Phase 4 protocol available.")
 
 
-def phase5_t2_page() -> None:
-    st.markdown(
-        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
-        "Phase 5 T2 Feature Extraction"
-        "</h1>",
-        unsafe_allow_html=True,
-    )
-    st.caption("T2-anchored extraction of the manually selected Phase 2 digital features.")
-    st.caption("Feature, status, and coverage rows are appended after each patient completes.")
-    st.markdown(load_text(PATHS["phase5_protocol"]) or "No Phase 5 protocol available.")
-
+@st.fragment(run_every="10s")
+def phase5_t2_live_panel() -> None:
     status = load_csv(PATHS["phase5_status"])
     checkpoint_path = PATHS["phase5_checkpoint"]
     checkpoint_states: dict[str, str] = {}
@@ -2543,6 +2534,10 @@ def phase5_t2_page() -> None:
     retryable_errors = int(status["table_status"].astype(str).eq("retryable_error").sum()) if not status.empty and "table_status" in status.columns else 0
     total = len(status) if not status.empty else 0
     patients = int(status["Subject_ID_D"].nunique()) if not status.empty and "Subject_ID_D" in status.columns else 0
+    wide = load_csv(PATHS["phase5_wide"])
+    coverage = load_csv(PATHS["phase5_coverage"])
+
+    st.subheader("Live extraction progress")
     metric_row(
         [
             ("Patients with status", patients),
@@ -2559,39 +2554,50 @@ def phase5_t2_page() -> None:
         )
     if total == 0:
         st.info("The T2 extraction has not produced status output yet.")
-        st.code(".venv/bin/python3 phase5_extract_selected_features_all_t2_patients.py")
-    else:
-        st.subheader("Current extraction status")
-        show_dataframe(status, height=520)
+        st.code(".venv/bin/python3 phase5_extract_selected_features_all_t2_patients.py --resume")
+        return
+
+    st.caption("This panel refreshes automatically every 10 seconds. CSV rows are appended after each patient completes.")
+    if not wide.empty:
+        with st.expander("Current all-features patient CSV", expanded=True):
+            show_dataframe(wide, height=360)
+    st.subheader("Download current CSV outputs")
+    download_frames = [
+        ("Download all-features CSV", wide, "phase5_t2_selected_features_wide.csv"),
+        ("Download long features CSV", load_csv(PATHS["phase5_long"]), "phase5_t2_selected_features_long.csv"),
+        ("Download status CSV", status, "phase5_t2_selected_features_patient_table_status.csv"),
+        ("Download coverage CSV", coverage, "phase5_t2_selected_features_coverage.csv"),
+    ]
+    download_columns = st.columns(2)
+    for index, (label, frame, filename) in enumerate(download_frames):
+        with download_columns[index % 2]:
+            if not frame.empty:
+                st.download_button(
+                    label,
+                    data=frame.to_csv(index=False).encode("utf-8"),
+                    file_name=filename,
+                    mime="text/csv",
+                    key=f"phase5_live_download_{filename}",
+                )
+    with st.expander("Current table status and coverage audit"):
+        show_dataframe(status, height=420)
         if not status.empty and "table_status" in status.columns:
             st.bar_chart(status["table_status"].value_counts())
-        coverage = load_csv(PATHS["phase5_coverage"])
         if not coverage.empty:
-            with st.expander("Window and coverage audit"):
-                show_dataframe(coverage, height=520)
-        wide = load_csv(PATHS["phase5_wide"])
-        if not wide.empty:
-            with st.expander("T2 patient-level wide feature table"):
-                show_dataframe(wide, height=520)
-        st.subheader("Current CSV outputs")
-        st.caption("These files reflect the patients completed so far and refresh when Streamlit reruns.")
-        download_frames = [
-            ("Download all-features CSV", wide, "phase5_t2_selected_features_wide.csv"),
-            ("Download long features CSV", load_csv(PATHS["phase5_long"]), "phase5_t2_selected_features_long.csv"),
-            ("Download status CSV", status, "phase5_t2_selected_features_patient_table_status.csv"),
-            ("Download coverage CSV", coverage, "phase5_t2_selected_features_coverage.csv"),
-        ]
-        download_columns = st.columns(2)
-        for index, (label, frame, filename) in enumerate(download_frames):
-            with download_columns[index % 2]:
-                if not frame.empty:
-                    st.download_button(
-                        label,
-                        data=frame.to_csv(index=False).encode("utf-8"),
-                        file_name=filename,
-                        mime="text/csv",
-                        key=f"phase5_download_{filename}",
-                    )
+            show_dataframe(coverage, height=420)
+
+
+def phase5_t2_page() -> None:
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        "Phase 5 T2 Feature Extraction"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
+    st.caption("T2-anchored extraction of the manually selected Phase 2 digital features.")
+    phase5_t2_live_panel()
+    st.markdown("---")
+    st.markdown(load_text(PATHS["phase5_protocol"]) or "No Phase 5 protocol available.")
 
 
 def rd_page() -> None:
