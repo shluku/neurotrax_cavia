@@ -221,6 +221,18 @@ def append_records(path: Path, records: list[dict[str, Any]]) -> None:
     pd.DataFrame(records).to_csv(path, mode="a", header=not path.exists() or path.stat().st_size == 0, index=False)
 
 
+def build_wide_frame(all_patients: pd.DataFrame, long_df: pd.DataFrame) -> pd.DataFrame:
+    base_cols = [column for column in COGNITIVE_COLUMNS if column in all_patients.columns]
+    base = all_patients[base_cols].drop_duplicates("Subject_ID_D")
+    if long_df.empty:
+        return base.copy()
+    values = long_df.copy()
+    values["feature_value"] = pd.to_numeric(values["feature_value"], errors="coerce")
+    pivot = values.pivot_table(index="Subject_ID_D", columns="feature_name", values="feature_value", aggfunc="first").reset_index()
+    pivot.columns.name = None
+    return base.merge(pivot, on="Subject_ID_D", how="left")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Extract selected Phase 2 features around T2.")
     parser.add_argument("--max-patients", type=int, default=0)
@@ -387,22 +399,14 @@ def main() -> None:
             append_records(LONG_PATH, long_rows[long_start:])
             append_records(STATUS_PATH, status_rows[status_start:])
             append_records(COVERAGE_PATH, coverage_rows[coverage_start:])
+            build_wide_frame(all_patients, pd.DataFrame(long_rows)).to_csv(WIDE_PATH, index=False)
     finally:
         conn.close()
 
     long_df = pd.DataFrame(long_rows)
     status_df = pd.DataFrame(status_rows)
     coverage_df = pd.DataFrame(coverage_rows)
-    base_cols = [column for column in COGNITIVE_COLUMNS if column in all_patients.columns]
-    base = all_patients[base_cols].drop_duplicates("Subject_ID_D")
-    if long_df.empty:
-        wide = base.copy()
-    else:
-        values = long_df.copy()
-        values["feature_value"] = pd.to_numeric(values["feature_value"], errors="coerce")
-        pivot = values.pivot_table(index="Subject_ID_D", columns="feature_name", values="feature_value", aggfunc="first").reset_index()
-        pivot.columns.name = None
-        wide = base.merge(pivot, on="Subject_ID_D", how="left")
+    wide = build_wide_frame(all_patients, long_df)
     wide.to_csv(WIDE_PATH, index=False)
     README_PATH.write_text(
         f"# Phase 5 T2 Selected Feature Extraction\n\nPatients represented: `{status_df['Subject_ID_D'].nunique() if not status_df.empty else 0}`. Tables: `{len(tables)}`. Selected features: `{len(selected)}`.\n\n"

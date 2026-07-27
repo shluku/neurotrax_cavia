@@ -2573,6 +2573,25 @@ def phase5_t2_page() -> None:
         if not wide.empty:
             with st.expander("T2 patient-level wide feature table"):
                 show_dataframe(wide, height=520)
+        st.subheader("Current CSV outputs")
+        st.caption("These files reflect the patients completed so far and refresh when Streamlit reruns.")
+        download_frames = [
+            ("Download all-features CSV", wide, "phase5_t2_selected_features_wide.csv"),
+            ("Download long features CSV", load_csv(PATHS["phase5_long"]), "phase5_t2_selected_features_long.csv"),
+            ("Download status CSV", status, "phase5_t2_selected_features_patient_table_status.csv"),
+            ("Download coverage CSV", coverage, "phase5_t2_selected_features_coverage.csv"),
+        ]
+        download_columns = st.columns(2)
+        for index, (label, frame, filename) in enumerate(download_frames):
+            with download_columns[index % 2]:
+                if not frame.empty:
+                    st.download_button(
+                        label,
+                        data=frame.to_csv(index=False).encode("utf-8"),
+                        file_name=filename,
+                        mime="text/csv",
+                        key=f"phase5_download_{filename}",
+                    )
 
 
 def rd_page() -> None:
