@@ -179,7 +179,7 @@ def fetch_table_rows(conn, table_name: str, device_ids: list[str], start_ms: int
         if table_name == "light":
             # Light is a high-volume JSON table. Smaller scans avoid the RDS
             # read timeout seen when querying a full 24-hour interval at once.
-            chunk_ms = 6 * 60 * 60 * 1000
+            chunk_ms = 60 * 60 * 1000
             chunk_start = int(start_ms)
             while chunk_start < int(end_ms):
                 chunk_end = min(chunk_start + chunk_ms, int(end_ms))
