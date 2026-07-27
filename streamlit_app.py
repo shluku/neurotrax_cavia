@@ -1876,6 +1876,77 @@ def phase4_baseline_page() -> None:
     )
     st.altair_chart(coverage_chart, use_container_width=True)
 
+    st.markdown("**Individual feature trend explorer**")
+    if associations.empty:
+        st.info("The individual feature trend graph is not available yet.")
+    else:
+        feature_options = associations.sort_values("absolute_rho", ascending=False)["feature"].tolist()
+        selected_feature = st.selectbox(
+            "Choose a primary feature",
+            feature_options,
+            key="phase4_feature_trend_selector",
+        )
+        selected_values = pd.to_numeric(dataset[selected_feature], errors="coerce")
+        feature_trend = pd.DataFrame(
+            {
+                "Patient ID": dataset["Subject_ID_D"],
+                "feature_value": selected_values,
+                "observed_T1": pd.to_numeric(dataset["global_T1"], errors="coerce"),
+            }
+        ).dropna()
+        if len(feature_trend) < 5 or feature_trend["feature_value"].nunique() < 2:
+            st.info("This feature does not have enough variation for a trend graph.")
+        else:
+            feature_trend["feature_group_number"] = pd.qcut(
+                feature_trend["feature_value"], q=4, labels=False, duplicates="drop"
+            )
+            group_names = {0: "Q1 lowest", 1: "Q2", 2: "Q3", 3: "Q4 highest"}
+            group_order = {name: number for number, name in group_names.items()}
+            feature_trend["feature_group"] = feature_trend["feature_group_number"].map(group_names)
+            medians = (
+                feature_trend.groupby("feature_group", observed=False)
+                .agg(
+                    median_feature_value=("feature_value", "median"),
+                    median_T1=("observed_T1", "median"),
+                    n_patients=("observed_T1", "size"),
+                )
+                .reset_index()
+            )
+            medians["feature_group_order"] = medians["feature_group"].map(group_order)
+            st.caption(
+                "Each faint point is one patient. The orange line connects the median T1 score within "
+                "four increasing feature-value groups. A consistently rising or falling line is a clearer gradient."
+            )
+            points = (
+                alt.Chart(feature_trend)
+                .mark_circle(size=55, opacity=0.45, color="#6b7280")
+                .encode(
+                    x=alt.X("feature_value:Q", title=selected_feature),
+                    y=alt.Y("observed_T1:Q", title="Observed T1 score"),
+                    tooltip=[
+                        alt.Tooltip("Patient ID:N", title="Patient ID"),
+                        alt.Tooltip("feature_value:Q", title="Feature value", format=".3f"),
+                        alt.Tooltip("observed_T1:Q", title="Observed T1", format=".2f"),
+                    ],
+                )
+            )
+            median_line = (
+                alt.Chart(medians)
+                .mark_line(point=alt.OverlayMarkDef(size=100), color="#d97706", strokeWidth=3)
+                .encode(
+                    x=alt.X("median_feature_value:Q", title=selected_feature),
+                    y=alt.Y("median_T1:Q", title="Observed T1 score"),
+                    order=alt.Order("feature_group_order:N"),
+                    tooltip=[
+                        alt.Tooltip("feature_group:N", title="Feature group"),
+                        alt.Tooltip("median_feature_value:Q", title="Median feature value", format=".3f"),
+                        alt.Tooltip("median_T1:Q", title="Median observed T1", format=".2f"),
+                        alt.Tooltip("n_patients:Q", title="Patients"),
+                    ],
+                )
+            )
+            st.altair_chart((points + median_line).properties(height=420), use_container_width=True)
+
     st.markdown(readme if readme else "")
     tabs = st.tabs(["Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Model Results", "Clustering", "Protocol"])
 
