@@ -150,6 +150,8 @@ PATHS = {
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/phase4_t1_ridge_coefficient_summary.csv",
     "phase4_score_calibration_readme": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/README_phase4_t1_score_calibration.md",
+    "phase4_gradient_patient_predictions": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_gradient_weighted/phase4_t1_gradient_weighted_patient_predictions.csv",
     "phase4_cluster_assignments": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_assignments.csv",
     "phase4_cluster_quality": ROOT
@@ -1554,6 +1556,7 @@ def phase4_baseline_page() -> None:
     score_calibration_metrics = load_csv(PATHS["phase4_score_calibration_metrics"])
     coefficient_summary = load_csv(PATHS["phase4_coefficient_summary"])
     score_calibration_readme = load_text(PATHS["phase4_score_calibration_readme"])
+    gradient_patient_predictions = load_csv(PATHS["phase4_gradient_patient_predictions"])
     cluster_assignments = load_csv(PATHS["phase4_cluster_assignments"])
     cluster_quality = load_csv(PATHS["phase4_cluster_quality"])
     cluster_feature_summary = load_csv(PATHS["phase4_cluster_feature_summary"])
@@ -1667,6 +1670,61 @@ def phase4_baseline_page() -> None:
                     ("Actual-predicted correlation", f"{float(row['actual_predicted_correlation']):.2f}"),
                 ]
             )
+
+    st.markdown("**Gradient-weighted digital estimate**")
+    if gradient_patient_predictions.empty:
+        st.info("The gradient-weighted comparison is not available yet.")
+    else:
+        weighted_patients = gradient_patient_predictions.sort_values("actual_global_T1").reset_index(drop=True)
+        weighted_patients["patient_rank"] = range(1, len(weighted_patients) + 1)
+        weighted_plot_data = weighted_patients.rename(
+            columns={
+                "Subject_ID_D": "Patient ID",
+                "actual_global_T1": "Observed T1 score",
+                "gradient_weighted_prediction": "Gradient-weighted estimate",
+            }
+        )[["patient_rank", "Patient ID", "Observed T1 score", "Gradient-weighted estimate"]].melt(
+            id_vars=["patient_rank", "Patient ID"],
+            var_name="score_type",
+            value_name="t1_score",
+        )
+        st.caption(
+            "Same patient order and interpretation as the main graph. This version gives more influence "
+            "to features with stronger fold-local monotonic association with T1; it is an exploratory comparison."
+        )
+        weighted_plot_min = int(weighted_plot_data["t1_score"].min()) - 1
+        weighted_plot_max = int(weighted_plot_data["t1_score"].max()) + 1
+        weighted_chart = (
+            alt.Chart(weighted_plot_data)
+            .mark_line(point=alt.OverlayMarkDef(size=45))
+            .encode(
+                x=alt.X(
+                    "patient_rank:Q",
+                    title="Patients ordered by observed T1 score",
+                    axis=alt.Axis(format="d"),
+                ),
+                y=alt.Y(
+                    "t1_score:Q",
+                    title="T1 score",
+                    scale=alt.Scale(domain=[weighted_plot_min, weighted_plot_max]),
+                ),
+                color=alt.Color(
+                    "score_type:N",
+                    title="Measure",
+                    scale=alt.Scale(
+                        domain=["Observed T1 score", "Gradient-weighted estimate"],
+                        range=["#111827", "#d97706"],
+                    ),
+                ),
+                tooltip=[
+                    alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                    alt.Tooltip("Patient ID:N", title="Patient ID"),
+                    alt.Tooltip("score_type:N", title="Measure"),
+                    alt.Tooltip("t1_score:Q", title="T1 score", format=".2f"),
+                ],
+            )
+        )
+        st.altair_chart(weighted_chart.properties(height=430), use_container_width=True)
 
     st.subheader("Exploratory feature patterns")
     st.caption(
