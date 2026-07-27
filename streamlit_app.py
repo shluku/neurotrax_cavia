@@ -2522,13 +2522,23 @@ def phase5_t2_page() -> None:
         unsafe_allow_html=True,
     )
     st.caption("T2-anchored extraction of the manually selected Phase 2 digital features.")
+    st.caption("Feature, status, and coverage rows are appended after each patient completes.")
     st.markdown(load_text(PATHS["phase5_protocol"]) or "No Phase 5 protocol available.")
 
     status = load_csv(PATHS["phase5_status"])
     checkpoint_path = PATHS["phase5_checkpoint"]
-    checkpoint_count = 0
+    checkpoint_states: dict[str, str] = {}
     if checkpoint_path.exists():
-        checkpoint_count = sum(1 for line in checkpoint_path.read_text(encoding="utf-8").splitlines() if line.strip())
+        for line in checkpoint_path.read_text(encoding="utf-8").splitlines():
+            try:
+                record = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            subject_id = str(record.get("Subject_ID_D", ""))
+            if subject_id:
+                checkpoint_states[subject_id] = str(record.get("status", ""))
+    checkpoint_count = sum(state == "completed" for state in checkpoint_states.values())
+    retry_checkpoint_count = sum(state == "needs_retry" for state in checkpoint_states.values())
     calculated = int(status["table_status"].astype(str).eq("calculated").sum()) if not status.empty and "table_status" in status.columns else 0
     retryable_errors = int(status["table_status"].astype(str).eq("retryable_error").sum()) if not status.empty and "table_status" in status.columns else 0
     total = len(status) if not status.empty else 0
@@ -2538,7 +2548,8 @@ def phase5_t2_page() -> None:
             ("Patients with status", patients),
             ("Table statuses", total),
             ("Calculated tables", calculated),
-            ("Checkpoint patients", checkpoint_count),
+            ("Completed patients", checkpoint_count),
+            ("Patients needing retry", retry_checkpoint_count),
         ]
     )
     if retryable_errors:
