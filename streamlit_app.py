@@ -121,6 +121,13 @@ PATHS = {
     "phase3_all_t1_readme": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/README_phase2_all_t1_selected_features.md",
     "phase4_protocol": ROOT / "PHASE4_T1_BASELINE_DIGITAL_PHENOTYPE_PROTOCOL.md",
+    "phase5_protocol": ROOT / "PHASE5_T2_FEATURE_EXTRACTION_PROTOCOL.md",
+    "phase5_long": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_selected_features_long.csv",
+    "phase5_wide": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_selected_features_wide.csv",
+    "phase5_status": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_selected_features_patient_table_status.csv",
+    "phase5_coverage": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_selected_features_coverage.csv",
+    "phase5_checkpoint": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_selected_features_checkpoint.jsonl",
+    "phase5_readme": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/README_phase5_t2_selected_features.md",
     "phase4_baseline_dataset": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/phase4_t1_baseline_patient_dataset.csv",
     "phase4_feature_metadata": ROOT
@@ -2507,6 +2514,50 @@ def phase4_baseline_page() -> None:
         st.markdown(load_text(PATHS["phase4_protocol"]) or "No Phase 4 protocol available.")
 
 
+def phase5_t2_page() -> None:
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        "Phase 5 T2 Feature Extraction"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
+    st.caption("T2-anchored extraction of the manually selected Phase 2 digital features.")
+    st.markdown(load_text(PATHS["phase5_protocol"]) or "No Phase 5 protocol available.")
+
+    status = load_csv(PATHS["phase5_status"])
+    checkpoint_path = PATHS["phase5_checkpoint"]
+    checkpoint_count = 0
+    if checkpoint_path.exists():
+        checkpoint_count = sum(1 for line in checkpoint_path.read_text(encoding="utf-8").splitlines() if line.strip())
+    calculated = int(status["table_status"].astype(str).eq("calculated").sum()) if not status.empty and "table_status" in status.columns else 0
+    total = len(status) if not status.empty else 0
+    patients = int(status["Subject_ID_D"].nunique()) if not status.empty and "Subject_ID_D" in status.columns else 0
+    metric_row(
+        [
+            ("Patients with status", patients),
+            ("Table statuses", total),
+            ("Calculated tables", calculated),
+            ("Checkpoint patients", checkpoint_count),
+        ]
+    )
+    if total == 0:
+        st.info("The T2 extraction has not produced status output yet.")
+        st.code(".venv/bin/python3 phase5_extract_selected_features_all_t2_patients.py")
+    else:
+        st.subheader("Current extraction status")
+        show_dataframe(status, height=520)
+        if not status.empty and "table_status" in status.columns:
+            st.bar_chart(status["table_status"].value_counts())
+        coverage = load_csv(PATHS["phase5_coverage"])
+        if not coverage.empty:
+            with st.expander("Window and coverage audit"):
+                show_dataframe(coverage, height=520)
+        wide = load_csv(PATHS["phase5_wide"])
+        if not wide.empty:
+            with st.expander("T2 patient-level wide feature table"):
+                show_dataframe(wide, height=520)
+
+
 def rd_page() -> None:
     st.title("R&D")
     st.caption("Protocol experiments that test alternative acquisition rules without overwriting Phase 3 outputs.")
@@ -2967,6 +3018,7 @@ PAGES = {
     "Phase 2 Tables": phase2_tables_page,
     "Phase 3 algorithm implementation": phase3_algorithm_page,
     "Phase 4 T1 Baseline": phase4_baseline_page,
+    "Phase 5 T2 Extraction": phase5_t2_page,
     "R&D": rd_page,
     "SQL Samples": samples_page,
     "Files": files_page,
@@ -2983,6 +3035,14 @@ def main() -> None:
             font-weight: 800 !important;
         }
         [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(8) {
+            padding-top: 0.18rem;
+            padding-bottom: 0.18rem;
+        }
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(9) p {
+            font-size: 1.18rem !important;
+            font-weight: 800 !important;
+        }
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(9) {
             padding-top: 0.18rem;
             padding-bottom: 0.18rem;
         }
