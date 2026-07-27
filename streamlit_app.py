@@ -171,6 +171,10 @@ PATHS = {
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_cognitive_domains/phase4_t1_cognitive_domain_patient_predictions.csv",
     "phase4_domain_metrics": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_cognitive_domains/phase4_t1_cognitive_domain_metrics.csv",
+    "phase4_domain_group_patient_predictions": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_cognitive_domain_groups/phase4_t1_cognitive_domain_group_patient_predictions.csv",
+    "phase4_domain_group_metrics": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_cognitive_domain_groups/phase4_t1_cognitive_domain_group_metrics.csv",
     "phase4_cluster_assignments": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_assignments.csv",
     "phase4_cluster_quality": ROOT
@@ -1585,6 +1589,8 @@ def phase4_baseline_page() -> None:
     alternative_metrics = load_csv(PATHS["phase4_alternative_metrics"])
     domain_patient_predictions = load_csv(PATHS["phase4_domain_patient_predictions"])
     domain_metrics = load_csv(PATHS["phase4_domain_metrics"])
+    domain_group_patient_predictions = load_csv(PATHS["phase4_domain_group_patient_predictions"])
+    domain_group_metrics = load_csv(PATHS["phase4_domain_group_metrics"])
     cluster_assignments = load_csv(PATHS["phase4_cluster_assignments"])
     cluster_quality = load_csv(PATHS["phase4_cluster_quality"])
     cluster_feature_summary = load_csv(PATHS["phase4_cluster_feature_summary"])
@@ -2420,15 +2426,30 @@ def phase4_baseline_page() -> None:
                 ].copy()
                 if domain_frame.empty:
                     continue
+                domain_group_frame = domain_group_patient_predictions[
+                    domain_group_patient_predictions["domain"].astype(str).eq(domain)
+                ][["Subject_ID_D", "Subject_ID_N", "group_ridge_prediction"]].copy()
+                domain_frame = domain_frame.merge(
+                    domain_group_frame,
+                    on=["Subject_ID_D", "Subject_ID_N"],
+                    how="left",
+                )
                 domain_frame = domain_frame.sort_values("actual_T1").reset_index(drop=True)
                 domain_frame["patient_rank"] = range(1, len(domain_frame) + 1)
                 domain_plot = domain_frame.rename(
                     columns={
                         "Subject_ID_D": "Patient ID",
                         "actual_T1": "Observed domain T1 score",
-                        "ridge_prediction": "Digital domain estimate",
+                        "ridge_prediction": "All 37-feature estimate",
+                        "group_ridge_prediction": "Domain feature-group estimate",
                     }
-                )[["patient_rank", "Patient ID", "Observed domain T1 score", "Digital domain estimate"]].melt(
+                )[[
+                    "patient_rank",
+                    "Patient ID",
+                    "Observed domain T1 score",
+                    "All 37-feature estimate",
+                    "Domain feature-group estimate",
+                ]].melt(
                     id_vars=["patient_rank", "Patient ID"],
                     var_name="score_type",
                     value_name="score",
@@ -2436,7 +2457,8 @@ def phase4_baseline_page() -> None:
                 st.markdown(f"**{domain} T1**")
                 st.caption(
                     "Patients are ordered from lowest to highest observed domain score. "
-                    "The black line is observed; the colored line is the cross-validated digital estimate."
+                    "The black line is observed, the colored line uses all 37 features, and the red line uses "
+                    "only the hypothesized feature group for this domain."
                 )
                 domain_min = int(domain_plot["score"].min()) - 1
                 domain_max = int(domain_plot["score"].max()) + 1
@@ -2458,8 +2480,12 @@ def phase4_baseline_page() -> None:
                             "score_type:N",
                             title="Measure",
                             scale=alt.Scale(
-                                domain=["Observed domain T1 score", "Digital domain estimate"],
-                                range=["#111827", color],
+                                domain=[
+                                    "Observed domain T1 score",
+                                    "All 37-feature estimate",
+                                    "Domain feature-group estimate",
+                                ],
+                                range=["#111827", color, "#dc2626"],
                             ),
                         ),
                         tooltip=[
@@ -2473,6 +2499,10 @@ def phase4_baseline_page() -> None:
                 st.altair_chart(domain_chart.properties(height=360), use_container_width=True)
                 domain_metric_frame = domain_metrics[domain_metrics["domain"].astype(str).eq(domain)]
                 show_fit_legend(domain_metric_frame, "ridge", domain)
+                domain_group_metric_frame = domain_group_metrics[
+                    domain_group_metrics["domain"].astype(str).eq(domain)
+                ]
+                show_fit_legend(domain_group_metric_frame, "domain_group_ridge", f"{domain} feature group")
     with tabs[7]:
         st.markdown(load_text(PATHS["phase4_protocol"]) or "No Phase 4 protocol available.")
 
