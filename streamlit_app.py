@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 import altair as alt
+import numpy as np
 import pandas as pd
 import streamlit as st
 
@@ -1876,6 +1877,33 @@ def phase4_baseline_page() -> None:
     )
     st.altair_chart(coverage_chart, use_container_width=True)
 
+    gradient_slope_rows: list[dict[str, object]] = []
+    for feature in primary_features:
+        feature_values = pd.to_numeric(dataset[feature], errors="coerce")
+        feature_trend = pd.DataFrame(
+            {"feature_value": feature_values, "observed_T1": pd.to_numeric(dataset["global_T1"], errors="coerce")}
+        ).dropna()
+        if len(feature_trend) < 8 or feature_trend["feature_value"].nunique() < 4:
+            continue
+        feature_trend["feature_group_number"] = pd.qcut(
+            feature_trend["feature_value"], q=4, labels=False, duplicates="drop"
+        )
+        medians = feature_trend.groupby("feature_group_number", observed=False)["observed_T1"].median().dropna()
+        if len(medians) < 3:
+            continue
+        slope = float(np.polyfit(medians.index.to_numpy(dtype=float) + 1, medians.to_numpy(dtype=float), 1)[0])
+        association = associations.loc[associations["feature"].eq(feature)]
+        gradient_slope_rows.append(
+            {
+                "feature": feature,
+                "linear_slope": slope,
+                "direction": "Positive slope" if slope >= 0 else "Negative slope",
+                "spearman_rho": float(association["spearman_rho"].iloc[0]) if not association.empty else np.nan,
+                "n_observed": len(feature_trend),
+            }
+        )
+    gradient_slopes = pd.DataFrame(gradient_slope_rows)
+
     st.markdown("**Individual feature trend explorer**")
     if associations.empty:
         st.info("The individual feature trend graph is not available yet.")
@@ -1913,9 +1941,18 @@ def phase4_baseline_page() -> None:
                 .reset_index()
             )
             medians["feature_group_order"] = medians["feature_group"].map(group_order)
+            selected_slope = float(
+                np.polyfit(
+                    medians["feature_group_order"].to_numpy(dtype=float) + 1,
+                    medians["median_T1"].to_numpy(dtype=float),
+                    1,
+                )[0]
+            )
+            medians["linear_slope"] = selected_slope
             st.caption(
                 "Each faint point is one patient. The orange line connects the median T1 score within "
-                "four increasing feature-value groups. A consistently rising or falling line is a clearer gradient."
+                "four increasing feature-value groups. "
+                f"Linear slope: {selected_slope:+.2f} T1 points per feature group."
             )
             points = (
                 alt.Chart(feature_trend)
@@ -1942,10 +1979,43 @@ def phase4_baseline_page() -> None:
                         alt.Tooltip("median_feature_value:Q", title="Median feature value", format=".3f"),
                         alt.Tooltip("median_T1:Q", title="Median observed T1", format=".2f"),
                         alt.Tooltip("n_patients:Q", title="Patients"),
+                        alt.Tooltip("linear_slope:Q", title="Linear slope", format="+.2f"),
                     ],
                 )
             )
             st.altair_chart((points + median_line).properties(height=420), use_container_width=True)
+
+    if not gradient_slopes.empty:
+        st.markdown("**Linear slopes across all primary features**")
+        st.caption(
+            "For each feature, the slope is fitted across its four orange median T1 values. "
+            "Positive values indicate higher median T1 in higher feature groups; negative values indicate lower median T1."
+        )
+        slope_chart_data = gradient_slopes.sort_values("linear_slope")
+        slope_chart = (
+            alt.Chart(slope_chart_data)
+            .mark_bar()
+            .encode(
+                x=alt.X("linear_slope:Q", title="Linear slope (T1 points per feature group)"),
+                y=alt.Y("feature:N", title=None, sort=None),
+                color=alt.Color(
+                    "direction:N",
+                    title="Direction",
+                    scale=alt.Scale(
+                        domain=["Positive slope", "Negative slope"],
+                        range=["#2563eb", "#dc2626"],
+                    ),
+                ),
+                tooltip=[
+                    alt.Tooltip("feature:N", title="Feature"),
+                    alt.Tooltip("linear_slope:Q", title="Linear slope", format="+.2f"),
+                    alt.Tooltip("spearman_rho:Q", title="Spearman rho", format="+.2f"),
+                    alt.Tooltip("n_observed:Q", title="Patients with data"),
+                ],
+            )
+            .properties(height=650)
+        )
+        st.altair_chart(slope_chart, use_container_width=True)
 
     st.markdown(readme if readme else "")
     tabs = st.tabs(["Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Model Results", "Clustering", "Protocol"])
