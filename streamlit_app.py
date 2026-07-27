@@ -1530,7 +1530,12 @@ def phase3_algorithm_page() -> None:
 
 
 def phase4_baseline_page() -> None:
-    st.title("Phase 4 T1 Baseline Digital Phenotype")
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        "Phase 4 T1 Baseline Digital Phenotype"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
     st.caption("Patient-level baseline dataset for Outcome 1 using the first valid 24-hour T1-week protocol.")
 
     dataset = load_csv(PATHS["phase4_baseline_dataset"])
