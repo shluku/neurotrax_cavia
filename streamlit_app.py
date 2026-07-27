@@ -2313,97 +2313,9 @@ def phase4_baseline_page() -> None:
         st.altair_chart(slope_chart, use_container_width=True)
 
     st.markdown(readme if readme else "")
-    tabs = st.tabs(["Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Model Results", "Clustering", "Cognitive Domain Models", "Protocol"])
+    tabs = st.tabs(["Cognitive Domain Models", "Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Model Results", "Clustering", "Protocol"])
 
     with tabs[0]:
-        st.caption("Raw patient-level values are preserved. Missingness indicators and coverage summaries are included for modeling audit.")
-        show_dataframe(dataset, height=650)
-    with tabs[1]:
-        show_dataframe(metadata, height=520)
-    with tabs[2]:
-        if not missingness.empty and {"feature_name", "missing_percent"}.issubset(missingness.columns):
-            st.bar_chart(missingness.set_index("feature_name")["missing_percent"])
-        show_dataframe(missingness, height=520)
-    with tabs[3]:
-        if not coverage.empty and {"table_name", "table_status"}.issubset(coverage.columns):
-            summary = (
-                coverage.assign(calculated=coverage["table_status"].astype(str).eq("calculated"))
-                .groupby("table_name", dropna=False)
-                .agg(patient_table_blocks=("table_status", "size"), calculated_blocks=("calculated", "sum"))
-                .reset_index()
-            )
-            summary["calculated_percent"] = (100 * summary["calculated_blocks"] / summary["patient_table_blocks"]).round(1)
-            show_dataframe(summary, height=260)
-        show_dataframe(coverage, height=520)
-    with tabs[4]:
-        if model_metrics.empty:
-            st.info("The ridge model has not been run yet.")
-            st.code(".venv/bin/python3 phase4_model_t1_ridge.py")
-        else:
-            pooled = model_metrics[model_metrics.get("analysis_scope", pd.Series(dtype=str)).astype(str).eq("pooled")]
-            if not pooled.empty and {"model", "rmse", "mae", "r2"}.issubset(pooled.columns):
-                st.subheader("Pooled repeated cross-validation metrics")
-                show_dataframe(pooled, height=180)
-                chart = pooled.set_index("model")[["rmse", "mae"]]
-                st.bar_chart(chart)
-            st.subheader("Model report")
-            st.markdown(model_readme if model_readme else "")
-            with st.expander("Feature inclusion decisions"):
-                show_dataframe(model_feature_set, height=420)
-            with st.expander("Fold-level predictions"):
-                show_dataframe(model_predictions, height=520)
-            with st.expander("Calibration and score interpretation"):
-                st.markdown(score_calibration_readme if score_calibration_readme else "")
-                primary_calibration = score_calibration[score_calibration["feature_scope"].eq("primary_37")]
-                if not primary_calibration.empty:
-                    st.scatter_chart(primary_calibration, x="actual_global_T1", y=["ridge_prediction", "actual_global_T1"])
-                show_dataframe(score_calibration_metrics, height=360)
-                st.subheader("Predicted-score bins")
-                show_dataframe(score_calibration_bins, height=360)
-                st.subheader("Coefficient stability")
-                show_dataframe(coefficient_summary, height=520)
-                with st.expander("Raw fold coefficients"):
-                    show_dataframe(model_coefficients, height=520)
-    with tabs[5]:
-        if cluster_quality.empty:
-            st.info("The exploratory clustering analysis has not been run yet.")
-            st.code(".venv/bin/python3 phase4_cluster_t1_baseline.py")
-        else:
-            st.markdown(cluster_readme if cluster_readme else "")
-            st.subheader("Candidate cluster quality")
-            show_dataframe(cluster_quality, height=240)
-            if {"k", "mean_silhouette", "mean_pairwise_ari"}.issubset(cluster_quality.columns):
-                st.line_chart(cluster_quality.set_index("k")[["mean_silhouette", "mean_pairwise_ari"]])
-            st.subheader("Patient assignments")
-            show_dataframe(cluster_assignments, height=440)
-            st.subheader("PCA coordinates")
-            if {"PC1", "PC2", "cluster_label"}.issubset(cluster_pca_scatter.columns):
-                st.scatter_chart(cluster_pca_scatter, x="PC1", y="PC2", color="cluster_label")
-            show_dataframe(cluster_pca_scatter, height=360)
-            st.subheader("Cluster audit summary")
-            show_dataframe(cluster_audit_summary, height=260)
-            st.subheader("High-coverage sensitivity clustering")
-            st.caption("Subset rule: feature missingness <= 50% and table coverage >= 50%.")
-            if {"PC1", "PC2", "cluster_label"}.issubset(cluster_high_assignments.columns):
-                st.scatter_chart(cluster_high_assignments, x="PC1", y="PC2", color="cluster_label")
-            show_dataframe(cluster_high_quality, height=220)
-            show_dataframe(cluster_high_assignments, height=360)
-            with st.expander("PCA loadings"):
-                show_dataframe(cluster_pca_loadings, height=440)
-            with st.expander("Ranked standardized feature differences"):
-                show_dataframe(cluster_feature_differences, height=520)
-            st.subheader("Exploratory phenotype profiles")
-            st.markdown(cluster_profiles_readme if cluster_profiles_readme else "")
-            show_dataframe(cluster_profiles, height=280)
-            st.subheader("Coverage-controlled cluster stability")
-            show_dataframe(cluster_stability, height=280)
-            with st.expander("Profile feature details"):
-                show_dataframe(cluster_profile_features, height=520)
-            with st.expander("Patient acquisition audit"):
-                show_dataframe(cluster_patient_audit, height=520)
-            with st.expander("Feature summaries by cluster"):
-                show_dataframe(cluster_feature_summary, height=520)
-    with tabs[6]:
         st.subheader("Cognitive domain digital phenotype estimates")
         st.caption(
             "Each graph uses the same 37 primary digital features and the same cross-validation design as Outcome 1, "
@@ -2503,6 +2415,94 @@ def phase4_baseline_page() -> None:
                     domain_group_metrics["domain"].astype(str).eq(domain)
                 ]
                 show_fit_legend(domain_group_metric_frame, "domain_group_ridge", f"{domain} feature group")
+    with tabs[1]:
+        st.caption("Raw patient-level values are preserved. Missingness indicators and coverage summaries are included for modeling audit.")
+        show_dataframe(dataset, height=650)
+    with tabs[2]:
+        show_dataframe(metadata, height=520)
+    with tabs[3]:
+        if not missingness.empty and {"feature_name", "missing_percent"}.issubset(missingness.columns):
+            st.bar_chart(missingness.set_index("feature_name")["missing_percent"])
+        show_dataframe(missingness, height=520)
+    with tabs[4]:
+        if not coverage.empty and {"table_name", "table_status"}.issubset(coverage.columns):
+            summary = (
+                coverage.assign(calculated=coverage["table_status"].astype(str).eq("calculated"))
+                .groupby("table_name", dropna=False)
+                .agg(patient_table_blocks=("table_status", "size"), calculated_blocks=("calculated", "sum"))
+                .reset_index()
+            )
+            summary["calculated_percent"] = (100 * summary["calculated_blocks"] / summary["patient_table_blocks"]).round(1)
+            show_dataframe(summary, height=260)
+        show_dataframe(coverage, height=520)
+    with tabs[5]:
+        if model_metrics.empty:
+            st.info("The ridge model has not been run yet.")
+            st.code(".venv/bin/python3 phase4_model_t1_ridge.py")
+        else:
+            pooled = model_metrics[model_metrics.get("analysis_scope", pd.Series(dtype=str)).astype(str).eq("pooled")]
+            if not pooled.empty and {"model", "rmse", "mae", "r2"}.issubset(pooled.columns):
+                st.subheader("Pooled repeated cross-validation metrics")
+                show_dataframe(pooled, height=180)
+                chart = pooled.set_index("model")[["rmse", "mae"]]
+                st.bar_chart(chart)
+            st.subheader("Model report")
+            st.markdown(model_readme if model_readme else "")
+            with st.expander("Feature inclusion decisions"):
+                show_dataframe(model_feature_set, height=420)
+            with st.expander("Fold-level predictions"):
+                show_dataframe(model_predictions, height=520)
+            with st.expander("Calibration and score interpretation"):
+                st.markdown(score_calibration_readme if score_calibration_readme else "")
+                primary_calibration = score_calibration[score_calibration["feature_scope"].eq("primary_37")]
+                if not primary_calibration.empty:
+                    st.scatter_chart(primary_calibration, x="actual_global_T1", y=["ridge_prediction", "actual_global_T1"])
+                show_dataframe(score_calibration_metrics, height=360)
+                st.subheader("Predicted-score bins")
+                show_dataframe(score_calibration_bins, height=360)
+                st.subheader("Coefficient stability")
+                show_dataframe(coefficient_summary, height=520)
+                with st.expander("Raw fold coefficients"):
+                    show_dataframe(model_coefficients, height=520)
+    with tabs[6]:
+        if cluster_quality.empty:
+            st.info("The exploratory clustering analysis has not been run yet.")
+            st.code(".venv/bin/python3 phase4_cluster_t1_baseline.py")
+        else:
+            st.markdown(cluster_readme if cluster_readme else "")
+            st.subheader("Candidate cluster quality")
+            show_dataframe(cluster_quality, height=240)
+            if {"k", "mean_silhouette", "mean_pairwise_ari"}.issubset(cluster_quality.columns):
+                st.line_chart(cluster_quality.set_index("k")[["mean_silhouette", "mean_pairwise_ari"]])
+            st.subheader("Patient assignments")
+            show_dataframe(cluster_assignments, height=440)
+            st.subheader("PCA coordinates")
+            if {"PC1", "PC2", "cluster_label"}.issubset(cluster_pca_scatter.columns):
+                st.scatter_chart(cluster_pca_scatter, x="PC1", y="PC2", color="cluster_label")
+            show_dataframe(cluster_pca_scatter, height=360)
+            st.subheader("Cluster audit summary")
+            show_dataframe(cluster_audit_summary, height=260)
+            st.subheader("High-coverage sensitivity clustering")
+            st.caption("Subset rule: feature missingness <= 50% and table coverage >= 50%.")
+            if {"PC1", "PC2", "cluster_label"}.issubset(cluster_high_assignments.columns):
+                st.scatter_chart(cluster_high_assignments, x="PC1", y="PC2", color="cluster_label")
+            show_dataframe(cluster_high_quality, height=220)
+            show_dataframe(cluster_high_assignments, height=360)
+            with st.expander("PCA loadings"):
+                show_dataframe(cluster_pca_loadings, height=440)
+            with st.expander("Ranked standardized feature differences"):
+                show_dataframe(cluster_feature_differences, height=520)
+            st.subheader("Exploratory phenotype profiles")
+            st.markdown(cluster_profiles_readme if cluster_profiles_readme else "")
+            show_dataframe(cluster_profiles, height=280)
+            st.subheader("Coverage-controlled cluster stability")
+            show_dataframe(cluster_stability, height=280)
+            with st.expander("Profile feature details"):
+                show_dataframe(cluster_profile_features, height=520)
+            with st.expander("Patient acquisition audit"):
+                show_dataframe(cluster_patient_audit, height=520)
+            with st.expander("Feature summaries by cluster"):
+                show_dataframe(cluster_feature_summary, height=520)
     with tabs[7]:
         st.markdown(load_text(PATHS["phase4_protocol"]) or "No Phase 4 protocol available.")
 
