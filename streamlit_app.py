@@ -155,6 +155,8 @@ PATHS = {
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_gradient_weighted/phase4_t1_gradient_weighted_patient_predictions.csv",
     "phase4_slope_selected_patient_predictions": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_slope_selected/phase4_t1_slope_selected_patient_predictions.csv",
+    "phase4_direction_constrained_patient_predictions": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_direction_constrained/phase4_t1_direction_constrained_patient_predictions.csv",
     "phase4_cluster_assignments": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_assignments.csv",
     "phase4_cluster_quality": ROOT
@@ -1561,6 +1563,7 @@ def phase4_baseline_page() -> None:
     score_calibration_readme = load_text(PATHS["phase4_score_calibration_readme"])
     gradient_patient_predictions = load_csv(PATHS["phase4_gradient_patient_predictions"])
     slope_selected_patient_predictions = load_csv(PATHS["phase4_slope_selected_patient_predictions"])
+    direction_constrained_patient_predictions = load_csv(PATHS["phase4_direction_constrained_patient_predictions"])
     cluster_assignments = load_csv(PATHS["phase4_cluster_assignments"])
     cluster_quality = load_csv(PATHS["phase4_cluster_quality"])
     cluster_feature_summary = load_csv(PATHS["phase4_cluster_feature_summary"])
@@ -1729,6 +1732,61 @@ def phase4_baseline_page() -> None:
             )
         )
         st.altair_chart(selected_chart.properties(height=430), use_container_width=True)
+
+    st.markdown("**Direction-constrained slope model**")
+    if direction_constrained_patient_predictions.empty:
+        st.info("The direction-constrained comparison is not available yet.")
+    else:
+        constrained_patients = direction_constrained_patient_predictions.sort_values("actual_global_T1").reset_index(drop=True)
+        constrained_patients["patient_rank"] = range(1, len(constrained_patients) + 1)
+        constrained_plot_data = constrained_patients.rename(
+            columns={
+                "Subject_ID_D": "Patient ID",
+                "actual_global_T1": "Observed T1 score",
+                "direction_constrained_prediction": "Direction-constrained estimate",
+            }
+        )[["patient_rank", "Patient ID", "Observed T1 score", "Direction-constrained estimate"]].melt(
+            id_vars=["patient_rank", "Patient ID"],
+            var_name="score_type",
+            value_name="t1_score",
+        )
+        st.caption(
+            "This version uses the same eight slope-selected features, but constrains positive-slope features "
+            "to raise predicted T1 and negative-slope features to lower predicted T1."
+        )
+        constrained_plot_min = int(constrained_plot_data["t1_score"].min()) - 1
+        constrained_plot_max = int(constrained_plot_data["t1_score"].max()) + 1
+        constrained_chart = (
+            alt.Chart(constrained_plot_data)
+            .mark_line(point=alt.OverlayMarkDef(size=45))
+            .encode(
+                x=alt.X(
+                    "patient_rank:Q",
+                    title="Patients ordered by observed T1 score",
+                    axis=alt.Axis(format="d"),
+                ),
+                y=alt.Y(
+                    "t1_score:Q",
+                    title="T1 score",
+                    scale=alt.Scale(domain=[constrained_plot_min, constrained_plot_max]),
+                ),
+                color=alt.Color(
+                    "score_type:N",
+                    title="Measure",
+                    scale=alt.Scale(
+                        domain=["Observed T1 score", "Direction-constrained estimate"],
+                        range=["#111827", "#0891b2"],
+                    ),
+                ),
+                tooltip=[
+                    alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                    alt.Tooltip("Patient ID:N", title="Patient ID"),
+                    alt.Tooltip("score_type:N", title="Measure"),
+                    alt.Tooltip("t1_score:Q", title="T1 score", format=".2f"),
+                ],
+            )
+        )
+        st.altair_chart(constrained_chart.properties(height=430), use_container_width=True)
 
     st.markdown("**Gradient-weighted digital estimate**")
     if gradient_patient_predictions.empty:
