@@ -202,12 +202,26 @@ def calculate_features(table_name: str, rows: list[dict[str, Any]]) -> dict[str,
 def main() -> None:
     parser = argparse.ArgumentParser(description="Extract selected Phase 2 features around T2.")
     parser.add_argument("--max-patients", type=int, default=0)
+    parser.add_argument("--resume", action="store_true", help="Skip patients already recorded in the checkpoint file.")
     args = parser.parse_args()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
+    completed_subjects: set[str] = set()
+    if args.resume and CHECKPOINT_PATH.exists():
+        for line in CHECKPOINT_PATH.read_text(encoding="utf-8").splitlines():
+            try:
+                record = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if record.get("status") == "completed":
+                completed_subjects.add(str(record.get("Subject_ID_D")))
+    elif not args.resume:
+        CHECKPOINT_PATH.write_text("", encoding="utf-8")
     selected = pd.read_csv(SELECTED_PATH, dtype=str)
     selected = selected[selected["source_table"].isin(ALL_SUPPORTED_TABLES)].copy()
     tables = selected["source_table"].dropna().unique().tolist()
     patients = load_t2_patients()
+    if completed_subjects:
+        patients = patients[~patients["Subject_ID_D"].isin(completed_subjects)].copy()
     if args.max_patients > 0:
         patients = patients.head(args.max_patients).copy()
     device_map = load_device_map_strict()
@@ -228,24 +242,52 @@ def main() -> None:
                 device_ids_used: list[str] = []
                 table_status = "not_started"
                 error_message = ""
-                try:
-                    if not device_ids:
-                        table_status = "missing_no_mapped_device"
-                    else:
-                        window = window_for_table(conn, table_name, patient, device_ids)
-                        if "start_ms" not in window:
-                            table_status = "missing_no_pre_t2_window"
+                for attempt in range(3):
+                    try:
+                        # Use a short-lived connection per table so one server-side
+                        # disconnect cannot poison the rest of the cohort.
+                        if attempt == 0:
+                            try:
+                                conn.close()
+                            except Exception:
+                                pass
+                            conn = connect_sensordata_db()
+                        try:
+                            conn.ping(reconnect=True, attempts=3, delay=1)
+                        except Exception:
+                            try:
+                                conn.close()
+                            except Exception:
+                                pass
+                            conn = connect_sensordata_db()
+                        if not device_ids:
+                            table_status = "missing_no_mapped_device"
                         else:
-                            device_ids_used = window.get("device_ids_used", device_ids)
-                            rows = fetch_table_rows(conn, table_name, device_ids_used, int(window["start_ms"]), int(window["end_ms"]))
-                            if rows:
-                                features = calculate_features(table_name, rows)
-                                table_status = "calculated"
+                            window = window_for_table(conn, table_name, patient, device_ids)
+                            if "start_ms" not in window:
+                                table_status = "missing_no_pre_t2_window"
                             else:
-                                table_status = "missing_selected_window_no_rows"
-                except Exception as exc:
-                    error_message = str(exc)
-                    table_status = "retryable_error" if is_retryable_db_error(exc) else "error"
+                                device_ids_used = window.get("device_ids_used", device_ids)
+                                rows = fetch_table_rows(conn, table_name, device_ids_used, int(window["start_ms"]), int(window["end_ms"]))
+                                if rows:
+                                    features = calculate_features(table_name, rows)
+                                    table_status = "calculated"
+                                else:
+                                    table_status = "missing_selected_window_no_rows"
+                        error_message = ""
+                        break
+                    except Exception as exc:
+                        error_message = str(exc)
+                        if attempt < 2 and is_retryable_db_error(exc):
+                            print(f"  reconnecting table={table_name} attempt={attempt + 1} error={error_message}", flush=True)
+                            try:
+                                conn.close()
+                            except Exception:
+                                pass
+                            conn = connect_sensordata_db()
+                            continue
+                        table_status = "retryable_error" if is_retryable_db_error(exc) else "error"
+                        break
                 coverage_rows.extend(window.get("coverage_rows", []))
                 computed_status = str(features.get("feature_status", table_status))
                 status_rows.append(

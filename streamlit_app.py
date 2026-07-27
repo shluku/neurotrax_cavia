@@ -2530,6 +2530,7 @@ def phase5_t2_page() -> None:
     if checkpoint_path.exists():
         checkpoint_count = sum(1 for line in checkpoint_path.read_text(encoding="utf-8").splitlines() if line.strip())
     calculated = int(status["table_status"].astype(str).eq("calculated").sum()) if not status.empty and "table_status" in status.columns else 0
+    retryable_errors = int(status["table_status"].astype(str).eq("retryable_error").sum()) if not status.empty and "table_status" in status.columns else 0
     total = len(status) if not status.empty else 0
     patients = int(status["Subject_ID_D"].nunique()) if not status.empty and "Subject_ID_D" in status.columns else 0
     metric_row(
@@ -2540,6 +2541,11 @@ def phase5_t2_page() -> None:
             ("Checkpoint patients", checkpoint_count),
         ]
     )
+    if retryable_errors:
+        st.error(
+            f"This extraction is incomplete: {retryable_errors} table attempts ended with database connection errors. "
+            "Do not use the feature tables for analysis until the run completes without retryable errors."
+        )
     if total == 0:
         st.info("The T2 extraction has not produced status output yet.")
         st.code(".venv/bin/python3 phase5_extract_selected_features_all_t2_patients.py")
