@@ -21,6 +21,7 @@ OUT_DIR = DATA_DIR / "model_t1_ridge"
 PREDICTIONS_PATH = OUT_DIR / "phase4_t1_ridge_predictions.csv"
 METRICS_PATH = OUT_DIR / "phase4_t1_ridge_metrics.csv"
 FEATURE_SET_PATH = OUT_DIR / "phase4_t1_ridge_feature_set.csv"
+COEFFICIENTS_PATH = OUT_DIR / "phase4_t1_ridge_coefficients.csv"
 README_PATH = OUT_DIR / "README_phase4_t1_ridge.md"
 
 TARGET = "global_T1"
@@ -120,6 +121,7 @@ def build_readme(feature_set: pd.DataFrame, metrics: pd.DataFrame, n_patients: i
             "- `phase4_t1_ridge_predictions.csv`: repeated outer-fold predictions for every scope and model.",
             "- `phase4_t1_ridge_metrics.csv`: per-repeat and pooled metrics.",
             "- `phase4_t1_ridge_feature_set.csv`: feature membership by scope.",
+            "- `phase4_t1_ridge_coefficients.csv`: outer-fold coefficient stability for ridge terms.",
         ]
     )
     return "\n".join(lines) + "\n"
@@ -155,6 +157,7 @@ def main() -> None:
     outer = RepeatedKFold(n_splits=N_SPLITS, n_repeats=N_REPEATS, random_state=RANDOM_STATE)
     predictions: list[dict[str, object]] = []
     metric_rows: list[dict[str, object]] = []
+    coefficient_rows: list[dict[str, object]] = []
     repeat_buffers: dict[tuple[int, str], dict[str, list[float]]] = {}
 
     for split_index, (train_idx, test_idx) in enumerate(outer.split(dataset), start=0):
@@ -170,6 +173,18 @@ def main() -> None:
             model.fit(X.iloc[train_idx], y_train)
             ridge_prediction = model.predict(X.iloc[test_idx])
             ridge_alpha = float(model.named_steps["ridge"].alpha_)
+            coefficient_names = model.named_steps["imputer"].get_feature_names_out(features)
+            for term_name, coefficient in zip(coefficient_names, model.named_steps["ridge"].coef_):
+                coefficient_rows.append(
+                    {
+                        "repeat": repeat,
+                        "fold": fold,
+                        "feature_scope": scope,
+                        "term_name": term_name,
+                        "coefficient": float(coefficient),
+                        "ridge_alpha": ridge_alpha,
+                    }
+                )
             key = (repeat, scope)
             repeat_buffers.setdefault(key, {"actual": [], "mean": [], "ridge": []})
             repeat_buffers[key]["actual"].extend(y_test.tolist())
@@ -223,9 +238,11 @@ def main() -> None:
         )
 
     metrics_df = pd.DataFrame(metric_rows)
+    coefficients_df = pd.DataFrame(coefficient_rows)
     predictions_df.to_csv(PREDICTIONS_PATH, index=False)
     metrics_df.to_csv(METRICS_PATH, index=False)
     feature_set.to_csv(FEATURE_SET_PATH, index=False)
+    coefficients_df.to_csv(COEFFICIENTS_PATH, index=False)
     README_PATH.write_text(build_readme(feature_set, metrics_df, len(dataset)), encoding="utf-8")
 
     pooled = metrics_df[metrics_df["analysis_scope"] == "pooled"]

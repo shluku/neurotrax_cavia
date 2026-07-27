@@ -35,3 +35,4 @@ The mean baseline is deliberately identical in meaning across all four compariso
 - `phase4_t1_ridge_predictions.csv`: repeated outer-fold predictions for every scope and model.
 - `phase4_t1_ridge_metrics.csv`: per-repeat and pooled metrics.
 - `phase4_t1_ridge_feature_set.csv`: feature membership by scope.
+- `phase4_t1_ridge_coefficients.csv`: outer-fold coefficient stability for ridge terms.

@@ -137,6 +137,18 @@ PATHS = {
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/phase4_t1_ridge_feature_set.csv",
     "phase4_model_readme": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/README_phase4_t1_ridge.md",
+    "phase4_model_coefficients": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/phase4_t1_ridge_coefficients.csv",
+    "phase4_score_calibration": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/phase4_t1_score_calibration_by_patient.csv",
+    "phase4_score_calibration_bins": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/phase4_t1_score_calibration_bins.csv",
+    "phase4_score_calibration_metrics": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/phase4_t1_score_calibration_metrics.csv",
+    "phase4_coefficient_summary": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/phase4_t1_ridge_coefficient_summary.csv",
+    "phase4_score_calibration_readme": ROOT
+    / "output/analysis_candidates/phase4_t1_baseline/model_t1_ridge/README_phase4_t1_score_calibration.md",
     "phase4_cluster_assignments": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/phase4_t1_cluster_assignments.csv",
     "phase4_cluster_quality": ROOT
@@ -1530,6 +1542,12 @@ def phase4_baseline_page() -> None:
     model_metrics = load_csv(PATHS["phase4_model_metrics"])
     model_feature_set = load_csv(PATHS["phase4_model_feature_set"])
     model_readme = load_text(PATHS["phase4_model_readme"])
+    model_coefficients = load_csv(PATHS["phase4_model_coefficients"])
+    score_calibration = load_csv(PATHS["phase4_score_calibration"])
+    score_calibration_bins = load_csv(PATHS["phase4_score_calibration_bins"])
+    score_calibration_metrics = load_csv(PATHS["phase4_score_calibration_metrics"])
+    coefficient_summary = load_csv(PATHS["phase4_coefficient_summary"])
+    score_calibration_readme = load_text(PATHS["phase4_score_calibration_readme"])
     cluster_assignments = load_csv(PATHS["phase4_cluster_assignments"])
     cluster_quality = load_csv(PATHS["phase4_cluster_quality"])
     cluster_feature_summary = load_csv(PATHS["phase4_cluster_feature_summary"])
@@ -1607,6 +1625,18 @@ def phase4_baseline_page() -> None:
                 show_dataframe(model_feature_set, height=420)
             with st.expander("Fold-level predictions"):
                 show_dataframe(model_predictions, height=520)
+            with st.expander("Calibration and score interpretation"):
+                st.markdown(score_calibration_readme if score_calibration_readme else "")
+                primary_calibration = score_calibration[score_calibration["feature_scope"].eq("primary_37")]
+                if not primary_calibration.empty:
+                    st.scatter_chart(primary_calibration, x="actual_global_T1", y=["ridge_prediction", "actual_global_T1"])
+                show_dataframe(score_calibration_metrics, height=360)
+                st.subheader("Predicted-score bins")
+                show_dataframe(score_calibration_bins, height=360)
+                st.subheader("Coefficient stability")
+                show_dataframe(coefficient_summary, height=520)
+                with st.expander("Raw fold coefficients"):
+                    show_dataframe(model_coefficients, height=520)
     with tabs[5]:
         if cluster_quality.empty:
             st.info("The exploratory clustering analysis has not been run yet.")
