@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import altair as alt
 import pandas as pd
 import streamlit as st
 
@@ -1608,11 +1609,45 @@ def phase4_baseline_page() -> None:
             "Each point is a quartile of patients grouped by predicted T1 score. "
             "The diagonal is perfect agreement. Points below the diagonal indicate overprediction."
         )
-        st.scatter_chart(
-            primary_bins.assign(perfect_agreement=primary_bins["predicted_T1_score"]),
-            x="predicted_T1_score",
-            y=["observed_T1_score", "perfect_agreement"],
+        plot_min = int(
+            min(primary_bins["predicted_T1_score"].min(), primary_bins["observed_T1_score"].min())
+        ) - 1
+        plot_max = int(
+            max(primary_bins["predicted_T1_score"].max(), primary_bins["observed_T1_score"].max())
+        ) + 1
+        plot_domain = [plot_min, plot_max]
+        points = (
+            alt.Chart(primary_bins)
+            .mark_circle(size=130, color="#2563eb")
+            .encode(
+                x=alt.X(
+                    "predicted_T1_score:Q",
+                    title="Predicted T1 score",
+                    scale=alt.Scale(domain=plot_domain),
+                ),
+                y=alt.Y(
+                    "observed_T1_score:Q",
+                    title="Observed T1 score",
+                    scale=alt.Scale(domain=plot_domain),
+                ),
+                tooltip=[
+                    alt.Tooltip("prediction_bin:N", title="Prediction group"),
+                    alt.Tooltip("predicted_T1_score:Q", title="Predicted", format=".2f"),
+                    alt.Tooltip("observed_T1_score:Q", title="Observed", format=".2f"),
+                    alt.Tooltip("n_patients:Q", title="Patients"),
+                ],
+            )
         )
+        reference = pd.DataFrame({"score": [plot_min, plot_max]})
+        diagonal = (
+            alt.Chart(reference)
+            .mark_line(color="#6b7280", strokeDash=[5, 4])
+            .encode(
+                x=alt.X("score:Q", scale=alt.Scale(domain=plot_domain)),
+                y=alt.Y("score:Q", scale=alt.Scale(domain=plot_domain)),
+            )
+        )
+        st.altair_chart((diagonal + points).properties(height=430), use_container_width=True)
         primary_metrics = score_calibration_metrics[
             (score_calibration_metrics["feature_scope"] == "primary_37")
             & (score_calibration_metrics["model"] == "ridge")
