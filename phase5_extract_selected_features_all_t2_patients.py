@@ -177,7 +177,14 @@ def fetch_table_rows(conn, table_name: str, device_ids: list[str], start_ms: int
     rows: list[dict[str, Any]] = []
     for device_id in device_ids:
         if table_name == "light":
-            rows.extend(fetch_light_lux_values(conn, device_id, start_ms, end_ms))
+            # Light is a high-volume JSON table. Smaller scans avoid the RDS
+            # read timeout seen when querying a full 24-hour interval at once.
+            chunk_ms = 6 * 60 * 60 * 1000
+            chunk_start = int(start_ms)
+            while chunk_start < int(end_ms):
+                chunk_end = min(chunk_start + chunk_ms, int(end_ms))
+                rows.extend(fetch_light_lux_values(conn, device_id, chunk_start, chunk_end))
+                chunk_start = chunk_end
         elif table_name == "barometer":
             rows.extend(fetch_barometer_rows(conn, device_id, start_ms, end_ms))
         elif table_name == "significant":
