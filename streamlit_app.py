@@ -1590,6 +1590,41 @@ def phase4_baseline_page() -> None:
         ]
     )
 
+    st.subheader("Outcome 1: Digital phenotype estimate of T1 score")
+    primary_calibration = score_calibration[score_calibration["feature_scope"].eq("primary_37")].copy()
+    if primary_calibration.empty:
+        st.info("The primary T1 score prediction graph is not available yet.")
+    else:
+        primary_calibration = primary_calibration.rename(
+            columns={
+                "ridge_prediction": "digital_phenotype_prediction",
+                "mean_baseline_prediction": "mean_baseline",
+            }
+        )
+        primary_calibration["perfect_agreement"] = primary_calibration["actual_global_T1"]
+        st.caption(
+            "Each point represents one patient after averaging repeated out-of-fold predictions. "
+            "The diagonal is perfect agreement; the mean baseline shows the simplest reference."
+        )
+        st.scatter_chart(
+            primary_calibration,
+            x="actual_global_T1",
+            y=["digital_phenotype_prediction", "mean_baseline", "perfect_agreement"],
+        )
+        primary_metrics = score_calibration_metrics[
+            (score_calibration_metrics["feature_scope"] == "primary_37")
+            & (score_calibration_metrics["model"] == "ridge")
+        ]
+        if not primary_metrics.empty:
+            row = primary_metrics.iloc[0]
+            metric_row(
+                [
+                    ("Digital prediction RMSE", f"{float(row['rmse']):.2f}"),
+                    ("Digital prediction MAE", f"{float(row['mae']):.2f}"),
+                    ("Actual-predicted correlation", f"{float(row['actual_predicted_correlation']):.2f}"),
+                ]
+            )
+
     st.markdown(readme if readme else "")
     tabs = st.tabs(["Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Model Results", "Clustering", "Protocol"])
 
