@@ -1602,11 +1602,14 @@ def phase4_baseline_page() -> None:
         primary_patients["patient_rank"] = range(1, len(primary_patients) + 1)
         plot_data = primary_patients.rename(
             columns={
+                "Subject_ID_D": "Patient ID",
                 "actual_global_T1": "Observed T1 score",
                 "ridge_prediction": "Digital estimate",
             }
-        )[["patient_rank", "Observed T1 score", "Digital estimate"]].melt(
-            id_vars="patient_rank", var_name="score_type", value_name="t1_score"
+        )[["patient_rank", "Patient ID", "Observed T1 score", "Digital estimate"]].melt(
+            id_vars=["patient_rank", "Patient ID"],
+            var_name="score_type",
+            value_name="t1_score",
         )
         st.caption(
             "Each position represents one patient, ordered from lowest to highest observed T1 score. "
@@ -1644,6 +1647,7 @@ def phase4_baseline_page() -> None:
                 ),
                 tooltip=[
                     alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                    alt.Tooltip("Patient ID:N", title="Patient ID"),
                     alt.Tooltip("score_type:N", title="Measure"),
                     alt.Tooltip("t1_score:Q", title="T1 score", format=".2f"),
                 ],
