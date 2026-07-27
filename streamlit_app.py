@@ -1668,6 +1668,156 @@ def phase4_baseline_page() -> None:
                 ]
             )
 
+    st.subheader("Exploratory feature patterns")
+    st.caption(
+        "These graphs describe associations in the current T1 cohort. They do not change the model, "
+        "and they should not be interpreted as causal or clinical effects."
+    )
+    primary_features = metadata.loc[
+        metadata["primary_model_recommendation"] == "include_primary", "feature_name"
+    ].tolist()
+    association_rows: list[dict[str, object]] = []
+    for feature in primary_features:
+        values = pd.to_numeric(dataset[feature], errors="coerce")
+        paired = pd.DataFrame({"feature": values, "t1": dataset["global_T1"]}).dropna()
+        if len(paired) < 5 or paired["feature"].nunique() < 2:
+            continue
+        association_rows.append(
+            {
+                "feature": feature,
+                "spearman_rho": float(paired["feature"].corr(paired["t1"], method="spearman")),
+                "n_observed": len(paired),
+                "missing_percent": float(values.isna().mean() * 100),
+            }
+        )
+    associations = pd.DataFrame(association_rows)
+    if associations.empty:
+        st.info("Feature association graphs are not available yet.")
+    else:
+        associations["absolute_rho"] = associations["spearman_rho"].abs()
+        strongest = associations.nlargest(12, "absolute_rho").sort_values("spearman_rho")
+        strongest["direction"] = strongest["spearman_rho"].map(
+            lambda value: "Increases with T1" if value >= 0 else "Decreases with T1"
+        )
+        st.markdown("**Features that move with observed T1**")
+        st.caption(
+            "Positive values indicate that a feature tends to increase as T1 increases; "
+            "negative values indicate the opposite. Spearman correlation is used because it captures monotonic patterns."
+        )
+        association_chart = (
+            alt.Chart(strongest)
+            .mark_bar()
+            .encode(
+                x=alt.X(
+                    "spearman_rho:Q",
+                    title="Association with observed T1 (Spearman rho)",
+                    scale=alt.Scale(domain=[-1, 1]),
+                ),
+                y=alt.Y("feature:N", title=None, sort=None),
+                color=alt.Color(
+                    "direction:N",
+                    title="Direction",
+                    scale=alt.Scale(
+                        domain=["Increases with T1", "Decreases with T1"],
+                        range=["#2563eb", "#dc2626"],
+                    ),
+                ),
+                tooltip=[
+                    alt.Tooltip("feature:N", title="Feature"),
+                    alt.Tooltip("direction:N", title="Direction"),
+                    alt.Tooltip("spearman_rho:Q", title="Spearman rho", format=".2f"),
+                    alt.Tooltip("n_observed:Q", title="Patients with data"),
+                    alt.Tooltip("missing_percent:Q", title="Missing", format=".1f"),
+                ],
+            )
+            .properties(height=360)
+        )
+        st.altair_chart(association_chart, use_container_width=True)
+
+        trend_features = strongest.nlargest(8, "absolute_rho")["feature"].tolist()
+        t1_values = pd.to_numeric(dataset["global_T1"], errors="coerce")
+        trend_source = dataset.assign(
+            t1_quartile=pd.qcut(t1_values, q=4, labels=["Q1 lowest", "Q2", "Q3", "Q4 highest"], duplicates="drop")
+        )
+        trend_rows: list[dict[str, object]] = []
+        for feature in trend_features:
+            values = pd.to_numeric(trend_source[feature], errors="coerce")
+            standard_deviation = values.std()
+            if pd.isna(standard_deviation) or standard_deviation == 0:
+                continue
+            z_values = (values - values.mean()) / standard_deviation
+            for quartile, group in z_values.groupby(trend_source["t1_quartile"], observed=False):
+                if pd.isna(quartile):
+                    continue
+                trend_rows.append(
+                    {
+                        "feature": feature,
+                        "t1_quartile": str(quartile),
+                        "median_z_score": float(group.median()),
+                    }
+                )
+        trends = pd.DataFrame(trend_rows)
+        if not trends.empty:
+            st.markdown("**Do the strongest features follow the T1 gradient?**")
+            st.caption(
+                "Each line shows the feature median after standardization, across four T1 groups. "
+                "An upward line means the feature generally grows with T1; a downward line means it shrinks."
+            )
+            trend_chart = (
+                alt.Chart(trends)
+                .mark_line(point=True)
+                .encode(
+                    x=alt.X(
+                        "t1_quartile:N",
+                        title="Observed T1 group",
+                        sort=["Q1 lowest", "Q2", "Q3", "Q4 highest"],
+                    ),
+                    y=alt.Y("median_z_score:Q", title="Feature median (standardized)"),
+                    color=alt.Color("feature:N", title="Feature"),
+                    tooltip=[
+                        alt.Tooltip("feature:N", title="Feature"),
+                        alt.Tooltip("t1_quartile:N", title="T1 group"),
+                        alt.Tooltip("median_z_score:Q", title="Median standardized value", format=".2f"),
+                    ],
+                )
+                .properties(height=380)
+            )
+            st.altair_chart(trend_chart, use_container_width=True)
+
+    primary_coverage = dataset.copy()
+    primary_coverage["observed_primary_features"] = primary_coverage[primary_features].notna().sum(axis=1)
+    primary_coverage["primary_feature_coverage_percent"] = (
+        primary_coverage["observed_primary_features"] / len(primary_features) * 100
+    )
+    primary_coverage = primary_coverage.sort_values("global_T1").reset_index(drop=True)
+    primary_coverage["patient_rank"] = range(1, len(primary_coverage) + 1)
+    st.markdown("**How much primary digital data did each patient have?**")
+    st.caption(
+        "Patients use the same low-to-high observed T1 order as the main graph. "
+        "Coverage is the percentage of the 37 primary features that were observed for that patient."
+    )
+    coverage_chart = (
+        alt.Chart(primary_coverage)
+        .mark_line(point=alt.OverlayMarkDef(size=45), color="#059669")
+        .encode(
+            x=alt.X("patient_rank:Q", title="Patients ordered by observed T1 score", axis=alt.Axis(format="d")),
+            y=alt.Y(
+                "primary_feature_coverage_percent:Q",
+                title="Primary-feature coverage (%)",
+                scale=alt.Scale(domain=[0, 100]),
+            ),
+            tooltip=[
+                alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                alt.Tooltip("Subject_ID_D:N", title="Patient ID"),
+                alt.Tooltip("global_T1:Q", title="Observed T1 score", format=".2f"),
+                alt.Tooltip("observed_primary_features:Q", title="Observed primary features"),
+                alt.Tooltip("primary_feature_coverage_percent:Q", title="Coverage", format=".1f"),
+            ],
+        )
+        .properties(height=300)
+    )
+    st.altair_chart(coverage_chart, use_container_width=True)
+
     st.markdown(readme if readme else "")
     tabs = st.tabs(["Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Model Results", "Clustering", "Protocol"])
 
