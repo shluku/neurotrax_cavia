@@ -2153,14 +2153,22 @@ PAGES = {
 
 def main() -> None:
     st.sidebar.title("NeuroTrax-SensorDB")
+    st.sidebar.markdown(
+        """
+        <style>
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(8) p {
+            font-size: 1.18rem !important;
+            font-weight: 800 !important;
+        }
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(8) {
+            padding-top: 0.18rem;
+            padding-bottom: 0.18rem;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
     page = st.sidebar.radio("View", list(PAGES.keys()))
-    if page == "Phase 4 T1 Baseline":
-        st.sidebar.markdown(
-            '<div style="font-size: 1.35rem; font-weight: 800; margin: 0.8rem 0 0.35rem 0;">'
-            "Phase 4 T1 Baseline"
-            "</div>",
-            unsafe_allow_html=True,
-        )
     st.sidebar.divider()
     st.sidebar.caption("Local dashboard over existing project outputs.")
     st.sidebar.caption("No SQL queries are executed by this app.")
