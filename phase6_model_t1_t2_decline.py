@@ -183,6 +183,7 @@ def main() -> None:
         .reset_index()
     )
     metrics = pd.DataFrame(metric_rows)
+    metrics = metrics.drop_duplicates(["analysis_scope", "repeat", "outcome", "model"], keep="first")
     predictions.to_csv(PREDICTIONS_PATH, index=False)
     patient_predictions.to_csv(PATIENT_PATH, index=False)
     metrics.to_csv(METRICS_PATH, index=False)

@@ -1,0 +1,17 @@
+table_name,calculated,error,missing_no_pre_t2_window,retryable_error,patient_count,calculated_percent,no_window_percent
+applications_foreground,22,0,39,0,61,36.07,63.93
+barometer,0,0,61,0,61,0.0,100.0
+battery,3,0,58,0,61,4.92,95.08
+bluetooth,4,0,57,0,61,6.56,93.44
+calls,9,0,52,0,61,14.75,85.25
+gsm,22,1,38,0,61,36.07,62.3
+gsm_neighbor,20,0,41,0,61,32.79,67.21
+keyboard,20,0,41,0,61,32.79,67.21
+locations,23,0,38,0,61,37.7,62.3
+messages,9,0,52,0,61,14.75,85.25
+plugin_google_activity_recognition,11,0,50,0,61,18.03,81.97
+screen,24,0,37,0,61,39.34,60.66
+sensor_linear_accelerometer,16,0,45,0,61,26.23,73.77
+significant,23,0,38,0,61,37.7,62.3
+telephony,22,0,39,0,61,36.07,63.93
+touch,1,0,60,0,61,1.64,98.36
