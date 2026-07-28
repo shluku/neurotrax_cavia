@@ -2516,27 +2516,6 @@ def phase4_baseline_page() -> None:
 
 @st.fragment(run_every="10s")
 def phase5_t2_live_panel() -> None:
-    st.subheader("T1 baseline feature reference")
-    metric_row(
-        [
-            ("Source patients", 81),
-            ("Selected features", 71),
-            ("Primary-model features", 37),
-            ("Sensitivity-only features", 34),
-            ("Mean feature missingness", "48.8%"),
-        ]
-    )
-    st.caption(
-        "These feature counts and the 48.8% mean missingness value describe the completed T1 baseline feature dataset. "
-        "The same 71 selected features are now being applied around T2."
-    )
-    st.subheader("T2 extraction coverage")
-    st.info(
-        "The current T2 extraction includes 61 patients with a recorded T2 date after the project exclusion rule. "
-        "Each patient is checked against 17 selected sensor tables, giving 1,037 expected patient-table attempts. "
-        "'No usable pre-T2 window' means the extractor found no eligible data in the T2-7-day window or the documented T2-30-day fallback window; it does not mean 767 patients are missing."
-    )
-
     status = load_csv(PATHS["phase5_status"])
     checkpoint_path = PATHS["phase5_checkpoint"]
     checkpoint_states: dict[str, str] = {}
@@ -2557,6 +2536,43 @@ def phase5_t2_live_panel() -> None:
     patients = int(status["Subject_ID_D"].nunique()) if not status.empty and "Subject_ID_D" in status.columns else 0
     wide = load_csv(PATHS["phase5_wide"])
     coverage = load_csv(PATHS["phase5_coverage"])
+
+    selected_features = load_csv(PATHS["phase2_selected_features"])
+    feature_metadata = load_csv(PATHS["phase4_feature_metadata"])
+    selected_count = int(selected_features["feature_name"].nunique()) if "feature_name" in selected_features else 0
+    primary_count = (
+        int(feature_metadata["primary_model_recommendation"].eq("include_primary").sum())
+        if "primary_model_recommendation" in feature_metadata else 0
+    )
+    sensitivity_count = max(selected_count - primary_count, 0)
+    t2_patients = int(wide["Subject_ID_D"].nunique()) if not wide.empty and "Subject_ID_D" in wide else patients
+    if not wide.empty and selected_count and "feature_name" in selected_features:
+        feature_missingness = [
+            float(wide[name].isna().mean()) if name in wide.columns else 1.0
+            for name in selected_features["feature_name"].dropna().astype(str)
+        ]
+        mean_missingness = f"{100 * sum(feature_missingness) / len(feature_missingness):.1f}%"
+    else:
+        mean_missingness = "n/a"
+
+    st.subheader("T2 feature summary")
+    metric_row(
+        [
+            ("T2 source patients", t2_patients),
+            ("Selected features", selected_count),
+            ("Primary-model features", primary_count),
+            ("Sensitivity-only features", sensitivity_count),
+            ("Mean T2 feature missingness", mean_missingness),
+        ]
+    )
+    st.caption(
+        "These values are calculated from the current T2 patient-level wide CSV. "
+        "Missingness includes selected feature columns that are not yet present or have no value for a patient."
+    )
+    st.info(
+        f"Each T2 patient is checked against 17 selected sensor tables, giving approximately {t2_patients * 17:,} expected patient-table attempts. "
+        "'No usable pre-T2 window' means the extractor found no eligible data in the T2-7-day window or the documented T2-30-day fallback window; it does not mean that many patients are missing."
+    )
 
     st.subheader("Live extraction progress")
     metric_row(
