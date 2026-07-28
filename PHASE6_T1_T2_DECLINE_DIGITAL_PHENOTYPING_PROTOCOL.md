@@ -8,21 +8,25 @@ Predict cognitive change for each paired patient as:
 
 This is an exploratory POC outcome. It is not a clinical decline classifier or validated prediction tool.
 
-## Digital Predictors
+## Independent Digital Estimates
 
-For each eligible feature, calculate the paired change:
-
-`T2 feature - T1 feature`
+T1 and T2 are estimated independently from their own timepoint feature levels. The T2 model does not use T1 features, observed T1 scores, or T1-to-T2 feature changes as predictors.
 
 The active T2 set excludes the unreliable `light` table and uses the Phase 5 10% patient-coverage rule. Fold-local median imputation, missingness indicators, standardization, and Ridge regularization are used inside cross-validation.
+
+For each patient, digital change is calculated only after both independent estimates exist:
+
+`estimated T2 score - estimated T1 score`
 
 ## Models
 
 All models are compared against the same fold-local mean outcome baseline:
 
-1. T1-primary features meeting 10% T2 coverage.
-2. All working features meeting 10% T2 coverage.
-3. Cognitive-domain feature-group models using the union of relevant Phase 4 group features that survive the T2 coverage rule.
+1. T2-primary features meeting 10% T2 coverage, modeled independently at T2.
+2. All working T2 features meeting 10% T2 coverage, modeled independently at T2.
+3. Cognitive-domain feature-group models using the union of relevant Phase 4 group features that survive the T2 coverage rule, modeled independently at T2.
+
+The corresponding T1 estimate comes from the Phase 4 model using T1 features only. Global and domain estimates are matched by outcome and patient before calculating digital change.
 
 ## Graph Order
 
@@ -37,11 +41,11 @@ The Streamlit Phase 6 page follows the Phase 4 presentation order:
 7. Attention: aligned T1/T2/estimated-T2 scores, T2 versus estimated T2 only, then observed versus estimated change.
 8. Motor: aligned T1/T2/estimated-T2 scores, T2 versus estimated T2 only, then observed versus estimated change.
 
-Patients are ordered once from lowest to highest observed T1 score using the original 81-patient T1 baseline cohort. The same x-axis order is reused for T2 and predicted T2 values; patients without paired T2 data remain blank at their original positions. Patient IDs are shown in the hover details. Each estimate is based on out-of-fold predictions and is displayed on the score scale as `T1 score + predicted change`.
+Patients are ordered once from lowest to highest observed T1 score using the original 81-patient T1 baseline cohort. The same x-axis order is reused for T2 and predicted T2 values; patients without paired T2 data remain blank at their original positions. Patient IDs are shown in the hover details. T1 and T2 estimates are independent out-of-fold predictions on their respective feature sets.
 
 Graph colors follow Phase 4: black for observed T1, red for observed T2, blue for the general digital estimate, and the established domain color for the domain-group estimate.
 
-The T2-only comparison graph additionally includes the original Phase 4 primary-37 estimated T1 score as a reference line.
+The T2-only comparison graph additionally includes the matching independent T1 estimate as a reference line. For domain graphs, this is the estimate from the corresponding Phase 4 domain feature group.
 
 ## Interpretation Boundary
 

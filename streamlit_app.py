@@ -2663,7 +2663,7 @@ def phase6_decline_page() -> None:
         "</h1>",
         unsafe_allow_html=True,
     )
-    st.caption("Exploratory paired-patient models of cognitive change using T2 feature minus T1 feature.")
+    st.caption("Exploratory independent T1/T2 digital phenotype estimates; digital change is estimated T2 minus estimated T1.")
     st.markdown(load_text(PATHS["phase6_protocol"]) or "No Phase 6 protocol available.")
 
     patient_predictions = load_csv(PATHS["phase6_patient_predictions"])
@@ -2688,7 +2688,6 @@ def phase6_decline_page() -> None:
 
     t1_dataset = load_csv(PATHS["phase4_baseline_dataset"])
     t2_dataset = load_csv(PATHS["phase5_wide"])
-    t1_calibration = load_csv(PATHS["phase4_score_calibration"])
     domain_prefixes = {
         "Global": "global",
         "Memory": "memory",
@@ -2715,20 +2714,15 @@ def phase6_decline_page() -> None:
             plot["t2_score"] = np.nan
         predictions = patient_predictions[
             (patient_predictions["outcome"].eq(outcome)) & (patient_predictions["model"].eq(model))
-        ][["Subject_ID_D", "model_prediction"]].copy()
-        predictions["model_prediction"] = pd.to_numeric(predictions["model_prediction"], errors="coerce")
+        ][["Subject_ID_D", "estimated_T1", "estimated_T2", "estimated_change"]].copy()
+        for column in ["estimated_T1", "estimated_T2", "estimated_change"]:
+            predictions[column] = pd.to_numeric(predictions[column], errors="coerce")
         plot = plot.merge(predictions, on="Subject_ID_D", how="left")
-        plot["estimate_score"] = plot["t1_score"] + plot["model_prediction"]
-        if not t1_calibration.empty:
-            t1_estimate = t1_calibration[t1_calibration["feature_scope"].eq("primary_37")][["Subject_ID_D", "ridge_prediction"]].copy()
-            t1_estimate["t1_estimate_score"] = pd.to_numeric(t1_estimate["ridge_prediction"], errors="coerce")
-            plot = plot.merge(t1_estimate[["Subject_ID_D", "t1_estimate_score"]], on="Subject_ID_D", how="left")
-        else:
-            plot["t1_estimate_score"] = np.nan
+        plot["estimate_score"] = plot["estimated_T2"]
+        plot["t1_estimate_score"] = plot["estimated_T1"]
         plot = plot.sort_values("t1_score").reset_index(drop=True)
         plot["patient_rank"] = range(1, len(plot) + 1)
         plot["observed_change"] = plot["t2_score"] - plot["t1_score"]
-        plot["estimated_change"] = plot["model_prediction"]
         return plot
 
     def change_chart(frame: pd.DataFrame, title: str, estimate_label: str, estimate_color: str = "#2563eb") -> None:
@@ -2851,7 +2845,7 @@ def phase6_decline_page() -> None:
         st.altair_chart(chart, use_container_width=True)
 
     st.subheader("Outcome 2: Global T1-to-T2 digital phenotype")
-    global_frame = score_frame("Global", "working_10pct_delta_ridge")
+    global_frame = score_frame("Global", "working_10pct_independent_t2_ridge")
     st.markdown("**1. Observed T1, T2, and estimated T2 scores in the same patient order**")
     score_alignment_chart(global_frame, "Global cognitive", "Working-feature digital T2 estimate")
     st.markdown("**2. Observed T2 versus estimated T2 only**")
@@ -2877,7 +2871,7 @@ def phase6_decline_page() -> None:
         "Motor": "#0891b2",
     }
     for domain in ["Memory", "Executive function", "Processing speed", "Attention", "Motor"]:
-        domain_frame = score_frame(domain, "domain_group_10pct_delta_ridge")
+        domain_frame = score_frame(domain, f"{domain}_domain_independent_t2_ridge")
         st.markdown(f"**{domain}**")
         st.markdown("**1. Observed T1, T2, and estimated T2 scores in the same patient order**")
         score_alignment_chart(domain_frame, domain, "Domain-group digital T2 estimate", domain_colors[domain])
