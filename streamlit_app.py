@@ -2688,6 +2688,7 @@ def phase6_decline_page() -> None:
 
     t1_dataset = load_csv(PATHS["phase4_baseline_dataset"])
     t2_dataset = load_csv(PATHS["phase5_wide"])
+    t1_calibration = load_csv(PATHS["phase4_score_calibration"])
     domain_prefixes = {
         "Global": "global",
         "Memory": "memory",
@@ -2718,6 +2719,12 @@ def phase6_decline_page() -> None:
         predictions["model_prediction"] = pd.to_numeric(predictions["model_prediction"], errors="coerce")
         plot = plot.merge(predictions, on="Subject_ID_D", how="left")
         plot["estimate_score"] = plot["t1_score"] + plot["model_prediction"]
+        if not t1_calibration.empty:
+            t1_estimate = t1_calibration[t1_calibration["feature_scope"].eq("primary_37")][["Subject_ID_D", "ridge_prediction"]].copy()
+            t1_estimate["t1_estimate_score"] = pd.to_numeric(t1_estimate["ridge_prediction"], errors="coerce")
+            plot = plot.merge(t1_estimate[["Subject_ID_D", "t1_estimate_score"]], on="Subject_ID_D", how="left")
+        else:
+            plot["t1_estimate_score"] = np.nan
         plot = plot.sort_values("t1_score").reset_index(drop=True)
         plot["patient_rank"] = range(1, len(plot) + 1)
         plot["observed_change"] = plot["t2_score"] - plot["t1_score"]
@@ -2804,8 +2811,14 @@ def phase6_decline_page() -> None:
         if frame.empty:
             st.info(f"{title} is not available.")
             return
-        plot = frame.rename(columns={"t2_score": "Observed T2 score", "estimate_score": estimate_label})
-        plot_long = plot[["patient_rank", "Subject_ID_D", "Observed T2 score", estimate_label]].melt(
+        plot = frame.rename(
+            columns={
+                "t2_score": "Observed T2 score",
+                "estimate_score": estimate_label,
+                "t1_estimate_score": "Estimated T1 score",
+            }
+        )
+        plot_long = plot[["patient_rank", "Subject_ID_D", "Observed T2 score", estimate_label, "Estimated T1 score"]].melt(
             id_vars=["patient_rank", "Subject_ID_D"], var_name="score_type", value_name="score"
         )
         plot_long = plot_long[plot_long["score"].notna()].copy()
@@ -2821,7 +2834,10 @@ def phase6_decline_page() -> None:
                 color=alt.Color(
                     "score_type:N",
                     title="Measure",
-                    scale=alt.Scale(domain=["Observed T2 score", estimate_label], range=["#dc2626", estimate_color]),
+                    scale=alt.Scale(
+                        domain=["Observed T2 score", estimate_label, "Estimated T1 score"],
+                        range=["#dc2626", estimate_color, "#111827"],
+                    ),
                 ),
                 tooltip=[
                     alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),

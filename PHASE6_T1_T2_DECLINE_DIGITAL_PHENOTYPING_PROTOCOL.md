@@ -41,6 +41,8 @@ Patients are ordered once from lowest to highest observed T1 score using the ori
 
 Graph colors follow Phase 4: black for observed T1, red for observed T2, blue for the general digital estimate, and the established domain color for the domain-group estimate.
 
+The T2-only comparison graph additionally includes the original Phase 4 primary-37 estimated T1 score as a reference line.
+
 ## Interpretation Boundary
 
 The paired cohort is small and feature missingness is high. A model that does not beat the mean baseline is still a valid negative POC result. No imputation method can restore information that was never observed.
