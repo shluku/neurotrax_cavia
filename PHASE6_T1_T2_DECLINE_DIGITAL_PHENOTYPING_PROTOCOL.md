@@ -37,7 +37,9 @@ The Streamlit Phase 6 page follows the Phase 4 presentation order:
 7. Attention decline feature-group model.
 8. Motor decline feature-group model.
 
-Patients are ordered from the lowest to highest observed change. Patient IDs are shown in the hover details. Each graph is based on out-of-fold predictions.
+Patients are ordered once from lowest to highest observed T1 score using the original 81-patient T1 baseline cohort. The same x-axis order is reused for T2 and predicted T2 values; patients without paired T2 data remain blank at their original positions. Patient IDs are shown in the hover details. Each estimate is based on out-of-fold predictions and is displayed on the score scale as `T1 score + predicted change`.
+
+Graph colors follow Phase 4: black for observed T1, red for observed T2, blue for the general digital estimate, and the established domain color for the domain-group estimate.
 
 ## Interpretation Boundary
 

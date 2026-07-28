@@ -2686,53 +2686,92 @@ def phase6_decline_page() -> None:
         ]
     )
 
-    def decline_chart(frame: pd.DataFrame, title: str, estimate_label: str) -> None:
+    t1_dataset = load_csv(PATHS["phase4_baseline_dataset"])
+    t2_dataset = load_csv(PATHS["phase5_wide"])
+    domain_prefixes = {
+        "Global": "global",
+        "Memory": "memory",
+        "Executive function": "ef",
+        "Processing speed": "processing_speed",
+        "Attention": "attention",
+        "Motor": "motor",
+    }
+
+    def score_frame(outcome: str, model: str) -> pd.DataFrame:
+        prefix = domain_prefixes[outcome]
+        t1_col = f"{prefix}_T1"
+        t2_col = f"{prefix}_T2"
+        if t1_dataset.empty or t1_col not in t1_dataset.columns:
+            return pd.DataFrame()
+        plot = t1_dataset[["Subject_ID_D", t1_col]].copy()
+        plot["t1_score"] = pd.to_numeric(plot[t1_col], errors="coerce")
+        plot = plot[plot["t1_score"].notna()].drop(columns=[t1_col])
+        if not t2_dataset.empty and t2_col in t2_dataset.columns:
+            observed_t2 = t2_dataset[["Subject_ID_D", t2_col]].copy()
+            observed_t2["t2_score"] = pd.to_numeric(observed_t2[t2_col], errors="coerce")
+            plot = plot.merge(observed_t2[["Subject_ID_D", "t2_score"]], on="Subject_ID_D", how="left")
+        else:
+            plot["t2_score"] = np.nan
+        predictions = patient_predictions[
+            (patient_predictions["outcome"].eq(outcome)) & (patient_predictions["model"].eq(model))
+        ][["Subject_ID_D", "model_prediction"]].copy()
+        predictions["model_prediction"] = pd.to_numeric(predictions["model_prediction"], errors="coerce")
+        plot = plot.merge(predictions, on="Subject_ID_D", how="left")
+        plot["estimate_score"] = plot["t1_score"] + plot["model_prediction"]
+        plot = plot.sort_values("t1_score").reset_index(drop=True)
+        plot["patient_rank"] = range(1, len(plot) + 1)
+        return plot
+
+    def decline_chart(frame: pd.DataFrame, title: str, estimate_label: str, estimate_color: str = "#2563eb") -> None:
         if frame.empty:
             st.info(f"{title} is not available.")
             return
-        plot = frame.copy().sort_values("actual_change").reset_index(drop=True)
-        plot["patient_rank"] = range(1, len(plot) + 1)
-        plot = plot.rename(columns={"actual_change": "Observed change", "model_prediction": estimate_label})
-        plot_long = plot[["patient_rank", "Subject_ID_D", "Observed change", estimate_label]].melt(
-            id_vars=["patient_rank", "Subject_ID_D"], var_name="score_type", value_name="change"
+        plot = frame.rename(
+            columns={"t1_score": "Observed T1 score", "t2_score": "Observed T2 score", "estimate_score": estimate_label}
         )
-        y_min = float(plot_long["change"].min()) - 1
-        y_max = float(plot_long["change"].max()) + 1
+        plot_long = plot[["patient_rank", "Subject_ID_D", "Observed T1 score", "Observed T2 score", estimate_label]].melt(
+            id_vars=["patient_rank", "Subject_ID_D"], var_name="score_type", value_name="score"
+        )
+        y_min = float(plot_long["score"].min()) - 1
+        y_max = float(plot_long["score"].max()) + 1
         chart = (
             alt.Chart(plot_long)
             .mark_line(point=True)
             .encode(
-                x=alt.X("patient_rank:Q", title="Patients ordered by observed change", axis=alt.Axis(format="d")),
-                y=alt.Y("change:Q", title="Cognitive change (T2 - T1)", scale=alt.Scale(domain=[y_min, y_max])),
+                x=alt.X("patient_rank:Q", title="Patients ordered by observed T1 score", axis=alt.Axis(format="d")),
+                y=alt.Y("score:Q", title=f"{title} score", scale=alt.Scale(domain=[y_min, y_max])),
                 color=alt.Color(
                     "score_type:N",
                     title="Measure",
-                    scale=alt.Scale(domain=["Observed change", estimate_label], range=["#1f77b4", "#e67e22"]),
+                    scale=alt.Scale(
+                        domain=["Observed T1 score", "Observed T2 score", estimate_label],
+                        range=["#111827", "#dc2626", estimate_color],
+                    ),
                 ),
                 tooltip=[
                     alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
                     alt.Tooltip("Subject_ID_D:N", title="Patient ID"),
                     alt.Tooltip("score_type:N", title="Measure"),
-                    alt.Tooltip("change:Q", title="Change", format="+.2f"),
+                    alt.Tooltip("score:Q", title="Score", format=".2f"),
                 ],
             )
             .properties(title=title, height=380)
         )
         st.altair_chart(chart, use_container_width=True)
 
-    st.subheader("Outcome 2: Digital phenotype estimate of global cognitive decline")
-    st.caption("Patients are ordered from lowest to highest observed global change. Positive values indicate higher T2 than T1; negative values indicate decline.")
+    st.subheader("Outcome 2: T1-to-T2 global score alignment")
+    st.caption("All 81 T1 patients define the fixed order. T2 and digital T2 estimates appear only for patients with the required paired data, preserving the same positions.")
     decline_chart(
-        patient_predictions[(patient_predictions["outcome"].eq("Global")) & (patient_predictions["model"].eq("working_10pct_delta_ridge"))],
-        "Global cognitive change: working 10% feature model",
-        "Working-feature estimate",
+        score_frame("Global", "working_10pct_delta_ridge"),
+        "Global cognitive",
+        "Digital T2 estimate",
     )
 
     st.markdown("**T1-primary 10% feature model**")
     decline_chart(
-        patient_predictions[(patient_predictions["outcome"].eq("Global")) & (patient_predictions["model"].eq("t1_primary_10pct_delta_ridge"))],
-        "Global cognitive change: T1-primary feature model",
-        "T1-primary estimate",
+        score_frame("Global", "t1_primary_10pct_delta_ridge"),
+        "Global cognitive",
+        "T1-primary digital T2 estimate",
     )
 
     st.subheader("Model fit comparison")
@@ -2742,11 +2781,16 @@ def phase6_decline_page() -> None:
     st.subheader("Cognitive domain decline models")
     st.caption("Each domain uses the relevant Phase 4 feature-group union after the same T2 10% coverage filter. Features may appear in multiple domain groups.")
     for domain in ["Memory", "Executive function", "Processing speed", "Attention", "Motor"]:
-        domain_frame = patient_predictions[
-            (patient_predictions["outcome"].eq(domain)) & (patient_predictions["model"].eq("domain_group_10pct_delta_ridge"))
-        ]
+        domain_frame = score_frame(domain, "domain_group_10pct_delta_ridge")
         st.markdown(f"**{domain} decline**")
-        decline_chart(domain_frame, f"{domain} change: domain feature-group model", "Domain-group estimate")
+        domain_colors = {
+            "Memory": "#2563eb",
+            "Executive function": "#16a34a",
+            "Processing speed": "#d97706",
+            "Attention": "#9333ea",
+            "Motor": "#0891b2",
+        }
+        decline_chart(domain_frame, f"{domain} cognitive", "Domain-group digital T2 estimate", domain_colors[domain])
         domain_features = taxonomy[taxonomy["domain"].eq(domain)] if not taxonomy.empty else pd.DataFrame()
         if not domain_features.empty:
             with st.expander(f"{domain} feature group"):
