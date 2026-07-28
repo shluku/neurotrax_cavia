@@ -133,6 +133,13 @@ PATHS = {
     "phase5_sensitivity_features": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_sensitivity_features_below_10pct.csv",
     "phase5_checkpoint": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_selected_features_checkpoint.jsonl",
     "phase5_readme": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/README_phase5_t2_selected_features.md",
+    "phase6_protocol": ROOT / "PHASE6_T1_T2_DECLINE_DIGITAL_PHENOTYPING_PROTOCOL.md",
+    "phase6_predictions": ROOT / "output/analysis_candidates/phase6_t1_t2_decline/phase6_t1_t2_decline_predictions.csv",
+    "phase6_patient_predictions": ROOT / "output/analysis_candidates/phase6_t1_t2_decline/phase6_t1_t2_decline_patient_predictions.csv",
+    "phase6_metrics": ROOT / "output/analysis_candidates/phase6_t1_t2_decline/phase6_t1_t2_decline_metrics.csv",
+    "phase6_feature_sets": ROOT / "output/analysis_candidates/phase6_t1_t2_decline/phase6_t1_t2_decline_feature_sets.csv",
+    "phase6_domain_taxonomy": ROOT / "output/analysis_candidates/phase6_t1_t2_decline/phase6_t1_t2_decline_domain_taxonomy.csv",
+    "phase6_readme": ROOT / "output/analysis_candidates/phase6_t1_t2_decline/README_phase6_t1_t2_decline.md",
     "phase4_baseline_dataset": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/phase4_t1_baseline_patient_dataset.csv",
     "phase4_feature_metadata": ROOT
@@ -2649,6 +2656,117 @@ def phase5_t2_page() -> None:
     st.markdown(load_text(PATHS["phase5_protocol"]) or "No Phase 5 protocol available.")
 
 
+def phase6_decline_page() -> None:
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        "Phase 6 T1-to-T2 Decline Phenotyping"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
+    st.caption("Exploratory paired-patient models of cognitive change using T2 feature minus T1 feature.")
+    st.markdown(load_text(PATHS["phase6_protocol"]) or "No Phase 6 protocol available.")
+
+    patient_predictions = load_csv(PATHS["phase6_patient_predictions"])
+    metrics = load_csv(PATHS["phase6_metrics"])
+    taxonomy = load_csv(PATHS["phase6_domain_taxonomy"])
+    feature_sets = load_csv(PATHS["phase6_feature_sets"])
+    if patient_predictions.empty or metrics.empty:
+        st.info("Phase 6 model outputs are not available yet.")
+        st.code(".venv/bin/python3 phase6_model_t1_t2_decline.py")
+        return
+
+    pooled = metrics[metrics["analysis_scope"].astype(str).eq("pooled")].copy()
+    st.subheader("Paired cohort and model summary")
+    metric_row(
+        [
+            ("Paired patients", patient_predictions["Subject_ID_D"].nunique()),
+            ("Working features", feature_sets["feature_name"].nunique() if not feature_sets.empty else 0),
+            ("Domain groups", taxonomy["domain"].nunique() if not taxonomy.empty else 0),
+            ("Cross-validation repeats", metrics["repeat"].astype(str).nunique() - (1 if "pooled" in metrics["repeat"].astype(str).unique() else 0)),
+        ]
+    )
+
+    def decline_chart(frame: pd.DataFrame, title: str, estimate_label: str) -> None:
+        if frame.empty:
+            st.info(f"{title} is not available.")
+            return
+        plot = frame.copy().sort_values("actual_change").reset_index(drop=True)
+        plot["patient_rank"] = range(1, len(plot) + 1)
+        plot = plot.rename(columns={"actual_change": "Observed change", "model_prediction": estimate_label})
+        plot_long = plot[["patient_rank", "Subject_ID_D", "Observed change", estimate_label]].melt(
+            id_vars=["patient_rank", "Subject_ID_D"], var_name="score_type", value_name="change"
+        )
+        y_min = float(plot_long["change"].min()) - 1
+        y_max = float(plot_long["change"].max()) + 1
+        chart = (
+            alt.Chart(plot_long)
+            .mark_line(point=True)
+            .encode(
+                x=alt.X("patient_rank:Q", title="Patients ordered by observed change", axis=alt.Axis(format="d")),
+                y=alt.Y("change:Q", title="Cognitive change (T2 - T1)", scale=alt.Scale(domain=[y_min, y_max])),
+                color=alt.Color(
+                    "score_type:N",
+                    title="Measure",
+                    scale=alt.Scale(domain=["Observed change", estimate_label], range=["#1f77b4", "#e67e22"]),
+                ),
+                tooltip=[
+                    alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                    alt.Tooltip("Subject_ID_D:N", title="Patient ID"),
+                    alt.Tooltip("score_type:N", title="Measure"),
+                    alt.Tooltip("change:Q", title="Change", format="+.2f"),
+                ],
+            )
+            .properties(title=title, height=380)
+        )
+        st.altair_chart(chart, use_container_width=True)
+
+    st.subheader("Outcome 2: Digital phenotype estimate of global cognitive decline")
+    st.caption("Patients are ordered from lowest to highest observed global change. Positive values indicate higher T2 than T1; negative values indicate decline.")
+    decline_chart(
+        patient_predictions[(patient_predictions["outcome"].eq("Global")) & (patient_predictions["model"].eq("working_10pct_delta_ridge"))],
+        "Global cognitive change: working 10% feature model",
+        "Working-feature estimate",
+    )
+
+    st.markdown("**T1-primary 10% feature model**")
+    decline_chart(
+        patient_predictions[(patient_predictions["outcome"].eq("Global")) & (patient_predictions["model"].eq("t1_primary_10pct_delta_ridge"))],
+        "Global cognitive change: T1-primary feature model",
+        "T1-primary estimate",
+    )
+
+    st.subheader("Model fit comparison")
+    global_metrics = pooled[pooled["outcome"].eq("Global")][["model", "n_predictions", "rmse", "mae", "r2"]].drop_duplicates()
+    show_dataframe(global_metrics, height=220)
+
+    st.subheader("Cognitive domain decline models")
+    st.caption("Each domain uses the relevant Phase 4 feature-group union after the same T2 10% coverage filter. Features may appear in multiple domain groups.")
+    for domain in ["Memory", "Executive function", "Processing speed", "Attention", "Motor"]:
+        domain_frame = patient_predictions[
+            (patient_predictions["outcome"].eq(domain)) & (patient_predictions["model"].eq("domain_group_10pct_delta_ridge"))
+        ]
+        st.markdown(f"**{domain} decline**")
+        decline_chart(domain_frame, f"{domain} change: domain feature-group model", "Domain-group estimate")
+        domain_features = taxonomy[taxonomy["domain"].eq(domain)] if not taxonomy.empty else pd.DataFrame()
+        if not domain_features.empty:
+            with st.expander(f"{domain} feature group"):
+                show_dataframe(domain_features, height=220)
+        domain_metrics = pooled[pooled["outcome"].eq(domain)][["model", "n_predictions", "rmse", "mae", "r2"]].drop_duplicates()
+        show_dataframe(domain_metrics, height=170)
+
+    with st.expander("Phase 6 feature-set audit"):
+        show_dataframe(feature_sets, height=420)
+    with st.expander("Download Phase 6 outputs"):
+        for path_key, filename in [
+            ("phase6_patient_predictions", "phase6_t1_t2_decline_patient_predictions.csv"),
+            ("phase6_metrics", "phase6_t1_t2_decline_metrics.csv"),
+            ("phase6_feature_sets", "phase6_t1_t2_decline_feature_sets.csv"),
+        ]:
+            frame = load_csv(PATHS[path_key])
+            if not frame.empty:
+                st.download_button(f"Download {filename}", frame.to_csv(index=False).encode("utf-8"), filename, "text/csv", key=f"phase6_{filename}")
+
+
 def rd_page() -> None:
     st.title("R&D")
     st.caption("Protocol experiments that test alternative acquisition rules without overwriting Phase 3 outputs.")
@@ -3110,6 +3228,7 @@ PAGES = {
     "Phase 3 algorithm implementation": phase3_algorithm_page,
     "Phase 4 T1 Baseline": phase4_baseline_page,
     "Phase 5 T2 Extraction": phase5_t2_page,
+    "Phase 6 T1-T2 Decline": phase6_decline_page,
     "R&D": rd_page,
     "SQL Samples": samples_page,
     "Files": files_page,
