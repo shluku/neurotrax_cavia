@@ -2516,6 +2516,22 @@ def phase4_baseline_page() -> None:
 
 @st.fragment(run_every="10s")
 def phase5_t2_live_panel() -> None:
+    st.subheader("Phase 5 cohort and feature summary")
+    metric_row(
+        [
+            ("Source patients", 81),
+            ("Selected features", 71),
+            ("Primary-model features", 37),
+            ("Sensitivity-only features", 34),
+            ("Mean feature missingness", "48.8%"),
+        ]
+    )
+    st.info(
+        "The current T2 extraction includes 61 patients with a recorded T2 date. "
+        "Each patient is checked against 17 selected sensor tables, giving 1,037 expected patient-table attempts. "
+        "'No usable pre-T2 window' means the extractor found no eligible data in the T2-7-day window or the documented T2-30-day fallback window; it does not mean 767 patients are missing."
+    )
+
     status = load_csv(PATHS["phase5_status"])
     checkpoint_path = PATHS["phase5_checkpoint"]
     checkpoint_states: dict[str, str] = {}
@@ -2551,6 +2567,12 @@ def phase5_t2_live_panel() -> None:
         st.error(
             f"This extraction is incomplete: {retryable_errors} table attempts ended with database connection errors. "
             "Do not use the feature tables for analysis until the run completes without retryable errors."
+        )
+    if total:
+        expected_attempts = patients * 17
+        st.caption(
+            f"Current table accounting: {total} recorded rows out of approximately {expected_attempts} expected patient-table attempts. "
+            "Calculated table results are usable table-level outputs; missing-window results reflect acquisition coverage."
         )
     if total == 0:
         st.info("The T2 extraction has not produced status output yet.")
