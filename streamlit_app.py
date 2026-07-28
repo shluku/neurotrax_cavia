@@ -2781,12 +2781,14 @@ def phase6_decline_page() -> None:
         )
         st.altair_chart(chart, use_container_width=True)
 
-    def score_alignment_chart(frame: pd.DataFrame, title: str) -> None:
+    def score_alignment_chart(frame: pd.DataFrame, title: str, estimate_label: str, estimate_color: str = "#2563eb") -> None:
         if frame.empty:
             st.info(f"{title} is not available.")
             return
-        plot = frame.rename(columns={"t1_score": "Observed T1 score", "t2_score": "Observed T2 score"})
-        plot_long = plot[["patient_rank", "Subject_ID_D", "Observed T1 score", "Observed T2 score"]].melt(
+        plot = frame.rename(
+            columns={"t1_score": "Observed T1 score", "t2_score": "Observed T2 score", "estimate_score": estimate_label}
+        )
+        plot_long = plot[["patient_rank", "Subject_ID_D", "Observed T1 score", "Observed T2 score", estimate_label]].melt(
             id_vars=["patient_rank", "Subject_ID_D"], var_name="score_type", value_name="score"
         )
         # Drop unavailable observations from the line input so each category's
@@ -2804,7 +2806,10 @@ def phase6_decline_page() -> None:
                 color=alt.Color(
                     "score_type:N",
                     title="Measure",
-                    scale=alt.Scale(domain=["Observed T1 score", "Observed T2 score"], range=["#111827", "#dc2626"]),
+                    scale=alt.Scale(
+                        domain=["Observed T1 score", "Observed T2 score", estimate_label],
+                        range=["#111827", "#dc2626", estimate_color],
+                    ),
                 ),
                 tooltip=[
                     alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
@@ -2822,7 +2827,7 @@ def phase6_decline_page() -> None:
     global_frame = score_frame("Global", "working_10pct_delta_ridge")
     t1_observed_chart(global_frame, "Global cognitive")
     st.markdown("**2. Observed T1 and T2 scores in the same patient order**")
-    score_alignment_chart(global_frame, "Global cognitive")
+    score_alignment_chart(global_frame, "Global cognitive", "Working-feature digital T2 estimate")
     st.markdown("**3. Observed versus estimated cognitive change**")
     change_chart(
         global_frame,
@@ -2849,7 +2854,7 @@ def phase6_decline_page() -> None:
         st.markdown("**1. Original T1 observed score**")
         t1_observed_chart(domain_frame, domain)
         st.markdown("**2. Observed T1 and T2 scores in the same patient order**")
-        score_alignment_chart(domain_frame, domain)
+        score_alignment_chart(domain_frame, domain, "Domain-group digital T2 estimate", domain_colors[domain])
         st.markdown("**3. Observed versus estimated cognitive change**")
         change_chart(domain_frame, f"{domain} change: domain feature-group model", "Domain-group change estimate", domain_colors[domain])
         domain_features = taxonomy[taxonomy["domain"].eq(domain)] if not taxonomy.empty else pd.DataFrame()
