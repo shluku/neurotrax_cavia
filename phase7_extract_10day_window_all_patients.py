@@ -53,6 +53,8 @@ def load_patients(endpoint: str) -> pd.DataFrame:
     patients = pd.read_csv(DATASET_PATH, dtype=str)
     patients["Subject_ID_D"] = patients["Subject_ID_D"].map(normalize_id)
     date_column = ENDPOINTS[endpoint]["date_column"]
+    patients["Subject_ID_D"] = patients["Subject_ID_D"].replace({"": pd.NA, "nan": pd.NA, "None": pd.NA})
+    patients[date_column] = patients[date_column].replace({"": pd.NA, "nan": pd.NA, "None": pd.NA})
     patients = patients.dropna(subset=["Subject_ID_D", date_column]).copy()
     patients = patients[~patients["Subject_ID_D"].isin(EXCLUDED_SUBJECT_IDS)].copy()
     return patients.sort_values("Subject_ID_D").reset_index(drop=True)
@@ -179,7 +181,8 @@ def run_endpoint(endpoint: str, max_patients: int, resume: bool) -> None:
         existing_long, existing_status, existing_coverage = pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
     else:
         for frame, path in ((existing_long, long_path), (existing_status, status_path), (existing_coverage, coverage_path)):
-            frame[frame["Subject_ID_D"].isin(completed)].to_csv(path, index=False)
+            if not frame.empty and "Subject_ID_D" in frame.columns:
+                frame[frame["Subject_ID_D"].isin(completed)].to_csv(path, index=False)
     patients = patients[~patients["Subject_ID_D"].isin(completed)].copy()
     if max_patients > 0:
         patients = patients.head(max_patients).copy()
@@ -195,6 +198,7 @@ def run_endpoint(endpoint: str, max_patients: int, resume: bool) -> None:
             print(f"{endpoint} patient {patient_index}/{len(patients)} Subject_ID_D={subject_id} tables={len(tables)}", flush=True)
             long_start, status_start, coverage_start = len(long_rows), len(status_rows), len(coverage_rows)
             for table_name in tables:
+                print(f"  table start={table_name}", flush=True)
                 selected_for_table = selected[selected["source_table"].eq(table_name)]
                 window, rows, features, used_ids = {}, [], {}, []
                 table_status, error_message = "not_started", ""
@@ -272,6 +276,7 @@ def run_endpoint(endpoint: str, max_patients: int, resume: bool) -> None:
                             "error_message": error_message,
                         }
                     )
+                print(f"  table done={table_name} status={table_status} rows={len(rows)}", flush=True)
             statuses = [row["table_status"] for row in status_rows if row.get("Subject_ID_D") == subject_id]
             checkpoint_status = "completed" if not set(statuses).intersection({"error", "retryable_error"}) else "needs_retry"
             with checkpoint.open("a", encoding="utf-8") as handle:
@@ -285,7 +290,7 @@ def run_endpoint(endpoint: str, max_patients: int, resume: bool) -> None:
     long_df = pd.DataFrame(long_rows)
     status_df = pd.DataFrame(status_rows)
     build_wide(load_patients(endpoint), long_df).to_csv(wide_path, index=False)
-    (out / "README_phase7_10day_" + endpoint + ".md").write_text(
+    (out / f"README_phase7_10day_{endpoint}.md").write_text(
         f"# Phase 7 {endpoint.upper()} 10-Day Availability-Anchored Extraction\n\n"
         f"The window starts from the first available post-{endpoint.upper()} anchor for T1 or the latest available pre-T2 timestamp for T2, then includes 10 days of data. "
         "The light table is excluded. Feature functions are unchanged from the prior extraction.\n",
