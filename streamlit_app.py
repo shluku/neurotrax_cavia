@@ -140,6 +140,17 @@ PATHS = {
     "phase6_feature_sets": ROOT / "output/analysis_candidates/phase6_t1_t2_decline/phase6_t1_t2_decline_feature_sets.csv",
     "phase6_domain_taxonomy": ROOT / "output/analysis_candidates/phase6_t1_t2_decline/phase6_t1_t2_decline_domain_taxonomy.csv",
     "phase6_readme": ROOT / "output/analysis_candidates/phase6_t1_t2_decline/README_phase6_t1_t2_decline.md",
+    "phase7_protocol": ROOT / "PHASE7_10_DAY_WINDOW_PROTOCOL.md",
+    "phase7_t1_long": ROOT / "output/analysis_candidates/phase7_10day_window/t1/phase7_t1_10day_features_long.csv",
+    "phase7_t1_wide": ROOT / "output/analysis_candidates/phase7_10day_window/t1/phase7_t1_10day_features_wide.csv",
+    "phase7_t1_status": ROOT / "output/analysis_candidates/phase7_10day_window/t1/phase7_t1_10day_patient_table_status.csv",
+    "phase7_t1_coverage": ROOT / "output/analysis_candidates/phase7_10day_window/t1/phase7_t1_10day_coverage.csv",
+    "phase7_t1_checkpoint": ROOT / "output/analysis_candidates/phase7_10day_window/t1/phase7_t1_10day_checkpoint.jsonl",
+    "phase7_t2_long": ROOT / "output/analysis_candidates/phase7_10day_window/t2/phase7_t2_10day_features_long.csv",
+    "phase7_t2_wide": ROOT / "output/analysis_candidates/phase7_10day_window/t2/phase7_t2_10day_features_wide.csv",
+    "phase7_t2_status": ROOT / "output/analysis_candidates/phase7_10day_window/t2/phase7_t2_10day_patient_table_status.csv",
+    "phase7_t2_coverage": ROOT / "output/analysis_candidates/phase7_10day_window/t2/phase7_t2_10day_coverage.csv",
+    "phase7_t2_checkpoint": ROOT / "output/analysis_candidates/phase7_10day_window/t2/phase7_t2_10day_checkpoint.jsonl",
     "phase4_baseline_dataset": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/phase4_t1_baseline_patient_dataset.csv",
     "phase4_feature_metadata": ROOT
@@ -2656,6 +2667,78 @@ def phase5_t2_page() -> None:
     st.markdown(load_text(PATHS["phase5_protocol"]) or "No Phase 5 protocol available.")
 
 
+def _phase7_checkpoint_counts(path: Path) -> tuple[int, int]:
+    completed = 0
+    needs_retry = 0
+    if not path.exists():
+        return completed, needs_retry
+    for line in path.read_text(encoding="utf-8").splitlines():
+        try:
+            state = json.loads(line).get("status", "")
+        except json.JSONDecodeError:
+            continue
+        if state == "completed":
+            completed += 1
+        elif state == "needs_retry":
+            needs_retry += 1
+    return completed, needs_retry
+
+
+@st.fragment(run_every="10s")
+def phase7_10day_live_panel() -> None:
+    selected = load_csv(PATHS["phase2_selected_features"])
+    selected = selected[selected.get("source_table", pd.Series(dtype=str)).astype(str).ne("light")] if not selected.empty else selected
+    st.subheader("Phase 7 extraction progress")
+    st.caption("The panel refreshes every 10 seconds. Results are appended after each completed patient.")
+    for endpoint, label in [("t1", "T1 first available 10-day window"), ("t2", "T2 last available 10-day window")]:
+        status = load_csv(PATHS[f"phase7_{endpoint}_status"])
+        wide = load_csv(PATHS[f"phase7_{endpoint}_wide"])
+        coverage = load_csv(PATHS[f"phase7_{endpoint}_coverage"])
+        completed, retry = _phase7_checkpoint_counts(PATHS[f"phase7_{endpoint}_checkpoint"])
+        calculated = int(status["table_status"].astype(str).eq("calculated").sum()) if not status.empty and "table_status" in status else 0
+        patients = int(status["Subject_ID_D"].nunique()) if not status.empty and "Subject_ID_D" in status else 0
+        st.markdown(f"**{label}**")
+        metric_row(
+            [
+                ("Patients with status", patients),
+                ("Completed patients", completed),
+                ("Calculated tables", calculated),
+                ("Patients needing retry", retry),
+            ]
+        )
+        if retry:
+            st.warning(f"{retry} patient checkpoints need retry. The outputs remain usable for audit but not for final modeling.")
+        if not wide.empty:
+            with st.expander(f"Current {endpoint.upper()} wide CSV", expanded=True):
+                show_dataframe(wide, height=280)
+        with st.expander(f"{endpoint.upper()} status and coverage"):
+            show_dataframe(status, height=320)
+            show_dataframe(coverage, height=320)
+        downloads = [
+            (f"Download {endpoint.upper()} wide CSV", wide, f"phase7_{endpoint}_10day_features_wide.csv"),
+            (f"Download {endpoint.upper()} long CSV", load_csv(PATHS[f"phase7_{endpoint}_long"]), f"phase7_{endpoint}_10day_features_long.csv"),
+            (f"Download {endpoint.upper()} status CSV", status, f"phase7_{endpoint}_10day_patient_table_status.csv"),
+        ]
+        columns = st.columns(3)
+        for index, (label_text, frame, filename) in enumerate(downloads):
+            with columns[index]:
+                if not frame.empty:
+                    st.download_button(label_text, frame.to_csv(index=False).encode("utf-8"), filename, "text/csv", key=f"phase7_{endpoint}_{filename}")
+
+
+def phase7_10day_page() -> None:
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        "Phase 7 10-Day Window"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
+    st.caption("Availability-anchored 10-day T1 and T2 feature extraction using the same selected tables and algorithms as earlier phases.")
+    phase7_10day_live_panel()
+    st.markdown("---")
+    st.markdown(load_text(PATHS["phase7_protocol"]) or "No Phase 7 protocol available.")
+
+
 def phase6_decline_page() -> None:
     st.markdown(
         '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
@@ -3360,6 +3443,7 @@ PAGES = {
     "Phase 3 algorithm implementation": phase3_algorithm_page,
     "Phase 4 T1 Baseline": phase4_baseline_page,
     "Phase 5 T2 Extraction": phase5_t2_page,
+    "Phase 7 10-Day Window": phase7_10day_page,
     "Phase 6 T1-T2 Decline": phase6_decline_page,
     "R&D": rd_page,
     "SQL Samples": samples_page,
