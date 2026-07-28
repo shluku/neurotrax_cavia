@@ -126,6 +126,11 @@ PATHS = {
     "phase5_wide": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_selected_features_wide.csv",
     "phase5_status": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_selected_features_patient_table_status.csv",
     "phase5_coverage": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_selected_features_coverage.csv",
+    "phase5_feature_coverage_summary": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_feature_coverage_summary.csv",
+    "phase5_table_coverage_summary": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_table_coverage_summary.csv",
+    "phase5_patient_feature_matrix": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_patient_feature_coverage_matrix.csv",
+    "phase5_working_features": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_working_features_10pct.csv",
+    "phase5_sensitivity_features": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_sensitivity_features_below_10pct.csv",
     "phase5_checkpoint": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_selected_features_checkpoint.jsonl",
     "phase5_readme": ROOT / "output/analysis_candidates/phase5_t2_feature_extraction/README_phase5_t2_selected_features.md",
     "phase4_baseline_dataset": ROOT
@@ -2536,22 +2541,13 @@ def phase5_t2_live_panel() -> None:
     patients = int(status["Subject_ID_D"].nunique()) if not status.empty and "Subject_ID_D" in status.columns else 0
     wide = load_csv(PATHS["phase5_wide"])
     coverage = load_csv(PATHS["phase5_coverage"])
-
-    selected_features = load_csv(PATHS["phase2_selected_features"])
-    feature_metadata = load_csv(PATHS["phase4_feature_metadata"])
-    selected_count = int(selected_features["feature_name"].nunique()) if "feature_name" in selected_features else 0
-    primary_count = (
-        int(feature_metadata["primary_model_recommendation"].eq("include_primary").sum())
-        if "primary_model_recommendation" in feature_metadata else 0
-    )
-    sensitivity_count = max(selected_count - primary_count, 0)
+    feature_summary = load_csv(PATHS["phase5_feature_coverage_summary"])
+    selected_count = int(feature_summary["feature_name"].nunique()) if "feature_name" in feature_summary else 0
+    primary_count = int(feature_summary["t2_analysis_role"].eq("primary_eligible_10pct").sum()) if "t2_analysis_role" in feature_summary else 0
+    sensitivity_count = int(feature_summary["t2_analysis_role"].eq("sensitivity_only_below_10pct").sum()) if "t2_analysis_role" in feature_summary else 0
     t2_patients = int(wide["Subject_ID_D"].nunique()) if not wide.empty and "Subject_ID_D" in wide else patients
-    if not wide.empty and selected_count and "feature_name" in selected_features:
-        feature_missingness = [
-            float(wide[name].isna().mean()) if name in wide.columns else 1.0
-            for name in selected_features["feature_name"].dropna().astype(str)
-        ]
-        mean_missingness = f"{100 * sum(feature_missingness) / len(feature_missingness):.1f}%"
+    if not feature_summary.empty and "t2_missingness_percent" in feature_summary:
+        mean_missingness = f"{feature_summary['t2_missingness_percent'].mean():.1f}%"
     else:
         mean_missingness = "n/a"
 
@@ -2566,8 +2562,8 @@ def phase5_t2_live_panel() -> None:
         ]
     )
     st.caption(
-        "These values are calculated from the current T2 patient-level wide CSV. "
-        "Missingness includes selected feature columns that are not yet present or have no value for a patient."
+        "Light is excluded from the active T2 set. Primary-model features are T1-primary features that meet the 10% T2 coverage rule. "
+        "Features below 10% are sensitivity-only; other non-primary features meeting the threshold remain support features."
     )
     st.info(
         f"Each T2 patient is checked against 17 selected sensor tables, giving approximately {t2_patients * 17:,} expected patient-table attempts. "
@@ -2610,6 +2606,9 @@ def phase5_t2_live_panel() -> None:
         ("Download long features CSV", load_csv(PATHS["phase5_long"]), "phase5_t2_selected_features_long.csv"),
         ("Download status CSV", status, "phase5_t2_selected_features_patient_table_status.csv"),
         ("Download coverage CSV", coverage, "phase5_t2_selected_features_coverage.csv"),
+        ("Download feature audit CSV", feature_summary, "phase5_t2_feature_coverage_summary.csv"),
+        ("Download 10% working features CSV", load_csv(PATHS["phase5_working_features"]), "phase5_t2_working_features_10pct.csv"),
+        ("Download sensitivity features CSV", load_csv(PATHS["phase5_sensitivity_features"]), "phase5_t2_sensitivity_features_below_10pct.csv"),
     ]
     download_columns = st.columns(2)
     for index, (label, frame, filename) in enumerate(download_frames):
@@ -2628,6 +2627,13 @@ def phase5_t2_live_panel() -> None:
             st.bar_chart(status["table_status"].value_counts())
         if not coverage.empty:
             show_dataframe(coverage, height=420)
+    table_summary = load_csv(PATHS["phase5_table_coverage_summary"])
+    if not table_summary.empty:
+        with st.expander("Table-level coverage summary"):
+            show_dataframe(table_summary, height=420)
+    if not feature_summary.empty:
+        with st.expander("Feature-level coverage and 10% classification"):
+            show_dataframe(feature_summary, height=520)
 
 
 def phase5_t2_page() -> None:

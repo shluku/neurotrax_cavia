@@ -85,6 +85,20 @@ For every patient, table, and feature, preserve:
 
 Missing values are not converted to zero. Coverage is recorded separately from behavior.
 
+## Forum: Coverage Decision After the First T2 Run
+
+The first T2 run showed substantial coverage limitations. The current decision is:
+
+- clean duplicate patient-table output rows before interpretation;
+- temporarily exclude the `light` table from the active T2 feature set because repeated database failures make its current output unreliable;
+- skip a separate light retry for this run and revisit light together with future accelerometer work;
+- create feature-level, table-level, and patient-level coverage audits;
+- define the working T2 feature set using a minimum patient coverage threshold of 10%;
+- retain features below 10% coverage as sensitivity-only and do not use them in the primary exploratory model;
+- defer the broader latest-available-before-T2 extraction until after the next T1 run.
+
+The 10% threshold is a pragmatic POC screening rule, not a clinical validity threshold. The resulting feature set remains exploratory and must report coverage, missingness, and the number of patients contributing each feature.
+
 ## Execution Sequence
 
 1. Load and freeze the T2 patient cohort and selected feature list.

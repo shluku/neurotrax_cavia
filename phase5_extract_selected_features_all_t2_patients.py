@@ -51,7 +51,10 @@ CHECKPOINT_PATH = OUT_DIR / "phase5_t2_selected_features_checkpoint.jsonl"
 README_PATH = OUT_DIR / "README_phase5_t2_selected_features.md"
 
 ADJUSTED_TABLES = {"barometer", "significant", "sensor_linear_accelerometer"}
-ALL_SUPPORTED_TABLES = SAFE_TABLES | ADJUSTED_TABLES
+# Light is temporarily excluded from the active T2 run because its high-volume
+# JSON query repeatedly loses the database connection. It will be revisited
+# with the future accelerometer work.
+ALL_SUPPORTED_TABLES = (SAFE_TABLES | ADJUSTED_TABLES) - {"light"}
 EXCLUDED_SUBJECT_IDS = EXCLUDED_COHORT_SUBJECT_IDS
 
 
