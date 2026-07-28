@@ -28,14 +28,14 @@ All models are compared against the same fold-local mean outcome baseline:
 
 The Streamlit Phase 6 page follows the Phase 4 presentation order:
 
-1. Global decline: working-feature digital estimate.
-2. Global decline: T1-primary-feature digital estimate.
-3. Model-fit comparison against the mean baseline.
-4. Memory decline feature-group model.
-5. Executive-function decline feature-group model.
-6. Processing-speed decline feature-group model.
-7. Attention decline feature-group model.
-8. Motor decline feature-group model.
+1. Global observed T1 score in the original 81-patient order.
+2. Global observed T1 and T2 scores in that same order.
+3. Global observed change versus working-feature estimated change.
+4. Memory: T1 score, aligned T1/T2 scores, then observed versus estimated change.
+5. Executive function: T1 score, aligned T1/T2 scores, then observed versus estimated change.
+6. Processing speed: T1 score, aligned T1/T2 scores, then observed versus estimated change.
+7. Attention: T1 score, aligned T1/T2 scores, then observed versus estimated change.
+8. Motor: T1 score, aligned T1/T2 scores, then observed versus estimated change.
 
 Patients are ordered once from lowest to highest observed T1 score using the original 81-patient T1 baseline cohort. The same x-axis order is reused for T2 and predicted T2 values; patients without paired T2 data remain blank at their original positions. Patient IDs are shown in the hover details. Each estimate is based on out-of-fold predictions and is displayed on the score scale as `T1 score + predicted change`.
 

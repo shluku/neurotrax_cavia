@@ -2759,14 +2759,34 @@ def phase6_decline_page() -> None:
         )
         st.altair_chart(chart, use_container_width=True)
 
-    def decline_chart(frame: pd.DataFrame, title: str, estimate_label: str, estimate_color: str = "#2563eb") -> None:
+    def t1_observed_chart(frame: pd.DataFrame, title: str) -> None:
         if frame.empty:
             st.info(f"{title} is not available.")
             return
-        plot = frame.rename(
-            columns={"t1_score": "Observed T1 score", "t2_score": "Observed T2 score", "estimate_score": estimate_label}
+        plot = frame[["patient_rank", "Subject_ID_D", "t1_score"]].rename(columns={"t1_score": "Observed T1 score"})
+        chart = (
+            alt.Chart(plot)
+            .mark_line(point=True, color="#111827")
+            .encode(
+                x=alt.X("patient_rank:Q", title="Patients ordered by observed T1 score", axis=alt.Axis(format="d")),
+                y=alt.Y("Observed T1 score:Q", title=f"{title} score"),
+                order=alt.Order("patient_rank:Q", sort="ascending"),
+                tooltip=[
+                    alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                    alt.Tooltip("Subject_ID_D:N", title="Patient ID"),
+                    alt.Tooltip("Observed T1 score:Q", title="Observed T1 score", format=".2f"),
+                ],
+            )
+            .properties(title=f"{title}: observed T1 score", height=340)
         )
-        plot_long = plot[["patient_rank", "Subject_ID_D", "Observed T1 score", "Observed T2 score", estimate_label]].melt(
+        st.altair_chart(chart, use_container_width=True)
+
+    def score_alignment_chart(frame: pd.DataFrame, title: str) -> None:
+        if frame.empty:
+            st.info(f"{title} is not available.")
+            return
+        plot = frame.rename(columns={"t1_score": "Observed T1 score", "t2_score": "Observed T2 score"})
+        plot_long = plot[["patient_rank", "Subject_ID_D", "Observed T1 score", "Observed T2 score"]].melt(
             id_vars=["patient_rank", "Subject_ID_D"], var_name="score_type", value_name="score"
         )
         # Drop unavailable observations from the line input so each category's
@@ -2784,10 +2804,7 @@ def phase6_decline_page() -> None:
                 color=alt.Color(
                     "score_type:N",
                     title="Measure",
-                    scale=alt.Scale(
-                        domain=["Observed T1 score", "Observed T2 score", estimate_label],
-                        range=["#111827", "#dc2626", estimate_color],
-                    ),
+                    scale=alt.Scale(domain=["Observed T1 score", "Observed T2 score"], range=["#111827", "#dc2626"]),
                 ),
                 tooltip=[
                     alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
@@ -2796,37 +2813,21 @@ def phase6_decline_page() -> None:
                     alt.Tooltip("score:Q", title="Score", format=".2f"),
                 ],
             )
-            .properties(title=title, height=380)
+            .properties(title=f"{title}: observed T1 and T2 scores", height=380)
         )
         st.altair_chart(chart, use_container_width=True)
 
-    st.subheader("Outcome 2: Digital phenotype estimate of global cognitive change")
-    st.caption("The primary result is observed change versus digital change estimate. All 81 T1 patients define the fixed order; patients without paired T2 data remain blank.")
+    st.subheader("Outcome 2: Global T1-to-T2 digital phenotype")
+    st.markdown("**1. Original T1 observed score**")
+    global_frame = score_frame("Global", "working_10pct_delta_ridge")
+    t1_observed_chart(global_frame, "Global cognitive")
+    st.markdown("**2. Observed T1 and T2 scores in the same patient order**")
+    score_alignment_chart(global_frame, "Global cognitive")
+    st.markdown("**3. Observed versus estimated cognitive change**")
     change_chart(
-        score_frame("Global", "working_10pct_delta_ridge"),
+        global_frame,
         "Global cognitive change: working 10% feature model",
         "Working-feature change estimate",
-    )
-    st.markdown("**T1-primary 10% feature change model**")
-    change_chart(
-        score_frame("Global", "t1_primary_10pct_delta_ridge"),
-        "Global cognitive change: T1-primary feature model",
-        "T1-primary change estimate",
-    )
-
-    st.subheader("T1/T2 score context")
-    st.caption("These context graphs show why the change estimate may look close to T1: predicted T2 equals T1 plus predicted change.")
-    decline_chart(
-        score_frame("Global", "working_10pct_delta_ridge"),
-        "Global cognitive",
-        "Digital T2 estimate",
-    )
-
-    st.markdown("**T1-primary 10% feature model**")
-    decline_chart(
-        score_frame("Global", "t1_primary_10pct_delta_ridge"),
-        "Global cognitive",
-        "T1-primary digital T2 estimate",
     )
 
     st.subheader("Model fit comparison")
@@ -2844,10 +2845,13 @@ def phase6_decline_page() -> None:
     }
     for domain in ["Memory", "Executive function", "Processing speed", "Attention", "Motor"]:
         domain_frame = score_frame(domain, "domain_group_10pct_delta_ridge")
-        st.markdown(f"**{domain} decline**")
+        st.markdown(f"**{domain}**")
+        st.markdown("**1. Original T1 observed score**")
+        t1_observed_chart(domain_frame, domain)
+        st.markdown("**2. Observed T1 and T2 scores in the same patient order**")
+        score_alignment_chart(domain_frame, domain)
+        st.markdown("**3. Observed versus estimated cognitive change**")
         change_chart(domain_frame, f"{domain} change: domain feature-group model", "Domain-group change estimate", domain_colors[domain])
-        st.caption("Score context")
-        decline_chart(domain_frame, f"{domain} cognitive", "Domain-group digital T2 estimate", domain_colors[domain])
         domain_features = taxonomy[taxonomy["domain"].eq(domain)] if not taxonomy.empty else pd.DataFrame()
         if not domain_features.empty:
             with st.expander(f"{domain} feature group"):
