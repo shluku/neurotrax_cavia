@@ -2732,6 +2732,9 @@ def phase6_decline_page() -> None:
         plot_long = plot[["patient_rank", "Subject_ID_D", "Observed T1 score", "Observed T2 score", estimate_label]].melt(
             id_vars=["patient_rank", "Subject_ID_D"], var_name="score_type", value_name="score"
         )
+        # Drop unavailable observations from the line input so each category's
+        # available dots remain connected across blank patient positions.
+        plot_long = plot_long[plot_long["score"].notna()].copy()
         y_min = float(plot_long["score"].min()) - 1
         y_max = float(plot_long["score"].max()) + 1
         chart = (
@@ -2740,6 +2743,7 @@ def phase6_decline_page() -> None:
             .encode(
                 x=alt.X("patient_rank:Q", title="Patients ordered by observed T1 score", axis=alt.Axis(format="d")),
                 y=alt.Y("score:Q", title=f"{title} score", scale=alt.Scale(domain=[y_min, y_max])),
+                order=alt.Order("patient_rank:Q", sort="ascending"),
                 color=alt.Color(
                     "score_type:N",
                     title="Measure",
