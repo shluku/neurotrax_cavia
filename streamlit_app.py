@@ -2516,7 +2516,7 @@ def phase4_baseline_page() -> None:
 
 @st.fragment(run_every="10s")
 def phase5_t2_live_panel() -> None:
-    st.subheader("Phase 5 cohort and feature summary")
+    st.subheader("T1 baseline feature reference")
     metric_row(
         [
             ("Source patients", 81),
@@ -2526,8 +2526,13 @@ def phase5_t2_live_panel() -> None:
             ("Mean feature missingness", "48.8%"),
         ]
     )
+    st.caption(
+        "These feature counts and the 48.8% mean missingness value describe the completed T1 baseline feature dataset. "
+        "The same 71 selected features are now being applied around T2."
+    )
+    st.subheader("T2 extraction coverage")
     st.info(
-        "The current T2 extraction includes 61 patients with a recorded T2 date. "
+        "The current T2 extraction includes 61 patients with a recorded T2 date after the project exclusion rule. "
         "Each patient is checked against 17 selected sensor tables, giving 1,037 expected patient-table attempts. "
         "'No usable pre-T2 window' means the extractor found no eligible data in the T2-7-day window or the documented T2-30-day fallback window; it does not mean 767 patients are missing."
     )
