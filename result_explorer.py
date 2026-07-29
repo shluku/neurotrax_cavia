@@ -456,7 +456,7 @@ def render_result_explorer(root: Path) -> None:
                         line_columns.append((f"{prefix}__{model_key[model]}", f"{measure}: {model}", domain_color))
         else:
             line_columns = [("observed", "Observed T1", "#111827")]
-            if "Mean baseline" in selected_models:
+            if "mean_baseline_prediction" in selected_models:
                 line_columns.append(("mean_baseline_prediction", "Mean baseline", domain_color))
             line_columns.extend(
                 (model, MODEL_LABELS.get(model, model), MODEL_COLORS.get(model, "#2563eb"))
