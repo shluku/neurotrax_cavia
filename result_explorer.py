@@ -305,56 +305,81 @@ def render_result_explorer(root: Path) -> None:
         "Phase 6 24-hour T1-T2",
         "Phase 6 10-day T1-T2",
     ]
-    source_preview = st.selectbox("Data source", sources)
-    source_kind = _source_paths(root, source_preview)["kind"]
-    is_t2 = source_kind == "t2"
-    outcome_options = ["Global"] + DOMAINS if is_t2 else ["Global"] + DOMAINS
-    available_models = []
-    if is_t2:
-        decline = _csv(_source_paths(root, source_preview)["decline"])
-        available_models = sorted(decline["model"].dropna().astype(str).unique().tolist()) if not decline.empty else []
-    else:
-        probe = _t1_wide(root, source_preview, "Global")
-        available_models = [column for column in probe.columns if column.endswith("_prediction")]
-        if "group_ridge_prediction" not in available_models:
-            available_models.append("group_ridge_prediction")
+    with st.expander("Explorer controls", expanded=True):
+        source_preview = st.selectbox("Data source", sources)
+        source_kind = _source_paths(root, source_preview)["kind"]
+        is_t2 = source_kind == "t2"
+        outcome_options = ["Global"] + DOMAINS
+        available_models = []
+        if is_t2:
+            decline = _csv(_source_paths(root, source_preview)["decline"])
+            available_models = sorted(decline["model"].dropna().astype(str).unique().tolist()) if not decline.empty else []
+        else:
+            probe = _t1_wide(root, source_preview, "Global")
+            available_models = [column for column in probe.columns if column.endswith("_prediction")]
+            if "group_ridge_prediction" not in available_models:
+                available_models.append("group_ridge_prediction")
 
-    with st.form("result_explorer_form"):
-        selected_outcomes = st.multiselect("Outcomes or cognitive domains", outcome_options, default=["Global"])
-        if is_t2:
-            selected_models = st.multiselect("Statistical models", available_models, default=available_models[:1], format_func=lambda value: value)
-            selected_measures = st.multiselect(
-                "Lines to plot",
-                ["Observed T1", "Observed T2", "Observed change", "Estimated T1", "Estimated T2", "Estimated change"],
-                default=["Observed T1", "Observed T2", "Estimated T2"],
-            )
-        else:
-            selected_models = st.multiselect(
-                "Statistical models",
-                available_models,
-                default=available_models[:1],
-                format_func=lambda value: MODEL_LABELS.get(value, value),
-            )
-            selected_measures = []
-        coverage_options = ["All available", "Top 10", "Top 20", "Top 30"]
-        selected_coverage = st.multiselect("Coverage cohort", coverage_options, default=["All available"])
-        coverage_band = st.multiselect(
-            "Coverage band",
-            ["All", "Highest coverage quartile", "Middle coverage", "Lowest coverage quartile"],
-            default=["All"],
-        )
-        t1_category = st.multiselect("T1 level", ["All", "Low", "Lower-middle", "Upper-middle", "High"], default=["All"])
-        if is_t2:
-            change_category = st.multiselect(
-                "T1-to-T2 category",
-                ["All", "Declined", "Stable or improved", "Strong decline", "Strong improvement"],
-                default=["All"],
-            )
-        else:
-            change_category = ["All"]
-        max_missing = st.slider("Maximum feature missingness (%)", min_value=0, max_value=100, value=100)
-        order_by = st.selectbox("Patient order", ["Observed score", "Coverage rank", "Patient ID"])
-        submitted = st.form_submit_button("PLOT")
+        with st.form("result_explorer_form"):
+            primary_controls = st.columns(3, gap="small")
+            with primary_controls[0]:
+                selected_outcomes = st.multiselect(
+                    "Outcomes or cognitive domains",
+                    outcome_options,
+                    default=["Global"],
+                )
+            with primary_controls[1]:
+                selected_models = st.multiselect(
+                    "Statistical models",
+                    available_models,
+                    default=available_models[:1],
+                    format_func=lambda value: MODEL_LABELS.get(value, value) if not is_t2 else value,
+                )
+            with primary_controls[2]:
+                if is_t2:
+                    selected_measures = st.multiselect(
+                        "Lines to plot",
+                        ["Observed T1", "Observed T2", "Observed change", "Estimated T1", "Estimated T2", "Estimated change"],
+                        default=["Observed T1", "Observed T2", "Estimated T2"],
+                    )
+                else:
+                    selected_measures = []
+                    st.caption("T1 plots include the observed score automatically.")
+
+            filter_controls = st.columns(3, gap="small")
+            with filter_controls[0]:
+                coverage_options = ["All available", "Top 10", "Top 20", "Top 30"]
+                selected_coverage = st.multiselect("Coverage cohort", coverage_options, default=["All available"])
+            with filter_controls[1]:
+                coverage_band = st.multiselect(
+                    "Coverage band",
+                    ["All", "Highest coverage quartile", "Middle coverage", "Lowest coverage quartile"],
+                    default=["All"],
+                )
+            with filter_controls[2]:
+                t1_category = st.multiselect(
+                    "T1 level",
+                    ["All", "Low", "Lower-middle", "Upper-middle", "High"],
+                    default=["All"],
+                )
+
+            if is_t2:
+                change_category = st.multiselect(
+                    "T1-to-T2 category",
+                    ["All", "Declined", "Stable or improved", "Strong decline", "Strong improvement"],
+                    default=["All"],
+                )
+            else:
+                change_category = ["All"]
+
+            display_controls = st.columns([1.5, 1, 0.7], gap="small")
+            with display_controls[0]:
+                max_missing = st.slider("Maximum feature missingness (%)", min_value=0, max_value=100, value=100)
+            with display_controls[1]:
+                order_by = st.selectbox("Patient order", ["Observed score", "Coverage rank", "Patient ID"])
+            with display_controls[2]:
+                st.write("")
+                submitted = st.form_submit_button("PLOT", type="primary", use_container_width=True)
 
     if not submitted:
         st.info("Choose the variables, then press PLOT.")
