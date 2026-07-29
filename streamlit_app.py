@@ -3015,6 +3015,18 @@ def suggestions_page() -> None:
     selected_model = st.selectbox("Model estimate", available_models, format_func=lambda name: model_labels.get(name, name))
     ordered = selected_patients.sort_values("actual_global_T1").reset_index(drop=True)
     ordered["patient_rank"] = range(1, len(ordered) + 1)
+    patient_x_domain = [0.5, len(ordered) + 0.5]
+
+    def focused_y_domain(values: pd.Series) -> list[float]:
+        numeric = pd.to_numeric(values, errors="coerce").dropna()
+        low = float(numeric.min())
+        high = float(numeric.max())
+        spread = high - low
+        padding = max(0.5, spread * 0.08)
+        if spread == 0:
+            padding = max(1.0, abs(low) * 0.05)
+        return [low - padding, high + padding]
+
     estimate_label = f"{model_labels[selected_model]} estimate"
     plot_data = ordered.rename(
         columns={
@@ -3029,8 +3041,13 @@ def suggestions_page() -> None:
         alt.Chart(plot_data)
         .mark_line(point=alt.OverlayMarkDef(size=45))
         .encode(
-            x=alt.X("patient_rank:Q", title="Patients ordered by observed T1 score", axis=alt.Axis(format="d")),
-            y=alt.Y("t1_score:Q", title="T1 score"),
+            x=alt.X(
+                "patient_rank:Q",
+                title="Patients ordered by observed T1 score",
+                axis=alt.Axis(format="d"),
+                scale=alt.Scale(domain=patient_x_domain),
+            ),
+            y=alt.Y("t1_score:Q", title="T1 score", scale=alt.Scale(domain=focused_y_domain(plot_data["t1_score"]))),
             color=alt.Color(
                 "score_type:N",
                 title="Measure",
@@ -3067,13 +3084,14 @@ def suggestions_page() -> None:
         model_chart = (
             alt.Chart(model_plot_data)
             .mark_line(point=alt.OverlayMarkDef(size=45))
-            .encode(
-                x=alt.X(
-                    "patient_rank:Q",
-                    title="Patients ordered by observed T1 score",
-                    axis=alt.Axis(format="d"),
-                ),
-                y=alt.Y("t1_score:Q", title="T1 score"),
+        .encode(
+            x=alt.X(
+                "patient_rank:Q",
+                title="Patients ordered by observed T1 score",
+                axis=alt.Axis(format="d"),
+                scale=alt.Scale(domain=patient_x_domain),
+            ),
+                y=alt.Y("t1_score:Q", title="T1 score", scale=alt.Scale(domain=focused_y_domain(model_plot_data["t1_score"]))),
                 color=alt.Color(
                     "score_type:N",
                     title="Measure",
@@ -3117,8 +3135,13 @@ def suggestions_page() -> None:
         alt.Chart(baseline_plot_data)
         .mark_line(point=alt.OverlayMarkDef(size=45))
         .encode(
-            x=alt.X("patient_rank:Q", title="Patients ordered by observed T1 score", axis=alt.Axis(format="d")),
-            y=alt.Y("t1_score:Q", title="T1 score"),
+            x=alt.X(
+                "patient_rank:Q",
+                title="Patients ordered by observed T1 score",
+                axis=alt.Axis(format="d"),
+                scale=alt.Scale(domain=patient_x_domain),
+            ),
+            y=alt.Y("t1_score:Q", title="T1 score", scale=alt.Scale(domain=focused_y_domain(baseline_plot_data["t1_score"]))),
             color=alt.Color(
                 "score_type:N",
                 title="Measure",
@@ -3191,8 +3214,13 @@ def suggestions_page() -> None:
                         "patient_rank:Q",
                         title=f"Patients ordered by observed {domain} T1 score",
                         axis=alt.Axis(format="d"),
+                        scale=alt.Scale(domain=[0.5, len(domain_frame) + 0.5]),
                     ),
-                    y=alt.Y("score:Q", title=f"{domain} T1 score"),
+                    y=alt.Y(
+                        "score:Q",
+                        title=f"{domain} T1 score",
+                        scale=alt.Scale(domain=focused_y_domain(domain_plot["score"])),
+                    ),
                     color=alt.Color(
                         "score_type:N",
                         title="Measure",
