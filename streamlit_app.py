@@ -1623,6 +1623,12 @@ def phase4_baseline_page(
     slope_selected_metrics = load_csv(PATHS["phase4_slope_selected_metrics"])
     direction_constrained_patient_predictions = load_csv(PATHS["phase4_direction_constrained_patient_predictions"])
     direction_constrained_metrics = load_csv(PATHS["phase4_direction_constrained_metrics"])
+    all_direction_patient_predictions = load_csv(
+        PATHS.get("phase4_all_direction_patient_predictions", Path("__missing_phase4_all_direction_predictions__.csv"))
+    )
+    all_direction_metrics = load_csv(
+        PATHS.get("phase4_all_direction_metrics", Path("__missing_phase4_all_direction_metrics__.csv"))
+    )
     alternative_patient_predictions = load_csv(PATHS["phase4_alternative_patient_predictions"])
     alternative_metrics = load_csv(PATHS["phase4_alternative_metrics"])
     domain_patient_predictions = load_csv(PATHS["phase4_domain_patient_predictions"])
@@ -1880,6 +1886,73 @@ def phase4_baseline_page(
             "direction_constrained_ridge",
             "direction-constrained Ridge",
         )
+
+    if include_all_feature_trend_explorer:
+        st.markdown("**All-feature direction-constrained slope model**")
+        if all_direction_patient_predictions.empty:
+            st.info("The all-feature direction-constrained comparison is not available yet.")
+        else:
+            all_direction_patients = all_direction_patient_predictions.sort_values("actual_global_T1").reset_index(drop=True)
+            all_direction_patients["patient_rank"] = range(1, len(all_direction_patients) + 1)
+            all_direction_plot_data = all_direction_patients.rename(
+                columns={
+                    "Subject_ID_D": "Patient ID",
+                    "actual_global_T1": "Observed T1 score",
+                    "all_direction_constrained_prediction": "All-feature direction-constrained estimate",
+                }
+            )[[
+                "patient_rank",
+                "Patient ID",
+                "Observed T1 score",
+                "All-feature direction-constrained estimate",
+            ]].melt(
+                id_vars=["patient_rank", "Patient ID"],
+                var_name="score_type",
+                value_name="t1_score",
+            )
+            st.caption(
+                "Exploratory model using every selected feature with usable fold-local variation. "
+                "Positive-slope features are constrained to raise the estimate and negative-slope features "
+                "are constrained to lower it; all constraints are learned within each validation fold."
+            )
+            all_direction_plot_min = int(all_direction_plot_data["t1_score"].min()) - 1
+            all_direction_plot_max = int(all_direction_plot_data["t1_score"].max()) + 1
+            all_direction_chart = (
+                alt.Chart(all_direction_plot_data)
+                .mark_line(point=alt.OverlayMarkDef(size=45))
+                .encode(
+                    x=alt.X(
+                        "patient_rank:Q",
+                        title="Patients ordered by observed T1 score",
+                        axis=alt.Axis(format="d"),
+                    ),
+                    y=alt.Y(
+                        "t1_score:Q",
+                        title="T1 score",
+                        scale=alt.Scale(domain=[all_direction_plot_min, all_direction_plot_max]),
+                    ),
+                    color=alt.Color(
+                        "score_type:N",
+                        title="Measure",
+                        scale=alt.Scale(
+                            domain=["Observed T1 score", "All-feature direction-constrained estimate"],
+                            range=["#111827", "#0f766e"],
+                        ),
+                    ),
+                    tooltip=[
+                        alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                        alt.Tooltip("Patient ID:N", title="Patient ID"),
+                        alt.Tooltip("score_type:N", title="Measure"),
+                        alt.Tooltip("t1_score:Q", title="T1 score", format=".2f"),
+                    ],
+                )
+            )
+            st.altair_chart(all_direction_chart.properties(height=430), use_container_width=True)
+            show_fit_legend(
+                all_direction_metrics,
+                "all_direction_constrained_ridge",
+                "all-feature direction-constrained Ridge",
+            )
 
     st.markdown("**Gradient-weighted digital estimate**")
     if gradient_patient_predictions.empty:
@@ -2650,6 +2723,8 @@ def phase4_10day_page() -> None:
         "phase4_slope_selected_metrics": root / "model_t1_slope_selected/phase4_t1_slope_selected_metrics.csv",
         "phase4_direction_constrained_patient_predictions": root / "model_t1_direction_constrained/phase4_t1_direction_constrained_patient_predictions.csv",
         "phase4_direction_constrained_metrics": root / "model_t1_direction_constrained/phase4_t1_direction_constrained_metrics.csv",
+        "phase4_all_direction_patient_predictions": root / "model_t1_all_direction_constrained/phase4_10day_all_direction_constrained_patient_predictions.csv",
+        "phase4_all_direction_metrics": root / "model_t1_all_direction_constrained/phase4_10day_all_direction_constrained_metrics.csv",
         "phase4_alternative_patient_predictions": root / "model_t1_alternatives/phase4_t1_alternative_patient_predictions.csv",
         "phase4_alternative_metrics": root / "model_t1_alternatives/phase4_t1_alternative_metrics.csv",
         "phase4_domain_patient_predictions": root / "model_t1_cognitive_domains/phase4_t1_cognitive_domain_patient_predictions.csv",
