@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
 import altair as alt
@@ -10,6 +11,10 @@ import streamlit as st
 
 
 ROOT = Path(__file__).parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from result_explorer import render_result_explorer
 
 PATHS = {
     "protocol_summary": ROOT / "README_PROTOCOL_PROJECT_SUMMARY.md",
@@ -3260,6 +3265,10 @@ def suggestions_page() -> None:
         st.markdown(protocol or readme or "No protocol README available yet.")
 
 
+def result_explorer_page() -> None:
+    render_result_explorer(ROOT)
+
+
 def _render_with_path_overrides(overrides: dict[str, Path], render) -> None:
     missing = object()
     previous = {key: PATHS.get(key, missing) for key in overrides}
@@ -4329,6 +4338,7 @@ PAGES = {
     "Phase 4 10-Day T1 Baseline": phase4_10day_page,
     "Other Models": other_models_page,
     "Suggestions": suggestions_page,
+    "Result Explorer": result_explorer_page,
     "Phase 5 T2 Extraction": phase5_t2_page,
     "Phase 7 10-Day Window": phase7_10day_page,
     "Phase 6 T1-T2 Decline": phase6_decline_page,
