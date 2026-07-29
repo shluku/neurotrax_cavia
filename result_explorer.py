@@ -12,6 +12,14 @@ import streamlit as st
 
 DOMAINS = ["Memory", "Executive function", "Processing speed", "Attention", "Motor"]
 DOMAIN_LABELS = {"Global": "Global cognitive", **{domain: domain for domain in DOMAINS}}
+DOMAIN_COLORS = {
+    "Global": "#1d4ed8",
+    "Memory": "#7c3aed",
+    "Executive function": "#ea580c",
+    "Processing speed": "#16a34a",
+    "Attention": "#dc2626",
+    "Motor": "#0891b2",
+}
 MODEL_LABELS = {
     "mean_baseline_prediction": "Mean baseline",
     "group_ridge_prediction": "Domain feature-group Ridge",
@@ -432,6 +440,7 @@ def render_result_explorer(root: Path) -> None:
         metric_row[2].metric("Observed T1 SD", f"{pd.to_numeric(frame['observed' if not is_t2 else 'observed_T1'], errors='coerce').std():.2f}")
         metric_row[3].metric("Mean coverage", f"{100 * frame['baseline_table_coverage_fraction'].mean():.1f}%")
         order_column = "coverage_rank" if order_by == "Coverage rank" else "Subject_ID_D" if order_by == "Patient ID" else "observed" if not is_t2 else "observed_T1"
+        domain_color = DOMAIN_COLORS.get(outcome, DOMAIN_COLORS["Global"])
         if is_t2:
             line_columns = []
             if "Observed T1" in selected_measures:
@@ -441,17 +450,18 @@ def render_result_explorer(root: Path) -> None:
             if "Observed change" in selected_measures:
                 line_columns.append(("actual_change", "Observed change", "#111827"))
             model_key = {model: "".join(character if character.isalnum() else "_" for character in model).strip("_") for model in selected_models}
-            for measure, prefix, color in [("Estimated T1", "estimated_T1", "#2563eb"), ("Estimated T2", "estimated_T2", "#2563eb"), ("Estimated change", "estimated_change", "#2563eb")]:
+            for measure, prefix in [("Estimated T1", "estimated_T1"), ("Estimated T2", "estimated_T2"), ("Estimated change", "estimated_change")]:
                 if measure in selected_measures:
                     for model in selected_models:
-                        line_columns.append((f"{prefix}__{model_key[model]}", f"{measure}: {model}", color))
+                        line_columns.append((f"{prefix}__{model_key[model]}", f"{measure}: {model}", domain_color))
         else:
             line_columns = [("observed", "Observed T1", "#111827")]
             if "Mean baseline" in selected_models:
-                line_columns.append(("mean_baseline_prediction", "Mean baseline", MODEL_COLORS["mean_baseline_prediction"]))
+                line_columns.append(("mean_baseline_prediction", "Mean baseline", domain_color))
             line_columns.extend(
                 (model, MODEL_LABELS.get(model, model), MODEL_COLORS.get(model, "#2563eb"))
                 for model in selected_models
+                if model != "mean_baseline_prediction"
             )
         _plot_lines(frame, line_columns, order_column, f"{DOMAIN_LABELS.get(outcome, outcome)} result explorer")
         with st.expander("Filtered statistics and data"):
