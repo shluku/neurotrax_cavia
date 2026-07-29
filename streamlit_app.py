@@ -4338,11 +4338,11 @@ PAGES = {
     "Phase 4 10-Day T1 Baseline": phase4_10day_page,
     "Other Models": other_models_page,
     "Suggestions": suggestions_page,
-    "Result Explorer": result_explorer_page,
     "Phase 5 T2 Extraction": phase5_t2_page,
     "Phase 7 10-Day Window": phase7_10day_page,
     "Phase 6 T1-T2 Decline": phase6_decline_page,
     "Phase 6 10-Day T1-T2 Decline": phase6_10day_decline_page,
+    "Result Explorer": result_explorer_page,
     "R&D": rd_page,
     "SQL Samples": samples_page,
     "Files": files_page,
@@ -4367,6 +4367,16 @@ def main() -> None:
             font-weight: 800 !important;
         }
         [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(9) {
+            padding-top: 0.18rem;
+            padding-bottom: 0.18rem;
+        }
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(15) p,
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(16) p {
+            font-size: 1.18rem !important;
+            font-weight: 800 !important;
+        }
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(15),
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(16) {
             padding-top: 0.18rem;
             padding-bottom: 0.18rem;
         }
