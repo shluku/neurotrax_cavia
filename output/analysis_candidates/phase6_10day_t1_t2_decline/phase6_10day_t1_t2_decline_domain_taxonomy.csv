@@ -1,0 +1,41 @@
+domain,feature,feature_order
+Memory,app_use_diversity,1
+Memory,unique_foreground_apps,2
+Memory,gsm_cell_transition_count,3
+Memory,unique_gsm_cell_count,4
+Memory,unique_gsm_lac_count,5
+Memory,message_distinct_event_count,6
+Memory,outgoing_message_count,7
+Memory,activity_state_diversity,8
+Memory,night_screen_event_count,9
+Executive function,app_foreground_event_count,1
+Executive function,app_use_diversity,2
+Executive function,unique_foreground_apps,3
+Executive function,activity_state_diversity,4
+Executive function,activity_transition_count,5
+Executive function,activity_active_hour_count,6
+Executive function,screen_transition_count,7
+Executive function,screen_active_hour_count,8
+Executive function,gsm_cell_transition_count,11
+Executive function,telephony_event_count,12
+Processing speed,keyboard_median_inter_event_interval_ms,1
+Processing speed,keyboard_inter_event_interval_iqr_ms,2
+Processing speed,keyboard_long_pause_count_2s,3
+Processing speed,keyboard_typing_burst_count,4
+Processing speed,keyboard_deletion_event_count,5
+Processing speed,screen_event_count,9
+Processing speed,screen_transition_count,10
+Attention,screen_unlock_event_count,1
+Attention,screen_event_count,2
+Attention,screen_active_hour_count,3
+Attention,screen_on_event_count,4
+Attention,screen_off_event_count,5
+Attention,night_screen_event_count,6
+Attention,keyboard_long_pause_count_2s,10
+Attention,activity_unknown_fraction,11
+Attention,telephony_mobile_data_enabled_fraction,12
+Motor,activity_active_hour_count,1
+Motor,activity_still_fraction,2
+Motor,activity_transition_count,3
+Motor,activity_state_diversity,4
+Motor,screen_active_hour_count,10

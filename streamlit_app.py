@@ -1589,14 +1589,17 @@ def phase3_algorithm_page() -> None:
         st.markdown(readme if readme else "No README available yet.")
 
 
-def phase4_baseline_page() -> None:
+def phase4_baseline_page(
+    title: str = "Phase 4 T1 Baseline Digital Phenotype",
+    caption: str = "Patient-level baseline dataset for Outcome 1 using the first valid 24-hour T1-week protocol.",
+) -> None:
     st.markdown(
         '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
-        "Phase 4 T1 Baseline Digital Phenotype"
-        "</h1>",
+        + title
+        + "</h1>",
         unsafe_allow_html=True,
     )
-    st.caption("Patient-level baseline dataset for Outcome 1 using the first valid 24-hour T1-week protocol.")
+    st.caption(caption)
 
     dataset = load_csv(PATHS["phase4_baseline_dataset"])
     metadata = load_csv(PATHS["phase4_feature_metadata"])
@@ -2541,6 +2544,73 @@ def phase4_baseline_page() -> None:
         st.markdown(load_text(PATHS["phase4_protocol"]) or "No Phase 4 protocol available.")
 
 
+def _render_with_path_overrides(overrides: dict[str, Path], render) -> None:
+    previous = {key: PATHS[key] for key in overrides}
+    PATHS.update(overrides)
+    try:
+        render()
+    finally:
+        PATHS.update(previous)
+
+
+def phase4_10day_page() -> None:
+    root = ROOT / "output/analysis_candidates/phase4_10day_t1_baseline"
+    model = root / "model_t1_ridge"
+    cluster = root / "cluster_t1_baseline"
+    overrides = {
+        "phase4_protocol": ROOT / "PHASE4_10_DAY_BASELINE_PROTOCOL.md",
+        "phase4_baseline_dataset": root / "phase4_10day_t1_baseline_patient_dataset.csv",
+        "phase4_feature_metadata": root / "phase4_10day_t1_baseline_feature_metadata.csv",
+        "phase4_missingness": root / "phase4_10day_t1_baseline_missingness_summary.csv",
+        "phase4_table_coverage": root / "phase4_10day_t1_baseline_table_coverage.csv",
+        "phase4_readme": root / "README_phase4_10day_t1_baseline.md",
+        "phase4_model_predictions": model / "phase4_t1_ridge_predictions.csv",
+        "phase4_model_metrics": model / "phase4_t1_ridge_metrics.csv",
+        "phase4_model_feature_set": model / "phase4_t1_ridge_feature_set.csv",
+        "phase4_model_readme": model / "README_phase4_t1_ridge.md",
+        "phase4_model_coefficients": model / "phase4_t1_ridge_coefficients.csv",
+        "phase4_score_calibration": model / "phase4_t1_score_calibration_by_patient.csv",
+        "phase4_score_calibration_bins": model / "phase4_t1_score_calibration_bins.csv",
+        "phase4_score_calibration_metrics": model / "phase4_t1_score_calibration_metrics.csv",
+        "phase4_coefficient_summary": model / "phase4_t1_ridge_coefficient_summary.csv",
+        "phase4_score_calibration_readme": model / "README_phase4_t1_score_calibration.md",
+        "phase4_gradient_patient_predictions": root / "model_t1_gradient_weighted/phase4_t1_gradient_weighted_patient_predictions.csv",
+        "phase4_gradient_metrics": root / "model_t1_gradient_weighted/phase4_t1_gradient_weighted_metrics.csv",
+        "phase4_slope_selected_patient_predictions": root / "model_t1_slope_selected/phase4_t1_slope_selected_patient_predictions.csv",
+        "phase4_slope_selected_metrics": root / "model_t1_slope_selected/phase4_t1_slope_selected_metrics.csv",
+        "phase4_direction_constrained_patient_predictions": root / "model_t1_direction_constrained/phase4_t1_direction_constrained_patient_predictions.csv",
+        "phase4_direction_constrained_metrics": root / "model_t1_direction_constrained/phase4_t1_direction_constrained_metrics.csv",
+        "phase4_alternative_patient_predictions": root / "model_t1_alternatives/phase4_t1_alternative_patient_predictions.csv",
+        "phase4_alternative_metrics": root / "model_t1_alternatives/phase4_t1_alternative_metrics.csv",
+        "phase4_domain_patient_predictions": root / "model_t1_cognitive_domains/phase4_t1_cognitive_domain_patient_predictions.csv",
+        "phase4_domain_metrics": root / "model_t1_cognitive_domains/phase4_t1_cognitive_domain_metrics.csv",
+        "phase4_domain_group_patient_predictions": root / "model_t1_cognitive_domain_groups/phase4_t1_cognitive_domain_group_patient_predictions.csv",
+        "phase4_domain_group_metrics": root / "model_t1_cognitive_domain_groups/phase4_t1_cognitive_domain_group_metrics.csv",
+        "phase4_cluster_assignments": cluster / "phase4_t1_cluster_assignments.csv",
+        "phase4_cluster_quality": cluster / "phase4_t1_cluster_quality.csv",
+        "phase4_cluster_feature_summary": cluster / "phase4_t1_cluster_feature_summary.csv",
+        "phase4_cluster_pca_loadings": cluster / "phase4_t1_cluster_pca_loadings.csv",
+        "phase4_cluster_patient_audit": cluster / "phase4_cluster_patient_audit.csv",
+        "phase4_cluster_audit_summary": cluster / "phase4_cluster_audit_summary.csv",
+        "phase4_cluster_feature_differences": cluster / "phase4_cluster_feature_differences.csv",
+        "phase4_cluster_pca_scatter": cluster / "phase4_cluster_pca_scatter.csv",
+        "phase4_cluster_high_assignments": cluster / "phase4_cluster_high_coverage_assignments.csv",
+        "phase4_cluster_high_quality": cluster / "phase4_cluster_high_coverage_quality.csv",
+        "phase4_cluster_profiles": cluster / "phase4_cluster_profiles.csv",
+        "phase4_cluster_profile_features": cluster / "phase4_cluster_profile_features.csv",
+        "phase4_cluster_stability": cluster / "phase4_cluster_stability.csv",
+        "phase4_cluster_profiles_readme": cluster / "README_phase4_cluster_profiles.md",
+        "phase4_cluster_readme": cluster / "README_phase4_t1_clustering.md",
+    }
+    _render_with_path_overrides(
+        overrides,
+        lambda: phase4_baseline_page(
+            title="Phase 4 10-Day T1 Baseline Digital Phenotype",
+            caption="Phase 4-equivalent baseline workflow using the Phase 7 availability-anchored 10-day T1 data.",
+        ),
+    )
+
+
 @st.fragment(run_every="10s")
 def phase5_t2_live_panel() -> None:
     status = load_csv(PATHS["phase5_status"])
@@ -2662,7 +2732,7 @@ def phase5_t2_page() -> None:
     st.markdown(
         '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
         "Phase 5 T2 Feature Extraction"
-        "</h1>",
+        + "</h1>",
         unsafe_allow_html=True,
     )
     st.caption("T2-anchored extraction of the manually selected Phase 2 digital features.")
@@ -2757,14 +2827,17 @@ def phase7_10day_page() -> None:
     st.markdown(load_text(PATHS["phase7_protocol"]) or "No Phase 7 protocol available.")
 
 
-def phase6_decline_page() -> None:
+def phase6_decline_page(
+    title: str = "Phase 6 T1-to-T2 Decline Phenotyping",
+    caption: str = "Exploratory independent T1/T2 digital phenotype estimates; digital change is estimated T2 minus estimated T1.",
+) -> None:
     st.markdown(
         '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
-        "Phase 6 T1-to-T2 Decline Phenotyping"
-        "</h1>",
+        + title
+        + "</h1>",
         unsafe_allow_html=True,
     )
-    st.caption("Exploratory independent T1/T2 digital phenotype estimates; digital change is estimated T2 minus estimated T1.")
+    st.caption(caption)
     st.markdown(load_text(PATHS["phase6_protocol"]) or "No Phase 6 protocol available.")
 
     patient_predictions = load_csv(PATHS["phase6_patient_predictions"])
@@ -2998,6 +3071,26 @@ def phase6_decline_page() -> None:
             frame = load_csv(PATHS[path_key])
             if not frame.empty:
                 st.download_button(f"Download {filename}", frame.to_csv(index=False).encode("utf-8"), filename, "text/csv", key=f"phase6_{filename}")
+
+
+def phase6_10day_decline_page() -> None:
+    root = ROOT / "output/analysis_candidates/phase6_10day_t1_t2_decline"
+    overrides = {
+        "phase6_protocol": ROOT / "PHASE6_10_DAY_DECLINE_PROTOCOL.md",
+        "phase6_patient_predictions": root / "phase6_10day_t1_t2_decline_patient_predictions.csv",
+        "phase6_metrics": root / "phase6_10day_t1_t2_decline_metrics.csv",
+        "phase6_feature_sets": root / "phase6_10day_t1_t2_decline_feature_sets.csv",
+        "phase6_domain_taxonomy": root / "phase6_10day_t1_t2_decline_domain_taxonomy.csv",
+        "phase4_baseline_dataset": ROOT / "output/analysis_candidates/phase4_10day_t1_baseline/phase4_10day_t1_baseline_patient_dataset.csv",
+        "phase5_wide": ROOT / "output/analysis_candidates/phase7_10day_window/t2/phase7_t2_10day_features_wide.csv",
+    }
+    _render_with_path_overrides(
+        overrides,
+        lambda: phase6_decline_page(
+            title="Phase 6 10-Day T1-to-T2 Decline Phenotyping",
+            caption="Phase 6-equivalent independent T1/T2 estimates using the new 10-day T1 and T2 data.",
+        ),
+    )
 
 
 def rd_page() -> None:
@@ -3460,9 +3553,11 @@ PAGES = {
     "Phase 2 Tables": phase2_tables_page,
     "Phase 3 algorithm implementation": phase3_algorithm_page,
     "Phase 4 T1 Baseline": phase4_baseline_page,
+    "Phase 4 10-Day T1 Baseline": phase4_10day_page,
     "Phase 5 T2 Extraction": phase5_t2_page,
     "Phase 7 10-Day Window": phase7_10day_page,
     "Phase 6 T1-T2 Decline": phase6_decline_page,
+    "Phase 6 10-Day T1-T2 Decline": phase6_10day_decline_page,
     "R&D": rd_page,
     "SQL Samples": samples_page,
     "Files": files_page,

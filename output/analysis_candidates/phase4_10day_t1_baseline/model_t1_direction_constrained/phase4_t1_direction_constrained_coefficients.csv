@@ -1,0 +1,1601 @@
+repeat,fold,term_name,coefficient,constraint,alpha
+1,1,screen_unlock_event_count,0.6875852433249742,>= 0,67.23357536499334
+1,1,screen_off_event_count,0.17918983488706403,>= 0,67.23357536499334
+1,1,app_use_diversity,0.465808032420056,>= 0,67.23357536499334
+1,1,app_foreground_event_count,0.4309481541631866,>= 0,67.23357536499334
+1,1,telephony_event_count,7.620438737027467e-12,>= 0,67.23357536499334
+1,1,telephony_mobile_data_enabled_fraction,-1.2240839015361222,<= 0,67.23357536499334
+1,1,activity_still_fraction,-0.05945780173096209,<= 0,67.23357536499334
+1,1,touch_scroll_event_count,-1.6151107605134918e-23,<= 0,67.23357536499334
+1,1,missing__screen_unlock_event_count,0.5416045734279546,unconstrained,67.23357536499334
+1,1,missing__screen_off_event_count,0.5416045734279543,unconstrained,67.23357536499334
+1,1,missing__app_use_diversity,-0.19488232950054624,unconstrained,67.23357536499334
+1,1,missing__app_foreground_event_count,-0.19488232950054585,unconstrained,67.23357536499334
+1,1,missing__telephony_event_count,0.3863509603308312,unconstrained,67.23357536499334
+1,1,missing__telephony_mobile_data_enabled_fraction,0.38635096033083094,unconstrained,67.23357536499334
+1,1,missing__activity_still_fraction,0.38635096033083105,unconstrained,67.23357536499334
+1,1,missing__touch_scroll_event_count,-0.2969382408235288,unconstrained,67.23357536499334
+1,2,unique_gsm_cell_count,0.0017695727676582597,>= 0,10000.0
+1,2,app_foreground_event_count,0.00644965871621583,>= 0,10000.0
+1,2,activity_transition_count,0.0036693396980245468,>= 0,10000.0
+1,2,activity_active_hour_count,0.001440935135276466,>= 0,10000.0
+1,2,gsm_cell_transition_count,5.492259902931064e-19,>= 0,10000.0
+1,2,telephony_mobile_data_enabled_fraction,-0.0090637961189644,<= 0,10000.0
+1,2,keyboard_median_inter_event_interval_ms,-0.0037669313152869496,<= 0,10000.0
+1,2,night_screen_event_count,-0.003525800728121784,<= 0,10000.0
+1,2,missing__unique_gsm_cell_count,0.007592118240660795,unconstrained,10000.0
+1,2,missing__app_foreground_event_count,0.0007915377626958052,unconstrained,10000.0
+1,2,missing__activity_transition_count,0.007592118240660783,unconstrained,10000.0
+1,2,missing__activity_active_hour_count,0.007592118240660798,unconstrained,10000.0
+1,2,missing__gsm_cell_transition_count,0.007592118240660788,unconstrained,10000.0
+1,2,missing__telephony_mobile_data_enabled_fraction,0.007592118240660788,unconstrained,10000.0
+1,2,missing__keyboard_median_inter_event_interval_ms,-0.009640476870537014,unconstrained,10000.0
+1,2,missing__night_screen_event_count,0.008688233936493936,unconstrained,10000.0
+1,3,telephony_network_type_diversity,0.21705695288311389,>= 0,117.21022975334817
+1,3,app_use_diversity,0.8437365404522944,>= 0,117.21022975334817
+1,3,unique_foreground_apps,0.29294608274327133,>= 0,117.21022975334817
+1,3,gsm_cell_transition_count,3.991028840825011e-20,>= 0,117.21022975334817
+1,3,app_foreground_event_count,0.44808544855040544,>= 0,117.21022975334817
+1,3,telephony_mobile_data_enabled_fraction,-0.8381595978443416,<= 0,117.21022975334817
+1,3,keyboard_median_inter_event_interval_ms,-0.2161301423685322,<= 0,117.21022975334817
+1,3,night_screen_event_count,-0.5166250952862091,<= 0,117.21022975334817
+1,3,missing__telephony_network_type_diversity,0.2831543069804488,unconstrained,117.21022975334817
+1,3,missing__app_use_diversity,-0.0212558619514515,unconstrained,117.21022975334817
+1,3,missing__unique_foreground_apps,-0.021255861951451616,unconstrained,117.21022975334817
+1,3,missing__gsm_cell_transition_count,0.2831543069804483,unconstrained,117.21022975334817
+1,3,missing__app_foreground_event_count,-0.021255861951451478,unconstrained,117.21022975334817
+1,3,missing__telephony_mobile_data_enabled_fraction,0.2831543069804486,unconstrained,117.21022975334817
+1,3,missing__keyboard_median_inter_event_interval_ms,-0.5190966900996963,unconstrained,117.21022975334817
+1,3,missing__night_screen_event_count,0.38589991437136834,unconstrained,117.21022975334817
+1,4,app_foreground_event_count,0.3745307587915749,>= 0,117.21022975334817
+1,4,touch_app_diversity,5.244912932872005e-22,>= 0,117.21022975334817
+1,4,app_use_diversity,0.8257251957407487,>= 0,117.21022975334817
+1,4,gsm_cell_transition_count,2.167159577493507e-20,>= 0,117.21022975334817
+1,4,unique_gsm_cell_count,0.00926206768306208,>= 0,117.21022975334817
+1,4,telephony_mobile_data_enabled_fraction,-0.5182803635768225,<= 0,117.21022975334817
+1,4,keyboard_inter_event_interval_iqr_ms,-0.443287835894792,<= 0,117.21022975334817
+1,4,keyboard_median_inter_event_interval_ms,-0.26681982264199505,<= 0,117.21022975334817
+1,4,missing__app_foreground_event_count,-0.08698733210493062,unconstrained,117.21022975334817
+1,4,missing__touch_app_diversity,-0.3116510682768795,unconstrained,117.21022975334817
+1,4,missing__app_use_diversity,-0.08698733210493068,unconstrained,117.21022975334817
+1,4,missing__gsm_cell_transition_count,0.30546136007591623,unconstrained,117.21022975334817
+1,4,missing__unique_gsm_cell_count,0.305461360075916,unconstrained,117.21022975334817
+1,4,missing__telephony_mobile_data_enabled_fraction,0.305461360075916,unconstrained,117.21022975334817
+1,4,missing__keyboard_inter_event_interval_iqr_ms,-0.12539237181117271,unconstrained,117.21022975334817
+1,4,missing__keyboard_median_inter_event_interval_ms,-0.1253923718111727,unconstrained,117.21022975334817
+1,5,app_foreground_event_count,0.639980178103392,>= 0,67.23357536499334
+1,5,telephony_event_count,0.7335403565376599,>= 0,67.23357536499334
+1,5,unique_foreground_apps,0.6418785004210802,>= 0,67.23357536499334
+1,5,touch_unique_app_count,0.10555136648058197,>= 0,67.23357536499334
+1,5,touch_app_diversity,0.2674229131233899,>= 0,67.23357536499334
+1,5,telephony_mobile_data_enabled_fraction,-1.2039002658704774,<= 0,67.23357536499334
+1,5,touch_scroll_event_count,-1.0524304236512841e-19,<= 0,67.23357536499334
+1,5,touch_scroll_index_change_median,-3.6143540543230904e-20,<= 0,67.23357536499334
+1,5,missing__app_foreground_event_count,0.31484690836419066,unconstrained,67.23357536499334
+1,5,missing__telephony_event_count,0.33825302431922644,unconstrained,67.23357536499334
+1,5,missing__unique_foreground_apps,0.31484690836419044,unconstrained,67.23357536499334
+1,5,missing__touch_unique_app_count,-0.27606888725328793,unconstrained,67.23357536499334
+1,5,missing__touch_app_diversity,-0.27606888725328815,unconstrained,67.23357536499334
+1,5,missing__telephony_mobile_data_enabled_fraction,0.33825302431922694,unconstrained,67.23357536499334
+1,5,missing__touch_scroll_event_count,-0.27606888725328826,unconstrained,67.23357536499334
+1,5,missing__touch_scroll_index_change_median,0.2707980648214277,unconstrained,67.23357536499334
+2,1,activity_transition_count,0.0014682763336998856,>= 0,10000.0
+2,1,telephony_network_type_diversity,5.285673560950948e-12,>= 0,10000.0
+2,1,touch_app_diversity,0.0014173360368778896,>= 0,10000.0
+2,1,activity_state_diversity,0.0011294393339133706,>= 0,10000.0
+2,1,activity_active_hour_count,0.003552190110445768,>= 0,10000.0
+2,1,keyboard_median_inter_event_interval_ms,-0.002511973267864249,<= 0,10000.0
+2,1,screen_active_hour_count,-0.007195800688829185,<= 0,10000.0
+2,1,night_screen_event_count,-0.004592117397647257,<= 0,10000.0
+2,1,missing__activity_transition_count,0.007835927373790828,unconstrained,10000.0
+2,1,missing__telephony_network_type_diversity,0.007835927373790822,unconstrained,10000.0
+2,1,missing__touch_app_diversity,-0.000832160918385592,unconstrained,10000.0
+2,1,missing__activity_state_diversity,0.00783592737379083,unconstrained,10000.0
+2,1,missing__activity_active_hour_count,0.007835927373790828,unconstrained,10000.0
+2,1,missing__keyboard_median_inter_event_interval_ms,-0.0019767823275191124,unconstrained,10000.0
+2,1,missing__screen_active_hour_count,0.009155180138246245,unconstrained,10000.0
+2,1,missing__night_screen_event_count,0.009155180138246247,unconstrained,10000.0
+2,2,app_use_diversity,1.9791566512237755,>= 0,22.122162910704503
+2,2,app_foreground_event_count,0.8339114953314272,>= 0,22.122162910704503
+2,2,unique_foreground_apps,0.03250848768572647,>= 0,22.122162910704503
+2,2,touch_unique_app_count,4.9125011143597635e-18,>= 0,22.122162910704503
+2,2,telephony_event_count,0.45463951828307897,>= 0,22.122162910704503
+2,2,telephony_mobile_data_enabled_fraction,-2.0485564268554906,<= 0,22.122162910704503
+2,2,keyboard_median_inter_event_interval_ms,-0.3584587853978001,<= 0,22.122162910704503
+2,2,keyboard_inter_event_interval_iqr_ms,-6.556236913611112e-17,<= 0,22.122162910704503
+2,2,missing__app_use_diversity,0.40117968785308666,unconstrained,22.122162910704503
+2,2,missing__app_foreground_event_count,0.4011796878530867,unconstrained,22.122162910704503
+2,2,missing__unique_foreground_apps,0.40117968785308683,unconstrained,22.122162910704503
+2,2,missing__touch_unique_app_count,-0.5874398993502674,unconstrained,22.122162910704503
+2,2,missing__telephony_event_count,0.8187019516271624,unconstrained,22.122162910704503
+2,2,missing__telephony_mobile_data_enabled_fraction,0.8187019516271632,unconstrained,22.122162910704503
+2,2,missing__keyboard_median_inter_event_interval_ms,-0.13343847764765343,unconstrained,22.122162910704503
+2,2,missing__keyboard_inter_event_interval_iqr_ms,-0.13343847764765324,unconstrained,22.122162910704503
+2,3,screen_unlock_event_count,0.010804829974863135,>= 0,10000.0
+2,3,touch_app_diversity,1.7160356597644774e-36,>= 0,10000.0
+2,3,unique_gsm_cell_count,0.0017550656888854804,>= 0,10000.0
+2,3,telephony_network_type_diversity,0.0042195213369128955,>= 0,10000.0
+2,3,unique_gsm_lac_count,9.494724114254578e-13,>= 0,10000.0
+2,3,telephony_mobile_data_enabled_fraction,-0.014259193961971254,<= 0,10000.0
+2,3,touch_scroll_index_change_median,-3.4438311059246704e-41,<= 0,10000.0
+2,3,touch_distinct_event_count,-8.796258722911422e-34,<= 0,10000.0
+2,3,missing__screen_unlock_event_count,0.0072021361021118785,unconstrained,10000.0
+2,3,missing__touch_app_diversity,-0.0015576694658043302,unconstrained,10000.0
+2,3,missing__unique_gsm_cell_count,0.006068513131673639,unconstrained,10000.0
+2,3,missing__telephony_network_type_diversity,0.00606851313167363,unconstrained,10000.0
+2,3,missing__unique_gsm_lac_count,0.0060685131316736305,unconstrained,10000.0
+2,3,missing__telephony_mobile_data_enabled_fraction,0.006068513131673625,unconstrained,10000.0
+2,3,missing__touch_scroll_index_change_median,0.0007734139832769965,unconstrained,10000.0
+2,3,missing__touch_distinct_event_count,-0.001557669465804325,unconstrained,10000.0
+2,4,app_foreground_event_count,0.6439361277008032,>= 0,67.23357536499334
+2,4,app_use_diversity,1.2461837292883906,>= 0,67.23357536499334
+2,4,telephony_network_type_diversity,0.17876260902935825,>= 0,67.23357536499334
+2,4,screen_unlock_event_count,0.2958888913445016,>= 0,67.23357536499334
+2,4,screen_off_event_count,2.1708736079649547e-10,>= 0,67.23357536499334
+2,4,telephony_mobile_data_enabled_fraction,-0.7678196984944997,<= 0,67.23357536499334
+2,4,keyboard_median_inter_event_interval_ms,-0.3356629134042129,<= 0,67.23357536499334
+2,4,activity_unknown_fraction,-0.0254169850055209,<= 0,67.23357536499334
+2,4,missing__app_foreground_event_count,-0.5298841230565758,unconstrained,67.23357536499334
+2,4,missing__app_use_diversity,-0.5298841230565758,unconstrained,67.23357536499334
+2,4,missing__telephony_network_type_diversity,0.29804158765862016,unconstrained,67.23357536499334
+2,4,missing__screen_unlock_event_count,0.36744872942371704,unconstrained,67.23357536499334
+2,4,missing__screen_off_event_count,0.36744872942371704,unconstrained,67.23357536499334
+2,4,missing__telephony_mobile_data_enabled_fraction,0.2980415876586201,unconstrained,67.23357536499334
+2,4,missing__keyboard_median_inter_event_interval_ms,-0.9127476874349287,unconstrained,67.23357536499334
+2,4,missing__activity_unknown_fraction,0.29804158765862004,unconstrained,67.23357536499334
+2,5,telephony_event_count,0.18910783520404967,>= 0,204.33597178569437
+2,5,touch_app_diversity,0.05598923769717588,>= 0,204.33597178569437
+2,5,app_foreground_event_count,0.30924175825932465,>= 0,204.33597178569437
+2,5,activity_active_hour_count,0.21651234877608722,>= 0,204.33597178569437
+2,5,app_use_diversity,0.5305400536558418,>= 0,204.33597178569437
+2,5,telephony_mobile_data_enabled_fraction,-0.5233207996916162,<= 0,204.33597178569437
+2,5,keyboard_median_inter_event_interval_ms,-0.00017765151441251448,<= 0,204.33597178569437
+2,5,screen_active_hour_count,-0.02250993994719841,<= 0,204.33597178569437
+2,5,missing__telephony_event_count,0.24268713044290377,unconstrained,204.33597178569437
+2,5,missing__touch_app_diversity,-0.11717655092783393,unconstrained,204.33597178569437
+2,5,missing__app_foreground_event_count,0.022313133357233075,unconstrained,204.33597178569437
+2,5,missing__activity_active_hour_count,0.24268713044290416,unconstrained,204.33597178569437
+2,5,missing__app_use_diversity,0.022313133357232937,unconstrained,204.33597178569437
+2,5,missing__telephony_mobile_data_enabled_fraction,0.24268713044290421,unconstrained,204.33597178569437
+2,5,missing__keyboard_median_inter_event_interval_ms,-0.27600952279101026,unconstrained,204.33597178569437
+2,5,missing__screen_active_hour_count,0.24268713044290427,unconstrained,204.33597178569437
+3,1,screen_unlock_event_count,0.8528085188940804,>= 0,22.122162910704503
+3,1,app_foreground_event_count,0.7787167663012301,>= 0,22.122162910704503
+3,1,screen_off_event_count,1.631175047471984e-14,>= 0,22.122162910704503
+3,1,telephony_event_count,8.068240728872235e-15,>= 0,22.122162910704503
+3,1,unique_gsm_lac_count,5.776317443717121e-16,>= 0,22.122162910704503
+3,1,telephony_mobile_data_enabled_fraction,-0.6771770187089666,<= 0,22.122162910704503
+3,1,keyboard_median_inter_event_interval_ms,-0.1092313219635559,<= 0,22.122162910704503
+3,1,touch_distinct_event_count,-2.0167712612649838e-17,<= 0,22.122162910704503
+3,1,missing__screen_unlock_event_count,0.7210028418113109,unconstrained,22.122162910704503
+3,1,missing__app_foreground_event_count,-0.7515680631510104,unconstrained,22.122162910704503
+3,1,missing__screen_off_event_count,0.7210028418113101,unconstrained,22.122162910704503
+3,1,missing__telephony_event_count,0.6174365569115354,unconstrained,22.122162910704503
+3,1,missing__unique_gsm_lac_count,0.6174365569115352,unconstrained,22.122162910704503
+3,1,missing__telephony_mobile_data_enabled_fraction,0.6174365569115354,unconstrained,22.122162910704503
+3,1,missing__keyboard_median_inter_event_interval_ms,-0.5664681031285762,unconstrained,22.122162910704503
+3,1,missing__touch_distinct_event_count,-1.859019388390662,unconstrained,22.122162910704503
+3,2,telephony_network_type_diversity,0.2675958384388384,>= 0,22.122162910704503
+3,2,app_use_diversity,1.9477673906722046,>= 0,22.122162910704503
+3,2,app_foreground_event_count,0.8217603234086391,>= 0,22.122162910704503
+3,2,touch_unique_app_count,3.348990489168809e-14,>= 0,22.122162910704503
+3,2,gsm_cell_transition_count,6.101135162744063e-13,>= 0,22.122162910704503
+3,2,telephony_mobile_data_enabled_fraction,-1.5120958365226265,<= 0,22.122162910704503
+3,2,keyboard_median_inter_event_interval_ms,-0.029207326848062064,<= 0,22.122162910704503
+3,2,activity_still_fraction,-0.6052483020818502,<= 0,22.122162910704503
+3,2,missing__telephony_network_type_diversity,0.4549493167604444,unconstrained,22.122162910704503
+3,2,missing__app_use_diversity,0.5451878759447389,unconstrained,22.122162910704503
+3,2,missing__app_foreground_event_count,0.5451878759447384,unconstrained,22.122162910704503
+3,2,missing__touch_unique_app_count,-0.4773636080834839,unconstrained,22.122162910704503
+3,2,missing__gsm_cell_transition_count,0.45494931676044614,unconstrained,22.122162910704503
+3,2,missing__telephony_mobile_data_enabled_fraction,0.4549493167604462,unconstrained,22.122162910704503
+3,2,missing__keyboard_median_inter_event_interval_ms,-0.3578122293056547,unconstrained,22.122162910704503
+3,2,missing__activity_still_fraction,0.4549493167604461,unconstrained,22.122162910704503
+3,3,app_foreground_event_count,0.6411557582401319,>= 0,38.56620421163472
+3,3,telephony_event_count,0.14318672304676178,>= 0,38.56620421163472
+3,3,activity_active_hour_count,1.5562060711051042e-17,>= 0,38.56620421163472
+3,3,screen_unlock_event_count,0.48320859304315206,>= 0,38.56620421163472
+3,3,screen_off_event_count,1.4130422564260769e-15,>= 0,38.56620421163472
+3,3,telephony_mobile_data_enabled_fraction,-1.798835785543304,<= 0,38.56620421163472
+3,3,keyboard_median_inter_event_interval_ms,-0.531797848523624,<= 0,38.56620421163472
+3,3,screen_active_hour_count,-0.3933981053960489,<= 0,38.56620421163472
+3,3,missing__app_foreground_event_count,-0.0719563901289535,unconstrained,38.56620421163472
+3,3,missing__telephony_event_count,0.28020862177375105,unconstrained,38.56620421163472
+3,3,missing__activity_active_hour_count,0.28020862177375094,unconstrained,38.56620421163472
+3,3,missing__screen_unlock_event_count,0.36745637451302987,unconstrained,38.56620421163472
+3,3,missing__screen_off_event_count,0.36745637451302976,unconstrained,38.56620421163472
+3,3,missing__telephony_mobile_data_enabled_fraction,0.2802086217737507,unconstrained,38.56620421163472
+3,3,missing__keyboard_median_inter_event_interval_ms,-1.5353953242233584,unconstrained,38.56620421163472
+3,3,missing__screen_active_hour_count,0.3674563745130296,unconstrained,38.56620421163472
+3,4,app_use_diversity,0.018551374846555807,>= 0,10000.0
+3,4,unique_gsm_cell_count,0.0032466917202591534,>= 0,10000.0
+3,4,night_screen_event_count,7.73194213347205e-25,>= 0,10000.0
+3,4,gsm_cell_transition_count,0.0003939457366441814,>= 0,10000.0
+3,4,screen_unlock_event_count,0.004634593975510613,>= 0,10000.0
+3,4,telephony_mobile_data_enabled_fraction,-0.012933172989613792,<= 0,10000.0
+3,4,keyboard_median_inter_event_interval_ms,-0.003036947829056751,<= 0,10000.0
+3,4,activity_unknown_fraction,-0.0021373160193985273,<= 0,10000.0
+3,4,missing__app_use_diversity,0.003566499373704717,unconstrained,10000.0
+3,4,missing__unique_gsm_cell_count,0.01156846229202475,unconstrained,10000.0
+3,4,missing__night_screen_event_count,0.011568462292024755,unconstrained,10000.0
+3,4,missing__gsm_cell_transition_count,0.011568462292024746,unconstrained,10000.0
+3,4,missing__screen_unlock_event_count,0.011568462292024751,unconstrained,10000.0
+3,4,missing__telephony_mobile_data_enabled_fraction,0.011568462292024757,unconstrained,10000.0
+3,4,missing__keyboard_median_inter_event_interval_ms,-0.0040010960385898995,unconstrained,10000.0
+3,4,missing__activity_unknown_fraction,0.011568462292024762,unconstrained,10000.0
+3,5,telephony_network_type_diversity,0.003011852213836853,>= 0,10000.0
+3,5,touch_app_diversity,0.00575201711041735,>= 0,10000.0
+3,5,telephony_event_count,0.0034942029792268147,>= 0,10000.0
+3,5,touch_scroll_index_change_median,0.004777278572532433,>= 0,10000.0
+3,5,activity_active_hour_count,0.0017120038804618138,>= 0,10000.0
+3,5,telephony_mobile_data_enabled_fraction,-0.013937574910650202,<= 0,10000.0
+3,5,screen_active_hour_count,-0.00022237007440826338,<= 0,10000.0
+3,5,message_distinct_event_count,-0.001182534555535711,<= 0,10000.0
+3,5,missing__telephony_network_type_diversity,0.00382135536831095,unconstrained,10000.0
+3,5,missing__touch_app_diversity,0.00012042670509619979,unconstrained,10000.0
+3,5,missing__telephony_event_count,0.0038213553683109796,unconstrained,10000.0
+3,5,missing__touch_scroll_index_change_median,0.002730302005930062,unconstrained,10000.0
+3,5,missing__activity_active_hour_count,0.003821355368310955,unconstrained,10000.0
+3,5,missing__telephony_mobile_data_enabled_fraction,0.0038213553683109545,unconstrained,10000.0
+3,5,missing__screen_active_hour_count,0.004899475098767877,unconstrained,10000.0
+3,5,missing__message_distinct_event_count,0.004965878157648541,unconstrained,10000.0
+4,1,screen_unlock_event_count,0.8343702123362099,>= 0,38.56620421163472
+4,1,touch_unique_app_count,0.3454674003000188,>= 0,38.56620421163472
+4,1,telephony_network_type_diversity,6.153115060723892e-29,>= 0,38.56620421163472
+4,1,app_foreground_event_count,0.6434859144214873,>= 0,38.56620421163472
+4,1,screen_event_count,0.03742050460262074,>= 0,38.56620421163472
+4,1,telephony_mobile_data_enabled_fraction,-1.2818970869885993,<= 0,38.56620421163472
+4,1,keyboard_median_inter_event_interval_ms,-1.8612202407235044e-15,<= 0,38.56620421163472
+4,1,screen_transition_count,-0.18854925671183664,<= 0,38.56620421163472
+4,1,missing__screen_unlock_event_count,0.7293674069190875,unconstrained,38.56620421163472
+4,1,missing__touch_unique_app_count,-0.7344029848584301,unconstrained,38.56620421163472
+4,1,missing__telephony_network_type_diversity,0.6163117887859259,unconstrained,38.56620421163472
+4,1,missing__app_foreground_event_count,0.1314189781946807,unconstrained,38.56620421163472
+4,1,missing__screen_event_count,0.729367406919087,unconstrained,38.56620421163472
+4,1,missing__telephony_mobile_data_enabled_fraction,0.6163117887859262,unconstrained,38.56620421163472
+4,1,missing__keyboard_median_inter_event_interval_ms,-0.5166669953233123,unconstrained,38.56620421163472
+4,1,missing__screen_transition_count,0.7293674069190869,unconstrained,38.56620421163472
+4,2,activity_still_fraction,0.008497636170275172,>= 0,3290.344562312671
+4,2,touch_app_diversity,0.0013460858309914175,>= 0,3290.344562312671
+4,2,telephony_network_type_diversity,0.0034121358040111265,>= 0,3290.344562312671
+4,2,screen_event_count,0.007295223688565182,>= 0,3290.344562312671
+4,2,telephony_event_count,0.02190775102323748,>= 0,3290.344562312671
+4,2,telephony_mobile_data_enabled_fraction,-0.04336603056418269,<= 0,3290.344562312671
+4,2,keyboard_long_pause_count_2s,-2.2080887331812482e-17,<= 0,3290.344562312671
+4,2,screen_active_hour_count,-0.009078933265759629,<= 0,3290.344562312671
+4,2,missing__activity_still_fraction,0.021819335925524118,unconstrained,3290.344562312671
+4,2,missing__touch_app_diversity,0.01591077409015023,unconstrained,3290.344562312671
+4,2,missing__telephony_network_type_diversity,0.021819335925524094,unconstrained,3290.344562312671
+4,2,missing__screen_event_count,0.02513198902706446,unconstrained,3290.344562312671
+4,2,missing__telephony_event_count,0.02181933592552409,unconstrained,3290.344562312671
+4,2,missing__telephony_mobile_data_enabled_fraction,0.021819335925524104,unconstrained,3290.344562312671
+4,2,missing__keyboard_long_pause_count_2s,-0.0027763835130927878,unconstrained,3290.344562312671
+4,2,missing__screen_active_hour_count,0.025131989027064473,unconstrained,3290.344562312671
+4,3,app_foreground_event_count,0.596041130868095,>= 0,67.23357536499334
+4,3,telephony_event_count,4.405890618214866e-18,>= 0,67.23357536499334
+4,3,screen_unlock_event_count,0.24739859378578086,>= 0,67.23357536499334
+4,3,app_use_diversity,1.2023381031109304,>= 0,67.23357536499334
+4,3,unique_gsm_cell_count,0.017304068923776453,>= 0,67.23357536499334
+4,3,telephony_mobile_data_enabled_fraction,-1.0288767079965115,<= 0,67.23357536499334
+4,3,keyboard_median_inter_event_interval_ms,-0.3570883297747704,<= 0,67.23357536499334
+4,3,activity_unknown_fraction,-0.4717420432059623,<= 0,67.23357536499334
+4,3,missing__app_foreground_event_count,-0.21107396263126058,unconstrained,67.23357536499334
+4,3,missing__telephony_event_count,0.2503284499921339,unconstrained,67.23357536499334
+4,3,missing__screen_unlock_event_count,0.39337828104951933,unconstrained,67.23357536499334
+4,3,missing__app_use_diversity,-0.21107396263126071,unconstrained,67.23357536499334
+4,3,missing__unique_gsm_cell_count,0.2503284499921345,unconstrained,67.23357536499334
+4,3,missing__telephony_mobile_data_enabled_fraction,0.2503284499921343,unconstrained,67.23357536499334
+4,3,missing__keyboard_median_inter_event_interval_ms,-0.51992237193439,unconstrained,67.23357536499334
+4,3,missing__activity_unknown_fraction,0.25032844999213444,unconstrained,67.23357536499334
+4,4,app_foreground_event_count,0.4058511408709909,>= 0,67.23357536499334
+4,4,touch_app_diversity,3.805101262566559e-30,>= 0,67.23357536499334
+4,4,app_use_diversity,1.1564803486467174,>= 0,67.23357536499334
+4,4,telephony_event_count,0.14278534393439657,>= 0,67.23357536499334
+4,4,telephony_network_type_diversity,1.2045368237930375e-12,>= 0,67.23357536499334
+4,4,telephony_mobile_data_enabled_fraction,-0.9050999388742788,<= 0,67.23357536499334
+4,4,keyboard_median_inter_event_interval_ms,-0.46803536396505474,<= 0,67.23357536499334
+4,4,night_screen_event_count,-1.027795960864532,<= 0,67.23357536499334
+4,4,missing__app_foreground_event_count,-0.1452589704577405,unconstrained,67.23357536499334
+4,4,missing__touch_app_diversity,-0.45970011477199585,unconstrained,67.23357536499334
+4,4,missing__app_use_diversity,-0.14525897045774058,unconstrained,67.23357536499334
+4,4,missing__telephony_event_count,0.206926268145223,unconstrained,67.23357536499334
+4,4,missing__telephony_network_type_diversity,0.2069262681452226,unconstrained,67.23357536499334
+4,4,missing__telephony_mobile_data_enabled_fraction,0.20692626814522247,unconstrained,67.23357536499334
+4,4,missing__keyboard_median_inter_event_interval_ms,-0.7283550521733494,unconstrained,67.23357536499334
+4,4,missing__night_screen_event_count,0.27262844091182964,unconstrained,67.23357536499334
+4,5,unique_gsm_lac_count,0.004023816255382398,>= 0,10000.0
+4,5,app_foreground_event_count,0.009417246930160352,>= 0,10000.0
+4,5,unique_gsm_cell_count,0.004214802995240177,>= 0,10000.0
+4,5,app_use_diversity,0.013384591306228629,>= 0,10000.0
+4,5,telephony_event_count,0.004166014047370955,>= 0,10000.0
+4,5,telephony_mobile_data_enabled_fraction,-0.012127543619341295,<= 0,10000.0
+4,5,keyboard_median_inter_event_interval_ms,-1.9107216356015428e-16,<= 0,10000.0
+4,5,touch_distinct_event_count,-3.3993573626038314e-51,<= 0,10000.0
+4,5,missing__unique_gsm_lac_count,0.006758990885264211,unconstrained,10000.0
+4,5,missing__app_foreground_event_count,-0.0010622982151618733,unconstrained,10000.0
+4,5,missing__unique_gsm_cell_count,0.006758990885264215,unconstrained,10000.0
+4,5,missing__app_use_diversity,-0.0010622982151618772,unconstrained,10000.0
+4,5,missing__telephony_event_count,0.006758990885264207,unconstrained,10000.0
+4,5,missing__telephony_mobile_data_enabled_fraction,0.006758990885264207,unconstrained,10000.0
+4,5,missing__keyboard_median_inter_event_interval_ms,-0.008718689658730223,unconstrained,10000.0
+4,5,missing__touch_distinct_event_count,-0.004977018943809416,unconstrained,10000.0
+5,1,app_foreground_event_count,0.7677982714635858,>= 0,67.23357536499334
+5,1,app_use_diversity,1.1806877446617747,>= 0,67.23357536499334
+5,1,telephony_network_type_diversity,1.746589401716215e-14,>= 0,67.23357536499334
+5,1,touch_app_diversity,9.577200529715524e-24,>= 0,67.23357536499334
+5,1,telephony_event_count,0.11730642642865712,>= 0,67.23357536499334
+5,1,keyboard_inter_event_interval_iqr_ms,-0.2741615458222555,<= 0,67.23357536499334
+5,1,telephony_mobile_data_enabled_fraction,-0.71372598515951,<= 0,67.23357536499334
+5,1,night_screen_event_count,-0.7939690137998275,<= 0,67.23357536499334
+5,1,missing__app_foreground_event_count,0.13563727713759105,unconstrained,67.23357536499334
+5,1,missing__app_use_diversity,0.13563727713759127,unconstrained,67.23357536499334
+5,1,missing__telephony_network_type_diversity,0.26951676830642607,unconstrained,67.23357536499334
+5,1,missing__touch_app_diversity,-0.2704874550745203,unconstrained,67.23357536499334
+5,1,missing__telephony_event_count,0.26951676830642635,unconstrained,67.23357536499334
+5,1,missing__keyboard_inter_event_interval_iqr_ms,-0.3729779460537143,unconstrained,67.23357536499334
+5,1,missing__telephony_mobile_data_enabled_fraction,0.26951676830642635,unconstrained,67.23357536499334
+5,1,missing__night_screen_event_count,0.400898781508969,unconstrained,67.23357536499334
+5,2,screen_event_count,0.17305405874400012,>= 0,204.33597178569437
+5,2,screen_off_event_count,0.12964383285779496,>= 0,204.33597178569437
+5,2,screen_on_event_count,0.18150189976699194,>= 0,204.33597178569437
+5,2,activity_active_hour_count,0.24282248524539093,>= 0,204.33597178569437
+5,2,screen_unlock_event_count,0.33679531229952897,>= 0,204.33597178569437
+5,2,keyboard_median_inter_event_interval_ms,-0.0971959861584097,<= 0,204.33597178569437
+5,2,telephony_mobile_data_enabled_fraction,-0.3350257586324372,<= 0,204.33597178569437
+5,2,message_distinct_event_count,-0.2182316611810305,<= 0,204.33597178569437
+5,2,missing__screen_event_count,0.19304612851055586,unconstrained,204.33597178569437
+5,2,missing__screen_off_event_count,0.19304612851055544,unconstrained,204.33597178569437
+5,2,missing__screen_on_event_count,0.19304612851055536,unconstrained,204.33597178569437
+5,2,missing__activity_active_hour_count,0.15295411728305217,unconstrained,204.33597178569437
+5,2,missing__screen_unlock_event_count,0.19304612851055536,unconstrained,204.33597178569437
+5,2,missing__keyboard_median_inter_event_interval_ms,-0.14946626242194797,unconstrained,204.33597178569437
+5,2,missing__telephony_mobile_data_enabled_fraction,0.15295411728305225,unconstrained,204.33597178569437
+5,2,missing__message_distinct_event_count,0.215132474966617,unconstrained,204.33597178569437
+5,3,unique_gsm_cell_count,0.11166016583308788,>= 0,38.56620421163472
+5,3,app_foreground_event_count,0.6523486079792239,>= 0,38.56620421163472
+5,3,gsm_cell_transition_count,7.663102936583103e-13,>= 0,38.56620421163472
+5,3,telephony_network_type_diversity,9.754286796322224e-16,>= 0,38.56620421163472
+5,3,telephony_event_count,5.1351530121003935e-15,>= 0,38.56620421163472
+5,3,telephony_mobile_data_enabled_fraction,-0.962771860198304,<= 0,38.56620421163472
+5,3,activity_unknown_fraction,-0.24723319854952258,<= 0,38.56620421163472
+5,3,keyboard_deletion_event_count,-7.21283128151702e-17,<= 0,38.56620421163472
+5,3,missing__unique_gsm_cell_count,0.3814153331680574,unconstrained,38.56620421163472
+5,3,missing__app_foreground_event_count,-0.5021767126286361,unconstrained,38.56620421163472
+5,3,missing__gsm_cell_transition_count,0.3814153331680577,unconstrained,38.56620421163472
+5,3,missing__telephony_network_type_diversity,0.38141533316805704,unconstrained,38.56620421163472
+5,3,missing__telephony_event_count,0.3814153331680574,unconstrained,38.56620421163472
+5,3,missing__telephony_mobile_data_enabled_fraction,0.3814153331680576,unconstrained,38.56620421163472
+5,3,missing__activity_unknown_fraction,0.38141533316805765,unconstrained,38.56620421163472
+5,3,missing__keyboard_deletion_event_count,-1.5645929732085417,unconstrained,38.56620421163472
+5,4,activity_state_diversity,6.683673586627253e-16,>= 0,10000.0
+5,4,app_foreground_event_count,0.008751025730568237,>= 0,10000.0
+5,4,screen_off_event_count,0.004525024912134064,>= 0,10000.0
+5,4,activity_transition_count,6.710958562629778e-30,>= 0,10000.0
+5,4,telephony_network_type_diversity,0.0009682220560287373,>= 0,10000.0
+5,4,telephony_mobile_data_enabled_fraction,-0.01671829922412155,<= 0,10000.0
+5,4,keyboard_median_inter_event_interval_ms,-0.0010597549399356991,<= 0,10000.0
+5,4,night_screen_event_count,-0.005666436795998573,<= 0,10000.0
+5,4,missing__activity_state_diversity,0.0017152163600900056,unconstrained,10000.0
+5,4,missing__app_foreground_event_count,-0.00470983108489829,unconstrained,10000.0
+5,4,missing__screen_off_event_count,0.002509705457045133,unconstrained,10000.0
+5,4,missing__activity_transition_count,0.0017152163600900037,unconstrained,10000.0
+5,4,missing__telephony_network_type_diversity,0.001715216360090004,unconstrained,10000.0
+5,4,missing__telephony_mobile_data_enabled_fraction,0.0017152163600899978,unconstrained,10000.0
+5,4,missing__keyboard_median_inter_event_interval_ms,-0.010753728139495272,unconstrained,10000.0
+5,4,missing__night_screen_event_count,0.00250970545704513,unconstrained,10000.0
+5,5,unique_gsm_lac_count,0.142699879687481,>= 0,38.56620421163472
+5,5,telephony_event_count,0.3813663710549192,>= 0,38.56620421163472
+5,5,telephony_network_type_diversity,0.6094089419211304,>= 0,38.56620421163472
+5,5,touch_app_diversity,0.35873755424697923,>= 0,38.56620421163472
+5,5,app_foreground_event_count,0.7602685984667991,>= 0,38.56620421163472
+5,5,telephony_mobile_data_enabled_fraction,-1.7640342151625066,<= 0,38.56620421163472
+5,5,screen_active_hour_count,-0.06962169561454516,<= 0,38.56620421163472
+5,5,keyboard_median_inter_event_interval_ms,-0.4929761051785399,<= 0,38.56620421163472
+5,5,missing__unique_gsm_lac_count,0.4994273426292331,unconstrained,38.56620421163472
+5,5,missing__telephony_event_count,0.49942734262923355,unconstrained,38.56620421163472
+5,5,missing__telephony_network_type_diversity,0.4994273426292341,unconstrained,38.56620421163472
+5,5,missing__touch_app_diversity,-0.06681360921673968,unconstrained,38.56620421163472
+5,5,missing__app_foreground_event_count,-0.06681360921673873,unconstrained,38.56620421163472
+5,5,missing__telephony_mobile_data_enabled_fraction,0.4994273426292342,unconstrained,38.56620421163472
+5,5,missing__screen_active_hour_count,0.4994273426292343,unconstrained,38.56620421163472
+5,5,missing__keyboard_median_inter_event_interval_ms,-0.629135269804171,unconstrained,38.56620421163472
+6,1,activity_active_hour_count,2.0478672965965673e-16,>= 0,0.2592943797404667
+6,1,gsm_cell_transition_count,1.4219775560323368e-14,>= 0,0.2592943797404667
+6,1,telephony_network_type_diversity,2.0825097943582167e-16,>= 0,0.2592943797404667
+6,1,activity_transition_count,6.744546909089221e-16,>= 0,0.2592943797404667
+6,1,telephony_event_count,0.5655390533685597,>= 0,0.2592943797404667
+6,1,telephony_mobile_data_enabled_fraction,-2.1708402880258646,<= 0,0.2592943797404667
+6,1,keyboard_median_inter_event_interval_ms,-0.579738085930995,<= 0,0.2592943797404667
+6,1,touch_scroll_event_count,-3.535111909399312e-17,<= 0,0.2592943797404667
+6,1,missing__activity_active_hour_count,1.1075025200832027,unconstrained,0.2592943797404667
+6,1,missing__gsm_cell_transition_count,1.1075025200832034,unconstrained,0.2592943797404667
+6,1,missing__telephony_network_type_diversity,1.1075025200832127,unconstrained,0.2592943797404667
+6,1,missing__activity_transition_count,1.1075025200832065,unconstrained,0.2592943797404667
+6,1,missing__telephony_event_count,1.1075025200832085,unconstrained,0.2592943797404667
+6,1,missing__telephony_mobile_data_enabled_fraction,1.1075025200832067,unconstrained,0.2592943797404667
+6,1,missing__keyboard_median_inter_event_interval_ms,-0.47772635665323604,unconstrained,0.2592943797404667
+6,1,missing__touch_scroll_event_count,-6.255171918825173,unconstrained,0.2592943797404667
+6,2,telephony_network_type_diversity,0.16271705402336334,>= 0,67.23357536499334
+6,2,screen_unlock_event_count,0.7253799403892638,>= 0,67.23357536499334
+6,2,app_use_diversity,1.1365861404907227,>= 0,67.23357536499334
+6,2,touch_app_diversity,0.01991170391231256,>= 0,67.23357536499334
+6,2,unique_gsm_cell_count,0.04840112713216196,>= 0,67.23357536499334
+6,2,telephony_mobile_data_enabled_fraction,-1.0826692244536218,<= 0,67.23357536499334
+6,2,night_screen_event_count,-0.7644131722776801,<= 0,67.23357536499334
+6,2,screen_active_hour_count,-0.013636589979407223,<= 0,67.23357536499334
+6,2,missing__telephony_network_type_diversity,0.1584925135759025,unconstrained,67.23357536499334
+6,2,missing__screen_unlock_event_count,0.15849251357590421,unconstrained,67.23357536499334
+6,2,missing__app_use_diversity,0.16542598178280102,unconstrained,67.23357536499334
+6,2,missing__touch_app_diversity,-0.188368103959583,unconstrained,67.23357536499334
+6,2,missing__unique_gsm_cell_count,0.158492513575904,unconstrained,67.23357536499334
+6,2,missing__telephony_mobile_data_enabled_fraction,0.15849251357590433,unconstrained,67.23357536499334
+6,2,missing__night_screen_event_count,0.15849251357590438,unconstrained,67.23357536499334
+6,2,missing__screen_active_hour_count,0.15849251357590466,unconstrained,67.23357536499334
+6,3,screen_unlock_event_count,0.3145483664272362,>= 0,117.21022975334817
+6,3,touch_unique_app_count,0.2671233009917199,>= 0,117.21022975334817
+6,3,touch_scroll_direction_change_count,0.15801926090978288,>= 0,117.21022975334817
+6,3,app_use_diversity,0.7667067823106903,>= 0,117.21022975334817
+6,3,app_foreground_event_count,0.3396554000164591,>= 0,117.21022975334817
+6,3,telephony_mobile_data_enabled_fraction,-0.4145089329521628,<= 0,117.21022975334817
+6,3,keyboard_median_inter_event_interval_ms,-3.2524424304655818e-15,<= 0,117.21022975334817
+6,3,activity_still_fraction,-0.21581758529614525,<= 0,117.21022975334817
+6,3,missing__screen_unlock_event_count,0.4586898695446762,unconstrained,117.21022975334817
+6,3,missing__touch_unique_app_count,-0.15638527212051967,unconstrained,117.21022975334817
+6,3,missing__touch_scroll_direction_change_count,0.14658168425496798,unconstrained,117.21022975334817
+6,3,missing__app_use_diversity,0.13949786479890344,unconstrained,117.21022975334817
+6,3,missing__app_foreground_event_count,0.13949786479890328,unconstrained,117.21022975334817
+6,3,missing__telephony_mobile_data_enabled_fraction,0.3671547194038907,unconstrained,117.21022975334817
+6,3,missing__keyboard_median_inter_event_interval_ms,-0.37507359809951824,unconstrained,117.21022975334817
+6,3,missing__activity_still_fraction,0.36715471940389055,unconstrained,117.21022975334817
+6,4,unique_gsm_lac_count,8.556514992208067e-16,>= 0,38.56620421163472
+6,4,telephony_network_type_diversity,9.585569513019417e-16,>= 0,38.56620421163472
+6,4,touch_app_diversity,6.827975204162074e-16,>= 0,38.56620421163472
+6,4,telephony_event_count,0.523991455578459,>= 0,38.56620421163472
+6,4,touch_unique_app_count,0.11716005023670491,>= 0,38.56620421163472
+6,4,telephony_mobile_data_enabled_fraction,-1.7329270329620867,<= 0,38.56620421163472
+6,4,keyboard_median_inter_event_interval_ms,-0.48304634507852967,<= 0,38.56620421163472
+6,4,activity_state_diversity,-0.40336992034215413,<= 0,38.56620421163472
+6,4,missing__unique_gsm_lac_count,0.36875706391376445,unconstrained,38.56620421163472
+6,4,missing__telephony_network_type_diversity,0.3687570639137656,unconstrained,38.56620421163472
+6,4,missing__touch_app_diversity,-0.2694580050982549,unconstrained,38.56620421163472
+6,4,missing__telephony_event_count,0.3687570639137658,unconstrained,38.56620421163472
+6,4,missing__touch_unique_app_count,-0.2694580050982549,unconstrained,38.56620421163472
+6,4,missing__telephony_mobile_data_enabled_fraction,0.36875706391376556,unconstrained,38.56620421163472
+6,4,missing__keyboard_median_inter_event_interval_ms,-0.342817599830282,unconstrained,38.56620421163472
+6,4,missing__activity_state_diversity,0.3687570639137659,unconstrained,38.56620421163472
+6,5,telephony_event_count,0.0060348432530828566,>= 0,10000.0
+6,5,app_foreground_event_count,0.008835663340404427,>= 0,10000.0
+6,5,telephony_network_type_diversity,0.001676810069577924,>= 0,10000.0
+6,5,screen_off_event_count,0.003518223878096919,>= 0,10000.0
+6,5,app_use_diversity,0.01682691736569356,>= 0,10000.0
+6,5,telephony_mobile_data_enabled_fraction,-0.011831425808359894,<= 0,10000.0
+6,5,keyboard_median_inter_event_interval_ms,-0.005676757301690787,<= 0,10000.0
+6,5,screen_active_hour_count,-0.0030301575981313187,<= 0,10000.0
+6,5,missing__telephony_event_count,0.007326090553151972,unconstrained,10000.0
+6,5,missing__app_foreground_event_count,0.00047703992445747917,unconstrained,10000.0
+6,5,missing__telephony_network_type_diversity,0.007326090553151977,unconstrained,10000.0
+6,5,missing__screen_off_event_count,0.0084300663697158,unconstrained,10000.0
+6,5,missing__app_use_diversity,0.0004770399244575165,unconstrained,10000.0
+6,5,missing__telephony_mobile_data_enabled_fraction,0.007326090553151982,unconstrained,10000.0
+6,5,missing__keyboard_median_inter_event_interval_ms,-0.009277863632839122,unconstrained,10000.0
+6,5,missing__screen_active_hour_count,0.00843006636971581,unconstrained,10000.0
+7,1,telephony_event_count,0.004559896304561337,>= 0,10000.0
+7,1,screen_unlock_event_count,0.009111484741927665,>= 0,10000.0
+7,1,app_foreground_event_count,0.007332183399266684,>= 0,10000.0
+7,1,gsm_cell_transition_count,0.001472729594260952,>= 0,10000.0
+7,1,unique_gsm_cell_count,0.002747731180616808,>= 0,10000.0
+7,1,telephony_mobile_data_enabled_fraction,-0.016148810707444863,<= 0,10000.0
+7,1,activity_unknown_fraction,-0.0060387292742342304,<= 0,10000.0
+7,1,night_screen_event_count,-0.008365545135954713,<= 0,10000.0
+7,1,missing__telephony_event_count,0.007207198645139793,unconstrained,10000.0
+7,1,missing__screen_unlock_event_count,0.008335054098732057,unconstrained,10000.0
+7,1,missing__app_foreground_event_count,0.0003700001570049108,unconstrained,10000.0
+7,1,missing__gsm_cell_transition_count,0.007207198645139753,unconstrained,10000.0
+7,1,missing__unique_gsm_cell_count,0.007207198645139767,unconstrained,10000.0
+7,1,missing__telephony_mobile_data_enabled_fraction,0.0072071986451397825,unconstrained,10000.0
+7,1,missing__activity_unknown_fraction,0.007207198645139772,unconstrained,10000.0
+7,1,missing__night_screen_event_count,0.008335054098732045,unconstrained,10000.0
+7,2,touch_scroll_direction_change_count,6.530551979208025e-15,>= 0,0.02807216203941177
+7,2,app_foreground_event_count,0.6711840516671138,>= 0,0.02807216203941177
+7,2,unique_gsm_cell_count,5.72493398314441e-20,>= 0,0.02807216203941177
+7,2,unique_foreground_apps,2.4066709557741843,>= 0,0.02807216203941177
+7,2,touch_unique_app_count,8.666684749742561e-34,>= 0,0.02807216203941177
+7,2,telephony_mobile_data_enabled_fraction,-2.4950392113818056,<= 0,0.02807216203941177
+7,2,screen_transition_count,-0.5179244981208908,<= 0,0.02807216203941177
+7,2,night_screen_event_count,-2.451960037715564,<= 0,0.02807216203941177
+7,2,missing__touch_scroll_direction_change_count,3.2863307679054263,unconstrained,0.02807216203941177
+7,2,missing__app_foreground_event_count,1.7079040088984279,unconstrained,0.02807216203941177
+7,2,missing__unique_gsm_cell_count,0.5863250989747232,unconstrained,0.02807216203941177
+7,2,missing__unique_foreground_apps,1.7079040088993043,unconstrained,0.02807216203941177
+7,2,missing__touch_unique_app_count,-7.336504217226049,unconstrained,0.02807216203941177
+7,2,missing__telephony_mobile_data_enabled_fraction,0.5863250989748116,unconstrained,0.02807216203941177
+7,2,missing__screen_transition_count,0.586325098974803,unconstrained,0.02807216203941177
+7,2,missing__night_screen_event_count,0.5863250989748071,unconstrained,0.02807216203941177
+7,3,touch_scroll_index_change_median,0.4241766392039094,>= 0,67.23357536499334
+7,3,screen_unlock_event_count,0.49421004538909974,>= 0,67.23357536499334
+7,3,telephony_network_type_diversity,0.23066332817755508,>= 0,67.23357536499334
+7,3,unique_gsm_lac_count,9.257456287572345e-16,>= 0,67.23357536499334
+7,3,touch_app_diversity,0.03260045693554398,>= 0,67.23357536499334
+7,3,telephony_mobile_data_enabled_fraction,-0.6469017517933399,<= 0,67.23357536499334
+7,3,keyboard_median_inter_event_interval_ms,-0.2311256131670502,<= 0,67.23357536499334
+7,3,night_screen_event_count,-0.5292394932981618,<= 0,67.23357536499334
+7,3,missing__touch_scroll_index_change_median,-0.16836993817887275,unconstrained,67.23357536499334
+7,3,missing__screen_unlock_event_count,0.4989292846656755,unconstrained,67.23357536499334
+7,3,missing__telephony_network_type_diversity,0.43824672137374454,unconstrained,67.23357536499334
+7,3,missing__unique_gsm_lac_count,0.4382467213737449,unconstrained,67.23357536499334
+7,3,missing__touch_app_diversity,-0.8197091114153675,unconstrained,67.23357536499334
+7,3,missing__telephony_mobile_data_enabled_fraction,0.4382467213737446,unconstrained,67.23357536499334
+7,3,missing__keyboard_median_inter_event_interval_ms,-0.8018521779722335,unconstrained,67.23357536499334
+7,3,missing__night_screen_event_count,0.4989292846656761,unconstrained,67.23357536499334
+7,4,app_foreground_event_count,0.698599963759465,>= 0,22.122162910704503
+7,4,telephony_event_count,0.204880759392053,>= 0,22.122162910704503
+7,4,screen_event_count,0.04000286323651276,>= 0,22.122162910704503
+7,4,screen_on_event_count,0.10606691916567133,>= 0,22.122162910704503
+7,4,unique_gsm_cell_count,0.16870478948268106,>= 0,22.122162910704503
+7,4,telephony_mobile_data_enabled_fraction,-1.9563359251916903,<= 0,22.122162910704503
+7,4,keyboard_median_inter_event_interval_ms,-0.3777992971727137,<= 0,22.122162910704503
+7,4,keyboard_deletion_event_count,-1.4350334843564017e-18,<= 0,22.122162910704503
+7,4,missing__app_foreground_event_count,-0.5817467864539132,unconstrained,22.122162910704503
+7,4,missing__telephony_event_count,0.23292916964941052,unconstrained,22.122162910704503
+7,4,missing__screen_event_count,0.5201564068474938,unconstrained,22.122162910704503
+7,4,missing__screen_on_event_count,0.5201564068474933,unconstrained,22.122162910704503
+7,4,missing__unique_gsm_cell_count,0.2329291696494105,unconstrained,22.122162910704503
+7,4,missing__telephony_mobile_data_enabled_fraction,0.2329291696494106,unconstrained,22.122162910704503
+7,4,missing__keyboard_median_inter_event_interval_ms,-0.2950862799476788,unconstrained,22.122162910704503
+7,4,missing__keyboard_deletion_event_count,-0.2950862799476787,unconstrained,22.122162910704503
+7,5,screen_off_event_count,2.8296792689750504e-17,>= 0,4.175318936560405
+7,5,unique_gsm_lac_count,9.030080839951726e-16,>= 0,4.175318936560405
+7,5,app_use_diversity,2.7243596183638426,>= 0,4.175318936560405
+7,5,gsm_cell_transition_count,0.07218400459291506,>= 0,4.175318936560405
+7,5,screen_unlock_event_count,1.6410136508061535,>= 0,4.175318936560405
+7,5,telephony_mobile_data_enabled_fraction,-2.365686878695334,<= 0,4.175318936560405
+7,5,activity_still_fraction,-0.14330252891891399,<= 0,4.175318936560405
+7,5,median_unlocked_session_duration_seconds,-2.2353541896294153,<= 0,4.175318936560405
+7,5,missing__screen_off_event_count,0.14341869897699128,unconstrained,4.175318936560405
+7,5,missing__unique_gsm_lac_count,-0.06544552350102581,unconstrained,4.175318936560405
+7,5,missing__app_use_diversity,0.740160686827631,unconstrained,4.175318936560405
+7,5,missing__gsm_cell_transition_count,-0.06544552350102498,unconstrained,4.175318936560405
+7,5,missing__screen_unlock_event_count,0.14341869897699186,unconstrained,4.175318936560405
+7,5,missing__telephony_mobile_data_enabled_fraction,-0.06544552350102557,unconstrained,4.175318936560405
+7,5,missing__activity_still_fraction,-0.06544552350102618,unconstrained,4.175318936560405
+7,5,missing__median_unlocked_session_duration_seconds,0.8680766368523489,unconstrained,4.175318936560405
+8,1,app_use_diversity,0.7698936189218751,>= 0,117.21022975334817
+8,1,touch_app_diversity,0.12181815441993102,>= 0,117.21022975334817
+8,1,unique_foreground_apps,0.44208996387042687,>= 0,117.21022975334817
+8,1,app_foreground_event_count,0.4915472826176761,>= 0,117.21022975334817
+8,1,touch_scroll_index_change_median,0.49193108706222527,>= 0,117.21022975334817
+8,1,telephony_mobile_data_enabled_fraction,-0.4686286573261657,<= 0,117.21022975334817
+8,1,activity_state_diversity,-0.11996230487587348,<= 0,117.21022975334817
+8,1,message_distinct_event_count,-0.1013686307972852,<= 0,117.21022975334817
+8,1,missing__app_use_diversity,0.051632669760361204,unconstrained,117.21022975334817
+8,1,missing__touch_app_diversity,-0.17640582740722321,unconstrained,117.21022975334817
+8,1,missing__unique_foreground_apps,0.05163266976036116,unconstrained,117.21022975334817
+8,1,missing__app_foreground_event_count,0.051632669760361176,unconstrained,117.21022975334817
+8,1,missing__touch_scroll_index_change_median,-0.046518958482362566,unconstrained,117.21022975334817
+8,1,missing__telephony_mobile_data_enabled_fraction,0.3862414758436783,unconstrained,117.21022975334817
+8,1,missing__activity_state_diversity,0.38624147584367835,unconstrained,117.21022975334817
+8,1,missing__message_distinct_event_count,0.49959786870938666,unconstrained,117.21022975334817
+8,2,telephony_network_type_diversity,0.006463663647968207,>= 0,10000.0
+8,2,app_foreground_event_count,0.007148372061225986,>= 0,10000.0
+8,2,screen_unlock_event_count,0.0061865427910501175,>= 0,10000.0
+8,2,unique_gsm_cell_count,0.005037586352903583,>= 0,10000.0
+8,2,touch_scroll_direction_change_count,0.0063584815619720705,>= 0,10000.0
+8,2,telephony_mobile_data_enabled_fraction,-0.014272562717951067,<= 0,10000.0
+8,2,keyboard_median_inter_event_interval_ms,-0.007165153302153466,<= 0,10000.0
+8,2,keyboard_inter_event_interval_iqr_ms,-0.005984279284645598,<= 0,10000.0
+8,2,missing__telephony_network_type_diversity,0.008527568868887411,unconstrained,10000.0
+8,2,missing__app_foreground_event_count,0.0011766954840072908,unconstrained,10000.0
+8,2,missing__screen_unlock_event_count,0.009795188970939728,unconstrained,10000.0
+8,2,missing__unique_gsm_cell_count,0.008527568868887407,unconstrained,10000.0
+8,2,missing__touch_scroll_direction_change_count,0.002712377430889114,unconstrained,10000.0
+8,2,missing__telephony_mobile_data_enabled_fraction,0.00852756886888741,unconstrained,10000.0
+8,2,missing__keyboard_median_inter_event_interval_ms,-0.004147759984312588,unconstrained,10000.0
+8,2,missing__keyboard_inter_event_interval_iqr_ms,-0.004147759984312564,unconstrained,10000.0
+8,3,app_use_diversity,0.01389530571413115,>= 0,10000.0
+8,3,app_foreground_event_count,0.008217206984297143,>= 0,10000.0
+8,3,gsm_cell_transition_count,4.372773864552665e-28,>= 0,10000.0
+8,3,telephony_network_type_diversity,0.0018231213295486365,>= 0,10000.0
+8,3,unique_gsm_cell_count,9.458506315668758e-17,>= 0,10000.0
+8,3,telephony_mobile_data_enabled_fraction,-0.013667368945751154,<= 0,10000.0
+8,3,keyboard_median_inter_event_interval_ms,-0.00398299223279197,<= 0,10000.0
+8,3,screen_active_hour_count,-0.003455563696723504,<= 0,10000.0
+8,3,missing__app_use_diversity,-0.00011531097212211483,unconstrained,10000.0
+8,3,missing__app_foreground_event_count,-0.00011531097212212223,unconstrained,10000.0
+8,3,missing__gsm_cell_transition_count,0.007386412601982648,unconstrained,10000.0
+8,3,missing__telephony_network_type_diversity,0.00738641260198266,unconstrained,10000.0
+8,3,missing__unique_gsm_cell_count,0.007386412601982653,unconstrained,10000.0
+8,3,missing__telephony_mobile_data_enabled_fraction,0.007386412601982656,unconstrained,10000.0
+8,3,missing__keyboard_median_inter_event_interval_ms,-0.007671103225088496,unconstrained,10000.0
+8,3,missing__screen_active_hour_count,0.007386412601982648,unconstrained,10000.0
+8,4,touch_app_diversity,6.92977823211856e-32,>= 0,10000.0
+8,4,telephony_event_count,0.008364100792268271,>= 0,10000.0
+8,4,activity_active_hour_count,0.00020240318677597444,>= 0,10000.0
+8,4,app_use_diversity,0.015690805234776933,>= 0,10000.0
+8,4,telephony_network_type_diversity,0.0021044162255111115,>= 0,10000.0
+8,4,telephony_mobile_data_enabled_fraction,-0.01094959919707981,<= 0,10000.0
+8,4,keyboard_median_inter_event_interval_ms,-7.28066422147233e-05,<= 0,10000.0
+8,4,touch_click_event_count,-8.952821595089794e-35,<= 0,10000.0
+8,4,missing__touch_app_diversity,0.00017269295902638953,unconstrained,10000.0
+8,4,missing__telephony_event_count,0.005731584036548041,unconstrained,10000.0
+8,4,missing__activity_active_hour_count,0.005731584036548025,unconstrained,10000.0
+8,4,missing__app_use_diversity,0.0052660272006729205,unconstrained,10000.0
+8,4,missing__telephony_network_type_diversity,0.005731584036548028,unconstrained,10000.0
+8,4,missing__telephony_mobile_data_enabled_fraction,0.005731584036548027,unconstrained,10000.0
+8,4,missing__keyboard_median_inter_event_interval_ms,-0.006724650607234564,unconstrained,10000.0
+8,4,missing__touch_click_event_count,0.00017269295902638983,unconstrained,10000.0
+8,5,unique_foreground_apps,0.35081590059482365,>= 0,117.21022975334817
+8,5,screen_unlock_event_count,0.6209004240725896,>= 0,117.21022975334817
+8,5,unique_gsm_cell_count,2.9102803728036325e-15,>= 0,117.21022975334817
+8,5,telephony_event_count,0.06279760986560849,>= 0,117.21022975334817
+8,5,screen_event_count,0.20218861505078314,>= 0,117.21022975334817
+8,5,telephony_mobile_data_enabled_fraction,-0.9585379107010709,<= 0,117.21022975334817
+8,5,keyboard_median_inter_event_interval_ms,-0.13973593571691809,<= 0,117.21022975334817
+8,5,activity_unknown_fraction,-0.1394314261777305,<= 0,117.21022975334817
+8,5,missing__unique_foreground_apps,-0.23212679124991117,unconstrained,117.21022975334817
+8,5,missing__screen_unlock_event_count,0.26372649597711656,unconstrained,117.21022975334817
+8,5,missing__unique_gsm_cell_count,0.1811979348955239,unconstrained,117.21022975334817
+8,5,missing__telephony_event_count,0.18119793489552363,unconstrained,117.21022975334817
+8,5,missing__screen_event_count,0.26372649597711645,unconstrained,117.21022975334817
+8,5,missing__telephony_mobile_data_enabled_fraction,0.1811979348955237,unconstrained,117.21022975334817
+8,5,missing__keyboard_median_inter_event_interval_ms,-0.4590769192275094,unconstrained,117.21022975334817
+8,5,missing__activity_unknown_fraction,0.1811979348955238,unconstrained,117.21022975334817
+9,1,telephony_event_count,0.005717377563729268,>= 0,10000.0
+9,1,telephony_network_type_diversity,0.0038595421301890697,>= 0,10000.0
+9,1,app_foreground_event_count,0.006183217124205753,>= 0,10000.0
+9,1,screen_unlock_event_count,0.007483706705524196,>= 0,10000.0
+9,1,touch_app_diversity,0.0013477717174454442,>= 0,10000.0
+9,1,telephony_mobile_data_enabled_fraction,-0.013527370262399195,<= 0,10000.0
+9,1,night_screen_event_count,-0.011965617450331313,<= 0,10000.0
+9,1,screen_active_hour_count,-0.0014589449031712374,<= 0,10000.0
+9,1,missing__telephony_event_count,0.004428958221473402,unconstrained,10000.0
+9,1,missing__telephony_network_type_diversity,0.004428958221473371,unconstrained,10000.0
+9,1,missing__app_foreground_event_count,-0.0014659777470214937,unconstrained,10000.0
+9,1,missing__screen_unlock_event_count,0.005205241952780899,unconstrained,10000.0
+9,1,missing__touch_app_diversity,-0.005465824722712034,unconstrained,10000.0
+9,1,missing__telephony_mobile_data_enabled_fraction,0.004428958221473403,unconstrained,10000.0
+9,1,missing__night_screen_event_count,0.005205241952780883,unconstrained,10000.0
+9,1,missing__screen_active_hour_count,0.005205241952780876,unconstrained,10000.0
+9,2,screen_unlock_event_count,0.33228927418908905,>= 0,38.56620421163472
+9,2,app_foreground_event_count,0.4445881427447582,>= 0,38.56620421163472
+9,2,screen_off_event_count,0.06643193636524398,>= 0,38.56620421163472
+9,2,telephony_event_count,0.9837482203670158,>= 0,38.56620421163472
+9,2,screen_event_count,0.17677609867598584,>= 0,38.56620421163472
+9,2,telephony_mobile_data_enabled_fraction,-0.696873742332543,<= 0,38.56620421163472
+9,2,keyboard_median_inter_event_interval_ms,-0.1439231594869113,<= 0,38.56620421163472
+9,2,touch_scroll_index_change_median,-0.0346406495715526,<= 0,38.56620421163472
+9,2,missing__screen_unlock_event_count,0.5226376751295307,unconstrained,38.56620421163472
+9,2,missing__app_foreground_event_count,0.1477380351609867,unconstrained,38.56620421163472
+9,2,missing__screen_off_event_count,0.5226376751295316,unconstrained,38.56620421163472
+9,2,missing__telephony_event_count,0.33476982444937714,unconstrained,38.56620421163472
+9,2,missing__screen_event_count,0.5226376751295301,unconstrained,38.56620421163472
+9,2,missing__telephony_mobile_data_enabled_fraction,0.3347698244493772,unconstrained,38.56620421163472
+9,2,missing__keyboard_median_inter_event_interval_ms,-1.2124190256859977,unconstrained,38.56620421163472
+9,2,missing__touch_scroll_index_change_median,0.1903504653859658,unconstrained,38.56620421163472
+9,3,telephony_network_type_diversity,0.010196268883949424,>= 0,5736.152510448682
+9,3,unique_gsm_lac_count,2.4101755673584764e-12,>= 0,5736.152510448682
+9,3,screen_off_event_count,0.004505216315982766,>= 0,5736.152510448682
+9,3,screen_event_count,0.00458527510262521,>= 0,5736.152510448682
+9,3,screen_unlock_event_count,0.010251548105264576,>= 0,5736.152510448682
+9,3,telephony_mobile_data_enabled_fraction,-0.019321172139553557,<= 0,5736.152510448682
+9,3,screen_active_hour_count,-7.310483542006942e-13,<= 0,5736.152510448682
+9,3,touch_scroll_direction_change_count,-1.5018240134633145e-31,<= 0,5736.152510448682
+9,3,missing__telephony_network_type_diversity,0.014296419786901498,unconstrained,5736.152510448682
+9,3,missing__unique_gsm_lac_count,0.014296419786901493,unconstrained,5736.152510448682
+9,3,missing__screen_off_event_count,0.015616382022697928,unconstrained,5736.152510448682
+9,3,missing__screen_event_count,0.01561638202269791,unconstrained,5736.152510448682
+9,3,missing__screen_unlock_event_count,0.015616382022697939,unconstrained,5736.152510448682
+9,3,missing__telephony_mobile_data_enabled_fraction,0.014296419786901502,unconstrained,5736.152510448682
+9,3,missing__screen_active_hour_count,0.015616382022697939,unconstrained,5736.152510448682
+9,3,missing__touch_scroll_direction_change_count,0.003973537370108919,unconstrained,5736.152510448682
+9,4,touch_app_diversity,0.001167265320079687,>= 0,10000.0
+9,4,activity_active_hour_count,0.0019470027871620796,>= 0,10000.0
+9,4,touch_scroll_index_change_median,0.0037999249193726606,>= 0,10000.0
+9,4,telephony_event_count,0.0008440760365498363,>= 0,10000.0
+9,4,app_use_diversity,0.017602494447822872,>= 0,10000.0
+9,4,telephony_mobile_data_enabled_fraction,-0.017219134076250857,<= 0,10000.0
+9,4,keyboard_median_inter_event_interval_ms,-0.006821735561616821,<= 0,10000.0
+9,4,screen_active_hour_count,-0.0031181788852177347,<= 0,10000.0
+9,4,missing__touch_app_diversity,-0.0034525944333909315,unconstrained,10000.0
+9,4,missing__activity_active_hour_count,0.008194133384070068,unconstrained,10000.0
+9,4,missing__touch_scroll_index_change_median,-0.0008317832363215882,unconstrained,10000.0
+9,4,missing__telephony_event_count,0.008194133384070124,unconstrained,10000.0
+9,4,missing__app_use_diversity,0.0004123117132343824,unconstrained,10000.0
+9,4,missing__telephony_mobile_data_enabled_fraction,0.008194133384070115,unconstrained,10000.0
+9,4,missing__keyboard_median_inter_event_interval_ms,-0.007459669347109426,unconstrained,10000.0
+9,4,missing__screen_active_hour_count,0.008194133384070096,unconstrained,10000.0
+9,5,unique_gsm_cell_count,2.7287299003189235e-20,>= 0,1887.3918221350996
+9,5,activity_active_hour_count,0.021957999304165497,>= 0,1887.3918221350996
+9,5,gsm_cell_transition_count,2.860968932387239e-30,>= 0,1887.3918221350996
+9,5,unique_foreground_apps,0.04364869225613895,>= 0,1887.3918221350996
+9,5,screen_unlock_event_count,0.03959381401832174,>= 0,1887.3918221350996
+9,5,telephony_mobile_data_enabled_fraction,-0.07540353393468568,<= 0,1887.3918221350996
+9,5,message_distinct_event_count,-0.036093876276491625,<= 0,1887.3918221350996
+9,5,unique_gsm_lac_count,-0.019857674797468222,<= 0,1887.3918221350996
+9,5,missing__unique_gsm_cell_count,0.03158745683367333,unconstrained,1887.3918221350996
+9,5,missing__activity_active_hour_count,0.031587456833673325,unconstrained,1887.3918221350996
+9,5,missing__gsm_cell_transition_count,0.03158745683367332,unconstrained,1887.3918221350996
+9,5,missing__unique_foreground_apps,0.017616401818680974,unconstrained,1887.3918221350996
+9,5,missing__screen_unlock_event_count,0.03892149090107443,unconstrained,1887.3918221350996
+9,5,missing__telephony_mobile_data_enabled_fraction,0.03158745683367332,unconstrained,1887.3918221350996
+9,5,missing__message_distinct_event_count,0.019374794992129053,unconstrained,1887.3918221350996
+9,5,missing__unique_gsm_lac_count,0.0315874568336733,unconstrained,1887.3918221350996
+10,1,telephony_event_count,0.64169950560363,>= 0,67.23357536499334
+10,1,screen_off_event_count,2.148995368970844e-10,>= 0,67.23357536499334
+10,1,touch_app_diversity,1.8566503582682124e-37,>= 0,67.23357536499334
+10,1,telephony_network_type_diversity,2.8963750899344775e-34,>= 0,67.23357536499334
+10,1,screen_event_count,0.08471872829271009,>= 0,67.23357536499334
+10,1,telephony_mobile_data_enabled_fraction,-1.0908690798252583,<= 0,67.23357536499334
+10,1,keyboard_inter_event_interval_iqr_ms,-0.34373595110479477,<= 0,67.23357536499334
+10,1,screen_transition_count,-0.06797002074452749,<= 0,67.23357536499334
+10,1,missing__telephony_event_count,0.06722704674175797,unconstrained,67.23357536499334
+10,1,missing__screen_off_event_count,0.21510021317084482,unconstrained,67.23357536499334
+10,1,missing__touch_app_diversity,0.38619280835654307,unconstrained,67.23357536499334
+10,1,missing__telephony_network_type_diversity,0.06722704674175792,unconstrained,67.23357536499334
+10,1,missing__screen_event_count,0.21510021317084488,unconstrained,67.23357536499334
+10,1,missing__telephony_mobile_data_enabled_fraction,0.06722704674175793,unconstrained,67.23357536499334
+10,1,missing__keyboard_inter_event_interval_iqr_ms,-0.28443533055880793,unconstrained,67.23357536499334
+10,1,missing__screen_transition_count,0.21510021317084493,unconstrained,67.23357536499334
+10,2,unique_gsm_cell_count,1.8891770573053305e-14,>= 0,204.33597178569437
+10,2,telephony_network_type_diversity,0.07267283546319118,>= 0,204.33597178569437
+10,2,touch_app_diversity,1.0365979882036721e-16,>= 0,204.33597178569437
+10,2,activity_active_hour_count,3.328530116453486e-23,>= 0,204.33597178569437
+10,2,app_use_diversity,0.5643637149390114,>= 0,204.33597178569437
+10,2,telephony_mobile_data_enabled_fraction,-0.5686157740398328,<= 0,204.33597178569437
+10,2,keyboard_median_inter_event_interval_ms,-0.11290384069713533,<= 0,204.33597178569437
+10,2,night_screen_event_count,-0.3600578864955475,<= 0,204.33597178569437
+10,2,missing__unique_gsm_cell_count,0.08258213594512019,unconstrained,204.33597178569437
+10,2,missing__telephony_network_type_diversity,0.0825821359451202,unconstrained,204.33597178569437
+10,2,missing__touch_app_diversity,-0.305217635812074,unconstrained,204.33597178569437
+10,2,missing__activity_active_hour_count,0.08258213594512019,unconstrained,204.33597178569437
+10,2,missing__app_use_diversity,-0.13213803574264366,unconstrained,204.33597178569437
+10,2,missing__telephony_mobile_data_enabled_fraction,0.08258213594512014,unconstrained,204.33597178569437
+10,2,missing__keyboard_median_inter_event_interval_ms,-0.233590685009662,unconstrained,204.33597178569437
+10,2,missing__night_screen_event_count,0.12445009467259412,unconstrained,204.33597178569437
+10,3,night_screen_event_count,0.0047518809356169875,>= 0,10000.0
+10,3,app_use_diversity,0.017519472593729733,>= 0,10000.0
+10,3,app_foreground_event_count,0.007616489201660613,>= 0,10000.0
+10,3,gsm_cell_transition_count,0.0042382798580318385,>= 0,10000.0
+10,3,telephony_event_count,0.0035565079306977914,>= 0,10000.0
+10,3,keyboard_median_inter_event_interval_ms,-0.0013316058354024228,<= 0,10000.0
+10,3,telephony_mobile_data_enabled_fraction,-0.008284871216245706,<= 0,10000.0
+10,3,activity_still_fraction,-0.006637222992938312,<= 0,10000.0
+10,3,missing__night_screen_event_count,0.007080376917298524,unconstrained,10000.0
+10,3,missing__app_use_diversity,0.00011646355214087179,unconstrained,10000.0
+10,3,missing__app_foreground_event_count,0.00011646355214088133,unconstrained,10000.0
+10,3,missing__gsm_cell_transition_count,0.006096605354147256,unconstrained,10000.0
+10,3,missing__telephony_event_count,0.006096605354147279,unconstrained,10000.0
+10,3,missing__keyboard_median_inter_event_interval_ms,-0.009086370904503946,unconstrained,10000.0
+10,3,missing__telephony_mobile_data_enabled_fraction,0.006096605354147286,unconstrained,10000.0
+10,3,missing__activity_still_fraction,0.006096605354147282,unconstrained,10000.0
+10,4,telephony_event_count,0.008352259417396075,>= 0,22.122162910704503
+10,4,app_foreground_event_count,1.0099446166278725,>= 0,22.122162910704503
+10,4,screen_unlock_event_count,0.5748049702156068,>= 0,22.122162910704503
+10,4,screen_on_event_count,3.169890470050768e-17,>= 0,22.122162910704503
+10,4,screen_off_event_count,1.6622458662560698e-17,>= 0,22.122162910704503
+10,4,telephony_mobile_data_enabled_fraction,-1.0778638247645047,<= 0,22.122162910704503
+10,4,keyboard_median_inter_event_interval_ms,-0.15503227997169425,<= 0,22.122162910704503
+10,4,touch_distinct_event_count,-8.174609278926554e-22,<= 0,22.122162910704503
+10,4,missing__telephony_event_count,0.859047174012048,unconstrained,22.122162910704503
+10,4,missing__app_foreground_event_count,-0.376351218453004,unconstrained,22.122162910704503
+10,4,missing__screen_unlock_event_count,0.8590471740120481,unconstrained,22.122162910704503
+10,4,missing__screen_on_event_count,0.8590471740120481,unconstrained,22.122162910704503
+10,4,missing__screen_off_event_count,0.8590471740120484,unconstrained,22.122162910704503
+10,4,missing__telephony_mobile_data_enabled_fraction,0.8590471740120483,unconstrained,22.122162910704503
+10,4,missing__keyboard_median_inter_event_interval_ms,-1.389239556448497,unconstrained,22.122162910704503
+10,4,missing__touch_distinct_event_count,-1.3935622272728942,unconstrained,22.122162910704503
+10,5,gsm_cell_transition_count,3.163375877610143e-22,>= 0,38.56620421163472
+10,5,unique_gsm_lac_count,3.8741765507907297e-22,>= 0,38.56620421163472
+10,5,telephony_network_type_diversity,0.14641451436503794,>= 0,38.56620421163472
+10,5,unique_gsm_cell_count,1.4472999831848634e-13,>= 0,38.56620421163472
+10,5,unique_foreground_apps,1.260353045649793,>= 0,38.56620421163472
+10,5,telephony_mobile_data_enabled_fraction,-1.7714389153969898,<= 0,38.56620421163472
+10,5,activity_unknown_fraction,-0.23644387034236342,<= 0,38.56620421163472
+10,5,screen_active_hour_count,-0.516234296439999,<= 0,38.56620421163472
+10,5,missing__gsm_cell_transition_count,0.22558906268306633,unconstrained,38.56620421163472
+10,5,missing__unique_gsm_lac_count,0.22558906268306644,unconstrained,38.56620421163472
+10,5,missing__telephony_network_type_diversity,0.2255890626830663,unconstrained,38.56620421163472
+10,5,missing__unique_gsm_cell_count,0.22558906268306653,unconstrained,38.56620421163472
+10,5,missing__unique_foreground_apps,-0.23893759038320256,unconstrained,38.56620421163472
+10,5,missing__telephony_mobile_data_enabled_fraction,0.2255890626830663,unconstrained,38.56620421163472
+10,5,missing__activity_unknown_fraction,0.22558906268306647,unconstrained,38.56620421163472
+10,5,missing__screen_active_hour_count,0.5455890677696816,unconstrained,38.56620421163472
+11,1,gsm_cell_transition_count,6.908574262863332e-18,>= 0,117.21022975334817
+11,1,app_use_diversity,0.8548262112323771,>= 0,117.21022975334817
+11,1,telephony_network_type_diversity,0.009476845816890588,>= 0,117.21022975334817
+11,1,activity_state_diversity,0.0462030613490283,>= 0,117.21022975334817
+11,1,unique_gsm_cell_count,7.958225206680531e-22,>= 0,117.21022975334817
+11,1,telephony_mobile_data_enabled_fraction,-0.6316831923932993,<= 0,117.21022975334817
+11,1,keyboard_inter_event_interval_iqr_ms,-0.3962725547860684,<= 0,117.21022975334817
+11,1,night_screen_event_count,-0.3219548028230988,<= 0,117.21022975334817
+11,1,missing__gsm_cell_transition_count,0.1954807778920903,unconstrained,117.21022975334817
+11,1,missing__app_use_diversity,-0.0527428785527069,unconstrained,117.21022975334817
+11,1,missing__telephony_network_type_diversity,0.19548077789209028,unconstrained,117.21022975334817
+11,1,missing__activity_state_diversity,0.19548077789209048,unconstrained,117.21022975334817
+11,1,missing__unique_gsm_cell_count,0.19548077789209048,unconstrained,117.21022975334817
+11,1,missing__telephony_mobile_data_enabled_fraction,0.19548077789209037,unconstrained,117.21022975334817
+11,1,missing__keyboard_inter_event_interval_iqr_ms,-0.3431739866313216,unconstrained,117.21022975334817
+11,1,missing__night_screen_event_count,0.3558845598510395,unconstrained,117.21022975334817
+11,2,app_foreground_event_count,0.34157574041103234,>= 0,117.21022975334817
+11,2,app_use_diversity,0.919080141172893,>= 0,117.21022975334817
+11,2,touch_app_diversity,1.3454649975967119e-11,>= 0,117.21022975334817
+11,2,unique_gsm_cell_count,0.19213085997197005,>= 0,117.21022975334817
+11,2,screen_unlock_event_count,0.3224779465943818,>= 0,117.21022975334817
+11,2,telephony_mobile_data_enabled_fraction,-0.8464430650646857,<= 0,117.21022975334817
+11,2,keyboard_median_inter_event_interval_ms,-0.10277933775508716,<= 0,117.21022975334817
+11,2,keyboard_deletion_event_count,-2.4613589800807951e-26,<= 0,117.21022975334817
+11,2,missing__app_foreground_event_count,0.04189776056264993,unconstrained,117.21022975334817
+11,2,missing__app_use_diversity,0.04189776056264993,unconstrained,117.21022975334817
+11,2,missing__touch_app_diversity,-0.15541808761562836,unconstrained,117.21022975334817
+11,2,missing__unique_gsm_cell_count,0.4155478306303357,unconstrained,117.21022975334817
+11,2,missing__screen_unlock_event_count,0.41554783063033546,unconstrained,117.21022975334817
+11,2,missing__telephony_mobile_data_enabled_fraction,0.41554783063033557,unconstrained,117.21022975334817
+11,2,missing__keyboard_median_inter_event_interval_ms,-0.39461803406836987,unconstrained,117.21022975334817
+11,2,missing__keyboard_deletion_event_count,-0.39461803406836976,unconstrained,117.21022975334817
+11,3,telephony_network_type_diversity,0.007370031957050758,>= 0,10000.0
+11,3,unique_gsm_lac_count,0.0022665549305249584,>= 0,10000.0
+11,3,app_foreground_event_count,0.005679141885979582,>= 0,10000.0
+11,3,screen_unlock_event_count,0.005154255959187863,>= 0,10000.0
+11,3,unique_gsm_cell_count,0.003300199127254765,>= 0,10000.0
+11,3,telephony_mobile_data_enabled_fraction,-0.013566907358427615,<= 0,10000.0
+11,3,keyboard_median_inter_event_interval_ms,-0.0028489069568491065,<= 0,10000.0
+11,3,touch_distinct_event_count,-2.976583844381611e-19,<= 0,10000.0
+11,3,missing__telephony_network_type_diversity,0.0054188443264455086,unconstrained,10000.0
+11,3,missing__unique_gsm_lac_count,0.005418844326445507,unconstrained,10000.0
+11,3,missing__app_foreground_event_count,0.0017658702906696241,unconstrained,10000.0
+11,3,missing__screen_unlock_event_count,0.006725962100056735,unconstrained,10000.0
+11,3,missing__unique_gsm_cell_count,0.00541884432644551,unconstrained,10000.0
+11,3,missing__telephony_mobile_data_enabled_fraction,0.005418844326445509,unconstrained,10000.0
+11,3,missing__keyboard_median_inter_event_interval_ms,-0.00528955970474514,unconstrained,10000.0
+11,3,missing__touch_distinct_event_count,0.0009210684676538484,unconstrained,10000.0
+11,4,unique_foreground_apps,0.28016494326593905,>= 0,117.21022975334817
+11,4,app_use_diversity,0.8518428637331923,>= 0,117.21022975334817
+11,4,unique_gsm_lac_count,1.6565867836246977e-17,>= 0,117.21022975334817
+11,4,app_foreground_event_count,0.3944901039165902,>= 0,117.21022975334817
+11,4,unique_gsm_cell_count,1.5419801670972948e-11,>= 0,117.21022975334817
+11,4,telephony_mobile_data_enabled_fraction,-0.6257907413089471,<= 0,117.21022975334817
+11,4,keyboard_median_inter_event_interval_ms,-0.17716373916039999,<= 0,117.21022975334817
+11,4,activity_unknown_fraction,-0.25587606032713234,<= 0,117.21022975334817
+11,4,missing__unique_foreground_apps,-0.040033897571335506,unconstrained,117.21022975334817
+11,4,missing__app_use_diversity,-0.040033897571335623,unconstrained,117.21022975334817
+11,4,missing__unique_gsm_lac_count,0.2633418064810867,unconstrained,117.21022975334817
+11,4,missing__app_foreground_event_count,-0.04003389757133569,unconstrained,117.21022975334817
+11,4,missing__unique_gsm_cell_count,0.26334180648108635,unconstrained,117.21022975334817
+11,4,missing__telephony_mobile_data_enabled_fraction,0.26334180648108657,unconstrained,117.21022975334817
+11,4,missing__keyboard_median_inter_event_interval_ms,-0.6231396368119649,unconstrained,117.21022975334817
+11,4,missing__activity_unknown_fraction,0.26334180648108624,unconstrained,117.21022975334817
+11,5,telephony_network_type_diversity,0.0014926775983910214,>= 0,10000.0
+11,5,touch_app_diversity,0.007377049907468688,>= 0,10000.0
+11,5,screen_unlock_event_count,0.011137532492023932,>= 0,10000.0
+11,5,app_foreground_event_count,0.009112760938510366,>= 0,10000.0
+11,5,telephony_event_count,0.005109148346129161,>= 0,10000.0
+11,5,touch_distinct_event_count,-2.383953198980154e-16,<= 0,10000.0
+11,5,median_unlocked_session_duration_seconds,-0.0009904907738811546,<= 0,10000.0
+11,5,screen_active_hour_count,-0.006530037933719837,<= 0,10000.0
+11,5,missing__telephony_network_type_diversity,0.009334658475724457,unconstrained,10000.0
+11,5,missing__touch_app_diversity,-0.0007422556044594004,unconstrained,10000.0
+11,5,missing__screen_unlock_event_count,0.010211010019579449,unconstrained,10000.0
+11,5,missing__app_foreground_event_count,0.003274984615412112,unconstrained,10000.0
+11,5,missing__telephony_event_count,0.009334658475724457,unconstrained,10000.0
+11,5,missing__touch_distinct_event_count,-0.0007422556044593991,unconstrained,10000.0
+11,5,missing__median_unlocked_session_duration_seconds,0.008755717439105455,unconstrained,10000.0
+11,5,missing__screen_active_hour_count,0.01021101001957944,unconstrained,10000.0
+12,1,telephony_network_type_diversity,1.1922084892350487e-18,>= 0,12.689610031679234
+12,1,app_use_diversity,1.9363093933060906,>= 0,12.689610031679234
+12,1,unique_foreground_apps,0.8286016445753083,>= 0,12.689610031679234
+12,1,app_foreground_event_count,0.808916521447068,>= 0,12.689610031679234
+12,1,screen_unlock_event_count,0.2463889342105063,>= 0,12.689610031679234
+12,1,activity_unknown_fraction,-0.5027717789056756,<= 0,12.689610031679234
+12,1,telephony_mobile_data_enabled_fraction,-1.3727828874837134,<= 0,12.689610031679234
+12,1,keyboard_inter_event_interval_iqr_ms,-1.9594923624757803,<= 0,12.689610031679234
+12,1,missing__telephony_network_type_diversity,0.6065576071307033,unconstrained,12.689610031679234
+12,1,missing__app_use_diversity,-0.8753963647264169,unconstrained,12.689610031679234
+12,1,missing__unique_foreground_apps,-0.8753963647264171,unconstrained,12.689610031679234
+12,1,missing__app_foreground_event_count,-0.8753963647264165,unconstrained,12.689610031679234
+12,1,missing__screen_unlock_event_count,1.6583828693516507,unconstrained,12.689610031679234
+12,1,missing__activity_unknown_fraction,0.6065576071307034,unconstrained,12.689610031679234
+12,1,missing__telephony_mobile_data_enabled_fraction,0.6065576071307037,unconstrained,12.689610031679234
+12,1,missing__keyboard_inter_event_interval_iqr_ms,0.01595070418584083,unconstrained,12.689610031679234
+12,2,telephony_network_type_diversity,0.16845708389317218,>= 0,67.23357536499334
+12,2,touch_app_diversity,5.863293013924992e-17,>= 0,67.23357536499334
+12,2,app_use_diversity,1.2821770892512565,>= 0,67.23357536499334
+12,2,unique_gsm_cell_count,2.7521798502993425e-18,>= 0,67.23357536499334
+12,2,activity_active_hour_count,3.334810666405602e-12,>= 0,67.23357536499334
+12,2,telephony_mobile_data_enabled_fraction,-1.1720280896415007,<= 0,67.23357536499334
+12,2,keyboard_median_inter_event_interval_ms,-0.18466918095017396,<= 0,67.23357536499334
+12,2,touch_active_hour_count,-5.900367393736226e-16,<= 0,67.23357536499334
+12,2,missing__telephony_network_type_diversity,0.29208228305235057,unconstrained,67.23357536499334
+12,2,missing__touch_app_diversity,-0.10240020550835961,unconstrained,67.23357536499334
+12,2,missing__app_use_diversity,0.39001139423412057,unconstrained,67.23357536499334
+12,2,missing__unique_gsm_cell_count,0.2920822830523505,unconstrained,67.23357536499334
+12,2,missing__activity_active_hour_count,0.29208228305235073,unconstrained,67.23357536499334
+12,2,missing__telephony_mobile_data_enabled_fraction,0.2920822830523499,unconstrained,67.23357536499334
+12,2,missing__keyboard_median_inter_event_interval_ms,-0.4915188337757229,unconstrained,67.23357536499334
+12,2,missing__touch_active_hour_count,-0.10240020550835946,unconstrained,67.23357536499334
+12,3,app_foreground_event_count,0.3646670019092022,>= 0,117.21022975334817
+12,3,telephony_event_count,0.1025385812912351,>= 0,117.21022975334817
+12,3,screen_unlock_event_count,0.26515887266694455,>= 0,117.21022975334817
+12,3,activity_transition_count,0.1530650675212714,>= 0,117.21022975334817
+12,3,unique_gsm_cell_count,0.07356107580149468,>= 0,117.21022975334817
+12,3,telephony_mobile_data_enabled_fraction,-0.7346051098249693,<= 0,117.21022975334817
+12,3,keyboard_median_inter_event_interval_ms,-0.18250492104492544,<= 0,117.21022975334817
+12,3,screen_active_hour_count,-0.2765022828324472,<= 0,117.21022975334817
+12,3,missing__app_foreground_event_count,-0.1963861486675232,unconstrained,117.21022975334817
+12,3,missing__telephony_event_count,0.3063357061489824,unconstrained,117.21022975334817
+12,3,missing__screen_unlock_event_count,0.30633570614898176,unconstrained,117.21022975334817
+12,3,missing__activity_transition_count,0.3063357061489823,unconstrained,117.21022975334817
+12,3,missing__unique_gsm_cell_count,0.3063357061489822,unconstrained,117.21022975334817
+12,3,missing__telephony_mobile_data_enabled_fraction,0.3063357061489821,unconstrained,117.21022975334817
+12,3,missing__keyboard_median_inter_event_interval_ms,-0.5467476776376301,unconstrained,117.21022975334817
+12,3,missing__screen_active_hour_count,0.30633570614898215,unconstrained,117.21022975334817
+12,4,night_screen_event_count,9.9498249957414e-36,>= 0,10000.0
+12,4,unique_gsm_lac_count,0.005610235725383282,>= 0,10000.0
+12,4,touch_unique_app_count,0.00798943681576849,>= 0,10000.0
+12,4,gsm_cell_transition_count,0.0071764214152796645,>= 0,10000.0
+12,4,unique_gsm_cell_count,0.006866529297930821,>= 0,10000.0
+12,4,telephony_mobile_data_enabled_fraction,-0.017907881128000167,<= 0,10000.0
+12,4,keyboard_median_inter_event_interval_ms,-0.002425936111578463,<= 0,10000.0
+12,4,activity_still_fraction,-1.0382752824942733e-18,<= 0,10000.0
+12,4,missing__night_screen_event_count,0.004743565923766303,unconstrained,10000.0
+12,4,missing__unique_gsm_lac_count,0.003911168245717619,unconstrained,10000.0
+12,4,missing__touch_unique_app_count,-0.0021898454993000828,unconstrained,10000.0
+12,4,missing__gsm_cell_transition_count,0.00391116824571763,unconstrained,10000.0
+12,4,missing__unique_gsm_cell_count,0.0039111682457176255,unconstrained,10000.0
+12,4,missing__telephony_mobile_data_enabled_fraction,0.003911168245717621,unconstrained,10000.0
+12,4,missing__keyboard_median_inter_event_interval_ms,-0.008415792607016933,unconstrained,10000.0
+12,4,missing__activity_still_fraction,0.00391116824571762,unconstrained,10000.0
+12,5,telephony_network_type_diversity,0.07014366598948653,>= 0,621.0169418915616
+12,5,telephony_event_count,0.06111403441382066,>= 0,621.0169418915616
+12,5,touch_app_diversity,0.07828228474626298,>= 0,621.0169418915616
+12,5,activity_active_hour_count,0.10849910822976057,>= 0,621.0169418915616
+12,5,unique_gsm_cell_count,0.012795899491372756,>= 0,621.0169418915616
+12,5,screen_transition_count,-0.03967050787248666,<= 0,621.0169418915616
+12,5,telephony_mobile_data_enabled_fraction,-0.14416213850385937,<= 0,621.0169418915616
+12,5,screen_active_hour_count,-0.08948272132596682,<= 0,621.0169418915616
+12,5,missing__telephony_network_type_diversity,0.06378836065496558,unconstrained,621.0169418915616
+12,5,missing__telephony_event_count,0.06378836065496568,unconstrained,621.0169418915616
+12,5,missing__touch_app_diversity,-0.0383412174038048,unconstrained,621.0169418915616
+12,5,missing__activity_active_hour_count,0.06378836065496568,unconstrained,621.0169418915616
+12,5,missing__unique_gsm_cell_count,0.06378836065496568,unconstrained,621.0169418915616
+12,5,missing__screen_transition_count,0.0794209851873888,unconstrained,621.0169418915616
+12,5,missing__telephony_mobile_data_enabled_fraction,0.06378836065496574,unconstrained,621.0169418915616
+12,5,missing__screen_active_hour_count,0.07942098518738877,unconstrained,621.0169418915616
+13,1,app_foreground_event_count,0.6212809980070853,>= 0,38.56620421163472
+13,1,screen_unlock_event_count,0.3988162370036143,>= 0,38.56620421163472
+13,1,unique_foreground_apps,1.0187864860260967,>= 0,38.56620421163472
+13,1,telephony_network_type_diversity,0.10559735174811434,>= 0,38.56620421163472
+13,1,unique_gsm_lac_count,4.318123424366996e-17,>= 0,38.56620421163472
+13,1,telephony_mobile_data_enabled_fraction,-0.7735080976541263,<= 0,38.56620421163472
+13,1,night_screen_event_count,-1.0814958159905044,<= 0,38.56620421163472
+13,1,keyboard_median_inter_event_interval_ms,-0.5387582145168416,<= 0,38.56620421163472
+13,1,missing__app_foreground_event_count,-0.3873805315273969,unconstrained,38.56620421163472
+13,1,missing__screen_unlock_event_count,0.5290070283656265,unconstrained,38.56620421163472
+13,1,missing__unique_foreground_apps,-0.3873805315273968,unconstrained,38.56620421163472
+13,1,missing__telephony_network_type_diversity,0.3796079549524298,unconstrained,38.56620421163472
+13,1,missing__unique_gsm_lac_count,0.3796079549524294,unconstrained,38.56620421163472
+13,1,missing__telephony_mobile_data_enabled_fraction,0.3796079549524299,unconstrained,38.56620421163472
+13,1,missing__night_screen_event_count,0.529007028365626,unconstrained,38.56620421163472
+13,1,missing__keyboard_median_inter_event_interval_ms,-1.1260602713316632,unconstrained,38.56620421163472
+13,2,telephony_network_type_diversity,0.2777979445631652,>= 0,67.23357536499334
+13,2,app_foreground_event_count,0.5692975415449072,>= 0,67.23357536499334
+13,2,screen_unlock_event_count,0.6508559480896752,>= 0,67.23357536499334
+13,2,activity_active_hour_count,0.1523562503716632,>= 0,67.23357536499334
+13,2,app_use_diversity,0.7851551061869996,>= 0,67.23357536499334
+13,2,telephony_mobile_data_enabled_fraction,-0.6407784635862793,<= 0,67.23357536499334
+13,2,keyboard_median_inter_event_interval_ms,-3.2932668550905207e-15,<= 0,67.23357536499334
+13,2,touch_scroll_event_count,-7.642991437179649e-19,<= 0,67.23357536499334
+13,2,missing__telephony_network_type_diversity,0.5239859421504994,unconstrained,67.23357536499334
+13,2,missing__app_foreground_event_count,-0.016635255299330885,unconstrained,67.23357536499334
+13,2,missing__screen_unlock_event_count,0.6843189622258279,unconstrained,67.23357536499334
+13,2,missing__activity_active_hour_count,0.5239859421504993,unconstrained,67.23357536499334
+13,2,missing__app_use_diversity,-0.016635255299330687,unconstrained,67.23357536499334
+13,2,missing__telephony_mobile_data_enabled_fraction,0.5239859421504993,unconstrained,67.23357536499334
+13,2,missing__keyboard_median_inter_event_interval_ms,-0.5247183370557922,unconstrained,67.23357536499334
+13,2,missing__touch_scroll_event_count,-0.4774544598878252,unconstrained,67.23357536499334
+13,3,touch_app_diversity,4.3419590850579395e-20,>= 0,10000.0
+13,3,unique_gsm_lac_count,6.583153359465846e-11,>= 0,10000.0
+13,3,unique_gsm_cell_count,0.0013313301562625504,>= 0,10000.0
+13,3,unique_foreground_apps,0.0054796785920306805,>= 0,10000.0
+13,3,gsm_cell_transition_count,3.763240701280674e-36,>= 0,10000.0
+13,3,telephony_mobile_data_enabled_fraction,-0.012895575786082174,<= 0,10000.0
+13,3,keyboard_inter_event_interval_iqr_ms,-0.003450235112545017,<= 0,10000.0
+13,3,touch_distinct_event_count,-2.1754924151377533e-28,<= 0,10000.0
+13,3,missing__touch_app_diversity,-0.007954709728739262,unconstrained,10000.0
+13,3,missing__unique_gsm_lac_count,0.0013711312922075646,unconstrained,10000.0
+13,3,missing__unique_gsm_cell_count,0.0013711312922094986,unconstrained,10000.0
+13,3,missing__unique_foreground_apps,-0.004094718288343913,unconstrained,10000.0
+13,3,missing__gsm_cell_transition_count,0.0013711312922096747,unconstrained,10000.0
+13,3,missing__telephony_mobile_data_enabled_fraction,0.0013711312922107294,unconstrained,10000.0
+13,3,missing__keyboard_inter_event_interval_iqr_ms,-0.009438738202642892,unconstrained,10000.0
+13,3,missing__touch_distinct_event_count,-0.007954709728738294,unconstrained,10000.0
+13,4,telephony_event_count,0.5624059190075381,>= 0,38.56620421163472
+13,4,unique_gsm_cell_count,0.07191487353229346,>= 0,38.56620421163472
+13,4,telephony_network_type_diversity,7.234179132916395e-22,>= 0,38.56620421163472
+13,4,gsm_cell_transition_count,0.040967788576165655,>= 0,38.56620421163472
+13,4,screen_unlock_event_count,0.03237132016179294,>= 0,38.56620421163472
+13,4,telephony_mobile_data_enabled_fraction,-1.8817996716306111,<= 0,38.56620421163472
+13,4,keyboard_median_inter_event_interval_ms,-0.6655491043771714,<= 0,38.56620421163472
+13,4,activity_still_fraction,-0.2770421784529012,<= 0,38.56620421163472
+13,4,missing__telephony_event_count,0.22841649558928337,unconstrained,38.56620421163472
+13,4,missing__unique_gsm_cell_count,0.2284164955892833,unconstrained,38.56620421163472
+13,4,missing__telephony_network_type_diversity,0.22841649558928345,unconstrained,38.56620421163472
+13,4,missing__gsm_cell_transition_count,0.22841649558928337,unconstrained,38.56620421163472
+13,4,missing__screen_unlock_event_count,0.2284164955892834,unconstrained,38.56620421163472
+13,4,missing__telephony_mobile_data_enabled_fraction,0.22841649558928323,unconstrained,38.56620421163472
+13,4,missing__keyboard_median_inter_event_interval_ms,-0.33572328262262613,unconstrained,38.56620421163472
+13,4,missing__activity_still_fraction,0.22841649558928326,unconstrained,38.56620421163472
+13,5,telephony_network_type_diversity,0.18499058054621034,>= 0,67.23357536499334
+13,5,screen_unlock_event_count,0.5632686630336138,>= 0,67.23357536499334
+13,5,telephony_event_count,0.0671398267627671,>= 0,67.23357536499334
+13,5,app_foreground_event_count,0.5632115312977819,>= 0,67.23357536499334
+13,5,unique_foreground_apps,0.9635934121509264,>= 0,67.23357536499334
+13,5,telephony_mobile_data_enabled_fraction,-1.2424467444365943,<= 0,67.23357536499334
+13,5,keyboard_median_inter_event_interval_ms,-0.2817545768590582,<= 0,67.23357536499334
+13,5,message_distinct_event_count,-0.5427539461973582,<= 0,67.23357536499334
+13,5,missing__telephony_network_type_diversity,0.27559092883948777,unconstrained,67.23357536499334
+13,5,missing__screen_unlock_event_count,0.39582527628192765,unconstrained,67.23357536499334
+13,5,missing__telephony_event_count,0.2755909288394884,unconstrained,67.23357536499334
+13,5,missing__app_foreground_event_count,0.19028036930052533,unconstrained,67.23357536499334
+13,5,missing__unique_foreground_apps,0.19028036930052578,unconstrained,67.23357536499334
+13,5,missing__telephony_mobile_data_enabled_fraction,0.27559092883948805,unconstrained,67.23357536499334
+13,5,missing__keyboard_median_inter_event_interval_ms,-0.5908077412588022,unconstrained,67.23357536499334
+13,5,missing__message_distinct_event_count,0.65089345451205,unconstrained,67.23357536499334
+14,1,telephony_event_count,0.09623019789603586,>= 0,356.2247890262444
+14,1,activity_active_hour_count,0.08581537052751173,>= 0,356.2247890262444
+14,1,telephony_network_type_diversity,0.14676813647984938,>= 0,356.2247890262444
+14,1,app_use_diversity,0.3589027151264092,>= 0,356.2247890262444
+14,1,unique_foreground_apps,0.18849965538296914,>= 0,356.2247890262444
+14,1,telephony_mobile_data_enabled_fraction,-0.28590728850129665,<= 0,356.2247890262444
+14,1,message_distinct_event_count,-0.051073246859981165,<= 0,356.2247890262444
+14,1,keyboard_median_inter_event_interval_ms,-0.05022855976614137,<= 0,356.2247890262444
+14,1,missing__telephony_event_count,0.18369067717607976,unconstrained,356.2247890262444
+14,1,missing__activity_active_hour_count,0.18369067717607968,unconstrained,356.2247890262444
+14,1,missing__telephony_network_type_diversity,0.18369067717607968,unconstrained,356.2247890262444
+14,1,missing__app_use_diversity,0.008458763466741919,unconstrained,356.2247890262444
+14,1,missing__unique_foreground_apps,0.008458763466741947,unconstrained,356.2247890262444
+14,1,missing__telephony_mobile_data_enabled_fraction,0.18369067717607923,unconstrained,356.2247890262444
+14,1,missing__message_distinct_event_count,0.2244483802893467,unconstrained,356.2247890262444
+14,1,missing__keyboard_median_inter_event_interval_ms,-0.1900431025923191,unconstrained,356.2247890262444
+14,2,touch_scroll_index_change_median,0.12493086004277248,>= 0,356.2247890262444
+14,2,telephony_network_type_diversity,0.031473418719169005,>= 0,356.2247890262444
+14,2,unique_gsm_cell_count,1.3009194174555196e-15,>= 0,356.2247890262444
+14,2,app_foreground_event_count,0.21387807422011654,>= 0,356.2247890262444
+14,2,activity_active_hour_count,0.05988182893202722,>= 0,356.2247890262444
+14,2,telephony_mobile_data_enabled_fraction,-0.3997644143669895,<= 0,356.2247890262444
+14,2,night_screen_event_count,-0.19149908328577042,<= 0,356.2247890262444
+14,2,screen_active_hour_count,-0.1571866199297133,<= 0,356.2247890262444
+14,2,missing__touch_scroll_index_change_median,-0.11628998611948052,unconstrained,356.2247890262444
+14,2,missing__telephony_network_type_diversity,0.1337835787339379,unconstrained,356.2247890262444
+14,2,missing__unique_gsm_cell_count,0.13378357873393784,unconstrained,356.2247890262444
+14,2,missing__app_foreground_event_count,-0.05364709111779165,unconstrained,356.2247890262444
+14,2,missing__activity_active_hour_count,0.1337835787339379,unconstrained,356.2247890262444
+14,2,missing__telephony_mobile_data_enabled_fraction,0.13378357873393784,unconstrained,356.2247890262444
+14,2,missing__night_screen_event_count,0.18592967924754183,unconstrained,356.2247890262444
+14,2,missing__screen_active_hour_count,0.18592967924754183,unconstrained,356.2247890262444
+14,3,app_foreground_event_count,0.46695729329171726,>= 0,117.21022975334817
+14,3,unique_gsm_lac_count,0.05090491058773389,>= 0,117.21022975334817
+14,3,telephony_network_type_diversity,0.16918988945724062,>= 0,117.21022975334817
+14,3,screen_unlock_event_count,0.16084043132388348,>= 0,117.21022975334817
+14,3,screen_off_event_count,5.925781080830603e-17,>= 0,117.21022975334817
+14,3,telephony_mobile_data_enabled_fraction,-0.6908135497939231,<= 0,117.21022975334817
+14,3,keyboard_median_inter_event_interval_ms,-0.3225397589641999,<= 0,117.21022975334817
+14,3,activity_state_diversity,-0.2616028906151309,<= 0,117.21022975334817
+14,3,missing__app_foreground_event_count,-0.07710219534901083,unconstrained,117.21022975334817
+14,3,missing__unique_gsm_lac_count,0.21316305529117896,unconstrained,117.21022975334817
+14,3,missing__telephony_network_type_diversity,0.213163055291179,unconstrained,117.21022975334817
+14,3,missing__screen_unlock_event_count,0.27528327220337817,unconstrained,117.21022975334817
+14,3,missing__screen_off_event_count,0.27528327220337834,unconstrained,117.21022975334817
+14,3,missing__telephony_mobile_data_enabled_fraction,0.21316305529117885,unconstrained,117.21022975334817
+14,3,missing__keyboard_median_inter_event_interval_ms,-0.600027843956049,unconstrained,117.21022975334817
+14,3,missing__activity_state_diversity,0.21316305529117888,unconstrained,117.21022975334817
+14,4,telephony_network_type_diversity,0.15235200467564539,>= 0,67.23357536499334
+14,4,app_foreground_event_count,0.48172824647585527,>= 0,67.23357536499334
+14,4,unique_foreground_apps,0.1534844708419857,>= 0,67.23357536499334
+14,4,screen_unlock_event_count,0.7637354575342916,>= 0,67.23357536499334
+14,4,app_use_diversity,0.9727987651892449,>= 0,67.23357536499334
+14,4,keyboard_median_inter_event_interval_ms,-0.051920480089500065,<= 0,67.23357536499334
+14,4,telephony_mobile_data_enabled_fraction,-0.8816780354468757,<= 0,67.23357536499334
+14,4,activity_still_fraction,-0.21716695966219182,<= 0,67.23357536499334
+14,4,missing__telephony_network_type_diversity,0.33528201550880854,unconstrained,67.23357536499334
+14,4,missing__app_foreground_event_count,-0.1023874806929566,unconstrained,67.23357536499334
+14,4,missing__unique_foreground_apps,-0.10238748069295643,unconstrained,67.23357536499334
+14,4,missing__screen_unlock_event_count,0.4389102115196923,unconstrained,67.23357536499334
+14,4,missing__app_use_diversity,-0.10238748069295649,unconstrained,67.23357536499334
+14,4,missing__keyboard_median_inter_event_interval_ms,-0.3240303234576674,unconstrained,67.23357536499334
+14,4,missing__telephony_mobile_data_enabled_fraction,0.335282015508809,unconstrained,67.23357536499334
+14,4,missing__activity_still_fraction,0.3352820155088089,unconstrained,67.23357536499334
+14,5,app_foreground_event_count,0.0071530504223069535,>= 0,10000.0
+14,5,telephony_event_count,0.009293612948676713,>= 0,10000.0
+14,5,unique_gsm_lac_count,0.0016552751770222175,>= 0,10000.0
+14,5,screen_on_event_count,0.008165718827388016,>= 0,10000.0
+14,5,screen_event_count,0.00816480006200261,>= 0,10000.0
+14,5,telephony_mobile_data_enabled_fraction,-0.012249298795313697,<= 0,10000.0
+14,5,keyboard_median_inter_event_interval_ms,-1.3908928103926257e-13,<= 0,10000.0
+14,5,touch_distinct_event_count,-9.366974948162881e-35,<= 0,10000.0
+14,5,missing__app_foreground_event_count,0.003643383045614337,unconstrained,10000.0
+14,5,missing__telephony_event_count,0.004764251752394831,unconstrained,10000.0
+14,5,missing__unique_gsm_lac_count,0.004764251752394823,unconstrained,10000.0
+14,5,missing__screen_on_event_count,0.0057858418368765315,unconstrained,10000.0
+14,5,missing__screen_event_count,0.0057858418368765575,unconstrained,10000.0
+14,5,missing__telephony_mobile_data_enabled_fraction,0.004764251752394839,unconstrained,10000.0
+14,5,missing__keyboard_median_inter_event_interval_ms,-0.006232180329076632,unconstrained,10000.0
+14,5,missing__touch_distinct_event_count,-0.001134931438199693,unconstrained,10000.0
+15,1,telephony_network_type_diversity,0.003178292335759304,>= 0,10000.0
+15,1,app_use_diversity,0.017437230573164014,>= 0,10000.0
+15,1,app_foreground_event_count,0.006299409305934811,>= 0,10000.0
+15,1,unique_gsm_lac_count,1.6636170405018094e-05,>= 0,10000.0
+15,1,touch_app_diversity,0.002166936925070236,>= 0,10000.0
+15,1,telephony_mobile_data_enabled_fraction,-0.011970152192106058,<= 0,10000.0
+15,1,activity_unknown_fraction,-0.002191377033542121,<= 0,10000.0
+15,1,message_distinct_event_count,-0.0032510996654795373,<= 0,10000.0
+15,1,missing__telephony_network_type_diversity,0.010917847459155961,unconstrained,10000.0
+15,1,missing__app_use_diversity,0.003908059776583367,unconstrained,10000.0
+15,1,missing__app_foreground_event_count,0.0039080597765834306,unconstrained,10000.0
+15,1,missing__unique_gsm_lac_count,0.010917847459155961,unconstrained,10000.0
+15,1,missing__touch_app_diversity,-0.00043835170067940845,unconstrained,10000.0
+15,1,missing__telephony_mobile_data_enabled_fraction,0.010917847459155947,unconstrained,10000.0
+15,1,missing__activity_unknown_fraction,0.010917847459155987,unconstrained,10000.0
+15,1,missing__message_distinct_event_count,0.00923954096597919,unconstrained,10000.0
+15,2,screen_unlock_event_count,0.7078879765469552,>= 0,12.689610031679234
+15,2,app_use_diversity,1.8685393561591799,>= 0,12.689610031679234
+15,2,activity_active_hour_count,2.381773516027531e-18,>= 0,12.689610031679234
+15,2,telephony_network_type_diversity,8.520553604590539e-18,>= 0,12.689610031679234
+15,2,app_foreground_event_count,1.4133691170839702,>= 0,12.689610031679234
+15,2,telephony_mobile_data_enabled_fraction,-1.8981517792498646,<= 0,12.689610031679234
+15,2,keyboard_median_inter_event_interval_ms,-0.5375029189744115,<= 0,12.689610031679234
+15,2,night_screen_event_count,-2.0483854451218155,<= 0,12.689610031679234
+15,2,missing__screen_unlock_event_count,1.113439855103897,unconstrained,12.689610031679234
+15,2,missing__app_use_diversity,-0.6981363187155742,unconstrained,12.689610031679234
+15,2,missing__activity_active_hour_count,0.3927833195158356,unconstrained,12.689610031679234
+15,2,missing__telephony_network_type_diversity,0.39278331951583545,unconstrained,12.689610031679234
+15,2,missing__app_foreground_event_count,-0.6981363187155741,unconstrained,12.689610031679234
+15,2,missing__telephony_mobile_data_enabled_fraction,0.39278331951583556,unconstrained,12.689610031679234
+15,2,missing__keyboard_median_inter_event_interval_ms,-0.35573512995078477,unconstrained,12.689610031679234
+15,2,missing__night_screen_event_count,1.1134398551038975,unconstrained,12.689610031679234
+15,3,app_foreground_event_count,0.46943011078111574,>= 0,67.23357536499334
+15,3,app_use_diversity,0.7877943469914962,>= 0,67.23357536499334
+15,3,touch_app_diversity,3.761579020166517e-19,>= 0,67.23357536499334
+15,3,telephony_event_count,0.6546204672341841,>= 0,67.23357536499334
+15,3,screen_event_count,8.601547097666245e-18,>= 0,67.23357536499334
+15,3,telephony_mobile_data_enabled_fraction,-1.113656466602409,<= 0,67.23357536499334
+15,3,keyboard_inter_event_interval_iqr_ms,-0.8250690125932612,<= 0,67.23357536499334
+15,3,keyboard_median_inter_event_interval_ms,-0.43111157797627014,<= 0,67.23357536499334
+15,3,missing__app_foreground_event_count,0.07199400105138101,unconstrained,67.23357536499334
+15,3,missing__app_use_diversity,0.07199400105138082,unconstrained,67.23357536499334
+15,3,missing__touch_app_diversity,0.030436966785430026,unconstrained,67.23357536499334
+15,3,missing__telephony_event_count,0.1579464428896311,unconstrained,67.23357536499334
+15,3,missing__screen_event_count,0.2163766183988099,unconstrained,67.23357536499334
+15,3,missing__telephony_mobile_data_enabled_fraction,0.15794644288963158,unconstrained,67.23357536499334
+15,3,missing__keyboard_inter_event_interval_iqr_ms,-0.10083063736538346,unconstrained,67.23357536499334
+15,3,missing__keyboard_median_inter_event_interval_ms,-0.10083063736538345,unconstrained,67.23357536499334
+15,4,telephony_network_type_diversity,0.0038505372785237694,>= 0,10000.0
+15,4,unique_gsm_cell_count,0.00225963509122542,>= 0,10000.0
+15,4,app_foreground_event_count,0.007787552620311727,>= 0,10000.0
+15,4,unique_foreground_apps,0.011251818713782053,>= 0,10000.0
+15,4,touch_unique_app_count,0.007154656402559438,>= 0,10000.0
+15,4,telephony_mobile_data_enabled_fraction,-0.013422809674188376,<= 0,10000.0
+15,4,keyboard_median_inter_event_interval_ms,-0.001356180689973676,<= 0,10000.0
+15,4,night_screen_event_count,-0.0017384209460835883,<= 0,10000.0
+15,4,missing__telephony_network_type_diversity,-0.0014538951666346138,unconstrained,10000.0
+15,4,missing__unique_gsm_cell_count,-0.0014538951666346134,unconstrained,10000.0
+15,4,missing__app_foreground_event_count,-0.007684200236981397,unconstrained,10000.0
+15,4,missing__unique_foreground_apps,-0.0076842002369813785,unconstrained,10000.0
+15,4,missing__touch_unique_app_count,-0.011902578541849892,unconstrained,10000.0
+15,4,missing__telephony_mobile_data_enabled_fraction,-0.0014538951666345943,unconstrained,10000.0
+15,4,missing__keyboard_median_inter_event_interval_ms,-0.0176423694962218,unconstrained,10000.0
+15,4,missing__night_screen_event_count,-0.0006926752550304858,unconstrained,10000.0
+15,5,screen_unlock_event_count,0.00897171175066666,>= 0,10000.0
+15,5,app_foreground_event_count,0.0075568977435702634,>= 0,10000.0
+15,5,telephony_event_count,0.00477371131587492,>= 0,10000.0
+15,5,screen_off_event_count,0.0032510533613806644,>= 0,10000.0
+15,5,unique_gsm_lac_count,0.003566867471319904,>= 0,10000.0
+15,5,telephony_mobile_data_enabled_fraction,-0.012861376068434145,<= 0,10000.0
+15,5,keyboard_median_inter_event_interval_ms,-0.003658470681438507,<= 0,10000.0
+15,5,activity_unknown_fraction,-0.006264172467207821,<= 0,10000.0
+15,5,missing__screen_unlock_event_count,0.011347916326992342,unconstrained,10000.0
+15,5,missing__app_foreground_event_count,0.007717075266036108,unconstrained,10000.0
+15,5,missing__telephony_event_count,0.011347916326992434,unconstrained,10000.0
+15,5,missing__screen_off_event_count,0.011347916326992441,unconstrained,10000.0
+15,5,missing__unique_gsm_lac_count,0.011347916326992431,unconstrained,10000.0
+15,5,missing__telephony_mobile_data_enabled_fraction,0.011347916326992438,unconstrained,10000.0
+15,5,missing__keyboard_median_inter_event_interval_ms,-0.003543581163623767,unconstrained,10000.0
+15,5,missing__activity_unknown_fraction,0.011347916326992443,unconstrained,10000.0
+16,1,unique_gsm_lac_count,1.343233512472786e-17,>= 0,67.23357536499334
+16,1,app_use_diversity,1.3137426780528412,>= 0,67.23357536499334
+16,1,gsm_cell_transition_count,1.3040298870467793e-17,>= 0,67.23357536499334
+16,1,unique_foreground_apps,0.5920038779693942,>= 0,67.23357536499334
+16,1,telephony_event_count,0.5759147909343424,>= 0,67.23357536499334
+16,1,telephony_mobile_data_enabled_fraction,-0.9607911689612784,<= 0,67.23357536499334
+16,1,keyboard_inter_event_interval_iqr_ms,-0.2104984856422315,<= 0,67.23357536499334
+16,1,touch_scroll_index_change_median,-1.2623711895627153e-19,<= 0,67.23357536499334
+16,1,missing__unique_gsm_lac_count,0.18397090572171634,unconstrained,67.23357536499334
+16,1,missing__app_use_diversity,0.08278465775875893,unconstrained,67.23357536499334
+16,1,missing__gsm_cell_transition_count,0.18397090572171626,unconstrained,67.23357536499334
+16,1,missing__unique_foreground_apps,0.08278465775875929,unconstrained,67.23357536499334
+16,1,missing__telephony_event_count,0.18397090572171645,unconstrained,67.23357536499334
+16,1,missing__telephony_mobile_data_enabled_fraction,0.18397090572171632,unconstrained,67.23357536499334
+16,1,missing__keyboard_inter_event_interval_iqr_ms,-0.3196545317491773,unconstrained,67.23357536499334
+16,1,missing__touch_scroll_index_change_median,0.24024873254253418,unconstrained,67.23357536499334
+16,2,telephony_event_count,0.17582112435143174,>= 0,117.21022975334817
+16,2,screen_unlock_event_count,0.3897051541145932,>= 0,117.21022975334817
+16,2,app_foreground_event_count,0.4055436463970509,>= 0,117.21022975334817
+16,2,screen_event_count,0.02229327849487626,>= 0,117.21022975334817
+16,2,touch_app_diversity,1.8711171217445533e-17,>= 0,117.21022975334817
+16,2,telephony_mobile_data_enabled_fraction,-0.6398045567947223,<= 0,117.21022975334817
+16,2,keyboard_median_inter_event_interval_ms,-0.11509485631017485,<= 0,117.21022975334817
+16,2,activity_unknown_fraction,-0.22370818466323947,<= 0,117.21022975334817
+16,2,missing__telephony_event_count,0.31364333896318275,unconstrained,117.21022975334817
+16,2,missing__screen_unlock_event_count,0.4214701214331101,unconstrained,117.21022975334817
+16,2,missing__app_foreground_event_count,0.021939213491660687,unconstrained,117.21022975334817
+16,2,missing__screen_event_count,0.4214701214331102,unconstrained,117.21022975334817
+16,2,missing__touch_app_diversity,-0.3370124316687524,unconstrained,117.21022975334817
+16,2,missing__telephony_mobile_data_enabled_fraction,0.3136433389631827,unconstrained,117.21022975334817
+16,2,missing__keyboard_median_inter_event_interval_ms,-0.5786363804834579,unconstrained,117.21022975334817
+16,2,missing__activity_unknown_fraction,0.31364333896318275,unconstrained,117.21022975334817
+16,3,telephony_network_type_diversity,0.004035390463329935,>= 0,10000.0
+16,3,activity_active_hour_count,0.0026138960703483826,>= 0,10000.0
+16,3,touch_scroll_index_change_median,0.008492995767595013,>= 0,10000.0
+16,3,app_use_diversity,0.01478254587337436,>= 0,10000.0
+16,3,unique_foreground_apps,0.006565630350430126,>= 0,10000.0
+16,3,night_screen_event_count,-0.013660851780032289,<= 0,10000.0
+16,3,keyboard_inter_event_interval_iqr_ms,-0.006190786315937985,<= 0,10000.0
+16,3,touch_distinct_event_count,-4.099127048939557e-21,<= 0,10000.0
+16,3,missing__telephony_network_type_diversity,0.010327931689680572,unconstrained,10000.0
+16,3,missing__activity_active_hour_count,0.010327931689680577,unconstrained,10000.0
+16,3,missing__touch_scroll_index_change_median,-2.938828823693635e-07,unconstrained,10000.0
+16,3,missing__app_use_diversity,0.0012113515406843571,unconstrained,10000.0
+16,3,missing__unique_foreground_apps,0.0012113515406843578,unconstrained,10000.0
+16,3,missing__night_screen_event_count,0.011253423628896052,unconstrained,10000.0
+16,3,missing__keyboard_inter_event_interval_iqr_ms,-0.007346276132984917,unconstrained,10000.0
+16,3,missing__touch_distinct_event_count,-0.002831229317919934,unconstrained,10000.0
+16,4,app_foreground_event_count,0.5894634175415965,>= 0,38.56620421163472
+16,4,telephony_network_type_diversity,4.2125605164288723e-16,>= 0,38.56620421163472
+16,4,unique_gsm_cell_count,0.2109017495131303,>= 0,38.56620421163472
+16,4,screen_unlock_event_count,0.6286676654250457,>= 0,38.56620421163472
+16,4,gsm_cell_transition_count,0.22094580373798778,>= 0,38.56620421163472
+16,4,telephony_mobile_data_enabled_fraction,-1.5501254445168096,<= 0,38.56620421163472
+16,4,keyboard_median_inter_event_interval_ms,-0.43145002735019544,<= 0,38.56620421163472
+16,4,keyboard_inter_event_interval_iqr_ms,-0.06210145314404058,<= 0,38.56620421163472
+16,4,missing__app_foreground_event_count,-0.09442598277936796,unconstrained,38.56620421163472
+16,4,missing__telephony_network_type_diversity,0.3766370233298795,unconstrained,38.56620421163472
+16,4,missing__unique_gsm_cell_count,0.3766370233298797,unconstrained,38.56620421163472
+16,4,missing__screen_unlock_event_count,0.5661057202258428,unconstrained,38.56620421163472
+16,4,missing__gsm_cell_transition_count,0.3766370233298797,unconstrained,38.56620421163472
+16,4,missing__telephony_mobile_data_enabled_fraction,0.37663702332987964,unconstrained,38.56620421163472
+16,4,missing__keyboard_median_inter_event_interval_ms,-0.8803895498513998,unconstrained,38.56620421163472
+16,4,missing__keyboard_inter_event_interval_iqr_ms,-0.8803895498513995,unconstrained,38.56620421163472
+16,5,screen_on_event_count,0.17892940744909266,>= 0,204.33597178569437
+16,5,app_foreground_event_count,0.1872825580475049,>= 0,204.33597178569437
+16,5,telephony_event_count,0.034791212524886365,>= 0,204.33597178569437
+16,5,screen_off_event_count,0.09496859672246048,>= 0,204.33597178569437
+16,5,screen_event_count,0.1450146968915596,>= 0,204.33597178569437
+16,5,telephony_mobile_data_enabled_fraction,-0.4622530946537488,<= 0,204.33597178569437
+16,5,keyboard_median_inter_event_interval_ms,-0.09647684553579405,<= 0,204.33597178569437
+16,5,keyboard_inter_event_interval_iqr_ms,-0.1932523043912759,<= 0,204.33597178569437
+16,5,missing__screen_on_event_count,0.1590228242857449,unconstrained,204.33597178569437
+16,5,missing__app_foreground_event_count,0.010654297585186892,unconstrained,204.33597178569437
+16,5,missing__telephony_event_count,0.15902282428574502,unconstrained,204.33597178569437
+16,5,missing__screen_off_event_count,0.1590228242857451,unconstrained,204.33597178569437
+16,5,missing__screen_event_count,0.1590228242857451,unconstrained,204.33597178569437
+16,5,missing__telephony_mobile_data_enabled_fraction,0.1590228242857451,unconstrained,204.33597178569437
+16,5,missing__keyboard_median_inter_event_interval_ms,-0.06516413025047288,unconstrained,204.33597178569437
+16,5,missing__keyboard_inter_event_interval_iqr_ms,-0.06516413025047268,unconstrained,204.33597178569437
+17,1,app_foreground_event_count,0.7114160987006221,>= 0,38.56620421163472
+17,1,telephony_event_count,0.237845106654294,>= 0,38.56620421163472
+17,1,telephony_network_type_diversity,3.407409010846601e-14,>= 0,38.56620421163472
+17,1,gsm_cell_transition_count,4.0470509816389027e-17,>= 0,38.56620421163472
+17,1,app_use_diversity,1.3750099897782802,>= 0,38.56620421163472
+17,1,telephony_mobile_data_enabled_fraction,-1.4913577873561081,<= 0,38.56620421163472
+17,1,activity_unknown_fraction,-0.1799602927317757,<= 0,38.56620421163472
+17,1,keyboard_median_inter_event_interval_ms,-0.04610486446621893,<= 0,38.56620421163472
+17,1,missing__app_foreground_event_count,-0.1462814287012331,unconstrained,38.56620421163472
+17,1,missing__telephony_event_count,0.389087820654643,unconstrained,38.56620421163472
+17,1,missing__telephony_network_type_diversity,0.3890878206546422,unconstrained,38.56620421163472
+17,1,missing__gsm_cell_transition_count,0.3890878206546423,unconstrained,38.56620421163472
+17,1,missing__app_use_diversity,-0.1462814287012331,unconstrained,38.56620421163472
+17,1,missing__telephony_mobile_data_enabled_fraction,0.38908782065464237,unconstrained,38.56620421163472
+17,1,missing__activity_unknown_fraction,0.38908782065464226,unconstrained,38.56620421163472
+17,1,missing__keyboard_median_inter_event_interval_ms,-0.6593339690719547,unconstrained,38.56620421163472
+17,2,screen_off_event_count,0.0025745135735907704,>= 0,10000.0
+17,2,app_foreground_event_count,0.0036452963911109875,>= 0,10000.0
+17,2,telephony_network_type_diversity,9.977268366511477e-17,>= 0,10000.0
+17,2,unique_gsm_lac_count,0.0025712573514730316,>= 0,10000.0
+17,2,touch_app_diversity,0.0019174731805165234,>= 0,10000.0
+17,2,telephony_mobile_data_enabled_fraction,-0.013435138233721902,<= 0,10000.0
+17,2,keyboard_median_inter_event_interval_ms,-0.002641619239536421,<= 0,10000.0
+17,2,activity_still_fraction,-7.751834230696038e-37,<= 0,10000.0
+17,2,missing__screen_off_event_count,0.0073848478624020455,unconstrained,10000.0
+17,2,missing__app_foreground_event_count,0.010516554601587248,unconstrained,10000.0
+17,2,missing__telephony_network_type_diversity,0.006231247263586206,unconstrained,10000.0
+17,2,missing__unique_gsm_lac_count,0.006231247263586217,unconstrained,10000.0
+17,2,missing__touch_app_diversity,0.004653849446332713,unconstrained,10000.0
+17,2,missing__telephony_mobile_data_enabled_fraction,0.006231247263586211,unconstrained,10000.0
+17,2,missing__keyboard_median_inter_event_interval_ms,-0.0031732087384095083,unconstrained,10000.0
+17,2,missing__activity_still_fraction,0.006231247263586208,unconstrained,10000.0
+17,3,app_foreground_event_count,0.00877882801694043,>= 0,10000.0
+17,3,touch_app_diversity,0.003865864428229422,>= 0,10000.0
+17,3,unique_foreground_apps,0.009266275756504624,>= 0,10000.0
+17,3,unique_gsm_cell_count,0.0029213885366170507,>= 0,10000.0
+17,3,touch_unique_app_count,0.007641162598076795,>= 0,10000.0
+17,3,telephony_mobile_data_enabled_fraction,-0.014073643231270121,<= 0,10000.0
+17,3,keyboard_median_inter_event_interval_ms,-0.0004088279217073909,<= 0,10000.0
+17,3,activity_still_fraction,-0.005669766499598038,<= 0,10000.0
+17,3,missing__app_foreground_event_count,-0.00228884179709454,unconstrained,10000.0
+17,3,missing__touch_app_diversity,-0.0022888417970945347,unconstrained,10000.0
+17,3,missing__unique_foreground_apps,-0.0022888417970945174,unconstrained,10000.0
+17,3,missing__unique_gsm_cell_count,0.005892983096485388,unconstrained,10000.0
+17,3,missing__touch_unique_app_count,-0.0022888417970945286,unconstrained,10000.0
+17,3,missing__telephony_mobile_data_enabled_fraction,0.0058929830964853935,unconstrained,10000.0
+17,3,missing__keyboard_median_inter_event_interval_ms,-0.009938888339180304,unconstrained,10000.0
+17,3,missing__activity_still_fraction,0.005892983096485384,unconstrained,10000.0
+17,4,app_use_diversity,1.6852329402228776,>= 0,22.122162910704503
+17,4,touch_app_diversity,1.038327393208981e-30,>= 0,22.122162910704503
+17,4,telephony_network_type_diversity,0.004626478087111339,>= 0,22.122162910704503
+17,4,app_foreground_event_count,0.8633494362009184,>= 0,22.122162910704503
+17,4,unique_gsm_lac_count,2.6988298029952684e-28,>= 0,22.122162910704503
+17,4,telephony_mobile_data_enabled_fraction,-1.4407518384972633,<= 0,22.122162910704503
+17,4,keyboard_median_inter_event_interval_ms,-0.9977271793405125,<= 0,22.122162910704503
+17,4,keyboard_inter_event_interval_iqr_ms,-0.6623762589557787,<= 0,22.122162910704503
+17,4,missing__app_use_diversity,-0.08805675504134983,unconstrained,22.122162910704503
+17,4,missing__touch_app_diversity,-1.0393591266350641,unconstrained,22.122162910704503
+17,4,missing__telephony_network_type_diversity,0.993086395889068,unconstrained,22.122162910704503
+17,4,missing__app_foreground_event_count,-0.0880567550413497,unconstrained,22.122162910704503
+17,4,missing__unique_gsm_lac_count,0.9930863958890684,unconstrained,22.122162910704503
+17,4,missing__telephony_mobile_data_enabled_fraction,0.9930863958890686,unconstrained,22.122162910704503
+17,4,missing__keyboard_median_inter_event_interval_ms,-0.28610240744052795,unconstrained,22.122162910704503
+17,4,missing__keyboard_inter_event_interval_iqr_ms,-0.2861024074405279,unconstrained,22.122162910704503
+17,5,unique_gsm_cell_count,0.0024228889494142826,>= 0,10000.0
+17,5,gsm_cell_transition_count,0.0007476676994198202,>= 0,10000.0
+17,5,telephony_network_type_diversity,0.004672758098976938,>= 0,10000.0
+17,5,telephony_event_count,0.005626910965851603,>= 0,10000.0
+17,5,unique_gsm_lac_count,0.0006528333875893646,>= 0,10000.0
+17,5,message_distinct_event_count,-0.0034040046992906783,<= 0,10000.0
+17,5,night_screen_event_count,-0.008550863242117183,<= 0,10000.0
+17,5,telephony_mobile_data_enabled_fraction,-0.01121973259462497,<= 0,10000.0
+17,5,missing__unique_gsm_cell_count,0.005242341892358975,unconstrained,10000.0
+17,5,missing__gsm_cell_transition_count,0.005242341892358971,unconstrained,10000.0
+17,5,missing__telephony_network_type_diversity,0.0052423418923589656,unconstrained,10000.0
+17,5,missing__telephony_event_count,0.005242341892358933,unconstrained,10000.0
+17,5,missing__unique_gsm_lac_count,0.0052423418923589725,unconstrained,10000.0
+17,5,missing__message_distinct_event_count,0.006791109770458928,unconstrained,10000.0
+17,5,missing__night_screen_event_count,0.0062435718527490275,unconstrained,10000.0
+17,5,missing__telephony_mobile_data_enabled_fraction,0.005242341892358989,unconstrained,10000.0
+18,1,app_foreground_event_count,0.15840946022528726,>= 0,621.0169418915616
+18,1,unique_foreground_apps,0.17027883034799768,>= 0,621.0169418915616
+18,1,unique_gsm_cell_count,0.038474305433218725,>= 0,621.0169418915616
+18,1,touch_app_diversity,0.04224120823922246,>= 0,621.0169418915616
+18,1,gsm_cell_transition_count,8.908560972279589e-17,>= 0,621.0169418915616
+18,1,telephony_mobile_data_enabled_fraction,-0.17439661075818982,<= 0,621.0169418915616
+18,1,message_distinct_event_count,-0.0279635767480089,<= 0,621.0169418915616
+18,1,night_screen_event_count,-0.0821849270986112,<= 0,621.0169418915616
+18,1,missing__app_foreground_event_count,0.01705698967803788,unconstrained,621.0169418915616
+18,1,missing__unique_foreground_apps,0.017056989678037815,unconstrained,621.0169418915616
+18,1,missing__unique_gsm_cell_count,0.057476586073795854,unconstrained,621.0169418915616
+18,1,missing__touch_app_diversity,-0.05465621474222753,unconstrained,621.0169418915616
+18,1,missing__gsm_cell_transition_count,0.0574765860737959,unconstrained,621.0169418915616
+18,1,missing__telephony_mobile_data_enabled_fraction,0.057476586073795924,unconstrained,621.0169418915616
+18,1,missing__message_distinct_event_count,0.051943099574372285,unconstrained,621.0169418915616
+18,1,missing__night_screen_event_count,0.07276770113421943,unconstrained,621.0169418915616
+18,2,telephony_network_type_diversity,0.3603765680085935,>= 0,67.23357536499334
+18,2,app_use_diversity,1.102412176818874,>= 0,67.23357536499334
+18,2,app_foreground_event_count,0.6203534878283139,>= 0,67.23357536499334
+18,2,unique_gsm_cell_count,0.2553519613087976,>= 0,67.23357536499334
+18,2,unique_gsm_lac_count,2.52858671342998e-16,>= 0,67.23357536499334
+18,2,telephony_mobile_data_enabled_fraction,-0.8048855185172721,<= 0,67.23357536499334
+18,2,keyboard_median_inter_event_interval_ms,-0.26560572657291326,<= 0,67.23357536499334
+18,2,activity_still_fraction,-0.2880782565078469,<= 0,67.23357536499334
+18,2,missing__telephony_network_type_diversity,0.40249496421971676,unconstrained,67.23357536499334
+18,2,missing__app_use_diversity,-0.0622592343746923,unconstrained,67.23357536499334
+18,2,missing__app_foreground_event_count,-0.06225923437469257,unconstrained,67.23357536499334
+18,2,missing__unique_gsm_cell_count,0.40249496421971737,unconstrained,67.23357536499334
+18,2,missing__unique_gsm_lac_count,0.4024949642197167,unconstrained,67.23357536499334
+18,2,missing__telephony_mobile_data_enabled_fraction,0.4024949642197167,unconstrained,67.23357536499334
+18,2,missing__keyboard_median_inter_event_interval_ms,-0.6067674227711609,unconstrained,67.23357536499334
+18,2,missing__activity_still_fraction,0.40249496421971676,unconstrained,67.23357536499334
+18,3,telephony_network_type_diversity,0.2873450512300269,>= 0,117.21022975334817
+18,3,activity_active_hour_count,1.7543041986030913e-31,>= 0,117.21022975334817
+18,3,app_foreground_event_count,0.4909224044578565,>= 0,117.21022975334817
+18,3,telephony_event_count,0.10028187953295194,>= 0,117.21022975334817
+18,3,touch_app_diversity,1.5632136990923206e-12,>= 0,117.21022975334817
+18,3,telephony_mobile_data_enabled_fraction,-0.96356984203153,<= 0,117.21022975334817
+18,3,keyboard_median_inter_event_interval_ms,-0.08609698818548905,<= 0,117.21022975334817
+18,3,screen_active_hour_count,-0.15440124477673026,<= 0,117.21022975334817
+18,3,missing__telephony_network_type_diversity,0.1997133239708634,unconstrained,117.21022975334817
+18,3,missing__activity_active_hour_count,0.19971332397086333,unconstrained,117.21022975334817
+18,3,missing__app_foreground_event_count,-0.06817942867177397,unconstrained,117.21022975334817
+18,3,missing__telephony_event_count,0.19971332397086353,unconstrained,117.21022975334817
+18,3,missing__touch_app_diversity,-0.12595001920221002,unconstrained,117.21022975334817
+18,3,missing__telephony_mobile_data_enabled_fraction,0.19971332397086353,unconstrained,117.21022975334817
+18,3,missing__keyboard_median_inter_event_interval_ms,-0.23011524726864926,unconstrained,117.21022975334817
+18,3,missing__screen_active_hour_count,0.2845521157997712,unconstrained,117.21022975334817
+18,4,app_foreground_event_count,1.8639026600391224,>= 0,0.001
+18,4,telephony_event_count,2.5268332022007502e-17,>= 0,0.001
+18,4,app_use_diversity,3.667133554214135,>= 0,0.001
+18,4,activity_active_hour_count,8.06162995435627e-17,>= 0,0.001
+18,4,telephony_network_type_diversity,1.0955169113868213e-16,>= 0,0.001
+18,4,telephony_mobile_data_enabled_fraction,-3.0123647617532283,<= 0,0.001
+18,4,night_screen_event_count,-3.01202090205022,<= 0,0.001
+18,4,keyboard_median_inter_event_interval_ms,-0.3987051567033693,<= 0,0.001
+18,4,missing__app_foreground_event_count,-2.1275520731060316,unconstrained,0.001
+18,4,missing__telephony_event_count,0.6734697383268166,unconstrained,0.001
+18,4,missing__app_use_diversity,-2.1275520731027564,unconstrained,0.001
+18,4,missing__activity_active_hour_count,0.6734697383183703,unconstrained,0.001
+18,4,missing__telephony_network_type_diversity,0.6734697383183618,unconstrained,0.001
+18,4,missing__telephony_mobile_data_enabled_fraction,0.6734697383183988,unconstrained,0.001
+18,4,missing__night_screen_event_count,0.6734697383184117,unconstrained,0.001
+18,4,missing__keyboard_median_inter_event_interval_ms,2.314033369201611,unconstrained,0.001
+18,5,activity_active_hour_count,0.0059056507911562,>= 0,10000.0
+18,5,app_foreground_event_count,0.0075991870606251875,>= 0,10000.0
+18,5,screen_unlock_event_count,0.00969335072914969,>= 0,10000.0
+18,5,screen_on_event_count,0.006724671107932918,>= 0,10000.0
+18,5,screen_event_count,0.0062006841646681824,>= 0,10000.0
+18,5,telephony_mobile_data_enabled_fraction,-0.01173844678759593,<= 0,10000.0
+18,5,keyboard_median_inter_event_interval_ms,-0.008435577773320643,<= 0,10000.0
+18,5,night_screen_event_count,-0.006347879459256107,<= 0,10000.0
+18,5,missing__activity_active_hour_count,0.006172433100575517,unconstrained,10000.0
+18,5,missing__app_foreground_event_count,0.005908350167000685,unconstrained,10000.0
+18,5,missing__screen_unlock_event_count,0.007308579485551986,unconstrained,10000.0
+18,5,missing__screen_on_event_count,0.007308579485551979,unconstrained,10000.0
+18,5,missing__screen_event_count,0.007308579485551965,unconstrained,10000.0
+18,5,missing__telephony_mobile_data_enabled_fraction,0.006172433100575551,unconstrained,10000.0
+18,5,missing__keyboard_median_inter_event_interval_ms,-0.007429579266847647,unconstrained,10000.0
+18,5,missing__night_screen_event_count,0.0073085794855519606,unconstrained,10000.0
+19,1,app_foreground_event_count,1.4102936364412673,>= 0,12.689610031679234
+19,1,screen_unlock_event_count,0.6313074149131017,>= 0,12.689610031679234
+19,1,touch_unique_app_count,5.817438463463268e-22,>= 0,12.689610031679234
+19,1,unique_foreground_apps,1.732551655215491,>= 0,12.689610031679234
+19,1,telephony_event_count,0.44216008599181217,>= 0,12.689610031679234
+19,1,keyboard_median_inter_event_interval_ms,-0.5510307215630672,<= 0,12.689610031679234
+19,1,telephony_mobile_data_enabled_fraction,-1.4752059232689778,<= 0,12.689610031679234
+19,1,night_screen_event_count,-2.048176486663112,<= 0,12.689610031679234
+19,1,missing__app_foreground_event_count,0.7135957726341492,unconstrained,12.689610031679234
+19,1,missing__screen_unlock_event_count,0.22638836003613447,unconstrained,12.689610031679234
+19,1,missing__touch_unique_app_count,-0.836422474218044,unconstrained,12.689610031679234
+19,1,missing__unique_foreground_apps,0.7135957726341488,unconstrained,12.689610031679234
+19,1,missing__telephony_event_count,0.4891908059361586,unconstrained,12.689610031679234
+19,1,missing__keyboard_median_inter_event_interval_ms,-0.519349480145986,unconstrained,12.689610031679234
+19,1,missing__telephony_mobile_data_enabled_fraction,0.48919080593615877,unconstrained,12.689610031679234
+19,1,missing__night_screen_event_count,0.22638836003613394,unconstrained,12.689610031679234
+19,2,night_screen_event_count,3.362602955796617e-17,>= 0,10000.0
+19,2,telephony_network_type_diversity,0.00786086407370536,>= 0,10000.0
+19,2,activity_active_hour_count,0.0009234409171850408,>= 0,10000.0
+19,2,unique_gsm_cell_count,0.0033226820927649845,>= 0,10000.0
+19,2,unique_gsm_lac_count,0.0012888067760433756,>= 0,10000.0
+19,2,telephony_mobile_data_enabled_fraction,-0.016526263029300988,<= 0,10000.0
+19,2,keyboard_median_inter_event_interval_ms,-0.0035988494579900273,<= 0,10000.0
+19,2,screen_transition_count,-1.4670837061287774e-16,<= 0,10000.0
+19,2,missing__night_screen_event_count,0.006856982646984647,unconstrained,10000.0
+19,2,missing__telephony_network_type_diversity,0.005689497960179313,unconstrained,10000.0
+19,2,missing__activity_active_hour_count,0.00568949796017932,unconstrained,10000.0
+19,2,missing__unique_gsm_cell_count,0.005689497960179316,unconstrained,10000.0
+19,2,missing__unique_gsm_lac_count,0.005689497960179312,unconstrained,10000.0
+19,2,missing__telephony_mobile_data_enabled_fraction,0.005689497960179308,unconstrained,10000.0
+19,2,missing__keyboard_median_inter_event_interval_ms,-0.007717552404653393,unconstrained,10000.0
+19,2,missing__screen_transition_count,0.006856982646984679,unconstrained,10000.0
+19,3,app_use_diversity,2.0136812936645914,>= 0,22.122162910704503
+19,3,app_foreground_event_count,0.7511735964850492,>= 0,22.122162910704503
+19,3,unique_gsm_cell_count,0.2481816923488077,>= 0,22.122162910704503
+19,3,screen_on_event_count,0.025129903569429797,>= 0,22.122162910704503
+19,3,gsm_cell_transition_count,2.618793032876973e-21,>= 0,22.122162910704503
+19,3,telephony_mobile_data_enabled_fraction,-1.9871352124066597,<= 0,22.122162910704503
+19,3,keyboard_median_inter_event_interval_ms,-0.2309246420693014,<= 0,22.122162910704503
+19,3,unique_gsm_lac_count,-1.0063640510313616,<= 0,22.122162910704503
+19,3,missing__app_use_diversity,-0.01383008870956145,unconstrained,22.122162910704503
+19,3,missing__app_foreground_event_count,-0.013830088709561626,unconstrained,22.122162910704503
+19,3,missing__unique_gsm_cell_count,0.20376875638490252,unconstrained,22.122162910704503
+19,3,missing__screen_on_event_count,0.39013888030640664,unconstrained,22.122162910704503
+19,3,missing__gsm_cell_transition_count,0.20376875638490172,unconstrained,22.122162910704503
+19,3,missing__telephony_mobile_data_enabled_fraction,0.2037687563849021,unconstrained,22.122162910704503
+19,3,missing__keyboard_median_inter_event_interval_ms,-0.8056669577781973,unconstrained,22.122162910704503
+19,3,missing__unique_gsm_lac_count,0.20376875638490183,unconstrained,22.122162910704503
+19,4,telephony_event_count,0.5980407703101226,>= 0,22.122162910704503
+19,4,app_use_diversity,1.1187696495532502,>= 0,22.122162910704503
+19,4,touch_app_diversity,1.7209193204783997e-17,>= 0,22.122162910704503
+19,4,unique_gsm_lac_count,4.433004583944076e-17,>= 0,22.122162910704503
+19,4,telephony_network_type_diversity,3.8138291243293476e-17,>= 0,22.122162910704503
+19,4,telephony_mobile_data_enabled_fraction,-1.5206086886671695,<= 0,22.122162910704503
+19,4,activity_still_fraction,-0.4763553753659674,<= 0,22.122162910704503
+19,4,keyboard_inter_event_interval_iqr_ms,-0.572664541000466,<= 0,22.122162910704503
+19,4,missing__telephony_event_count,0.7317153389691157,unconstrained,22.122162910704503
+19,4,missing__app_use_diversity,-0.26140271707978757,unconstrained,22.122162910704503
+19,4,missing__touch_app_diversity,-1.1030967806374432,unconstrained,22.122162910704503
+19,4,missing__unique_gsm_lac_count,0.731715338969116,unconstrained,22.122162910704503
+19,4,missing__telephony_network_type_diversity,0.7317153389691154,unconstrained,22.122162910704503
+19,4,missing__telephony_mobile_data_enabled_fraction,0.7317153389691159,unconstrained,22.122162910704503
+19,4,missing__activity_still_fraction,0.7317153389691159,unconstrained,22.122162910704503
+19,4,missing__keyboard_inter_event_interval_iqr_ms,-0.8083260275396693,unconstrained,22.122162910704503
+19,5,activity_active_hour_count,0.008369332706707191,>= 0,10000.0
+19,5,telephony_network_type_diversity,0.003039381815364284,>= 0,10000.0
+19,5,touch_app_diversity,0.0006232167927960959,>= 0,10000.0
+19,5,unique_gsm_lac_count,2.9631835972378464e-23,>= 0,10000.0
+19,5,activity_still_fraction,0.002756853085997329,>= 0,10000.0
+19,5,telephony_mobile_data_enabled_fraction,-0.009807677793574492,<= 0,10000.0
+19,5,screen_active_hour_count,-0.00414131092172548,<= 0,10000.0
+19,5,keyboard_median_inter_event_interval_ms,-0.00194091863771391,<= 0,10000.0
+19,5,missing__activity_active_hour_count,0.004374479507168496,unconstrained,10000.0
+19,5,missing__telephony_network_type_diversity,0.004374479507168491,unconstrained,10000.0
+19,5,missing__touch_app_diversity,-0.006369864359296879,unconstrained,10000.0
+19,5,missing__unique_gsm_lac_count,0.004374479507168493,unconstrained,10000.0
+19,5,missing__activity_still_fraction,0.004374479507168487,unconstrained,10000.0
+19,5,missing__telephony_mobile_data_enabled_fraction,0.004374479507168499,unconstrained,10000.0
+19,5,missing__screen_active_hour_count,0.005352915630454201,unconstrained,10000.0
+19,5,missing__keyboard_median_inter_event_interval_ms,-0.00706482522845224,unconstrained,10000.0
+20,1,telephony_network_type_diversity,0.11718511126248883,>= 0,67.23357536499334
+20,1,app_foreground_event_count,0.5569459637113208,>= 0,67.23357536499334
+20,1,touch_app_diversity,1.2687012925978539e-17,>= 0,67.23357536499334
+20,1,activity_active_hour_count,4.70526828049158e-20,>= 0,67.23357536499334
+20,1,telephony_event_count,0.40293588362258637,>= 0,67.23357536499334
+20,1,telephony_mobile_data_enabled_fraction,-0.9507119468648083,<= 0,67.23357536499334
+20,1,touch_distinct_event_count,-1.2599770186772571e-20,<= 0,67.23357536499334
+20,1,keyboard_deletion_event_count,-2.2925336526301304e-20,<= 0,67.23357536499334
+20,1,missing__telephony_network_type_diversity,0.4420141654832126,unconstrained,67.23357536499334
+20,1,missing__app_foreground_event_count,0.03560447086132829,unconstrained,67.23357536499334
+20,1,missing__touch_app_diversity,-0.10984044658190066,unconstrained,67.23357536499334
+20,1,missing__activity_active_hour_count,0.4420141654832125,unconstrained,67.23357536499334
+20,1,missing__telephony_event_count,0.4420141654832124,unconstrained,67.23357536499334
+20,1,missing__telephony_mobile_data_enabled_fraction,0.44201416548321254,unconstrained,67.23357536499334
+20,1,missing__touch_distinct_event_count,-0.10984044658190102,unconstrained,67.23357536499334
+20,1,missing__keyboard_deletion_event_count,-0.446412584813332,unconstrained,67.23357536499334
+20,2,app_use_diversity,0.9455452010026977,>= 0,67.23357536499334
+20,2,app_foreground_event_count,0.5017174340704085,>= 0,67.23357536499334
+20,2,screen_unlock_event_count,0.4115888746633983,>= 0,67.23357536499334
+20,2,unique_foreground_apps,0.24432565067575945,>= 0,67.23357536499334
+20,2,activity_transition_count,0.02990950816969576,>= 0,67.23357536499334
+20,2,telephony_mobile_data_enabled_fraction,-0.8374691028625846,<= 0,67.23357536499334
+20,2,keyboard_median_inter_event_interval_ms,-0.03649719682370599,<= 0,67.23357536499334
+20,2,keyboard_inter_event_interval_iqr_ms,-0.13651547172901043,<= 0,67.23357536499334
+20,2,missing__app_use_diversity,0.11948410892495918,unconstrained,67.23357536499334
+20,2,missing__app_foreground_event_count,0.11948410892496077,unconstrained,67.23357536499334
+20,2,missing__screen_unlock_event_count,0.772040848483851,unconstrained,67.23357536499334
+20,2,missing__unique_foreground_apps,0.11948410892496088,unconstrained,67.23357536499334
+20,2,missing__activity_transition_count,0.6551151570835018,unconstrained,67.23357536499334
+20,2,missing__telephony_mobile_data_enabled_fraction,0.6551151570835029,unconstrained,67.23357536499334
+20,2,missing__keyboard_median_inter_event_interval_ms,-0.5470949099916311,unconstrained,67.23357536499334
+20,2,missing__keyboard_inter_event_interval_iqr_ms,-0.5470949099916314,unconstrained,67.23357536499334
+20,3,telephony_network_type_diversity,0.2611386930716002,>= 0,117.21022975334817
+20,3,unique_gsm_lac_count,4.378127395514807e-20,>= 0,117.21022975334817
+20,3,app_foreground_event_count,0.329575815914794,>= 0,117.21022975334817
+20,3,gsm_cell_transition_count,6.244624258588915e-20,>= 0,117.21022975334817
+20,3,app_use_diversity,0.7218903760265373,>= 0,117.21022975334817
+20,3,telephony_mobile_data_enabled_fraction,-0.6496813697418782,<= 0,117.21022975334817
+20,3,touch_click_event_count,-1.1199250012143726e-22,<= 0,117.21022975334817
+20,3,screen_active_hour_count,-0.27597319274692766,<= 0,117.21022975334817
+20,3,missing__telephony_network_type_diversity,0.22656663247933273,unconstrained,117.21022975334817
+20,3,missing__unique_gsm_lac_count,0.22656663247933276,unconstrained,117.21022975334817
+20,3,missing__app_foreground_event_count,0.04852164462321591,unconstrained,117.21022975334817
+20,3,missing__gsm_cell_transition_count,0.22656663247933276,unconstrained,117.21022975334817
+20,3,missing__app_use_diversity,0.048521644623215836,unconstrained,117.21022975334817
+20,3,missing__telephony_mobile_data_enabled_fraction,0.2265666324793327,unconstrained,117.21022975334817
+20,3,missing__touch_click_event_count,-0.267433961955102,unconstrained,117.21022975334817
+20,3,missing__screen_active_hour_count,0.32468205895477475,unconstrained,117.21022975334817
+20,4,unique_gsm_cell_count,0.0029207445836482845,>= 0,10000.0
+20,4,telephony_event_count,0.0019225949718812928,>= 0,10000.0
+20,4,gsm_cell_transition_count,6.752124096747368e-14,>= 0,10000.0
+20,4,unique_foreground_apps,0.010410381850855887,>= 0,10000.0
+20,4,touch_app_diversity,0.004240626544707024,>= 0,10000.0
+20,4,telephony_mobile_data_enabled_fraction,-0.013919065497715596,<= 0,10000.0
+20,4,keyboard_median_inter_event_interval_ms,-0.0018883478078530324,<= 0,10000.0
+20,4,activity_still_fraction,-0.006394427996910164,<= 0,10000.0
+20,4,missing__unique_gsm_cell_count,0.0029752978114785593,unconstrained,10000.0
+20,4,missing__telephony_event_count,0.0029752978114785515,unconstrained,10000.0
+20,4,missing__gsm_cell_transition_count,0.0029752978114785567,unconstrained,10000.0
+20,4,missing__unique_foreground_apps,-0.004429618762994649,unconstrained,10000.0
+20,4,missing__touch_app_diversity,-0.008951306223095642,unconstrained,10000.0
+20,4,missing__telephony_mobile_data_enabled_fraction,0.002975297811478545,unconstrained,10000.0
+20,4,missing__keyboard_median_inter_event_interval_ms,-0.00845967634200954,unconstrained,10000.0
+20,4,missing__activity_still_fraction,0.0029752978114785536,unconstrained,10000.0
+20,5,app_foreground_event_count,0.007635934543502976,>= 0,10000.0
+20,5,unique_gsm_cell_count,0.0010708907487945332,>= 0,10000.0
+20,5,gsm_cell_transition_count,8.606235368881117e-34,>= 0,10000.0
+20,5,touch_app_diversity,5.796459830476502e-10,>= 0,10000.0
+20,5,telephony_event_count,0.0028673611320979174,>= 0,10000.0
+20,5,telephony_mobile_data_enabled_fraction,-0.01653286184511087,<= 0,10000.0
+20,5,keyboard_median_inter_event_interval_ms,-0.011464866879532134,<= 0,10000.0
+20,5,keyboard_inter_event_interval_iqr_ms,-0.007396158356240808,<= 0,10000.0
+20,5,missing__app_foreground_event_count,-0.0010290600746196586,unconstrained,10000.0
+20,5,missing__unique_gsm_cell_count,0.0028495012787829025,unconstrained,10000.0
+20,5,missing__gsm_cell_transition_count,0.0028495012787828973,unconstrained,10000.0
+20,5,missing__touch_app_diversity,-0.005201475101618833,unconstrained,10000.0
+20,5,missing__telephony_event_count,0.0028495012787828978,unconstrained,10000.0
+20,5,missing__telephony_mobile_data_enabled_fraction,0.0028495012787829056,unconstrained,10000.0
+20,5,missing__keyboard_median_inter_event_interval_ms,-0.009860250531208708,unconstrained,10000.0
+20,5,missing__keyboard_inter_event_interval_iqr_ms,-0.009860250531208705,unconstrained,10000.0
