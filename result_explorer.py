@@ -326,7 +326,7 @@ def render_result_explorer(root: Path) -> None:
                 selected_outcomes = st.multiselect(
                     "Outcomes or cognitive domains",
                     outcome_options,
-                    default=["Global"],
+                    default=outcome_options,
                 )
             with primary_controls[1]:
                 selected_models = st.multiselect(
