@@ -2688,12 +2688,17 @@ def phase4_baseline_page(
 
 
 def _render_with_path_overrides(overrides: dict[str, Path], render) -> None:
-    previous = {key: PATHS[key] for key in overrides}
+    missing = object()
+    previous = {key: PATHS.get(key, missing) for key in overrides}
     PATHS.update(overrides)
     try:
         render()
     finally:
-        PATHS.update(previous)
+        for key, value in previous.items():
+            if value is missing:
+                PATHS.pop(key, None)
+            else:
+                PATHS[key] = value
 
 
 def phase4_10day_page() -> None:
