@@ -225,6 +225,10 @@ PATHS = {
     "suggestions_readme": ROOT
     / "output/analysis_candidates/phase4_10day_t1_baseline/suggestions/README_suggestions_10day_coverage_models.md",
     "suggestions_protocol": ROOT / "SUGGESTIONS_PHASE_PROTOCOL.md",
+    "suggestions_domain_metrics": ROOT
+    / "output/analysis_candidates/phase4_10day_t1_baseline/suggestions/suggestions_10day_cognitive_domain_metrics.csv",
+    "suggestions_domain_patient_predictions": ROOT
+    / "output/analysis_candidates/phase4_10day_t1_baseline/suggestions/suggestions_10day_cognitive_domain_patient_predictions.csv",
     "phase4_domain_patient_predictions": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_cognitive_domains/phase4_t1_cognitive_domain_patient_predictions.csv",
     "phase4_domain_metrics": ROOT
@@ -2900,6 +2904,8 @@ def suggestions_page() -> None:
     )
     metrics = load_csv(PATHS["suggestions_metrics"])
     patient_predictions = load_csv(PATHS["suggestions_patient_predictions"])
+    domain_metrics = load_csv(PATHS["suggestions_domain_metrics"])
+    domain_patient_predictions = load_csv(PATHS["suggestions_domain_patient_predictions"])
     cohorts = load_csv(PATHS["suggestions_cohorts"])
     readme = load_text(PATHS["suggestions_readme"])
     protocol = load_text(PATHS["suggestions_protocol"])
@@ -3094,6 +3100,133 @@ def suggestions_page() -> None:
                 f"RMSE {float(row['rmse']):.2f} | MAE {float(row['mae']):.2f} | "
                 f"R2 {float(row['r2']):.2f} | {delta:+.2f} RMSE versus mean baseline"
             )
+
+    st.markdown("**Mean baseline**")
+    baseline_plot_data = ordered.rename(
+        columns={
+            "Subject_ID_D": "Patient ID",
+            "actual_global_T1": "Observed T1 score",
+            "mean_baseline_prediction": "Mean baseline estimate",
+        }
+    )[["patient_rank", "Patient ID", "Observed T1 score", "Mean baseline estimate"]].melt(
+        id_vars=["patient_rank", "Patient ID"],
+        var_name="score_type",
+        value_name="t1_score",
+    )
+    baseline_chart = (
+        alt.Chart(baseline_plot_data)
+        .mark_line(point=alt.OverlayMarkDef(size=45))
+        .encode(
+            x=alt.X("patient_rank:Q", title="Patients ordered by observed T1 score", axis=alt.Axis(format="d")),
+            y=alt.Y("t1_score:Q", title="T1 score"),
+            color=alt.Color(
+                "score_type:N",
+                title="Measure",
+                scale=alt.Scale(
+                    domain=["Observed T1 score", "Mean baseline estimate"],
+                    range=["#111827", "#6b7280"],
+                ),
+            ),
+            tooltip=[
+                alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                alt.Tooltip("Patient ID:N", title="Patient ID"),
+                alt.Tooltip("score_type:N", title="Measure"),
+                alt.Tooltip("t1_score:Q", title="T1 score", format=".2f"),
+            ],
+        )
+    )
+    st.altair_chart(baseline_chart.properties(height=380), use_container_width=True)
+    st.caption(
+        f"The gray line is the within-training-fold mean-baseline prediction averaged for each patient. "
+        f"Pooled baseline RMSE for this cohort: {baseline_rmse:.2f}."
+    )
+
+    st.subheader("5. Cognitive domain graphs")
+    st.caption(
+        "Each domain is ordered independently by its own observed domain T1 score. The black line is observed, "
+        "the domain-colored line uses all selected features, and the red line uses the hypothesized domain feature group."
+    )
+    domain_colors = {
+        "Memory": "#2563eb",
+        "Executive function": "#16a34a",
+        "Processing speed": "#d97706",
+        "Attention": "#9333ea",
+        "Motor": "#0891b2",
+    }
+    if domain_patient_predictions.empty:
+        st.info("Cognitive-domain Suggestions outputs are not available yet.")
+    else:
+        for domain, domain_color in domain_colors.items():
+            domain_frame = domain_patient_predictions[
+                domain_patient_predictions["cohort_size"].astype(int).eq(cohort_choice)
+                & domain_patient_predictions["domain"].astype(str).eq(domain)
+            ].copy()
+            if domain_frame.empty:
+                continue
+            domain_frame = domain_frame.sort_values("actual_T1").reset_index(drop=True)
+            domain_frame["patient_rank"] = range(1, len(domain_frame) + 1)
+            domain_plot = domain_frame.rename(
+                columns={
+                    "Subject_ID_D": "Patient ID",
+                    "actual_T1": "Observed domain T1 score",
+                    "ridge_prediction": "All-feature domain estimate",
+                    "group_ridge_prediction": "Domain feature-group estimate",
+                }
+            )[[
+                "patient_rank",
+                "Patient ID",
+                "Observed domain T1 score",
+                "All-feature domain estimate",
+                "Domain feature-group estimate",
+            ]].melt(
+                id_vars=["patient_rank", "Patient ID"],
+                var_name="score_type",
+                value_name="score",
+            )
+            domain_chart = (
+                alt.Chart(domain_plot)
+                .mark_line(point=alt.OverlayMarkDef(size=45))
+                .encode(
+                    x=alt.X(
+                        "patient_rank:Q",
+                        title=f"Patients ordered by observed {domain} T1 score",
+                        axis=alt.Axis(format="d"),
+                    ),
+                    y=alt.Y("score:Q", title=f"{domain} T1 score"),
+                    color=alt.Color(
+                        "score_type:N",
+                        title="Measure",
+                        scale=alt.Scale(
+                            domain=[
+                                "Observed domain T1 score",
+                                "All-feature domain estimate",
+                                "Domain feature-group estimate",
+                            ],
+                            range=["#111827", domain_color, "#dc2626"],
+                        ),
+                    ),
+                    tooltip=[
+                        alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                        alt.Tooltip("Patient ID:N", title="Patient ID"),
+                        alt.Tooltip("score_type:N", title="Measure"),
+                        alt.Tooltip("score:Q", title="Score", format=".2f"),
+                    ],
+                )
+            )
+            st.markdown(f"**{domain}**")
+            st.altair_chart(domain_chart.properties(height=380), use_container_width=True)
+            domain_fit = domain_metrics[
+                domain_metrics["cohort_size"].astype(int).eq(cohort_choice)
+                & domain_metrics["domain"].astype(str).eq(domain)
+                & domain_metrics["analysis_scope"].astype(str).eq("pooled")
+            ]
+            if not domain_fit.empty:
+                fit_text = " | ".join(
+                    f"{row.model}: RMSE {float(row.rmse):.2f}"
+                    for row in domain_fit.itertuples()
+                    if row.model != "mean_baseline"
+                )
+                st.caption(fit_text)
 
     with st.expander("Protocol and interpretation"):
         st.markdown(protocol or readme or "No protocol README available yet.")

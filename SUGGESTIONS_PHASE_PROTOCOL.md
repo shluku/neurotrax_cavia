@@ -14,6 +14,8 @@ Patients are ranked without using T1 scores: lower feature missingness is prefer
 
 Each cohort is evaluated with Elastic Net, PLS, Spline Ridge, shallow Random Forest, Extra Trees, HistGradientBoosting, and conservative XGBoost. Preprocessing is fit within each validation fold. Each cohort is compared against its own mean baseline using repeated 5-fold cross-validation.
 
+The Suggestions page also includes the Phase 4-style global mean-baseline graph and separate cognitive-domain graphs for Memory, Executive function, Processing speed, Attention, and Motor. Each domain graph shows the observed domain score, an all-feature domain Ridge estimate, and the domain feature-group Ridge estimate. Patients are ordered independently within each domain by that domain's observed T1 score.
+
 ## Interpretation
 
 Improvement in a high-coverage subgroup does not establish performance for the full cohort. It may indicate that better acquisition quality is necessary for phenotype prediction, or it may reflect selection and small-sample instability. The top-10 results are therefore descriptive and should not be used as evidence of a clinical model.
