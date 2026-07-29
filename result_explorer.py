@@ -29,7 +29,7 @@ MODEL_LABELS = {
     "xgboost_prediction": "XGBoost",
 }
 MODEL_COLORS = {
-    "mean_baseline_prediction": "#6b7280",
+    "mean_baseline_prediction": "#1d4ed8",
     "group_ridge_prediction": "#dc2626",
     "ridge_prediction": "#2563eb",
     "gradient_weighted_prediction": "#d97706",
@@ -448,7 +448,7 @@ def render_result_explorer(root: Path) -> None:
         else:
             line_columns = [("observed", "Observed T1", "#111827")]
             if "Mean baseline" in selected_models:
-                line_columns.append(("mean_baseline_prediction", "Mean baseline", "#6b7280"))
+                line_columns.append(("mean_baseline_prediction", "Mean baseline", MODEL_COLORS["mean_baseline_prediction"]))
             line_columns.extend(
                 (model, MODEL_LABELS.get(model, model), MODEL_COLORS.get(model, "#2563eb"))
                 for model in selected_models
