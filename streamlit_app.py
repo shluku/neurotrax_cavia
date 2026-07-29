@@ -151,6 +151,10 @@ PATHS = {
     "phase7_t2_status": ROOT / "output/analysis_candidates/phase7_10day_window/t2/phase7_t2_10day_patient_table_status.csv",
     "phase7_t2_coverage": ROOT / "output/analysis_candidates/phase7_10day_window/t2/phase7_t2_10day_coverage.csv",
     "phase7_t2_checkpoint": ROOT / "output/analysis_candidates/phase7_10day_window/t2/phase7_t2_10day_checkpoint.jsonl",
+    "phase7_comparison_readme": ROOT / "output/analysis_candidates/phase7_10day_window/comparison/README_phase7_comparison_24h_vs_10d.md",
+    "phase7_feature_comparison": ROOT / "output/analysis_candidates/phase7_10day_window/comparison/phase7_feature_coverage_comparison_24h_vs_10d.csv",
+    "phase7_patient_comparison": ROOT / "output/analysis_candidates/phase7_10day_window/comparison/phase7_patient_feature_count_comparison_24h_vs_10d.csv",
+    "phase7_table_comparison": ROOT / "output/analysis_candidates/phase7_10day_window/comparison/phase7_table_coverage_comparison_24h_vs_10d.csv",
     "phase4_baseline_dataset": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/phase4_t1_baseline_patient_dataset.csv",
     "phase4_feature_metadata": ROOT
@@ -2735,6 +2739,20 @@ def phase7_10day_page() -> None:
     )
     st.caption("Availability-anchored 10-day T1 and T2 feature extraction using the same selected tables and algorithms as earlier phases.")
     phase7_10day_live_panel()
+    comparison_readme = load_text(PATHS["phase7_comparison_readme"])
+    feature_comparison = load_csv(PATHS["phase7_feature_comparison"])
+    patient_comparison = load_csv(PATHS["phase7_patient_comparison"])
+    table_comparison = load_csv(PATHS["phase7_table_comparison"])
+    if comparison_readme or not feature_comparison.empty:
+        st.markdown("---")
+        st.subheader("10-day versus 24-hour data audit")
+        st.markdown(comparison_readme)
+        with st.expander("Feature-level coverage changes", expanded=True):
+            show_dataframe(feature_comparison, height=420)
+        with st.expander("Patient-level available feature counts"):
+            show_dataframe(patient_comparison, height=360)
+        with st.expander("Table-level coverage comparison"):
+            show_dataframe(table_comparison, height=420)
     st.markdown("---")
     st.markdown(load_text(PATHS["phase7_protocol"]) or "No Phase 7 protocol available.")
 
