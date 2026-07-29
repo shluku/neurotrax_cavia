@@ -159,13 +159,26 @@ def _t1_wide(root: Path, source: str, outcome: str) -> pd.DataFrame:
             predictions = _csv(path)
             if predictions.empty:
                 continue
+            # The calibration export contains several feature scopes per patient.
+            # Result Explorer needs one comparable patient-level row, so use the
+            # primary 37-feature scope when it is present.
+            if "feature_scope" in predictions.columns:
+                primary_scope = predictions[
+                    predictions["feature_scope"].astype(str).eq("primary_37")
+                ]
+                if not primary_scope.empty:
+                    predictions = primary_scope
             prediction_columns = [column for column in predictions.columns if column.endswith("_prediction")]
             if not prediction_columns:
                 continue
             keep = ["Subject_ID_D"] + [column for column in prediction_columns if column not in wide.columns]
             if len(keep) == 1:
                 continue
-            wide = wide.merge(predictions[keep], on="Subject_ID_D", how="left")
+            wide = wide.merge(
+                predictions[keep].drop_duplicates("Subject_ID_D"),
+                on="Subject_ID_D",
+                how="left",
+            )
         return wide
 
     domain_predictions = _csv(paths["domain"])
