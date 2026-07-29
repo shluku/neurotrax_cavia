@@ -3040,6 +3040,61 @@ def suggestions_page() -> None:
     )
     st.altair_chart(chart.properties(height=430), use_container_width=True)
 
+    st.subheader("4. Outcome 1: Phase 4-style model graphs")
+    st.caption(
+        "Each graph uses the same selected coverage cohort, with patients ordered from lowest to highest observed T1 score. "
+        "The black line is observed T1; the colored line is the model estimate."
+    )
+    for model_name in available_models:
+        estimate_label = f"{model_labels[model_name]} estimate"
+        model_plot_data = ordered.rename(
+            columns={
+                "Subject_ID_D": "Patient ID",
+                "actual_global_T1": "Observed T1 score",
+                f"{model_name}_prediction": estimate_label,
+            }
+        )[["patient_rank", "Patient ID", "Observed T1 score", estimate_label]].melt(
+            id_vars=["patient_rank", "Patient ID"],
+            var_name="score_type",
+            value_name="t1_score",
+        )
+        model_chart = (
+            alt.Chart(model_plot_data)
+            .mark_line(point=alt.OverlayMarkDef(size=45))
+            .encode(
+                x=alt.X(
+                    "patient_rank:Q",
+                    title="Patients ordered by observed T1 score",
+                    axis=alt.Axis(format="d"),
+                ),
+                y=alt.Y("t1_score:Q", title="T1 score"),
+                color=alt.Color(
+                    "score_type:N",
+                    title="Measure",
+                    scale=alt.Scale(
+                        domain=["Observed T1 score", estimate_label],
+                        range=["#111827", model_colors[model_name]],
+                    ),
+                ),
+                tooltip=[
+                    alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                    alt.Tooltip("Patient ID:N", title="Patient ID"),
+                    alt.Tooltip("score_type:N", title="Measure"),
+                    alt.Tooltip("t1_score:Q", title="T1 score", format=".2f"),
+                ],
+            )
+        )
+        st.markdown(f"**{model_labels[model_name]}**")
+        st.altair_chart(model_chart.properties(height=380), use_container_width=True)
+        model_metric = selected_pooled[selected_pooled["model"].eq(model_name)]
+        if not model_metric.empty:
+            row = model_metric.iloc[0]
+            delta = float(row["rmse"]) - baseline_rmse
+            st.caption(
+                f"RMSE {float(row['rmse']):.2f} | MAE {float(row['mae']):.2f} | "
+                f"R2 {float(row['r2']):.2f} | {delta:+.2f} RMSE versus mean baseline"
+            )
+
     with st.expander("Protocol and interpretation"):
         st.markdown(protocol or readme or "No protocol README available yet.")
 
