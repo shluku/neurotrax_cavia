@@ -1592,6 +1592,7 @@ def phase3_algorithm_page() -> None:
 def phase4_baseline_page(
     title: str = "Phase 4 T1 Baseline Digital Phenotype",
     caption: str = "Patient-level baseline dataset for Outcome 1 using the first valid 24-hour T1-week protocol.",
+    include_all_feature_trend_explorer: bool = False,
 ) -> None:
     st.markdown(
         '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
@@ -2317,6 +2318,75 @@ def phase4_baseline_page(
             )
             st.altair_chart((points + median_line).properties(height=420), use_container_width=True)
 
+    if include_all_feature_trend_explorer:
+        st.markdown("**All-feature individual trend explorer: 10-day data**")
+        st.caption(
+            "This view uses every active selected feature, without quartile aggregation. "
+            "Patients are ordered from lowest to highest observed T1 score; each point is one patient."
+        )
+        all_features = [
+            feature for feature in metadata.get("feature_name", pd.Series(dtype=str)).dropna().tolist()
+            if feature in dataset.columns
+        ]
+        if not all_features:
+            st.info("No 10-day feature columns are available for the explorer.")
+        else:
+            default_feature = "telephony_mobile_data_enabled_fraction"
+            default_index = all_features.index(default_feature) if default_feature in all_features else 0
+            selected_all_feature = st.selectbox(
+                "Choose any active selected feature",
+                all_features,
+                index=default_index,
+                key="phase4_10day_all_feature_trend_selector",
+            )
+            ordered = dataset[["Subject_ID_D", "global_T1", selected_all_feature]].copy()
+            ordered["observed_T1"] = pd.to_numeric(ordered["global_T1"], errors="coerce")
+            ordered["feature_value"] = pd.to_numeric(ordered[selected_all_feature], errors="coerce")
+            ordered = ordered.dropna(subset=["observed_T1"]).sort_values("observed_T1").reset_index(drop=True)
+            ordered["patient_rank"] = range(1, len(ordered) + 1)
+            observed = ordered.dropna(subset=["feature_value"]).copy()
+            if len(observed) < 2 or observed["feature_value"].nunique() < 2:
+                st.info("This feature has fewer than two distinct observed values in the 10-day cohort.")
+            else:
+                slope, intercept = np.polyfit(observed["patient_rank"], observed["feature_value"], 1)
+                observed["linear_trend"] = slope * observed["patient_rank"] + intercept
+                rho = observed["feature_value"].corr(observed["observed_T1"], method="spearman")
+                metric_row(
+                    [
+                        ("Patients with feature data", len(observed)),
+                        ("Feature missingness", f"{100 * (1 - len(observed) / len(ordered)):.1f}%"),
+                        ("Spearman rho vs T1", f"{rho:.2f}" if pd.notna(rho) else "n/a"),
+                        ("Linear slope by T1 order", f"{slope:+.4g}"),
+                    ]
+                )
+                actual_trace = (
+                    alt.Chart(observed)
+                    .mark_line(point=alt.OverlayMarkDef(size=60), color="#d97706")
+                    .encode(
+                        x=alt.X("patient_rank:Q", title="Patients ordered by observed T1 score", axis=alt.Axis(format="d")),
+                        y=alt.Y("feature_value:Q", title=selected_all_feature),
+                        order=alt.Order("patient_rank:Q", sort="ascending"),
+                        tooltip=[
+                            alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                            alt.Tooltip("Subject_ID_D:N", title="Patient ID"),
+                            alt.Tooltip("observed_T1:Q", title="Observed T1", format=".2f"),
+                            alt.Tooltip("feature_value:Q", title="Feature value", format=".4g"),
+                        ],
+                    )
+                )
+                fit_line = (
+                    alt.Chart(observed)
+                    .mark_line(color="#2563eb", strokeDash=[6, 4], strokeWidth=2)
+                    .encode(
+                        x=alt.X("patient_rank:Q", title="Patients ordered by observed T1 score"),
+                        y=alt.Y("linear_trend:Q", title=selected_all_feature),
+                        order=alt.Order("patient_rank:Q", sort="ascending"),
+                        tooltip=[alt.Tooltip("linear_trend:Q", title="Linear trend", format=".4g")],
+                    )
+                )
+                st.altair_chart((actual_trace + fit_line).properties(height=430), use_container_width=True)
+                st.caption("Orange: raw patient values in T1 order. Blue dashed: ordinary linear trend across patient order. Missing patients are left blank.")
+
     if not gradient_slopes.empty:
         st.markdown("**Linear slopes across all primary features**")
         st.caption(
@@ -2607,6 +2677,7 @@ def phase4_10day_page() -> None:
         lambda: phase4_baseline_page(
             title="Phase 4 10-Day T1 Baseline Digital Phenotype",
             caption="Phase 4-equivalent baseline workflow using the Phase 7 availability-anchored 10-day T1 data.",
+            include_all_feature_trend_explorer=True,
         ),
     )
 
