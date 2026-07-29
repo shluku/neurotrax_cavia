@@ -214,6 +214,17 @@ PATHS = {
     "other_models_protocol": ROOT / "OTHER_MODELS_PHASE_PROTOCOL.md",
     "other_models_metadata": ROOT
     / "output/analysis_candidates/phase4_10day_t1_baseline/phase4_10day_t1_baseline_feature_metadata.csv",
+    "suggestions_metrics": ROOT
+    / "output/analysis_candidates/phase4_10day_t1_baseline/suggestions/suggestions_10day_coverage_metrics.csv",
+    "suggestions_patient_predictions": ROOT
+    / "output/analysis_candidates/phase4_10day_t1_baseline/suggestions/suggestions_10day_coverage_patient_predictions.csv",
+    "suggestions_predictions": ROOT
+    / "output/analysis_candidates/phase4_10day_t1_baseline/suggestions/suggestions_10day_coverage_predictions.csv",
+    "suggestions_cohorts": ROOT
+    / "output/analysis_candidates/phase4_10day_t1_baseline/suggestions/suggestions_10day_coverage_cohorts.csv",
+    "suggestions_readme": ROOT
+    / "output/analysis_candidates/phase4_10day_t1_baseline/suggestions/README_suggestions_10day_coverage_models.md",
+    "suggestions_protocol": ROOT / "SUGGESTIONS_PHASE_PROTOCOL.md",
     "phase4_domain_patient_predictions": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/model_t1_cognitive_domains/phase4_t1_cognitive_domain_patient_predictions.csv",
     "phase4_domain_metrics": ROOT
@@ -2876,6 +2887,163 @@ def other_models_page() -> None:
         st.markdown(protocol or readme or "No protocol README available yet.")
 
 
+def suggestions_page() -> None:
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        "Suggestions: high-coverage 10-day T1 baseline"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        "Exploratory sensitivity analysis restricted to patients with the most complete 10-day feature coverage. "
+        "This does not replace the full-cohort model."
+    )
+    metrics = load_csv(PATHS["suggestions_metrics"])
+    patient_predictions = load_csv(PATHS["suggestions_patient_predictions"])
+    cohorts = load_csv(PATHS["suggestions_cohorts"])
+    readme = load_text(PATHS["suggestions_readme"])
+    protocol = load_text(PATHS["suggestions_protocol"])
+    if metrics.empty or patient_predictions.empty:
+        st.info("The Suggestions outputs are not available yet.")
+        st.code("DYLD_LIBRARY_PATH=/opt/homebrew/opt/libomp/lib .venv/bin/python3 suggestions_10day_coverage_models.py")
+        return
+
+    model_labels = {
+        "mean_baseline": "Mean baseline",
+        "elastic_net": "Elastic Net",
+        "pls": "PLS",
+        "spline_ridge": "Spline Ridge",
+        "random_forest": "Random Forest",
+        "extra_trees": "Extra Trees",
+        "hist_gradient_boosting": "HistGradientBoosting",
+        "xgboost": "XGBoost",
+    }
+    model_colors = {
+        "mean_baseline": "#111827",
+        "elastic_net": "#2563eb",
+        "pls": "#ea580c",
+        "spline_ridge": "#9333ea",
+        "random_forest": "#16a34a",
+        "extra_trees": "#0891b2",
+        "hist_gradient_boosting": "#dc2626",
+        "xgboost": "#7c2d12",
+    }
+    pooled = metrics[metrics["analysis_scope"].astype(str).eq("pooled")].copy()
+    top30 = pooled[pooled["cohort_size"].astype(int).eq(30) & pooled["model"].eq("mean_baseline")]
+    top30_rmse = float(top30["rmse"].iloc[0]) if not top30.empty else float("nan")
+    metric_row(
+        [
+            ("Full cohort", 81),
+            ("Top-30 mean missingness", f"{100 * cohorts.head(30)['baseline_feature_missing_fraction'].mean():.1f}%"),
+            ("Top-20 mean missingness", f"{100 * cohorts.head(20)['baseline_feature_missing_fraction'].mean():.1f}%"),
+            ("Top-30 baseline RMSE", f"{top30_rmse:.2f}"),
+        ]
+    )
+    st.warning(
+        "Top 30 is the main exploratory cohort. Top 20 is sensitivity analysis. Top 10 is descriptive only; "
+        "its apparent model improvements are too unstable to interpret as predictive evidence."
+    )
+
+    st.subheader("1. Coverage-ranked cohort summary")
+    cohort_summary_rows = []
+    for size in [30, 20, 10, len(cohorts)]:
+        frame = cohorts.head(size)
+        cohort_summary_rows.append(
+            {
+                "cohort": f"Top {size}" if size != len(cohorts) else "Full cohort",
+                "patients": len(frame),
+                "mean_feature_missingness": frame["baseline_feature_missing_fraction"].mean(),
+                "mean_table_coverage": frame["baseline_table_coverage_fraction"].mean(),
+                "observed_T1_sd": pd.to_numeric(frame["global_T1"], errors="coerce").std(),
+                "observed_T1_min": pd.to_numeric(frame["global_T1"], errors="coerce").min(),
+                "observed_T1_max": pd.to_numeric(frame["global_T1"], errors="coerce").max(),
+            }
+        )
+    cohort_summary = pd.DataFrame(cohort_summary_rows)
+    cohort_summary["mean_feature_missingness"] = (100 * cohort_summary["mean_feature_missingness"]).round(1)
+    cohort_summary["mean_table_coverage"] = (100 * cohort_summary["mean_table_coverage"]).round(1)
+    cohort_summary = cohort_summary.sort_values("patients", ascending=False)
+    show_dataframe(cohort_summary, height=220)
+    with st.expander("Coverage ranking and selected patients"):
+        show_dataframe(cohorts, height=420)
+
+    st.subheader("2. Same-baseline model comparison")
+    cohort_choice = st.selectbox(
+        "Coverage cohort",
+        [30, 20, 10],
+        format_func=lambda n: f"Top {n} patients" + (" (main exploratory cohort)" if n == 30 else ""),
+    )
+    selected_pooled = pooled[pooled["cohort_size"].astype(int).eq(cohort_choice)].copy()
+    baseline_rows = selected_pooled[selected_pooled["model"].eq("mean_baseline")]
+    baseline_rmse = float(baseline_rows["rmse"].iloc[0]) if not baseline_rows.empty else float("nan")
+    selected_pooled["model_label"] = selected_pooled["model"].map(model_labels).fillna(selected_pooled["model"])
+    selected_pooled["delta_vs_baseline"] = selected_pooled["rmse"] - baseline_rmse
+    selected_display = selected_pooled[["model_label", "n_predictions", "rmse", "mae", "r2", "delta_vs_baseline"]].sort_values("rmse")
+    bar_data = selected_pooled[["model_label", "rmse", "model"]].sort_values("rmse")
+    bar_chart = (
+        alt.Chart(bar_data)
+        .mark_bar()
+        .encode(
+            y=alt.Y("model_label:N", sort="-x", title=None),
+            x=alt.X("rmse:Q", title="Pooled repeated-CV RMSE"),
+            color=alt.Color(
+                "model:N",
+                legend=None,
+                scale=alt.Scale(domain=list(model_colors), range=[model_colors[key] for key in model_colors]),
+            ),
+            tooltip=[alt.Tooltip("model_label:N", title="Model"), alt.Tooltip("rmse:Q", title="RMSE", format=".2f")],
+        )
+    )
+    if not np.isnan(baseline_rmse):
+        baseline_rule = alt.Chart(pd.DataFrame({"baseline_rmse": [baseline_rmse]})).mark_rule(
+            color="#111827", strokeDash=[5, 4]
+        ).encode(x=alt.X("baseline_rmse:Q"))
+        st.altair_chart((bar_chart + baseline_rule).properties(height=310), use_container_width=True)
+    else:
+        st.altair_chart(bar_chart.properties(height=310), use_container_width=True)
+    show_dataframe(selected_display, height=300)
+
+    st.subheader("3. Patient-order estimate graph")
+    selected_patients = patient_predictions[patient_predictions["cohort_size"].astype(int).eq(cohort_choice)].copy()
+    available_models = [name for name in model_labels if name != "mean_baseline" and f"{name}_prediction" in selected_patients.columns]
+    selected_model = st.selectbox("Model estimate", available_models, format_func=lambda name: model_labels.get(name, name))
+    ordered = selected_patients.sort_values("actual_global_T1").reset_index(drop=True)
+    ordered["patient_rank"] = range(1, len(ordered) + 1)
+    estimate_label = f"{model_labels[selected_model]} estimate"
+    plot_data = ordered.rename(
+        columns={
+            "Subject_ID_D": "Patient ID",
+            "actual_global_T1": "Observed T1 score",
+            f"{selected_model}_prediction": estimate_label,
+        }
+    )[["patient_rank", "Patient ID", "Observed T1 score", estimate_label]].melt(
+        id_vars=["patient_rank", "Patient ID"], var_name="score_type", value_name="t1_score"
+    )
+    chart = (
+        alt.Chart(plot_data)
+        .mark_line(point=alt.OverlayMarkDef(size=45))
+        .encode(
+            x=alt.X("patient_rank:Q", title="Patients ordered by observed T1 score", axis=alt.Axis(format="d")),
+            y=alt.Y("t1_score:Q", title="T1 score"),
+            color=alt.Color(
+                "score_type:N",
+                title="Measure",
+                scale=alt.Scale(domain=["Observed T1 score", estimate_label], range=["#111827", model_colors[selected_model]]),
+            ),
+            tooltip=[
+                alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                alt.Tooltip("Patient ID:N", title="Patient ID"),
+                alt.Tooltip("score_type:N", title="Measure"),
+                alt.Tooltip("t1_score:Q", title="T1 score", format=".2f"),
+            ],
+        )
+    )
+    st.altair_chart(chart.properties(height=430), use_container_width=True)
+
+    with st.expander("Protocol and interpretation"):
+        st.markdown(protocol or readme or "No protocol README available yet.")
+
+
 def _render_with_path_overrides(overrides: dict[str, Path], render) -> None:
     missing = object()
     previous = {key: PATHS.get(key, missing) for key in overrides}
@@ -3944,6 +4112,7 @@ PAGES = {
     "Phase 4 T1 Baseline": phase4_baseline_page,
     "Phase 4 10-Day T1 Baseline": phase4_10day_page,
     "Other Models": other_models_page,
+    "Suggestions": suggestions_page,
     "Phase 5 T2 Extraction": phase5_t2_page,
     "Phase 7 10-Day Window": phase7_10day_page,
     "Phase 6 T1-T2 Decline": phase6_decline_page,
