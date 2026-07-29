@@ -8,6 +8,11 @@ import altair as alt
 import numpy as np
 import pandas as pd
 import streamlit as st
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import RidgeCV
+from sklearn.model_selection import KFold, RepeatedKFold
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
 
 
 DOMAINS = ["Memory", "Executive function", "Processing speed", "Attention", "Motor"]
@@ -35,6 +40,7 @@ MODEL_LABELS = {
     "extra_trees_prediction": "Extra Trees",
     "hist_gradient_boosting_prediction": "HistGradientBoosting",
     "xgboost_prediction": "XGBoost",
+    "custom_feature_ridge": "Custom feature Ridge",
 }
 MODEL_COLORS = {
     "mean_baseline_prediction": "#1d4ed8",
@@ -52,12 +58,119 @@ MODEL_COLORS = {
     "hist_gradient_boosting_prediction": "#dc2626",
     "xgboost_prediction": "#7c2d12",
 }
+CUSTOM_FEATURE_COLOR = "#be185d"
+T1_TARGET_COLUMNS = {
+    "Global": "global_T1",
+    "Memory": "memory_T1",
+    "Executive function": "ef_T1",
+    "Processing speed": "processing_speed_T1",
+    "Attention": "attention_T1",
+    "Motor": "motor_T1",
+}
+FEATURE_MODE_LABELS = [
+    "Primary 37 features",
+    "All selected features",
+    "Coverage-sensitivity features",
+    "Adjusted-window sensitivity features",
+    "Cognitive-domain taxonomy group",
+    "Custom feature selection",
+]
 
 
 def _csv(path: Path) -> pd.DataFrame:
     if not path.exists():
         return pd.DataFrame()
     return pd.read_csv(path, dtype={"Subject_ID_D": str, "Subject_ID_N": str})
+
+
+def _feature_catalog(root: Path, source: str) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    paths = _source_paths(root, source)
+    base = _csv(paths["base"])
+    base_dir = paths["base"].parent
+    metadata_candidates = [
+        base_dir / "phase4_t1_baseline_feature_metadata.csv",
+        base_dir / "phase4_10day_t1_baseline_feature_metadata.csv",
+    ]
+    metadata = next((_csv(path) for path in metadata_candidates if path.exists()), pd.DataFrame())
+    taxonomy = _csv(base_dir / "model_t1_cognitive_domain_groups/phase4_cognitive_domain_feature_taxonomy.csv")
+    if not metadata.empty and "feature_name" in metadata.columns:
+        metadata = metadata[metadata["feature_name"].astype(str).isin(base.columns)].copy()
+    return base, metadata, taxonomy
+
+
+def _feature_preset(
+    metadata: pd.DataFrame,
+    taxonomy: pd.DataFrame,
+    outcome: str,
+    mode: str,
+) -> list[str]:
+    if metadata.empty or "feature_name" not in metadata.columns:
+        return []
+    feature_names = metadata["feature_name"].astype(str).tolist()
+    if mode == "Primary 37 features":
+        return metadata.loc[metadata["primary_model_recommendation"].eq("include_primary"), "feature_name"].astype(str).tolist()
+    if mode == "All selected features":
+        return feature_names
+    if mode == "Coverage-sensitivity features":
+        return metadata.loc[metadata["primary_model_recommendation"].eq("coverage_sensitivity"), "feature_name"].astype(str).tolist()
+    if mode == "Adjusted-window sensitivity features":
+        return metadata.loc[metadata["primary_model_recommendation"].eq("adjusted_sensitivity"), "feature_name"].astype(str).tolist()
+    if mode == "Cognitive-domain taxonomy group" and not taxonomy.empty:
+        return taxonomy.loc[taxonomy["domain"].astype(str).eq(outcome), "feature"].astype(str).tolist()
+    return []
+
+
+@st.cache_data(show_spinner=False)
+def _fit_custom_t1_model(
+    base: pd.DataFrame,
+    target_column: str,
+    feature_columns: tuple[str, ...],
+) -> pd.DataFrame:
+    features = [feature for feature in feature_columns if feature in base.columns]
+    if not features or target_column not in base.columns or "Subject_ID_D" not in base.columns:
+        return pd.DataFrame()
+    target = pd.to_numeric(base[target_column], errors="coerce")
+    valid = target.notna()
+    data = base.loc[valid, ["Subject_ID_D"] + features].copy().reset_index(drop=True)
+    y = target.loc[valid].to_numpy(dtype=float)
+    if len(data) < 5:
+        return pd.DataFrame()
+
+    x = data[features].apply(pd.to_numeric, errors="coerce")
+    n_splits = min(5, len(data))
+    outer = RepeatedKFold(n_splits=n_splits, n_repeats=5, random_state=20260726)
+    ridge_sum = np.zeros(len(data), dtype=float)
+    prediction_count = np.zeros(len(data), dtype=float)
+    for train_idx, test_idx in outer.split(x):
+        inner_splits = min(4, len(train_idx))
+        if inner_splits < 2:
+            continue
+        model = Pipeline(
+            [
+                ("imputer", SimpleImputer(strategy="median", add_indicator=True, keep_empty_features=True)),
+                ("scaler", StandardScaler()),
+                (
+                    "ridge",
+                    RidgeCV(
+                        alphas=np.logspace(-3, 4, 20),
+                        cv=KFold(n_splits=inner_splits, shuffle=True, random_state=20260726),
+                        scoring="neg_root_mean_squared_error",
+                    ),
+                ),
+            ]
+        )
+        model.fit(x.iloc[train_idx], y[train_idx])
+        ridge_sum[test_idx] += model.predict(x.iloc[test_idx])
+        prediction_count[test_idx] += 1
+    if not np.all(prediction_count > 0):
+        return pd.DataFrame()
+    return pd.DataFrame(
+        {
+            "Subject_ID_D": data["Subject_ID_D"].astype(str),
+            "custom_ridge_prediction": ridge_sum / prediction_count,
+            "custom_feature_count": len(features),
+        }
+    )
 
 
 def _source_paths(root: Path, source: str) -> dict[str, Path]:
@@ -327,6 +440,63 @@ def render_result_explorer(root: Path) -> None:
             available_models = [column for column in probe.columns if column.endswith("_prediction")]
             if "group_ridge_prediction" not in available_models:
                 available_models.append("group_ridge_prediction")
+            available_models.append("custom_feature_ridge")
+
+        base_dataset, feature_metadata, taxonomy = _feature_catalog(root, source_preview) if not is_t2 else (
+            pd.DataFrame(),
+            pd.DataFrame(),
+            pd.DataFrame(),
+        )
+        selected_feature_sets: dict[str, list[str]] = {}
+        if not is_t2 and not feature_metadata.empty:
+            st.markdown("**Feature controls**")
+            st.caption(
+                "The selected features drive the exploratory custom Ridge line. Existing precomputed models remain unchanged."
+            )
+            feature_names = feature_metadata["feature_name"].astype(str).tolist()
+            feature_tabs = st.tabs(["Global"] + DOMAINS)
+            source_token = "".join(character if character.isalnum() else "_" for character in source_preview)
+            for outcome, feature_tab in zip(["Global"] + DOMAINS, feature_tabs):
+                with feature_tab:
+                    mode_options = FEATURE_MODE_LABELS.copy()
+                    if outcome == "Global" or taxonomy.empty or not taxonomy["domain"].astype(str).eq(outcome).any():
+                        mode_options.remove("Cognitive-domain taxonomy group")
+                    default_mode = (
+                        "Cognitive-domain taxonomy group"
+                        if "Cognitive-domain taxonomy group" in mode_options and outcome != "Global"
+                        else "Primary 37 features"
+                    )
+                    mode = st.selectbox(
+                        "Feature group",
+                        mode_options,
+                        index=mode_options.index(default_mode),
+                        key=f"result_explorer_feature_mode_{source_token}_{outcome}",
+                    )
+                    preset = _feature_preset(feature_metadata, taxonomy, outcome, mode)
+                    if not preset:
+                        preset = _feature_preset(
+                            feature_metadata,
+                            taxonomy,
+                            outcome,
+                            "Cognitive-domain taxonomy group" if outcome != "Global" else "Primary 37 features",
+                        )
+                    preset = [feature for feature in preset if feature in feature_names]
+                    mode_token = "".join(character if character.isalnum() else "_" for character in mode)
+                    selected_features = st.multiselect(
+                        "Features used by custom Ridge",
+                        feature_names,
+                        default=preset,
+                        key=f"result_explorer_features_{source_token}_{outcome}_{mode_token}",
+                    )
+                    selected_feature_sets[outcome] = selected_features
+                    selected_metadata = feature_metadata[
+                        feature_metadata["feature_name"].astype(str).isin(selected_features)
+                    ]
+                    mean_catalog_missing = pd.to_numeric(
+                        selected_metadata.get("missing_percent", pd.Series(dtype=float)), errors="coerce"
+                    ).mean()
+                    missing_text = f" | catalog missingness {mean_catalog_missing:.1f}%" if not np.isnan(mean_catalog_missing) else ""
+                    st.caption(f"{len(selected_features)} features selected{missing_text}")
 
         with st.form("result_explorer_form"):
             primary_controls = st.columns(3, gap="small")
@@ -340,7 +510,7 @@ def render_result_explorer(root: Path) -> None:
                 selected_models = st.multiselect(
                     "Statistical models",
                     available_models,
-                    default=available_models[:1],
+                    default=(available_models[:1] + ["custom_feature_ridge"] if not is_t2 else available_models[:1]),
                     format_func=lambda value: MODEL_LABELS.get(value, value) if not is_t2 else value,
                 )
             with primary_controls[2]:
@@ -404,6 +574,21 @@ def render_result_explorer(root: Path) -> None:
         if frame.empty:
             st.info(f"{DOMAIN_LABELS.get(outcome, outcome)} is not available for this source.")
             continue
+        if not is_t2 and "custom_feature_ridge" in selected_models:
+            custom_features = selected_feature_sets.get(outcome, [])
+            custom_predictions = _fit_custom_t1_model(
+                base_dataset,
+                T1_TARGET_COLUMNS[outcome],
+                tuple(custom_features),
+            )
+            if not custom_predictions.empty:
+                frame = frame.merge(
+                    custom_predictions[["Subject_ID_D", "custom_ridge_prediction", "custom_feature_count"]],
+                    on="Subject_ID_D",
+                    how="left",
+                )
+            else:
+                st.warning(f"Custom feature Ridge is unavailable for {DOMAIN_LABELS.get(outcome, outcome)}.")
         if "cohort_size" in frame.columns and "All available" not in selected_coverage:
             allowed_sizes = [int(value.split()[-1]) for value in selected_coverage if value != "All available"]
             frame = frame[frame["cohort_size"].isin(allowed_sizes)]
@@ -458,11 +643,13 @@ def render_result_explorer(root: Path) -> None:
             line_columns = [("observed", "Observed T1", "#111827")]
             if "mean_baseline_prediction" in selected_models:
                 line_columns.append(("mean_baseline_prediction", "Mean baseline", domain_color))
-            line_columns.extend(
-                (model, MODEL_LABELS.get(model, model), MODEL_COLORS.get(model, "#2563eb"))
-                for model in selected_models
-                if model != "mean_baseline_prediction"
-            )
+            for model in selected_models:
+                if model == "mean_baseline_prediction":
+                    continue
+                if model == "custom_feature_ridge":
+                    line_columns.append(("custom_ridge_prediction", "Custom feature Ridge", CUSTOM_FEATURE_COLOR))
+                else:
+                    line_columns.append((model, MODEL_LABELS.get(model, model), MODEL_COLORS.get(model, "#2563eb")))
         _plot_lines(frame, line_columns, order_column, f"{DOMAIN_LABELS.get(outcome, outcome)} result explorer")
         with st.expander("Filtered statistics and data"):
             show = frame.copy()
