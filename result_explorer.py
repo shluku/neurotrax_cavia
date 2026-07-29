@@ -67,6 +67,7 @@ T1_TARGET_COLUMNS = {
     "Attention": "attention_T1",
     "Motor": "motor_T1",
 }
+T2_TARGET_COLUMNS = {outcome: column.replace("_T1", "_T2") for outcome, column in T1_TARGET_COLUMNS.items()}
 FEATURE_MODE_LABELS = [
     "Primary 37 features",
     "All selected features",
@@ -98,6 +99,31 @@ def _feature_catalog(root: Path, source: str) -> tuple[pd.DataFrame, pd.DataFram
     return base, metadata, taxonomy
 
 
+def _t2_feature_catalog(
+    root: Path,
+    source: str,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    paths = _source_paths(root, source)
+    t1_base = _csv(paths["base"])
+    t2_path = (
+        root / "output/analysis_candidates/phase5_t2_feature_extraction/phase5_t2_selected_features_wide.csv"
+        if source == "Phase 6 24-hour T1-T2"
+        else root / "output/analysis_candidates/phase7_10day_window/t2/phase7_t2_10day_features_wide.csv"
+    )
+    t2_base = _csv(t2_path)
+    base_dir = paths["base"].parent
+    metadata_candidates = [
+        base_dir / "phase4_t1_baseline_feature_metadata.csv",
+        base_dir / "phase4_10day_t1_baseline_feature_metadata.csv",
+    ]
+    metadata = next((_csv(path) for path in metadata_candidates if path.exists()), pd.DataFrame())
+    taxonomy = _csv(base_dir / "model_t1_cognitive_domain_groups/phase4_cognitive_domain_feature_taxonomy.csv")
+    if not metadata.empty and "feature_name" in metadata.columns:
+        common_columns = set(t1_base.columns).intersection(t2_base.columns)
+        metadata = metadata[metadata["feature_name"].astype(str).isin(common_columns)].copy()
+    return t1_base, t2_base, metadata, taxonomy
+
+
 def _feature_preset(
     metadata: pd.DataFrame,
     taxonomy: pd.DataFrame,
@@ -109,7 +135,7 @@ def _feature_preset(
     feature_names = metadata["feature_name"].astype(str).tolist()
     if mode == "Primary 37 features":
         return metadata.loc[metadata["primary_model_recommendation"].eq("include_primary"), "feature_name"].astype(str).tolist()
-    if mode == "All selected features":
+    if mode in {"All selected features", "All common T1/T2 features"}:
         return feature_names
     if mode == "Coverage-sensitivity features":
         return metadata.loc[metadata["primary_model_recommendation"].eq("coverage_sensitivity"), "feature_name"].astype(str).tolist()
@@ -121,7 +147,7 @@ def _feature_preset(
 
 
 @st.cache_data(show_spinner=False)
-def _fit_custom_t1_model(
+def _fit_custom_ridge_model(
     base: pd.DataFrame,
     target_column: str,
     feature_columns: tuple[str, ...],
@@ -440,25 +466,35 @@ def render_result_explorer(root: Path) -> None:
             available_models = [column for column in probe.columns if column.endswith("_prediction")]
             if "group_ridge_prediction" not in available_models:
                 available_models.append("group_ridge_prediction")
+        if "custom_feature_ridge" not in available_models:
             available_models.append("custom_feature_ridge")
 
-        base_dataset, feature_metadata, taxonomy = _feature_catalog(root, source_preview) if not is_t2 else (
-            pd.DataFrame(),
-            pd.DataFrame(),
-            pd.DataFrame(),
-        )
+        if is_t2:
+            t1_dataset, t2_dataset, feature_metadata, taxonomy = _t2_feature_catalog(root, source_preview)
+            base_dataset = t1_dataset
+        else:
+            base_dataset, feature_metadata, taxonomy = _feature_catalog(root, source_preview)
+            t2_dataset = pd.DataFrame()
         selected_feature_sets: dict[str, list[str]] = {}
-        if not is_t2 and not feature_metadata.empty:
+        if not feature_metadata.empty:
             st.markdown("**Feature controls**")
-            st.caption(
-                "The selected features drive the exploratory custom Ridge line. Existing precomputed models remain unchanged."
-            )
+            if is_t2:
+                st.caption(
+                    "The custom T1 and T2 Ridge estimates use the same feature selection from the common T1/T2 feature catalog. "
+                    "Existing Phase 6 models remain unchanged."
+                )
+            else:
+                st.caption(
+                    "The selected features drive the exploratory custom Ridge line. Existing precomputed models remain unchanged."
+                )
             feature_names = feature_metadata["feature_name"].astype(str).tolist()
             feature_tabs = st.tabs(["Global"] + DOMAINS)
             source_token = "".join(character if character.isalnum() else "_" for character in source_preview)
             for outcome, feature_tab in zip(["Global"] + DOMAINS, feature_tabs):
                 with feature_tab:
                     mode_options = FEATURE_MODE_LABELS.copy()
+                    if is_t2:
+                        mode_options[1] = "All common T1/T2 features"
                     if outcome == "Global" or taxonomy.empty or not taxonomy["domain"].astype(str).eq(outcome).any():
                         mode_options.remove("Cognitive-domain taxonomy group")
                     default_mode = (
@@ -510,15 +546,15 @@ def render_result_explorer(root: Path) -> None:
                 selected_models = st.multiselect(
                     "Statistical models",
                     available_models,
-                    default=(available_models[:1] + ["custom_feature_ridge"] if not is_t2 else available_models[:1]),
-                    format_func=lambda value: MODEL_LABELS.get(value, value) if not is_t2 else value,
+                    default=available_models[:1] + ["custom_feature_ridge"],
+                    format_func=lambda value: MODEL_LABELS.get(value, value),
                 )
             with primary_controls[2]:
                 if is_t2:
                     selected_measures = st.multiselect(
                         "Lines to plot",
                         ["Observed T1", "Observed T2", "Observed change", "Estimated T1", "Estimated T2", "Estimated change"],
-                        default=["Observed T1", "Observed T2", "Estimated T2"],
+                        default=["Observed T1", "Observed T2", "Estimated T1", "Estimated T2", "Estimated change"],
                     )
                 else:
                     selected_measures = []
@@ -574,21 +610,50 @@ def render_result_explorer(root: Path) -> None:
         if frame.empty:
             st.info(f"{DOMAIN_LABELS.get(outcome, outcome)} is not available for this source.")
             continue
-        if not is_t2 and "custom_feature_ridge" in selected_models:
+        if "custom_feature_ridge" in selected_models:
             custom_features = selected_feature_sets.get(outcome, [])
-            custom_predictions = _fit_custom_t1_model(
-                base_dataset,
-                T1_TARGET_COLUMNS[outcome],
-                tuple(custom_features),
-            )
-            if not custom_predictions.empty:
-                frame = frame.merge(
-                    custom_predictions[["Subject_ID_D", "custom_ridge_prediction", "custom_feature_count"]],
-                    on="Subject_ID_D",
-                    how="left",
+            if is_t2:
+                custom_t1 = _fit_custom_ridge_model(
+                    base_dataset,
+                    T1_TARGET_COLUMNS[outcome],
+                    tuple(custom_features),
                 )
+                custom_t2 = _fit_custom_ridge_model(
+                    t2_dataset,
+                    T2_TARGET_COLUMNS[outcome],
+                    tuple(custom_features),
+                )
+                if not custom_t1.empty and not custom_t2.empty:
+                    frame = frame.merge(
+                        custom_t1[["Subject_ID_D", "custom_ridge_prediction"]].rename(
+                            columns={"custom_ridge_prediction": "custom_estimated_T1"}
+                        ),
+                        on="Subject_ID_D",
+                        how="left",
+                    ).merge(
+                        custom_t2[["Subject_ID_D", "custom_ridge_prediction"]].rename(
+                            columns={"custom_ridge_prediction": "custom_estimated_T2"}
+                        ),
+                        on="Subject_ID_D",
+                        how="left",
+                    )
+                    frame["custom_estimated_change"] = frame["custom_estimated_T2"] - frame["custom_estimated_T1"]
+                else:
+                    st.warning(f"Custom feature Ridge is unavailable for {DOMAIN_LABELS.get(outcome, outcome)}.")
             else:
-                st.warning(f"Custom feature Ridge is unavailable for {DOMAIN_LABELS.get(outcome, outcome)}.")
+                custom_predictions = _fit_custom_ridge_model(
+                    base_dataset,
+                    T1_TARGET_COLUMNS[outcome],
+                    tuple(custom_features),
+                )
+                if not custom_predictions.empty:
+                    frame = frame.merge(
+                        custom_predictions[["Subject_ID_D", "custom_ridge_prediction", "custom_feature_count"]],
+                        on="Subject_ID_D",
+                        how="left",
+                    )
+                else:
+                    st.warning(f"Custom feature Ridge is unavailable for {DOMAIN_LABELS.get(outcome, outcome)}.")
         if "cohort_size" in frame.columns and "All available" not in selected_coverage:
             allowed_sizes = [int(value.split()[-1]) for value in selected_coverage if value != "All available"]
             frame = frame[frame["cohort_size"].isin(allowed_sizes)]
@@ -638,7 +703,15 @@ def render_result_explorer(root: Path) -> None:
             for measure, prefix in [("Estimated T1", "estimated_T1"), ("Estimated T2", "estimated_T2"), ("Estimated change", "estimated_change")]:
                 if measure in selected_measures:
                     for model in selected_models:
-                        line_columns.append((f"{prefix}__{model_key[model]}", f"{measure}: {model}", domain_color))
+                        if model == "custom_feature_ridge":
+                            custom_column = {
+                                "Estimated T1": "custom_estimated_T1",
+                                "Estimated T2": "custom_estimated_T2",
+                                "Estimated change": "custom_estimated_change",
+                            }[measure]
+                            line_columns.append((custom_column, f"{measure}: Custom feature Ridge", CUSTOM_FEATURE_COLOR))
+                        else:
+                            line_columns.append((f"{prefix}__{model_key[model]}", f"{measure}: {model}", domain_color))
         else:
             line_columns = [("observed", "Observed T1", "#111827")]
             if "mean_baseline_prediction" in selected_models:
