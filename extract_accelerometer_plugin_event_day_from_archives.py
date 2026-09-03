@@ -66,6 +66,7 @@ def parse_archive(
     timestamps_pending: dict[str, list[int]] = {str(c["candidate_id"]): [] for c in candidates}
     magnitudes_pending: dict[str, list[float]] = {str(c["candidate_id"]): [] for c in candidates}
     counters: dict[str, Counter[str]] = {str(c["candidate_id"]): Counter() for c in candidates}
+    seen_timestamps: dict[str, set[int]] = {str(c["device_id"]): set() for c in candidates}
 
     def flush(candidate_id: str) -> None:
         if not timestamps_pending[candidate_id]:
@@ -108,15 +109,20 @@ def parse_archive(
             if invalid_signal:
                 candidate_counters["invalid_signal_rows"] += 1
                 continue
+            timestamp_int = int(timestamp)
+            if timestamp_int in seen_timestamps[device_id]:
+                candidate_counters["duplicate_rows"] += 1
+                continue
+            seen_timestamps[device_id].add(timestamp_int)
             existing_first = candidate_counters.get("first_raw_timestamp_ms")
             existing_last = candidate_counters.get("last_raw_timestamp_ms")
             candidate_counters["first_raw_timestamp_ms"] = (
-                int(timestamp) if existing_first is None else min(int(existing_first), int(timestamp))
+                timestamp_int if existing_first is None else min(int(existing_first), timestamp_int)
             )
             candidate_counters["last_raw_timestamp_ms"] = (
-                int(timestamp) if existing_last is None else max(int(existing_last), int(timestamp))
+                timestamp_int if existing_last is None else max(int(existing_last), timestamp_int)
             )
-            timestamps_pending[candidate_id].append(int(timestamp))
+            timestamps_pending[candidate_id].append(timestamp_int)
             magnitudes_pending[candidate_id].append(float(np.sqrt(x * x + y * y + z * z)))
             if len(timestamps_pending[candidate_id]) >= batch_points:
                 flush(candidate_id)
@@ -240,8 +246,13 @@ def run(args: argparse.Namespace) -> None:
         )
         try:
             if not archive_path.exists():
-                if archive_path.with_suffix(archive_path.suffix + ".partial").exists():
-                    raise RuntimeError(f"partial archive exists; inspect before retrying: {archive_path}.partial")
+                partial_path = archive_path.with_suffix(archive_path.suffix + ".partial")
+                if partial_path.exists():
+                    if not args.retry_partials:
+                        raise RuntimeError(f"partial archive exists; inspect before retrying: {partial_path}")
+                    preserved_path = partial_path.with_name(partial_path.name + ".preserved")
+                    partial_path.replace(preserved_path)
+                    print(f"preserved_interrupted_archive={preserved_path}", flush=True)
                 defaults_file = backup.make_mysql_defaults_file()
                 try:
                     dump_rc, compressor_rc, output_bytes = backup.dump_day(
@@ -341,6 +352,11 @@ def main() -> None:
     parser.add_argument("--archive-dir", type=Path, default=DEFAULT_ARCHIVE_DIR)
     parser.add_argument("--batch-points", type=int, default=100_000)
     parser.add_argument("--max-days", type=int, default=0, help="Optional bounded date count for a resumable test run.")
+    parser.add_argument(
+        "--retry-partials",
+        action="store_true",
+        help="Preserve interrupted .partial archives with a .preserved suffix, then retry the export.",
+    )
     args = parser.parse_args()
     run(args)
 

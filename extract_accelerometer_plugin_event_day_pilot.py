@@ -85,8 +85,8 @@ FEATURE_CATALOG = [
     {
         "feature_name": "accelerometer_exact_duplicate_rows_removed",
         "feature_group": "quality",
-        "definition": "Duplicate rows with the same timestamp and all three signal values removed before feature calculation.",
-        "interpretation": "Data-integrity audit measure.",
+        "definition": "Rows discarded after a device timestamp was already represented; the sequential archive pipeline keeps the first row by database _id.",
+        "interpretation": "Data-integrity and timestamp-collision audit measure.",
     },
     {
         "feature_name": "accelerometer_valid_signal_minutes",

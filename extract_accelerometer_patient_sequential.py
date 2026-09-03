@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -26,6 +27,7 @@ DEFAULT_OUTPUT_DIR = ROOT / "output/analysis_candidates/accelerometer_patient_se
 DEFAULT_ARCHIVE_DIR = Path(
     "/Volumes/SENSORDATA_MAIN/sensordata_backup/motion_accelerometer/plugin_event_day_sql_zst"
 )
+MYSQL = Path("/opt/homebrew/opt/mysql-client/bin/mysql")
 
 
 def atomic_write_csv(frame: pd.DataFrame, path: Path) -> None:
@@ -42,21 +44,165 @@ def normalize_patient_id(value: Any) -> str:
 
 def patient_archive_name(patient_id: str, local_date: str) -> str:
     end_date = (pd.Timestamp(local_date) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
-    return f"accelerometer_patient_{patient_id}_{local_date}_to_{end_date}.sql.zst"
-
-
-def generic_archive_name(local_date: str) -> str:
-    return archive_extractor.archive_name(local_date)
+    return f"accelerometer_patient_{patient_id}_{local_date}_to_{end_date}.tsv.zst"
 
 
 def find_archive(archive_dir: Path, patient_id: str, local_date: str) -> Path | None:
     patient_path = archive_dir / patient_archive_name(patient_id, local_date)
     if patient_path.exists() and patient_path.stat().st_size > 0:
         return patient_path
-    generic_path = archive_dir / generic_archive_name(local_date)
-    if generic_path.exists() and generic_path.stat().st_size > 0:
-        return generic_path
     return None
+
+
+def dump_day_first_per_timestamp(
+    defaults_file: Path,
+    start_ms: int,
+    end_ms: int,
+    output_path: Path,
+    log_path: Path,
+    device_ids: list[str],
+) -> tuple[int, int, int]:
+    """Export one first-by-_id row per device/timestamp as compressed TSV."""
+    if not device_ids:
+        raise ValueError("At least one device ID is required")
+    quoted_ids = ",".join("'" + value.replace("'", "\\'") + "'" for value in device_ids)
+    sql = f"""
+        SELECT first_row._id,
+               first_row.timestamp,
+               first_row.device_id,
+               first_row.data->>'$.double_values_0' AS x,
+               first_row.data->>'$.double_values_1' AS y,
+               first_row.data->>'$.double_values_2' AS z,
+               grouped_rows.timestamp_row_count
+        FROM (
+            SELECT device_id, timestamp, MIN(_id) AS first_id, COUNT(*) AS timestamp_row_count
+            FROM sensordata.accelerometer
+            WHERE timestamp >= {int(start_ms)}
+              AND timestamp < {int(end_ms)}
+              AND device_id IN ({quoted_ids})
+            GROUP BY device_id, timestamp
+        ) AS grouped_rows
+        INNER JOIN sensordata.accelerometer AS first_row
+            ON first_row._id = grouped_rows.first_id
+        ORDER BY first_row.timestamp, first_row._id
+    """
+    args = [
+        str(MYSQL),
+        f"--defaults-extra-file={defaults_file}",
+        "--batch",
+        "--raw",
+        "--skip-column-names",
+        "--binary-mode",
+        "-e",
+        sql,
+    ]
+    partial_path = output_path.with_suffix(output_path.suffix + ".partial")
+    with log_path.open("ab") as log_handle, partial_path.open("wb") as output_handle:
+        query = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=log_handle)
+        assert query.stdout is not None
+        compressor = subprocess.Popen(
+            [str(backup.ZSTD), "-T0", "-3", "-q", "-c"],
+            stdin=query.stdout,
+            stdout=output_handle,
+            stderr=log_handle,
+        )
+        query.stdout.close()
+        compressor_rc = compressor.wait()
+        query_rc = query.wait()
+
+    output_bytes = partial_path.stat().st_size if partial_path.exists() else 0
+    if query_rc == 0 and compressor_rc == 0 and output_bytes > 0:
+        integrity_rc = subprocess.run([str(backup.ZSTD), "-q", "-t", str(partial_path)], check=False).returncode
+    else:
+        integrity_rc = 1
+    if query_rc != 0 or compressor_rc != 0 or integrity_rc != 0:
+        return query_rc, compressor_rc, output_bytes
+    partial_path.replace(output_path)
+    return query_rc, compressor_rc, output_path.stat().st_size
+
+
+def iter_tsv_rows(source: Path):
+    process = subprocess.Popen([str(backup.ZSTD), "-dc", str(source)], stdout=subprocess.PIPE)
+    assert process.stdout is not None
+    try:
+        for raw_line in process.stdout:
+            yield raw_line.decode("utf-8", errors="replace").rstrip("\n").split("\t")
+    finally:
+        return_code = process.wait()
+        if return_code != 0:
+            raise RuntimeError(f"zstd failed for {source} with return code {return_code}")
+
+
+def parse_first_timestamp_archive(
+    source: Path,
+    candidates: list[pd.Series],
+    batch_points: int,
+) -> dict[str, tuple[np.ndarray, np.ndarray, dict[str, int]]]:
+    """Parse one-row-per-timestamp TSV archives produced by MySQL."""
+    device_to_ids: dict[str, list[str]] = {}
+    for candidate in candidates:
+        device_to_ids.setdefault(str(candidate["device_id"]), []).append(str(candidate["candidate_id"]))
+    timestamp_parts: dict[str, list[np.ndarray]] = {str(c["candidate_id"]): [] for c in candidates}
+    magnitude_parts: dict[str, list[np.ndarray]] = {str(c["candidate_id"]): [] for c in candidates}
+    timestamps_pending: dict[str, list[int]] = {str(c["candidate_id"]): [] for c in candidates}
+    magnitudes_pending: dict[str, list[float]] = {str(c["candidate_id"]): [] for c in candidates}
+    counters: dict[str, dict[str, int]] = {str(c["candidate_id"]): {} for c in candidates}
+
+    def flush(candidate_id: str) -> None:
+        if not timestamps_pending[candidate_id]:
+            return
+        timestamp_parts[candidate_id].append(np.asarray(timestamps_pending[candidate_id], dtype=np.int64))
+        magnitude_parts[candidate_id].append(np.asarray(magnitudes_pending[candidate_id], dtype=float))
+        timestamps_pending[candidate_id].clear()
+        magnitudes_pending[candidate_id].clear()
+
+    for fields in iter_tsv_rows(source):
+        if len(fields) < 7:
+            continue
+        device_id = fields[2].strip()
+        candidate_ids = device_to_ids.get(device_id, [])
+        if not candidate_ids:
+            continue
+        try:
+            timestamp = float(fields[1])
+            timestamp_int = int(timestamp)
+        except (TypeError, ValueError):
+            timestamp_int = None
+        try:
+            row_multiplicity = max(int(float(fields[6])), 1)
+        except (TypeError, ValueError):
+            row_multiplicity = 1
+        for candidate_id in candidate_ids:
+            candidate_counters = counters[candidate_id]
+            candidate_counters["raw_rows"] = candidate_counters.get("raw_rows", 0) + row_multiplicity
+            candidate_counters["duplicate_rows"] = candidate_counters.get("duplicate_rows", 0) + row_multiplicity - 1
+            if timestamp_int is None:
+                candidate_counters["invalid_timestamp_rows"] = candidate_counters.get("invalid_timestamp_rows", 0) + row_multiplicity
+                continue
+            try:
+                x, y, z = (float(fields[index]) for index in (3, 4, 5))
+            except (TypeError, ValueError):
+                candidate_counters["invalid_signal_rows"] = candidate_counters.get("invalid_signal_rows", 0) + 1
+                continue
+            first_timestamp = candidate_counters.get("first_raw_timestamp_ms")
+            last_timestamp = candidate_counters.get("last_raw_timestamp_ms")
+            candidate_counters["first_raw_timestamp_ms"] = timestamp_int if first_timestamp is None else min(first_timestamp, timestamp_int)
+            candidate_counters["last_raw_timestamp_ms"] = timestamp_int if last_timestamp is None else max(last_timestamp, timestamp_int)
+            timestamps_pending[candidate_id].append(timestamp_int)
+            magnitudes_pending[candidate_id].append(float(np.sqrt(x * x + y * y + z * z)))
+            if len(timestamps_pending[candidate_id]) >= batch_points:
+                flush(candidate_id)
+
+    result: dict[str, tuple[np.ndarray, np.ndarray, dict[str, int]]] = {}
+    for candidate in candidates:
+        candidate_id = str(candidate["candidate_id"])
+        flush(candidate_id)
+        result[candidate_id] = (
+            np.concatenate(timestamp_parts[candidate_id]) if timestamp_parts[candidate_id] else np.array([], dtype=np.int64),
+            np.concatenate(magnitude_parts[candidate_id]) if magnitude_parts[candidate_id] else np.array([], dtype=float),
+            counters[candidate_id],
+        )
+    return result
 
 
 def export_patient_day(
@@ -79,13 +225,12 @@ def export_patient_day(
 
     defaults_file = backup.make_mysql_defaults_file()
     try:
-        dump_rc, compressor_rc, output_bytes = backup.dump_day(
+        dump_rc, compressor_rc, output_bytes = dump_day_first_per_timestamp(
             defaults_file,
             int(candidates[0]["window_start_ms"]),
             int(candidates[0]["window_end_ms_exclusive"]),
             output_path,
             log_path,
-            True,
             sorted({str(row["device_id"]) for row in candidates}),
         )
     finally:
@@ -202,6 +347,11 @@ def run(args: argparse.Namespace) -> None:
             ].astype(str)
         )
     completed_ids |= {str(row["candidate_id"]) for row in wide_rows if row.get("candidate_id")}
+    if args.force:
+        selected_ids = set(candidates["candidate_id"].astype(str))
+        completed_ids -= selected_ids
+        status_rows = [row for row in status_rows if str(row.get("candidate_id", "")) not in selected_ids]
+        wide_rows = [row for row in wide_rows if str(row.get("candidate_id", "")) not in selected_ids]
 
     def persist(current_patient: str = "") -> None:
         status_frame = pd.DataFrame(status_rows).drop_duplicates("candidate_id", keep="last") if status_rows else pd.DataFrame()
@@ -261,8 +411,11 @@ the next patient begins.
 For each candidate day, the complete local calendar day is exported, valid JSON
 axes are parsed, vector and dynamic magnitude features are calculated, and
 quality variables are retained. Missing time is not converted to zero movement.
-The output contains no raw ACC rows; compressed SQL archives are retained on the
-external drive and feature files are written locally in this directory.
+The raw export keeps the first row by database `_id` for each `device_id +
+timestamp` and records the number of rows collapsed at that timestamp. The
+output contains no raw ACC rows; compressed timestamp-deduplicated archives are
+retained on the external drive and feature files are written locally in this
+directory.
 
 The patient-level table uses the median across completed patient-local days and
 also retains the mean. A patient can be marked `complete_with_errors` when every
@@ -277,6 +430,8 @@ candidate day was attempted but one or more days failed and require retry.
             flush=True,
         )
         for local_date, day_group in patient_group.groupby("local_date", sort=True):
+            if args.through_date and str(local_date) > args.through_date:
+                continue
             day_candidates = [row for _, row in day_group.iterrows()]
             if all(str(row["candidate_id"]) in completed_ids for row in day_candidates):
                 print(f"day_skip patient={patient_id} date={local_date} reason=already_complete", flush=True)
@@ -289,7 +444,11 @@ candidate day was attempted but one or more days failed and require retry.
                 source = find_archive(archive_dir, str(patient_id), str(local_date))
                 if source is None:
                     source = export_patient_day(archive_dir, str(patient_id), str(local_date), day_candidates)
-                parsed = archive_extractor.parse_archive(source, day_candidates, args.batch_points)
+                parsed = (
+                    parse_first_timestamp_archive(source, day_candidates, args.batch_points)
+                    if source.name.endswith(".tsv.zst")
+                    else archive_extractor.parse_archive(source, day_candidates, args.batch_points)
+                )
                 for candidate in day_candidates:
                     candidate_id = str(candidate["candidate_id"])
                     timestamps, magnitudes, counters = parsed[candidate_id]
@@ -331,6 +490,15 @@ def main() -> None:
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--archive-dir", type=Path, default=DEFAULT_ARCHIVE_DIR)
     parser.add_argument("--batch-points", type=int, default=100_000)
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Reprocess selected patients even when their candidate days already have saved status rows.",
+    )
+    parser.add_argument(
+        "--through-date",
+        help="Optional inclusive local date limit for a bounded sequential run, formatted YYYY-MM-DD.",
+    )
     args = parser.parse_args()
     run(args)
 
