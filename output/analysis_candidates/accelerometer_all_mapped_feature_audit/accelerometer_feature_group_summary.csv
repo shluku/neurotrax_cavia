@@ -1,0 +1,7 @@
+feature_group,feature_role,feature_count,mean_patient_day_coverage_percent,mean_patient_level_coverage_percent,technical_review_feature_count
+circadian,primary_behavior_candidate,4,78.57142857142857,9.322033898305085,2
+dynamic_motion,primary_behavior_candidate,4,100.0,11.864406779661017,1
+quality,qc_only,9,100.0,11.864406779661017,5
+rapid_change,primary_behavior_candidate,2,100.0,11.864406779661017,0
+signal_level,sensitivity_only,3,100.0,11.864406779661017,1
+temporal_pattern,primary_behavior_candidate,2,100.0,11.864406779661017,1

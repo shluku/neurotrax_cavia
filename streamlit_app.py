@@ -7,6 +7,8 @@ from pathlib import Path
 import altair as alt
 import numpy as np
 import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
 import streamlit as st
 
 
@@ -15,15 +17,51 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from result_explorer import render_result_explorer
+from supplemental_modalities.review_phase4_features import RECOMMENDED_FEATURES
 
 PATHS = {
     "protocol_summary": ROOT / "README_PROTOCOL_PROJECT_SUMMARY.md",
+    "project_status_current": ROOT / "README_PROJECT_STATUS_2026-08-29.md",
     "phase2_feature_protocol": ROOT / "PHASE2_FEATURE_ANALYSIS_PROTOCOL.md",
     "phase2_table_feature_reviews": ROOT / "phase2_table_feature_reviews",
     "phase2_output_feature_reviews": ROOT / "output/analysis_candidates/phase2_feature_review",
     "phase2_tracking": ROOT / "phase2_table_tracking.csv",
     "phase2_feature_plan": ROOT / "phase2_candidate_feature_plan.csv",
     "phase2_selected_features": ROOT / "phase2_selected_features.csv",
+    "manuscript_readme": ROOT / "manuscript/README.md",
+    "manuscript_protocol": ROOT / "manuscript/study_protocol.md",
+    "manuscript_outline": ROOT / "manuscript/manuscript_outline.md",
+    "manuscript_evidence": ROOT / "manuscript/evidence_register.csv",
+    "manuscript_decisions": ROOT / "manuscript/analysis_decisions.md",
+    "manuscript_status": ROOT / "manuscript/section_status.csv",
+    "manuscript_references": ROOT / "manuscript/references.md",
+    "manuscript_draft": ROOT / "manuscript/draft_v01.md",
+    "empirical_1_4_comparison": ROOT
+    / "output/analysis_candidates/phase_exploratory_empirical_findings_1_4/exploratory_empirical_1_4_feature_comparison.csv",
+    "empirical_1_4_feature_config": ROOT
+    / "output/analysis_candidates/phase_exploratory_empirical_findings_1_4/exploratory_empirical_1_4_feature_config.csv",
+    "empirical_1_4_groups": ROOT
+    / "output/analysis_candidates/phase_exploratory_empirical_findings_1_4/exploratory_empirical_1_4_group_assignments.csv",
+    "empirical_1_4_predictions": ROOT
+    / "output/analysis_candidates/phase_exploratory_empirical_findings_1_4/exploratory_empirical_1_4_predictions.csv",
+    "empirical_1_4_patient_predictions": ROOT
+    / "output/analysis_candidates/phase_exploratory_empirical_findings_1_4/exploratory_empirical_1_4_patient_predictions.csv",
+    "empirical_1_4_metrics": ROOT
+    / "output/analysis_candidates/phase_exploratory_empirical_findings_1_4/exploratory_empirical_1_4_metrics.csv",
+    "empirical_1_4_coefficients": ROOT
+    / "output/analysis_candidates/phase_exploratory_empirical_findings_1_4/exploratory_empirical_1_4_coefficients.csv",
+    "empirical_1_4_readme": ROOT
+    / "output/analysis_candidates/phase_exploratory_empirical_findings_1_4/README_exploratory_empirical_findings_1_4.md",
+    "empirical_1_4_protocol": ROOT / "EXPLORATORY_EMPIRICAL_FINDINGS_1_4_PROTOCOL.md",
+    "supplemental_modality_summary": ROOT
+    / "output/analysis_candidates/supplemental_modalities/bounded_qc_v3/supplemental_bounded_modality_summary.csv",
+    "supplemental_modality_protocol": ROOT / "SUPPLEMENTAL_MODALITIES_PROTOCOL.md",
+    "supplemental_feature_extraction_summary": ROOT
+    / "output/analysis_candidates/supplemental_modalities/phase4_24h_t1/phase4_24h_t1_supplemental_summary.csv",
+    "supplemental_feature_review": ROOT
+    / "output/analysis_candidates/supplemental_modalities/phase4_24h_t1/phase4_supplemental_feature_review.csv",
+    "supplemental_feature_selection": ROOT
+    / "output/analysis_candidates/supplemental_modalities/phase4_24h_t1/phase4_supplemental_feature_selection.csv",
     "phase2_highest_t1_calculated_feature_values": ROOT / "phase2_highest_t1_calculated_feature_values.csv",
     "phase2_reviewed_tables_global_coverage_summary": ROOT
     / "output/analysis_candidates/phase2_feature_review/phase2_reviewed_tables_global_coverage_summary.csv",
@@ -67,6 +105,161 @@ PATHS = {
     / "output/analysis_candidates/phase2_accelerometer_framework/accelerometer_raw_phase2a_json_key_summary.csv",
     "accelerometer_raw_window_summary": ROOT
     / "output/analysis_candidates/phase2_accelerometer_framework/accelerometer_raw_phase2a_candidate_window_summary.csv",
+    "accelerometer_sql_median_minute_readme": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/sql_median_day_minute/README_raw_accelerometer_sql_median_day_minute.md",
+    "accelerometer_sql_median_minute_root": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/sql_median_day_minute",
+    "accelerometer_sql_median_minute_summary": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/sql_median_day_minute/median_day_minute_summary.csv",
+    "accelerometer_sql_median_minute_raw_samples": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/sql_median_day_minute/median_day_minute_raw_samples.csv",
+    "accelerometer_sql_median_minute_sensor_summary": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/sql_median_day_minute/median_day_minute_sensor_summary.csv",
+    "accelerometer_sql_median_minute_sensor_samples": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/sql_median_day_minute/median_day_minute_sensor_samples.csv",
+    "accelerometer_sql_median_minute_sensor_keys": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/sql_median_day_minute/median_day_minute_sensor_key_summary.csv",
+    "accelerometer_hardware_timeline_root": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline",
+    "accelerometer_hardware_timeline_readme": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/README_accelerometer_device_hardware_timeline.md",
+    "accelerometer_hardware_timeline": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/accelerometer_device_hardware_timeline.csv",
+    "accelerometer_hardware_timeline_summary": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/device_hardware_timeline_summary.csv",
+    "accelerometer_hardware_configurations": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/sensor_configuration_summary.csv",
+    "accelerometer_hardware_monthly": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/device_hardware_monthly_prevalence.csv",
+    "accelerometer_patient_device_readme": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/README_patient_device_crosswalk.md",
+    "accelerometer_patient_device_crosswalk": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/patient_device_crosswalk.csv",
+    "accelerometer_patient_device_summary": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/patient_device_summary.csv",
+    "accelerometer_patient_device_configuration": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/patient_device_configuration_crosswalk.csv",
+    "accelerometer_unmatched_devices": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/unmatched_device_ids.csv",
+    "accelerometer_patient_device_crosswalk_summary": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/patient_device_crosswalk_summary.csv",
+    "accelerometer_patient_data_coverage_readme": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/data_coverage/README_accelerometer_patient_data_coverage.md",
+    "accelerometer_patient_data_summary": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/data_coverage/patient_accelerometer_data_summary.csv",
+    "accelerometer_patient_device_evidence": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/data_coverage/patient_device_accelerometer_evidence.csv",
+    "accelerometer_unmatched_data_investigation": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/data_coverage/unmatched_device_data_investigation.csv",
+    "accelerometer_mapped_device_cutoff": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/data_coverage/mapped_device_data_through_2025_12_30.csv",
+    "accelerometer_data_coverage_summary": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/data_coverage/accelerometer_data_coverage_summary.csv",
+    "accelerometer_metadata_patient_summary": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/data_coverage/active_patient_accelerometer_metadata_summary.csv",
+    "accelerometer_raw_acc_probe_devices": ROOT
+    / "output/analysis_candidates/phase2_accelerometer_framework/device_hardware_timeline/data_coverage/confirmed_raw_acc_probe_devices.csv",
+    "accelerometer_daily_export_manifest": Path(
+        "/Volumes/SENSORDATA_MAIN/sensordata_backup/motion_accelerometer/manifests/daily_export_manifest.jsonl"
+    ),
+    "plugin_activity_dictionary_readme": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/README_plugin_activity_movement_dictionary.md",
+    "plugin_activity_dictionary_summary": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/plugin_activity_dictionary_cohort_summary.csv",
+    "plugin_activity_dictionary_status": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/plugin_activity_extraction_status.csv",
+    "plugin_activity_dictionary_device_days": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/plugin_activity_device_day_summary.csv",
+    "plugin_activity_dictionary_patient_days": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/plugin_activity_patient_day_summary.csv",
+    "plugin_activity_dictionary_patient_summary": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/plugin_activity_patient_summary.csv",
+    "plugin_activity_dictionary_minutes": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/plugin_activity_movement_minutes.csv",
+    "plugin_activity_dictionary_events": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/plugin_activity_movement_events.csv",
+    "accelerometer_event_day_pilot_readme": ROOT
+    / "output/analysis_candidates/accelerometer_plugin_event_day_pilot/README_accelerometer_plugin_event_day_pilot.md",
+    "accelerometer_event_day_pilot_summary": ROOT
+    / "output/analysis_candidates/accelerometer_plugin_event_day_pilot/accelerometer_plugin_event_day_run_summary.csv",
+    "accelerometer_event_day_pilot_candidates": ROOT
+    / "output/analysis_candidates/accelerometer_plugin_event_day_pilot/accelerometer_plugin_event_day_candidates.csv",
+    "accelerometer_event_day_pilot_preflight": ROOT
+    / "output/analysis_candidates/accelerometer_plugin_event_day_pilot/accelerometer_plugin_event_day_raw_preflight.csv",
+    "accelerometer_event_day_pilot_status": ROOT
+    / "output/analysis_candidates/accelerometer_plugin_event_day_pilot/accelerometer_plugin_event_day_status.csv",
+    "accelerometer_event_day_pilot_features_wide": ROOT
+    / "output/analysis_candidates/accelerometer_plugin_event_day_pilot/accelerometer_plugin_event_day_features_wide.csv",
+    "accelerometer_event_day_pilot_features_long": ROOT
+    / "output/analysis_candidates/accelerometer_plugin_event_day_pilot/accelerometer_plugin_event_day_features_long.csv",
+    "accelerometer_event_day_pilot_patient_day": ROOT
+    / "output/analysis_candidates/accelerometer_plugin_event_day_pilot/accelerometer_plugin_event_day_patient_day_features.csv",
+    "accelerometer_event_day_pilot_chunks": ROOT
+    / "output/analysis_candidates/accelerometer_plugin_event_day_pilot/accelerometer_plugin_event_day_5min_summary.csv",
+    "accelerometer_event_day_pilot_catalog": ROOT
+    / "output/analysis_candidates/accelerometer_plugin_event_day_pilot/accelerometer_plugin_event_day_feature_catalog.csv",
+    "accelerometer_feature_audit_readme": ROOT
+    / "output/analysis_candidates/accelerometer_feature_audit/README_accelerometer_feature_audit.md",
+    "accelerometer_feature_audit_summary": ROOT
+    / "output/analysis_candidates/accelerometer_feature_audit/accelerometer_feature_audit_summary.csv",
+    "accelerometer_feature_audit_features": ROOT
+    / "output/analysis_candidates/accelerometer_feature_audit/accelerometer_feature_audit.csv",
+    "accelerometer_feature_audit_technical": ROOT
+    / "output/analysis_candidates/accelerometer_feature_audit/accelerometer_feature_technical_correlations.csv",
+    "accelerometer_feature_audit_groups": ROOT
+    / "output/analysis_candidates/accelerometer_feature_audit/accelerometer_feature_group_summary.csv",
+    "accelerometer_feature_audit_patient_days": ROOT
+    / "output/analysis_candidates/accelerometer_feature_audit/accelerometer_patient_day_features_audited.csv",
+    "accelerometer_feature_audit_patient_level": ROOT
+    / "output/analysis_candidates/accelerometer_feature_audit/accelerometer_patient_level_features.csv",
+    "accelerometer_all_mapped_pilot_readme": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_event_day_features/README_accelerometer_plugin_event_day_pilot.md",
+    "accelerometer_all_mapped_pilot_summary": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_event_day_features/accelerometer_plugin_event_day_run_summary.csv",
+    "accelerometer_all_mapped_pilot_candidates": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_event_day_features/accelerometer_plugin_event_day_candidates.csv",
+    "accelerometer_all_mapped_pilot_preflight": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_event_day_features/accelerometer_plugin_event_day_raw_preflight.csv",
+    "accelerometer_all_mapped_pilot_status": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_event_day_features/accelerometer_plugin_event_day_status.csv",
+    "accelerometer_all_mapped_pilot_features_wide": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_event_day_features/accelerometer_plugin_event_day_features_wide.csv",
+    "accelerometer_all_mapped_pilot_features_long": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_event_day_features/accelerometer_plugin_event_day_features_long.csv",
+    "accelerometer_all_mapped_pilot_patient_day": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_event_day_features/accelerometer_plugin_event_day_patient_day_features.csv",
+    "accelerometer_all_mapped_pilot_chunks": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_event_day_features/accelerometer_plugin_event_day_5min_summary.csv",
+    "accelerometer_all_mapped_pilot_catalog": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_event_day_features/accelerometer_plugin_event_day_feature_catalog.csv",
+    "accelerometer_all_mapped_feature_audit_readme": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_feature_audit/README_accelerometer_feature_audit.md",
+    "accelerometer_all_mapped_feature_audit_summary": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_feature_audit/accelerometer_feature_audit_summary.csv",
+    "accelerometer_all_mapped_feature_audit_features": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_feature_audit/accelerometer_feature_audit.csv",
+    "accelerometer_all_mapped_feature_audit_technical": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_feature_audit/accelerometer_feature_technical_correlations.csv",
+    "accelerometer_all_mapped_feature_audit_groups": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_feature_audit/accelerometer_feature_group_summary.csv",
+    "accelerometer_all_mapped_feature_audit_patient_days": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_feature_audit/accelerometer_patient_day_features_audited.csv",
+    "accelerometer_all_mapped_feature_audit_patient_level": ROOT
+    / "output/analysis_candidates/accelerometer_all_mapped_feature_audit/accelerometer_patient_level_features.csv",
+    "plugin_activity_t1_only_readme": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/t1_only_extension/README_plugin_activity_t1_only_extension.md",
+    "plugin_activity_t1_only_summary": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/t1_only_extension/plugin_activity_t1_only_summary.csv",
+    "plugin_activity_t1_only_status": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/t1_only_extension/plugin_activity_t1_only_status.csv",
+    "plugin_activity_t1_only_patient_summary": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/t1_only_extension/plugin_activity_t1_only_patient_summary.csv",
+    "plugin_activity_t1_only_patient_days": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/t1_only_extension/plugin_activity_t1_only_patient_day_summary.csv",
+    "plugin_activity_t1_only_minutes": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/t1_only_extension/plugin_activity_t1_only_minutes.csv",
+    "plugin_activity_t1_only_events": ROOT
+    / "output/analysis_candidates/plugin_activity_movement_dictionary/t1_only_extension/plugin_activity_t1_only_events.csv",
     "accelerometer_24h_pilot_readme": ROOT
     / "output/analysis_candidates/phase2_accelerometer_framework/raw_24h_pilot/README_accelerometer_24h_pilot.md",
     "accelerometer_24h_pilot_manifest": ROOT
@@ -272,6 +465,40 @@ PATHS = {
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/README_phase4_cluster_profiles.md",
     "phase4_cluster_readme": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/cluster_t1_baseline/README_phase4_t1_clustering.md",
+    "unsupervised_coverage_adjusted_readme": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/coverage_adjusted_posthoc/README_coverage_adjusted_pca.md",
+    "unsupervised_coverage_adjusted_summary": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/coverage_adjusted_posthoc/variant_summary.csv",
+    "unsupervised_coverage_adjusted_technical": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/coverage_adjusted_posthoc/technical_confounding_by_variant.csv",
+    "unsupervised_coverage_adjusted_cognitive": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/coverage_adjusted_posthoc/cognitive_overlay_summary_by_variant.csv",
+    "unsupervised_coverage_adjusted_protocol": ROOT / "UNSUPERVISED_COVERAGE_ADJUSTED_POSTHOC_PROTOCOL.md",
+    "top5_ridge_usml_readme": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/top5_ridge_usml/README_top5_ridge_usml.md",
+    "top5_ridge_usml_selection": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/top5_ridge_usml/top5_ridge_feature_selection.csv",
+    "top5_ridge_usml_scores": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/top5_ridge_usml/pca_patient_scores.csv",
+    "top5_ridge_usml_quality": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/top5_ridge_usml/cluster_quality.csv",
+    "top5_ridge_usml_features": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/top5_ridge_usml/cluster_feature_comparison.csv",
+    "top5_ridge_usml_technical": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/top5_ridge_usml/technical_confounding_comparison.csv",
+    "top5_ridge_usml_cognitive": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/top5_ridge_usml/cognitive_overlay_summary.csv",
+    "top5_ridge_usml_protocol": ROOT / "UNSUPERVISED_TOP5_RIDGE_PROTOCOL.md",
+    "domain_specific_ridge_usml_readme": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/domain_specific_ridge_usml/README_domain_specific_ridge_usml.md",
+    "domain_specific_ridge_usml_summary": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/domain_specific_ridge_usml/domain_summary.csv",
+    "domain_specific_ridge_usml_selection": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/domain_specific_ridge_usml/domain_feature_selection.csv",
+    "domain_specific_ridge_usml_protocol": ROOT / "DOMAIN_SPECIFIC_RIDGE_USML_PROTOCOL.md",
+    "domain_specific_adjusted_inference_summary": ROOT
+    / "output/analysis_candidates/unsupervised_phenotyping_median_span/domain_specific_adjusted_inference/adjusted_inference_summary.csv",
+    "domain_specific_adjusted_inference_protocol": ROOT / "DOMAIN_SPECIFIC_ADJUSTED_INFERENCE_PROTOCOL.md",
     "phase3_accelerometer_pilot_readme": ROOT
     / "output/analysis_candidates/phase2_feature_extraction/all_t1_patients_selected_features/table_runs/accelerometer/phase3_accelerometer_24h_pilot/README_phase3_accelerometer_24h_pilot.md",
     "phase3_accelerometer_pilot_wide": ROOT
@@ -382,6 +609,12 @@ st.markdown(
         font-size: 1.08rem;
         font-weight: 800;
     }
+    [data-testid="stSidebar"] div[role="radiogroup"] label:nth-of-type(25) p,
+    [data-testid="stSidebar"] div[role="radiogroup"] label:nth-of-type(26) p,
+    [data-testid="stSidebar"] div[role="radiogroup"] label:nth-of-type(27) p {
+        font-size: 1.08rem;
+        font-weight: 800;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -391,13 +624,37 @@ st.markdown(
 def load_csv(path: Path) -> pd.DataFrame:
     if not path.exists():
         return pd.DataFrame()
-    return pd.read_csv(path, dtype={"Subject_ID_D": str})
+    return pd.read_csv(path, dtype={"Subject_ID_D": str, "patient_id": str, "device_id": str})
+
+
+def load_csv_sample(path: Path, nrows: int = 5000) -> pd.DataFrame:
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_csv(
+        path,
+        nrows=nrows,
+        dtype={"Subject_ID_D": str, "patient_id": str, "device_id": str},
+    )
 
 
 def load_text(path: Path) -> str:
     if not path.exists():
         return ""
     return path.read_text(encoding="utf-8")
+
+
+def load_jsonl(path: Path) -> pd.DataFrame:
+    if not path.exists():
+        return pd.DataFrame()
+    records = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        try:
+            record = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(record, dict):
+            records.append(record)
+    return pd.DataFrame(records)
 
 
 def file_status(path: Path) -> str:
@@ -3344,6 +3601,768 @@ def phase4_10day_page() -> None:
     )
 
 
+def phase11_midpoint_page() -> None:
+    root = ROOT / "output/analysis_candidates/phase11_t1_baseline"
+    model = root / "model_t1_ridge"
+    cluster = root / "cluster_t1_baseline"
+    overrides = {
+        "phase4_protocol": ROOT / "PHASE11_MIDPOINT_T1_BASELINE_PROTOCOL.md",
+        "phase4_baseline_dataset": root / "phase11_t1_baseline_patient_dataset.csv",
+        "phase4_feature_metadata": root / "phase11_t1_baseline_feature_metadata.csv",
+        "phase4_missingness": root / "phase11_t1_baseline_missingness_summary.csv",
+        "phase4_table_coverage": root / "phase11_t1_baseline_table_coverage.csv",
+        "phase4_readme": root / "README_phase11_t1_baseline.md",
+        "phase4_model_predictions": model / "phase4_t1_ridge_predictions.csv",
+        "phase4_model_metrics": model / "phase4_t1_ridge_metrics.csv",
+        "phase4_model_feature_set": model / "phase4_t1_ridge_feature_set.csv",
+        "phase4_model_readme": model / "README_phase4_t1_ridge.md",
+        "phase4_model_coefficients": model / "phase4_t1_ridge_coefficients.csv",
+        "phase4_score_calibration": model / "phase4_t1_score_calibration_by_patient.csv",
+        "phase4_score_calibration_bins": model / "phase4_t1_score_calibration_bins.csv",
+        "phase4_score_calibration_metrics": model / "phase4_t1_score_calibration_metrics.csv",
+        "phase4_coefficient_summary": model / "phase4_t1_ridge_coefficient_summary.csv",
+        "phase4_score_calibration_readme": model / "README_phase4_t1_score_calibration.md",
+        "phase4_gradient_patient_predictions": root / "model_t1_gradient_weighted/phase4_t1_gradient_weighted_patient_predictions.csv",
+        "phase4_gradient_metrics": root / "model_t1_gradient_weighted/phase4_t1_gradient_weighted_metrics.csv",
+        "phase4_slope_selected_patient_predictions": root / "model_t1_slope_selected/phase4_t1_slope_selected_patient_predictions.csv",
+        "phase4_slope_selected_metrics": root / "model_t1_slope_selected/phase4_t1_slope_selected_metrics.csv",
+        "phase4_direction_constrained_patient_predictions": root / "model_t1_direction_constrained/phase4_t1_direction_constrained_patient_predictions.csv",
+        "phase4_direction_constrained_metrics": root / "model_t1_direction_constrained/phase4_t1_direction_constrained_metrics.csv",
+        "phase4_all_direction_patient_predictions": root / "model_t1_all_direction_constrained/phase4_10day_all_direction_constrained_patient_predictions.csv",
+        "phase4_all_direction_metrics": root / "model_t1_all_direction_constrained/phase4_10day_all_direction_constrained_metrics.csv",
+        "phase4_alternative_patient_predictions": root / "model_t1_alternatives/phase4_t1_alternative_patient_predictions.csv",
+        "phase4_alternative_metrics": root / "model_t1_alternatives/phase4_t1_alternative_metrics.csv",
+        "phase4_domain_patient_predictions": root / "model_t1_cognitive_domains/phase4_t1_cognitive_domain_patient_predictions.csv",
+        "phase4_domain_metrics": root / "model_t1_cognitive_domains/phase4_t1_cognitive_domain_metrics.csv",
+        "phase4_domain_group_patient_predictions": root / "model_t1_cognitive_domain_groups/phase4_t1_cognitive_domain_group_patient_predictions.csv",
+        "phase4_domain_group_metrics": root / "model_t1_cognitive_domain_groups/phase4_t1_cognitive_domain_group_metrics.csv",
+        "phase4_cluster_assignments": cluster / "phase4_t1_cluster_assignments.csv",
+        "phase4_cluster_quality": cluster / "phase4_t1_cluster_quality.csv",
+        "phase4_cluster_feature_summary": cluster / "phase4_t1_cluster_feature_summary.csv",
+        "phase4_cluster_pca_loadings": cluster / "phase4_t1_cluster_pca_loadings.csv",
+        "phase4_cluster_patient_audit": cluster / "phase4_cluster_patient_audit.csv",
+        "phase4_cluster_audit_summary": cluster / "phase4_cluster_audit_summary.csv",
+        "phase4_cluster_feature_differences": cluster / "phase4_cluster_feature_differences.csv",
+        "phase4_cluster_pca_scatter": cluster / "phase4_cluster_pca_scatter.csv",
+        "phase4_cluster_high_assignments": cluster / "phase4_t1_cluster_high_coverage_assignments.csv",
+        "phase4_cluster_high_quality": cluster / "phase4_t1_cluster_high_coverage_quality.csv",
+        "phase4_cluster_profiles": cluster / "phase4_cluster_profiles.csv",
+        "phase4_cluster_profile_features": cluster / "phase4_cluster_profile_features.csv",
+        "phase4_cluster_stability": cluster / "phase4_cluster_stability.csv",
+        "phase4_cluster_profiles_readme": cluster / "README_phase4_cluster_profiles.md",
+        "phase4_cluster_readme": cluster / "README_phase4_t1_clustering.md",
+    }
+    _render_with_path_overrides(
+        overrides,
+        lambda: phase4_baseline_page(
+            title="Phase 11 T1 Baseline Digital Phenotype",
+            caption="Phase 4-equivalent analysis using all available non-light data from T1 to the patient-specific midpoint, with a 123-day fallback when T2 is unavailable.",
+            include_all_feature_trend_explorer=True,
+        ),
+    )
+
+
+def phase11_clinical_tables_page() -> None:
+    root = ROOT / "output/analysis_candidates/phase11_t1_baseline/clinical_tables_baseline_severity"
+    clinical = load_csv(root / "phase11_baseline_severity_clinical_table1.csv")
+    features = load_csv(root / "phase11_baseline_severity_all_features.csv")
+    assignments = load_csv(root / "phase11_baseline_severity_group_assignments.csv")
+    readme = load_text(root / "README_phase11_baseline_severity_tables.md")
+
+    st.title("Phase 11 Clinical Tables: Baseline Cognitive Severity")
+    st.caption(
+        "Exploratory clinical-style comparison of the Phase 11 midpoint-span cohort. "
+        "All available digital features are included in the detailed table."
+    )
+    if clinical.empty or features.empty:
+        st.warning("The clinical tables have not been built yet.")
+        st.code(".venv/bin/python3 phase11_build_clinical_tables.py")
+        return
+
+    cutoff = float(clinical["global_t1_median_cutoff"].dropna().iloc[0])
+    participants = clinical.loc[clinical["variable"].eq("Participants")].iloc[0]
+    metric_row(
+        [
+            ("Participants", int(participants["n_overall"])),
+            ("Lower observed T1", int(participants["n_lower"])),
+            ("Higher observed T1", int(participants["n_higher"])),
+            ("T1 median cutoff", f"{cutoff:.2f}"),
+            ("Digital features", int(features["feature_name"].nunique())),
+        ]
+    )
+    st.info(
+        f"Grouping rule: lower observed T1 is <= {cutoff:.2f}; higher observed T1 is > {cutoff:.2f}. "
+        "This is an exploratory median split, not a validated clinical impairment cutoff."
+    )
+
+    def format_p(value) -> str:
+        if pd.isna(value):
+            return "NA"
+        if float(value) < 0.001:
+            return "<0.001"
+        return f"{float(value):.3f}"
+
+    tabs = st.tabs(["Clinical Table 1", "All digital features", "Cohort definition", "Downloads"])
+    with tabs[0]:
+        st.subheader("Baseline characteristics by observed T1 severity")
+        st.caption("Continuous variables are shown as median (IQR); categorical variables as n (%).")
+        display = clinical.copy()
+        display["P-value"] = display["p_value"].map(format_p)
+        display["FDR q-value"] = display["q_value_fdr_bh"].map(format_p)
+        display["Effect: higher minus lower"] = display[
+            "effect_size_cliffs_delta_higher_minus_lower"
+        ].map(lambda value: "NA" if pd.isna(value) else f"{float(value):.3f}")
+        display = display.rename(
+            columns={
+                "variable": "Variable",
+                "unit": "Unit",
+                "overall": "Overall",
+                "lower_observed_t1": "Lower observed T1",
+                "higher_observed_t1": "Higher observed T1",
+                "n_overall": "N overall",
+                "n_lower": "N lower",
+                "n_higher": "N higher",
+                "test": "Test",
+            }
+        )[
+            [
+                "Variable",
+                "Unit",
+                "Overall",
+                "Lower observed T1",
+                "Higher observed T1",
+                "N overall",
+                "N lower",
+                "N higher",
+                "P-value",
+                "FDR q-value",
+                "Effect: higher minus lower",
+                "Test",
+            ]
+        ]
+        st.dataframe(display, use_container_width=True, height=620)
+        st.caption(
+            "P-values are two-sided exploratory comparisons. FDR q-values adjust the feature-level testing burden; "
+            "the baseline score itself is expected to differ because it defines the grouping."
+        )
+
+    with tabs[1]:
+        st.subheader("All measured digital features")
+        st.caption(
+            "This table includes every measured digital feature in the Phase 11 patient dataset, including features "
+            "outside the primary model. Missing observations are excluded feature-by-feature from the comparison."
+        )
+        feature_display = features.copy()
+        feature_display["P-value"] = feature_display["p_value"].map(format_p)
+        feature_display["FDR q-value"] = feature_display["q_value_fdr_bh"].map(format_p)
+        feature_display["Effect: higher minus lower"] = feature_display[
+            "effect_size_cliffs_delta_higher_minus_lower"
+        ].map(lambda value: "NA" if pd.isna(value) else f"{float(value):.3f}")
+        feature_display["Missing overall"] = feature_display["missing_overall_percent"].map(
+            lambda value: "NA" if pd.isna(value) else f"{float(value):.1f}%"
+        )
+        feature_display = feature_display.rename(
+            columns={
+                "feature_name": "Feature",
+                "source_table": "Source table",
+                "feature_family": "Feature family",
+                "short_description": "Description",
+                "lower_median_iqr": "Lower observed T1: median (IQR)",
+                "higher_median_iqr": "Higher observed T1: median (IQR)",
+                "n_lower": "N lower",
+                "n_higher": "N higher",
+                "test": "Test",
+            }
+        )[
+            [
+                "Feature",
+                "Source table",
+                "Feature family",
+                "Description",
+                "Lower observed T1: median (IQR)",
+                "Higher observed T1: median (IQR)",
+                "N lower",
+                "N higher",
+                "Missing overall",
+                "P-value",
+                "FDR q-value",
+                "Effect: higher minus lower",
+                "Test",
+            ]
+        ]
+        st.dataframe(feature_display, use_container_width=True, height=760)
+        st.caption(
+            "A positive effect means the higher observed-T1 group tends to have larger feature values. "
+            "The table is descriptive and hypothesis-generating, not a validated feature-selection result."
+        )
+
+    with tabs[2]:
+        st.subheader("How the cohort is defined")
+        st.markdown(
+            "- The comparison uses the observed global cognitive T1 score.\n"
+            "- The cohort median is used as a transparent exploratory split.\n"
+            "- Lower observed T1 means a score at or below the median; higher observed T1 means a score above the median.\n"
+            "- The seven measured columns not yet present in the feature metadata catalog are still included and marked as metadata pending.\n"
+            "- Missing feature values are retained as missing; they are not replaced with zero or a median for this table."
+        )
+        if readme:
+            with st.expander("Protocol and interpretation notes"):
+                st.markdown(readme)
+        if not assignments.empty:
+            with st.expander("Patient-level group assignments"):
+                show_dataframe(assignments, height=520)
+
+    with tabs[3]:
+        download_items = [
+            ("Clinical Table 1 CSV", clinical, "phase11_baseline_severity_clinical_table1.csv"),
+            ("All digital features CSV", features, "phase11_baseline_severity_all_features.csv"),
+            ("Group assignments CSV", assignments, "phase11_baseline_severity_group_assignments.csv"),
+        ]
+        for label, frame, filename in download_items:
+            st.download_button(
+                label,
+                frame.to_csv(index=False).encode("utf-8"),
+                filename,
+                "text/csv",
+                key=f"phase11_clinical_{filename}",
+            )
+def phase_exploratory_empirical_findings_page() -> None:
+    root = ROOT / "output/analysis_candidates/phase_exploratory_empirical_findings"
+    features = load_csv(root / "exploratory_empirical_feature_config.csv")
+    patient_predictions = load_csv(root / "exploratory_empirical_patient_predictions.csv")
+    metrics = load_csv(root / "exploratory_empirical_metrics.csv")
+    coefficients = load_csv(root / "exploratory_empirical_coefficients.csv")
+    readme = load_text(root / "README_exploratory_empirical_findings.md")
+
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        "Exploratory Empirical Findings"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        "Global T1 model restricted to the selected keyboard-timing features from the Phase 11 baseline-severity comparison. "
+        "This is an exploratory, direction-preserving analysis."
+    )
+    if patient_predictions.empty or metrics.empty:
+        st.warning("The exploratory empirical model has not been built yet.")
+        st.code(".venv/bin/python3 phase_exploratory_empirical_findings.py")
+        return
+
+    pooled = metrics[metrics["analysis_scope"].astype(str).eq("pooled")].copy()
+    complete_selected = int(patient_predictions["all_selected_features_observed"].astype(bool).sum())
+    coverage_text = ", ".join(
+        f"{row.feature_name}: {int(row.n_overall)}"
+        for row in features[["feature_name", "n_overall"]].itertuples(index=False)
+    ) if not features.empty and "n_overall" in features.columns else "not available"
+    metric_row(
+        [
+            ("Patients", int(patient_predictions["Subject_ID_D"].nunique())),
+            ("Empirical features", int(features["feature_name"].nunique()) if not features.empty else 0),
+            ("All selected observed", complete_selected),
+            ("CV repeats", int(metrics.loc[metrics["analysis_scope"].eq("repeat"), "repeat"].nunique())),
+        ]
+    )
+    st.warning(
+        f"Only {complete_selected} patients have all selected features observed. Feature-wise training-fold median imputation "
+        f"keeps the full cohort visible. Available observations: {coverage_text}."
+    )
+
+    st.subheader("Outcome 1: direction-preserving empirical estimate of global T1")
+    plot = patient_predictions.sort_values("observed_global_T1").reset_index(drop=True).copy()
+    plot["patient_rank"] = np.arange(1, len(plot) + 1)
+    plot_long = plot[
+        [
+            "patient_rank",
+            "Subject_ID_D",
+            "observed_global_T1",
+            "mean_baseline_prediction",
+            "equal_weight_empirical_prediction",
+            "direction_constrained_ridge_prediction",
+        ]
+    ].rename(
+        columns={
+            "observed_global_T1": "Observed T1",
+            "mean_baseline_prediction": "Mean baseline",
+            "equal_weight_empirical_prediction": "Equal-weight empirical estimate",
+            "direction_constrained_ridge_prediction": "Direction-constrained Ridge estimate",
+        }
+    ).melt(
+        id_vars=["patient_rank", "Subject_ID_D"], var_name="measure", value_name="score"
+    )
+    y_values = pd.to_numeric(plot_long["score"], errors="coerce").dropna()
+    y_min = float(y_values.min()) - 1 if not y_values.empty else 0
+    y_max = float(y_values.max()) + 1 if not y_values.empty else 1
+    chart = (
+        alt.Chart(plot_long)
+        .mark_line(point=alt.OverlayMarkDef(size=48))
+        .encode(
+            x=alt.X(
+                "patient_rank:Q",
+                title="Patients ordered by observed global T1 score",
+                axis=alt.Axis(format="d"),
+            ),
+            y=alt.Y("score:Q", title="Global T1 score", scale=alt.Scale(domain=[y_min, y_max])),
+            order=alt.Order("patient_rank:Q", sort="ascending"),
+            color=alt.Color(
+                "measure:N",
+                title="Measure",
+                scale=alt.Scale(
+                    domain=[
+                        "Observed T1",
+                        "Mean baseline",
+                        "Equal-weight empirical estimate",
+                        "Direction-constrained Ridge estimate",
+                    ],
+                    range=["#111827", "#2563eb", "#d97706", "#0f766e"],
+                ),
+            ),
+            tooltip=[
+                alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                alt.Tooltip("Subject_ID_D:N", title="Patient ID"),
+                alt.Tooltip("measure:N", title="Measure"),
+                alt.Tooltip("score:Q", title="Global T1 score", format=".2f"),
+            ],
+        )
+        .properties(height=460)
+    )
+    st.altair_chart(chart, use_container_width=True)
+    st.caption(
+        "Observed T1 is black. The mean baseline is blue. The two empirical models are shown only to compare how a "
+        "direction-preserving feature score behaves against the same baseline."
+    )
+
+    with st.expander("Pooled model comparison", expanded=True):
+        display_metrics = pooled[["model", "n_predictions", "rmse", "mae", "r2"]].copy()
+        display_metrics = display_metrics.rename(
+            columns={
+                "model": "Model",
+                "n_predictions": "Predictions",
+                "rmse": "RMSE",
+                "mae": "MAE",
+                "r2": "R2",
+            }
+        )
+        for column in ["RMSE", "MAE", "R2"]:
+            display_metrics[column] = display_metrics[column].map(lambda value: f"{float(value):.3f}")
+        show_dataframe(display_metrics, height=180)
+
+    with st.expander("Selected empirical findings", expanded=True):
+        if not features.empty:
+            display_features = features[
+                [
+                    "feature_name",
+                    "source_table",
+                    "feature_family",
+                    "lower_median_iqr",
+                    "higher_median_iqr",
+                    "p_value",
+                    "q_value_fdr_bh",
+                    "effect_size_cliffs_delta_higher_minus_lower",
+                    "direction_to_higher_T1",
+                ]
+            ].rename(
+                columns={
+                    "feature_name": "Feature",
+                    "source_table": "Source table",
+                    "feature_family": "Feature family",
+                    "lower_median_iqr": "Lower observed T1: median (IQR)",
+                    "higher_median_iqr": "Higher observed T1: median (IQR)",
+                    "p_value": "P-value",
+                    "q_value_fdr_bh": "FDR q-value",
+                    "effect_size_cliffs_delta_higher_minus_lower": "Effect: higher minus lower",
+                    "direction_to_higher_T1": "Direction used",
+                }
+            )
+            show_dataframe(display_features, height=360)
+
+    with st.expander("Model protocol and limitations"):
+        st.markdown(readme if readme else "No README available yet.")
+
+    with st.expander("Fold-level coefficients"):
+        show_dataframe(coefficients, height=420)
+
+    st.subheader("Download outputs")
+    for label, frame, filename in [
+        ("Download patient predictions", patient_predictions, "exploratory_empirical_patient_predictions.csv"),
+        ("Download cross-validation metrics", metrics, "exploratory_empirical_metrics.csv"),
+        ("Download selected feature configuration", features, "exploratory_empirical_feature_config.csv"),
+        ("Download fold coefficients", coefficients, "exploratory_empirical_coefficients.csv"),
+    ]:
+        st.download_button(
+            label,
+            frame.to_csv(index=False).encode("utf-8"),
+            filename,
+            "text/csv",
+            key=f"exploratory_empirical_{filename}",
+        )
+
+
+def phase_exploratory_empirical_findings_1_4_page() -> None:
+    root = ROOT / "output/analysis_candidates/phase_exploratory_empirical_findings_1_4"
+    comparison = load_csv(PATHS["empirical_1_4_comparison"])
+    features = load_csv(PATHS["empirical_1_4_feature_config"])
+    groups = load_csv(PATHS["empirical_1_4_groups"])
+    patient_predictions = load_csv(PATHS["empirical_1_4_patient_predictions"])
+    metrics = load_csv(PATHS["empirical_1_4_metrics"])
+    coefficients = load_csv(PATHS["empirical_1_4_coefficients"])
+    readme = load_text(PATHS["empirical_1_4_readme"])
+    protocol = load_text(PATHS["empirical_1_4_protocol"])
+
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        "Exploratory Empirical Findings (1;4)"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        "Separate extreme-group comparison: the 20 lowest versus 20 highest observed baseline cognitive scores. "
+        "The original two keyboard model features remain fixed."
+    )
+    if comparison.empty or patient_predictions.empty or metrics.empty:
+        st.warning("The extreme-group empirical analysis has not been built yet.")
+        st.code(".venv/bin/python3 phase_exploratory_empirical_findings_1_4.py")
+        return
+
+    pooled = metrics[metrics["analysis_scope"].astype(str).eq("pooled")].copy()
+    complete_selected = int(patient_predictions["all_selected_features_observed"].astype(bool).sum())
+    low_count = int(groups["extreme_group"].astype(str).eq("Lowest 20 baseline scores").sum()) if not groups.empty else 20
+    high_count = int(groups["extreme_group"].astype(str).eq("Highest 20 baseline scores").sum()) if not groups.empty else 20
+    low_cutoff = float(groups.loc[groups["extreme_group"].eq("Lowest 20 baseline scores"), "global_T1"].max()) if not groups.empty else np.nan
+    high_cutoff = float(groups.loc[groups["extreme_group"].eq("Highest 20 baseline scores"), "global_T1"].min()) if not groups.empty else np.nan
+    metric_row(
+        [
+            ("Extreme-group patients", int(patient_predictions["Subject_ID_D"].nunique())),
+            ("Lowest group", low_count),
+            ("Highest group", high_count),
+            ("Fixed model features", int(features["feature_name"].nunique()) if not features.empty else 0),
+            ("Both features observed", complete_selected),
+            ("CV repeats", int(metrics.loc[metrics["analysis_scope"].eq("repeat"), "repeat"].nunique())),
+        ]
+    )
+    st.info(
+        f"Lowest-group maximum baseline score: {low_cutoff:.2f}; highest-group minimum baseline score: {high_cutoff:.2f}. "
+        "This comparison is exploratory and does not define a clinical severity threshold."
+    )
+
+    st.subheader("Extreme-group baseline-score estimate")
+    plot = patient_predictions.sort_values("observed_global_T1").reset_index(drop=True).copy()
+    plot["patient_rank"] = np.arange(1, len(plot) + 1)
+    plot_long = plot[
+        [
+            "patient_rank",
+            "Subject_ID_D",
+            "observed_global_T1",
+            "mean_baseline_prediction",
+            "equal_weight_empirical_prediction",
+            "direction_constrained_ridge_prediction",
+        ]
+    ].rename(
+        columns={
+            "observed_global_T1": "Observed baseline score",
+            "mean_baseline_prediction": "Mean baseline",
+            "equal_weight_empirical_prediction": "Equal-weight empirical estimate",
+            "direction_constrained_ridge_prediction": "Direction-constrained Ridge estimate",
+        }
+    ).melt(id_vars=["patient_rank", "Subject_ID_D"], var_name="measure", value_name="score")
+    y_values = pd.to_numeric(plot_long["score"], errors="coerce").dropna()
+    y_min = float(y_values.min()) - 1 if not y_values.empty else 0
+    y_max = float(y_values.max()) + 1 if not y_values.empty else 1
+    chart = (
+        alt.Chart(plot_long)
+        .mark_line(point=alt.OverlayMarkDef(size=48))
+        .encode(
+            x=alt.X(
+                "patient_rank:Q",
+                title="Extreme-group patients ordered by observed baseline score",
+                axis=alt.Axis(format="d"),
+            ),
+            y=alt.Y("score:Q", title="Baseline cognitive score", scale=alt.Scale(domain=[y_min, y_max])),
+            order=alt.Order("patient_rank:Q", sort="ascending"),
+            color=alt.Color(
+                "measure:N",
+                title="Measure",
+                scale=alt.Scale(
+                    domain=[
+                        "Observed baseline score",
+                        "Mean baseline",
+                        "Equal-weight empirical estimate",
+                        "Direction-constrained Ridge estimate",
+                    ],
+                    range=["#111827", "#2563eb", "#d97706", "#0f766e"],
+                ),
+            ),
+            tooltip=[
+                alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                alt.Tooltip("Subject_ID_D:N", title="Patient ID"),
+                alt.Tooltip("measure:N", title="Measure"),
+                alt.Tooltip("score:Q", title="Baseline cognitive score", format=".2f"),
+            ],
+        )
+        .properties(height=440)
+    )
+    st.altair_chart(chart, use_container_width=True)
+    st.caption(
+        "The patient set is intentionally restricted to the two opposite score extremes. "
+        "The blue mean baseline remains the reference; the model curves are exploratory estimates."
+    )
+
+    with st.expander("P-value comparison: extreme groups versus original median split", expanded=True):
+        display = comparison[comparison["feature_name"].isin(features["feature_name"])]
+        display = display.rename(
+            columns={
+                "feature_name": "Feature",
+                "n_lowest_20": "N lowest 20",
+                "n_highest_20": "N highest 20",
+                "extreme_p_value": "Extreme p-value",
+                "extreme_q_value": "Extreme FDR q-value",
+                "median_split_p_value": "Original median-split p-value",
+                "median_split_q_value": "Original median-split FDR q-value",
+                "extreme_effect_cliffs_delta_highest_minus_lowest": "Extreme Cliff delta",
+                "lowest_20_median_iqr": "Lowest 20 median (IQR)",
+                "highest_20_median_iqr": "Highest 20 median (IQR)",
+            }
+        )
+        show_dataframe(
+            display[
+                [
+                    "Feature",
+                    "N lowest 20",
+                    "N highest 20",
+                    "Extreme p-value",
+                    "Extreme FDR q-value",
+                    "Original median-split p-value",
+                    "Original median-split FDR q-value",
+                    "Extreme Cliff delta",
+                    "Lowest 20 median (IQR)",
+                    "Highest 20 median (IQR)",
+                ]
+            ],
+            height=360,
+        )
+        st.caption(
+            "The model features are fixed from the original empirical analysis. The full comparison table below includes every measured feature."
+        )
+
+    with st.expander("Five smallest extreme-group p-values"):
+        top = comparison.sort_values(["extreme_p_value", "feature_name"], na_position="last").head(5)
+        show_dataframe(
+            top[
+                [
+                    "feature_name",
+                    "extreme_p_value",
+                    "extreme_q_value",
+                    "median_split_p_value",
+                    "extreme_effect_cliffs_delta_highest_minus_lowest",
+                    "n_lowest_20",
+                    "n_highest_20",
+                ]
+            ],
+            height=260,
+        )
+
+    with st.expander("Pooled model comparison", expanded=True):
+        display_metrics = pooled[["model", "n_predictions", "rmse", "mae", "r2"]].copy().rename(
+            columns={"model": "Model", "n_predictions": "Predictions", "rmse": "RMSE", "mae": "MAE", "r2": "R2"}
+        )
+        for column in ["RMSE", "MAE", "R2"]:
+            display_metrics[column] = display_metrics[column].map(lambda value: f"{float(value):.3f}")
+        show_dataframe(display_metrics, height=180)
+
+    with st.expander("Full extreme-group feature comparison"):
+        show_dataframe(comparison, height=620)
+
+    with st.expander("Protocol and interpretation"):
+        st.markdown(protocol)
+        st.markdown(readme)
+
+    with st.expander("Fold-level coefficients"):
+        show_dataframe(coefficients, height=420)
+
+    st.subheader("Download outputs")
+    for label, frame, filename in [
+        ("Download feature comparison", comparison, "exploratory_empirical_1_4_feature_comparison.csv"),
+        ("Download model feature configuration", features, "exploratory_empirical_1_4_feature_config.csv"),
+        ("Download group assignments", groups, "exploratory_empirical_1_4_group_assignments.csv"),
+        ("Download patient predictions", patient_predictions, "exploratory_empirical_1_4_patient_predictions.csv"),
+        ("Download cross-validation metrics", metrics, "exploratory_empirical_1_4_metrics.csv"),
+        ("Download fold coefficients", coefficients, "exploratory_empirical_1_4_coefficients.csv"),
+    ]:
+        st.download_button(
+            label,
+            frame.to_csv(index=False).encode("utf-8"),
+            filename,
+            "text/csv",
+            key=f"exploratory_empirical_1_4_{filename}",
+        )
+
+
+def research_manuscript_page() -> None:
+    manuscript_root = ROOT / "manuscript"
+    status = load_csv(PATHS["manuscript_status"])
+    evidence = load_csv(PATHS["manuscript_evidence"])
+    phase11_dataset = load_csv(
+        ROOT / "output/analysis_candidates/phase11_t1_baseline/phase11_t1_baseline_patient_dataset.csv"
+    )
+    phase11_metadata = load_csv(
+        ROOT / "output/analysis_candidates/phase11_t1_baseline/phase11_t1_baseline_feature_metadata.csv"
+    )
+    phase11_clinical_features = load_csv(
+        ROOT
+        / "output/analysis_candidates/phase11_t1_baseline/clinical_tables_baseline_severity/phase11_baseline_severity_all_features.csv"
+    )
+    empirical_metrics = load_csv(
+        ROOT / "output/analysis_candidates/phase_exploratory_empirical_findings/exploratory_empirical_metrics.csv"
+    )
+
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        "Research Manuscript"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        "Working manuscript workspace for the coverage-aware proof-of-concept study. "
+        "The files in the manuscript/ folder are the source of truth."
+    )
+
+    if status.empty:
+        st.warning("The manuscript workspace has not been initialized.")
+        return
+
+    status_values = status["status"].astype(str).str.lower() if "status" in status.columns else pd.Series(dtype=str)
+    evidence_available = 0
+    if not evidence.empty and "source_file" in evidence.columns:
+        evidence_available = sum(
+            (ROOT / str(source).strip()).exists() for source in evidence["source_file"].dropna()
+        )
+    phase11_patients = (
+        int(phase11_dataset["Subject_ID_D"].nunique())
+        if not phase11_dataset.empty and "Subject_ID_D" in phase11_dataset.columns
+        else 0
+    )
+    phase11_features = (
+        int(phase11_clinical_features["feature_name"].nunique())
+        if not phase11_clinical_features.empty and "feature_name" in phase11_clinical_features.columns
+        else 0
+    )
+    phase11_cataloged_features = (
+        int(phase11_metadata["feature_name"].nunique())
+        if not phase11_metadata.empty and "feature_name" in phase11_metadata.columns
+        else 0
+    )
+    metric_row(
+        [
+            ("Phase 11 patients", phase11_patients),
+            ("Phase 11 measured features", phase11_features),
+            ("Cataloged metadata features", phase11_cataloged_features),
+            ("Evidence items", len(evidence)),
+            ("Evidence sources available", f"{evidence_available}/{len(evidence)}"),
+            ("Sections needing work", int(~status_values.isin(["complete", "ready"]).sum())),
+        ]
+    )
+
+    st.info(
+        "Current manuscript position: this is an exploratory observational proof-of-concept and methods/feasibility study. "
+        "The project has not established a clinically validated digital phenotype score."
+    )
+
+    tabs = st.tabs(
+        [
+            "Overview",
+            "Protocol and outline",
+            "Evidence register",
+            "Decisions and status",
+            "Draft scaffold",
+            "References",
+        ]
+    )
+    with tabs[0]:
+        st.markdown(load_text(PATHS["manuscript_readme"]) or "No manuscript workspace README available.")
+        st.subheader("Current project snapshot")
+        snapshot = pd.DataFrame(
+            [
+                {
+                    "Area": "Phase 11 midpoint-span baseline",
+                    "Status": "Available for supervisor review",
+                    "Source": "output/analysis_candidates/phase11_t1_baseline",
+                },
+                {
+                    "Area": "Exploratory empirical keyboard findings",
+                    "Status": "Available; exploratory only",
+                    "Source": "output/analysis_candidates/phase_exploratory_empirical_findings",
+                },
+                {
+                    "Area": "Supplemental proximity/light/accelerometer modalities",
+                    "Status": "Separate analysis stream; not yet frozen for paper",
+                    "Source": "SUPPLEMENTAL_MODALITIES_PROTOCOL.md",
+                },
+                {
+                    "Area": "Longitudinal T1-to-T2 work",
+                    "Status": "Future or secondary analysis",
+                    "Source": "PHASE12_MIDPOINT_T1_T2_CHANGE_PROTOCOL.md",
+                },
+            ]
+        )
+        show_dataframe(snapshot, height=220)
+        if not empirical_metrics.empty:
+            with st.expander("Current exploratory model metrics"):
+                show_dataframe(empirical_metrics, height=360)
+
+    with tabs[1]:
+        st.subheader("Working study protocol")
+        st.markdown(load_text(PATHS["manuscript_protocol"]) or "No study protocol available.")
+        with st.expander("Proposed approximately 10-page outline"):
+            st.markdown(load_text(PATHS["manuscript_outline"]) or "No manuscript outline available.")
+
+    with tabs[2]:
+        st.subheader("Claim-to-evidence register")
+        st.caption(
+            "A result belongs in the manuscript only after its source, analysis role, limitation, and next action are recorded."
+        )
+        if evidence.empty:
+            st.info("No evidence items are recorded yet.")
+        else:
+            roles = ["All"] + sorted(evidence["analysis_role"].dropna().astype(str).unique().tolist()) if "analysis_role" in evidence.columns else ["All"]
+            selected_role = st.selectbox("Analysis role", roles, key="manuscript_evidence_role")
+            evidence_view = evidence if selected_role == "All" else evidence[evidence["analysis_role"].astype(str).eq(selected_role)]
+            show_dataframe(evidence_view, height=620)
+            st.download_button(
+                "Download evidence register",
+                evidence.to_csv(index=False).encode("utf-8"),
+                "evidence_register.csv",
+                "text/csv",
+                key="manuscript_download_evidence",
+            )
+
+    with tabs[3]:
+        st.subheader("Analysis decisions")
+        st.markdown(load_text(PATHS["manuscript_decisions"]) or "No decisions log available.")
+        st.subheader("Section status")
+        show_dataframe(status, height=420)
+        st.download_button(
+            "Download section status",
+            status.to_csv(index=False).encode("utf-8"),
+            "section_status.csv",
+            "text/csv",
+            key="manuscript_download_status",
+        )
+
+    with tabs[4]:
+        st.markdown(load_text(PATHS["manuscript_draft"]) or "No draft scaffold available.")
+        st.download_button(
+            "Download draft scaffold",
+            load_text(PATHS["manuscript_draft"]).encode("utf-8"),
+            "draft_v01.md",
+            "text/markdown",
+            key="manuscript_download_draft",
+        )
+
+    with tabs[5]:
+        st.markdown(load_text(PATHS["manuscript_references"]) or "No working references available.")
+        st.caption("References are a working list and must be verified and formatted for the target journal before submission.")
+
+
 @st.fragment(run_every="10s")
 def phase5_t2_live_panel() -> None:
     status = load_csv(PATHS["phase5_status"])
@@ -3875,9 +4894,3359 @@ def phase6_10day_decline_page() -> None:
     )
 
 
+def phase12_midpoint_decline_page() -> None:
+    root = ROOT / "output/analysis_candidates/phase12_t1_t2_decline"
+    overrides = {
+        "phase6_protocol": ROOT / "PHASE12_MIDPOINT_T1_T2_CHANGE_PROTOCOL.md",
+        "phase6_patient_predictions": root / "phase12_t1_t2_decline_patient_predictions.csv",
+        "phase6_metrics": root / "phase12_t1_t2_decline_metrics.csv",
+        "phase6_feature_sets": root / "phase12_t1_t2_decline_feature_sets.csv",
+        "phase6_domain_taxonomy": root / "phase12_t1_t2_decline_domain_taxonomy.csv",
+        "phase4_baseline_dataset": ROOT / "output/analysis_candidates/phase11_t1_baseline/phase11_t1_baseline_patient_dataset.csv",
+        "phase5_wide": ROOT / "output/analysis_candidates/phase12_midpoint_t2_decline/phase12_midpoint_t2_decline_features_wide.csv",
+    }
+    _render_with_path_overrides(
+        overrides,
+        lambda: phase6_decline_page(
+            title="Phase 12 T1-to-T2 Midpoint Change Phenotyping",
+            caption="Phase 6-equivalent independent T1/T2 estimates using the first-half T1 and second-half T2 midpoint cohorts.",
+        ),
+    )
+
+
+def _phase_b_feature_table_page(
+    title: str,
+    root: Path,
+    dataset_name: str,
+    metadata_name: str,
+    missingness_name: str,
+    readme_name: str,
+) -> None:
+    st.title(title)
+    dataset = load_csv(root / dataset_name)
+    metadata = load_csv(root / metadata_name)
+    missingness = load_csv(root / missingness_name)
+    readme = load_text(root / readme_name)
+    if dataset.empty:
+        st.info(f"{title} has not been built yet.")
+        return
+    if "supplemental_extraction_scope" not in dataset.columns:
+        endpoint = "t1" if title.startswith("Phase 11") else "t2"
+        direct_root = ROOT / "output/analysis_candidates/supplemental_modalities/phase11_12_midpoint_direct" / endpoint
+        checkpoint_candidates = list(direct_root.glob("*_checkpoint.jsonl"))
+        if checkpoint_candidates:
+            checkpoint_rows = []
+            for line in checkpoint_candidates[0].read_text(encoding="utf-8").splitlines():
+                try:
+                    checkpoint_rows.append(json.loads(line))
+                except json.JSONDecodeError:
+                    continue
+            completed = [row for row in checkpoint_rows if row.get("status") == "completed"]
+            retry = [row for row in checkpoint_rows if row.get("status") == "needs_retry"]
+            st.metric(
+                "Corrected interval modalities completed",
+                f"{len(completed)} / {81 if endpoint == 't1' else 61}",
+                f"{len(retry)} needing retry",
+            )
+        st.warning(
+            "This directory contains the earlier Phase 4-scope audit table and is intentionally hidden. "
+            "The corrected Phase 11/12 midpoint-span extraction is still being built."
+        )
+        return
+    supplemental_features = [
+        column
+        for column in dataset.columns
+        if column.startswith("supplemental_")
+        and column not in {"supplemental_source_window", "supplemental_context_role", "supplemental_extraction_scope"}
+        and not column.endswith(("_status", "_window_rule", "_feature_missing_count", "_feature_missing_fraction"))
+        and not column.endswith(("_feature_status", "_error_message", "_midpoint_source", "_interval_days", "_window_start_ms", "_window_end_ms"))
+    ]
+    source_window = ""
+    if "supplemental_source_window" in dataset.columns and dataset["supplemental_source_window"].notna().any():
+        source_window = str(dataset["supplemental_source_window"].dropna().iloc[0])
+    metric_row(
+        [
+            ("Patients", dataset["Subject_ID_D"].nunique() if "Subject_ID_D" in dataset else len(dataset)),
+            ("Total columns", len(dataset.columns)),
+            ("Supplemental features", len(supplemental_features)),
+            ("Source window", source_window or "Phase 11/12 midpoint interval"),
+        ]
+    )
+    st.caption("Additive table only. Supplemental values come from the displayed Phase 11/12 interval, not the Phase 4 24-hour output. Original Phase 11 and Phase 12 outputs are unchanged; no models have been run.")
+    tabs = st.tabs(["Overall feature table", "Supplemental missingness", "Feature metadata", "Protocol"])
+    with tabs[0]:
+        show_dataframe(dataset, height=560)
+    with tabs[1]:
+        show_dataframe(missingness, height=360)
+    with tabs[2]:
+        show_dataframe(metadata, height=420)
+    with tabs[3]:
+        st.markdown(readme)
+
+
+def phase11_b_page() -> None:
+    _phase_b_feature_table_page(
+        "Phase 11 B T1 Baseline",
+        ROOT / "output/analysis_candidates/phase11_b_t1_baseline",
+        "phase11_b_t1_baseline_patient_dataset.csv",
+        "phase11_b_t1_baseline_feature_metadata.csv",
+        "phase11_b_t1_baseline_missingness_summary.csv",
+        "README_phase11_b_t1_baseline.md",
+    )
+
+
+def phase12_b_page() -> None:
+    _phase_b_feature_table_page(
+        "Phase 12 B T1-T2 Change",
+        ROOT / "output/analysis_candidates/phase12_b_t1_t2_change",
+        "phase12_b_t1_t2_change_patient_dataset.csv",
+        "phase12_b_t1_t2_change_feature_metadata.csv",
+        "phase12_b_t1_t2_change_missingness_summary.csv",
+        "README_phase12_b_t1_t2_change.md",
+    )
+
+
+def phase111_full_interval_page() -> None:
+    root = ROOT / "output/analysis_candidates/phase111_t1_t2_all_interval"
+    model = root / "model_phase111_ridge"
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        "Phase 111 Full T1-to-T2 Interval Ridge"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        "One broad patient-level phenotype using all active-feature data from T1 to T2, "
+        "or T1 to T1+123 days when T2 is unavailable."
+    )
+
+    dataset = load_csv(root / "phase111_t1_t2_all_interval_patient_dataset.csv")
+    metadata = load_csv(root / "phase111_t1_t2_all_interval_feature_metadata.csv")
+    missingness = load_csv(root / "phase111_t1_t2_all_interval_missingness_summary.csv")
+    coverage = load_csv(root / "phase111_t1_t2_all_interval_table_coverage.csv")
+    model_patients = load_csv(model / "phase111_ridge_patient_predictions.csv")
+    model_metrics = load_csv(model / "phase111_ridge_metrics.csv")
+    model_predictions = load_csv(model / "phase111_ridge_predictions.csv")
+    model_features = load_csv(model / "phase111_ridge_feature_set.csv")
+    coefficients = load_csv(model / "phase111_ridge_coefficients.csv")
+    readme = load_text(root / "README_phase111_t1_t2_all_interval.md")
+    protocol = load_text(ROOT / "PHASE111_ALL_INTERVAL_RIDGE_PROTOCOL.md")
+
+    if dataset.empty:
+        st.info("Phase 111 data has not been extracted yet.")
+        st.code("PYTHONUNBUFFERED=1 .venv/bin/python3 -u phase111_extract_full_interval.py")
+        return
+
+    target_sources = dataset.get("phase111_target_global_source", pd.Series(dtype=str)).astype(str)
+    t1_only = int(target_sources.eq("T1_only_no_valid_T2").sum())
+    both_scores = int(target_sources.eq("mean_of_T1_and_T2").sum())
+    mean_missing = (
+        float(pd.to_numeric(dataset.get("baseline_feature_missing_fraction", pd.Series(dtype=float)), errors="coerce").mean() * 100)
+        if "baseline_feature_missing_fraction" in dataset.columns
+        else float("nan")
+    )
+    metric_row(
+        [
+            ("Patients", dataset["Subject_ID_D"].nunique() if "Subject_ID_D" in dataset.columns else len(dataset)),
+            ("Active features", len(metadata) if not metadata.empty else 0),
+            ("T1 and T2 target", both_scores),
+            ("T1-only target", t1_only),
+            ("Mean feature missingness", f"{mean_missing:.1f}%"),
+        ]
+    )
+
+    st.subheader("Phase 111: Full-interval digital phenotype estimate")
+    st.caption(
+        "Patients are ordered from lowest to highest combined target. Black = observed target, "
+        "blue = fold-local mean baseline, orange = cross-validated Ridge estimate."
+    )
+
+    target_columns = {
+        "Global": "phase111_target_global",
+        "Memory": "phase111_target_memory",
+        "Executive function": "phase111_target_executive_function",
+        "Processing speed": "phase111_target_processing_speed",
+        "Attention": "phase111_target_attention",
+        "Motor": "phase111_target_motor",
+    }
+    domain_colors = {
+        "Global": "#1d4ed8",
+        "Memory": "#7c3aed",
+        "Executive function": "#ea580c",
+        "Processing speed": "#16a34a",
+        "Attention": "#dc2626",
+        "Motor": "#0891b2",
+    }
+
+    def render_target_graph(outcome: str) -> None:
+        frame = model_patients[model_patients["outcome"].astype(str).eq(outcome)].copy()
+        if frame.empty:
+            st.info(f"{outcome} Ridge output is not available yet.")
+            return
+        frame["target_value"] = pd.to_numeric(frame["target_value"], errors="coerce")
+        frame["mean_baseline_prediction"] = pd.to_numeric(frame["mean_baseline_prediction"], errors="coerce")
+        frame["ridge_prediction"] = pd.to_numeric(frame["ridge_prediction"], errors="coerce")
+        frame = frame.sort_values("target_value").reset_index(drop=True)
+        frame["patient_rank"] = range(1, len(frame) + 1)
+        plot = frame[
+            ["patient_rank", "Subject_ID_D", "target_value", "mean_baseline_prediction", "ridge_prediction"]
+        ].rename(
+            columns={
+                "target_value": "Observed combined target",
+                "mean_baseline_prediction": "Mean baseline",
+                "ridge_prediction": "Ridge estimate",
+            }
+        ).melt(
+            id_vars=["patient_rank", "Subject_ID_D"],
+            var_name="measure",
+            value_name="value",
+        ).dropna(subset=["value"])
+        low = float(plot["value"].min())
+        high = float(plot["value"].max())
+        padding = max(0.5, (high - low) * 0.08)
+        if low == high:
+            padding = max(1.0, abs(low) * 0.05)
+        chart = (
+            alt.Chart(plot)
+            .mark_line(point=alt.OverlayMarkDef(size=46))
+            .encode(
+                x=alt.X(
+                    "patient_rank:Q",
+                    title="Patients ordered by combined observed target",
+                    axis=alt.Axis(format="d"),
+                    scale=alt.Scale(domain=[0.5, len(frame) + 0.5]),
+                ),
+                y=alt.Y(
+                    "value:Q",
+                    title=f"{outcome} target score",
+                    scale=alt.Scale(domain=[low - padding, high + padding]),
+                ),
+                color=alt.Color(
+                    "measure:N",
+                    title="Measure",
+                    scale=alt.Scale(
+                        domain=["Observed combined target", "Mean baseline", "Ridge estimate"],
+                        range=["#111827", "#1d4ed8", "#ea580c"],
+                    ),
+                ),
+                order=alt.Order("patient_rank:Q", sort="ascending"),
+                tooltip=[
+                    alt.Tooltip("patient_rank:Q", title="Patient order", format="d"),
+                    alt.Tooltip("Subject_ID_D:N", title="Patient ID"),
+                    alt.Tooltip("measure:N", title="Measure"),
+                    alt.Tooltip("value:Q", title="Value", format=".2f"),
+                ],
+            )
+            .properties(height=390, title=f"{outcome} full-interval Ridge phenotype")
+        )
+        st.altair_chart(chart, use_container_width=True)
+        pooled = model_metrics[
+            model_metrics["analysis_scope"].astype(str).eq("pooled")
+            & model_metrics["outcome"].astype(str).eq(outcome)
+        ]
+        if not pooled.empty:
+            baseline = pooled[pooled["model"].astype(str).eq("mean_baseline")]
+            ridge = pooled[pooled["model"].astype(str).eq("ridge")]
+            if not baseline.empty and not ridge.empty:
+                delta = float(ridge.iloc[0]["rmse"]) - float(baseline.iloc[0]["rmse"])
+                st.caption(
+                    f"Fit summary: mean baseline RMSE {float(baseline.iloc[0]['rmse']):.2f}; "
+                    f"Ridge RMSE {float(ridge.iloc[0]['rmse']):.2f}; "
+                    f"Ridge minus baseline {delta:+.2f}; R2 {float(ridge.iloc[0]['r2']):.2f}."
+                )
+
+    for outcome in ["Global", *[domain for domain in ["Memory", "Executive function", "Processing speed", "Attention", "Motor"] if domain in target_columns]]:
+        if outcome != "Global":
+            st.markdown(f"**{outcome}**")
+        render_target_graph(outcome)
+
+    tabs = st.tabs(["Patient Dataset", "Feature Metadata", "Missingness", "Table Coverage", "Ridge Results", "Protocol"])
+    with tabs[0]:
+        show_dataframe(dataset, height=650)
+    with tabs[1]:
+        show_dataframe(metadata, height=520)
+    with tabs[2]:
+        if not missingness.empty and {"feature_name", "missing_percent"}.issubset(missingness.columns):
+            st.bar_chart(missingness.set_index("feature_name")["missing_percent"])
+        show_dataframe(missingness, height=520)
+    with tabs[3]:
+        show_dataframe(coverage, height=520)
+    with tabs[4]:
+        pooled = model_metrics[model_metrics["analysis_scope"].astype(str).eq("pooled")] if not model_metrics.empty else pd.DataFrame()
+        show_dataframe(pooled, height=260)
+        st.subheader("Feature set")
+        show_dataframe(model_features, height=360)
+        with st.expander("Cross-validated predictions"):
+            show_dataframe(model_predictions, height=520)
+        with st.expander("Ridge coefficients"):
+            show_dataframe(coefficients, height=520)
+        st.markdown(readme)
+    with tabs[5]:
+        st.markdown(protocol)
+
+
+def coverage_adjusted_pca_section(output_root: Path) -> None:
+    """Render the separate post-hoc audit of coverage-related PCA effects."""
+    adjusted_root = output_root / "coverage_adjusted_posthoc"
+    summary = load_csv(adjusted_root / "variant_summary.csv")
+    technical = load_csv(adjusted_root / "technical_confounding_by_variant.csv")
+    cognitive = load_csv(adjusted_root / "cognitive_overlay_summary_by_variant.csv")
+    cognitive_points = load_csv(adjusted_root / "cognitive_overlay_points_by_variant.csv")
+    protocol = load_text(ROOT / "UNSUPERVISED_COVERAGE_ADJUSTED_POSTHOC_PROTOCOL.md")
+    readme = load_text(adjusted_root / "README_coverage_adjusted_pca.md")
+
+    st.markdown(
+        '<h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.4rem;">'
+        "Coverage-adjusted PCA post-hoc audit"
+        "</h2>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        "Corrected exploratory check: does the digital structure remain after reducing differences in recording exposure, "
+        "source-row intensity, coverage, and missingness? The original PCA and clusters are unchanged."
+    )
+    if summary.empty:
+        st.warning("The coverage-adjusted post-hoc outputs are not available yet.")
+        st.code(".venv/bin/python3 -u unsupervised_phenotyping_coverage_adjusted.py")
+        return
+
+    completed = summary[summary.get("status", "").astype(str).eq("completed")].copy()
+    if completed.empty:
+        st.warning("No corrected sensitivity variant completed successfully.")
+        return
+    labels = dict(zip(completed["variant"].astype(str), completed["variant_label"].astype(str)))
+    default_variant = "exposure_normalized" if "exposure_normalized" in labels else str(completed.iloc[0]["variant"])
+    selected_variant = st.selectbox(
+        "Corrected representation to inspect",
+        list(labels),
+        index=list(labels).index(default_variant),
+        format_func=lambda value: labels[value],
+        key="coverage_adjusted_selected_variant",
+    )
+    selected_row = completed[completed["variant"].astype(str).eq(selected_variant)].iloc[0]
+    metric_row(
+        [
+            ("Patients", int(selected_row["n_patients"])),
+            ("Features", int(selected_row["n_features"])),
+            ("PC1 + PC2 variance", f"{float(selected_row['pc1_pc2_explained_variance_percent']):.1f}%"),
+            ("Silhouette", f"{float(selected_row['mean_silhouette']):.3f}"),
+            ("ARI vs original", f"{float(selected_row['ari_vs_original_clusters']):.3f}"),
+        ]
+    )
+
+    st.subheader("Does the structure survive correction?")
+    st.caption(
+        "The raw reference should reproduce the original result. ARI compares the corrected clusters with the original clusters; "
+        "absolute PC correlations compare patient positions. These are stability measures, not clinical validity measures."
+    )
+    comparison = completed.copy()
+    comparison["variant_order"] = range(len(comparison))
+    comparison_long = comparison.melt(
+        id_vars=["variant", "variant_label", "variant_order"],
+        value_vars=[
+            "ari_vs_original_clusters",
+            "absolute_pc1_correlation_with_original",
+            "absolute_pc2_correlation_with_original",
+        ],
+        var_name="stability_measure",
+        value_name="value",
+    )
+    comparison_long["stability_measure"] = comparison_long["stability_measure"].map(
+        {
+            "ari_vs_original_clusters": "Cluster ARI vs original",
+            "absolute_pc1_correlation_with_original": "PC1 correlation vs original",
+            "absolute_pc2_correlation_with_original": "PC2 correlation vs original",
+        }
+    )
+    stability_chart = (
+        alt.Chart(comparison_long)
+        .mark_line(point=True)
+        .encode(
+            x=alt.X("variant_label:N", sort=completed["variant_label"].astype(str).tolist(), title="Sensitivity variant", axis=alt.Axis(labelAngle=-25)),
+            y=alt.Y("value:Q", scale=alt.Scale(domain=[0, 1.05]), title="Similarity to original (0-1)"),
+            color=alt.Color("stability_measure:N", title="Measure", scale=alt.Scale(range=["#1d4ed8", "#ea580c", "#16a34a"])),
+            tooltip=[
+                alt.Tooltip("variant_label:N", title="Variant"),
+                alt.Tooltip("stability_measure:N", title="Measure"),
+                alt.Tooltip("value:Q", title="Value", format=".3f"),
+            ],
+        )
+        .properties(height=330, title="How closely does each corrected run resemble the original?")
+    )
+    st.altair_chart(stability_chart, use_container_width=True)
+    summary_columns = [
+        "variant_label", "n_patients", "cluster_0_n", "cluster_1_n", "pc1_pc2_explained_variance_percent",
+        "mean_silhouette", "mean_subsample_ari", "mean_seed_ari", "ari_vs_original_clusters",
+        "absolute_pc1_correlation_with_original", "absolute_pc2_correlation_with_original",
+    ]
+    show_dataframe(completed[[column for column in summary_columns if column in completed.columns]], height=280)
+
+    st.subheader("Original map versus corrected map")
+    st.caption(
+        "The left map is the original processing reference. The right map is the selected corrected run. "
+        "Cluster colors are exploratory group labels and may be relabeled by K-means."
+    )
+    raw_scores = load_csv(adjusted_root / "pca_patient_scores_raw_reference.csv")
+    selected_scores = load_csv(adjusted_root / f"pca_patient_scores_{selected_variant}.csv")
+
+    def _map_frame(frame: pd.DataFrame) -> pd.DataFrame:
+        view = frame.copy()
+        for column in ["PC1", "PC2", "cluster_label", "patient_feature_coverage_percent", "observed_timestamp_span_days"]:
+            if column in view.columns:
+                view[column] = pd.to_numeric(view[column], errors="coerce")
+        view["cluster_display"] = "Cluster " + view["cluster_label"].astype("Int64").astype(str)
+        view["Patient ID"] = view["Subject_ID_D"].astype(str).str.zfill(3)
+        return view.dropna(subset=["PC1", "PC2", "cluster_label"])
+
+    def _map_chart(frame: pd.DataFrame, title: str) -> alt.Chart:
+        view = _map_frame(frame)
+        return (
+            alt.Chart(view)
+            .mark_circle(size=90, opacity=0.88, stroke="white", strokeWidth=0.6)
+            .encode(
+                x=alt.X("PC1:Q", title="PC1"),
+                y=alt.Y("PC2:Q", title="PC2"),
+                color=alt.Color("cluster_display:N", title="Exploratory group", scale=alt.Scale(domain=["Cluster 0", "Cluster 1"], range=["#1d4ed8", "#ea580c"])),
+                tooltip=[
+                    alt.Tooltip("Patient ID:N"),
+                    alt.Tooltip("cluster_display:N", title="Group"),
+                    alt.Tooltip("PC1:Q", format=".2f"),
+                    alt.Tooltip("PC2:Q", format=".2f"),
+                    alt.Tooltip("patient_feature_coverage_percent:Q", title="Panel coverage (%)", format=".1f"),
+                ],
+            )
+            .properties(width=390, height=360, title=title)
+        )
+
+    if not raw_scores.empty and not selected_scores.empty:
+        st.altair_chart(
+            alt.hconcat(
+                _map_chart(raw_scores, "Original processing reference"),
+                _map_chart(selected_scores, labels[selected_variant]),
+            ).resolve_scale(color="shared"),
+            use_container_width=True,
+        )
+
+    st.subheader("Technical confounding after correction")
+    st.caption(
+        "Large absolute standardized differences mean that the new clusters still differ on that technical variable. "
+        "A reduction supports the interpretation that coverage effects were reduced; it does not prove the remaining pattern is clinical."
+    )
+    technical_view = technical[technical["variant"].astype(str).eq(selected_variant)].copy()
+    if not technical_view.empty:
+        technical_view["absolute_standardized_difference"] = pd.to_numeric(technical_view["absolute_standardized_difference"], errors="coerce")
+        top_technical = technical_view.sort_values("absolute_standardized_difference", ascending=False).head(10)
+        technical_chart = (
+            alt.Chart(top_technical)
+            .mark_bar()
+            .encode(
+                y=alt.Y("variable:N", sort="-x", title="Technical variable"),
+                x=alt.X("standardized_difference_cluster_1_minus_0:Q", title="Standardized difference (Cluster 1 - Cluster 0)"),
+                color=alt.condition("datum.standardized_difference_cluster_1_minus_0 < 0", alt.value("#1d4ed8"), alt.value("#ea580c")),
+                tooltip=[
+                    alt.Tooltip("variable:N", title="Variable"),
+                    alt.Tooltip("cluster_0_median_iqr:N", title="Cluster 0 median (IQR)"),
+                    alt.Tooltip("cluster_1_median_iqr:N", title="Cluster 1 median (IQR)"),
+                    alt.Tooltip("standardized_difference_cluster_1_minus_0:Q", title="Standardized difference", format=".2f"),
+                    alt.Tooltip("exploratory_p_value:Q", title="Exploratory p-value", format=".4f"),
+                ],
+            )
+            .properties(height=360, title=f"Technical differences: {labels[selected_variant]}")
+        )
+        st.altair_chart(technical_chart, use_container_width=True)
+        show_dataframe(
+            technical_view[
+                [
+                    "variable", "description", "n_cluster_0", "n_cluster_1", "cluster_0_median_iqr", "cluster_1_median_iqr",
+                    "standardized_difference_cluster_1_minus_0", "exploratory_p_value", "exploratory_q_value_fdr_bh",
+                ]
+            ],
+            height=430,
+        )
+
+    st.subheader("Post-hoc cognitive outcomes on the corrected map")
+    st.caption(
+        "Cognitive variables remain completely post-hoc. For change outcomes, delta means T2 minus T1; negative values indicate lower T2."
+    )
+    cognitive_variant = cognitive[cognitive["variant"].astype(str).eq(selected_variant)].copy()
+    cognitive_point_variant = cognitive_points[cognitive_points["variant"].astype(str).eq(selected_variant)].copy()
+    if not cognitive_variant.empty and not cognitive_point_variant.empty:
+        outcome_options = cognitive_variant["outcome"].astype(str).tolist()
+        default_outcome = "Global T2-T1 delta" if "Global T2-T1 delta" in outcome_options else outcome_options[0]
+        selected_outcome = st.selectbox(
+            "Cognitive outcome",
+            outcome_options,
+            index=outcome_options.index(default_outcome),
+            key="coverage_adjusted_cognitive_outcome",
+        )
+        cognitive_plot = cognitive_point_variant[cognitive_point_variant["outcome"].astype(str).eq(selected_outcome)].copy()
+        for column in ["PC1", "PC2", "outcome_value", "cluster_label"]:
+            cognitive_plot[column] = pd.to_numeric(cognitive_plot[column], errors="coerce")
+        cognitive_plot["cluster_display"] = "Cluster " + cognitive_plot["cluster_label"].astype("Int64").astype(str)
+        cognitive_plot["Patient ID"] = cognitive_plot["Subject_ID_D"].astype(str).str.zfill(3)
+        cognitive_chart = (
+            alt.Chart(cognitive_plot.dropna(subset=["PC1", "PC2", "outcome_value"]))
+            .mark_circle(size=100, opacity=0.9, stroke="white", strokeWidth=0.7)
+            .encode(
+                x=alt.X("PC1:Q", title="Corrected PC1"),
+                y=alt.Y("outcome_value:Q", title=selected_outcome),
+                color=alt.Color("cluster_display:N", title="Exploratory group", scale=alt.Scale(domain=["Cluster 0", "Cluster 1"], range=["#1d4ed8", "#ea580c"])),
+                tooltip=[
+                    alt.Tooltip("Patient ID:N"),
+                    alt.Tooltip("outcome_value:Q", title=selected_outcome, format=".2f"),
+                    alt.Tooltip("PC1:Q", title="Corrected PC1", format=".2f"),
+                ],
+            )
+            .properties(height=350, title=f"{selected_outcome} versus corrected PC1")
+        )
+        st.altair_chart(cognitive_chart, use_container_width=True)
+        selected_cognitive_summary = cognitive_variant[cognitive_variant["outcome"].astype(str).eq(selected_outcome)]
+        show_dataframe(
+            selected_cognitive_summary[
+                [
+                    "variant_label", "outcome", "n", "correlation_pc1", "correlation_pc2", "cluster_0_mean", "cluster_1_mean",
+                    "cluster_difference_cluster_1_minus_0", "standardized_difference_cluster_1_minus_0", "exploratory_p_value",
+                    "exploratory_q_value_fdr_bh",
+                ]
+            ],
+            height=180,
+        )
+        st.caption("The table below compares the same outcome across all corrected variants.")
+        across_variants = cognitive[cognitive["outcome"].astype(str).eq(selected_outcome)].copy()
+        show_dataframe(
+            across_variants[
+                [
+                    "variant_label", "n", "correlation_pc1", "correlation_pc2", "cluster_difference_cluster_1_minus_0",
+                    "standardized_difference_cluster_1_minus_0", "exploratory_p_value",
+                ]
+            ],
+            height=230,
+        )
+
+    selected_loadings = load_csv(adjusted_root / f"pca_loadings_{selected_variant}.csv")
+    if not selected_loadings.empty:
+        st.subheader("Features driving the corrected representation")
+        st.caption("These are PCA loadings, not causal effects or clinical importance scores.")
+        loading_columns = [column for column in ["feature_name", "PC1", "PC2", "maximum_absolute_loading"] if column in selected_loadings.columns]
+        show_dataframe(selected_loadings[loading_columns].head(15), height=360)
+
+    with st.expander("Corrected post-hoc protocol and downloads"):
+        if protocol:
+            st.markdown(protocol)
+        if readme:
+            st.markdown(readme)
+        downloads = [
+            ("Variant summary", summary, "variant_summary.csv"),
+            ("Technical confounding by variant", technical, "technical_confounding_by_variant.csv"),
+            ("Cognitive summary by variant", cognitive, "cognitive_overlay_summary_by_variant.csv"),
+            ("Cognitive overlay points by variant", cognitive_points, "cognitive_overlay_points_by_variant.csv"),
+        ]
+        for label, frame, filename in downloads:
+            if not frame.empty:
+                st.download_button(
+                    label,
+                    frame.to_csv(index=False).encode("utf-8"),
+                    filename,
+                    "text/csv",
+                    key=f"coverage_adjusted_{filename}",
+                )
+
+
+def top5_ridge_usml_section(output_root: Path) -> None:
+    """Render the separate USML audit restricted to Ridge-ranked features."""
+    top5_root = output_root / "top5_ridge_usml"
+    selection = load_csv(top5_root / "top5_ridge_feature_selection.csv")
+    scores = load_csv(top5_root / "pca_patient_scores.csv")
+    cohort_audit = load_csv(top5_root / "patient_cohort_audit.csv")
+    variance = load_csv(top5_root / "pca_variance.csv")
+    loadings = load_csv(top5_root / "pca_loadings.csv")
+    quality = load_csv(top5_root / "cluster_quality.csv")
+    profiles = load_csv(top5_root / "cluster_profiles.csv")
+    feature_profiles = load_csv(top5_root / "cluster_feature_profiles.csv")
+    feature_comparison = load_csv(top5_root / "cluster_feature_comparison.csv")
+    technical = load_csv(top5_root / "technical_confounding_comparison.csv")
+    cognitive = load_csv(top5_root / "cognitive_overlay_summary.csv")
+    cognitive_points = load_csv(top5_root / "cognitive_overlay_points.csv")
+    informed_points = load_csv(top5_root / "followup_informed_baseline_points.csv")
+    informed_summary = load_csv(top5_root / "followup_informed_baseline_summary.csv")
+    protocol = load_text(ROOT / "UNSUPERVISED_TOP5_RIDGE_PROTOCOL.md")
+    readme = load_text(top5_root / "README_top5_ridge_usml.md")
+
+    st.markdown(
+        '<h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.4rem;">'
+        "Top-5 Ridge feature USML"
+        "</h2>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        "A separate exploratory PCA and clustering analysis using the five strongest real features from the midpoint T1 Ridge model. "
+        "This feature selection used T1 information, so the result is hypothesis-generating rather than independent validation."
+    )
+    if selection.empty or scores.empty:
+        st.warning("The top-five Ridge USML outputs are not available yet.")
+        st.code(".venv/bin/python3 -u unsupervised_phenotyping_top5_ridge.py")
+        return
+
+    selected_features = selection["feature_name"].astype(str).tolist()
+    st.info("Selected features: " + ", ".join(selected_features))
+    metric_row(
+        [
+            ("Source patients", int(cohort_audit["Subject_ID_D"].nunique()) if "Subject_ID_D" in cohort_audit.columns else "-"),
+            ("Analyzed patients", int(scores["Subject_ID_D"].nunique())),
+            ("Selected features", len(selected_features)),
+            ("Selected clusters", f"k={int(scores['cluster_k'].iloc[0])}" if "cluster_k" in scores.columns else "-"),
+            ("PC1 + PC2 variance", f"{float(variance.head(2)['explained_variance_percent'].sum()):.1f}%" if not variance.empty else "-"),
+            ("Silhouette", f"{float(quality.loc[quality['selected_solution'].astype(str).str.lower().eq('true'), 'mean_silhouette'].iloc[0]):.3f}" if not quality.empty and quality["selected_solution"].astype(str).str.lower().eq("true").any() else "-"),
+        ]
+    )
+
+    st.subheader("Ridge-ranked feature selection")
+    selection_columns = [
+        "ridge_rank_among_real_panel_features", "feature_name", "source_table", "feature_family",
+        "coefficient_mean", "coefficient_positive_fraction", "absolute_mean_coefficient", "missing_percent",
+    ]
+    show_dataframe(selection[[column for column in selection_columns if column in selection.columns]], height=240)
+    st.caption(
+        "The coefficient sign is the Ridge direction for the T1 target. The USML analysis uses the feature values themselves; "
+        "it does not force the Ridge signs into the clustering."
+    )
+
+    st.subheader("Top-five patient map")
+    plot = scores.copy()
+    for column in ["PC1", "PC2", "global_T1", "cluster_label"]:
+        if column in plot.columns:
+            plot[column] = pd.to_numeric(plot[column], errors="coerce")
+    plot = plot.dropna(subset=["PC1", "PC2", "cluster_label"])
+    plot["Patient ID"] = plot["Subject_ID_D"].astype(str).str.zfill(3)
+    plot["Exploratory cluster"] = "Cluster " + plot["cluster_label"].astype(int).astype(str)
+    cluster_domain = sorted(plot["Exploratory cluster"].unique().tolist())
+    cluster_range = ["#1d4ed8", "#ea580c"][: len(cluster_domain)]
+    map_chart = (
+        alt.Chart(plot)
+        .mark_circle(size=105, opacity=0.9, stroke="white", strokeWidth=0.8)
+        .encode(
+            x=alt.X("PC1:Q", title="Top-five digital dimension 1 (PC1)"),
+            y=alt.Y("PC2:Q", title="Top-five digital dimension 2 (PC2)"),
+            color=alt.Color("Exploratory cluster:N", title="Exploratory group", scale=alt.Scale(domain=cluster_domain, range=cluster_range)),
+            tooltip=[
+                alt.Tooltip("Patient ID:N"),
+                alt.Tooltip("Exploratory cluster:N", title="Group"),
+                alt.Tooltip("PC1:Q", format=".2f"),
+                alt.Tooltip("PC2:Q", format=".2f"),
+                alt.Tooltip("global_T1:Q", title="Observed global T1", format=".1f"),
+            ],
+        )
+        .properties(height=430, title="Patient positions using only the top five Ridge-ranked features")
+    )
+    st.altair_chart(map_chart, use_container_width=True)
+
+    if "global_T1" in plot.columns:
+        three_d = plot.dropna(subset=["global_T1"]).copy()
+        figure = px.scatter_3d(
+            three_d,
+            x="PC1",
+            y="PC2",
+            z="global_T1",
+            color="Exploratory cluster",
+            color_discrete_map={"Cluster 0": "#1d4ed8", "Cluster 1": "#ea580c"},
+            hover_name="Patient ID",
+            hover_data={
+                "Patient ID": True,
+                "Exploratory cluster": True,
+                "PC1": ":.2f",
+                "PC2": ":.2f",
+                "global_T1": ":.1f",
+                "cluster_label": False,
+                "Subject_ID_D": False,
+            },
+            labels={"PC1": "Top-five digital dimension 1", "PC2": "Top-five digital dimension 2", "global_T1": "Observed global T1"},
+        )
+        figure.update_traces(marker={"size": 6, "opacity": 0.9})
+        figure.update_layout(
+            height=650,
+            margin={"l": 0, "r": 0, "t": 30, "b": 0},
+            scene={
+                "xaxis_title": "Top-five digital dimension 1",
+                "yaxis_title": "Top-five digital dimension 2",
+                "zaxis_title": "Observed global T1",
+                "camera": {"eye": {"x": 1.45, "y": 1.45, "z": 1.15}},
+            },
+        )
+        st.plotly_chart(figure, use_container_width=True, config={"displaylogo": False, "responsive": True})
+        st.caption("Each dot is one patient. Vertical position shows observed T1; color shows the exploratory two-cluster solution.")
+
+    st.subheader("Cluster quality and feature patterns")
+    if not quality.empty:
+        quality_columns = [
+            "k", "mean_silhouette", "sd_silhouette", "mean_pairwise_seed_ari", "mean_subsample_ari_vs_reference",
+            "min_subsample_ari_vs_reference", "min_cluster_n_reference", "max_cluster_n_reference", "selected_solution",
+        ]
+        show_dataframe(quality[[column for column in quality_columns if column in quality.columns]], height=230)
+    if not profiles.empty:
+        show_dataframe(profiles, height=280)
+    if not feature_comparison.empty:
+        feature_comparison["absolute_standardized_difference"] = pd.to_numeric(feature_comparison.get("absolute_standardized_difference"), errors="coerce")
+        top_features = feature_comparison.sort_values("absolute_standardized_difference", ascending=False).head(5)
+        feature_chart = (
+            alt.Chart(top_features)
+            .mark_bar()
+            .encode(
+                y=alt.Y("feature_name:N", sort="-x", title="Feature"),
+                x=alt.X("standardized_difference_cluster_1_minus_0:Q", title="Standardized difference (Cluster 1 - Cluster 0)"),
+                color=alt.condition("datum.standardized_difference_cluster_1_minus_0 < 0", alt.value("#1d4ed8"), alt.value("#ea580c")),
+                tooltip=[
+                    alt.Tooltip("feature_name:N", title="Feature"),
+                    alt.Tooltip("cluster_0_median_iqr:N", title="Cluster 0 median (IQR)"),
+                    alt.Tooltip("cluster_1_median_iqr:N", title="Cluster 1 median (IQR)"),
+                    alt.Tooltip("standardized_difference_cluster_1_minus_0:Q", title="Standardized difference", format=".2f"),
+                ],
+            )
+            .properties(height=280, title="Feature differences between top-five clusters")
+        )
+        st.altair_chart(feature_chart, use_container_width=True)
+        show_dataframe(
+            feature_comparison[
+                [
+                    "feature_name", "feature_group", "cluster_0_median_iqr", "cluster_1_median_iqr",
+                    "standardized_difference_cluster_1_minus_0", "exploratory_p_value", "pca_max_abs_loading",
+                ]
+            ],
+            height=330,
+        )
+    if not loadings.empty:
+        st.subheader("PCA loadings")
+        show_dataframe(loadings[[column for column in ["feature_name", "PC1", "PC2", "maximum_absolute_loading"] if column in loadings.columns]], height=240)
+
+    st.subheader("Technical confounding audit")
+    st.caption(
+        "These variables were not used to define the top-five PCA or clusters. They test whether the small feature panel separates patients mainly by data quantity or collection intensity."
+    )
+    if not technical.empty:
+        technical["absolute_standardized_difference"] = pd.to_numeric(technical.get("absolute_standardized_difference"), errors="coerce")
+        top_technical = technical.sort_values("absolute_standardized_difference", ascending=False).head(10)
+        technical_chart = (
+            alt.Chart(top_technical)
+            .mark_bar()
+            .encode(
+                y=alt.Y("variable:N", sort="-x", title="Technical variable"),
+                x=alt.X("standardized_difference_cluster_1_minus_0:Q", title="Standardized difference (Cluster 1 - Cluster 0)"),
+                color=alt.condition("datum.standardized_difference_cluster_1_minus_0 < 0", alt.value("#1d4ed8"), alt.value("#ea580c")),
+                tooltip=[
+                    alt.Tooltip("variable:N", title="Variable"),
+                    alt.Tooltip("cluster_0_median_iqr:N", title="Cluster 0 median (IQR)"),
+                    alt.Tooltip("cluster_1_median_iqr:N", title="Cluster 1 median (IQR)"),
+                    alt.Tooltip("standardized_difference_cluster_1_minus_0:Q", title="Standardized difference", format=".2f"),
+                    alt.Tooltip("exploratory_p_value:Q", title="Exploratory p-value", format=".4f"),
+                ],
+            )
+            .properties(height=360, title="Technical differences between top-five clusters")
+        )
+        st.altair_chart(technical_chart, use_container_width=True)
+        show_dataframe(
+            technical[
+                [
+                    "variable", "description", "cluster_0_median_iqr", "cluster_1_median_iqr",
+                    "standardized_difference_cluster_1_minus_0", "exploratory_p_value", "exploratory_q_value_fdr_bh",
+                ]
+            ],
+            height=440,
+        )
+
+    st.subheader("Post-hoc cognitive outcomes")
+    st.caption("Cognitive scores were not used to build this USML solution. All comparisons are exploratory.")
+    if not cognitive.empty and not cognitive_points.empty:
+        outcomes = cognitive["outcome"].astype(str).tolist()
+        default_outcome = "Global T2-T1 delta" if "Global T2-T1 delta" in outcomes else outcomes[0]
+        selected_outcome = st.selectbox(
+            "Cognitive outcome",
+            outcomes,
+            index=outcomes.index(default_outcome),
+            key="top5_ridge_usml_cognitive_outcome",
+        )
+        cognitive_plot = cognitive_points[cognitive_points["outcome"].astype(str).eq(selected_outcome)].copy()
+        for column in ["PC1", "PC2", "outcome_value", "cluster_label"]:
+            cognitive_plot[column] = pd.to_numeric(cognitive_plot[column], errors="coerce")
+        cognitive_plot["cluster_display"] = "Cluster " + cognitive_plot["cluster_label"].astype("Int64").astype(str)
+        cognitive_plot["Patient ID"] = cognitive_plot["Subject_ID_D"].astype(str).str.zfill(3)
+        cognitive_chart = (
+            alt.Chart(cognitive_plot.dropna(subset=["PC1", "PC2", "outcome_value"]))
+            .mark_circle(size=95, opacity=0.9, stroke="white", strokeWidth=0.8)
+            .encode(
+                x=alt.X("PC1:Q", title="Top-five PC1"),
+                y=alt.Y("outcome_value:Q", title=selected_outcome),
+                color=alt.Color("cluster_display:N", title="Exploratory group", scale=alt.Scale(domain=["Cluster 0", "Cluster 1"], range=["#1d4ed8", "#ea580c"])),
+                tooltip=[
+                    alt.Tooltip("Patient ID:N"),
+                    alt.Tooltip("outcome_value:Q", title=selected_outcome, format=".2f"),
+                    alt.Tooltip("PC1:Q", title="Top-five PC1", format=".2f"),
+                ],
+            )
+            .properties(height=340, title=f"{selected_outcome} versus top-five PC1")
+        )
+        st.altair_chart(cognitive_chart, use_container_width=True)
+        selected_summary = cognitive[cognitive["outcome"].astype(str).eq(selected_outcome)]
+        show_dataframe(
+            selected_summary[
+                [
+                    "outcome", "n", "correlation_pc1", "correlation_pc2", "cluster_0_mean", "cluster_1_mean",
+                    "cluster_difference_cluster_1_minus_0", "standardized_difference_cluster_1_minus_0", "exploratory_p_value",
+                ]
+            ],
+            height=180,
+        )
+        st.caption("The full post-hoc summary includes global T1/T2 and available domain-specific T2-minus-T1 outcomes.")
+
+    if not informed_summary.empty:
+        with st.expander("Follow-up-informed baseline sensitivity"):
+            st.warning("This uses T2 information and is not a prospective baseline target or prediction model.")
+            show_dataframe(informed_summary, height=330)
+
+    with st.expander("Top-five USML protocol and downloads"):
+        if protocol:
+            st.markdown(protocol)
+        if readme:
+            st.markdown(readme)
+        downloads = [
+            ("Selected Ridge features", selection, "top5_ridge_feature_selection.csv"),
+            ("Patient PCA scores", scores, "pca_patient_scores.csv"),
+            ("PCA variance", variance, "pca_variance.csv"),
+            ("PCA loadings", loadings, "pca_loadings.csv"),
+            ("Cluster quality", quality, "cluster_quality.csv"),
+            ("Cluster feature comparison", feature_comparison, "cluster_feature_comparison.csv"),
+            ("Technical confounding comparison", technical, "technical_confounding_comparison.csv"),
+            ("Cognitive overlay summary", cognitive, "cognitive_overlay_summary.csv"),
+            ("Cognitive overlay points", cognitive_points, "cognitive_overlay_points.csv"),
+        ]
+        for label, frame, filename in downloads:
+            if not frame.empty:
+                st.download_button(
+                    label,
+                    frame.to_csv(index=False).encode("utf-8"),
+                    filename,
+                    "text/csv",
+                    key=f"top5_ridge_usml_{filename}",
+                )
+
+
+def domain_specific_ridge_usml_section(output_root: Path) -> None:
+    """Render separate Ridge-informed five-feature PCA maps for each domain."""
+    domain_root = output_root / "domain_specific_ridge_usml"
+    summary = load_csv(domain_root / "domain_summary.csv")
+    selection_all = load_csv(domain_root / "domain_feature_selection.csv")
+    protocol = load_text(ROOT / "DOMAIN_SPECIFIC_RIDGE_USML_PROTOCOL.md")
+    readme = load_text(domain_root / "README_domain_specific_ridge_usml.md")
+
+    st.markdown(
+        '<h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.4rem;">'
+        "Domain-specific Ridge USML"
+        "</h2>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        "Each cognitive outcome has its own five Ridge-ranked real features and its own PCA/clustering map. "
+        "Select a domain to inspect its result."
+    )
+    st.warning(
+        "Exploratory and outcome-informed: each domain's T1 score helped select its five features. "
+        "The PCA and cluster labels are not clinical scores or validated subtypes."
+    )
+    if summary.empty or selection_all.empty:
+        st.warning("Domain-specific Ridge USML outputs are not available yet.")
+        st.code(".venv/bin/python3 -u unsupervised_phenotyping_domain_top5.py")
+        return
+
+    domain_order = [
+        "Global",
+        "Memory",
+        "Executive function",
+        "Processing speed",
+        "Attention",
+        "Motor",
+    ]
+    available_domains = [domain for domain in domain_order if domain in summary["domain"].astype(str).tolist()]
+    selected_domain = st.selectbox(
+        "Cognitive domain",
+        available_domains,
+        key="domain_specific_ridge_usml_domain",
+    )
+    domain_summary = summary[summary["domain"].astype(str).eq(selected_domain)].iloc[0]
+    domain_dir = domain_root / str(selected_domain).lower().replace(" ", "_")
+    selection = selection_all[selection_all["domain"].astype(str).eq(selected_domain)].copy()
+    scores = load_csv(domain_dir / "pca_patient_scores.csv")
+    variance = load_csv(domain_dir / "pca_variance.csv")
+    loadings = load_csv(domain_dir / "pca_loadings.csv")
+    quality = load_csv(domain_dir / "cluster_quality.csv")
+    profiles = load_csv(domain_dir / "cluster_profiles.csv")
+    feature_profiles = load_csv(domain_dir / "cluster_feature_profiles.csv")
+    feature_comparison = load_csv(domain_dir / "cluster_feature_comparison.csv")
+    technical = load_csv(domain_dir / "technical_confounding_comparison.csv")
+    cognitive = load_csv(domain_dir / "cognitive_overlay_summary.csv")
+    cognitive_points = load_csv(domain_dir / "cognitive_overlay_points.csv")
+
+    selected_quality = quality[quality["selected_solution"].astype(str).str.lower().eq("true")] if not quality.empty else pd.DataFrame()
+    silhouette = float(selected_quality["mean_silhouette"].iloc[0]) if not selected_quality.empty else np.nan
+    metric_row(
+        [
+            ("Source patients", int(domain_summary.get("source_patients", 0))),
+            ("Analyzed patients", int(domain_summary.get("analyzed_patients", 0))),
+            ("Selected features", len(selection)),
+            ("Selected clusters", f"k={int(domain_summary.get('selected_k', 0))}"),
+            ("PC1 + PC2 variance", f"{float(domain_summary.get('pc1_pc2_explained_variance_percent', np.nan)):.1f}%"),
+            ("Silhouette", f"{silhouette:.3f}" if np.isfinite(silhouette) else "-"),
+            ("Subsample ARI", f"{float(domain_summary.get('mean_subsample_ari_selected_k', np.nan)):.3f}"),
+        ]
+    )
+
+    st.subheader(f"{selected_domain}: domain-specific five-feature panel")
+    selection_columns = [
+        "ridge_rank_among_real_panel_features", "feature_name", "source_table", "feature_family",
+        "coefficient_mean", "coefficient_sd", "coefficient_positive_fraction",
+        "coefficient_direction_stability", "absolute_mean_coefficient", "missing_percent",
+    ]
+    show_dataframe(selection[[column for column in selection_columns if column in selection.columns]], height=260)
+    st.caption(
+        "The coefficient direction is shown for transparency. PCA uses the observed feature values after the common USML transformation; "
+        "it does not force positive or negative Ridge signs into the map."
+    )
+
+    st.subheader("Patient map for this cognitive domain")
+    plot = scores.copy()
+    for column in ["PC1", "PC2", "cluster_label", str(domain_summary.get("target", ""))]:
+        if column in plot.columns:
+            plot[column] = pd.to_numeric(plot[column], errors="coerce")
+    plot = plot.dropna(subset=[column for column in ["PC1", "PC2", "cluster_label"] if column in plot.columns])
+    plot["Patient ID"] = plot["Subject_ID_D"].astype(str).str.zfill(3)
+    plot["Exploratory cluster"] = "Cluster " + plot["cluster_label"].astype(int).astype(str)
+    clusters = sorted(plot["Exploratory cluster"].unique().tolist())
+    colors = ["#1d4ed8", "#ea580c", "#059669", "#7c3aed"]
+    map_chart = (
+        alt.Chart(plot)
+        .mark_circle(size=110, opacity=0.9, stroke="white", strokeWidth=0.8)
+        .encode(
+            x=alt.X("PC1:Q", title=f"{selected_domain} digital dimension 1 (PC1)"),
+            y=alt.Y("PC2:Q", title=f"{selected_domain} digital dimension 2 (PC2)"),
+            color=alt.Color("Exploratory cluster:N", title="Exploratory group", scale=alt.Scale(domain=clusters, range=colors[:len(clusters)])),
+            tooltip=[
+                alt.Tooltip("Patient ID:N"),
+                alt.Tooltip("Exploratory cluster:N", title="Group"),
+                alt.Tooltip("PC1:Q", format=".2f"),
+                alt.Tooltip("PC2:Q", format=".2f"),
+                alt.Tooltip(f"{domain_summary.get('target', 'global_T1')}:Q", title=f"Observed {selected_domain} T1", format=".1f"),
+            ],
+        )
+        .properties(height=440, title=f"Patients positioned using the {selected_domain} top-five panel")
+    )
+    st.altair_chart(map_chart, use_container_width=True)
+
+    target_column = str(domain_summary.get("target", ""))
+    if target_column in plot.columns:
+        three_d = plot.dropna(subset=[target_column]).copy()
+        figure = px.scatter_3d(
+            three_d,
+            x="PC1",
+            y="PC2",
+            z=target_column,
+            color="Exploratory cluster",
+            color_discrete_sequence=colors[:len(clusters)],
+            hover_name="Patient ID",
+            hover_data={
+                "Patient ID": True,
+                "Exploratory cluster": True,
+                "PC1": ":.2f",
+                "PC2": ":.2f",
+                target_column: ":.1f",
+                "cluster_label": False,
+                "Subject_ID_D": False,
+            },
+            labels={"PC1": f"{selected_domain} PC1", "PC2": f"{selected_domain} PC2", target_column: f"Observed {selected_domain} T1"},
+        )
+        figure.update_traces(marker={"size": 6, "opacity": 0.9})
+        figure.update_layout(
+            height=650,
+            margin={"l": 0, "r": 0, "t": 30, "b": 0},
+            scene={
+                "xaxis_title": f"{selected_domain} PC1",
+                "yaxis_title": f"{selected_domain} PC2",
+                "zaxis_title": f"Observed {selected_domain} T1",
+                "camera": {"eye": {"x": 1.45, "y": 1.45, "z": 1.15}},
+            },
+        )
+        st.plotly_chart(figure, use_container_width=True, config={"displaylogo": False, "responsive": True})
+        st.caption("Each dot is one patient. Height shows the observed domain T1 score; color shows the exploratory domain-specific cluster.")
+
+    st.subheader("Cluster quality and feature pattern")
+    if not quality.empty:
+        quality_columns = [
+            "k", "mean_silhouette", "sd_silhouette", "mean_pairwise_seed_ari", "mean_subsample_ari_vs_reference",
+            "min_subsample_ari_vs_reference", "min_cluster_n_reference", "max_cluster_n_reference", "selected_solution",
+        ]
+        show_dataframe(quality[[column for column in quality_columns if column in quality.columns]], height=240)
+    if not profiles.empty:
+        show_dataframe(profiles, height=310)
+    if not feature_comparison.empty:
+        comparison_columns = [
+            "feature_name", "feature_family", "all_cluster_medians_iqr",
+            "standardized_difference_cluster_1_minus_0", "exploratory_p_value_cluster_0_vs_1",
+            "pca_max_abs_loading",
+        ]
+        show_dataframe(feature_comparison[[column for column in comparison_columns if column in feature_comparison.columns]], height=340)
+    if not loadings.empty:
+        st.subheader("PCA loadings")
+        show_dataframe(loadings[[column for column in ["feature_name", "PC1", "PC2", "maximum_absolute_loading"] if column in loadings.columns]], height=240)
+    if not variance.empty:
+        with st.expander("PCA variance details"):
+            show_dataframe(variance, height=260)
+    if not feature_profiles.empty:
+        with st.expander("Cluster feature profiles"):
+            show_dataframe(feature_profiles, height=360)
+
+    st.subheader("Technical confounding audit")
+    st.caption("Technical and coverage variables were not used to define this domain's PCA or clusters. They test whether the separation could reflect data collection intensity.")
+    if not technical.empty:
+        technical_columns = [
+            "variable", "description", "cluster_0_median_iqr", "cluster_1_median_iqr",
+            "standardized_difference_cluster_1_minus_0", "exploratory_p_value_cluster_0_vs_1",
+        ]
+        show_dataframe(technical[[column for column in technical_columns if column in technical.columns]], height=440)
+
+    st.subheader("Post-hoc cognitive outcomes")
+    st.caption("Cognitive outcomes were not used to create this domain's PCA or clusters after the Ridge-informed feature selection. All overlays are exploratory.")
+    if not cognitive.empty and not cognitive_points.empty:
+        outcomes = cognitive["outcome"].astype(str).tolist()
+        preferred = f"{selected_domain} T2-T1 delta"
+        default_outcome = preferred if preferred in outcomes else f"{selected_domain} T1" if f"{selected_domain} T1" in outcomes else outcomes[0]
+        selected_outcome = st.selectbox(
+            "Cognitive outcome overlay",
+            outcomes,
+            index=outcomes.index(default_outcome),
+            key="domain_specific_ridge_usml_cognitive_outcome",
+        )
+        cognitive_plot = cognitive_points[cognitive_points["outcome"].astype(str).eq(selected_outcome)].copy()
+        for column in ["PC1", "PC2", "outcome_value", "cluster_label"]:
+            cognitive_plot[column] = pd.to_numeric(cognitive_plot[column], errors="coerce")
+        cognitive_plot["cluster_display"] = "Cluster " + cognitive_plot["cluster_label"].astype("Int64").astype(str)
+        cognitive_plot["Patient ID"] = cognitive_plot["Subject_ID_D"].astype(str).str.zfill(3)
+        cognitive_chart = (
+            alt.Chart(cognitive_plot.dropna(subset=["PC1", "PC2", "outcome_value"]))
+            .mark_circle(size=95, opacity=0.9, stroke="white", strokeWidth=0.8)
+            .encode(
+                x=alt.X("PC1:Q", title=f"{selected_domain} PC1"),
+                y=alt.Y("outcome_value:Q", title=selected_outcome),
+                color=alt.Color("cluster_display:N", title="Exploratory group", scale=alt.Scale(domain=clusters, range=colors[:len(clusters)])),
+                tooltip=[
+                    alt.Tooltip("Patient ID:N"),
+                    alt.Tooltip("outcome_value:Q", title=selected_outcome, format=".2f"),
+                    alt.Tooltip("PC1:Q", title=f"{selected_domain} PC1", format=".2f"),
+                ],
+            )
+            .properties(height=350, title=f"{selected_outcome} over the {selected_domain} digital map")
+        )
+        st.altair_chart(cognitive_chart, use_container_width=True)
+        selected_summary = cognitive[cognitive["outcome"].astype(str).eq(selected_outcome)]
+        summary_columns = [
+            "outcome", "n", "correlation_pc1", "correlation_pc2", "cluster_0_mean", "cluster_1_mean",
+            "cluster_difference_cluster_1_minus_0", "standardized_difference_cluster_1_minus_0",
+            "exploratory_p_value_cluster_0_vs_1",
+        ]
+        show_dataframe(selected_summary[[column for column in summary_columns if column in selected_summary.columns]], height=190)
+
+    with st.expander("Domain-specific protocol and downloads"):
+        if protocol:
+            st.markdown(protocol)
+        if readme:
+            st.markdown(readme)
+        downloads = [
+            ("All domain summaries", summary, "domain_summary.csv"),
+            ("Selected features for all domains", selection_all, "domain_feature_selection.csv"),
+            ("Selected features for this domain", selection, "feature_selection.csv"),
+            ("Patient PCA scores", scores, "pca_patient_scores.csv"),
+            ("PCA variance", variance, "pca_variance.csv"),
+            ("PCA loadings", loadings, "pca_loadings.csv"),
+            ("Cluster quality", quality, "cluster_quality.csv"),
+            ("Cluster feature comparison", feature_comparison, "cluster_feature_comparison.csv"),
+            ("Technical confounding comparison", technical, "technical_confounding_comparison.csv"),
+            ("Cognitive overlay summary", cognitive, "cognitive_overlay_summary.csv"),
+            ("Cognitive overlay points", cognitive_points, "cognitive_overlay_points.csv"),
+        ]
+        for label, frame, filename in downloads:
+            if not frame.empty:
+                st.download_button(
+                    label,
+                    frame.to_csv(index=False).encode("utf-8"),
+                    filename,
+                    "text/csv",
+                    key=f"domain_specific_ridge_usml_{selected_domain}_{filename}",
+                )
+
+
+def domain_specific_adjusted_inference_section(output_root: Path) -> None:
+    """Render the pre-specified coverage-adjusted Motor/Attention audit."""
+    inference_root = output_root / "domain_specific_adjusted_inference"
+    summary = load_csv(inference_root / "adjusted_inference_summary.csv")
+    protocol = load_text(ROOT / "DOMAIN_SPECIFIC_ADJUSTED_INFERENCE_PROTOCOL.md")
+    readme = load_text(inference_root / "README_adjusted_inference.md")
+
+    st.markdown(
+        '<h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.4rem;">'
+        "Coverage-adjusted Motor and Attention inference"
+        "</h2>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        "A pre-specified sensitivity test of the two strongest domain-specific candidates. "
+        "The complete feature-selection and clustering pipeline is repeated under outcome permutations."
+    )
+    st.warning(
+        "This is still exploratory, but it is a stricter test than the original post-selection p-values. "
+        "The adjusted analysis does not change any earlier results."
+    )
+    if summary.empty:
+        st.warning("The coverage-adjusted Motor/Attention outputs are not available yet.")
+        st.code(".venv/bin/python3 -u unsupervised_phenotyping_domain_adjusted_inference.py")
+        return
+
+    st.subheader("Adjusted inference summary")
+    summary_columns = [
+        "domain", "selected_features", "analyzed_patients", "standardized_difference_cluster_1_minus_0",
+        "selection_aware_permutation_p_value", "bootstrap_standardized_difference_ci_2_5",
+        "bootstrap_standardized_difference_ci_97_5", "silhouette", "subsample_ari",
+    ]
+    show_dataframe(summary[[column for column in summary_columns if column in summary.columns]], height=220)
+    st.caption(
+        "The permutation p-value includes outcome-informed feature selection. The bootstrap interval describes sampling variability "
+        "conditional on the observed adjusted five-feature panel."
+    )
+
+    domains = [domain for domain in ["Motor", "Attention"] if domain in summary["domain"].astype(str).tolist()]
+    selected_domain = st.selectbox("Adjusted domain", domains, key="domain_specific_adjusted_inference_domain")
+    row = summary[summary["domain"].astype(str).eq(selected_domain)].iloc[0]
+    domain_dir = inference_root / selected_domain.lower()
+    selection = load_csv(domain_dir / "adjusted_feature_selection.csv")
+    scores = load_csv(domain_dir / "adjusted_pca_patient_scores.csv")
+    quality = load_csv(domain_dir / "adjusted_cluster_quality.csv")
+    feature_comparison = load_csv(domain_dir / "adjusted_cluster_feature_comparison.csv")
+    technical = load_csv(domain_dir / "adjusted_technical_confounding_comparison.csv")
+    cognitive = load_csv(domain_dir / "adjusted_cognitive_overlay_summary.csv")
+    permutations = load_csv(domain_dir / "selection_aware_permutation_statistics.csv")
+    bootstrap = load_csv(domain_dir / "bootstrap_statistics.csv")
+    target = str(row.get("target", ""))
+
+    metric_row(
+        [
+            ("Domain", selected_domain),
+            ("Analyzed patients", int(row.get("analyzed_patients", 0))),
+            ("Observed standardized difference", f"{float(row.get('standardized_difference_cluster_1_minus_0', np.nan)):.3f}"),
+            ("Selection-aware permutation p", f"{float(row.get('selection_aware_permutation_p_value', np.nan)):.3f}"),
+            ("Bootstrap 95% interval", f"{float(row.get('bootstrap_standardized_difference_ci_2_5', np.nan)):.2f} to {float(row.get('bootstrap_standardized_difference_ci_97_5', np.nan)):.2f}"),
+        ]
+    )
+
+    st.subheader(f"{selected_domain}: adjusted Ridge-selected features")
+    selection_columns = [
+        "ridge_rank_among_real_panel_features", "feature_name", "source_table", "feature_family",
+        "coefficient_mean", "coefficient_sd", "coefficient_positive_fraction",
+        "coefficient_direction_stability", "absolute_mean_coefficient", "missing_percent",
+    ]
+    show_dataframe(selection[[column for column in selection_columns if column in selection.columns]], height=260)
+
+    st.subheader("Adjusted patient map")
+    plot = scores.copy()
+    for column in ["PC1", "PC2", "cluster_label", target]:
+        if column in plot.columns:
+            plot[column] = pd.to_numeric(plot[column], errors="coerce")
+    plot = plot.dropna(subset=[column for column in ["PC1", "PC2", "cluster_label"] if column in plot.columns])
+    plot["Patient ID"] = plot["Subject_ID_D"].astype(str).str.zfill(3)
+    plot["Exploratory cluster"] = "Cluster " + plot["cluster_label"].astype(int).astype(str)
+    cluster_domain = sorted(plot["Exploratory cluster"].unique().tolist())
+    cluster_colors = ["#1d4ed8", "#ea580c"][: len(cluster_domain)]
+    map_chart = (
+        alt.Chart(plot)
+        .mark_circle(size=110, opacity=0.9, stroke="white", strokeWidth=0.8)
+        .encode(
+            x=alt.X("PC1:Q", title=f"Adjusted {selected_domain} PC1"),
+            y=alt.Y("PC2:Q", title=f"Adjusted {selected_domain} PC2"),
+            color=alt.Color("Exploratory cluster:N", title="Exploratory group", scale=alt.Scale(domain=cluster_domain, range=cluster_colors)),
+            tooltip=[
+                alt.Tooltip("Patient ID:N"),
+                alt.Tooltip("Exploratory cluster:N", title="Group"),
+                alt.Tooltip("PC1:Q", format=".2f"),
+                alt.Tooltip("PC2:Q", format=".2f"),
+                alt.Tooltip(f"{target}:Q", title=f"Observed {selected_domain} T1", format=".1f"),
+            ],
+        )
+        .properties(height=440, title=f"Coverage-adjusted {selected_domain} patient map")
+    )
+    st.altair_chart(map_chart, use_container_width=True)
+    if target in plot.columns:
+        three_d = plot.dropna(subset=[target]).copy()
+        figure = px.scatter_3d(
+            three_d,
+            x="PC1",
+            y="PC2",
+            z=target,
+            color="Exploratory cluster",
+            color_discrete_sequence=cluster_colors,
+            hover_name="Patient ID",
+            hover_data={"Patient ID": True, "Exploratory cluster": True, "PC1": ":.2f", "PC2": ":.2f", target: ":.1f", "cluster_label": False, "Subject_ID_D": False},
+            labels={"PC1": f"Adjusted {selected_domain} PC1", "PC2": f"Adjusted {selected_domain} PC2", target: f"Observed {selected_domain} T1"},
+        )
+        figure.update_traces(marker={"size": 6, "opacity": 0.9})
+        figure.update_layout(
+            height=620,
+            margin={"l": 0, "r": 0, "t": 30, "b": 0},
+            scene={"xaxis_title": f"Adjusted {selected_domain} PC1", "yaxis_title": f"Adjusted {selected_domain} PC2", "zaxis_title": f"Observed {selected_domain} T1", "camera": {"eye": {"x": 1.45, "y": 1.45, "z": 1.15}}},
+        )
+        st.plotly_chart(figure, use_container_width=True, config={"displaylogo": False, "responsive": True})
+        st.caption("Height shows the observed cognitive score; color shows clusters created from the coverage-adjusted digital features.")
+
+    st.subheader("Selection-aware permutation test")
+    if not permutations.empty:
+        histogram = px.histogram(
+            permutations,
+            x="absolute_standardized_difference",
+            nbins=20,
+            color_discrete_sequence=["#94a3b8"],
+            labels={"absolute_standardized_difference": "Absolute standardized cluster difference"},
+            title="Null distribution after repeating feature selection and clustering",
+        )
+        histogram.add_vline(x=float(row["absolute_standardized_difference"]), line_color="#dc2626", line_width=3, annotation_text="Observed adjusted effect")
+        histogram.update_layout(height=390, showlegend=False, margin={"l": 0, "r": 0, "t": 50, "b": 0})
+        st.plotly_chart(histogram, use_container_width=True, config={"displaylogo": False, "responsive": True})
+        st.caption(
+            f"The observed absolute effect was exceeded by {int(row.get('selection_aware_permutation_exceedances', 0))} of {len(permutations)} permutations "
+            f"(calibrated p={float(row.get('selection_aware_permutation_p_value', np.nan)):.3f})."
+        )
+    if not bootstrap.empty:
+        with st.expander("Bootstrap distribution and interval"):
+            st.caption("Bootstrap results are conditional on the observed adjusted panel; they are not independent validation.")
+            show_dataframe(bootstrap.describe().T.reset_index().rename(columns={"index": "statistic"}), height=260)
+
+    st.subheader("Technical confounding audit")
+    st.caption("These variables were not used as PCA axes or cluster inputs after adjustment; they document what was removed and what may remain.")
+    if not technical.empty:
+        technical_columns = [
+            "variable", "description", "cluster_0_median_iqr", "cluster_1_median_iqr",
+            "standardized_difference_cluster_1_minus_0", "exploratory_p_value_cluster_0_vs_1",
+        ]
+        show_dataframe(technical[[column for column in technical_columns if column in technical.columns]], height=420)
+    if not feature_comparison.empty:
+        with st.expander("Adjusted feature cluster comparison"):
+            show_dataframe(feature_comparison, height=300)
+    if not quality.empty:
+        with st.expander("Fixed k=2 stability details"):
+            show_dataframe(quality, height=220)
+    if not cognitive.empty:
+        with st.expander("Post-hoc cognitive summary"):
+            show_dataframe(cognitive, height=360)
+
+    with st.expander("Adjusted inference protocol and downloads"):
+        if protocol:
+            st.markdown(protocol)
+        if readme:
+            st.markdown(readme)
+        downloads = [
+            ("Adjusted inference summary", summary, "adjusted_inference_summary.csv"),
+            ("Adjusted selected features", selection, "adjusted_feature_selection.csv"),
+            ("Adjusted patient PCA scores", scores, "adjusted_pca_patient_scores.csv"),
+            ("Adjusted cluster quality", quality, "adjusted_cluster_quality.csv"),
+            ("Selection-aware permutation results", permutations, "selection_aware_permutation_statistics.csv"),
+            ("Bootstrap statistics", bootstrap, "bootstrap_statistics.csv"),
+            ("Technical confounding comparison", technical, "adjusted_technical_confounding_comparison.csv"),
+            ("Cognitive overlay summary", cognitive, "adjusted_cognitive_overlay_summary.csv"),
+        ]
+        for label, frame, filename in downloads:
+            if not frame.empty:
+                st.download_button(
+                    label,
+                    frame.to_csv(index=False).encode("utf-8"),
+                    filename,
+                    "text/csv",
+                    key=f"domain_specific_adjusted_inference_{selected_domain}_{filename}",
+                )
+
+
+def unsupervised_phenotyping_page() -> None:
+    output_root = ROOT / "output/analysis_candidates/unsupervised_phenotyping_median_span"
+    posthoc_root = output_root / "posthoc"
+    summary = load_csv(output_root / "panel_summary.csv")
+    protocol = load_text(ROOT / "UNSUPERVISED_PHENOTYPING_PROTOCOL.md")
+    posthoc_protocol = load_text(ROOT / "UNSUPERVISED_POSTHOC_PROTOCOL.md")
+    readme = load_text(output_root / "README_unsupervised_phenotyping.md")
+
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        "Exploratory Unsupervised Phenotyping"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        "Patient-level PCA and exploratory clustering using the largest median-timespan T1 baseline cohort. "
+        "Cognitive scores are shown only after the unsupervised representation is created."
+    )
+    st.info(
+        "Exploratory analysis only. The PCA axes and cluster labels are not clinical scores, diagnoses, or validated patient subtypes."
+    )
+    if summary.empty:
+        st.warning("The unsupervised analysis outputs are not available yet.")
+        st.code("PYTHONUNBUFFERED=1 .venv/bin/python3 -u unsupervised_phenotyping.py")
+        if protocol:
+            with st.expander("Analysis protocol", expanded=True):
+                st.markdown(protocol)
+        return
+
+    labels_by_panel = dict(zip(summary["panel_name"].astype(str), summary["panel_label"].astype(str)))
+    default_panel = "usable_catalog_50pct" if "usable_catalog_50pct" in labels_by_panel else str(summary.iloc[0]["panel_name"])
+    selected_panel = st.selectbox(
+        "Feature representation",
+        list(labels_by_panel),
+        index=list(labels_by_panel).index(default_panel),
+        format_func=lambda value: labels_by_panel[value],
+    )
+    selected_summary = summary[summary["panel_name"].astype(str).eq(selected_panel)].iloc[0]
+    panel_dir = output_root / selected_panel
+    scores = load_csv(panel_dir / "pca_patient_scores.csv")
+    variance = load_csv(panel_dir / "pca_variance.csv")
+    loadings = load_csv(panel_dir / "pca_loadings.csv")
+    quality = load_csv(panel_dir / "cluster_quality.csv")
+    profiles = load_csv(panel_dir / "cluster_profiles.csv")
+    feature_profiles = load_csv(panel_dir / "cluster_feature_profiles.csv")
+    audit = load_csv(panel_dir / "patient_cohort_audit.csv")
+    inventory = load_csv(panel_dir / "feature_inventory.csv")
+    posthoc_features = load_csv(posthoc_root / "cluster_feature_comparison.csv")
+    posthoc_technical = load_csv(posthoc_root / "technical_confounding_comparison.csv")
+    posthoc_technical_inventory = load_csv(posthoc_root / "technical_variable_inventory.csv")
+    posthoc_points = load_csv(posthoc_root / "cognitive_overlay_points.csv")
+    posthoc_cognitive = load_csv(posthoc_root / "cognitive_overlay_summary.csv")
+    posthoc_summary = load_csv(posthoc_root / "unsupervised_posthoc_summary.csv")
+    informed_baseline_points = load_csv(posthoc_root / "followup_informed_baseline_points.csv")
+    informed_baseline_summary = load_csv(posthoc_root / "followup_informed_baseline_summary.csv")
+
+    has_acceptable_solution = str(selected_summary.get("has_acceptable_cluster_solution", "True")).lower() == "true"
+    cluster_metric_label = "Selected clusters" if has_acceptable_solution else "Reference clusters"
+    metric_row(
+        [
+            ("Source patients", int(selected_summary["source_patients"])),
+            ("Analyzed patients", int(selected_summary["analyzed_patients"])),
+            ("Features", int(selected_summary["selected_features"])),
+            (cluster_metric_label, f"k={int(selected_summary['selected_k'])}"),
+            ("PC1 + PC2 variance", f"{float(selected_summary['pc1_pc2_explained_variance_percent']):.1f}%"),
+        ]
+    )
+    solution_status = str(selected_summary.get("solution_status", ""))
+    if solution_status and not has_acceptable_solution:
+        st.warning(solution_status)
+
+    st.subheader("Patient map: the primary unsupervised result")
+    st.caption(
+        f"{labels_by_panel[selected_panel]} The points show patient positions on the first two principal components. "
+        "The axes summarize digital-feature variation; they are not cognitive scores."
+    )
+    with st.expander("How to interpret this map", expanded=True):
+        st.markdown(
+            "**Each dot is one patient.** Patients near one another have similar patterns across the selected digital features; "
+            "patients far apart have more different patterns. The horizontal and vertical axes are mathematical summaries of the "
+            "feature matrix, not clinical scales. Cluster colors are created without using the cognitive scores."
+        )
+        st.markdown(
+            "For presentation, the key question is whether the same dots become separated when colored by observed global T1. "
+            "A gradual color change would suggest a cognitive gradient; separated cluster colors without a T1 gradient suggest "
+            "a behavioral or coverage pattern instead."
+        )
+    if scores.empty or not {"PC1", "PC2"}.issubset(scores.columns):
+        st.warning("PCA patient coordinates are not available for this representation.")
+    else:
+        color_options = ["Exploratory cluster", "Observed global T1", "Patient feature coverage", "Feature missingness"]
+        color_by = st.selectbox("Color points by", color_options, key="unsupervised_color_by")
+        plot = scores.copy()
+        plot["cluster_label"] = pd.to_numeric(plot.get("cluster_label"), errors="coerce").astype("Int64").astype(str)
+        plot["global_T1"] = pd.to_numeric(plot.get("global_T1"), errors="coerce")
+        plot["patient_feature_coverage_percent"] = pd.to_numeric(
+            plot.get("patient_feature_coverage_fraction"), errors="coerce"
+        ) * 100
+        plot["feature_missingness_percent"] = 100 - plot["patient_feature_coverage_percent"]
+        plot["Patient ID"] = plot["Subject_ID_D"].astype(str).str.zfill(3)
+        cluster_counts = plot["cluster_label"].value_counts().sort_index()
+        plot["cluster_display"] = plot["cluster_label"].map(
+            lambda value: f"Cluster {value} (n={int(cluster_counts.get(value, 0))})"
+        )
+        if color_by == "Exploratory cluster":
+            cluster_domain = sorted(plot["cluster_display"].unique())
+            cluster_colors = ["#1d4ed8", "#ea580c", "#16a34a", "#7c3aed"][: len(cluster_domain)]
+            points = (
+                alt.Chart(plot)
+                .mark_circle(size=105, opacity=0.88)
+                .encode(
+                    x=alt.X("PC1:Q", title=f"PC1 ({float(variance.iloc[0]['explained_variance_percent']):.1f}% variance)"),
+                    y=alt.Y("PC2:Q", title=f"PC2 ({float(variance.iloc[1]['explained_variance_percent']):.1f}% variance)"),
+                    color=alt.Color(
+                        "cluster_display:N",
+                        title="Exploratory group",
+                        scale=alt.Scale(domain=cluster_domain, range=cluster_colors),
+                    ),
+                    tooltip=[
+                        alt.Tooltip("Patient ID:N"),
+                        alt.Tooltip("cluster_display:N", title="Exploratory group"),
+                        alt.Tooltip("global_T1:Q", title="Observed global T1", format=".1f"),
+                        alt.Tooltip("patient_feature_coverage_percent:Q", title="Feature coverage (%)", format=".1f"),
+                    ],
+                )
+            )
+            centroids = plot.groupby("cluster_display", as_index=False)[["PC1", "PC2"]].mean()
+            centers = (
+                alt.Chart(centroids)
+                .mark_point(shape="diamond", size=230, filled=False, strokeWidth=2)
+                .encode(
+                    x="PC1:Q",
+                    y="PC2:Q",
+                    color=alt.Color(
+                        "cluster_display:N",
+                        legend=None,
+                        scale=alt.Scale(domain=cluster_domain, range=cluster_colors),
+                    ),
+                    tooltip=[alt.Tooltip("cluster_display:N", title="Group center")],
+                )
+            )
+            center_labels = (
+                alt.Chart(centroids)
+                .mark_text(dy=-16, fontSize=12, fontWeight="bold")
+                .encode(
+                    x="PC1:Q",
+                    y="PC2:Q",
+                    text="cluster_display:N",
+                    color=alt.Color(
+                        "cluster_display:N",
+                        legend=None,
+                        scale=alt.Scale(domain=cluster_domain, range=cluster_colors),
+                    ),
+                )
+            )
+            chart = points + centers + center_labels
+        else:
+            quantitative_field = {
+                "Observed global T1": "global_T1:Q",
+                "Patient feature coverage": "patient_feature_coverage_percent:Q",
+                "Feature missingness": "feature_missingness_percent:Q",
+            }[color_by]
+            quantitative_title = {
+                "Observed global T1": "Observed global T1",
+                "Patient feature coverage": "Feature coverage (%)",
+                "Feature missingness": "Feature missingness (%)",
+            }[color_by]
+            chart = (
+                alt.Chart(plot)
+                .mark_circle(size=105, opacity=0.88)
+                .encode(
+                    x=alt.X("PC1:Q", title=f"PC1 ({float(variance.iloc[0]['explained_variance_percent']):.1f}% variance)"),
+                    y=alt.Y("PC2:Q", title=f"PC2 ({float(variance.iloc[1]['explained_variance_percent']):.1f}% variance)"),
+                    color=alt.Color(quantitative_field, title=quantitative_title, scale=alt.Scale(scheme="viridis")),
+                    tooltip=[
+                        alt.Tooltip("Patient ID:N"),
+                        alt.Tooltip("global_T1:Q", title="Observed global T1", format=".1f"),
+                        alt.Tooltip("patient_feature_coverage_percent:Q", title="Feature coverage (%)", format=".1f"),
+                        alt.Tooltip("feature_missingness_percent:Q", title="Feature missingness (%)", format=".1f"),
+                    ],
+                )
+            )
+        st.altair_chart(chart.properties(height=460, title="Each dot represents one analyzed patient"), use_container_width=True)
+        solution_word = "selected exploratory solution" if has_acceptable_solution else "reference partition"
+        st.caption(
+            f"Displayed {solution_word}: k={int(selected_summary['selected_k'])}; "
+            f"mean silhouette {float(selected_summary['mean_silhouette_selected_k']):.3f}; "
+            f"mean 80%-subsample ARI {float(selected_summary['mean_subsample_ari_selected_k']):.3f}."
+        )
+        if plot["global_T1"].notna().sum() >= 3:
+            st.subheader("Observed global T1 overlaid on the patient map")
+            st.caption(
+                "The large pale circle shows the actual observed global T1 score. The smaller foreground dot shows the exploratory "
+                "cluster. Mixed background colors inside one cluster mean that the cluster is not simply a cognitive-severity group."
+            )
+            t1_background = (
+                alt.Chart(plot)
+                .mark_circle(size=280, opacity=0.32)
+                .encode(
+                    x=alt.X("PC1:Q", title="PC1"),
+                    y=alt.Y("PC2:Q", title="PC2"),
+                    color=alt.Color(
+                        "global_T1:Q",
+                        title="Observed global T1",
+                        scale=alt.Scale(scheme="blueorange"),
+                    ),
+                    tooltip=[
+                        alt.Tooltip("Patient ID:N"),
+                        alt.Tooltip("global_T1:Q", title="Observed global T1", format=".1f"),
+                    ],
+                )
+            )
+            cluster_foreground = (
+                alt.Chart(plot)
+                .mark_circle(size=78, opacity=0.95, stroke="white", strokeWidth=1)
+                .encode(
+                    x="PC1:Q",
+                    y="PC2:Q",
+                    color=alt.Color(
+                        "cluster_display:N",
+                        title="Exploratory group",
+                        scale=alt.Scale(range=["#1d4ed8", "#ea580c", "#16a34a", "#7c3aed"]),
+                    ),
+                    tooltip=[
+                        alt.Tooltip("Patient ID:N"),
+                        alt.Tooltip("cluster_display:N", title="Exploratory group"),
+                        alt.Tooltip("global_T1:Q", title="Observed global T1", format=".1f"),
+                    ],
+                )
+            )
+            overlay_chart = (
+                (t1_background + cluster_foreground)
+                .resolve_scale(color="independent")
+                .properties(height=430, title="Observed T1 (background) and exploratory cluster (foreground)")
+            )
+            st.altair_chart(overlay_chart, use_container_width=True)
+        cognitive_values = plot[["PC1", "global_T1"]].dropna()
+        if len(cognitive_values) >= 3:
+            pc1_t1_correlation = float(cognitive_values["PC1"].corr(cognitive_values["global_T1"]))
+            st.subheader("Cognitive-gradient check")
+            st.caption(
+                "This companion view asks whether the main digital variation axis tracks observed global T1. "
+                "It is a descriptive check, not a predictive model."
+            )
+            cognitive_plot = plot.copy()
+            cognitive_chart = (
+                alt.Chart(cognitive_plot)
+                .mark_circle(size=85, opacity=0.82)
+                .encode(
+                    x=alt.X("PC1:Q", title="PC1"),
+                    y=alt.Y("global_T1:Q", title="Observed global T1"),
+                    color=alt.Color(
+                        "cluster_display:N",
+                        title="Exploratory group",
+                        scale=alt.Scale(range=["#1d4ed8", "#ea580c", "#16a34a", "#7c3aed"]),
+                    ),
+                    tooltip=[
+                        alt.Tooltip("Patient ID:N"),
+                        alt.Tooltip("PC1:Q", format=".2f"),
+                        alt.Tooltip("global_T1:Q", title="Observed global T1", format=".1f"),
+                    ],
+                )
+                .properties(height=300, title="Does the main digital axis track observed T1?")
+            )
+            st.altair_chart(cognitive_chart, use_container_width=True)
+            st.caption(
+                f"Pearson correlation between PC1 and observed global T1: r={pc1_t1_correlation:+.3f}. "
+                "A value near zero means there is no linear cognitive gradient along PC1."
+            )
+
+        st.subheader("3D patient map: digital behavior, clusters, and T1")
+        st.caption(
+            "Each dot is one patient. The floor shows the two main digital-feature dimensions (PC1 and PC2), "
+            "height shows the observed global T1 score, and color shows the exploratory cluster. "
+            "This is a visual description, not a clinical prediction model."
+        )
+        if not scores.empty and {"PC1", "PC2", "global_T1", "cluster_label"}.issubset(scores.columns):
+            three_d = scores[["Subject_ID_D", "PC1", "PC2", "global_T1", "cluster_label"]].copy()
+            for column in ["PC1", "PC2", "global_T1", "cluster_label"]:
+                three_d[column] = pd.to_numeric(three_d[column], errors="coerce")
+            three_d = three_d.dropna(subset=["PC1", "PC2", "global_T1", "cluster_label"])
+            three_d["Patient ID"] = three_d["Subject_ID_D"].astype(str).str.zfill(3)
+            three_d["Exploratory cluster"] = "Cluster " + three_d["cluster_label"].astype(int).astype(str)
+            three_d = three_d.sort_values("cluster_label")
+            figure = px.scatter_3d(
+                three_d,
+                x="PC1",
+                y="PC2",
+                z="global_T1",
+                color="Exploratory cluster",
+                color_discrete_map={"Cluster 0": "#1d4ed8", "Cluster 1": "#ea580c"},
+                hover_name="Patient ID",
+                hover_data={
+                    "Patient ID": True,
+                    "Exploratory cluster": True,
+                    "PC1": ":.2f",
+                    "PC2": ":.2f",
+                    "global_T1": ":.1f",
+                    "cluster_label": False,
+                    "Subject_ID_D": False,
+                },
+                labels={"PC1": "Digital dimension 1 (PC1)", "PC2": "Digital dimension 2 (PC2)", "global_T1": "Observed global T1"},
+            )
+            figure.update_traces(marker={"size": 6, "opacity": 0.88})
+            figure.update_layout(
+                height=680,
+                margin={"l": 0, "r": 0, "t": 30, "b": 0},
+                legend_title_text="Exploratory cluster",
+                scene={
+                    "xaxis_title": "Digital dimension 1 (PC1)",
+                    "yaxis_title": "Digital dimension 2 (PC2)",
+                    "zaxis_title": "Observed global T1",
+                    "camera": {"eye": {"x": 1.45, "y": 1.45, "z": 1.15}},
+                },
+            )
+            st.plotly_chart(
+                figure,
+                use_container_width=True,
+                config={"displaylogo": False, "responsive": True},
+            )
+            st.caption(
+                "How to read it: look for a vertical pattern in T1 within or across the colored groups. "
+                "A strong T1 gradient would appear as clearly different heights; the current data show substantial overlap."
+            )
+
+            st.subheader("Binned 3D view: patient proportions, clusters, and T1 differences")
+            st.caption(
+                "This view groups patients into PCA regions. In the first graph, column height is the percentage of all patients "
+                "in that region and color identifies the cluster. In the second graph, height is the region's median T1 minus "
+                "the cohort median, so upward columns are higher T1 and downward columns are lower T1."
+            )
+            n_pca_bins = st.select_slider(
+                "PCA grid resolution",
+                options=[3, 4, 5],
+                value=4,
+                key="unsupervised_3d_bin_resolution",
+            )
+
+            def _quantile_bin(values: pd.Series, bins: int) -> pd.Series:
+                ranks = values.rank(method="first")
+                return (((ranks - 1) * bins) / len(values)).astype(int).clip(0, bins - 1)
+
+            def _hex_blend(low_hex: str, high_hex: str, fraction: float) -> str:
+                fraction = min(max(float(fraction), 0.0), 1.0)
+                low_rgb = tuple(int(low_hex[index:index + 2], 16) for index in (1, 3, 5))
+                high_rgb = tuple(int(high_hex[index:index + 2], 16) for index in (1, 3, 5))
+                rgb = [round(left + fraction * (right - left)) for left, right in zip(low_rgb, high_rgb)]
+                return "#" + "".join(f"{value:02x}" for value in rgb)
+
+            def _add_3d_box(
+                figure: go.Figure,
+                x0: float,
+                x1: float,
+                y0: float,
+                y1: float,
+                z0: float,
+                z1: float,
+                color: str,
+                hover_text: str,
+            ) -> None:
+                vertices_x = [x0, x1, x1, x0, x0, x1, x1, x0]
+                vertices_y = [y0, y0, y1, y1, y0, y0, y1, y1]
+                vertices_z = [z0, z0, z0, z0, z1, z1, z1, z1]
+                figure.add_trace(
+                    go.Mesh3d(
+                        x=vertices_x,
+                        y=vertices_y,
+                        z=vertices_z,
+                        i=[0, 0, 0, 1, 1, 4, 4, 4, 5, 5, 6, 6],
+                        j=[1, 2, 3, 2, 6, 5, 1, 5, 6, 2, 7, 3],
+                        k=[2, 3, 1, 6, 5, 0, 5, 6, 2, 7, 3, 7],
+                        color=color,
+                        opacity=0.88,
+                        flatshading=True,
+                        hovertext=[hover_text] * 8,
+                        hoverinfo="text",
+                        showscale=False,
+                    )
+                )
+
+            binned = three_d.copy()
+            binned["pca_x_bin"] = _quantile_bin(binned["PC1"], n_pca_bins)
+            binned["pca_y_bin"] = _quantile_bin(binned["PC2"], n_pca_bins)
+            cluster_colors_3d = {0: "#1d4ed8", 1: "#ea580c"}
+            grid = (
+                binned.groupby(["pca_x_bin", "pca_y_bin"], sort=True)
+                .agg(
+                    n_patients=("Patient ID", "size"),
+                    median_t1=("global_T1", "median"),
+                    min_t1=("global_T1", "min"),
+                    max_t1=("global_T1", "max"),
+                )
+                .reset_index()
+            )
+            overall_t1_median = float(binned["global_T1"].median())
+
+            proportion_figure = go.Figure()
+            for (x_bin, y_bin), cell in binned.groupby(["pca_x_bin", "pca_y_bin"], sort=True):
+                cell_t1 = float(cell["global_T1"].median())
+                for cluster in [0, 1]:
+                    cluster_cell = cell[cell["cluster_label"].eq(cluster)]
+                    count = int(len(cluster_cell))
+                    if count == 0:
+                        continue
+                    share = 100 * count / len(binned)
+                    median_t1 = float(cluster_cell["global_T1"].median())
+                    hover = (
+                        f"PC1 region {int(x_bin) + 1}, PC2 region {int(y_bin) + 1}<br>"
+                        f"{('Cluster ' + str(cluster))}<br>Patients: {count} ({share:.1f}% of cohort)<br>"
+                        f"Median T1: {median_t1:.1f}<br>All-patient bin median T1: {cell_t1:.1f}"
+                    )
+                    center_x = float(x_bin) + (-0.20 if cluster == 0 else 0.20)
+                    _add_3d_box(
+                        proportion_figure,
+                        center_x - 0.16,
+                        center_x + 0.16,
+                        float(y_bin) - 0.32,
+                        float(y_bin) + 0.32,
+                        0,
+                        share,
+                        cluster_colors_3d[cluster],
+                        hover,
+                    )
+                    proportion_figure.add_trace(
+                        go.Scatter3d(
+                            x=[center_x],
+                            y=[float(y_bin)],
+                            z=[share + 0.35],
+                            mode="text",
+                            text=[f"n={count}"],
+                            textfont={"size": 10, "color": cluster_colors_3d[cluster]},
+                            hoverinfo="skip",
+                            showlegend=False,
+                        )
+                    )
+            proportion_figure.update_layout(
+                height=640,
+                margin={"l": 0, "r": 0, "t": 35, "b": 0},
+                title="Patient proportion in each digital-feature region",
+                scene={
+                    "xaxis": {"title": "PC1 quantile region", "tickvals": list(range(n_pca_bins)), "ticktext": [f"Q{i + 1}" for i in range(n_pca_bins)]},
+                    "yaxis": {"title": "PC2 quantile region", "tickvals": list(range(n_pca_bins)), "ticktext": [f"Q{i + 1}" for i in range(n_pca_bins)]},
+                    "zaxis": {"title": "Patients (% of cohort)", "rangemode": "tozero"},
+                    "camera": {"eye": {"x": 1.55, "y": 1.55, "z": 1.25}},
+                },
+            )
+            st.plotly_chart(
+                proportion_figure,
+                use_container_width=True,
+                config={"displaylogo": False, "responsive": True},
+            )
+            st.caption("Blue columns are Cluster 0; orange columns are Cluster 1. Taller columns contain a larger share of the analyzed cohort.")
+
+            t1_figure = go.Figure()
+            deltas = grid["median_t1"] - overall_t1_median
+            delta_low = float(deltas.min()) if not deltas.empty else -1.0
+            delta_high = float(deltas.max()) if not deltas.empty else 1.0
+            delta_span = max(delta_high - delta_low, 1.0)
+            for _, cell in grid.iterrows():
+                x_bin = int(cell["pca_x_bin"])
+                y_bin = int(cell["pca_y_bin"])
+                delta = float(cell["median_t1"] - overall_t1_median)
+                fraction = (delta - delta_low) / delta_span
+                color = _hex_blend("#1d4ed8", "#dc2626", fraction)
+                cell_members = binned[binned["pca_x_bin"].eq(x_bin) & binned["pca_y_bin"].eq(y_bin)]
+                cluster_counts = cell_members["cluster_label"].value_counts().to_dict()
+                hover = (
+                    f"PC1 region {x_bin + 1}, PC2 region {y_bin + 1}<br>"
+                    f"Patients: {int(cell['n_patients'])}<br>"
+                    f"Median T1: {float(cell['median_t1']):.1f}<br>"
+                    f"T1 difference from cohort median: {delta:+.1f}<br>"
+                    f"T1 range: {float(cell['min_t1']):.1f}-{float(cell['max_t1']):.1f}<br>"
+                    f"Cluster 0 / Cluster 1: {int(cluster_counts.get(0, 0))} / {int(cluster_counts.get(1, 0))}"
+                )
+                z0 = min(0.0, delta)
+                z1 = max(0.0, delta)
+                if z0 == z1:
+                    z1 = 0.01
+                _add_3d_box(
+                    t1_figure,
+                    float(x_bin) - 0.34,
+                    float(x_bin) + 0.34,
+                    float(y_bin) - 0.34,
+                    float(y_bin) + 0.34,
+                    z0,
+                    z1,
+                    color,
+                    hover,
+                )
+                label_z = z1 + 0.8 if delta >= 0 else z0 - 0.8
+                t1_figure.add_trace(
+                    go.Scatter3d(
+                        x=[float(x_bin)],
+                        y=[float(y_bin)],
+                        z=[label_z],
+                        mode="text",
+                        text=[f"T1 {float(cell['median_t1']):.1f}<br>n={int(cell['n_patients'])}"],
+                        textfont={"size": 10, "color": "#111827"},
+                        hoverinfo="skip",
+                        showlegend=False,
+                    )
+                )
+            t1_figure.update_layout(
+                height=640,
+                margin={"l": 0, "r": 0, "t": 35, "b": 0},
+                title="Median T1 difference across digital-feature regions",
+                scene={
+                    "xaxis": {"title": "PC1 quantile region", "tickvals": list(range(n_pca_bins)), "ticktext": [f"Q{i + 1}" for i in range(n_pca_bins)]},
+                    "yaxis": {"title": "PC2 quantile region", "tickvals": list(range(n_pca_bins)), "ticktext": [f"Q{i + 1}" for i in range(n_pca_bins)]},
+                    "zaxis": {"title": "T1 minus cohort median", "zeroline": True, "zerolinewidth": 3, "zerolinecolor": "#374151"},
+                    "camera": {"eye": {"x": 1.55, "y": 1.55, "z": 1.25}},
+                },
+            )
+            st.plotly_chart(
+                t1_figure,
+                use_container_width=True,
+                config={"displaylogo": False, "responsive": True},
+            )
+            st.caption("Blue indicates lower-than-median T1; red indicates higher-than-median T1. Labels show each region's median T1 and patient count.")
+
+    tabs = st.tabs(["PCA drivers", "Cluster comparison", "Coverage audit", "Post-hoc analyses", "Coverage-adjusted audit", "Top-5 Ridge USML", "Domain-specific Ridge USML", "Adjusted Motor/Attention", "Protocol and downloads"])
+    with tabs[0]:
+        st.subheader("How much variation does PCA capture?")
+        if not variance.empty:
+            variance_chart = (
+                alt.Chart(variance.head(10))
+                .mark_bar(color="#1d4ed8")
+                .encode(
+                    x=alt.X("component:N", title="Principal component"),
+                    y=alt.Y("explained_variance_percent:Q", title="Explained variance (%)"),
+                    tooltip=[
+                        alt.Tooltip("component:N", title="Component"),
+                        alt.Tooltip("explained_variance_percent:Q", title="Variance (%)", format=".2f"),
+                        alt.Tooltip("cumulative_explained_variance_percent:Q", title="Cumulative (%)", format=".2f"),
+                    ],
+                )
+                .properties(height=300)
+            )
+            st.altair_chart(variance_chart, use_container_width=True)
+            show_dataframe(variance, height=300)
+        if not loadings.empty:
+            st.subheader("Features driving PC1 and PC2")
+            top_loadings = loadings.sort_values("maximum_absolute_loading", ascending=False).head(15).copy()
+            display_loadings = top_loadings[["feature_name", "source_table", "feature_family", "PC1", "PC2", "maximum_absolute_loading"]]
+            show_dataframe(display_loadings, height=420)
+            loading_long = top_loadings.melt(
+                id_vars=["feature_name"], value_vars=["PC1", "PC2"], var_name="component", value_name="loading"
+            )
+            loading_chart = (
+                alt.Chart(loading_long)
+                .mark_bar()
+                .encode(
+                    y=alt.Y("feature_name:N", sort="-x", title="Feature"),
+                    x=alt.X("loading:Q", title="Loading"),
+                    color=alt.Color("component:N", title="Component", scale=alt.Scale(range=["#1d4ed8", "#ea580c"])),
+                    tooltip=[alt.Tooltip("feature_name:N", title="Feature"), alt.Tooltip("component:N"), alt.Tooltip("loading:Q", format=".3f")],
+                )
+                .properties(height=480)
+            )
+            st.altair_chart(loading_chart, use_container_width=True)
+    with tabs[1]:
+        st.subheader("Candidate cluster quality")
+        st.caption("Higher silhouette and adjusted Rand values indicate more separated or more stable exploratory solutions, not clinical validity.")
+        if not quality.empty:
+            display_quality = quality.rename(
+                columns={
+                    "k": "Clusters (k)",
+                    "mean_silhouette": "Mean silhouette",
+                    "mean_pairwise_seed_ari": "Mean seed ARI",
+                    "mean_subsample_ari_vs_reference": "Mean subsample ARI",
+                    "min_subsample_ari_vs_reference": "Minimum subsample ARI",
+                    "min_cluster_n_reference": "Smallest cluster (n)",
+                    "selected_solution": "Selected",
+                }
+            )
+            columns = [
+                column
+                for column in [
+                    "Clusters (k)",
+                    "Mean silhouette",
+                    "Mean seed ARI",
+                    "Mean subsample ARI",
+                    "Minimum subsample ARI",
+                    "Smallest cluster (n)",
+                    "Selected",
+                ]
+                if column in display_quality.columns
+            ]
+            show_dataframe(display_quality[columns], height=240)
+        st.subheader("Exploratory cluster profiles")
+        show_dataframe(profiles, height=330)
+        st.caption("Cluster labels are arbitrary. These profiles describe feature patterns and observed-score distributions; they are not clinical subtypes.")
+        if not feature_profiles.empty:
+            st.subheader("Largest within-cluster feature patterns")
+            show_dataframe(feature_profiles[feature_profiles["within_cluster_rank"].le(10)], height=520)
+    with tabs[2]:
+        st.subheader("Who entered the PCA and clustering matrix?")
+        if not audit.empty:
+            included_count = int(audit["included_in_pca_and_clustering"].astype(bool).sum())
+            st.caption(
+                f"The source cohort contains {len(audit)} patients. {included_count} meet the panel rule of at least "
+                f"{float(selected_summary['patient_feature_coverage_threshold_percent']):.0f}% observed selected features."
+            )
+            audit_display = audit.copy()
+            audit_display["panel_feature_coverage_percent"] = pd.to_numeric(
+                audit_display["panel_feature_coverage_fraction"], errors="coerce"
+            ).mul(100).round(1)
+            show_dataframe(
+                audit_display[
+                    [
+                        "Subject_ID_D",
+                        "global_T1",
+                        "panel_feature_count",
+                        "panel_feature_observed_count",
+                        "panel_feature_coverage_percent",
+                        "included_in_pca_and_clustering",
+                    ]
+                ],
+                height=480,
+            )
+        if not inventory.empty:
+            st.subheader("Feature inventory and preprocessing")
+            display_inventory = inventory.copy()
+            if "selected_for_panel" in display_inventory:
+                display_inventory = display_inventory[display_inventory["selected_for_panel"].astype(bool)]
+            show_dataframe(display_inventory, height=520)
+    with tabs[3]:
+        st.subheader("Post-hoc cluster and cognitive analysis")
+        st.info(
+            "This section uses the fixed 41-feature PCA coordinates and the existing Cluster 0/Cluster 1 assignments. "
+            "Technical and cognitive variables are analyzed only after clustering and cannot change the displayed clusters."
+        )
+        if posthoc_summary.empty:
+            st.warning("Post-hoc outputs are not available yet.")
+            st.code(".venv/bin/python3 unsupervised_phenotyping_posthoc.py")
+        else:
+            st.subheader("1. What distinguishes Cluster 0 from Cluster 1?")
+            st.caption(
+                "The table covers the active extracted catalog. The 41 features used in the fixed PCA/clustering solution are "
+                "flagged; other catalog features are descriptive post-hoc extensions. The standardized difference is Cluster 1 "
+                "minus Cluster 0. Large absolute values show stronger separation; they do not indicate better cognition or a clinical diagnosis."
+            )
+            feature_groups = ["All groups"]
+            if not posthoc_features.empty and "feature_group" in posthoc_features.columns:
+                feature_groups.extend(sorted(posthoc_features["feature_group"].dropna().astype(str).unique()))
+            selected_feature_group = st.selectbox("Feature group", feature_groups, key="unsupervised_posthoc_feature_group")
+            feature_view = posthoc_features.copy()
+            if selected_feature_group != "All groups":
+                feature_view = feature_view[feature_view["feature_group"].astype(str).eq(selected_feature_group)]
+            feature_view["absolute_standardized_difference"] = pd.to_numeric(
+                feature_view.get("absolute_standardized_difference"), errors="coerce"
+            )
+            top_feature_view = feature_view.sort_values("absolute_standardized_difference", ascending=False).head(15).copy()
+            if not top_feature_view.empty:
+                feature_chart = (
+                    alt.Chart(top_feature_view)
+                    .mark_bar()
+                    .encode(
+                        y=alt.Y("feature_name:N", sort="-x", title="Feature"),
+                        x=alt.X("standardized_difference_cluster_1_minus_0:Q", title="Standardized difference (Cluster 1 - Cluster 0)"),
+                        color=alt.condition(
+                            "datum.standardized_difference_cluster_1_minus_0 < 0",
+                            alt.value("#1d4ed8"),
+                            alt.value("#ea580c"),
+                        ),
+                        tooltip=[
+                            alt.Tooltip("feature_name:N", title="Feature"),
+                            alt.Tooltip("feature_group:N", title="Group"),
+                            alt.Tooltip("cluster_0_median_iqr:N", title="Cluster 0 median (IQR)"),
+                            alt.Tooltip("cluster_1_median_iqr:N", title="Cluster 1 median (IQR)"),
+                            alt.Tooltip("standardized_difference_cluster_1_minus_0:Q", title="Standardized difference", format=".2f"),
+                            alt.Tooltip("pca_max_abs_loading:Q", title="Max PCA loading", format=".3f"),
+                        ],
+                    )
+                    .properties(height=470, title="Largest feature-level differences")
+                )
+                st.altair_chart(feature_chart, use_container_width=True)
+            feature_columns = [
+                "feature_name", "feature_group", "source_table", "n_cluster_0", "n_cluster_1",
+                "used_in_fixed_pca_clustering",
+                "cluster_0_mean", "cluster_1_mean", "cluster_0_median_iqr", "cluster_1_median_iqr",
+                "standardized_difference_cluster_1_minus_0", "exploratory_p_value", "exploratory_q_value_fdr_bh",
+                "pca_max_abs_loading",
+            ]
+            show_dataframe(feature_view[[column for column in feature_columns if column in feature_view.columns]], height=560)
+
+            st.subheader("2. Is the separation technical or coverage-related?")
+            st.caption(
+                "These variables were not used to create PCA or clusters. Total source rows are a collection-intensity proxy; "
+                "the observed timestamp span is not assumed to be continuous recording time."
+            )
+            technical_view = posthoc_technical.copy()
+            technical_view["absolute_standardized_difference"] = pd.to_numeric(
+                technical_view.get("absolute_standardized_difference"), errors="coerce"
+            )
+            top_technical = technical_view.sort_values("absolute_standardized_difference", ascending=False).head(12).copy()
+            if not top_technical.empty:
+                technical_chart = (
+                    alt.Chart(top_technical)
+                    .mark_bar()
+                    .encode(
+                        y=alt.Y("variable:N", sort="-x", title="Technical variable"),
+                        x=alt.X("standardized_difference_cluster_1_minus_0:Q", title="Standardized difference (Cluster 1 - Cluster 0)"),
+                        color=alt.condition(
+                            "datum.standardized_difference_cluster_1_minus_0 < 0",
+                            alt.value("#1d4ed8"),
+                            alt.value("#ea580c"),
+                        ),
+                        tooltip=[
+                            alt.Tooltip("variable:N", title="Variable"),
+                            alt.Tooltip("description:N", title="Definition"),
+                            alt.Tooltip("cluster_0_median_iqr:N", title="Cluster 0 median (IQR)"),
+                            alt.Tooltip("cluster_1_median_iqr:N", title="Cluster 1 median (IQR)"),
+                            alt.Tooltip("standardized_difference_cluster_1_minus_0:Q", title="Standardized difference", format=".2f"),
+                            alt.Tooltip("exploratory_p_value:Q", title="Exploratory p-value", format=".4f"),
+                        ],
+                    )
+                    .properties(height=420, title="Largest technical and coverage differences")
+                )
+                st.altair_chart(technical_chart, use_container_width=True)
+            technical_columns = [
+                "variable", "description", "n_cluster_0", "n_cluster_1", "cluster_0_mean", "cluster_1_mean",
+                "cluster_0_median_iqr", "cluster_1_median_iqr", "standardized_difference_cluster_1_minus_0",
+                "exploratory_p_value", "exploratory_q_value_fdr_bh",
+            ]
+            show_dataframe(technical_view[[column for column in technical_columns if column in technical_view.columns]], height=520)
+            if not posthoc_technical_inventory.empty:
+                with st.expander("Technical variables available in the current export"):
+                    show_dataframe(posthoc_technical_inventory, height=260)
+
+            st.subheader("3. Cognitive outcomes overlaid on the fixed PCA map")
+            st.caption(
+                "For change outcomes, the displayed value is T2 minus T1. Negative values mean a lower observed T2 score. "
+                "Cognitive values are post-hoc and do not alter PCA or cluster assignments."
+            )
+            if not posthoc_points.empty and not posthoc_cognitive.empty:
+                outcome_names = posthoc_cognitive["outcome"].astype(str).tolist()
+                default_outcome = "Global T2-T1 delta" if "Global T2-T1 delta" in outcome_names else outcome_names[0]
+                selected_outcome = st.selectbox(
+                    "Cognitive outcome to overlay",
+                    outcome_names,
+                    index=outcome_names.index(default_outcome),
+                    key="unsupervised_posthoc_cognitive_outcome",
+                )
+                cognitive_plot = posthoc_points[posthoc_points["outcome"].astype(str).eq(selected_outcome)].copy()
+                for column in ["PC1", "PC2", "outcome_value"]:
+                    cognitive_plot[column] = pd.to_numeric(cognitive_plot[column], errors="coerce")
+                cognitive_plot["cluster_label"] = pd.to_numeric(cognitive_plot["cluster_label"], errors="coerce").astype("Int64").astype(str)
+                cognitive_plot["Patient ID"] = cognitive_plot["Subject_ID_D"].astype(str).str.zfill(3)
+                cluster_counts = scores["cluster_label"].value_counts().sort_index() if "cluster_label" in scores.columns else pd.Series(dtype=int)
+                cognitive_plot["cluster_display"] = cognitive_plot["cluster_label"].map(
+                    lambda value: f"Cluster {value} (n={int(cluster_counts.get(int(value), 0)) if value.isdigit() else 0})"
+                )
+                cluster_domain = ["Cluster 0 (n=11)", "Cluster 1 (n=65)"]
+                lo = float(cognitive_plot["outcome_value"].min())
+                hi = float(cognitive_plot["outcome_value"].max())
+                if lo == hi:
+                    lo, hi = lo - 1.0, hi + 1.0
+                selected_stats = posthoc_cognitive[posthoc_cognitive["outcome"].astype(str).eq(selected_outcome)].iloc[0]
+                outcome_type = str(selected_stats.get("outcome_type", ""))
+                if outcome_type == "change":
+                    color_scale = alt.Scale(scheme="redblue", domain=[lo, hi], domainMid=0)
+                    color_title = "T2 - T1"
+                else:
+                    color_scale = alt.Scale(scheme="viridis", domain=[lo, hi])
+                    color_title = selected_outcome
+                background = (
+                    alt.Chart(cognitive_plot)
+                    .mark_circle(size=300, opacity=0.38)
+                    .encode(
+                        x=alt.X("PC1:Q", title="PC1"),
+                        y=alt.Y("PC2:Q", title="PC2"),
+                        color=alt.Color("outcome_value:Q", title=color_title, scale=color_scale),
+                        tooltip=[
+                            alt.Tooltip("Patient ID:N"),
+                            alt.Tooltip("outcome_value:Q", title=selected_outcome, format=".2f"),
+                        ],
+                    )
+                )
+                foreground = (
+                    alt.Chart(cognitive_plot)
+                    .mark_circle(size=82, opacity=0.95, stroke="white", strokeWidth=1)
+                    .encode(
+                        x=alt.X("PC1:Q", title="PC1"),
+                        y=alt.Y("PC2:Q", title="PC2"),
+                        color=alt.Color(
+                            "cluster_display:N",
+                            title="Exploratory group",
+                            scale=alt.Scale(domain=cluster_domain, range=["#1d4ed8", "#ea580c"]),
+                        ),
+                        tooltip=[
+                            alt.Tooltip("Patient ID:N"),
+                            alt.Tooltip("cluster_display:N", title="Exploratory group"),
+                            alt.Tooltip("outcome_value:Q", title=selected_outcome, format=".2f"),
+                        ],
+                    )
+                )
+                st.altair_chart(
+                    (background + foreground)
+                    .resolve_scale(color="independent")
+                    .properties(height=450, title=f"{selected_outcome} on the fixed patient map"),
+                    use_container_width=True,
+                )
+                metric_row(
+                    [
+                        ("Patients with outcome", int(selected_stats["n"])),
+                        ("Correlation with PC1", f"{float(selected_stats['correlation_pc1']):+.3f}"),
+                        ("Correlation with PC2", f"{float(selected_stats['correlation_pc2']):+.3f}"),
+                        ("Cluster 1 - Cluster 0", f"{float(selected_stats['cluster_difference_cluster_1_minus_0']):+.2f}"),
+                        ("Exploratory p-value", f"{float(selected_stats['exploratory_p_value']):.3f}"),
+                    ]
+                )
+                st.caption("A correlation near zero means that the outcome does not show a clear linear gradient along that PCA axis.")
+
+            st.subheader("4. Summary output")
+            st.caption(
+                "This table answers the main question descriptively. P-values are exploratory and are not confirmatory evidence. "
+                "The cluster comparison is based only on patients with both a fixed cluster assignment and the relevant outcome."
+            )
+            summary_columns = [
+                "outcome", "n", "correlation_pc1", "correlation_pc2", "cluster_0_mean", "cluster_0_median_iqr",
+                "cluster_1_mean", "cluster_1_median_iqr", "cluster_difference_cluster_1_minus_0",
+                "standardized_difference_cluster_1_minus_0", "exploratory_p_value", "exploratory_q_value_fdr_bh",
+            ]
+            show_dataframe(posthoc_summary[[column for column in summary_columns if column in posthoc_summary.columns]], height=480)
+
+            st.subheader("5. Follow-up-informed baseline sensitivity")
+            st.warning(
+                "This exploratory sensitivity uses T2 information to modify the T1 reference: when T2 is higher than T1, "
+                "the displayed value is the T1-T2 mean; when T2 is lower, equal, or unavailable, the original T1 is retained. "
+                "It is not a prospective baseline target and must not be used to claim prediction."
+            )
+            st.caption(
+                "The PCA coordinates and cluster assignments remain exactly fixed. This check asks whether a limited upward "
+                "adjustment of the cognitive reference changes the descriptive relationship with the existing digital structure."
+            )
+            if not informed_baseline_points.empty and not informed_baseline_summary.empty:
+                informed_outcomes = informed_baseline_summary["outcome"].astype(str).tolist()
+                default_informed = "Global follow-up-informed baseline" if "Global follow-up-informed baseline" in informed_outcomes else informed_outcomes[0]
+                selected_informed = st.selectbox(
+                    "Follow-up-informed outcome to overlay",
+                    informed_outcomes,
+                    index=informed_outcomes.index(default_informed),
+                    key="unsupervised_followup_informed_outcome",
+                )
+                informed_plot = informed_baseline_points[
+                    informed_baseline_points["outcome"].astype(str).eq(selected_informed)
+                ].copy()
+                for column in ["PC1", "PC2", "adjusted_baseline_value"]:
+                    informed_plot[column] = pd.to_numeric(informed_plot[column], errors="coerce")
+                informed_plot["cluster_label"] = pd.to_numeric(informed_plot["cluster_label"], errors="coerce").astype("Int64").astype(str)
+                informed_plot["Patient ID"] = informed_plot["Subject_ID_D"].astype(str).str.zfill(3)
+                cluster_counts = scores["cluster_label"].value_counts().sort_index() if "cluster_label" in scores.columns else pd.Series(dtype=int)
+                informed_plot["cluster_display"] = informed_plot["cluster_label"].map(
+                    lambda value: f"Cluster {value} (n={int(cluster_counts.get(int(value), 0)) if value.isdigit() else 0})"
+                )
+                cluster_domain = ["Cluster 0 (n=11)", "Cluster 1 (n=65)"]
+                low = float(informed_plot["adjusted_baseline_value"].min())
+                high = float(informed_plot["adjusted_baseline_value"].max())
+                if low == high:
+                    low, high = low - 1.0, high + 1.0
+                informed_stats = informed_baseline_summary[
+                    informed_baseline_summary["outcome"].astype(str).eq(selected_informed)
+                ].iloc[0]
+                informed_background = (
+                    alt.Chart(informed_plot)
+                    .mark_circle(size=300, opacity=0.38)
+                    .encode(
+                        x=alt.X("PC1:Q", title="PC1"),
+                        y=alt.Y("PC2:Q", title="PC2"),
+                        color=alt.Color(
+                            "adjusted_baseline_value:Q",
+                            title="Follow-up-informed baseline",
+                            scale=alt.Scale(scheme="viridis", domain=[low, high]),
+                        ),
+                        tooltip=[
+                            alt.Tooltip("Patient ID:N"),
+                            alt.Tooltip("adjusted_baseline_value:Q", title="Follow-up-informed baseline", format=".2f"),
+                            alt.Tooltip("t1_value:Q", title="Original T1", format=".2f"),
+                            alt.Tooltip("t2_value:Q", title="T2", format=".2f"),
+                            alt.Tooltip("direction:N", title="Applied rule"),
+                        ],
+                    )
+                )
+                informed_foreground = (
+                    alt.Chart(informed_plot)
+                    .mark_circle(size=82, opacity=0.95, stroke="white", strokeWidth=1)
+                    .encode(
+                        x=alt.X("PC1:Q", title="PC1"),
+                        y=alt.Y("PC2:Q", title="PC2"),
+                        color=alt.Color(
+                            "cluster_display:N",
+                            title="Exploratory group",
+                            scale=alt.Scale(domain=cluster_domain, range=["#1d4ed8", "#ea580c"]),
+                        ),
+                        tooltip=[
+                            alt.Tooltip("Patient ID:N"),
+                            alt.Tooltip("cluster_display:N", title="Exploratory group"),
+                            alt.Tooltip("adjusted_baseline_value:Q", title="Follow-up-informed baseline", format=".2f"),
+                        ],
+                    )
+                )
+                st.altair_chart(
+                    (informed_background + informed_foreground)
+                    .resolve_scale(color="independent")
+                    .properties(height=450, title=f"{selected_informed} on the fixed patient map"),
+                    use_container_width=True,
+                )
+                metric_row(
+                    [
+                        ("Patients with T1", int(informed_stats["n"])),
+                        ("T2 available", int(informed_stats["n_t2_available"])),
+                        ("T2 higher than T1", int(informed_stats["n_t2_higher"])),
+                        ("Mean adjustment", f"{float(informed_stats['mean_adjustment_from_t1']):+.2f}"),
+                        ("Correlation with PC1", f"{float(informed_stats['correlation_pc1']):+.3f}"),
+                        ("Correlation with PC2", f"{float(informed_stats['correlation_pc2']):+.3f}"),
+                    ]
+                )
+                informed_columns = [
+                    "outcome", "n", "n_t2_available", "n_t2_higher", "n_t2_lower", "n_t2_equal",
+                    "mean_original_t1", "mean_followup_informed_baseline", "mean_adjustment_from_t1",
+                    "correlation_pc1", "correlation_pc2", "cluster_0_mean", "cluster_1_mean",
+                    "cluster_difference_cluster_1_minus_0", "standardized_difference_cluster_1_minus_0",
+                    "exploratory_p_value", "exploratory_q_value_fdr_bh",
+                ]
+                show_dataframe(
+                    informed_baseline_summary[[column for column in informed_columns if column in informed_baseline_summary.columns]],
+                    height=420,
+                )
+            downloads = [
+                ("Feature comparison", posthoc_features, "cluster_feature_comparison.csv"),
+                ("Technical confounding comparison", posthoc_technical, "technical_confounding_comparison.csv"),
+                ("Technical patient audit", load_csv(posthoc_root / "technical_patient_audit.csv"), "technical_patient_audit.csv"),
+                ("Cognitive overlay points", posthoc_points, "cognitive_overlay_points.csv"),
+                ("Cognitive overlay summary", posthoc_cognitive, "cognitive_overlay_summary.csv"),
+                ("Post-hoc summary", posthoc_summary, "unsupervised_posthoc_summary.csv"),
+                ("Follow-up-informed baseline points", informed_baseline_points, "followup_informed_baseline_points.csv"),
+                ("Follow-up-informed baseline summary", informed_baseline_summary, "followup_informed_baseline_summary.csv"),
+            ]
+            with st.expander("Download post-hoc outputs"):
+                for label, frame, filename in downloads:
+                    if not frame.empty:
+                        st.download_button(
+                            label,
+                            frame.to_csv(index=False).encode("utf-8"),
+                            filename,
+                            "text/csv",
+                            key=f"unsupervised_posthoc_{filename}",
+                        )
+                if posthoc_protocol:
+                    st.markdown(posthoc_protocol)
+    with tabs[4]:
+        coverage_adjusted_pca_section(output_root)
+    with tabs[5]:
+        top5_ridge_usml_section(output_root)
+    with tabs[6]:
+        domain_specific_ridge_usml_section(output_root)
+    with tabs[7]:
+        domain_specific_adjusted_inference_section(output_root)
+    with tabs[8]:
+        st.subheader("Protocol")
+        st.markdown(protocol or readme)
+        if posthoc_protocol:
+            with st.expander("Post-hoc analysis protocol"):
+                st.markdown(posthoc_protocol)
+        if readme:
+            with st.expander("Generated run record"):
+                st.markdown(readme)
+        st.subheader("Download outputs")
+        downloads = [
+            ("Patient PCA scores", scores, "pca_patient_scores.csv"),
+            ("PCA variance", variance, "pca_variance.csv"),
+            ("PCA loadings", loadings, "pca_loadings.csv"),
+            ("Cluster quality", quality, "cluster_quality.csv"),
+            ("Cluster profiles", profiles, "cluster_profiles.csv"),
+            ("Cluster feature profiles", feature_profiles, "cluster_feature_profiles.csv"),
+            ("Patient cohort audit", audit, "patient_cohort_audit.csv"),
+            ("Feature inventory", inventory, "feature_inventory.csv"),
+        ]
+        for label, frame, filename in downloads:
+            st.download_button(
+                label,
+                frame.to_csv(index=False).encode("utf-8"),
+                filename,
+                "text/csv",
+                key=f"unsupervised_{selected_panel}_{filename}",
+            )
+
+
+def accelerometer_event_day_pilot_page() -> None:
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        "ACC Movement Feature Pilot"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        "Full local-day general-accelerometer summaries anchored by mapped plugin movement-event days. "
+        "This is a two-patient method-development pilot and does not alter existing cohorts."
+    )
+
+    readme = load_text(PATHS["accelerometer_event_day_pilot_readme"])
+    summary = load_csv(PATHS["accelerometer_event_day_pilot_summary"])
+    candidates = load_csv(PATHS["accelerometer_event_day_pilot_candidates"])
+    preflight = load_csv(PATHS["accelerometer_event_day_pilot_preflight"])
+    status = load_csv(PATHS["accelerometer_event_day_pilot_status"])
+    features = load_csv(PATHS["accelerometer_event_day_pilot_features_wide"])
+    patient_days = load_csv(PATHS["accelerometer_event_day_pilot_patient_day"])
+    chunks = load_csv(PATHS["accelerometer_event_day_pilot_chunks"])
+    catalog = load_csv(PATHS["accelerometer_event_day_pilot_catalog"])
+
+    if summary.empty and candidates.empty:
+        st.info("The ACC movement feature pilot has not started yet.")
+        st.code(".venv/bin/python3 -u extract_accelerometer_plugin_event_day_pilot.py")
+        return
+
+    summary_lookup = dict(zip(summary.get("metric", pd.Series(dtype=str)), summary.get("value", pd.Series(dtype=str))))
+    status = status.drop_duplicates("candidate_id", keep="last") if "candidate_id" in status.columns else status
+    status_values = status.get("status", pd.Series(dtype=str)).astype(str)
+    completed = int(status_values.eq("features_calculated").sum())
+    no_raw = int(status_values.eq("no_raw_rows").sum())
+    failed = int(summary_lookup.get("failed_device_day_extractions", 0) or 0)
+    pending = int(summary_lookup.get("pending_device_days", 0) or 0)
+    raw_rows = int(pd.to_numeric(preflight.get("raw_row_count", pd.Series(dtype=float)), errors="coerce").fillna(0).sum())
+    valid_minutes = int(pd.to_numeric(features.get("accelerometer_valid_signal_minutes", pd.Series(dtype=float)), errors="coerce").fillna(0).sum())
+    metric_row(
+        [
+            ("Pilot patients", summary_lookup.get("selected_patient_count", "")),
+            ("Candidate device-days", summary_lookup.get("candidate_device_day_count", "")),
+            ("Days with raw ACC", int((pd.to_numeric(preflight.get("raw_row_count", pd.Series(dtype=float)), errors="coerce") > 0).sum()) if not preflight.empty else 0),
+            ("Feature days complete", completed),
+            ("Raw ACC rows", f"{raw_rows:,}"),
+            ("Valid signal minutes", f"{valid_minutes:,}"),
+            ("Pending days", pending),
+        ]
+    )
+    if no_raw or failed:
+        st.warning(f"{no_raw} candidate days had no raw ACC rows; {failed} candidate days failed. These remain explicit status outcomes.")
+    if pending:
+        st.info("The pilot is currently partial: pending days have not been classified as missing. Resume with the same extraction command to continue.")
+
+    st.subheader("Pilot protocol")
+    st.markdown(
+        "The movement dictionary identifies a mapped patient-device-local date with at least one plugin event. "
+        "The ACC query then covers that entire local calendar day, from midnight through the next midnight. "
+        "The event minute is context only; it does not narrow the accelerometer window."
+    )
+    if readme:
+        with st.expander("Full protocol, limitations, and output files", expanded=False):
+            st.markdown(readme)
+
+    tabs = st.tabs(["ACC overview", "Feature values", "Feature catalog", "5-minute signal", "Run status"])
+    with tabs[0]:
+        st.subheader("Mapped plugin event-days selected for ACC extraction")
+        if not candidates.empty:
+            candidate_columns = [
+                "patient_id", "device_id", "local_date", "plugin_event_count",
+                "dominant_movement_evidence_class", "n_observed_minutes",
+                "window_start_local", "window_end_local_exclusive",
+            ]
+            show_dataframe(candidates[[column for column in candidate_columns if column in candidates.columns]], height=440)
+        st.subheader("Raw ACC availability by candidate day")
+        if not preflight.empty:
+            preflight_view = preflight.copy()
+            preflight_view["raw_row_count"] = pd.to_numeric(preflight_view.get("raw_row_count"), errors="coerce")
+            availability_chart = (
+                alt.Chart(preflight_view)
+                .mark_bar()
+                .encode(
+                    x=alt.X("local_date:N", title="Local date", sort=None, axis=alt.Axis(labelAngle=-45)),
+                    y=alt.Y("raw_row_count:Q", title="Raw ACC rows"),
+                    color=alt.Color("patient_id:N", title="Patient"),
+                    tooltip=[
+                        alt.Tooltip("patient_id:N", title="Patient"),
+                        alt.Tooltip("device_id:N", title="Device"),
+                        alt.Tooltip("local_date:N", title="Local date"),
+                        alt.Tooltip("raw_row_count:Q", title="Raw rows", format=",.0f"),
+                        alt.Tooltip("preflight_status:N", title="Availability"),
+                    ],
+                )
+            )
+            st.altair_chart(availability_chart.properties(height=340), use_container_width=True)
+            show_dataframe(preflight, height=420)
+        else:
+            st.info("Raw ACC preflight is not available yet.")
+
+        if not patient_days.empty:
+            st.subheader("Patient-day feature overview")
+            patient_day_view = patient_days.copy()
+            for column in ["accelerometer_valid_signal_minutes", "accelerometer_calendar_coverage_fraction", "accelerometer_dynamic_magnitude_rms"]:
+                if column in patient_day_view.columns:
+                    patient_day_view[column] = pd.to_numeric(patient_day_view[column], errors="coerce")
+            overview_columns = [
+                "patient_id", "local_date", "device_count", "source_device_day_count",
+                "accelerometer_raw_row_count", "accelerometer_valid_signal_minutes",
+                "accelerometer_calendar_coverage_fraction", "accelerometer_dynamic_magnitude_rms",
+                "accelerometer_motion_bout_count", "accelerometer_daytime_motion_minutes",
+                "accelerometer_nighttime_motion_minutes",
+            ]
+            show_dataframe(patient_day_view[[column for column in overview_columns if column in patient_day_view.columns]], height=440)
+
+    with tabs[1]:
+        st.caption("One row per mapped patient-device-local day. Values are signal summaries; missing or unavailable values remain missing.")
+        show_dataframe(features, height=620)
+        if not patient_days.empty:
+            with st.expander("Patient-day aggregation across devices"):
+                st.caption("Counts and minutes are summed across devices; continuous signal features are averaged across device-days.")
+                show_dataframe(patient_days, height=560)
+
+    with tabs[2]:
+        st.caption(
+            "The pilot uses 24 features. Dynamic motion is the absolute deviation of vector magnitude from the day median. "
+            "Because general ACC includes gravity, all movement labels are signal proxies rather than clinical classifications."
+        )
+        show_dataframe(catalog, height=680)
+
+    with tabs[3]:
+        st.caption("Observed five-minute signal summaries are descriptive QC. Unobserved time is not labeled as quiet movement.")
+        if chunks.empty:
+            st.info("No 5-minute signal summaries are available yet.")
+        else:
+            chunk_plot = chunks.copy()
+            chunk_plot["median_dynamic_magnitude"] = pd.to_numeric(chunk_plot["median_dynamic_magnitude"], errors="coerce")
+            chunk_plot["chunk_start_local_dt"] = pd.to_datetime(chunk_plot["chunk_start_local"], errors="coerce")
+            chunk_plot = chunk_plot.dropna(subset=["chunk_start_local_dt", "median_dynamic_magnitude"])
+            chart = (
+                alt.Chart(chunk_plot)
+                .mark_line(point=False)
+                .encode(
+                    x=alt.X("chunk_start_local_dt:T", title="Local time"),
+                    y=alt.Y("median_dynamic_magnitude:Q", title="Median dynamic magnitude"),
+                    color=alt.Color("patient_id:N", title="Patient"),
+                    detail="device_id:N",
+                    tooltip=[
+                        alt.Tooltip("patient_id:N", title="Patient"),
+                        alt.Tooltip("local_date:N", title="Date"),
+                        alt.Tooltip("chunk_start_local:N", title="5-minute start"),
+                        alt.Tooltip("median_dynamic_magnitude:Q", title="Median dynamic magnitude", format=".3f"),
+                        alt.Tooltip("chunk_state:N", title="Exploratory state"),
+                    ],
+                )
+            )
+            st.altair_chart(chart.properties(height=380), use_container_width=True)
+            show_dataframe(chunks.head(5000), height=520)
+
+    with tabs[4]:
+        metric_row(
+            [
+                ("Completed feature days", completed),
+                ("No raw ACC", no_raw),
+                ("Errors", failed),
+                ("Feature rows", len(features)),
+            ]
+        )
+        show_dataframe(status, height=560)
+
+    st.subheader("Download pilot outputs")
+    downloads = [
+        ("Candidate event-days", candidates, "accelerometer_plugin_event_day_candidates.csv"),
+        ("Raw ACC preflight", preflight, "accelerometer_plugin_event_day_raw_preflight.csv"),
+        ("Wide feature table", features, "accelerometer_plugin_event_day_features_wide.csv"),
+        ("Patient-day feature table", patient_days, "accelerometer_plugin_event_day_patient_day_features.csv"),
+        ("Long feature table", load_csv(PATHS["accelerometer_event_day_pilot_features_long"]), "accelerometer_plugin_event_day_features_long.csv"),
+        ("Feature catalog", catalog, "accelerometer_plugin_event_day_feature_catalog.csv"),
+        ("Run status", status, "accelerometer_plugin_event_day_status.csv"),
+    ]
+    for label, frame, filename in downloads:
+        st.download_button(label, frame.to_csv(index=False).encode("utf-8"), filename, "text/csv", key=f"acc_event_day_{filename}")
+
+
+def accelerometer_feature_audit_page(
+    source_prefix: str = "accelerometer_feature_audit",
+    heading: str = "ACC Feature Audit",
+    scope_label: str = "the ACC pilot",
+    live_summary_key: str | None = None,
+) -> None:
+    path = lambda suffix: PATHS[f"{source_prefix}_{suffix}"]
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        f"{heading}"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        f"Patient-level aggregation, coverage review, observed-time normalization, and technical-confounding checks for {scope_label}."
+    )
+
+    readme = load_text(path("readme"))
+    summary = load_csv(path("summary"))
+    audit = load_csv(path("features"))
+    technical = load_csv(path("technical"))
+    groups = load_csv(path("groups"))
+    patient_days = load_csv(path("patient_days"))
+    patient_level = load_csv(path("patient_level"))
+    live_summary = load_csv(PATHS[live_summary_key]) if live_summary_key else pd.DataFrame()
+
+    if summary.empty or audit.empty:
+        st.info("The ACC feature audit has not been built yet.")
+        st.code(
+            ".venv/bin/python3 -u build_accelerometer_feature_audit.py"
+            if source_prefix == "accelerometer_feature_audit"
+            else ".venv/bin/python3 -u build_accelerometer_feature_audit.py --pilot-dir output/analysis_candidates/accelerometer_all_mapped_event_day_features --output-dir output/analysis_candidates/accelerometer_all_mapped_feature_audit"
+        )
+        return
+
+    summary_lookup = dict(zip(summary.get("metric", pd.Series(dtype=str)), summary.get("value", pd.Series(dtype=str))))
+
+    def summary_int(name: str, default: int = 0) -> int:
+        try:
+            return int(float(summary_lookup.get(name, default)))
+        except (TypeError, ValueError):
+            return default
+
+    if live_summary.empty:
+        metric_row(
+            [
+                ("Pilot patients", summary_int("pilot_patients")),
+                ("Completed patient-days", summary_int("completed_patient_days")),
+                ("Patient-level rows", summary_int("patient_level_rows")),
+                ("Features audited", summary_int("feature_count")),
+                ("Behavior candidates", summary_int("primary_behavioral_candidate_count")),
+                ("QC-only features", summary_int("quality_qc_feature_count")),
+            ]
+        )
+        pending = summary_int("pilot_run_pending_device_days")
+    else:
+        live_lookup = dict(zip(live_summary.get("metric", pd.Series(dtype=str)), live_summary.get("value", pd.Series(dtype=str))))
+
+        def live_int(name: str, default: int = 0) -> int:
+            try:
+                return int(float(live_lookup.get(name, default)))
+            except (TypeError, ValueError):
+                return default
+
+        metric_row(
+            [
+                ("Mapped patients", live_int("selected_patient_count")),
+                ("Candidate device-days", live_int("candidate_device_day_count")),
+                ("Completed feature-days", live_int("completed_device_day_features")),
+                ("No raw ACC", live_int("days_without_raw_rows")),
+                ("Errors/retry", live_int("failed_device_day_extractions")),
+                ("Pending device-days", live_int("pending_device_days")),
+            ]
+        )
+        pending = live_int("pending_device_days")
+    st.warning(
+        f"This is an incomplete exploratory audit. Final feature selection and model fitting are deferred. "
+        f"The ACC extraction currently has {pending} pending device-days."
+    )
+    if live_summary_key:
+        st.info(
+            "This live checkpoint includes every currently mapped patient-device-day, including mapped patients without T2. "
+            "Those patients remain eligible for baseline ACC features; only future T1-to-T2 delta analyses require T2. "
+            "The remaining unmapped patients are kept separate from this extraction and are not interpreted as having no ACC data."
+        )
+
+    st.subheader("How to use this page")
+    st.markdown(
+        "The feature table separates behavioral candidates from signal-level sensitivity features and collection-quality variables. "
+        "The patient-level table uses the median across completed patient-local days. Per-observed-hour columns reduce the direct effect "
+        "of recording duration, but they are still exploratory. A technical review flag means the feature tracks a coverage/intensity "
+        "variable strongly in this small pilot; it is not a statistical finding."
+    )
+
+    tabs = st.tabs(["Feature readiness", "Technical confounding", "Patient-level features", "Patient-day data", "Protocol"])
+    with tabs[0]:
+        st.subheader("Feature role and coverage")
+        audit_view = audit.copy()
+        role_order = {
+            "primary_behavior_candidate": 0,
+            "sensitivity_only": 1,
+            "qc_only": 2,
+        }
+        audit_view["role_order"] = audit_view.get("feature_role", pd.Series(dtype=str)).map(role_order).fillna(9)
+        audit_view["patient_level_missingness_percent"] = pd.to_numeric(
+            audit_view.get("patient_level_missingness_percent"), errors="coerce"
+        )
+        audit_view = audit_view.sort_values(["role_order", "patient_level_missingness_percent", "feature_name"])
+        chart_data = audit_view[["feature_name", "patient_level_missingness_percent", "feature_role"]].copy()
+        chart_data["patient_level_missingness_percent"] = chart_data["patient_level_missingness_percent"].fillna(100)
+        readiness_chart = (
+            alt.Chart(chart_data)
+            .mark_bar()
+            .encode(
+                x=alt.X("patient_level_missingness_percent:Q", title="Patient-level missingness (%)", scale=alt.Scale(domain=[0, 100])),
+                y=alt.Y("feature_name:N", title="Feature", sort="-x"),
+                color=alt.Color("feature_role:N", title="Role"),
+                tooltip=[
+                    alt.Tooltip("feature_name:N", title="Feature"),
+                    alt.Tooltip("feature_role:N", title="Role"),
+                    alt.Tooltip("patient_level_missingness_percent:Q", title="Missingness (%)", format=".1f"),
+                ],
+            )
+        )
+        st.altair_chart(readiness_chart.properties(height=650), use_container_width=True)
+        readiness_columns = [
+            "feature_name", "feature_group", "feature_role", "definition",
+            "patient_day_observed_count", "patient_day_missingness_percent",
+            "patient_observed_count", "patient_level_missingness_percent",
+            "median", "q1", "q3", "strongest_technical_variable",
+            "strongest_abs_spearman_correlation", "technical_review_status",
+            "recommended_transform", "recommended_patient_aggregation",
+        ]
+        show_dataframe(audit_view[[column for column in readiness_columns if column in audit_view.columns]], height=650)
+        if not groups.empty:
+            with st.expander("Feature-group summary"):
+                show_dataframe(groups, height=260)
+
+    with tabs[1]:
+        st.subheader("Feature relationships with collection intensity")
+        if technical.empty:
+            st.info("Technical correlation output is not available yet.")
+        else:
+            technical_view = technical.copy()
+            technical_view["spearman_correlation"] = pd.to_numeric(technical_view["spearman_correlation"], errors="coerce")
+            technical_view["absolute_spearman"] = technical_view["spearman_correlation"].abs()
+            top_technical = technical_view.sort_values("absolute_spearman", ascending=False).head(20)
+            technical_chart = (
+                alt.Chart(top_technical)
+                .mark_bar()
+                .encode(
+                    x=alt.X("spearman_correlation:Q", title="Spearman correlation", scale=alt.Scale(domain=[-1, 1])),
+                    y=alt.Y("feature_name:N", title="Feature", sort="-x"),
+                    color=alt.Color("technical_variable:N", title="Technical variable"),
+                    tooltip=[
+                        alt.Tooltip("feature_name:N", title="Feature"),
+                        alt.Tooltip("technical_variable:N", title="Technical variable"),
+                        alt.Tooltip("pairwise_n:Q", title="Pairwise n"),
+                        alt.Tooltip("spearman_correlation:Q", title="Spearman", format=".3f"),
+                        alt.Tooltip("technical_confounding_flag:N", title="Review"),
+                    ],
+                )
+            )
+            st.altair_chart(technical_chart.properties(height=540), use_container_width=True)
+            st.caption(f"The current extraction has {len(patient_days)} completed patient-days. Technical flags are screening signals, not confirmatory tests.")
+            technical_columns = [
+                "feature_name", "feature_group", "feature_role", "technical_variable",
+                "pairwise_n", "pearson_correlation", "spearman_correlation",
+                "technical_confounding_flag",
+            ]
+            show_dataframe(technical_view[[column for column in technical_columns if column in technical_view.columns]], height=620)
+
+    with tabs[2]:
+        st.subheader("One row per patient")
+        st.caption("ACC feature values are medians across completed patient-local days. Mean columns are retained for sensitivity review.")
+        patient_columns = [
+            "patient_id", "candidate_device_day_count", "completed_patient_day_count",
+            "completed_device_day_count", "total_valid_signal_minutes",
+            "median_daily_coverage_fraction", "mean_daily_coverage_fraction", "aggregation_rule",
+        ]
+        behavior_names = audit.loc[audit["feature_role"].eq("primary_behavior_candidate"), "feature_name"].astype(str).tolist()
+        behavior_columns = [f"acc_median_{name}" for name in behavior_names]
+        patient_view_columns = [column for column in patient_columns + behavior_columns if column in patient_level.columns]
+        show_dataframe(patient_level[patient_view_columns], height=480)
+        with st.expander("All aggregated features, including sensitivity and QC variables"):
+            show_dataframe(patient_level, height=620)
+
+    with tabs[3]:
+        st.subheader("Audited patient-local-day table")
+        st.caption("The normalized columns divide selected count/minute features by observed ACC hours. They do not fill unobserved time with zero movement.")
+        if not patient_days.empty:
+            coverage_view = patient_days.copy()
+            coverage_view["accelerometer_calendar_coverage_fraction"] = pd.to_numeric(
+                coverage_view.get("accelerometer_calendar_coverage_fraction"), errors="coerce"
+            )
+            coverage_columns = [
+                "patient_id", "local_date", "device_count", "source_device_day_count",
+                "accelerometer_valid_signal_minutes", "accelerometer_observed_hours",
+                "accelerometer_calendar_coverage_fraction", "accelerometer_observed_span_hours",
+                "accelerometer_gap_burden_fraction", "accelerometer_motion_bout_count",
+                "accelerometer_motion_bout_count_per_observed_hour",
+                "accelerometer_daytime_motion_minutes_per_observed_hour",
+                "accelerometer_nighttime_motion_minutes_per_observed_hour",
+            ]
+            show_dataframe(coverage_view[[column for column in coverage_columns if column in coverage_view.columns]], height=520)
+            coverage_chart = (
+                alt.Chart(coverage_view)
+                .mark_bar()
+                .encode(
+                    x=alt.X("local_date:N", title="Local date", sort=None, axis=alt.Axis(labelAngle=-45)),
+                    y=alt.Y("accelerometer_calendar_coverage_fraction:Q", title="Calendar coverage", scale=alt.Scale(domain=[0, 1])),
+                    color=alt.Color("patient_id:N", title="Patient"),
+                    tooltip=[
+                        alt.Tooltip("patient_id:N", title="Patient"),
+                        alt.Tooltip("local_date:N", title="Local date"),
+                        alt.Tooltip("accelerometer_valid_signal_minutes:Q", title="Valid minutes"),
+                        alt.Tooltip("accelerometer_calendar_coverage_fraction:Q", title="Coverage", format=".3f"),
+                    ],
+                )
+            )
+            st.altair_chart(coverage_chart.properties(height=340), use_container_width=True)
+            with st.expander("Full patient-day table"):
+                show_dataframe(patient_days, height=620)
+        else:
+            st.info("No completed patient-day rows are available yet.")
+
+    with tabs[4]:
+        if live_summary_key:
+            st.subheader("Live archive-based extraction")
+            st.markdown(
+                "The remote ACC table is exported one local calendar day at a time with only that day's candidate mapped devices. "
+                "The compressed SQL archive is preserved on the external drive, and the 24 features are calculated locally. "
+                "This page reads the checkpointed output on every rerun."
+            )
+            st.code(
+                ".venv/bin/python3 -u extract_accelerometer_plugin_event_day_from_archives.py "
+                "--output-dir output/analysis_candidates/accelerometer_all_mapped_event_day_features "
+                "--archive-dir /Volumes/SENSORDATA_MAIN/sensordata_backup/motion_accelerometer/plugin_event_day_sql_zst"
+            )
+        if readme:
+            st.markdown(readme)
+        st.subheader("Download audit outputs")
+        downloads = [
+            ("Feature audit", audit, "accelerometer_feature_audit.csv"),
+            ("Technical correlations", technical, "accelerometer_feature_technical_correlations.csv"),
+            ("Feature groups", groups, "accelerometer_feature_group_summary.csv"),
+            ("Audited patient-days", patient_days, "accelerometer_patient_day_features_audited.csv"),
+            ("Patient-level features", patient_level, "accelerometer_patient_level_features.csv"),
+            ("Audit summary", summary, "accelerometer_feature_audit_summary.csv"),
+        ]
+        for label, frame, filename in downloads:
+            st.download_button(label, frame.to_csv(index=False).encode("utf-8"), filename, "text/csv", key=f"{source_prefix}_{filename}")
+
+
+def accelerometer_all_mapped_feature_audit_page() -> None:
+    accelerometer_feature_audit_page(
+        source_prefix="accelerometer_all_mapped_feature_audit",
+        heading="ACC All-Mapped Feature Audit",
+        scope_label="all currently mapped ACC event-days",
+        live_summary_key="accelerometer_all_mapped_pilot_summary",
+    )
+
+
 def rd_page() -> None:
     st.title("R&D")
     st.caption("Protocol experiments that test alternative acquisition rules without overwriting Phase 3 outputs.")
+
+    st.subheader("Plugin activity movement dictionary")
+    st.caption(
+        "Timestamp-level, mapped patient-device activity context for choosing and validating later raw ACC windows. "
+        "This is phone-derived context, not a direct movement or clinical measure."
+    )
+    movement_readme = load_text(PATHS["plugin_activity_dictionary_readme"])
+    movement_summary = load_csv(PATHS["plugin_activity_dictionary_summary"])
+    movement_status = load_csv(PATHS["plugin_activity_dictionary_status"])
+    movement_device_days = load_csv(PATHS["plugin_activity_dictionary_device_days"])
+    movement_patient_summary = load_csv(PATHS["plugin_activity_dictionary_patient_summary"])
+    movement_patient_days = load_csv(PATHS["plugin_activity_dictionary_patient_days"])
+    if movement_summary.empty or movement_status.empty:
+        st.info("The plugin activity movement dictionary has not been built yet.")
+        st.code(".venv/bin/python3 -u build_plugin_activity_movement_dictionary.py")
+    else:
+        if movement_readme:
+            with st.expander("Dictionary protocol and interpretation", expanded=True):
+                st.markdown(movement_readme)
+
+        summary_row = movement_summary.iloc[0]
+        status_completed = movement_status[movement_status["query_status"].astype(str).eq("completed")].copy()
+        status_completed["raw_row_count_num"] = pd.to_numeric(
+            status_completed.get("raw_row_count", pd.Series(dtype=float)), errors="coerce"
+        ).fillna(0)
+        metric_row(
+            [
+                ("Active patients", summary_row.get("active_patient_count", "")),
+                ("Valid T1-T2 intervals", summary_row.get("patients_with_valid_t1_t2_interval", "")),
+                ("Mapped devices", summary_row.get("mapped_device_count", "")),
+                ("Completed device intervals", summary_row.get("completed_device_intervals", "")),
+                ("Devices with events", int((status_completed["raw_row_count_num"] > 0).sum())),
+                ("Plugin events", summary_row.get("raw_event_rows_written", "")),
+                ("Occupied UTC minutes", summary_row.get("minute_rows_written", "")),
+            ]
+        )
+
+        class_columns = {
+            "active_land": "active_land_event_count",
+            "vehicle": "vehicle_event_count",
+            "still": "still_event_count",
+            "orientation_change": "orientation_change_event_count",
+            "unknown": "unknown_event_count",
+            "other": "other_event_count",
+        }
+        if not movement_device_days.empty:
+            class_totals = {
+                label: pd.to_numeric(movement_device_days.get(column, 0), errors="coerce").fillna(0).sum()
+                for label, column in class_columns.items()
+            }
+            st.markdown("**Primary activity-label totals in completed intervals**")
+            st.bar_chart(pd.DataFrame({"event_count": class_totals}))
+
+        movement_tabs = st.tabs(["Patient summary", "Patient-day coverage", "Device status", "Minute dictionary sample", "Event dictionary sample"])
+        with movement_tabs[0]:
+            st.caption(
+                "One row per active patient. A mapped device with zero events is separated from a patient with observed plugin coverage."
+            )
+            show_dataframe(movement_patient_summary, height=520)
+        with movement_tabs[1]:
+            st.caption(
+                "One row per patient and local calendar day with at least one plugin event. Empty days are not treated as stillness."
+            )
+            show_dataframe(movement_patient_days, height=520)
+        with movement_tabs[2]:
+            status_columns = [
+                "patient_id",
+                "device_id",
+                "t1_date",
+                "t2_date",
+                "query_status",
+                "raw_row_count",
+                "valid_label_row_count",
+                "json_parse_error_count",
+                "first_event_time_local",
+                "last_event_time_local",
+                "error_message",
+            ]
+            status_columns = [column for column in status_columns if column in movement_status.columns]
+            show_dataframe(movement_status[status_columns], height=520)
+        with movement_tabs[3]:
+            st.caption("The full minute dictionary remains on disk; Streamlit shows the first 5,000 rows for responsive review.")
+            show_dataframe(load_csv_sample(PATHS["plugin_activity_dictionary_minutes"]), height=520)
+        with movement_tabs[4]:
+            st.caption("The full event dictionary remains on disk; the sample omits the original JSON payload for privacy and size.")
+            show_dataframe(load_csv_sample(PATHS["plugin_activity_dictionary_events"], nrows=2000), height=520)
+
+    st.subheader("T1-only plugin activity extension")
+    st.caption(
+        "Mapped activity-recognition events for active patients without T2. The endpoint is the latest plugin-table timestamp, "
+        "not an imputed T2 visit; do not pool this extension directly with T1-to-T2 decline analyses."
+    )
+    t1_only_readme = load_text(PATHS["plugin_activity_t1_only_readme"])
+    t1_only_summary = load_csv(PATHS["plugin_activity_t1_only_summary"])
+    t1_only_status = load_csv(PATHS["plugin_activity_t1_only_status"])
+    t1_only_patient_summary = load_csv(PATHS["plugin_activity_t1_only_patient_summary"])
+    if t1_only_summary.empty or t1_only_status.empty:
+        st.info("The T1-only plugin activity extension has not been built yet.")
+        st.code(".venv/bin/python3 -u build_plugin_activity_t1_only_extension.py")
+    else:
+        if t1_only_readme:
+            with st.expander("T1-only extension protocol and limitations", expanded=False):
+                st.markdown(t1_only_readme)
+        summary_row = t1_only_summary.iloc[0]
+        metric_row(
+            [
+                ("T1-only patients", summary_row.get("t1_only_patient_count", "")),
+                ("Mapped devices", summary_row.get("mapped_device_count", "")),
+                ("Completed intervals", summary_row.get("completed_device_intervals", "")),
+                ("Devices with events", summary_row.get("devices_with_events", "")),
+                ("Plugin events", summary_row.get("raw_event_rows_written", "")),
+                ("Occupied minutes", summary_row.get("minute_rows_written", "")),
+            ]
+        )
+        t1_only_tabs = st.tabs(["Patient summary", "Device status", "Minute sample", "Event sample"])
+        with t1_only_tabs[0]:
+            show_dataframe(t1_only_patient_summary, height=500)
+        with t1_only_tabs[1]:
+            status_columns = [
+                "patient_id",
+                "device_id",
+                "t1_date",
+                "window_end_local",
+                "query_status",
+                "raw_row_count",
+                "valid_label_row_count",
+                "json_parse_error_count",
+                "first_event_time_local",
+                "last_event_time_local",
+                "error_message",
+            ]
+            status_columns = [column for column in status_columns if column in t1_only_status.columns]
+            show_dataframe(t1_only_status[status_columns], height=500)
+        with t1_only_tabs[2]:
+            show_dataframe(load_csv_sample(PATHS["plugin_activity_t1_only_minutes"]), height=500)
+        with t1_only_tabs[3]:
+            show_dataframe(load_csv_sample(PATHS["plugin_activity_t1_only_events"], nrows=2000), height=500)
+
+    st.subheader("Raw general ACC daily export")
+    st.caption(
+        "Read-only progress view for the day-by-day raw `accelerometer` backup. Each completed day is preserved as "
+        "a separate compressed SQL dump on the external drive."
+    )
+    daily_export_manifest = load_jsonl(PATHS["accelerometer_daily_export_manifest"])
+    if daily_export_manifest.empty:
+        st.info("No daily raw ACC export has been recorded yet.")
+    else:
+        latest_export = daily_export_manifest.tail(1).iloc[0]
+        metric_row(
+            [
+                ("Export records", len(daily_export_manifest)),
+                ("Completed", int(daily_export_manifest.get("status", pd.Series(dtype=str)).eq("completed").sum())),
+                ("Latest status", str(latest_export.get("status", ""))),
+                ("Latest expected rows", latest_export.get("expected_row_count", "")),
+                ("Latest devices", latest_export.get("expected_device_count", "")),
+            ]
+        )
+        export_cols = [
+            "status",
+            "window_start_local",
+            "window_end_local",
+            "expected_row_count",
+            "expected_device_count",
+            "expected_first_timestamp_local",
+            "expected_last_timestamp_local",
+            "compressed_bytes",
+            "output_path",
+            "data_only",
+        ]
+        export_cols = [column for column in export_cols if column in daily_export_manifest.columns]
+        show_dataframe(daily_export_manifest[export_cols], height=220)
+
+    st.subheader("Raw ACC and linear ACC: SQL median-day one-minute probe")
+    sql_probe_root = PATHS["accelerometer_sql_median_minute_root"]
+    sql_probe_dirs = []
+    if sql_probe_root.exists():
+        candidates = [sql_probe_root] + sorted(path for path in sql_probe_root.iterdir() if path.is_dir())
+        sql_probe_dirs = [
+            path for path in candidates if (path / "median_day_minute_summary.csv").exists()
+        ]
+
+    probe_labels = []
+    probe_by_label = {}
+    for path in sql_probe_dirs:
+        probe_summary = load_csv(path / "median_day_minute_summary.csv")
+        if probe_summary.empty:
+            label = path.name
+        else:
+            inspection_day = str(probe_summary.iloc[0].get("inspection_day_local", ""))
+            median_day = str(probe_summary.iloc[0].get("median_day_local", ""))
+            if not inspection_day or inspection_day.lower() == "nan":
+                inspection_day = median_day
+            inspection_time = str(probe_summary.iloc[0].get("inspection_time_local", "09:00:00"))
+            label = f"{inspection_day} {inspection_time[:5]}"
+            if inspection_day == median_day and inspection_time.startswith("09:00"):
+                label += " (reference midpoint)"
+        probe_labels.append(label)
+        probe_by_label[label] = path
+
+    if probe_labels:
+        selected_probe_label = st.selectbox(
+            "Inspection date",
+            probe_labels,
+            index=len(probe_labels) - 1,
+            key="sql_accelerometer_probe_date",
+        )
+        selected_probe_root = probe_by_label[selected_probe_label]
+    else:
+        selected_probe_root = sql_probe_root
+
+    sql_accelerometer_readme = load_text(
+        selected_probe_root / "README_raw_accelerometer_sql_median_day_minute.md"
+    )
+    sql_accelerometer_summary = load_csv(selected_probe_root / "median_day_minute_summary.csv")
+    sql_accelerometer_raw_samples = load_csv(selected_probe_root / "median_day_minute_raw_samples.csv")
+    sql_accelerometer_sensor_summary = load_csv(selected_probe_root / "median_day_minute_sensor_summary.csv")
+    sql_accelerometer_sensor_samples = load_csv(selected_probe_root / "median_day_minute_sensor_samples.csv")
+    sql_accelerometer_sensor_keys = load_csv(selected_probe_root / "median_day_minute_sensor_key_summary.csv")
+
+    if sql_accelerometer_readme:
+        st.markdown(sql_accelerometer_readme)
+    if sql_accelerometer_summary.empty:
+        st.info("The SQL median-day minute reconnaissance has not been run yet.")
+        st.code(".venv/bin/python3 -u analyze_accelerometer_sql_median_day_minute.py")
+    else:
+        summary_row = sql_accelerometer_summary.iloc[0]
+        summary_by_table = sql_accelerometer_summary.set_index("table_name")
+        metric_row(
+            [
+                ("Inspection day", str(summary_row.get("inspection_day_local", summary_row.get("median_day_local", "")))),
+                (
+                    "Window",
+                    f"{str(summary_row.get('window_start_local', ''))[11:16]}-"
+                    f"{str(summary_row.get('window_end_local', ''))[11:16]} local",
+                ),
+                (
+                    "ACC devices",
+                    int(summary_by_table.loc["accelerometer", "distinct_device_count"])
+                    if "accelerometer" in summary_by_table.index
+                    else 0,
+                ),
+                (
+                    "Linear ACC devices",
+                    int(summary_by_table.loc["linear_accelerometer", "distinct_device_count"])
+                    if "linear_accelerometer" in summary_by_table.index
+                    else 0,
+                ),
+            ]
+        )
+        st.markdown("**Exact SQL window counts**")
+        show_dataframe(
+            sql_accelerometer_summary[
+                [
+                    "table_name",
+                    "median_day_local",
+                    "inspection_day_local",
+                    "window_start_local",
+                    "window_end_local",
+                    "row_count",
+                    "distinct_device_count",
+                    "window_first_timestamp_ms",
+                    "window_last_timestamp_ms",
+                ]
+            ],
+            height=150,
+        )
+
+        raw_tabs = st.tabs(["Raw JSON examples", "Raw sample rows", "Sensor metadata", "Sensor keys"])
+        with raw_tabs[0]:
+            st.caption("The examples below are the first rows returned in timestamp/device order for the exact one-minute SQL window.")
+            if sql_accelerometer_raw_samples.empty:
+                st.info("No raw rows were returned in this minute.")
+            else:
+                for table_name in ["accelerometer", "linear_accelerometer"]:
+                    table_rows = sql_accelerometer_raw_samples[
+                        sql_accelerometer_raw_samples["table_name"].astype(str).eq(table_name)
+                    ]
+                    if table_rows.empty:
+                        st.markdown(f"**{table_name}**: no rows in the selected minute.")
+                        continue
+                    row = table_rows.iloc[0]
+                    st.markdown(f"**{table_name}** | device `{row.get('device_id', '')}` | `{row.get('timestamp_local', '')}`")
+                    st.code(str(row.get("data_json_pretty", row.get("data_json", ""))), language="json")
+        with raw_tabs[1]:
+            show_dataframe(sql_accelerometer_raw_samples, height=500)
+        with raw_tabs[2]:
+            st.caption("Sensor tables are hardware and collection-context references. They are not movement features.")
+            show_dataframe(sql_accelerometer_sensor_summary, height=180)
+            show_dataframe(sql_accelerometer_sensor_samples, height=500)
+        with raw_tabs[3]:
+            show_dataframe(sql_accelerometer_sensor_keys, height=500)
+
+    st.subheader("Accelerometer device hardware timeline")
+    hardware_readme = load_text(PATHS["accelerometer_hardware_timeline_readme"])
+    hardware_timeline = load_csv(PATHS["accelerometer_hardware_timeline"])
+    hardware_summary = load_csv(PATHS["accelerometer_hardware_timeline_summary"])
+    hardware_configurations = load_csv(PATHS["accelerometer_hardware_configurations"])
+    hardware_monthly = load_csv(PATHS["accelerometer_hardware_monthly"])
+    patient_device_readme = load_text(PATHS["accelerometer_patient_device_readme"])
+    patient_device_crosswalk = load_csv(PATHS["accelerometer_patient_device_crosswalk"])
+    patient_device_summary = load_csv(PATHS["accelerometer_patient_device_summary"])
+    patient_device_configuration = load_csv(PATHS["accelerometer_patient_device_configuration"])
+    unmatched_devices = load_csv(PATHS["accelerometer_unmatched_devices"])
+    patient_device_crosswalk_summary = load_csv(PATHS["accelerometer_patient_device_crosswalk_summary"])
+    patient_accelerometer_data_summary = load_csv(PATHS["accelerometer_patient_data_summary"])
+    patient_device_accelerometer_evidence = load_csv(PATHS["accelerometer_patient_device_evidence"])
+    unmatched_device_data_investigation = load_csv(PATHS["accelerometer_unmatched_data_investigation"])
+    mapped_device_data_cutoff = load_csv(PATHS["accelerometer_mapped_device_cutoff"])
+    accelerometer_data_coverage_summary = load_csv(PATHS["accelerometer_data_coverage_summary"])
+    accelerometer_metadata_patient_summary = load_csv(PATHS["accelerometer_metadata_patient_summary"])
+    confirmed_raw_acc_probe_devices = load_csv(PATHS["accelerometer_raw_acc_probe_devices"])
+    if hardware_readme:
+        with st.expander("Hardware timeline protocol and interpretation", expanded=True):
+            st.markdown(hardware_readme)
+    if hardware_timeline.empty:
+        st.info("The device hardware timeline has not been built yet.")
+        st.code(".venv/bin/python3 -u build_accelerometer_device_hardware_timeline.py")
+    else:
+        summary_values = dict(zip(hardware_summary.get("metric", []), hardware_summary.get("value", [])))
+        metric_row(
+            [
+                ("Device IDs", len(hardware_timeline)),
+                ("ACC metadata devices", summary_values.get("sensor_accelerometer_device_ids", 0)),
+                ("Linear metadata devices", summary_values.get("sensor_linear_accelerometer_device_ids", 0)),
+                ("Raw linear devices", summary_values.get("raw_linear_accelerometer_device_ids", 0)),
+                ("Configurations", len(hardware_configurations)),
+            ]
+        )
+        st.caption(
+            "This is a device and hardware-context table. It is not a behavioral phenotype. "
+            "Full raw ACC per-device counts remain unavailable until the large raw ACC table is locally converted."
+        )
+        crosswalk_values = dict(zip(patient_device_crosswalk_summary.get("metric", []), patient_device_crosswalk_summary.get("value", [])))
+        metric_row(
+            [
+                ("81-person cohort", crosswalk_values.get("active_81_person_cohort_patients", 0)),
+                ("Mapped devices", crosswalk_values.get("mapped_device_ids_in_numeric_patient_mapping", 0)),
+                ("Mapped and observed", crosswalk_values.get("mapped_device_ids_observed_in_local_hardware_timeline", 0)),
+                ("Unmatched devices", crosswalk_values.get("unmatched_device_ids_in_local_hardware_timeline", 0)),
+            ]
+        )
+        if patient_device_readme:
+            with st.expander("Patient-device crosswalk protocol and interpretation", expanded=False):
+                st.markdown(patient_device_readme)
+        hardware_tabs = st.tabs(
+            [
+                "Device timeline",
+                "Patient-device crosswalk",
+                "Patient summary",
+                "Patient configurations",
+                "Hardware configurations",
+                "Unmatched IDs",
+                "Monthly prevalence",
+                "Audit",
+            ]
+        )
+        with hardware_tabs[0]:
+            display_cols = [
+                "device_id",
+                "metadata_rows_sensor_accelerometer",
+                "metadata_rows_sensor_linear_accelerometer",
+                "metadata_first_seen_local_sensor_accelerometer",
+                "metadata_last_seen_local_sensor_accelerometer",
+                "metadata_first_seen_local_sensor_linear_accelerometer",
+                "metadata_last_seen_local_sensor_linear_accelerometer",
+                "sensor_names_sensor_accelerometer",
+                "sensor_names_sensor_linear_accelerometer",
+                "sensor_vendors_sensor_accelerometer",
+                "sensor_vendors_sensor_linear_accelerometer",
+                "sensor_versions_sensor_accelerometer",
+                "sensor_versions_sensor_linear_accelerometer",
+                "sensor_minimum_delay_median_sensor_accelerometer",
+                "sensor_minimum_delay_median_sensor_linear_accelerometer",
+                "raw_linear_accelerometer_rows",
+                "raw_linear_first_seen_local",
+                "raw_linear_last_seen_local",
+                "raw_linear_active_span_days",
+                "raw_accelerometer_count_status",
+            ]
+            display_cols = [column for column in display_cols if column in hardware_timeline.columns]
+            show_dataframe(hardware_timeline[display_cols], height=560)
+        with hardware_tabs[1]:
+            crosswalk_cols = [
+                "patient_id",
+                "device_id",
+                "belongs_to_81_person_cohort",
+                "number_of_devices_for_patient",
+                "cohort_membership",
+                "hardware_observation_status",
+                "first_observed_date",
+                "last_observed_date",
+                "observation_sources",
+                "general_accelerometer_configuration",
+                "linear_accelerometer_configuration",
+                "raw_linear_accelerometer_rows",
+            ]
+            crosswalk_cols = [column for column in crosswalk_cols if column in patient_device_crosswalk.columns]
+            show_dataframe(patient_device_crosswalk[crosswalk_cols], height=560)
+        with hardware_tabs[2]:
+            show_dataframe(patient_device_summary, height=500)
+        with hardware_tabs[3]:
+            config_crosswalk_cols = [
+                "patient_id",
+                "device_id",
+                "belongs_to_81_person_cohort",
+                "configuration_observation_status",
+                "source_table",
+                "metadata_rows",
+                "metadata_first_seen_local",
+                "metadata_last_seen_local",
+                "sensor_configuration",
+            ]
+            config_crosswalk_cols = [column for column in config_crosswalk_cols if column in patient_device_configuration.columns]
+            show_dataframe(patient_device_configuration[config_crosswalk_cols], height=560)
+        with hardware_tabs[4]:
+            config_cols = [
+                "source_table",
+                "sensor_name",
+                "sensor_vendor",
+                "sensor_type",
+                "sensor_version",
+                "minimum_delay_us",
+                "resolution",
+                "maximum_range",
+                "power_ma",
+                "device_count",
+                "metadata_rows",
+                "first_seen_local",
+                "last_seen_local",
+            ]
+            config_cols = [column for column in config_cols if column in hardware_configurations.columns]
+            show_dataframe(hardware_configurations[config_cols], height=560)
+        with hardware_tabs[5]:
+            show_dataframe(unmatched_devices, height=560)
+        with hardware_tabs[6]:
+            monthly_cols = ["source_table", "month", "unique_device_count", "metadata_rows", "raw_rows"]
+            monthly_view = hardware_monthly[[column for column in monthly_cols if column in hardware_monthly.columns]].copy()
+            show_dataframe(monthly_view, height=360)
+            if {"source_table", "month", "unique_device_count"}.issubset(monthly_view.columns):
+                monthly_chart = (
+                    monthly_view.pivot_table(
+                        index="month",
+                        columns="source_table",
+                        values="unique_device_count",
+                        aggfunc="max",
+                    )
+                    .sort_index()
+                    .fillna(0)
+                )
+                st.markdown("**Unique device IDs active by month**")
+                st.line_chart(monthly_chart)
+        with hardware_tabs[7]:
+            show_dataframe(hardware_summary, height=260)
+            show_dataframe(patient_device_crosswalk_summary, height=260)
+
+    st.subheader("Patient ACC coverage and unmapped-device investigation")
+    st.caption(
+        "This audit shows which active patients have completed accelerometer evidence and when. "
+        "General ACC metadata, raw linear ACC, and confirmed raw ACC probes are reported separately."
+    )
+    coverage_readme = load_text(PATHS["accelerometer_patient_data_coverage_readme"])
+    if coverage_readme:
+        with st.expander("Coverage audit protocol and limitations", expanded=True):
+            st.markdown(coverage_readme)
+    if accelerometer_data_coverage_summary.empty or patient_accelerometer_data_summary.empty:
+        st.info("The patient accelerometer coverage audit has not been built yet.")
+        st.code(".venv/bin/python3 build_accelerometer_patient_data_coverage_report.py")
+    else:
+        coverage_values = dict(
+            zip(
+                accelerometer_data_coverage_summary.get("metric", []),
+                accelerometer_data_coverage_summary.get("value", []),
+            )
+        )
+        metric_row(
+            [
+                ("Active patients", coverage_values.get("active_81_person_cohort_patients", 81)),
+                ("Mapped devices", coverage_values.get("mapped_device_ids_for_active_81", 0)),
+                ("General ACC metadata", coverage_values.get("active_81_patients_with_general_acc_metadata", 0)),
+                ("Linear ACC metadata", coverage_values.get("active_81_patients_with_linear_acc_metadata", 0)),
+                ("Raw linear ACC", coverage_values.get("active_81_patients_with_raw_linear_acc", 0)),
+                ("Confirmed raw ACC probes", coverage_values.get("active_81_patients_with_confirmed_raw_acc_probe", 0)),
+                ("Mapped through 2025-12-30", coverage_values.get("mapped_devices_with_any_local_evidence_through_2025_12_30", 0)),
+                ("Patients through 2025-12-30", coverage_values.get("active_81_patients_with_local_evidence_through_2025_12_30", 0)),
+            ]
+        )
+        metric_row(
+            [
+                (
+                    "Raw linear ACC >1 day",
+                    coverage_values.get("active_81_patients_with_raw_linear_acc_on_more_than_one_calendar_day", 0),
+                ),
+                (
+                    "Confirmed raw ACC >1 day",
+                    coverage_values.get("active_81_patients_with_confirmed_raw_acc_probe_on_more_than_one_calendar_day", 0),
+                ),
+            ]
+        )
+        st.warning(
+            "The raw SQL accelerometer table has not been fully scanned. A device without a raw-ACC probe is "
+            "not classified as having no raw ACC; it is simply unconfirmed until the table is exported locally."
+        )
+        coverage_tabs = st.tabs(
+            [
+                "81-patient coverage",
+                "Unmatched devices",
+                "Through 2025-12-30",
+                "Evidence detail",
+            ]
+        )
+        with coverage_tabs[0]:
+            st.caption(
+                "One row per active patient. Metadata dates identify when the device reported its configuration; "
+                "raw linear dates identify actual local Parquet observations."
+            )
+            patient_view_cols = [
+                "patient_id",
+                "mapped_device_count",
+                "observed_mapped_device_count",
+                "mapped_device_ids",
+                "general_acc_metadata_device_count",
+                "general_acc_metadata_first_seen_local",
+                "general_acc_metadata_last_seen_local",
+                "linear_acc_metadata_device_count",
+                "linear_acc_metadata_first_seen_local",
+                "linear_acc_metadata_last_seen_local",
+                "raw_linear_acc_device_count",
+                "raw_linear_acc_rows",
+                "raw_linear_acc_first_seen_local",
+                "raw_linear_acc_last_seen_local",
+                "raw_linear_acc_has_multiple_calendar_days",
+                "confirmed_raw_acc_probe_device_count",
+                "confirmed_raw_acc_probe_first_seen_local",
+                "confirmed_raw_acc_probe_last_seen_local",
+                "confirmed_raw_acc_probe_has_multiple_calendar_days",
+                "has_any_completed_accelerometer_evidence",
+                "has_local_evidence_through_2025_12_30",
+            ]
+            patient_view_cols = [column for column in patient_view_cols if column in patient_accelerometer_data_summary.columns]
+            show_dataframe(patient_accelerometer_data_summary[patient_view_cols], height=620)
+        with coverage_tabs[1]:
+            st.caption(
+                "These device IDs were observed in the local hardware inventory but have no current numeric patient mapping. "
+                "Rows with raw linear ACC are the highest-priority linkage candidates."
+            )
+            if unmatched_device_data_investigation.empty:
+                st.info("No unmatched-device investigation output is available yet.")
+            else:
+                unmatched_class_options = ["All"] + sorted(
+                    unmatched_device_data_investigation["unmatched_device_interpretation"].dropna().astype(str).unique().tolist()
+                )
+                selected_unmatched_class = st.selectbox(
+                    "Unmatched-device evidence class",
+                    unmatched_class_options,
+                    key="accelerometer_unmatched_device_evidence_class",
+                )
+                unmatched_view = unmatched_device_data_investigation.copy()
+                if selected_unmatched_class != "All":
+                    unmatched_view = unmatched_view[
+                        unmatched_view["unmatched_device_interpretation"].astype(str).eq(selected_unmatched_class)
+                    ]
+                metric_row(
+                    [
+                        ("Observed unmatched IDs", len(unmatched_device_data_investigation)),
+                        (
+                            "With raw linear ACC",
+                            int(
+                                pd.to_numeric(
+                                    unmatched_device_data_investigation.get("raw_linear_accelerometer_rows", pd.Series(dtype=float)),
+                                    errors="coerce",
+                                ).fillna(0).gt(0).sum()
+                            ),
+                        ),
+                        (
+                            "With raw ACC probe",
+                            int(unmatched_device_data_investigation.get("raw_acc_probe_available", pd.Series(dtype=str)).eq("yes").sum()),
+                        ),
+                    ]
+                )
+                unmatched_view_cols = [
+                    "device_id",
+                    "patient_id_from_label_map",
+                    "mapping_source_label",
+                    "first_observed_date",
+                    "last_observed_date",
+                    "observation_sources",
+                    "general_accelerometer_configuration",
+                    "linear_accelerometer_configuration",
+                    "raw_linear_accelerometer_rows",
+                    "raw_linear_first_seen_local",
+                    "raw_linear_last_seen_local",
+                    "raw_acc_probe_available",
+                    "raw_acc_probe_first_seen_local",
+                    "raw_acc_probe_last_seen_local",
+                    "local_evidence_before_2025_12_30",
+                    "unmatched_device_interpretation",
+                ]
+                unmatched_view_cols = [column for column in unmatched_view_cols if column in unmatched_view.columns]
+                show_dataframe(unmatched_view[unmatched_view_cols], height=620)
+        with coverage_tabs[2]:
+            st.caption(
+                "All mapped active-cohort device IDs are shown, with a flag for completed local evidence before the "
+                "exclusive boundary 2025-12-31 00:00 local time."
+            )
+            cutoff_view_cols = [
+                "patient_id",
+                "device_id",
+                "observation_sources",
+                "first_observed_date",
+                "last_observed_date",
+                "sensor_accelerometer_first_seen_local",
+                "sensor_linear_accelerometer_first_seen_local",
+                "raw_linear_first_seen_local",
+                "raw_linear_last_seen_local",
+                "raw_linear_accelerometer_rows",
+                "raw_acc_probe_available",
+                "local_evidence_before_2025_12_30",
+                "local_evidence_status",
+            ]
+            cutoff_view_cols = [column for column in cutoff_view_cols if column in mapped_device_data_cutoff.columns]
+            show_dataframe(mapped_device_data_cutoff[cutoff_view_cols], height=620)
+        with coverage_tabs[3]:
+            st.subheader("Metadata summarized by patient and source table")
+            show_dataframe(accelerometer_metadata_patient_summary, height=320)
+            st.subheader("Devices with existing bounded raw ACC confirmation")
+            show_dataframe(confirmed_raw_acc_probe_devices, height=320)
+            st.subheader("Device-level evidence inventory")
+            evidence_cols = [
+                "patient_id",
+                "device_id",
+                "cohort_membership",
+                "observation_sources",
+                "first_observed_date",
+                "last_observed_date",
+                "raw_linear_accelerometer_rows",
+                "raw_linear_first_seen_local",
+                "raw_linear_last_seen_local",
+                "raw_acc_probe_available",
+                "raw_acc_probe_evidence_level",
+                "local_evidence_status",
+                "raw_acc_full_audit_status",
+            ]
+            evidence_cols = [column for column in evidence_cols if column in patient_device_accelerometer_evidence.columns]
+            show_dataframe(patient_device_accelerometer_evidence[evidence_cols], height=560)
+
+    st.divider()
 
     calls_long = load_csv(PATHS["rd_calls_t1_week_long"])
     calls_wide = load_csv(PATHS["rd_calls_t1_week_wide"])
@@ -4293,6 +8662,194 @@ def rich_wide_page() -> None:
         show_dataframe(rich[show_cols], height=480)
 
 
+def supplemental_modalities_page() -> None:
+    st.title("Supplemental Modalities")
+    st.caption("Bounded QC for proximity, light, and raw accelerometer before feature extraction and model augmentation.")
+
+    root = ROOT / "output/analysis_candidates/supplemental_modalities/bounded_qc_v3"
+    summary = load_csv(root / "supplemental_bounded_modality_summary.csv")
+    if summary.empty:
+        st.info("Supplemental modality QC has not been completed yet.")
+        st.code(".venv/bin/python3 -m supplemental_modalities.run_bounded_qc --modality all --resume")
+        st.markdown(load_text(PATHS["supplemental_modality_protocol"]))
+        return
+
+    calculated = int(pd.to_numeric(summary.get("calculated_patients"), errors="coerce").sum())
+    total_probe_rows = int(pd.to_numeric(summary.get("total_rows_in_selected_windows"), errors="coerce").sum())
+    metric_row(
+        [
+            ("Valid subjects", 81),
+            ("Modality probes", len(summary)),
+            ("Calculated patient-modality results", calculated),
+            ("Rows counted in probes", f"{total_probe_rows:,}"),
+        ]
+    )
+
+    st.subheader("QC gate")
+    st.markdown(
+        "These are bounded availability checks, not clinical features or model results. "
+        "Missing rows remain missing, and the original cohorts are unchanged."
+    )
+    show_dataframe(summary, height=230)
+
+    modality_tabs = st.tabs(["Proximity", "Light", "Accelerometer", "Protocol"])
+    for tab, modality in zip(modality_tabs[:3], ["proximity", "light", "accelerometer"]):
+        with tab:
+            patient_qc = load_csv(root / f"{modality}_patient_qc.csv")
+            device_qc = load_csv(root / f"{modality}_device_qc.csv")
+            if patient_qc.empty:
+                st.info(f"No {modality} QC output is available yet.")
+                continue
+            status_counts = patient_qc["status"].value_counts().rename_axis("status").reset_index(name="patients")
+            st.bar_chart(status_counts.set_index("status"))
+            st.markdown("**Patient-level QC**")
+            show_dataframe(patient_qc, height=430)
+            with st.expander("Device and window QC"):
+                show_dataframe(device_qc, height=360)
+    with modality_tabs[3]:
+        st.markdown(load_text(PATHS["supplemental_modality_protocol"]))
+
+    extraction_root = ROOT / "output/analysis_candidates/supplemental_modalities/phase4_24h_t1"
+    extraction_summary = load_csv(PATHS["supplemental_feature_extraction_summary"])
+    st.subheader("Phase 4 24-hour T1 feature extraction")
+    st.caption("Additive patient-level outputs from proximity, light, and accelerometer. Prior cohorts and models are unchanged.")
+    if extraction_summary.empty:
+        st.info("The derived feature extraction summary is not available yet.")
+        st.code(".venv/bin/python3 -m supplemental_modalities.extract_phase4_24h_t1 --modality all --resume")
+        return
+
+    total_patients = int(pd.to_numeric(extraction_summary.get("patients"), errors="coerce").fillna(0).max())
+    total_calculated = int(pd.to_numeric(extraction_summary.get("calculated"), errors="coerce").sum())
+    total_deferred = int(pd.to_numeric(extraction_summary.get("deferred"), errors="coerce").sum())
+    metric_row(
+        [
+            ("Cohort patients", total_patients),
+            ("Calculated modality results", total_calculated),
+            ("Deferred high-frequency work", total_deferred),
+            ("Feature tables", len([path for path in extraction_root.glob("*_features_wide.csv")])),
+        ]
+    )
+    show_dataframe(extraction_summary, height=190)
+
+    extraction_tabs = st.tabs(["Proximity features", "Light features", "Accelerometer features"])
+    for tab, modality in zip(extraction_tabs, ["proximity", "light", "accelerometer"]):
+        with tab:
+            status = load_csv(extraction_root / f"{modality}_patient_status.csv")
+            wide = load_csv(extraction_root / f"{modality}_features_wide.csv")
+            metadata = load_csv(extraction_root / "supplemental_phase4_24h_feature_metadata.csv")
+            metadata = metadata[metadata.get("modality", pd.Series(dtype=str)).eq(modality)] if not metadata.empty else metadata
+            if status.empty and wide.empty:
+                st.info(f"No finalized {modality} feature output is available yet.")
+                continue
+            if not status.empty and "status" in status:
+                counts = status["status"].value_counts().rename_axis("status").reset_index(name="patients")
+                st.bar_chart(counts.set_index("status"))
+            st.markdown("**Patient-level feature table**")
+            show_dataframe(wide, height=360)
+            with st.expander("Patient status and coverage"):
+                show_dataframe(status, height=300)
+                show_dataframe(load_csv(extraction_root / f"{modality}_coverage.csv"), height=280)
+            with st.expander("Feature definitions"):
+                show_dataframe(metadata, height=320)
+
+    review = load_csv(PATHS["supplemental_feature_review"])
+    if review.empty:
+        return
+    st.subheader("Phase 4 proximity/light feature review")
+    st.caption(
+        "Choose features for a later additive model comparison. Coverage/QC variables are shown for sensitivity analysis, "
+        "but are not recommended as primary behavioral predictors."
+    )
+    review["recommended_for_review"] = review["recommended_for_review"].astype(str).str.lower().eq("true")
+    review["coverage_percent"] = pd.to_numeric(review["coverage_percent"], errors="coerce")
+    review["display_recommendation"] = review.apply(
+        lambda row: "Recommended exploratory candidate"
+        if row["recommended_for_review"] and row["coverage_percent"] >= 20
+        else ("Available, low coverage" if row["coverage_percent"] < 20 else "Sensitivity/QC only"),
+        axis=1,
+    )
+    review_columns = [
+        "modality",
+        "feature_name",
+        "feature_group",
+        "display_recommendation",
+        "patients_with_value",
+        "coverage_percent",
+        "median",
+        "iqr",
+        "exploratory_spearman_global_T1",
+        "review_note",
+    ]
+    show_dataframe(review[review_columns], height=520)
+
+    saved_selection = load_csv(PATHS["supplemental_feature_selection"])
+    saved_by_modality: dict[str, list[str]] = {"proximity": [], "light": []}
+    if not saved_selection.empty and {"modality", "feature_name"}.issubset(saved_selection.columns):
+        for modality in saved_by_modality:
+            saved_by_modality[modality] = saved_selection.loc[
+                saved_selection["modality"].astype(str).eq(modality), "feature_name"
+            ].astype(str).tolist()
+
+    selections: list[dict[str, object]] = []
+    selection_tabs = st.tabs(["Select proximity features", "Select light features"])
+    for tab, modality in zip(selection_tabs, ["proximity", "light"]):
+        with tab:
+            modality_review = review[review["modality"].astype(str).eq(modality)].copy()
+            groups = sorted(modality_review["feature_group"].dropna().astype(str).unique().tolist())
+            selected_groups = st.multiselect(
+                "Feature groups to show",
+                groups,
+                default=[group for group in groups if group != "coverage_qc"],
+                key=f"supplemental_review_groups_{modality}",
+            )
+            visible = modality_review[modality_review["feature_group"].isin(selected_groups)].copy()
+            options = visible["feature_name"].astype(str).tolist()
+            saved = [feature for feature in saved_by_modality[modality] if feature in options]
+            default = saved or [
+                feature
+                for feature in RECOMMENDED_FEATURES[modality]
+                if feature in options
+                and float(
+                    modality_review.loc[modality_review["feature_name"].eq(feature), "coverage_percent"].iloc[0]
+                )
+                >= 20
+            ]
+            selected = st.multiselect(
+                "Features selected for later model comparison",
+                options,
+                default=default,
+                key=f"supplemental_review_features_{modality}",
+            )
+            st.caption(f"{len(selected)} selected | {len(options)} visible in the chosen groups")
+            selected_rows = modality_review[modality_review["feature_name"].isin(selected)]
+            show_dataframe(
+                selected_rows[
+                    [
+                        "feature_name",
+                        "feature_group",
+                        "patients_with_value",
+                        "coverage_percent",
+                        "median",
+                        "iqr",
+                        "review_note",
+                    ]
+                ],
+                height=240,
+            )
+            selections.extend(
+                {
+                    "modality": modality,
+                    "feature_name": feature,
+                    "selection_source": "manual_streamlit_selection",
+                }
+                for feature in selected
+            )
+
+    if st.button("Save supplemental feature selection", type="primary", use_container_width=True):
+        pd.DataFrame(selections).to_csv(PATHS["supplemental_feature_selection"], index=False)
+        st.success(f"Saved {len(selections)} features for later model comparison. No model was run.")
+
+
 def samples_page() -> None:
     st.title("Manual SQL Samples")
     sample_rows = load_csv(PATHS["sample_rows"])
@@ -4342,8 +8899,22 @@ PAGES = {
     "Phase 7 10-Day Window": phase7_10day_page,
     "Phase 6 T1-T2 Decline": phase6_decline_page,
     "Phase 6 10-Day T1-T2 Decline": phase6_10day_decline_page,
+    "Phase 11 T1 Baseline": phase11_midpoint_page,
+    "Phase 11 Clinical Tables": phase11_clinical_tables_page,
+    "Exploratory Empirical Findings": phase_exploratory_empirical_findings_page,
+    "Exploratory Empirical Findings (1;4)": phase_exploratory_empirical_findings_1_4_page,
+    "Phase 11 B T1 Baseline": phase11_b_page,
+    "Phase 12 T1-T2 Change": phase12_midpoint_decline_page,
+    "Phase 12 B T1-T2 Change": phase12_b_page,
+    "Phase 111 Full-Interval Ridge": phase111_full_interval_page,
+    "Exploratory Unsupervised Phenotyping": unsupervised_phenotyping_page,
+    "ACC Movement Feature Pilot": accelerometer_event_day_pilot_page,
+    "ACC Feature Audit": accelerometer_feature_audit_page,
+    "ACC All-Mapped Feature Audit": accelerometer_all_mapped_feature_audit_page,
+    "Research Manuscript": research_manuscript_page,
     "Result Explorer": result_explorer_page,
     "R&D": rd_page,
+    "Supplemental Modalities": supplemental_modalities_page,
     "SQL Samples": samples_page,
     "Files": files_page,
 }
@@ -4371,14 +8942,26 @@ def main() -> None:
             padding-bottom: 0.18rem;
         }
         [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(15) p,
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(16) p {
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(16) p,
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(17) p,
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(18) p {
             font-size: 1.18rem !important;
             font-weight: 800 !important;
         }
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(24) p {
+            font-size: 1.22rem !important;
+            font-weight: 900 !important;
+        }
         [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(15),
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(16) {
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(16),
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(17),
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(18) {
             padding-top: 0.18rem;
             padding-bottom: 0.18rem;
+        }
+        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(24) {
+            padding-top: 0.22rem;
+            padding-bottom: 0.22rem;
         }
         </style>
         """,

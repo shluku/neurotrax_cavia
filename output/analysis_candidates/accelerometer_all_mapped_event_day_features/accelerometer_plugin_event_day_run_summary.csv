@@ -1,0 +1,12 @@
+metric,value
+selected_patient_count,59
+selected_patients,"002, 003, 004, 005, 006, 007, 010, 011, 012, 013, 014, 015, 019, 020, 021, 022, 023, 024, 029, 030, 031, 032, 034, 035, 036, 038, 039, 040, 041, 044, 045, 046, 048, 053, 057, 060, 062, 067, 068, 070, 071, 072, 073, 074, 075, 076, 077, 078, 080, 082, 083, 085, 087, 089, 090, 091, 093, 095, 096"
+candidate_device_day_count,7374
+preflight_days_with_raw_rows,7
+completed_device_day_features,7
+days_without_raw_rows,0
+failed_device_day_extractions,50
+pending_device_days,7317
+total_raw_rows_preflight,6357243
+feature_rows_written,7
+feature_count,24

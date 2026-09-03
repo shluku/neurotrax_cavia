@@ -1,0 +1,13 @@
+metric,value
+pilot_patients,59
+candidate_device_days,7374
+completed_patient_days,7
+completed_device_days,7
+feature_count,24
+primary_behavioral_candidate_count,12
+sensitivity_feature_count,3
+quality_qc_feature_count,9
+patient_level_rows,59
+pilot_selection_allowed,no
+model_comparison_status,deferred_until_larger_patient_cohort
+pilot_run_pending_device_days,7317
