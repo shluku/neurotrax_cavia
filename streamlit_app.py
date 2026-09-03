@@ -246,6 +246,20 @@ PATHS = {
     / "output/analysis_candidates/accelerometer_all_mapped_feature_audit/accelerometer_patient_day_features_audited.csv",
     "accelerometer_all_mapped_feature_audit_patient_level": ROOT
     / "output/analysis_candidates/accelerometer_all_mapped_feature_audit/accelerometer_patient_level_features.csv",
+    "accelerometer_sequential_readme": ROOT
+    / "output/analysis_candidates/accelerometer_patient_sequential_pipeline/README_accelerometer_patient_sequential_pipeline.md",
+    "accelerometer_sequential_summary": ROOT
+    / "output/analysis_candidates/accelerometer_patient_sequential_pipeline/accelerometer_patient_sequential_run_summary.csv",
+    "accelerometer_sequential_progress": ROOT
+    / "output/analysis_candidates/accelerometer_patient_sequential_pipeline/accelerometer_patient_sequential_patient_progress.csv",
+    "accelerometer_sequential_status": ROOT
+    / "output/analysis_candidates/accelerometer_patient_sequential_pipeline/accelerometer_patient_sequential_status.csv",
+    "accelerometer_sequential_device_day": ROOT
+    / "output/analysis_candidates/accelerometer_patient_sequential_pipeline/accelerometer_patient_sequential_device_day_features.csv",
+    "accelerometer_sequential_patient_day": ROOT
+    / "output/analysis_candidates/accelerometer_patient_sequential_pipeline/accelerometer_patient_sequential_patient_day_features.csv",
+    "accelerometer_sequential_patient_level": ROOT
+    / "output/analysis_candidates/accelerometer_patient_sequential_pipeline/accelerometer_patient_sequential_patient_level_features.csv",
     "plugin_activity_t1_only_readme": ROOT
     / "output/analysis_candidates/plugin_activity_movement_dictionary/t1_only_extension/README_plugin_activity_t1_only_extension.md",
     "plugin_activity_t1_only_summary": ROOT
@@ -7614,6 +7628,101 @@ def accelerometer_all_mapped_feature_audit_page() -> None:
     )
 
 
+def accelerometer_patient_sequential_page() -> None:
+    st.markdown(
+        '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
+        "ACC Patient-Sequential Pipeline"
+        "</h1>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        "Patient-by-patient extraction of complete candidate movement days, with a patient-level merge before the next patient begins."
+    )
+    summary = load_csv(PATHS["accelerometer_sequential_summary"])
+    progress = load_csv(PATHS["accelerometer_sequential_progress"])
+    status = load_csv(PATHS["accelerometer_sequential_status"])
+    device_days = load_csv(PATHS["accelerometer_sequential_device_day"])
+    patient_days = load_csv(PATHS["accelerometer_sequential_patient_day"])
+    patient_level = load_csv(PATHS["accelerometer_sequential_patient_level"])
+    readme = load_text(PATHS["accelerometer_sequential_readme"])
+
+    if summary.empty and progress.empty:
+        st.info("The patient-sequential ACC pipeline has not started yet.")
+        st.code(
+            ".venv/bin/python3 -u extract_accelerometer_patient_sequential.py"
+        )
+        return
+
+    summary_lookup = dict(zip(summary.get("metric", pd.Series(dtype=str)), summary.get("value", pd.Series(dtype=str))))
+
+    def summary_int(name: str) -> int:
+        try:
+            return int(float(summary_lookup.get(name, 0)))
+        except (TypeError, ValueError):
+            return 0
+
+    metric_row(
+        [
+            ("Patients", summary_int("selected_patient_count")),
+            ("Current patient", summary_lookup.get("current_patient", "")),
+            ("Candidate days", summary_int("candidate_device_day_count")),
+            ("Completed feature-days", summary_int("completed_device_day_features")),
+            ("Pending days", summary_int("pending_device_days")),
+            ("Patient-level rows", summary_int("patient_level_rows")),
+        ]
+    )
+    st.info(
+        "Candidate days come from the mapped movement dictionary. Only those days are processed. "
+        "Each complete patient-local day is merged into the patient-level table before the next patient is started."
+    )
+
+    tabs = st.tabs(["Patient progress", "Patient-level merge", "Daily feature rows", "Protocol"])
+    with tabs[0]:
+        if progress.empty:
+            st.info("Patient progress is not available yet.")
+        else:
+            progress_view = progress.copy()
+            status_order = {"complete": 0, "complete_with_errors": 1, "pending": 2}
+            progress_view["status_order"] = progress_view.get("patient_status", pd.Series(dtype=str)).map(status_order).fillna(9)
+            progress_view = progress_view.sort_values(["status_order", "patient_id"]).drop(columns=["status_order"])
+            show_dataframe(progress_view, height=560)
+
+    with tabs[1]:
+        st.caption("One row per patient. Values are medians and means across completed patient-local days.")
+        show_dataframe(patient_level, height=620)
+
+    with tabs[2]:
+        st.caption("One row per patient-device-local day. Missing raw ACC remains explicitly represented in the status table.")
+        if not patient_days.empty:
+            show_dataframe(patient_days, height=500)
+        with st.expander("Device-day feature rows"):
+            show_dataframe(device_days, height=620)
+        with st.expander("Extraction status"):
+            show_dataframe(status, height=520)
+
+    with tabs[3]:
+        if readme:
+            st.markdown(readme)
+        st.code(
+            ".venv/bin/python3 -u extract_accelerometer_patient_sequential.py --patient-id 003"
+        )
+        downloads = [
+            ("Patient progress", progress, "accelerometer_patient_sequential_patient_progress.csv"),
+            ("Patient-level features", patient_level, "accelerometer_patient_sequential_patient_level_features.csv"),
+            ("Patient-day features", patient_days, "accelerometer_patient_sequential_patient_day_features.csv"),
+            ("Device-day features", device_days, "accelerometer_patient_sequential_device_day_features.csv"),
+            ("Extraction status", status, "accelerometer_patient_sequential_status.csv"),
+        ]
+        for label, frame, filename in downloads:
+            st.download_button(
+                label,
+                frame.to_csv(index=False).encode("utf-8"),
+                filename,
+                "text/csv",
+                key=f"acc_sequential_{filename}",
+            )
+
+
 def rd_page() -> None:
     st.title("R&D")
     st.caption("Protocol experiments that test alternative acquisition rules without overwriting Phase 3 outputs.")
@@ -8925,6 +9034,7 @@ PAGES = {
     "Phase 111 Full-Interval Ridge": phase111_full_interval_page,
     "Exploratory Unsupervised Phenotyping": unsupervised_phenotyping_page,
     "ACC Movement Feature Pilot": accelerometer_event_day_pilot_page,
+    "ACC Patient-Sequential Pipeline": accelerometer_patient_sequential_page,
     "ACC Feature Audit": accelerometer_feature_audit_page,
     "ACC All-Mapped Feature Audit": accelerometer_all_mapped_feature_audit_page,
     "Research Manuscript": research_manuscript_page,
