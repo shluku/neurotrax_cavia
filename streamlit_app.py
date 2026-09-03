@@ -7266,6 +7266,22 @@ def accelerometer_event_day_pilot_page() -> None:
             ]
             show_dataframe(patient_day_view[[column for column in overview_columns if column in patient_day_view.columns]], height=440)
 
+        st.subheader("General patient pipeline")
+        st.markdown(
+            """
+            1. The movement dictionary identifies a mapped patient, device, and local date with a potential movement event.
+            2. The ACC source is queried for the complete local calendar day, from midnight to the next midnight.
+            3. The returned JSON records are checked for valid timestamps and numeric x, y, and z values.
+            4. Each valid sample is converted to vector magnitude, then to dynamic magnitude relative to that day's median.
+            5. Raw-sample and one-minute summaries are used to calculate movement-intensity, motion-bout, quiet-interval, circadian, and signal-change features.
+            6. Coverage, sampling intervals, gaps, row counts, and invalid records are saved as quality-control variables.
+            7. One feature row is saved for each patient-device-local day. Multiple devices can then be combined into one patient-day row.
+            8. After the intended days are extracted, valid patient-day rows can be aggregated into one patient-level ACC row and merged with the existing patient dataset by patient ID.
+
+            No missing time is converted to zero movement, and unavailable ACC days remain explicitly documented. The current ACC feature set is exploratory and does not identify specific activities such as walking or tremor.
+            """
+        )
+
     with tabs[1]:
         st.caption("One row per mapped patient-device-local day. Values are signal summaries; missing or unavailable values remain missing.")
         show_dataframe(features, height=620)
