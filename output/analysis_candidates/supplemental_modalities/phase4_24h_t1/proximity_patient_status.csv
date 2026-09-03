@@ -1,0 +1,2 @@
+Subject_ID_D,Subject_ID_N,global_T1,T1_date_iso,modality,table_name,status,window_rule,window_start_ms,window_end_ms,window_start_local,window_end_local,device_ids_available,device_ids_used,n_devices_available,n_devices_used,rows_in_window,error_message
+002,64,104.8,2025-01-27,proximity,proximity,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,1738015200000,1738101600000,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200,1f17227b-a259-4caa-bf40-4eccf742447e;c84399c2-6bc9-44ad-9b46-81ba47b5c14b,,2,0,0,

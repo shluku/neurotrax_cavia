@@ -1,0 +1,2 @@
+patient_id,device_id,t1_date,t2_date,window_start_local,window_end_local,window_start_ms,window_end_ms_exclusive,query_status,raw_row_count,valid_label_row_count,json_parse_error_count,invalid_timestamp_count,first_event_time_local,last_event_time_local,nested_candidate_row_count,error_message
+002,60e31068-dd5d-4fab-8b27-13f1c90c8ec0,2025-01-27,2025-12-24,2025-01-27 00:00:00 Asia/Jerusalem,2025-12-24 00:00:00 Asia/Jerusalem,1737928800000,1766527200000,completed,9,9,0,0,2025-06-23 13:56:46+0300,2025-06-23 13:59:52+0300,18,

@@ -1,0 +1,109 @@
+patient_id,source_table,metadata_device_count,metadata_rows,metadata_first_seen_local,metadata_last_seen_local,metadata_sensor_names,metadata_sensor_vendors,metadata_sensor_types
+002,sensor_accelerometer,2,188,2025-01-27 10:11:52+0200,2025-09-10 08:32:56+0300,icm4x6xx Accelerometer Non-wakeup; lsm6dso LSM6DSO Accelerometer Non-wakeup,STMicro; TDK-Invensense,1
+002,sensor_linear_accelerometer,1,35,2025-07-08 10:08:59+0300,2025-09-10 08:33:58+0300,linear_acceleration,qualcomm,10
+003,sensor_accelerometer,1,101,2025-01-06 12:09:05+0200,2025-01-06 12:09:05+0200,lsm6dso LSM6DSO Accelerometer Non-wakeup,STMicro,1
+004,sensor_accelerometer,1,169,2025-01-06 10:25:29+0200,2025-01-06 10:25:29+0200,LSM6DSO Acceleration Sensor,STM,1
+005,sensor_accelerometer,1,137,2025-01-06 11:10:04+0200,2025-01-06 11:10:04+0200,LSM6DSOTR Accelerometer,STM,1
+006,sensor_accelerometer,2,221,2025-01-06 12:24:02+0200,2025-09-15 08:12:47+0300,accelerometer_sc7a20s,Sprd Group Ltd.,1
+007,sensor_accelerometer,2,1276,2025-01-23 10:19:32+0200,2026-01-25 20:47:01+0200,lsm6ds3c Accelerometer Non-wakeup,STMicro,1
+007,sensor_linear_accelerometer,1,999,2025-07-13 12:01:37+0300,2026-01-25 18:47:01+0200,linear_acceleration,qualcomm,10
+010,sensor_accelerometer,2,136,2025-01-14 12:18:29+0200,2025-07-13 09:52:43+0300,LIS2DLC12 Accelerometer,STM,1
+011,sensor_accelerometer,1,55,2025-02-04 11:35:17+0200,2025-02-04 11:35:17+0200,LSM6DSO Accelerometer,STMicro,1
+012,sensor_accelerometer,3,215,2025-01-06 10:29:24+0200,2025-08-17 07:21:16+0300,LSM6DSO Accelerometer; lsm6dso Accelerometer Non-wakeup,STMicro,1
+012,sensor_linear_accelerometer,1,39,2025-07-09 11:48:50+0300,2025-08-17 07:21:19+0300,linear_acceleration,qualcomm,10
+013,sensor_accelerometer,1,92,2025-01-27 09:07:05+0200,2025-01-27 09:07:05+0200,lsm6dso Accelerometer Non-wakeup,STMicro,1
+014,sensor_accelerometer,2,230,2025-01-20 08:34:25+0200,2025-08-28 08:03:44+0300,LSM6DSL Accelerometer; LSM6DSVTR Accelerometer,STM,1
+014,sensor_linear_accelerometer,1,58,2025-07-08 12:15:43+0300,2025-08-28 08:13:52+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+015,sensor_accelerometer,4,479,2025-01-06 12:47:51+0200,2025-10-28 19:02:31+0200,ICM42632M Accelerometer; LSM6DSO Acceleration Sensor,STM; TDK Invensense,1
+015,sensor_linear_accelerometer,1,134,2025-07-21 11:17:05+0300,2025-10-28 20:20:51+0200,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+018,sensor_accelerometer,2,357,2025-03-02 09:22:24+0200,2026-02-20 13:55:29+0200,LSM6DSO Accelerometer,STMicro,1
+019,sensor_accelerometer,1,57,2025-01-21 12:17:51+0200,2025-01-21 12:17:51+0200,LSM6DSL Accelerometer,STM,1
+020,sensor_accelerometer,2,523,2025-01-08 10:57:15+0200,2025-08-31 08:35:03+0300,lsm6dso LSM6DSO Accelerometer Non-wakeup,STMicro,1
+020,sensor_linear_accelerometer,1,110,2025-07-08 13:15:22+0300,2025-08-31 08:05:02+0300,gravity linear_acceleration Non-wakeup,QTI,10
+021,sensor_accelerometer,2,241,2025-01-08 12:13:29+0200,2025-08-11 05:42:43+0300,LSM6DSVTR Accelerometer,STM,1
+021,sensor_linear_accelerometer,1,37,2025-07-08 13:18:34+0300,2025-08-11 06:11:02+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+022,sensor_accelerometer,3,165,2025-01-21 11:11:44+0200,2025-09-16 07:04:06+0300,LIS2DLC12 Accelerometer; LSM6DSVTR Accelerometer,STM,1
+022,sensor_linear_accelerometer,1,12,2025-07-09 10:26:41+0300,2025-09-16 07:04:06+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+023,sensor_accelerometer,2,221,2025-01-09 10:17:19+0200,2025-09-07 06:42:26+0300,LSM6DSOTR Accelerometer,STM,1
+023,sensor_linear_accelerometer,1,32,2025-07-08 13:31:53+0300,2025-09-03 06:53:20+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+024,sensor_accelerometer,2,845,2025-01-28 10:20:06+0200,2025-09-13 03:35:39+0300,LSM6DSL Accelerometer,STM,1
+026,sensor_accelerometer,1,490,2025-02-12 10:37:54+0200,2025-02-12 10:37:54+0200,LSM6DSVTR Accelerometer,STM,1
+028,sensor_accelerometer,2,414,2025-01-20 10:30:52+0200,2025-03-04 09:21:38+0200,LSM6DSVTR Accelerometer; lsm6dso Accelerometer Non-wakeup,STM; STMicro,1
+029,sensor_accelerometer,2,148,2025-03-02 11:08:31+0200,2025-08-01 02:27:07+0300,lsm6dso LSM6DSO Accelerometer Non-wakeup,STMicro,1
+029,sensor_linear_accelerometer,1,21,2025-07-21 08:40:46+0300,2025-08-01 02:27:08+0300,linear_acceleration,QTI,10
+030,sensor_accelerometer,3,117,2025-01-08 09:08:36+0200,2025-07-08 11:46:55+0300,LSM6DSOTR Accelerometer,STM,1
+030,sensor_linear_accelerometer,1,1,2025-07-08 11:46:53+0300,2025-07-08 11:46:53+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+031,sensor_accelerometer,3,134,2025-01-28 10:13:32+0200,2025-10-20 15:36:26+0300,lsm6dso Accelerometer Non-wakeup,STMicro,1
+031,sensor_linear_accelerometer,1,45,2025-07-30 11:40:56+0300,2025-10-20 15:36:26+0300,linear_acceleration,qualcomm,10
+032,sensor_accelerometer,2,240,2025-01-23 12:08:54+0200,2025-09-08 15:45:14+0300,LSM6DSL Accelerometer;LSM6DSVTR Accelerometer; LSM6DSVTR Accelerometer,STM,1
+032,sensor_linear_accelerometer,1,81,2025-07-08 10:21:41+0300,2025-09-07 15:43:01+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+034,sensor_accelerometer,1,42,2025-02-04 11:01:04+0200,2025-02-04 11:01:04+0200,LSM6DSOTR Accelerometer,STM,1
+035,sensor_accelerometer,2,400,2025-01-21 11:02:52+0200,2025-09-04 09:09:36+0300,LSM6DSO Accelerometer,STM,1
+035,sensor_linear_accelerometer,1,128,2025-07-10 13:46:51+0300,2025-09-03 15:51:06+0300,Linear Acceleration Sensor,Samsung Electronics,10
+036,sensor_accelerometer,2,165,2025-01-16 11:02:26+0200,2025-07-08 11:59:36+0300,LSM6DSOTR Accelerometer,STM,1
+036,sensor_linear_accelerometer,1,2,2025-07-08 11:59:37+0300,2025-07-08 11:59:43+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+037,sensor_accelerometer,2,114,2025-01-20 11:56:38+0200,2025-08-04 23:37:02+0300,LSM6DSO Accelerometer,STM,1
+038,sensor_accelerometer,3,185,2025-03-06 11:13:43+0200,2025-10-15 10:14:33+0300,LSM6DSOTR Accelerometer,STM,1
+038,sensor_linear_accelerometer,2,53,2025-07-10 10:31:06+0300,2025-10-12 09:04:12+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+039,sensor_accelerometer,3,387,2025-01-13 11:36:13+0200,2025-09-05 07:57:05+0300,BMI120 Accelerometer; lsm6dsv Accelerometer Non-wakeup,BOSCH; STMicro,1
+039,sensor_linear_accelerometer,1,4,2025-07-21 10:55:40+0300,2025-07-31 09:07:23+0300,linear_acceleration,QTI,10
+040,sensor_accelerometer,1,140,2025-01-27 11:39:21+0200,2025-01-27 11:39:21+0200,LSM6DSO Accelerometer,STM,1
+041,sensor_accelerometer,3,49,2025-01-08 09:07:27+0200,2025-08-01 11:03:07+0300,accelerometer-lsm6dsm,st,1
+042,sensor_accelerometer,2,172,2025-01-08 09:09:26+0200,2025-07-08 13:07:10+0300,LSM6DSOTR Accelerometer,STM,1
+043,sensor_accelerometer,2,79,2025-01-21 10:37:04+0200,2025-03-11 14:08:45+0200,stk8xxx,STK,1
+044,sensor_accelerometer,3,318,2025-02-04 12:22:32+0200,2025-08-15 10:23:04+0300,icm4x6xx Accelerometer Non-wakeup,TDK-Invensense,1
+044,sensor_linear_accelerometer,1,124,2025-07-10 11:22:50+0300,2025-08-15 10:23:04+0300,linear_acceleration,qualcomm,10
+045,sensor_accelerometer,2,136,2025-01-21 10:39:00+0200,2025-10-20 11:43:54+0300,LSM6DSO Accelerometer,STM,1
+045,sensor_linear_accelerometer,1,35,2025-07-10 10:22:23+0300,2025-10-20 11:43:55+0300,Linear Acceleration Sensor,Samsung Electronics,10
+046,sensor_accelerometer,2,90,2025-01-28 10:10:39+0200,2025-08-21 15:05:56+0300,LSM6DSVTR Accelerometer; bmi220 Accelerometer Non-wakeup,BOSCH; STM,1
+046,sensor_linear_accelerometer,1,35,2025-07-13 11:00:21+0300,2025-08-21 15:05:56+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+048,sensor_accelerometer,1,18,2025-07-08 12:00:53+0300,2025-09-11 20:14:40+0300,LSM6DSVTR Accelerometer,STM,1
+048,sensor_linear_accelerometer,1,17,2025-07-08 12:00:54+0300,2025-09-11 20:14:41+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+049,sensor_accelerometer,2,119,2025-03-06 12:41:43+0200,2025-07-15 16:55:37+0300,LSM6DSOTR Accelerometer,STM,1
+049,sensor_linear_accelerometer,1,3,2025-07-10 13:29:34+0300,2025-07-15 18:52:50+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+050,sensor_accelerometer,2,57,2025-01-16 10:43:22+0200,2025-07-09 11:05:38+0300,LSM6DSL Accelerometer,STM,1
+052,sensor_accelerometer,3,22,2025-01-09 12:06:43+0200,2025-07-14 06:25:13+0300,ICM42632M Accelerometer;lsm6dso Accelerometer Non-wakeup; lsm6dso Accelerometer Non-wakeup,STMicro; STMicro;TDK Invensense,1
+052,sensor_linear_accelerometer,1,5,2025-07-10 10:56:27+0300,2025-07-14 03:14:51+0300,Samsung Linear Acceleration Sensor;linear_acceleration,Samsung Electronics;qualcomm,10
+053,sensor_accelerometer,1,66,2025-01-14 09:22:41+0200,2025-01-14 09:22:41+0200,bmi3x0 Accelerometer Non-wakeup,BOSCH,1
+055,sensor_accelerometer,1,158,2025-01-14 10:17:28+0200,2025-01-14 10:17:28+0200,LSM6DSO Accelerometer,STM,1
+057,sensor_accelerometer,2,611,2025-01-14 11:51:16+0200,2025-08-12 22:43:59+0300,LSM6DSL Accelerometer,STM,1
+058,sensor_accelerometer,2,156,2025-01-23 10:31:08+0200,2025-07-30 10:46:48+0300,ICM42632M Accelerometer,TDK,1
+060,sensor_accelerometer,2,318,2025-01-13 09:46:46+0200,2025-07-23 22:49:38+0300,LSM6DSL Accelerometer,STM,1
+061,sensor_accelerometer,2,135,2025-01-23 10:31:06+0200,2025-07-08 11:37:54+0300,LSM6DSL Accelerometer; stk83xx,STK; STM,1
+062,sensor_accelerometer,2,187,2025-01-16 12:20:07+0200,2025-09-07 07:35:20+0300,lsm6dso_acc,st,1
+062,sensor_linear_accelerometer,2,41,2025-07-09 10:55:22+0300,2025-09-06 21:50:44+0300,linear_acc,mtk,10
+064,sensor_accelerometer,2,72,2025-01-28 11:04:39+0200,2025-02-12 11:37:14+0200,icm4x6xx Accelerometer Non-wakeup; lsm6dso LSM6DSO Accelerometer Non-wakeup,STMicro; TDK-Invensense,1
+066,sensor_accelerometer,1,38,2025-01-20 10:26:40+0200,2025-01-20 10:26:40+0200,lsm6dso Accelerometer Non-wakeup,STMicro,1
+066,sensor_linear_accelerometer,1,24,2025-03-04 12:29:02+0200,2025-03-04 12:29:02+0200,linear_acceleration,qualcomm,10
+067,sensor_accelerometer,1,159,2025-01-13 10:18:33+0200,2025-01-13 10:18:33+0200,lsm6dso Accelerometer Non-wakeup,STMicro,1
+068,sensor_accelerometer,1,157,2025-01-21 10:38:15+0200,2025-01-21 10:38:15+0200,LSM6DSL Accelerometer,STM,1
+069,sensor_accelerometer,1,77,2025-01-20 12:10:50+0200,2025-01-20 12:10:50+0200,LSM6DSOTR Accelerometer,STM,1
+070,sensor_accelerometer,2,113,2025-01-13 09:26:03+0200,2025-09-02 09:52:14+0300,icm4x6xx Accelerometer Non-wakeup,TDK-Invensense,1
+071,sensor_accelerometer,1,55,2025-01-14 10:19:00+0200,2025-01-14 10:19:00+0200,LSM6DSVTR Accelerometer,STM,1
+072,sensor_accelerometer,2,197,2025-03-06 10:17:24+0200,2025-07-13 12:20:45+0300,LSM6DSOTR Accelerometer,STM,1
+072,sensor_linear_accelerometer,1,1,2025-07-13 12:20:46+0300,2025-07-13 12:20:46+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+073,sensor_accelerometer,3,156,2025-01-14 10:36:01+0200,2025-07-28 03:56:07+0300,lsm6dsm ACCELEROMETER,STMicro,1
+074,sensor_accelerometer,2,122,2025-01-23 11:07:06+0200,2025-03-30 11:57:52+0300,lsm6dso Accelerometer Non-wakeup,STMicro,1
+075,sensor_accelerometer,1,344,2025-01-23 09:10:39+0200,2025-07-30 14:53:28+0300,LSM6DSL Accelerometer,STMicroelectronics,1
+076,sensor_accelerometer,2,141,2025-01-28 12:21:30+0200,2025-07-08 10:12:03+0300,lsm6dso LSM6DSO Accelerometer Non-wakeup,STMicro,1
+076,sensor_linear_accelerometer,1,1,2025-07-08 10:11:56+0300,2025-07-08 10:11:56+0300,gravity linear_acceleration Non-wakeup,QTI,10
+077,sensor_accelerometer,2,132,2025-02-25 09:24:21+0200,2025-08-29 00:01:58+0300,BMI160 Accelerometer Non-wakeup,BOSCH,1
+078,sensor_accelerometer,2,150,2025-03-06 12:49:39+0200,2025-09-06 20:25:21+0300,lsm6dso LSM6DSO Accelerometer Non-wakeup,STMicro,1
+078,sensor_linear_accelerometer,1,27,2025-07-21 09:33:01+0300,2025-09-06 20:25:17+0300,gravity linear_acceleration Non-wakeup,QTI,10
+079,sensor_accelerometer,1,89,2025-01-20 12:24:10+0200,2025-01-20 12:24:10+0200,lsm6dso LSM6DSO Accelerometer Non-wakeup,STMicro,1
+080,sensor_accelerometer,1,236,2025-01-14 10:19:19+0200,2025-01-14 10:19:19+0200,LSM6DSO Accelerometer,STM,1
+081,sensor_accelerometer,3,112,2025-01-21 12:05:49+0200,2025-07-09 13:04:53+0300,ICM42632M Accelerometer,TDK Invensense,1
+081,sensor_linear_accelerometer,1,1,2025-07-09 13:05:04+0300,2025-07-09 13:05:04+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+082,sensor_accelerometer,1,34,2025-01-28 12:29:12+0200,2025-01-28 12:29:12+0200,lsm6dso LSM6DSO Accelerometer Non-wakeup,STMicro,1
+083,sensor_accelerometer,1,163,2025-01-14 12:06:12+0200,2025-01-14 12:06:12+0200,LSM6DSOTR Accelerometer,STM,1
+084,sensor_accelerometer,1,44,2025-01-21 10:37:27+0200,2025-01-21 10:37:27+0200,LSM6DSOTR Accelerometer,STM,1
+085,sensor_accelerometer,2,128,2025-03-04 10:24:16+0200,2025-08-03 08:35:19+0300,LSM6DSO Accelerometer,STM,1
+085,sensor_linear_accelerometer,1,3,2025-07-13 10:15:59+0300,2025-08-03 08:36:42+0300,Linear Acceleration Sensor,Samsung Electronics,10
+086,sensor_accelerometer,2,61,2025-02-12 11:26:32+0200,2025-07-30 10:48:30+0300,LIS2DLC12 Accelerometer; sc7a20,SILAN; STM,1
+087,sensor_accelerometer,3,148,2025-02-04 09:44:28+0200,2025-07-09 12:35:47+0300,LSM6DSL Accelerometer,STM,1
+089,sensor_accelerometer,2,195,2025-01-23 12:28:05+0200,2025-09-02 11:26:19+0300,LSM6DSOTR Accelerometer,STM,1
+089,sensor_linear_accelerometer,1,31,2025-07-09 13:21:10+0300,2025-09-02 11:26:20+0300,Samsung Linear Acceleration Sensor,Samsung Electronics,10
+091,sensor_accelerometer,4,161,2025-01-23 12:31:38+0200,2025-07-09 10:43:15+0300,BMA255 Accelerometer,BOSCH,1
+093,sensor_accelerometer,1,80,2025-03-06 10:25:19+0200,2025-03-06 10:25:19+0200,LSM6DSVTR Accelerometer,STM,1
+095,sensor_accelerometer,2,112,2025-03-16 11:43:59+0200,2025-09-12 12:47:18+0300,LSM6DSL Accelerometer,STM,1
+096,sensor_accelerometer,1,83,2025-03-30 10:06:56+0300,2025-03-30 10:06:56+0300,LSM6DSOTR Accelerometer,STM,1

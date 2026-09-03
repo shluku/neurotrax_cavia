@@ -1,0 +1,15 @@
+Subject_ID_D,Subject_ID_N,global_T1,T1_date_iso,modality,feature_name,feature_value,feature_status,window_rule,window_start_local,window_end_local
+002,64,104.8,2025-01-27,proximity,proximity_raw_rows_in_window,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200
+002,64,104.8,2025-01-27,proximity,proximity_valid_numeric_rows,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200
+002,64,104.8,2025-01-27,proximity,proximity_json_parse_errors,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200
+002,64,104.8,2025-01-27,proximity,proximity_duplicate_adjacent_rows,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200
+002,64,104.8,2025-01-27,proximity,proximity_observed_span_hours,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200
+002,64,104.8,2025-01-27,proximity,proximity_active_hour_count,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200
+002,64,104.8,2025-01-27,proximity,proximity_median_value,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200
+002,64,104.8,2025-01-27,proximity,proximity_iqr_value,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200
+002,64,104.8,2025-01-27,proximity,proximity_near_sample_fraction,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200
+002,64,104.8,2025-01-27,proximity,proximity_near_transition_count,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200
+002,64,104.8,2025-01-27,proximity,proximity_near_bout_count,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200
+002,64,104.8,2025-01-27,proximity,proximity_median_interval_ms,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200
+002,64,104.8,2025-01-27,proximity,proximity_p95_interval_ms,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200
+002,64,104.8,2025-01-27,proximity,proximity_device_count,,phase4_no_primary_or_fallback_data_in_T1_week,phase4_no_primary_or_fallback_data_in_T1_week,2025-01-28 00:00:00+0200,2025-01-29 00:00:00+0200

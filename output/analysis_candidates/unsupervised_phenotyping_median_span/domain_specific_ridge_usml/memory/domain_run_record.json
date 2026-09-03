@@ -1,0 +1,17 @@
+{
+  "domain": "Memory",
+  "target": "memory_T1",
+  "top_five_features": "screen_event_count;telephony_mobile_data_enabled_fraction;screen_off_event_count;screen_on_event_count;touch_app_diversity",
+  "source_patients": 81,
+  "target_patients": 81,
+  "analyzed_patients": 76,
+  "excluded_for_panel_availability": 5,
+  "selected_k": 2,
+  "solution_status": "Selected among candidates with every cluster containing at least five patients.",
+  "pc1_pc2_explained_variance_percent": 88.97870326886317,
+  "mean_silhouette_selected_k": 0.3344128136027466,
+  "mean_subsample_ari_selected_k": 0.8595522950502024,
+  "technical_variables_used_to_define_clusters": false,
+  "cognitive_variables_used_to_define_pca_or_clusters": false,
+  "feature_selection_is_outcome_informed": true
+}

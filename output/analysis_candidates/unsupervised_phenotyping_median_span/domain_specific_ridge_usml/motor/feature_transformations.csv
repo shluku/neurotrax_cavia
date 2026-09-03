@@ -1,0 +1,6 @@
+feature_name,transformation,n_observed_before_imputation,missing_percent_before_imputation,imputation_value_after_transformation
+keyboard_median_word_completion_time_ms,none,62,12.676056338028168,3672.0
+median_unlocked_session_duration_seconds,none,71,0.0,161.089
+touch_scroll_index_change_median,none,70,1.4084507042253522,5.0
+app_use_diversity,none,71,0.0,3.327355353005858
+gsm_neighbor_cell_transition_count,log1p_nonnegative_skewed,66,7.042253521126761,5.451277855433926

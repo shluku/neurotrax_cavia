@@ -1,0 +1,16 @@
+{
+  "panel_name": "expanded_catalog_10pct",
+  "panel_label": "Expanded catalog (>=10% patient coverage)",
+  "panel_description": "Catalog features observed in at least 10% of the source patients; sensitivity analysis only.",
+  "source_patients": 81,
+  "analyzed_patients": 72,
+  "excluded_patients_for_panel_availability": 9,
+  "selected_features": 46,
+  "n_pcs": 10,
+  "selected_k": 2,
+  "pc1_pc2_explained_variance_percent": 99.99999785291307,
+  "mean_silhouette_selected_k": 0.9467827278029531,
+  "mean_subsample_ari_selected_k": 0.8686534667668728,
+  "patient_feature_coverage_threshold_percent": 50.0,
+  "feature_coverage_threshold_percent": 10.0
+}

@@ -1,0 +1,11 @@
+cluster_label,feature_name,source_table,feature_family,source_patient_coverage_percent,cluster_n_patients,cluster_median_iqr,cluster_mean_scaled,cluster_missing_percent,absolute_cluster_mean_scaled,within_cluster_rank
+0,median_unlocked_session_duration_seconds,screen,screen_session_duration,93.82716049382715,41,223.85 (141.31-339.10),0.593854911700011,0.0,0.593854911700011,1.0
+0,app_use_diversity,applications_foreground,app_use_breadth,91.35802469135803,41,3.50 (3.37-3.70),0.46277496155840236,0.0,0.46277496155840236,2.0
+0,keyboard_median_word_completion_time_ms,keyboard,keyboard_word_timing,76.5432098765432,41,3174.00 (2567.25-3807.12),-0.22884121983696534,2.4390243902439024,0.22884121983696534,3.0
+0,gsm_neighbor_cell_transition_count,gsm_neighbor,gsm_neighbor_cell_context,82.71604938271605,41,419.00 (37.50-3988.00),0.1513961670250827,4.878048780487805,0.1513961670250827,4.0
+0,touch_scroll_index_change_median,touch,touch_scroll_intensity,86.41975308641975,41,5.00 (4.00-6.00),-0.03252032520325202,0.0,0.03252032520325202,5.0
+1,app_use_diversity,applications_foreground,app_use_breadth,91.35802469135803,30,3.04 (2.83-3.20),-0.924672872497673,0.0,0.924672872497673,1.0
+1,keyboard_median_word_completion_time_ms,keyboard,keyboard_word_timing,76.5432098765432,30,4280.50 (3721.75-5614.88),0.5445739014647137,26.666666666666668,0.5445739014647137,2.0
+1,touch_scroll_index_change_median,touch,touch_scroll_intensity,86.41975308641975,30,6.00 (4.00-8.00),0.41111111111111115,3.3333333333333335,0.41111111111111115,3.0
+1,gsm_neighbor_cell_transition_count,gsm_neighbor,gsm_neighbor_cell_context,82.71604938271605,30,59.00 (7.50-624.50),-0.29161410663676607,10.0,0.29161410663676607,4.0
+1,median_unlocked_session_duration_seconds,screen,screen_session_duration,93.82716049382715,30,124.49 (93.94-179.10),-0.02739715291777044,0.0,0.02739715291777044,5.0

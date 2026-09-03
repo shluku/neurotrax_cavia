@@ -1,0 +1,3 @@
+Subject_ID_D,modality,table_name,device_id,rows_in_window,first_data_timestamp,last_data_timestamp,window_rule,midpoint_source,window_start_ms,window_end_ms
+002,proximity,proximity,1f17227b-a259-4caa-bf40-4eccf742447e,46,1751958539077,1751958584333,t1_to_patient_midpoint,exact_t1_t2_midpoint,1737928800000,1752228000000
+002,proximity,proximity,c84399c2-6bc9-44ad-9b46-81ba47b5c14b,1376,1743066853863,1749361497683,t1_to_patient_midpoint,exact_t1_t2_midpoint,1737928800000,1752228000000

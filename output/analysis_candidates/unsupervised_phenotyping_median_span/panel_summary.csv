@@ -1,0 +1,4 @@
+panel_name,panel_label,panel_description,source_patients,analyzed_patients,excluded_patients_for_panel_availability,selected_features,n_pcs,selected_k,pc1_pc2_explained_variance_percent,mean_silhouette_selected_k,mean_subsample_ari_selected_k,patient_feature_coverage_threshold_percent,feature_coverage_threshold_percent
+usable_catalog_50pct,Usable feature catalog (>=50% patient coverage),All catalog features observed in at least half of the 81 source patients.,81,76,5,41,10,2,59.09245908594744,0.4578727354531621,0.9971260021176827,50.0,50.0
+primary_37,Primary 37 features,The predefined primary baseline feature set.,81,76,5,37,10,2,62.67661726849706,0.4712931582374272,0.9963870083522331,50.0,
+expanded_catalog_10pct,Expanded catalog (>=10% patient coverage),Catalog features observed in at least 10% of the source patients; sensitivity analysis only.,81,72,9,46,10,2,99.99999785291307,0.9467827278029531,0.8686534667668728,50.0,10.0

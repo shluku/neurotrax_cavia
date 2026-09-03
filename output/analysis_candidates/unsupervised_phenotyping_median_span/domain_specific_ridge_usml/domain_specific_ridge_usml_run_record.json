@@ -1,0 +1,23 @@
+{
+  "analysis_name": "domain_specific_ridge_top5_usml",
+  "original_outputs_changed": false,
+  "source_dataset": "output/analysis_candidates/phase11_t1_baseline/phase11_t1_baseline_patient_dataset.csv",
+  "feature_ranking_candidates": "all observed T1-week and adjusted-window features except excluded/zero-observed features",
+  "feature_ranking_restriction": "real features present in the fixed 41-feature USML panel; missingness indicators excluded",
+  "domains": [
+    "Global",
+    "Memory",
+    "Executive function",
+    "Processing speed",
+    "Attention",
+    "Motor"
+  ],
+  "top_n": 5,
+  "ridge_outer_cv": "5-fold repeated 20 times",
+  "preprocessing": "fold-local median imputation with indicators, standardization, inner-CV Ridge alpha selection",
+  "pca_patient_coverage_threshold_percent": 50.0,
+  "technical_variables_used_to_define_clusters": false,
+  "cognitive_variables_used_to_define_pca_or_clusters": false,
+  "feature_selection_is_outcome_informed": true,
+  "exploratory_only": true
+}

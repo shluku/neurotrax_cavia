@@ -1,0 +1,181 @@
+experiment_start_local,experiment_end_local,median_day_local,inspection_day_local,window_start_local,window_end_local,window_start_ms_utc,window_end_ms_utc,timezone,source,table_name,sample_order,_id,timestamp_ms,timestamp_local,device_id,data_json,data_json_pretty,data_json_parse_status,data_json_keys,data_json_key_count
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,1,3203744756,1748757600000,2025-06-01 09:00:00+03:00,c219c7c9-afca-41d7-8693-332ea5222d08,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""c219c7c9-afca-41d7-8693-332ea5222d08"", ""timestamp"": 1748757600000, ""double_values_0"": -0.583050012588501, ""double_values_1"": -0.3330000042915344, ""double_values_2"": 9.451950073242188}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""c219c7c9-afca-41d7-8693-332ea5222d08"",
+  ""double_values_0"": -0.583050012588501,
+  ""double_values_1"": -0.3330000042915344,
+  ""double_values_2"": 9.451950073242188,
+  ""label"": """",
+  ""timestamp"": 1748757600000
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,2,3203370826,1748757600001,2025-06-01 09:00:00.001000+03:00,15473e07-1dee-4682-8129-68f4c5d38cfe,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"", ""timestamp"": 1748757600001, ""double_values_0"": -0.27105000615119934, ""double_values_1"": -0.24495001137256625, ""double_values_2"": 9.778050422668455}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"",
+  ""double_values_0"": -0.27105000615119934,
+  ""double_values_1"": -0.24495001137256625,
+  ""double_values_2"": 9.778050422668455,
+  ""label"": """",
+  ""timestamp"": 1748757600001
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,3,3233113257,1748757600001,2025-06-01 09:00:00.001000+03:00,15473e07-1dee-4682-8129-68f4c5d38cfe,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"", ""timestamp"": 1748757600001, ""double_values_0"": -0.27105000615119934, ""double_values_1"": -0.24495001137256625, ""double_values_2"": 9.778050422668455}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"",
+  ""double_values_0"": -0.27105000615119934,
+  ""double_values_1"": -0.24495001137256625,
+  ""double_values_2"": 9.778050422668455,
+  ""label"": """",
+  ""timestamp"": 1748757600001
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,4,3260482544,1748757600001,2025-06-01 09:00:00.001000+03:00,15473e07-1dee-4682-8129-68f4c5d38cfe,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"", ""timestamp"": 1748757600001, ""double_values_0"": -0.27105000615119934, ""double_values_1"": -0.24495001137256625, ""double_values_2"": 9.778050422668455}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"",
+  ""double_values_0"": -0.27105000615119934,
+  ""double_values_1"": -0.24495001137256625,
+  ""double_values_2"": 9.778050422668455,
+  ""label"": """",
+  ""timestamp"": 1748757600001
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,5,3203744757,1748757600020,2025-06-01 09:00:00.020000+03:00,c219c7c9-afca-41d7-8693-332ea5222d08,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""c219c7c9-afca-41d7-8693-332ea5222d08"", ""timestamp"": 1748757600020, ""double_values_0"": -0.583050012588501, ""double_values_1"": -0.2749500274658203, ""double_values_2"": 9.433050155639648}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""c219c7c9-afca-41d7-8693-332ea5222d08"",
+  ""double_values_0"": -0.583050012588501,
+  ""double_values_1"": -0.2749500274658203,
+  ""double_values_2"": 9.433050155639648,
+  ""label"": """",
+  ""timestamp"": 1748757600020
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,6,3203431006,1748757600026,2025-06-01 09:00:00.026000+03:00,72e21d84-c3cb-401a-8beb-4532f39f0688,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""72e21d84-c3cb-401a-8beb-4532f39f0688"", ""timestamp"": 1748757600026, ""double_values_0"": 1.3136749267578125, ""double_values_1"": 0.870635986328125, ""double_values_2"": 9.930099487304688}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""72e21d84-c3cb-401a-8beb-4532f39f0688"",
+  ""double_values_0"": 1.3136749267578125,
+  ""double_values_1"": 0.870635986328125,
+  ""double_values_2"": 9.930099487304688,
+  ""label"": """",
+  ""timestamp"": 1748757600026
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,7,3203744758,1748757600040,2025-06-01 09:00:00.040000+03:00,c219c7c9-afca-41d7-8693-332ea5222d08,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""c219c7c9-afca-41d7-8693-332ea5222d08"", ""timestamp"": 1748757600040, ""double_values_0"": -0.5250000357627869, ""double_values_1"": -0.3330000042915344, ""double_values_2"": 9.394050598144531}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""c219c7c9-afca-41d7-8693-332ea5222d08"",
+  ""double_values_0"": -0.5250000357627869,
+  ""double_values_1"": -0.3330000042915344,
+  ""double_values_2"": 9.394050598144531,
+  ""label"": """",
+  ""timestamp"": 1748757600040
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,8,3203605943,1748757600040,2025-06-01 09:00:00.040000+03:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1748757600040, ""double_values_0"": -0.43095630407333374, ""double_values_1"": 0.8571242094039917, ""double_values_2"": 9.782708168029783}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_values_0"": -0.43095630407333374,
+  ""double_values_1"": 0.8571242094039917,
+  ""double_values_2"": 9.782708168029783,
+  ""label"": """",
+  ""timestamp"": 1748757600040
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,9,3203370827,1748757600059,2025-06-01 09:00:00.059000+03:00,15473e07-1dee-4682-8129-68f4c5d38cfe,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"", ""timestamp"": 1748757600059, ""double_values_0"": -0.286050021648407, ""double_values_1"": -0.17205001413822174, ""double_values_2"": 9.7339506149292}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"",
+  ""double_values_0"": -0.286050021648407,
+  ""double_values_1"": -0.17205001413822174,
+  ""double_values_2"": 9.7339506149292,
+  ""label"": """",
+  ""timestamp"": 1748757600059
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,10,3233113258,1748757600059,2025-06-01 09:00:00.059000+03:00,15473e07-1dee-4682-8129-68f4c5d38cfe,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"", ""timestamp"": 1748757600059, ""double_values_0"": -0.286050021648407, ""double_values_1"": -0.17205001413822174, ""double_values_2"": 9.7339506149292}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"",
+  ""double_values_0"": -0.286050021648407,
+  ""double_values_1"": -0.17205001413822174,
+  ""double_values_2"": 9.7339506149292,
+  ""label"": """",
+  ""timestamp"": 1748757600059
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,11,3260482545,1748757600059,2025-06-01 09:00:00.059000+03:00,15473e07-1dee-4682-8129-68f4c5d38cfe,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"", ""timestamp"": 1748757600059, ""double_values_0"": -0.286050021648407, ""double_values_1"": -0.17205001413822174, ""double_values_2"": 9.7339506149292}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"",
+  ""double_values_0"": -0.286050021648407,
+  ""double_values_1"": -0.17205001413822174,
+  ""double_values_2"": 9.7339506149292,
+  ""label"": """",
+  ""timestamp"": 1748757600059
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,12,3203744759,1748757600060,2025-06-01 09:00:00.060000+03:00,c219c7c9-afca-41d7-8693-332ea5222d08,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""c219c7c9-afca-41d7-8693-332ea5222d08"", ""timestamp"": 1748757600060, ""double_values_0"": -0.5629500150680542, ""double_values_1"": -0.2749500274658203, ""double_values_2"": 9.414000511169434}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""c219c7c9-afca-41d7-8693-332ea5222d08"",
+  ""double_values_0"": -0.5629500150680542,
+  ""double_values_1"": -0.2749500274658203,
+  ""double_values_2"": 9.414000511169434,
+  ""label"": """",
+  ""timestamp"": 1748757600060
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,13,3203431007,1748757600066,2025-06-01 09:00:00.066000+03:00,72e21d84-c3cb-401a-8beb-4532f39f0688,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""72e21d84-c3cb-401a-8beb-4532f39f0688"", ""timestamp"": 1748757600066, ""double_values_0"": 1.3400115966796875, ""double_values_1"": 0.84429931640625, ""double_values_2"": 9.97320556640625}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""72e21d84-c3cb-401a-8beb-4532f39f0688"",
+  ""double_values_0"": 1.3400115966796875,
+  ""double_values_1"": 0.84429931640625,
+  ""double_values_2"": 9.97320556640625,
+  ""label"": """",
+  ""timestamp"": 1748757600066
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,14,3203744760,1748757600080,2025-06-01 09:00:00.080000+03:00,c219c7c9-afca-41d7-8693-332ea5222d08,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""c219c7c9-afca-41d7-8693-332ea5222d08"", ""timestamp"": 1748757600080, ""double_values_0"": -0.583050012588501, ""double_values_1"": -0.2939999997615814, ""double_values_2"": 9.355950355529783}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""c219c7c9-afca-41d7-8693-332ea5222d08"",
+  ""double_values_0"": -0.583050012588501,
+  ""double_values_1"": -0.2939999997615814,
+  ""double_values_2"": 9.355950355529783,
+  ""label"": """",
+  ""timestamp"": 1748757600080
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,15,3203546375,1748757600081,2025-06-01 09:00:00.081000+03:00,86994e75-0c10-40f6-9c55-1cfc9d05856e,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""86994e75-0c10-40f6-9c55-1cfc9d05856e"", ""timestamp"": 1748757600081, ""double_values_0"": -0.07781155407428741, ""double_values_1"": -0.19393034279346463, ""double_values_2"": 10.215160369873049}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""86994e75-0c10-40f6-9c55-1cfc9d05856e"",
+  ""double_values_0"": -0.07781155407428741,
+  ""double_values_1"": -0.19393034279346463,
+  ""double_values_2"": 10.215160369873049,
+  ""label"": """",
+  ""timestamp"": 1748757600081
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,16,3235388399,1748757600081,2025-06-01 09:00:00.081000+03:00,86994e75-0c10-40f6-9c55-1cfc9d05856e,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""86994e75-0c10-40f6-9c55-1cfc9d05856e"", ""timestamp"": 1748757600081, ""double_values_0"": -0.07781155407428741, ""double_values_1"": -0.19393034279346463, ""double_values_2"": 10.215160369873049}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""86994e75-0c10-40f6-9c55-1cfc9d05856e"",
+  ""double_values_0"": -0.07781155407428741,
+  ""double_values_1"": -0.19393034279346463,
+  ""double_values_2"": 10.215160369873049,
+  ""label"": """",
+  ""timestamp"": 1748757600081
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,17,3203744761,1748757600099,2025-06-01 09:00:00.099000+03:00,c219c7c9-afca-41d7-8693-332ea5222d08,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""c219c7c9-afca-41d7-8693-332ea5222d08"", ""timestamp"": 1748757600099, ""double_values_0"": -0.583050012588501, ""double_values_1"": -0.3130500018596649, ""double_values_2"": 9.414000511169434}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""c219c7c9-afca-41d7-8693-332ea5222d08"",
+  ""double_values_0"": -0.583050012588501,
+  ""double_values_1"": -0.3130500018596649,
+  ""double_values_2"": 9.414000511169434,
+  ""label"": """",
+  ""timestamp"": 1748757600099
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,18,3203431008,1748757600107,2025-06-01 09:00:00.107000+03:00,72e21d84-c3cb-401a-8beb-4532f39f0688,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""72e21d84-c3cb-401a-8beb-4532f39f0688"", ""timestamp"": 1748757600107, ""double_values_0"": 1.2801513671875, ""double_values_1"": 0.89697265625, ""double_values_2"": 9.934890747070312}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""72e21d84-c3cb-401a-8beb-4532f39f0688"",
+  ""double_values_0"": 1.2801513671875,
+  ""double_values_1"": 0.89697265625,
+  ""double_values_2"": 9.934890747070312,
+  ""label"": """",
+  ""timestamp"": 1748757600107
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,19,3203370828,1748757600119,2025-06-01 09:00:00.119000+03:00,15473e07-1dee-4682-8129-68f4c5d38cfe,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"", ""timestamp"": 1748757600119, ""double_values_0"": -0.31005001068115234, ""double_values_1"": -0.22305001318454745, ""double_values_2"": 9.79800033569336}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"",
+  ""double_values_0"": -0.31005001068115234,
+  ""double_values_1"": -0.22305001318454745,
+  ""double_values_2"": 9.79800033569336,
+  ""label"": """",
+  ""timestamp"": 1748757600119
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,2025-06-01 09:00:00+03:00,2025-06-01 09:01:00+03:00,1748757600000,1748757660000,Asia/Jerusalem,SQL database,accelerometer,20,3233113259,1748757600119,2025-06-01 09:00:00.119000+03:00,15473e07-1dee-4682-8129-68f4c5d38cfe,"{""label"": """", ""accuracy"": ""3"", ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"", ""timestamp"": 1748757600119, ""double_values_0"": -0.31005001068115234, ""double_values_1"": -0.22305001318454745, ""double_values_2"": 9.79800033569336}","{
+  ""accuracy"": ""3"",
+  ""device_id"": ""15473e07-1dee-4682-8129-68f4c5d38cfe"",
+  ""double_values_0"": -0.31005001068115234,
+  ""double_values_1"": -0.22305001318454745,
+  ""double_values_2"": 9.79800033569336,
+  ""label"": """",
+  ""timestamp"": 1748757600119
+}",ok,accuracy;device_id;double_values_0;double_values_1;double_values_2;label;timestamp,7

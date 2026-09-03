@@ -1,0 +1,25 @@
+{
+  "analysis_name": "pre-specified coverage-adjusted Motor and Attention inference",
+  "original_outputs_changed": false,
+  "domains": [
+    "Motor",
+    "Attention"
+  ],
+  "candidate_features": "all observed T1-week and adjusted-window Phase 11 features",
+  "final_panel_restriction": "real features in the fixed 41-feature USML panel; missingness indicators excluded",
+  "adjustment": "volume-like features divided by observed timestamp-span days; transformed observed values residualized against fixed collection-intensity and coverage variables",
+  "technical_variables": [
+    "observed_timestamp_span_days",
+    "total_rows_in_window",
+    "recorded_table_count",
+    "baseline_feature_missing_percent",
+    "baseline_table_coverage_percent",
+    "candidate_feature_coverage_percent"
+  ],
+  "ridge_selection": "repeated 5-fold cross-validation repeated 20 times, fold-local median imputation with missingness indicators, standardization, and inner-CV alpha selection",
+  "pca_and_clustering": "separate PCA for each selected five-feature panel; fixed k=2 K-means; patients require at least 50% of selected feature values",
+  "permutation": "100 permutations per domain; each permutation reruns Ridge feature selection, five-feature PCA, and fixed k=2 clustering",
+  "bootstrap": "1000 resamples per domain conditional on the observed adjusted five-feature panel",
+  "permutation_p_definition": "(1 + number of permuted absolute standardized differences at least as large as observed) / (1 + number of permutations)",
+  "exploratory_only": true
+}

@@ -1,0 +1,6 @@
+feature_name,transformation,n_observed_before_imputation,missing_percent_before_imputation,imputation_value_after_transformation
+median_unlocked_session_duration_seconds,none,76,0.0,-67.66543830315739
+telephony_mobile_data_enabled_fraction,none,76,0.0,-0.04108711212756749
+message_distinct_event_count,none,74,2.631578947368421,-0.15127104214988885
+app_foreground_event_count,none,71,6.578947368421052,0.06312772183960913
+keyboard_median_word_completion_time_ms,none,62,18.421052631578945,-49.61543428686787

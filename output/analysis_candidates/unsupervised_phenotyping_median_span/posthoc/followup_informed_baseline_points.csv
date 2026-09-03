@@ -1,0 +1,594 @@
+Subject_ID_D,cluster_label,PC1,PC2,t1_value,t2_value,adjusted_baseline_value,adjustment_amount,direction,outcome,t1_column,t2_column
+002,1,1.4928498739466087,4.581753655557678,104.8,110.7,107.75,2.950000000000003,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+003,1,-1.4136214329980603,-1.7677905098908309,106.5,108.1,107.3,0.7999999999999972,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+004,0,11.842996271796528,-0.6581714918301097,101.0,102.0,101.5,0.5,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+005,1,-0.2443472086608372,-2.999465531638712,81.1,103.4,92.25,11.150000000000006,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+006,1,-1.7090038076090004,-0.9002631918259584,90.1,96.8,93.44999999999999,3.3499999999999943,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+007,1,-3.743044800010438,1.4204416914829543,108.2,109.9,109.05000000000001,0.8500000000000085,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+010,1,-5.959381432974995,3.5428271042547457,100.0,101.8,100.9,0.9000000000000057,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+011,1,1.2643990955472588,1.6808848634221296,88.0,94.8,91.4,3.4000000000000057,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+012,1,0.5392034865393077,-3.832108254162825,75.6,74.5,75.6,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+013,1,-0.9877758888026664,-1.990636490806511,109.6,111.8,110.69999999999999,1.0999999999999943,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+014,0,9.715847172198089,3.2710265656031536,104.0,104.8,104.4,0.4000000000000057,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+015,1,-3.0069811205570423,0.1625779700353117,95.9,102.9,99.4,3.5,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+018,0,7.411770573211692,1.979193053869508,96.1,,96.1,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+019,1,1.848842665239301,-4.206616732129475,103.7,104.4,104.05000000000001,0.3500000000000085,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+020,1,0.529808910102382,-3.83888340627193,90.0,91.6,90.8,0.7999999999999972,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+021,1,1.704191486794189,-4.757969957935757,97.8,98.9,98.35,0.5499999999999972,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+022,1,-0.2855473564135223,-2.7153489979792793,107.2,105.1,107.2,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+023,0,14.81826014577914,4.799897863657451,101.0,105.6,103.3,2.299999999999997,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+024,1,-1.876993134675188,-0.5029181221997625,103.4,96.9,103.4,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+026,1,-1.78218505962839,-0.914063260656951,104.1,,104.1,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+028,1,-1.597896788002786,-1.1056574890410913,93.5,,93.5,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+029,0,7.144426122295783,-1.742356747193275,100.2,103.1,101.65,1.4500000000000028,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+030,1,-2.8472376494636573,-0.2010711736419693,103.8,99.5,103.8,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+031,1,-1.5378393385504945,-1.0387287060997246,96.3,102.3,99.3,3.0,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+032,0,6.406755689096591,-4.299448872644953,110.6,111.8,111.19999999999999,0.5999999999999943,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+034,1,-5.990452488478279,3.472034963158739,101.8,107.9,104.85,3.049999999999997,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+035,1,-1.172874112143227,-1.5429259460577225,98.1,102.7,100.4,2.3000000000000114,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+036,1,1.0459083170076493,-3.929201301038491,93.0,93.4,93.2,0.20000000000000284,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+037,1,-0.3324421651791512,-2.2037883859864364,101.9,,101.9,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+038,1,-2.3909638367875656,-0.2257481635591485,94.5,96.5,95.5,1.0,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+039,0,14.853272756264715,2.5078500535210284,99.3,109.7,104.5,5.200000000000003,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+040,1,-0.2510234460880132,-2.2579723932520235,92.8,94.4,93.6,0.7999999999999972,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+041,1,0.5375589591014381,-2.9698799055791425,119.4,117.3,119.4,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+042,1,-2.1430292312844155,0.112613358111575,83.8,,83.8,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+043,1,0.6740231282236371,-1.734375439712983,95.5,,95.5,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+044,1,2.651621537294408,0.9062512931968224,108.3,99.9,108.3,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+045,1,3.067377546666055,-0.409733120388527,93.4,97.5,95.45,2.049999999999997,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+046,1,-7.726686121574496,5.483347797039424,101.8,106.6,104.19999999999999,2.3999999999999915,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+049,1,-3.9659420757665607,1.7906740987693197,91.6,,91.6,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+050,1,-3.0952546914806787,1.3468039220199417,104.4,,104.4,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+052,1,-4.283060556599908,1.7786963313474342,90.6,,90.6,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+053,1,-5.174062643777662,2.9798633055992427,104.6,115.0,109.8,5.200000000000003,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+055,0,7.869053292383977,4.1516845304691,104.1,,104.1,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+057,1,-2.362652357473189,0.7178694448191207,93.7,93.2,93.7,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+058,1,1.6670998035681128,1.318091744968689,76.2,,76.2,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+060,1,-0.5667087695950092,-2.4042963631585135,96.9,98.0,97.45,0.5499999999999972,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+061,1,-0.0937897763688268,-2.0358971056672255,92.7,,92.7,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+062,1,-2.844502712474779,-0.2275473510841953,103.9,97.2,103.9,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+064,1,2.6893432550103853,0.3174178698071164,99.3,,99.3,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+066,1,-1.905540276239928,-0.4263951063789967,99.4,,99.4,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+067,1,-0.5663343799805174,-2.0577917321628196,87.1,92.9,90.0,2.9000000000000057,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+068,1,-1.713926107205736,-0.8034455487314534,97.8,105.7,101.75,3.950000000000003,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+069,1,0.2981533037260014,-2.6950802205017927,85.9,,85.9,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+070,1,-6.04438232910812,3.971517100089935,95.5,102.0,98.75,3.25,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+071,1,1.5057552256094109,1.1421826890974336,99.6,106.5,103.05,3.450000000000003,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+072,0,5.755813696995558,4.568469206079018,106.1,108.4,107.25,1.1500000000000057,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+073,1,0.3867238737963076,-3.050124981657836,95.7,108.9,102.30000000000001,6.6000000000000085,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+074,1,-2.989759749194888,-0.3503559541304105,111.8,101.6,111.8,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+075,0,11.335966844011876,2.295454341599412,89.1,95.5,92.3,3.200000000000003,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+076,1,-1.7586792789820302,-0.063899540166416,107.5,115.3,111.4,3.9000000000000057,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+077,1,-3.870949129831304,1.5883660145797738,87.8,82.7,87.8,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+078,1,-2.6553517620742415,-0.01922748806432,106.2,107.3,106.75,0.5499999999999972,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+079,1,-0.9599842822596784,-2.227952025752016,101.3,,101.3,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+080,1,-1.6609413408129143,-1.526563675870228,95.7,93.5,95.7,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+081,1,-2.4096471173484573,-0.222346007677837,82.2,,82.2,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+082,1,-1.6371460041050423,-1.679290349346877,92.0,101.9,96.95,4.950000000000003,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+083,1,-0.4227893002388313,-2.6001816562441964,102.8,103.2,103.0,0.20000000000000284,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+084,1,-4.417174826404847,2.077522195732014,87.5,,87.5,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+085,1,-1.927776119117501,-0.7515351653678561,100.0,102.3,101.15,1.1500000000000057,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+086,1,-5.397966841262679,2.939095052156259,95.7,,95.7,0.0,T2 unavailable: original T1,Global follow-up-informed baseline,global_T1,global_T2
+087,1,-1.190349275569251,-1.6291420906235372,100.3,94.6,100.3,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+089,1,-1.6114678615114726,-1.48676029684735,109.3,107.6,109.3,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+091,0,4.087097660558766,2.9014923570286433,82.0,82.9,82.45,0.45000000000000284,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+093,1,1.6785724905396244,1.1674690147985414,99.6,92.3,99.6,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+095,1,-5.947468953682352,3.359490933397594,99.5,95.8,99.5,0.0,T2 lower: original T1,Global follow-up-informed baseline,global_T1,global_T2
+096,1,-6.349758244956161,4.670095865688351,102.1,106.4,104.25,2.1500000000000057,T2 higher: T1-T2 mean,Global follow-up-informed baseline,global_T1,global_T2
+002,1,1.4928498739466087,4.581753655557678,113.6,109.3,113.6,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+003,1,-1.4136214329980603,-1.7677905098908309,70.2,76.2,73.2,3.0,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+004,0,11.842996271796528,-0.6581714918301097,100.0,107.0,103.5,3.5,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+005,1,-0.2443472086608372,-2.999465531638712,67.3,107.3,87.3,20.0,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+006,1,-1.7090038076090004,-0.9002631918259584,72.9,92.0,82.45,9.549999999999997,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+007,1,-3.743044800010438,1.4204416914829543,122.1,117.1,122.1,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+010,1,-5.959381432974995,3.5428271042547457,111.5,110.0,111.5,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+011,1,1.2643990955472588,1.6808848634221296,92.8,101.3,97.05,4.25,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+012,1,0.5392034865393077,-3.832108254162825,66.3,64.5,66.3,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+013,1,-0.9877758888026664,-1.990636490806511,116.9,108.6,116.9,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+014,0,9.715847172198089,3.2710265656031536,106.2,103.5,106.2,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+015,1,-3.0069811205570423,0.1625779700353117,85.1,99.2,92.15,7.050000000000011,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+018,0,7.411770573211692,1.979193053869508,74.7,,74.7,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+019,1,1.848842665239301,-4.206616732129475,103.4,117.0,110.2,6.799999999999997,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+020,1,0.529808910102382,-3.83888340627193,103.1,105.2,104.15,1.0500000000000114,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+021,1,1.704191486794189,-4.757969957935757,107.1,94.5,107.1,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+022,1,-0.2855473564135223,-2.7153489979792793,92.5,88.3,92.5,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+023,0,14.81826014577914,4.799897863657451,99.3,106.4,102.85,3.549999999999997,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+024,1,-1.876993134675188,-0.5029181221997625,109.3,116.6,112.94999999999999,3.6499999999999915,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+026,1,-1.78218505962839,-0.914063260656951,99.6,,99.6,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+028,1,-1.597896788002786,-1.1056574890410913,94.7,,94.7,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+029,0,7.144426122295783,-1.742356747193275,92.9,92.5,92.9,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+030,1,-2.8472376494636573,-0.2010711736419693,83.3,87.7,85.5,2.200000000000003,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+031,1,-1.5378393385504945,-1.0387287060997246,100.9,112.2,106.55000000000001,5.650000000000006,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+032,0,6.406755689096591,-4.299448872644953,116.4,117.6,117.0,0.5999999999999943,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+034,1,-5.990452488478279,3.472034963158739,109.6,106.9,109.6,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+035,1,-1.172874112143227,-1.5429259460577225,104.5,109.6,107.05,2.549999999999997,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+036,1,1.0459083170076493,-3.929201301038491,105.1,88.9,105.1,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+037,1,-0.3324421651791512,-2.2037883859864364,99.4,,99.4,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+038,1,-2.3909638367875656,-0.2257481635591485,85.9,89.0,87.45,1.5499999999999972,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+039,0,14.853272756264715,2.5078500535210284,104.2,112.6,108.4,4.200000000000003,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+040,1,-0.2510234460880132,-2.2579723932520235,94.2,98.3,96.25,2.049999999999997,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+041,1,0.5375589591014381,-2.9698799055791425,116.5,114.7,116.5,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+042,1,-2.1430292312844155,0.112613358111575,77.4,,77.4,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+043,1,0.6740231282236371,-1.734375439712983,102.5,,102.5,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+044,1,2.651621537294408,0.9062512931968224,106.3,100.4,106.3,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+045,1,3.067377546666055,-0.409733120388527,84.7,86.1,85.4,0.7000000000000028,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+046,1,-7.726686121574496,5.483347797039424,98.9,95.5,98.9,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+049,1,-3.9659420757665607,1.7906740987693197,90.3,,90.3,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+050,1,-3.0952546914806787,1.3468039220199417,99.4,,99.4,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+052,1,-4.283060556599908,1.7786963313474342,90.3,,90.3,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+053,1,-5.174062643777662,2.9798633055992427,105.0,112.1,108.55,3.549999999999997,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+055,0,7.869053292383977,4.1516845304691,113.6,,113.6,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+057,1,-2.362652357473189,0.7178694448191207,86.1,94.0,90.05,3.950000000000003,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+058,1,1.6670998035681128,1.318091744968689,74.7,,74.7,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+060,1,-0.5667087695950092,-2.4042963631585135,100.3,96.8,100.3,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+061,1,-0.0937897763688268,-2.0358971056672255,87.1,,87.1,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+062,1,-2.844502712474779,-0.2275473510841953,99.4,79.4,99.4,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+064,1,2.6893432550103853,0.3174178698071164,97.0,,97.0,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+066,1,-1.905540276239928,-0.4263951063789967,110.1,,110.1,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+067,1,-0.5663343799805174,-2.0577917321628196,86.0,71.7,86.0,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+068,1,-1.713926107205736,-0.8034455487314534,105.9,109.2,107.55000000000001,1.6500000000000057,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+069,1,0.2981533037260014,-2.6950802205017927,68.2,,68.2,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+070,1,-6.04438232910812,3.971517100089935,93.8,91.4,93.8,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+071,1,1.5057552256094109,1.1421826890974336,116.4,98.2,116.4,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+072,0,5.755813696995558,4.568469206079018,116.1,109.8,116.1,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+073,1,0.3867238737963076,-3.050124981657836,84.1,96.6,90.35,6.25,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+074,1,-2.989759749194888,-0.3503559541304105,111.8,108.5,111.8,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+075,0,11.335966844011876,2.295454341599412,67.9,86.5,77.2,9.299999999999997,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+076,1,-1.7586792789820302,-0.063899540166416,107.8,115.3,111.55,3.75,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+077,1,-3.870949129831304,1.5883660145797738,89.0,75.2,89.0,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+078,1,-2.6553517620742415,-0.01922748806432,107.3,109.8,108.55,1.25,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+079,1,-0.9599842822596784,-2.227952025752016,97.2,,97.2,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+080,1,-1.6609413408129143,-1.526563675870228,96.0,96.9,96.45,0.45000000000000284,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+081,1,-2.4096471173484573,-0.222346007677837,71.9,,71.9,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+082,1,-1.6371460041050423,-1.679290349346877,85.6,88.6,87.1,1.5,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+083,1,-0.4227893002388313,-2.6001816562441964,97.8,87.2,97.8,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+084,1,-4.417174826404847,2.077522195732014,98.0,,98.0,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+085,1,-1.927776119117501,-0.7515351653678561,104.3,92.4,104.3,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+086,1,-5.397966841262679,2.939095052156259,94.6,,94.6,0.0,T2 unavailable: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+087,1,-1.190349275569251,-1.6291420906235372,88.8,95.6,92.19999999999999,3.3999999999999915,T2 higher: T1-T2 mean,Memory follow-up-informed baseline,memory_T1,memory_T2
+089,1,-1.6114678615114726,-1.48676029684735,110.3,107.3,110.3,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+091,0,4.087097660558766,2.9014923570286433,92.9,87.8,92.9,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+093,1,1.6785724905396244,1.1674690147985414,98.8,97.4,98.8,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+095,1,-5.947468953682352,3.359490933397594,95.7,94.8,95.7,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+096,1,-6.349758244956161,4.670095865688351,108.6,102.5,108.6,0.0,T2 lower: original T1,Memory follow-up-informed baseline,memory_T1,memory_T2
+002,1,1.4928498739466087,4.581753655557678,100.6,109.3,104.94999999999999,4.349999999999994,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+003,1,-1.4136214329980603,-1.7677905098908309,107.3,114.1,110.69999999999999,3.3999999999999915,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+004,0,11.842996271796528,-0.6581714918301097,101.9,106.6,104.25,2.3499999999999943,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+005,1,-0.2443472086608372,-2.999465531638712,83.9,95.0,89.45,5.549999999999997,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+006,1,-1.7090038076090004,-0.9002631918259584,97.9,99.3,98.6,0.6999999999999886,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+007,1,-3.743044800010438,1.4204416914829543,114.2,115.2,114.7,0.5,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+010,1,-5.959381432974995,3.5428271042547457,81.6,96.9,89.25,7.650000000000006,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+011,1,1.2643990955472588,1.6808848634221296,82.7,96.4,89.55000000000001,6.8500000000000085,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+012,1,0.5392034865393077,-3.832108254162825,87.4,91.4,89.4,2.0,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+013,1,-0.9877758888026664,-1.990636490806511,108.9,108.6,108.9,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+014,0,9.715847172198089,3.2710265656031536,100.9,106.6,103.75,2.8499999999999943,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+015,1,-3.0069811205570423,0.1625779700353117,99.3,96.1,99.3,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+018,0,7.411770573211692,1.979193053869508,81.5,,81.5,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+019,1,1.848842665239301,-4.206616732129475,97.5,102.4,99.95,2.450000000000003,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+020,1,0.529808910102382,-3.83888340627193,78.3,79.7,79.0,0.7000000000000028,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+021,1,1.704191486794189,-4.757969957935757,85.9,99.6,92.75,6.849999999999994,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+022,1,-0.2855473564135223,-2.7153489979792793,95.2,99.3,97.25,2.049999999999997,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+023,0,14.81826014577914,4.799897863657451,96.8,100.3,98.55,1.75,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+024,1,-1.876993134675188,-0.5029181221997625,96.5,96.9,96.7,0.20000000000000284,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+026,1,-1.78218505962839,-0.914063260656951,105.0,,105.0,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+028,1,-1.597896788002786,-1.1056574890410913,95.5,,95.5,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+029,0,7.144426122295783,-1.742356747193275,100.8,102.2,101.5,0.7000000000000028,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+030,1,-2.8472376494636573,-0.2010711736419693,107.1,102.9,107.1,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+031,1,-1.5378393385504945,-1.0387287060997246,94.4,103.9,99.15,4.75,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+032,0,6.406755689096591,-4.299448872644953,109.2,111.7,110.45,1.25,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+034,1,-5.990452488478279,3.472034963158739,96.1,108.4,102.25,6.150000000000006,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+035,1,-1.172874112143227,-1.5429259460577225,98.8,105.4,102.1,3.299999999999997,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+036,1,1.0459083170076493,-3.929201301038491,78.7,106.1,92.4,13.700000000000003,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+037,1,-0.3324421651791512,-2.2037883859864364,98.7,,98.7,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+038,1,-2.3909638367875656,-0.2257481635591485,100.5,95.5,100.5,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+039,0,14.853272756264715,2.5078500535210284,97.3,109.4,103.35,6.049999999999997,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+040,1,-0.2510234460880132,-2.2579723932520235,92.8,89.3,92.8,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+041,1,0.5375589591014381,-2.9698799055791425,111.1,113.8,112.44999999999999,1.3499999999999943,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+042,1,-2.1430292312844155,0.112613358111575,68.6,,68.6,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+043,1,0.6740231282236371,-1.734375439712983,103.5,,103.5,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+044,1,2.651621537294408,0.9062512931968224,106.8,97.7,106.8,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+045,1,3.067377546666055,-0.409733120388527,70.6,88.8,79.69999999999999,9.099999999999994,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+046,1,-7.726686121574496,5.483347797039424,105.2,102.6,105.2,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+049,1,-3.9659420757665607,1.7906740987693197,78.8,,78.8,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+050,1,-3.0952546914806787,1.3468039220199417,101.2,,101.2,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+052,1,-4.283060556599908,1.7786963313474342,75.0,,75.0,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+053,1,-5.174062643777662,2.9798633055992427,105.5,109.6,107.55,2.049999999999997,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+055,0,7.869053292383977,4.1516845304691,110.9,,110.9,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+057,1,-2.362652357473189,0.7178694448191207,75.0,85.1,80.05,5.049999999999997,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+058,1,1.6670998035681128,1.318091744968689,78.2,,78.2,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+060,1,-0.5667087695950092,-2.4042963631585135,92.3,96.3,94.3,2.0,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+061,1,-0.0937897763688268,-2.0358971056672255,97.4,,97.4,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+062,1,-2.844502712474779,-0.2275473510841953,96.1,97.2,96.65,0.5500000000000114,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+064,1,2.6893432550103853,0.3174178698071164,98.0,,98.0,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+066,1,-1.905540276239928,-0.4263951063789967,92.8,,92.8,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+067,1,-0.5663343799805174,-2.0577917321628196,74.7,94.5,84.6,9.899999999999991,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+068,1,-1.713926107205736,-0.8034455487314534,94.1,107.5,100.8,6.700000000000003,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+069,1,0.2981533037260014,-2.6950802205017927,92.7,,92.7,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+070,1,-6.04438232910812,3.971517100089935,85.5,93.1,89.3,3.799999999999997,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+071,1,1.5057552256094109,1.1421826890974336,107.9,110.7,109.30000000000001,1.4000000000000057,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+072,0,5.755813696995558,4.568469206079018,109.4,106.5,109.4,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+073,1,0.3867238737963076,-3.050124981657836,103.1,111.5,107.3,4.200000000000003,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+074,1,-2.989759749194888,-0.3503559541304105,103.2,105.0,104.1,0.8999999999999915,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+075,0,11.335966844011876,2.295454341599412,86.2,97.1,91.65,5.450000000000003,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+076,1,-1.7586792789820302,-0.063899540166416,106.3,113.0,109.65,3.3500000000000085,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+077,1,-3.870949129831304,1.5883660145797738,61.8,61.8,61.8,0.0,T2 equal: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+078,1,-2.6553517620742415,-0.01922748806432,104.1,110.1,107.1,3.0,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+079,1,-0.9599842822596784,-2.227952025752016,97.9,,97.9,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+080,1,-1.6609413408129143,-1.526563675870228,93.7,86.5,93.7,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+081,1,-2.4096471173484573,-0.222346007677837,104.4,,104.4,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+082,1,-1.6371460041050423,-1.679290349346877,102.1,87.1,102.1,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+083,1,-0.4227893002388313,-2.6001816562441964,108.9,106.0,108.9,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+084,1,-4.417174826404847,2.077522195732014,72.2,,72.2,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+085,1,-1.927776119117501,-0.7515351653678561,92.0,101.0,96.5,4.5,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+086,1,-5.397966841262679,2.939095052156259,75.7,,75.7,0.0,T2 unavailable: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+087,1,-1.190349275569251,-1.6291420906235372,102.4,95.6,102.4,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+089,1,-1.6114678615114726,-1.48676029684735,111.8,106.0,111.8,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+091,0,4.087097660558766,2.9014923570286433,68.4,71.8,70.1,1.6999999999999886,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+093,1,1.6785724905396244,1.1674690147985414,104.8,88.1,104.8,0.0,T2 lower: original T1,Attention follow-up-informed baseline,attention_T1,attention_T2
+095,1,-5.947468953682352,3.359490933397594,100.3,106.0,103.15,2.8500000000000085,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+096,1,-6.349758244956161,4.670095865688351,94.8,107.0,100.9,6.1000000000000085,T2 higher: T1-T2 mean,Attention follow-up-informed baseline,attention_T1,attention_T2
+002,1,1.4928498739466087,4.581753655557678,108.2,113.0,110.6,2.3999999999999915,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+003,1,-1.4136214329980603,-1.7677905098908309,114.1,123.9,119.0,4.900000000000006,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+004,0,11.842996271796528,-0.6581714918301097,97.2,106.2,101.7,4.5,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+005,1,-0.2443472086608372,-2.999465531638712,86.3,100.0,93.15,6.8500000000000085,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+006,1,-1.7090038076090004,-0.9002631918259584,96.6,88.8,96.6,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+007,1,-3.743044800010438,1.4204416914829543,111.8,108.8,111.8,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+010,1,-5.959381432974995,3.5428271042547457,92.2,99.8,96.0,3.799999999999997,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+011,1,1.2643990955472588,1.6808848634221296,92.2,90.3,92.2,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+012,1,0.5392034865393077,-3.832108254162825,80.9,78.0,80.9,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+013,1,-0.9877758888026664,-1.990636490806511,106.0,115.8,110.9,4.900000000000006,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+014,0,9.715847172198089,3.2710265656031536,115.1,114.3,115.1,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+015,1,-3.0069811205570423,0.1625779700353117,90.7,108.1,99.4,8.700000000000003,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+018,0,7.411770573211692,1.979193053869508,89.4,,89.4,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+019,1,1.848842665239301,-4.206616732129475,110.0,106.4,110.0,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+020,1,0.529808910102382,-3.83888340627193,85.9,89.7,87.80000000000001,1.9000000000000057,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+021,1,1.704191486794189,-4.757969957935757,90.2,98.4,94.30000000000001,4.1000000000000085,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+022,1,-0.2855473564135223,-2.7153489979792793,101.8,105.7,103.75,1.9500000000000028,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+023,0,14.81826014577914,4.799897863657451,99.3,104.9,102.1,2.799999999999997,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+024,1,-1.876993134675188,-0.5029181221997625,105.4,98.3,105.4,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+026,1,-1.78218505962839,-0.914063260656951,107.5,,107.5,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+028,1,-1.597896788002786,-1.1056574890410913,85.4,,85.4,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+029,0,7.144426122295783,-1.742356747193275,104.1,110.0,107.05,2.950000000000003,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+030,1,-2.8472376494636573,-0.2010711736419693,101.6,101.8,101.69999999999999,0.09999999999999432,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+031,1,-1.5378393385504945,-1.0387287060997246,102.4,101.4,102.4,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+032,0,6.406755689096591,-4.299448872644953,107.2,111.8,109.5,2.299999999999997,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+034,1,-5.990452488478279,3.472034963158739,93.0,107.9,100.45,7.450000000000003,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+035,1,-1.172874112143227,-1.5429259460577225,100.1,104.9,102.5,2.4000000000000057,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+036,1,1.0459083170076493,-3.929201301038491,79.6,103.1,91.35,11.75,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+037,1,-0.3324421651791512,-2.2037883859864364,102.3,,102.3,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+038,1,-2.3909638367875656,-0.2257481635591485,104.5,109.8,107.15,2.6500000000000057,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+039,0,14.853272756264715,2.5078500535210284,99.2,115.1,107.15,7.950000000000003,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+040,1,-0.2510234460880132,-2.2579723932520235,92.6,90.5,92.6,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+041,1,0.5375589591014381,-2.9698799055791425,131.5,106.1,131.5,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+042,1,-2.1430292312844155,0.112613358111575,90.2,,90.2,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+043,1,0.6740231282236371,-1.734375439712983,98.6,,98.6,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+044,1,2.651621537294408,0.9062512931968224,111.7,83.6,111.7,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+045,1,3.067377546666055,-0.409733120388527,86.3,101.0,93.65,7.3500000000000085,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+046,1,-7.726686121574496,5.483347797039424,106.4,102.3,106.4,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+049,1,-3.9659420757665607,1.7906740987693197,100.2,,100.2,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+050,1,-3.0952546914806787,1.3468039220199417,95.8,,95.8,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+052,1,-4.283060556599908,1.7786963313474342,91.7,,91.7,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+053,1,-5.174062643777662,2.9798633055992427,100.4,108.8,104.6,4.199999999999989,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+055,0,7.869053292383977,4.1516845304691,105.5,,105.5,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+057,1,-2.362652357473189,0.7178694448191207,96.8,100.4,98.6,1.7999999999999972,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+058,1,1.6670998035681128,1.318091744968689,71.7,,71.7,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+060,1,-0.5667087695950092,-2.4042963631585135,101.2,93.9,101.2,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+061,1,-0.0937897763688268,-2.0358971056672255,91.8,,91.8,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+062,1,-2.844502712474779,-0.2275473510841953,104.0,114.1,109.05,5.049999999999997,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+064,1,2.6893432550103853,0.3174178698071164,96.3,,96.3,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+066,1,-1.905540276239928,-0.4263951063789967,92.9,,92.9,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+067,1,-0.5663343799805174,-2.0577917321628196,89.0,101.5,95.25,6.25,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+068,1,-1.713926107205736,-0.8034455487314534,94.1,107.2,100.65,6.550000000000011,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+069,1,0.2981533037260014,-2.6950802205017927,80.8,,80.8,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+070,1,-6.04438232910812,3.971517100089935,98.8,103.5,101.15,2.3500000000000085,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+071,1,1.5057552256094109,1.1421826890974336,104.9,114.1,109.5,4.599999999999994,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+072,0,5.755813696995558,4.568469206079018,114.7,112.4,114.7,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+073,1,0.3867238737963076,-3.050124981657836,99.4,117.1,108.25,8.849999999999994,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+074,1,-2.989759749194888,-0.3503559541304105,125.3,124.8,125.3,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+075,0,11.335966844011876,2.295454341599412,93.2,102.6,97.9,4.700000000000003,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+076,1,-1.7586792789820302,-0.063899540166416,101.6,117.1,109.35,7.75,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+077,1,-3.870949129831304,1.5883660145797738,80.8,75.9,80.8,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+078,1,-2.6553517620742415,-0.01922748806432,108.8,98.9,108.8,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+079,1,-0.9599842822596784,-2.227952025752016,111.5,,111.5,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+080,1,-1.6609413408129143,-1.526563675870228,93.5,99.1,96.3,2.799999999999997,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+081,1,-2.4096471173484573,-0.222346007677837,86.9,,86.9,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+082,1,-1.6371460041050423,-1.679290349346877,105.5,93.5,105.5,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+083,1,-0.4227893002388313,-2.6001816562441964,108.6,117.1,112.85,4.25,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+084,1,-4.417174826404847,2.077522195732014,78.8,,78.8,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+085,1,-1.927776119117501,-0.7515351653678561,115.5,114.4,115.5,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+086,1,-5.397966841262679,2.939095052156259,77.8,,77.8,0.0,T2 unavailable: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+087,1,-1.190349275569251,-1.6291420906235372,102.0,98.1,102.0,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+089,1,-1.6114678615114726,-1.48676029684735,115.3,111.4,115.3,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+091,0,4.087097660558766,2.9014923570286433,80.6,85.7,83.15,2.5500000000000114,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+093,1,1.6785724905396244,1.1674690147985414,104.2,99.7,104.2,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+095,1,-5.947468953682352,3.359490933397594,103.3,100.7,103.3,0.0,T2 lower: original T1,Executive function follow-up-informed baseline,ef_T1,ef_T2
+096,1,-6.349758244956161,4.670095865688351,88.6,107.0,97.8,9.200000000000003,T2 higher: T1-T2 mean,Executive function follow-up-informed baseline,ef_T1,ef_T2
+002,1,1.4928498739466087,4.581753655557678,87.3,,87.3,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+003,1,-1.4136214329980603,-1.7677905098908309,112.8,113.2,113.0,0.20000000000000284,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+004,0,11.842996271796528,-0.6581714918301097,105.9,96.2,105.9,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+005,1,-0.2443472086608372,-2.999465531638712,62.7,113.5,88.1,25.39999999999999,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+006,1,-1.7090038076090004,-0.9002631918259584,86.9,,86.9,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+007,1,-3.743044800010438,1.4204416914829543,117.4,119.6,118.5,1.0999999999999943,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+010,1,-5.959381432974995,3.5428271042547457,87.0,98.1,92.55,5.549999999999997,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+011,1,1.2643990955472588,1.6808848634221296,67.3,74.7,71.0,3.700000000000003,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+012,1,0.5392034865393077,-3.832108254162825,71.4,79.0,75.2,3.799999999999997,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+013,1,-0.9877758888026664,-1.990636490806511,108.0,116.5,112.25,4.25,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+014,0,9.715847172198089,3.2710265656031536,95.5,99.4,97.45,1.9500000000000028,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+015,1,-3.0069811205570423,0.1625779700353117,99.1,100.6,99.85,0.75,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+018,0,7.411770573211692,1.979193053869508,84.5,,84.5,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+019,1,1.848842665239301,-4.206616732129475,95.0,90.7,95.0,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+020,1,0.529808910102382,-3.83888340627193,70.2,72.3,71.25,1.0499999999999972,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+021,1,1.704191486794189,-4.757969957935757,103.3,102.1,103.3,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+022,1,-0.2855473564135223,-2.7153489979792793,89.4,96.2,92.80000000000001,3.4000000000000057,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+023,0,14.81826014577914,4.799897863657451,96.0,97.1,96.55,0.5499999999999972,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+024,1,-1.876993134675188,-0.5029181221997625,91.7,84.5,91.7,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+026,1,-1.78218505962839,-0.914063260656951,100.9,,100.9,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+029,0,7.144426122295783,-1.742356747193275,114.2,112.8,114.2,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+031,1,-1.5378393385504945,-1.0387287060997246,99.1,101.1,100.1,1.0,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+032,0,6.406755689096591,-4.299448872644953,106.8,107.3,107.05,0.25,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+034,1,-5.990452488478279,3.472034963158739,100.1,98.4,100.1,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+035,1,-1.172874112143227,-1.5429259460577225,95.6,95.0,95.6,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+036,1,1.0459083170076493,-3.929201301038491,103.1,95.3,103.1,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+037,1,-0.3324421651791512,-2.2037883859864364,96.1,,96.1,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+038,1,-2.3909638367875656,-0.2257481635591485,88.7,81.0,88.7,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+039,0,14.853272756264715,2.5078500535210284,92.7,102.9,97.80000000000001,5.1000000000000085,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+040,1,-0.2510234460880132,-2.2579723932520235,102.4,91.6,102.4,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+041,1,0.5375589591014381,-2.9698799055791425,114.9,128.3,121.60000000000001,6.700000000000003,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+042,1,-2.1430292312844155,0.112613358111575,70.9,,70.9,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+044,1,2.651621537294408,0.9062512931968224,116.1,116.5,116.3,0.20000000000000284,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+046,1,-7.726686121574496,5.483347797039424,101.8,100.2,101.8,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+049,1,-3.9659420757665607,1.7906740987693197,75.2,,75.2,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+050,1,-3.0952546914806787,1.3468039220199417,100.4,,100.4,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+052,1,-4.283060556599908,1.7786963313474342,75.2,,75.2,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+053,1,-5.174062643777662,2.9798633055992427,111.4,144.3,127.85000000000001,16.450000000000003,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+055,0,7.869053292383977,4.1516845304691,114.7,,114.7,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+058,1,1.6670998035681128,1.318091744968689,79.8,,79.8,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+060,1,-0.5667087695950092,-2.4042963631585135,85.8,104.5,95.15,9.350000000000009,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+062,1,-2.844502712474779,-0.2275473510841953,99.9,88.0,99.9,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+064,1,2.6893432550103853,0.3174178698071164,100.2,,100.2,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+066,1,-1.905540276239928,-0.4263951063789967,89.0,,89.0,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+067,1,-0.5663343799805174,-2.0577917321628196,86.5,96.5,91.5,5.0,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+068,1,-1.713926107205736,-0.8034455487314534,107.3,113.7,110.5,3.200000000000003,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+069,1,0.2981533037260014,-2.6950802205017927,81.7,,81.7,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+070,1,-6.04438232910812,3.971517100089935,83.1,95.8,89.44999999999999,6.349999999999994,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+071,1,1.5057552256094109,1.1421826890974336,110.5,116.8,113.65,3.1500000000000057,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+072,0,5.755813696995558,4.568469206079018,104.4,120.7,112.55000000000001,8.150000000000006,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+073,1,0.3867238737963076,-3.050124981657836,90.4,107.2,98.80000000000001,8.400000000000006,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+074,1,-2.989759749194888,-0.3503559541304105,101.9,108.0,104.95,3.049999999999997,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+075,0,11.335966844011876,2.295454341599412,95.0,92.9,95.0,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+078,1,-2.6553517620742415,-0.01922748806432,121.6,124.3,122.94999999999999,1.3499999999999943,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+079,1,-0.9599842822596784,-2.227952025752016,84.9,,84.9,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+080,1,-1.6609413408129143,-1.526563675870228,84.2,70.9,84.2,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+081,1,-2.4096471173484573,-0.222346007677837,86.6,,86.6,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+082,1,-1.6371460041050423,-1.679290349346877,118.8,120.5,119.65,0.8500000000000085,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+083,1,-0.4227893002388313,-2.6001816562441964,113.9,111.5,113.9,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+084,1,-4.417174826404847,2.077522195732014,77.1,,77.1,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+085,1,-1.927776119117501,-0.7515351653678561,78.0,86.1,82.05,4.049999999999997,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+086,1,-5.397966841262679,2.939095052156259,96.9,,96.9,0.0,T2 unavailable: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+087,1,-1.190349275569251,-1.6291420906235372,104.4,73.0,104.4,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+089,1,-1.6114678615114726,-1.48676029684735,101.4,109.0,105.2,3.799999999999997,T2 higher: T1-T2 mean,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+095,1,-5.947468953682352,3.359490933397594,104.3,89.1,104.3,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+096,1,-6.349758244956161,4.670095865688351,107.9,101.8,107.9,0.0,T2 lower: original T1,Processing speed follow-up-informed baseline,processing_speed_T1,processing_speed_T2
+002,1,1.4928498739466087,4.581753655557678,99.1,107.0,103.05,3.950000000000003,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+003,1,-1.4136214329980603,-1.7677905098908309,104.3,111.3,107.8,3.5,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+004,0,11.842996271796528,-0.6581714918301097,103.2,100.9,103.2,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+005,1,-0.2443472086608372,-2.999465531638712,91.4,99.0,95.2,3.799999999999997,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+006,1,-1.7090038076090004,-0.9002631918259584,80.7,76.7,80.7,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+007,1,-3.743044800010438,1.4204416914829543,101.3,106.9,104.1,2.799999999999997,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+010,1,-5.959381432974995,3.5428271042547457,101.1,102.8,101.94999999999999,0.8499999999999943,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+011,1,1.2643990955472588,1.6808848634221296,88.7,95.1,91.9,3.200000000000003,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+012,1,0.5392034865393077,-3.832108254162825,93.4,84.4,93.4,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+013,1,-0.9877758888026664,-1.990636490806511,108.3,108.7,108.5,0.20000000000000284,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+014,0,9.715847172198089,3.2710265656031536,96.1,107.0,101.55,5.450000000000003,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+015,1,-3.0069811205570423,0.1625779700353117,102.6,108.3,105.44999999999999,2.8499999999999943,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+018,0,7.411770573211692,1.979193053869508,90.1,,90.1,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+019,1,1.848842665239301,-4.206616732129475,111.5,98.9,111.5,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+020,1,0.529808910102382,-3.83888340627193,81.1,96.9,89.0,7.900000000000006,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+021,1,1.704191486794189,-4.757969957935757,97.8,96.1,97.8,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+022,1,-0.2855473564135223,-2.7153489979792793,109.0,110.3,109.65,0.6500000000000057,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+023,0,14.81826014577914,4.799897863657451,105.0,105.3,105.15,0.15000000000000568,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+024,1,-1.876993134675188,-0.5029181221997625,104.6,102.9,104.6,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+026,1,-1.78218505962839,-0.914063260656951,105.3,,105.3,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+028,1,-1.597896788002786,-1.1056574890410913,88.6,,88.6,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+029,0,7.144426122295783,-1.742356747193275,109.1,111.2,110.15,1.0500000000000114,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+030,1,-2.8472376494636573,-0.2010711736419693,115.9,111.8,115.9,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+031,1,-1.5378393385504945,-1.0387287060997246,93.0,98.2,95.6,2.5999999999999943,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+032,0,6.406755689096591,-4.299448872644953,109.0,106.9,109.0,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+034,1,-5.990452488478279,3.472034963158739,98.0,,98.0,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+035,1,-1.172874112143227,-1.5429259460577225,95.4,103.2,99.30000000000001,3.9000000000000057,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+036,1,1.0459083170076493,-3.929201301038491,95.5,78.7,95.5,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+037,1,-0.3324421651791512,-2.2037883859864364,91.9,,91.9,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+038,1,-2.3909638367875656,-0.2257481635591485,85.6,107.1,96.35,10.75,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+041,1,0.5375589591014381,-2.9698799055791425,120.5,122.4,121.45,0.9500000000000028,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+042,1,-2.1430292312844155,0.112613358111575,99.5,,99.5,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+043,1,0.6740231282236371,-1.734375439712983,101.6,,101.6,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+044,1,2.651621537294408,0.9062512931968224,103.7,106.5,105.1,1.3999999999999915,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+045,1,3.067377546666055,-0.409733120388527,86.0,96.7,91.35,5.349999999999994,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+046,1,-7.726686121574496,5.483347797039424,91.0,108.9,99.95,8.950000000000003,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+049,1,-3.9659420757665607,1.7906740987693197,79.6,,79.6,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+050,1,-3.0952546914806787,1.3468039220199417,96.8,,96.8,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+052,1,-4.283060556599908,1.7786963313474342,105.8,,105.8,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+053,1,-5.174062643777662,2.9798633055992427,100.5,100.1,100.5,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+055,0,7.869053292383977,4.1516845304691,84.6,,84.6,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+057,1,-2.362652357473189,0.7178694448191207,100.5,103.6,102.05,1.5499999999999972,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+058,1,1.6670998035681128,1.318091744968689,75.7,,75.7,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+060,1,-0.5667087695950092,-2.4042963631585135,92.7,102.8,97.75,5.049999999999997,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+061,1,-0.0937897763688268,-2.0358971056672255,86.7,,86.7,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+062,1,-2.844502712474779,-0.2275473510841953,116.0,107.3,116.0,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+064,1,2.6893432550103853,0.3174178698071164,89.7,,89.7,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+066,1,-1.905540276239928,-0.4263951063789967,90.3,,90.3,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+067,1,-0.5663343799805174,-2.0577917321628196,101.5,104.0,102.75,1.25,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+068,1,-1.713926107205736,-0.8034455487314534,86.0,93.9,89.95,3.950000000000003,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+069,1,0.2981533037260014,-2.6950802205017927,82.0,,82.0,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+070,1,-6.04438232910812,3.971517100089935,71.8,103.6,87.69999999999999,15.899999999999991,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+071,1,1.5057552256094109,1.1421826890974336,94.0,100.7,97.35,3.3499999999999943,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+072,0,5.755813696995558,4.568469206079018,107.0,100.7,107.0,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+073,1,0.3867238737963076,-3.050124981657836,101.5,110.0,105.75,4.25,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+074,1,-2.989759749194888,-0.3503559541304105,113.2,110.9,113.2,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+075,0,11.335966844011876,2.295454341599412,92.3,97.8,95.05,2.75,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+076,1,-1.7586792789820302,-0.063899540166416,106.5,110.9,108.7,2.200000000000003,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+077,1,-3.870949129831304,1.5883660145797738,89.9,89.1,89.9,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+078,1,-2.6553517620742415,-0.01922748806432,107.2,107.1,107.2,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+079,1,-0.9599842822596784,-2.227952025752016,106.6,,106.6,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+080,1,-1.6609413408129143,-1.526563675870228,83.6,82.2,83.6,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+081,1,-2.4096471173484573,-0.222346007677837,100.5,,100.5,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+082,1,-1.6371460041050423,-1.679290349346877,94.9,92.0,94.9,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+083,1,-0.4227893002388313,-2.6001816562441964,103.8,110.2,107.0,3.200000000000003,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+084,1,-4.417174826404847,2.077522195732014,76.8,,76.8,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+085,1,-1.927776119117501,-0.7515351653678561,104.4,104.3,104.4,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+086,1,-5.397966841262679,2.939095052156259,97.2,,97.2,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+087,1,-1.190349275569251,-1.6291420906235372,108.4,108.7,108.55000000000001,0.15000000000000568,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+089,1,-1.6114678615114726,-1.48676029684735,108.1,112.2,110.15,2.0500000000000114,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+091,0,4.087097660558766,2.9014923570286433,76.4,,76.4,0.0,T2 unavailable: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+093,1,1.6785724905396244,1.1674690147985414,87.1,94.5,90.8,3.700000000000003,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+095,1,-5.947468953682352,3.359490933397594,105.0,109.2,107.1,2.0999999999999943,T2 higher: T1-T2 mean,Motor follow-up-informed baseline,motor_T1,motor_T2
+096,1,-6.349758244956161,4.670095865688351,104.3,104.1,104.3,0.0,T2 lower: original T1,Motor follow-up-informed baseline,motor_T1,motor_T2
+002,1,1.4928498739466087,4.581753655557678,109.2,109.9,109.55000000000001,0.3500000000000085,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+003,1,-1.4136214329980603,-1.7677905098908309,115.2,107.0,115.2,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+004,0,11.842996271796528,-0.6581714918301097,108.5,107.0,108.5,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+005,1,-0.2443472086608372,-2.999465531638712,104.4,114.4,109.4,5.0,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+006,1,-1.7090038076090004,-0.9002631918259584,106.9,112.9,109.9,3.0,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+007,1,-3.743044800010438,1.4204416914829543,109.8,108.6,109.8,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+010,1,-5.959381432974995,3.5428271042547457,105.5,115.2,110.35,4.849999999999994,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+012,1,0.5392034865393077,-3.832108254162825,25.0,25.0,25.0,0.0,T2 equal: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+013,1,-0.9877758888026664,-1.990636490806511,113.7,107.8,113.7,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+014,0,9.715847172198089,3.2710265656031536,113.7,113.0,113.7,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+015,1,-3.0069811205570423,0.1625779700353117,83.3,113.0,98.15,14.850000000000009,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+018,0,7.411770573211692,1.979193053869508,114.5,,114.5,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+019,1,1.848842665239301,-4.206616732129475,114.5,110.7,114.5,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+020,1,0.529808910102382,-3.83888340627193,106.1,114.4,110.25,4.150000000000006,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+021,1,1.704191486794189,-4.757969957935757,110.0,111.5,110.75,0.75,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+022,1,-0.2855473564135223,-2.7153489979792793,113.7,104.6,113.7,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+023,0,14.81826014577914,4.799897863657451,100.9,98.6,100.9,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+024,1,-1.876993134675188,-0.5029181221997625,104.8,89.1,104.8,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+026,1,-1.78218505962839,-0.914063260656951,115.2,,115.2,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+028,1,-1.597896788002786,-1.1056574890410913,102.4,,102.4,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+029,0,7.144426122295783,-1.742356747193275,94.4,107.6,101.0,6.599999999999994,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+030,1,-2.8472376494636573,-0.2010711736419693,105.2,105.2,105.2,0.0,T2 equal: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+031,1,-1.5378393385504945,-1.0387287060997246,105.5,115.2,110.35,4.849999999999994,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+032,0,6.406755689096591,-4.299448872644953,114.4,105.3,114.4,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+034,1,-5.990452488478279,3.472034963158739,115.2,116.0,115.6,0.3999999999999915,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+035,1,-1.172874112143227,-1.5429259460577225,92.4,95.5,93.95,1.5499999999999972,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+036,1,1.0459083170076493,-3.929201301038491,115.2,92.1,115.2,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+037,1,-0.3324421651791512,-2.2037883859864364,112.1,,112.1,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+038,1,-2.3909638367875656,-0.2257481635591485,114.5,,114.5,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+039,0,14.853272756264715,2.5078500535210284,111.2,117.1,114.15,2.950000000000003,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+040,1,-0.2510234460880132,-2.2579723932520235,105.5,111.5,108.5,3.0,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+041,1,0.5375589591014381,-2.9698799055791425,109.2,109.2,109.2,0.0,T2 equal: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+042,1,-2.1430292312844155,0.112613358111575,107.7,,107.7,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+043,1,0.6740231282236371,-1.734375439712983,89.5,,89.5,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+044,1,2.651621537294408,0.9062512931968224,87.3,68.3,87.3,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+045,1,3.067377546666055,-0.409733120388527,106.2,100.1,106.2,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+046,1,-7.726686121574496,5.483347797039424,113.4,108.5,113.4,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+049,1,-3.9659420757665607,1.7906740987693197,105.5,,105.5,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+050,1,-3.0952546914806787,1.3468039220199417,110.7,,110.7,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+052,1,-4.283060556599908,1.7786963313474342,105.8,,105.8,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+053,1,-5.174062643777662,2.9798633055992427,103.1,,103.1,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+055,0,7.869053292383977,4.1516845304691,105.4,,105.4,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+057,1,-2.362652357473189,0.7178694448191207,99.4,110.7,105.05000000000001,5.650000000000006,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+058,1,1.6670998035681128,1.318091744968689,67.3,,67.3,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+060,1,-0.5667087695950092,-2.4042963631585135,106.9,103.9,106.9,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+061,1,-0.0937897763688268,-2.0358971056672255,110.7,,110.7,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+062,1,-2.844502712474779,-0.2275473510841953,107.7,100.1,107.7,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+064,1,2.6893432550103853,0.3174178698071164,113.7,,113.7,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+066,1,-1.905540276239928,-0.4263951063789967,116.0,,116.0,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+067,1,-0.5663343799805174,-2.0577917321628196,66.7,92.1,79.4,12.700000000000003,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+068,1,-1.713926107205736,-0.8034455487314534,107.0,109.2,108.1,1.0999999999999943,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+069,1,0.2981533037260014,-2.6950802205017927,112.9,,112.9,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+070,1,-6.04438232910812,3.971517100089935,114.5,110.7,114.5,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+071,1,1.5057552256094109,1.1421826890974336,69.9,106.2,88.05000000000001,18.150000000000006,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+072,0,5.755813696995558,4.568469206079018,105.2,104.6,105.2,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+073,1,0.3867238737963076,-3.050124981657836,98.4,97.8,98.4,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+074,1,-2.989759749194888,-0.3503559541304105,100.9,54.4,100.9,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+075,0,11.335966844011876,2.295454341599412,115.2,107.8,115.2,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+076,1,-1.7586792789820302,-0.063899540166416,111.0,115.8,113.4,2.4000000000000057,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+077,1,-3.870949129831304,1.5883660145797738,115.2,110.0,115.2,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+078,1,-2.6553517620742415,-0.01922748806432,104.0,101.0,104.0,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+079,1,-0.9599842822596784,-2.227952025752016,112.6,,112.6,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+080,1,-1.6609413408129143,-1.526563675870228,109.2,114.5,111.85,2.6499999999999915,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+081,1,-2.4096471173484573,-0.222346007677837,52.7,,52.7,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+082,1,-1.6371460041050423,-1.679290349346877,54.4,110.7,82.55,28.15,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+083,1,-0.4227893002388313,-2.6001816562441964,98.6,107.7,103.15,4.550000000000011,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+084,1,-4.417174826404847,2.077522195732014,100.1,,100.1,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+085,1,-1.927776119117501,-0.7515351653678561,105.5,101.8,105.5,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+086,1,-5.397966841262679,2.939095052156259,111.5,,111.5,0.0,T2 unavailable: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+087,1,-1.190349275569251,-1.6291420906235372,95.5,105.2,100.35,4.849999999999994,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+089,1,-1.6114678615114726,-1.48676029684735,100.4,112.4,106.4,6.0,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+091,0,4.087097660558766,2.9014923570286433,107.7,86.5,107.7,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+093,1,1.6785724905396244,1.1674690147985414,108.4,103.9,108.4,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+095,1,-5.947468953682352,3.359490933397594,95.0,101.8,98.4,3.4000000000000057,T2 higher: T1-T2 mean,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+096,1,-6.349758244956161,4.670095865688351,115.2,111.5,115.2,0.0,T2 lower: original T1,Verbal follow-up-informed baseline,verbal_T1,verbal_T2
+002,1,1.4928498739466087,4.581753655557678,84.2,91.1,87.65,3.450000000000003,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+003,1,-1.4136214329980603,-1.7677905098908309,102.3,116.3,109.3,7.0,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+004,0,11.842996271796528,-0.6581714918301097,113.5,107.9,113.5,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+005,1,-0.2443472086608372,-2.999465531638712,107.6,109.0,108.3,0.7000000000000028,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+006,1,-1.7090038076090004,-0.9002631918259584,91.0,63.9,91.0,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+007,1,-3.743044800010438,1.4204416914829543,115.9,113.1,115.9,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+010,1,-5.959381432974995,3.5428271042547457,102.3,107.9,105.1,2.799999999999997,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+011,1,1.2643990955472588,1.6808848634221296,113.1,110.3,113.1,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+012,1,0.5392034865393077,-3.832108254162825,83.9,83.9,83.9,0.0,T2 equal: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+013,1,-0.9877758888026664,-1.990636490806511,113.5,116.3,114.9,1.4000000000000057,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+014,0,9.715847172198089,3.2710265656031536,119.1,96.7,119.1,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+015,1,-3.0069811205570423,0.1625779700353117,118.1,113.5,118.1,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+018,0,7.411770573211692,1.979193053869508,77.3,,77.3,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+019,1,1.848842665239301,-4.206616732129475,105.0,94.6,105.0,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+020,1,0.529808910102382,-3.83888340627193,100.0,94.0,100.0,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+021,1,1.704191486794189,-4.757969957935757,107.9,107.9,107.9,0.0,T2 equal: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+022,1,-0.2855473564135223,-2.7153489979792793,101.5,87.7,101.5,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+023,0,14.81826014577914,4.799897863657451,98.0,115.4,106.7,8.700000000000003,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+024,1,-1.876993134675188,-0.5029181221997625,113.5,94.0,113.5,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+026,1,-1.78218505962839,-0.914063260656951,99.5,,99.5,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+028,1,-1.597896788002786,-1.1056574890410913,114.0,,114.0,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+029,0,7.144426122295783,-1.742356747193275,112.9,112.9,112.9,0.0,T2 equal: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+030,1,-2.8472376494636573,-0.2010711736419693,96.0,101.7,98.85,2.8499999999999943,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+031,1,-1.5378393385504945,-1.0387287060997246,102.3,99.5,102.3,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+032,0,6.406755689096591,-4.299448872644953,115.1,109.0,115.1,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+034,1,-5.990452488478279,3.472034963158739,124.7,105.0,124.7,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+035,1,-1.172874112143227,-1.5429259460577225,106.0,106.0,106.0,0.0,T2 equal: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+036,1,1.0459083170076493,-3.929201301038491,99.5,91.2,99.5,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+037,1,-0.3324421651791512,-2.2037883859864364,117.8,,117.8,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+038,1,-2.3909638367875656,-0.2257481635591485,80.7,80.7,80.7,0.0,T2 equal: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+039,0,14.853272756264715,2.5078500535210284,97.5,92.1,97.5,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+040,1,-0.2510234460880132,-2.2579723932520235,91.2,85.6,91.2,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+041,1,0.5375589591014381,-2.9698799055791425,111.9,122.3,117.1,5.199999999999989,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+042,1,-2.1430292312844155,0.112613358111575,66.9,,66.9,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+043,1,0.6740231282236371,-1.734375439712983,98.0,,98.0,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+044,1,2.651621537294408,0.9062512931968224,125.7,122.3,125.7,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+045,1,3.067377546666055,-0.409733120388527,101.5,60.0,101.5,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+046,1,-7.726686121574496,5.483347797039424,111.4,108.6,111.4,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+049,1,-3.9659420757665607,1.7906740987693197,99.5,,99.5,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+050,1,-3.0952546914806787,1.3468039220199417,104.3,,104.3,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+053,1,-5.174062643777662,2.9798633055992427,108.6,130.6,119.6,11.0,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+055,0,7.869053292383977,4.1516845304691,87.7,,87.7,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+057,1,-2.362652357473189,0.7178694448191207,125.7,111.9,125.7,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+058,1,1.6670998035681128,1.318091744968689,84.7,,84.7,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+060,1,-0.5667087695950092,-2.4042963631585135,91.1,91.1,91.1,0.0,T2 equal: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+061,1,-0.0937897763688268,-2.0358971056672255,49.6,,49.6,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+062,1,-2.844502712474779,-0.2275473510841953,105.0,98.0,105.0,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+064,1,2.6893432550103853,0.3174178698071164,102.3,,102.3,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+066,1,-1.905540276239928,-0.4263951063789967,91.1,,91.1,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+067,1,-0.5663343799805174,-2.0577917321628196,57.7,88.4,73.05000000000001,15.350000000000009,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+068,1,-1.713926107205736,-0.8034455487314534,113.5,125.7,119.6,6.099999999999994,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+069,1,0.2981533037260014,-2.6950802205017927,97.0,,97.0,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+070,1,-6.04438232910812,3.971517100089935,101.5,94.6,101.5,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+071,1,1.5057552256094109,1.1421826890974336,108.4,101.5,108.4,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+072,0,5.755813696995558,4.568469206079018,135.9,110.3,135.9,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+073,1,0.3867238737963076,-3.050124981657836,130.0,115.2,130.0,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+074,1,-2.989759749194888,-0.3503559541304105,105.0,94.6,105.0,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+075,0,11.335966844011876,2.295454341599412,88.4,85.6,88.4,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+076,1,-1.7586792789820302,-0.063899540166416,122.4,114.1,122.4,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+077,1,-3.870949129831304,1.5883660145797738,107.9,96.7,107.9,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+078,1,-2.6553517620742415,-0.01922748806432,94.0,102.3,98.15,4.150000000000006,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+079,1,-0.9599842822596784,-2.227952025752016,90.3,,90.3,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+080,1,-1.6609413408129143,-1.526563675870228,122.3,125.7,124.0,1.7000000000000028,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+081,1,-2.4096471173484573,-0.222346007677837,84.9,,84.9,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+082,1,-1.6371460041050423,-1.679290349346877,118.8,115.4,118.8,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+083,1,-0.4227893002388313,-2.6001816562441964,129.2,118.8,129.2,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+084,1,-4.417174826404847,2.077522195732014,101.5,,101.5,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+085,1,-1.927776119117501,-0.7515351653678561,110.7,99.5,110.7,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+086,1,-5.397966841262679,2.939095052156259,102.3,,102.3,0.0,T2 unavailable: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+089,1,-1.6114678615114726,-1.48676029684735,112.9,107.6,112.9,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+091,0,4.087097660558766,2.9014923570286433,80.7,80.7,80.7,0.0,T2 equal: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+093,1,1.6785724905396244,1.1674690147985414,70.4,77.3,73.85,3.4499999999999886,T2 higher: T1-T2 mean,IQ follow-up-informed baseline,iq_T1,iq_T2
+095,1,-5.947468953682352,3.359490933397594,110.3,96.0,110.3,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2
+096,1,-6.349758244956161,4.670095865688351,116.3,110.7,116.3,0.0,T2 lower: original T1,IQ follow-up-informed baseline,iq_T1,iq_T2

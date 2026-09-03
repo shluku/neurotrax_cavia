@@ -1,0 +1,17 @@
+{
+  "domain": "Executive function",
+  "target": "ef_T1",
+  "top_five_features": "keyboard_median_word_completion_time_ms;app_use_diversity;telephony_mobile_data_enabled_fraction;touch_scroll_index_change_median;message_distinct_event_count",
+  "source_patients": 81,
+  "target_patients": 81,
+  "analyzed_patients": 71,
+  "excluded_for_panel_availability": 10,
+  "selected_k": 2,
+  "solution_status": "Selected among candidates with every cluster containing at least five patients.",
+  "pc1_pc2_explained_variance_percent": 62.98508150103598,
+  "mean_silhouette_selected_k": 0.23422983514314835,
+  "mean_subsample_ari_selected_k": 0.22864615438227734,
+  "technical_variables_used_to_define_clusters": false,
+  "cognitive_variables_used_to_define_pca_or_clusters": false,
+  "feature_selection_is_outcome_informed": true
+}

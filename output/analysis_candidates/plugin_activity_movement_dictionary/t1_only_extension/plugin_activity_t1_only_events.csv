@@ -1,0 +1,1 @@
+patient_id,device_id,event_id,timestamp_ms,event_time_utc,event_time_local,local_date,minute_start_ms_utc,minute_start_utc,minute_start_local,raw_activity_name,activity_type,confidence,canonical_movement_class,is_active_evidence,is_still_evidence,is_uncertain,nested_activity_labels,json_parse_status

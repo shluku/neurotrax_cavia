@@ -1,0 +1,6 @@
+feature_name,feature_family,source_table,cluster_0_median_iqr,cluster_1_median_iqr,standardized_difference_cluster_1_minus_0
+median_unlocked_session_duration_seconds,screen_session_duration,screen,-84.58 (-130.88-62.66),-11.25 (-105.70-82.08),0.15437196952575924
+telephony_mobile_data_enabled_fraction,telephony_connectivity_context,telephony,-0.04 (-0.25-0.24),0.21 (-0.24-0.27),0.27090886289450206
+message_distinct_event_count,message_communication_context,messages,-0.19 (-0.31--0.09),1.05 (0.63-1.15),5.186962948532555
+app_foreground_event_count,app_use_intensity,applications_foreground,0.08 (-0.42-0.59),0.03 (-0.31-0.67),-0.06545896189819145
+keyboard_median_word_completion_time_ms,keyboard_word_timing,keyboard,7.70 (-966.32-500.41),-98.60 (-992.72-1252.49),0.3044694478829531

@@ -1,0 +1,3 @@
+domain,cluster_k,cluster_label,n_patients,patient_feature_coverage_mean_percent,global_T1_median_iqr,memory_T1_median_iqr,executive_function_T1_median_iqr,processing_speed_T1_median_iqr,attention_T1_median_iqr,motor_T1_median_iqr
+Global,2,0,24,90.83333333333331,96.10 (91.22-101.80),98.45 (88.95-106.25),94.95 (88.17-102.10),100.25 (86.83-104.40),96.75 (84.53-102.68),96.15 (86.53-101.85)
+Global,2,1,47,99.57446808510639,100.00 (94.70-104.05),99.40 (91.40-106.25),101.60 (92.75-106.60),96.00 (87.30-106.80),97.90 (92.15-104.90),100.50 (91.90-105.80)

@@ -1,0 +1,3 @@
+domain,cluster_k,cluster_label,n_patients,patient_feature_coverage_mean_percent,global_T1_median_iqr,memory_T1_median_iqr,executive_function_T1_median_iqr,processing_speed_T1_median_iqr,attention_T1_median_iqr,motor_T1_median_iqr
+Motor,2,0,41,98.53658536585367,100.00 (95.70-103.90),99.30 (92.50-106.30),100.40 (92.20-105.40),96.00 (88.00-106.35),97.30 (86.20-104.80),101.10 (92.10-106.55)
+Motor,2,1,30,92.00000000000001,96.10 (91.70-102.02),99.15 (88.85-105.70),98.70 (89.12-105.50),100.25 (86.67-104.40),98.60 (88.55-103.40),96.15 (86.17-102.35)

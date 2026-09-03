@@ -1,0 +1,17 @@
+{
+  "domain": "Processing speed",
+  "target": "processing_speed_T1",
+  "top_five_features": "telephony_network_type_diversity;touch_app_diversity;median_unlocked_session_duration_seconds;keyboard_inter_event_interval_iqr_ms;keyboard_median_word_completion_time_ms",
+  "source_patients": 81,
+  "target_patients": 71,
+  "analyzed_patients": 70,
+  "excluded_for_panel_availability": 11,
+  "selected_k": 3,
+  "solution_status": "Selected among candidates with every cluster containing at least five patients.",
+  "pc1_pc2_explained_variance_percent": 63.40499854202618,
+  "mean_silhouette_selected_k": 0.3047332969266608,
+  "mean_subsample_ari_selected_k": 0.837309406452724,
+  "technical_variables_used_to_define_clusters": false,
+  "cognitive_variables_used_to_define_pca_or_clusters": false,
+  "feature_selection_is_outcome_informed": true
+}

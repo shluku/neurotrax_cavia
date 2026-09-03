@@ -1,0 +1,4 @@
+method,n_patients,n_features,cluster_0_n,cluster_1_n,mean_silhouette,mean_pairwise_seed_ari,ari_vs_full_primary_solution,coverage_rule
+full_primary_features,81,37,77,4,0.652909920563997,1.0,1.0,none
+high_coverage_patients_primary_features,69,37,65,4,0.6236188775468728,1.0,1.0,"patients missing <=50%, table coverage >=50%"
+strict_feature_coverage_full_patients,81,37,77,4,0.652909920563997,1.0,1.0,features missing <=25%

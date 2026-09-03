@@ -1,0 +1,5 @@
+patient_id,device_id,minute_start_ms_utc,minute_start_utc,minute_start_local,local_date,plugin_event_count,valid_label_event_count,high_confidence_event_count,active_land_event_count,vehicle_event_count,still_event_count,orientation_change_event_count,unknown_event_count,other_event_count,mean_confidence,max_confidence,n_distinct_activity_classes,movement_evidence_class
+002,60e31068-dd5d-4fab-8b27-13f1c90c8ec0,1750676160000,2025-06-23 10:56:00+0000,2025-06-23 13:56:00+0300,2025-06-23,4,4,4,0,0,4,0,0,0,100.0,100.0,1,still
+002,60e31068-dd5d-4fab-8b27-13f1c90c8ec0,1750676220000,2025-06-23 10:57:00+0000,2025-06-23 13:57:00+0300,2025-06-23,1,1,1,0,0,1,0,0,0,100.0,100.0,1,still
+002,60e31068-dd5d-4fab-8b27-13f1c90c8ec0,1750676280000,2025-06-23 10:58:00+0000,2025-06-23 13:58:00+0300,2025-06-23,3,3,3,0,0,3,0,0,0,100.0,100.0,1,still
+002,60e31068-dd5d-4fab-8b27-13f1c90c8ec0,1750676340000,2025-06-23 10:59:00+0000,2025-06-23 13:59:00+0300,2025-06-23,1,1,1,0,0,1,0,0,0,100.0,100.0,1,still

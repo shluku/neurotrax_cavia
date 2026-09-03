@@ -1,0 +1,10 @@
+feature_name,n_patients,missing_percent
+supplemental_t1_proximity_iqr_value,25,69.14
+supplemental_t1_proximity_median_value,25,69.14
+supplemental_t1_proximity_near_bout_count,25,69.14
+supplemental_t1_proximity_near_sample_fraction,25,69.14
+supplemental_t1_proximity_near_transition_count,25,69.14
+supplemental_t1_light_lux_iqr,31,61.73
+supplemental_t1_median_light_lux,31,61.73
+supplemental_t1_night_mean_light_lux,9,88.89
+supplemental_t1_percent_dark_samples,31,61.73

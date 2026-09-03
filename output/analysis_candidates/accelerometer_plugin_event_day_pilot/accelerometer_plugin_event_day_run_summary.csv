@@ -1,0 +1,12 @@
+metric,value
+selected_patient_count,2
+selected_patients,"002, 003"
+candidate_device_day_count,108
+preflight_days_with_raw_rows,6
+completed_device_day_features,6
+days_without_raw_rows,13
+failed_device_day_extractions,16
+pending_device_days,73
+total_raw_rows_preflight,24868316
+feature_rows_written,6
+feature_count,24

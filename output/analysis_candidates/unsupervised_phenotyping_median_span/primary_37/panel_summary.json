@@ -1,0 +1,16 @@
+{
+  "panel_name": "primary_37",
+  "panel_label": "Primary 37 features",
+  "panel_description": "The predefined primary baseline feature set.",
+  "source_patients": 81,
+  "analyzed_patients": 76,
+  "excluded_patients_for_panel_availability": 5,
+  "selected_features": 37,
+  "n_pcs": 10,
+  "selected_k": 2,
+  "pc1_pc2_explained_variance_percent": 62.67661726849706,
+  "mean_silhouette_selected_k": 0.4712931582374272,
+  "mean_subsample_ari_selected_k": 0.9963870083522331,
+  "patient_feature_coverage_threshold_percent": 50.0,
+  "feature_coverage_threshold_percent": NaN
+}

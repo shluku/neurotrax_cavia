@@ -1,0 +1,11 @@
+cluster_label,feature_name,source_table,feature_family,source_patient_coverage_percent,cluster_n_patients,cluster_median_iqr,cluster_mean_scaled,cluster_missing_percent,absolute_cluster_mean_scaled,within_cluster_rank
+0,median_unlocked_session_duration_seconds,screen,screen_session_duration,93.82716049382715,61,182.73 (97.61-316.54),0.3803584842353168,0.0,0.3803584842353168,1.0
+0,app_use_diversity,applications_foreground,app_use_breadth,91.35802469135803,61,3.43 (3.22-3.59),0.21566338282606962,8.19672131147541,0.21566338282606962,2.0
+0,keyboard_median_word_completion_time_ms,keyboard,keyboard_word_timing,76.5432098765432,61,3433.50 (2603.50-4094.00),-0.1761350490771303,13.114754098360656,0.1761350490771303,3.0
+0,telephony_event_count,telephony,telephony_connectivity_context,93.82716049382715,61,5715.00 (2891.00-10562.00),0.13100580251954652,0.0,0.13100580251954652,4.0
+0,telephony_mobile_data_enabled_fraction,telephony,telephony_connectivity_context,93.82716049382715,61,0.47 (0.25-0.75),0.002524031202882072,0.0,0.002524031202882072,5.0
+1,app_use_diversity,applications_foreground,app_use_breadth,91.35802469135803,15,2.97 (2.56-3.04),-1.502378150195477,0.0,1.502378150195477,1.0
+1,keyboard_median_word_completion_time_ms,keyboard,keyboard_word_timing,76.5432098765432,15,5770.50 (5554.50-6531.00),1.2819440213896505,40.0,1.2819440213896505,2.0
+1,telephony_event_count,telephony,telephony_connectivity_context,93.82716049382715,15,2294.00 (1670.50-3931.50),-0.4683927224091182,0.0,0.4683927224091182,3.0
+1,telephony_mobile_data_enabled_fraction,telephony,telephony_connectivity_context,93.82716049382715,15,0.55 (0.38-0.88),0.17135622699627787,0.0,0.17135622699627787,4.0
+1,median_unlocked_session_duration_seconds,screen,screen_session_duration,93.82716049382715,15,134.61 (99.02-217.81),0.0369696352354428,0.0,0.0369696352354428,5.0

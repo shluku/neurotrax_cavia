@@ -1,0 +1,14 @@
+table_name,calculated,missing_no_data_in_patient_interval,patient_count,calculated_percent
+applications_foreground,77,4,81,95.06
+battery,5,76,81,6.17
+calls,36,45,81,44.44
+gsm,77,4,81,95.06
+gsm_neighbor,69,12,81,85.19
+keyboard,74,7,81,91.36
+locations,38,43,81,46.91
+messages,75,6,81,92.59
+plugin_google_activity_recognition,78,3,81,96.3
+screen,77,4,81,95.06
+significant,38,43,81,46.91
+telephony,77,4,81,95.06
+touch,70,11,81,86.42

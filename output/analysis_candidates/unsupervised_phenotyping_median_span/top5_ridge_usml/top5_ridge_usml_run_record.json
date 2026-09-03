@@ -1,0 +1,57 @@
+{
+  "analysis_name": "top5_ridge_real_features",
+  "original_outputs_changed": false,
+  "ridge_ranking_source": "output/analysis_candidates/phase11_t1_baseline/model_t1_ridge/phase4_t1_ridge_coefficient_summary.csv",
+  "ridge_scope_used": "all_available",
+  "selection_rule": "largest absolute mean Ridge coefficient, excluding missingness indicators and restricting to real features in the fixed 41-feature USML panel",
+  "selected_features": [
+    "keyboard_median_word_completion_time_ms",
+    "app_use_diversity",
+    "telephony_mobile_data_enabled_fraction",
+    "touch_scroll_index_change_median",
+    "message_distinct_event_count"
+  ],
+  "selected_feature_coefficients": [
+    {
+      "feature_name": "keyboard_median_word_completion_time_ms",
+      "coefficient_mean": -0.0704112019206005,
+      "coefficient_positive_fraction": 0.0,
+      "absolute_mean_coefficient": 0.0704112019206005
+    },
+    {
+      "feature_name": "app_use_diversity",
+      "coefficient_mean": 0.0454080516305864,
+      "coefficient_positive_fraction": 0.97,
+      "absolute_mean_coefficient": 0.0454080516305864
+    },
+    {
+      "feature_name": "telephony_mobile_data_enabled_fraction",
+      "coefficient_mean": -0.040698848516101,
+      "coefficient_positive_fraction": 0.0,
+      "absolute_mean_coefficient": 0.040698848516101
+    },
+    {
+      "feature_name": "touch_scroll_index_change_median",
+      "coefficient_mean": -0.0261601525734751,
+      "coefficient_positive_fraction": 0.08,
+      "absolute_mean_coefficient": 0.0261601525734751
+    },
+    {
+      "feature_name": "message_distinct_event_count",
+      "coefficient_mean": -0.0249022962346668,
+      "coefficient_positive_fraction": 0.06,
+      "absolute_mean_coefficient": 0.0249022962346668
+    }
+  ],
+  "source_patients": 81,
+  "analyzed_patients": 71,
+  "excluded_patients_for_panel_availability": 10,
+  "selected_k": 2,
+  "solution_status": "Candidate selected with every cluster containing at least five patients.",
+  "pc1_pc2_explained_variance_percent": 62.98508150103598,
+  "mean_silhouette_selected_k": 0.23422983514314835,
+  "mean_subsample_ari_selected_k": 0.22864615438227734,
+  "technical_variables_used_to_define_clusters": false,
+  "cognitive_variables_used_to_define_clusters": false,
+  "exploratory_p_values_only": true
+}

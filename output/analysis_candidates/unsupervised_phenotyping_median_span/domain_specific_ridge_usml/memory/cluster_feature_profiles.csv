@@ -1,0 +1,11 @@
+cluster_label,feature_name,source_table,feature_family,source_patient_coverage_percent,cluster_n_patients,cluster_median_iqr,cluster_mean_scaled,cluster_missing_percent,absolute_cluster_mean_scaled,within_cluster_rank
+0,screen_event_count,screen,screen_interaction_context,93.82716049382715,45,9153.00 (6963.00-11206.00),0.441466664212345,0.0,0.441466664212345,1.0
+0,screen_on_event_count,screen,screen_interaction_context,93.82716049382715,45,2480.00 (1949.00-2890.00),0.4266274230979985,0.0,0.4266274230979985,2.0
+0,screen_off_event_count,screen,screen_interaction_context,93.82716049382715,45,2284.00 (1577.00-2690.00),0.40177843132777796,0.0,0.40177843132777796,3.0
+0,telephony_mobile_data_enabled_fraction,telephony,telephony_connectivity_context,93.82716049382715,45,0.45 (0.33-0.72),-0.020073665140337284,0.0,0.020073665140337284,4.0
+0,touch_app_diversity,touch,touch_app_context,86.41975308641975,45,2.46 (2.01-2.89),0.0030158807133615975,8.88888888888889,0.0030158807133615975,5.0
+1,screen_on_event_count,screen,screen_interaction_context,93.82716049382715,31,895.00 (670.50-1152.50),-1.0190256058958052,0.0,1.0190256058958052,1.0
+1,screen_off_event_count,screen,screen_interaction_context,93.82716049382715,31,768.00 (431.50-917.50),-0.9325714827380873,0.0,0.9325714827380873,2.0
+1,screen_event_count,screen,screen_interaction_context,93.82716049382715,31,3286.00 (2113.00-4060.50),-0.9001727353682915,0.0,0.9001727353682915,3.0
+1,touch_app_diversity,touch,touch_app_context,86.41975308641975,31,2.42 (1.88-2.81),-0.1361761577538193,6.451612903225806,0.1361761577538193,4.0
+1,telephony_mobile_data_enabled_fraction,telephony,telephony_connectivity_context,93.82716049382715,31,0.53 (0.29-0.93),0.11702013676242426,0.0,0.11702013676242426,5.0

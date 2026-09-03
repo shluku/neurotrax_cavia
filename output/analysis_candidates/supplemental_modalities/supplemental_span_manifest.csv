@@ -1,0 +1,5 @@
+span_key,span_description
+phase4_24h,Phase 4 24-hour T1/T2 acquisition span
+phase7_10day,Phase 7 availability-anchored 10-day T1/T2 span
+phase11_12_midpoint,Phase 11/12 patient-specific midpoint interval
+phase111_full_interval,Phase 111 full T1-to-T2 interval or 123-day fallback

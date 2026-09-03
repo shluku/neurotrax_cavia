@@ -1,0 +1,12 @@
+section,status,owner_or_next_action,notes
+Study frame,In progress,Confirm with supervisor,Central message is drafted
+Primary protocol,Needs decision,Freeze cohort and outcome,Do not promote additional analyses before this decision
+Introduction,In progress,Build literature-backed background,Use verified citations
+Methods,In progress,Document final cohort and windows,Include coverage and missingness definitions
+Results,Pending,Freeze primary analysis first,Use aggregate results only
+Discussion,In progress,Develop interpretation,Keep null/weak findings explicit
+Figures,Pending,Select main figures,Keep exploratory plots in supplement
+Tables,In progress,Review Table 1 and coverage tables,Verify denominators and missingness
+References,In progress,Verify bibliography,Add reporting standards after journal selection
+Draft v0.1,Scaffold only,Write after supervisor review,Not submission-ready
+Supplement,Pending,Collect exploratory outputs,Preserve full analysis history

@@ -1,0 +1,26 @@
+{
+  "original_pca_and_cluster_outputs_changed": false,
+  "reference_scores": "output/analysis_candidates/unsupervised_phenotyping_median_span/usable_catalog_50pct/pca_patient_scores.csv",
+  "feature_panel": "usable_catalog_50pct fixed selected features",
+  "feature_count": 41,
+  "reference_patient_count": 76,
+  "quality_trimmed_patient_count": 57,
+  "quality_trim_rule": "retain patients within the 5th to 95th percentile for observed span, total rows, panel coverage, and baseline table coverage",
+  "exposure_denominator": "observed timestamp span days; configured endpoint interval used only as fallback",
+  "volume_like_feature_rule": "count, unique, event-count, transition-count, distance, and duration features; fractions, ratios, diversity, and timing features are not divided",
+  "technical_residualization_variables": [
+    "observed_timestamp_span_days",
+    "total_rows_in_window",
+    "patient_feature_coverage_percent",
+    "baseline_feature_missing_percent",
+    "baseline_table_coverage_percent"
+  ],
+  "cognitive_variables_used_to_define_pca_or_clusters": false,
+  "exploratory_p_values_only": true,
+  "variants": [
+    "raw_reference",
+    "exposure_normalized",
+    "technical_residualized",
+    "quality_trimmed"
+  ]
+}

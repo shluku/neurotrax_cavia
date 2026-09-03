@@ -1,0 +1,6 @@
+feature_name,transformation,n_observed_before_imputation,missing_percent_before_imputation,imputation_value_after_transformation
+app_use_diversity,none,71,0.0,-0.027890218536472666
+app_foreground_event_count,none,71,0.0,0.06312772183960913
+night_screen_event_count,none,71,0.0,0.03501614651715035
+keyboard_median_word_completion_time_ms,none,62,12.676056338028168,-49.61543428686787
+median_unlocked_session_duration_seconds,none,71,0.0,-68.55552651949296

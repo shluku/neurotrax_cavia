@@ -1,0 +1,961 @@
+experiment_start_local,experiment_end_local,median_day_local,inspection_day_local,inspection_time_local,window_start_local,window_end_local,window_start_ms_utc,window_end_ms_utc,timezone,source,raw_table,sensor_table,_id,timestamp_ms,timestamp_local,device_id,data_json,data_json_pretty,data_json_parse_status,data_json_keys,selection
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,3,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,12,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,24,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,45,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,61,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,78,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,87,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,103,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,141,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,163,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,193,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,221,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,248,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,278,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,316,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,357,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,394,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,440,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,485,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,530,1736151929091,2025-01-06 10:25:29.091000+02:00,dffdd7f7-4fad-4c26-b499-70586d6d0d09,"{""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"", ""timestamp"": 1736151929091, ""sensor_name"": ""LSM6DSO Acceleration Sensor"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15932"", ""double_sensor_power_ma"": 0.25, ""double_sensor_resolution"": 0.002394201699644327, ""double_sensor_maximum_range"": 78.45320129394531, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""dffdd7f7-4fad-4c26-b499-70586d6d0d09"",
+  ""double_sensor_maximum_range"": 78.45320129394531,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.25,
+  ""double_sensor_resolution"": 0.002394201699644327,
+  ""sensor_name"": ""LSM6DSO Acceleration Sensor"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15932"",
+  ""timestamp"": 1736151929091
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,matching_window_device
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,1,1733821675463,2024-12-10 11:07:55.463000+02:00,1fc14012-3b9d-4413-a841-5c775e1bba42,"{""device_id"": ""1fc14012-3b9d-4413-a841-5c775e1bba42"", ""timestamp"": 1733821675463, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""1fc14012-3b9d-4413-a841-5c775e1bba42"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1733821675463
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,2,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,11,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,18,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,31,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,48,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,64,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,80,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,96,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,117,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,148,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,174,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,175,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,207,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,236,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,264,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,303,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,347,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,391,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,accelerometer,sensor_accelerometer,437,1736095537999,2025-01-05 18:45:37.999000+02:00,b8230289-312f-4583-9e72-b7078e493e71,"{""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"", ""timestamp"": 1736095537999, ""sensor_name"": ""LSM6DSVTR Accelerometer"", ""sensor_type"": ""1"", ""sensor_vendor"": ""STM"", ""sensor_version"": ""15933"", ""double_sensor_power_ma"": 0.15000000596046448, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 2000}","{
+  ""device_id"": ""b8230289-312f-4583-9e72-b7078e493e71"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 2000,
+  ""double_sensor_power_ma"": 0.15000000596046448,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""LSM6DSVTR Accelerometer"",
+  ""sensor_type"": ""1"",
+  ""sensor_vendor"": ""STM"",
+  ""sensor_version"": ""15933"",
+  ""timestamp"": 1736095537999
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,1,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,2,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,3,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,4,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,5,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,6,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,7,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,8,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,9,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,10,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,11,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,12,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,13,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,14,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,15,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,16,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,28,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,29,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,34,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,35,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,36,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,37,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,38,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,418,1741084142230,2025-03-04 12:29:02.230000+02:00,536902cf-31b5-4ac7-ac7a-f50783d635c9,"{""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"", ""timestamp"": 1741084142230, ""sensor_name"": ""linear_acceleration"", ""sensor_type"": ""10"", ""sensor_vendor"": ""qualcomm"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.5149999856948853, ""double_sensor_resolution"": 0.009999999776482582, ""double_sensor_maximum_range"": 156.99008178710938, ""double_sensor_minimum_delay"": 5000}","{
+  ""device_id"": ""536902cf-31b5-4ac7-ac7a-f50783d635c9"",
+  ""double_sensor_maximum_range"": 156.99008178710938,
+  ""double_sensor_minimum_delay"": 5000,
+  ""double_sensor_power_ma"": 0.5149999856948853,
+  ""double_sensor_resolution"": 0.009999999776482582,
+  ""sensor_name"": ""linear_acceleration"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""qualcomm"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1741084142230
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,17,1745923839824,2025-04-29 13:50:39.824000+03:00,4c117a46-b964-4c89-9e9d-5c08ac50c19c,"{""device_id"": ""4c117a46-b964-4c89-9e9d-5c08ac50c19c"", ""timestamp"": 1745923839824, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""4c117a46-b964-4c89-9e9d-5c08ac50c19c"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1745923839824
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,18,1745982727315,2025-04-30 06:12:07.315000+03:00,9cdc3cbd-1751-41f6-8bef-d46b6e35b6c2,"{""device_id"": ""9cdc3cbd-1751-41f6-8bef-d46b6e35b6c2"", ""timestamp"": 1745982727315, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""9cdc3cbd-1751-41f6-8bef-d46b6e35b6c2"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1745982727315
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,19,1745983931973,2025-04-30 06:32:11.973000+03:00,d4731001-92be-4b3f-966e-6ae0f94ed4f0,"{""device_id"": ""d4731001-92be-4b3f-966e-6ae0f94ed4f0"", ""timestamp"": 1745983931973, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""d4731001-92be-4b3f-966e-6ae0f94ed4f0"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1745983931973
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,20,1745984942464,2025-04-30 06:49:02.464000+03:00,417945a5-136b-4e12-87c6-ca99431e1ad3,"{""device_id"": ""417945a5-136b-4e12-87c6-ca99431e1ad3"", ""timestamp"": 1745984942464, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""417945a5-136b-4e12-87c6-ca99431e1ad3"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1745984942464
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,21,1745986215757,2025-04-30 07:10:15.757000+03:00,1ca334e0-53db-44a9-9582-6ceed1900334,"{""device_id"": ""1ca334e0-53db-44a9-9582-6ceed1900334"", ""timestamp"": 1745986215757, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""1ca334e0-53db-44a9-9582-6ceed1900334"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1745986215757
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,22,1745986526028,2025-04-30 07:15:26.028000+03:00,a293c071-508a-4d30-948b-a67a6336fa41,"{""device_id"": ""a293c071-508a-4d30-948b-a67a6336fa41"", ""timestamp"": 1745986526028, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""a293c071-508a-4d30-948b-a67a6336fa41"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1745986526028
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,23,1745986526028,2025-04-30 07:15:26.028000+03:00,a293c071-508a-4d30-948b-a67a6336fa41,"{""device_id"": ""a293c071-508a-4d30-948b-a67a6336fa41"", ""timestamp"": 1745986526028, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""a293c071-508a-4d30-948b-a67a6336fa41"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1745986526028
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,24,1745986526028,2025-04-30 07:15:26.028000+03:00,a293c071-508a-4d30-948b-a67a6336fa41,"{""device_id"": ""a293c071-508a-4d30-948b-a67a6336fa41"", ""timestamp"": 1745986526028, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""a293c071-508a-4d30-948b-a67a6336fa41"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1745986526028
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,25,1745986526028,2025-04-30 07:15:26.028000+03:00,a293c071-508a-4d30-948b-a67a6336fa41,"{""device_id"": ""a293c071-508a-4d30-948b-a67a6336fa41"", ""timestamp"": 1745986526028, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""a293c071-508a-4d30-948b-a67a6336fa41"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1745986526028
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,26,1746272133908,2025-05-03 14:35:33.908000+03:00,4c5e8b01-cc73-484f-9d26-43dcf4546455,"{""device_id"": ""4c5e8b01-cc73-484f-9d26-43dcf4546455"", ""timestamp"": 1746272133908, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""4c5e8b01-cc73-484f-9d26-43dcf4546455"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1746272133908
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,27,1746272133908,2025-05-03 14:35:33.908000+03:00,4c5e8b01-cc73-484f-9d26-43dcf4546455,"{""device_id"": ""4c5e8b01-cc73-484f-9d26-43dcf4546455"", ""timestamp"": 1746272133908, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""4c5e8b01-cc73-484f-9d26-43dcf4546455"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1746272133908
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,30,1746534374783,2025-05-06 15:26:14.783000+03:00,c413e5be-31f0-4054-9c91-ea8ffce65766,"{""device_id"": ""c413e5be-31f0-4054-9c91-ea8ffce65766"", ""timestamp"": 1746534374783, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""c413e5be-31f0-4054-9c91-ea8ffce65766"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1746534374783
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,31,1746535107452,2025-05-06 15:38:27.452000+03:00,4402aa62-9c9f-44a1-be16-4dcf7e6894ad,"{""device_id"": ""4402aa62-9c9f-44a1-be16-4dcf7e6894ad"", ""timestamp"": 1746535107452, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""4402aa62-9c9f-44a1-be16-4dcf7e6894ad"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1746535107452
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,32,1746535961245,2025-05-06 15:52:41.245000+03:00,5ec42f4d-3767-4abf-9e25-dc4a7066b957,"{""device_id"": ""5ec42f4d-3767-4abf-9e25-dc4a7066b957"", ""timestamp"": 1746535961245, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""5ec42f4d-3767-4abf-9e25-dc4a7066b957"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1746535961245
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,33,1746536294199,2025-05-06 15:58:14.199000+03:00,df683e70-37d9-4700-8be2-8d1a34461f45,"{""device_id"": ""df683e70-37d9-4700-8be2-8d1a34461f45"", ""timestamp"": 1746536294199, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Samsung Electronics"", ""sensor_version"": ""3"", ""double_sensor_power_ma"": 1.100000023841858, ""double_sensor_resolution"": 0.004788403399288654, ""double_sensor_maximum_range"": 156.90640258789062, ""double_sensor_minimum_delay"": 10000}","{
+  ""device_id"": ""df683e70-37d9-4700-8be2-8d1a34461f45"",
+  ""double_sensor_maximum_range"": 156.90640258789062,
+  ""double_sensor_minimum_delay"": 10000,
+  ""double_sensor_power_ma"": 1.100000023841858,
+  ""double_sensor_resolution"": 0.004788403399288654,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Samsung Electronics"",
+  ""sensor_version"": ""3"",
+  ""timestamp"": 1746536294199
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows
+2025-01-05 18:45:38.214000+02:00,2026-07-15 00:19:05.851000+03:00,2025-10-10,2025-06-01,21:00:00,2025-06-01 21:00:00+03:00,2025-06-01 21:01:00+03:00,1748800800000,1748800860000,Asia/Jerusalem,SQL database,linear_accelerometer,sensor_linear_accelerometer,39,1748000546424,2025-05-23 14:42:26.424000+03:00,a182f886-53f6-4d1f-a535-ae20e5a2060e,"{""device_id"": ""a182f886-53f6-4d1f-a535-ae20e5a2060e"", ""timestamp"": 1748000546424, ""sensor_name"": ""Linear Acceleration Sensor"", ""sensor_type"": ""10"", ""sensor_vendor"": ""Google"", ""sensor_version"": ""1"", ""double_sensor_power_ma"": 0.0010000000474974513, ""double_sensor_resolution"": 0.000009999999747378752, ""double_sensor_maximum_range"": 156.9600067138672, ""double_sensor_minimum_delay"": 20000}","{
+  ""device_id"": ""a182f886-53f6-4d1f-a535-ae20e5a2060e"",
+  ""double_sensor_maximum_range"": 156.9600067138672,
+  ""double_sensor_minimum_delay"": 20000,
+  ""double_sensor_power_ma"": 0.0010000000474974513,
+  ""double_sensor_resolution"": 9.999999747378752e-06,
+  ""sensor_name"": ""Linear Acceleration Sensor"",
+  ""sensor_type"": ""10"",
+  ""sensor_vendor"": ""Google"",
+  ""sensor_version"": ""1"",
+  ""timestamp"": 1748000546424
+}",ok,device_id;double_sensor_maximum_range;double_sensor_minimum_delay;double_sensor_power_ma;double_sensor_resolution;sensor_name;sensor_type;sensor_vendor;sensor_version;timestamp,first_global_rows

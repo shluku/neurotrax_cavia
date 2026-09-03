@@ -1,0 +1,4 @@
+k,n_seeds,n_resamples,mean_silhouette,sd_silhouette,mean_pairwise_seed_ari,min_pairwise_seed_ari,mean_subsample_ari_vs_reference,min_subsample_ari_vs_reference,min_cluster_n_reference,max_cluster_n_reference,selected_solution
+2,20,100,0.4578727354531621,0.0,1.0,1.0,0.9971260021176827,0.9281500529420662,11,65,True
+3,20,100,0.28153370728969923,0.0,1.0,1.0,0.8884152400423275,0.269761164597903,11,51,False
+4,20,100,0.2396557345043048,0.0007361062658743108,0.9862067917723042,0.9333122220367618,0.8531368270226503,0.3151552147824321,7,44,False

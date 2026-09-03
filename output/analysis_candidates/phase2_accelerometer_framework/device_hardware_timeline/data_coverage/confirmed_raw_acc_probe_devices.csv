@@ -1,0 +1,9 @@
+device_id,raw_acc_probe_evidence_level,raw_acc_probe_sources,raw_acc_probe_sample_rows,raw_acc_probe_first_seen_local,raw_acc_probe_last_seen_local
+15473e07-1dee-4682-8129-68f4c5d38cfe,bounded_SQL_minute_sample,2025-06-01; 2025-07-01,8,2025-06-01 09:00:00+0300,2025-07-01 09:00:00+0300
+2b92bd8b-f27e-4ce7-9b0f-85745f8897b0,bounded_SQL_minute_sample,2025-06-01_21-00,1,2025-06-01 21:00:00+0300,2025-06-01 21:00:00+0300
+72e21d84-c3cb-401a-8beb-4532f39f0688,bounded_SQL_minute_sample,2025-06-01; 2025-07-01,12,2025-06-01 09:00:00+0300,2025-07-01 09:00:00+0300
+86994e75-0c10-40f6-9c55-1cfc9d05856e,bounded_SQL_minute_sample,2025-06-01,2,2025-06-01 09:00:00+0300,2025-06-01 09:00:00+0300
+c219c7c9-afca-41d7-8693-332ea5222d08,bounded_SQL_minute_sample,2025-06-01; 2025-06-01_21-00,11,2025-06-01 09:00:00+0300,2025-06-01 21:00:00+0300
+d74f7acf-f82f-491d-90b9-d7321e6d4bcf,bounded_SQL_24h_download; bounded_SQL_targeted_sample,accelerometer_24h_pilot_manifest.csv; accelerometer_raw_phase2a_sample_rows_expanded.csv,1072778,2025-01-08 09:07:27+0200,2025-01-09 09:07:27+0200
+dffdd7f7-4fad-4c26-b499-70586d6d0d09,bounded_SQL_minute_sample,2025-06-01; 2025-06-01_21-00,1,2025-06-01 09:00:00+0300,2025-06-01 21:00:00+0300
+e2cbb029-ed91-4120-ad5d-4bda56bdcb33,bounded_SQL_minute_sample,2025-06-01_21-00,7,2025-06-01 21:00:00+0300,2025-06-01 21:00:00+0300

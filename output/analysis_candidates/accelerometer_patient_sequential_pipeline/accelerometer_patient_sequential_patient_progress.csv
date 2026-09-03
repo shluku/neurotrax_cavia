@@ -1,0 +1,2 @@
+patient_id,candidate_device_day_count,candidate_local_day_count,completed_feature_days,candidate_days_without_raw_acc,failed_days,pending_days,patient_status
+003,106,106,24,82,0,0,complete

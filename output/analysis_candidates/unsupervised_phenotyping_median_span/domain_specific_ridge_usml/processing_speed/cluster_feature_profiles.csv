@@ -1,0 +1,16 @@
+cluster_label,feature_name,source_table,feature_family,source_patient_coverage_percent,cluster_n_patients,cluster_median_iqr,cluster_mean_scaled,cluster_missing_percent,absolute_cluster_mean_scaled,within_cluster_rank
+0,median_unlocked_session_duration_seconds,screen,screen_session_duration,93.82716049382715,6,724.82 (629.70-813.02),2.5861746497912264,0.0,2.5861746497912264,1.0
+0,touch_app_diversity,touch,touch_app_context,86.41975308641975,6,1.90 (1.81-2.34),-0.5632909328754827,0.0,0.5632909328754827,2.0
+0,keyboard_inter_event_interval_iqr_ms,keyboard,keyboard_typing_dynamics,81.48148148148148,6,467.00 (419.12-659.81),-0.3995085967879475,0.0,0.3995085967879475,3.0
+0,keyboard_median_word_completion_time_ms,keyboard,keyboard_word_timing,76.5432098765432,6,3252.25 (2758.75-3987.25),-0.3870014771048744,0.0,0.3870014771048744,4.0
+0,telephony_network_type_diversity,telephony,telephony_network_context,93.82716049382715,6,0.61 (0.22-1.16),-0.006308767027487616,0.0,0.006308767027487616,5.0
+1,keyboard_inter_event_interval_iqr_ms,keyboard,keyboard_typing_dynamics,81.48148148148148,47,523.00 (365.00-644.88),-0.33239075680468133,8.51063829787234,0.33239075680468133,1.0
+1,keyboard_median_word_completion_time_ms,keyboard,keyboard_word_timing,76.5432098765432,47,3278.00 (2563.50-3722.50),-0.2839882530004784,17.02127659574468,0.2839882530004784,2.0
+1,telephony_network_type_diversity,telephony,telephony_network_context,93.82716049382715,47,0.67 (0.30-1.19),0.06879210193348041,0.0,0.06879210193348041,3.0
+1,touch_app_diversity,touch,touch_app_context,86.41975308641975,47,2.46 (1.95-2.78),-0.05123768705186829,0.0,0.05123768705186829,4.0
+1,median_unlocked_session_duration_seconds,screen,screen_session_duration,93.82716049382715,47,141.31 (94.77-218.44),0.0018938041827698952,0.0,0.0018938041827698952,5.0
+2,keyboard_median_word_completion_time_ms,keyboard,keyboard_word_timing,76.5432098765432,17,5554.50 (4941.00-6435.50),1.3251271951419663,0.0,1.3251271951419663,1.0
+2,keyboard_inter_event_interval_iqr_ms,keyboard,keyboard_typing_dynamics,81.48148148148148,17,1104.00 (939.00-1574.50),1.134048522287494,0.0,1.134048522287494,2.0
+2,median_unlocked_session_duration_seconds,screen,screen_session_duration,93.82716049382715,17,210.72 (120.99-395.48),0.40594196255700893,0.0,0.40594196255700893,3.0
+2,telephony_network_type_diversity,telephony,telephony_network_context,93.82716049382715,17,0.81 (0.63-1.23),0.14804112929884214,0.0,0.14804112929884214,4.0
+2,touch_app_diversity,touch,touch_app_context,86.41975308641975,17,2.47 (2.16-2.89),0.12881589475676844,0.0,0.12881589475676844,5.0

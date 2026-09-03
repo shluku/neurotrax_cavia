@@ -1,0 +1,6 @@
+feature_name,transformation,n_observed_before_imputation,missing_percent_before_imputation,imputation_value_after_transformation
+telephony_network_type_diversity,none,70,0.0,0.7225802307754177
+touch_app_diversity,none,70,0.0,2.4427175153994747
+median_unlocked_session_duration_seconds,none,70,0.0,164.65325
+keyboard_inter_event_interval_iqr_ms,log1p_nonnegative_skewed,66,5.714285714285714,6.420378074499951
+keyboard_median_word_completion_time_ms,none,62,11.428571428571429,3672.0

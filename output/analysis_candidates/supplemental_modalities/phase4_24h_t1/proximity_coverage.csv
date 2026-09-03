@@ -1,0 +1,3 @@
+Subject_ID_D,Subject_ID_N,global_T1,T1_date_iso,modality,table_name,device_id,window_rule,window_start_ms,window_end_ms,primary_n_rows,fallback_first_ts,selected_n_rows,selected_first_ts,selected_last_ts
+002,64,104.8,2025-01-27,proximity,proximity,1f17227b-a259-4caa-bf40-4eccf742447e,phase4_no_primary_or_fallback_data_in_T1_week,1738015200000,1738101600000,0,,0,,
+002,64,104.8,2025-01-27,proximity,proximity,c84399c2-6bc9-44ad-9b46-81ba47b5c14b,phase4_no_primary_or_fallback_data_in_T1_week,1738015200000,1738101600000,0,,0,,

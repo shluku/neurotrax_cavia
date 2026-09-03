@@ -1,0 +1,2 @@
+active_patient_count,patients_with_valid_t1_t2_interval,patients_without_valid_t2_interval,mapped_device_count,completed_device_intervals,status_rows_written,raw_event_rows_written,minute_rows_written
+1,1,0,2,2,2,13,6

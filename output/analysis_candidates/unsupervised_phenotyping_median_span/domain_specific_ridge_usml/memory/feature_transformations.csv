@@ -1,0 +1,6 @@
+feature_name,transformation,n_observed_before_imputation,missing_percent_before_imputation,imputation_value_after_transformation
+screen_event_count,log1p_nonnegative_skewed,76,0.0,8.728572846861615
+telephony_mobile_data_enabled_fraction,none,76,0.0,0.5240985518078045
+screen_off_event_count,log1p_nonnegative_skewed,76,0.0,7.300748342764166
+screen_on_event_count,log1p_nonnegative_skewed,76,0.0,7.47618596703204
+touch_app_diversity,none,70,7.894736842105263,2.4427175153994747

@@ -1,0 +1,4 @@
+modality,patient_rows,device_rows,calculated_patients,total_rows_in_selected_windows,status_counts_json
+proximity,81,159,25,9392.0,"{""calculated"": 25, ""phase4_no_primary_or_fallback_data_in_T1_week"": 56}"
+light,81,159,31,17417887.0,"{""calculated"": 31, ""phase4_no_primary_or_fallback_data_in_T1_week"": 50}"
+accelerometer,81,77,30,4432362.0,"{""calculated"": 30, ""missing_no_raw_rows_in_anchor_probe"": 47, ""missing_no_sensor_accelerometer_metadata_anchor"": 4}"

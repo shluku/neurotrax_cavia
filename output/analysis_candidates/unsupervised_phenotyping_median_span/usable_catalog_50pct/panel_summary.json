@@ -1,0 +1,16 @@
+{
+  "panel_name": "usable_catalog_50pct",
+  "panel_label": "Usable feature catalog (>=50% patient coverage)",
+  "panel_description": "All catalog features observed in at least half of the 81 source patients.",
+  "source_patients": 81,
+  "analyzed_patients": 76,
+  "excluded_patients_for_panel_availability": 5,
+  "selected_features": 41,
+  "n_pcs": 10,
+  "selected_k": 2,
+  "pc1_pc2_explained_variance_percent": 59.09245908594744,
+  "mean_silhouette_selected_k": 0.4578727354531621,
+  "mean_subsample_ari_selected_k": 0.9971260021176827,
+  "patient_feature_coverage_threshold_percent": 50.0,
+  "feature_coverage_threshold_percent": 50.0
+}

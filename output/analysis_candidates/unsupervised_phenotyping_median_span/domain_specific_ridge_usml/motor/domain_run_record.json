@@ -1,0 +1,17 @@
+{
+  "domain": "Motor",
+  "target": "motor_T1",
+  "top_five_features": "keyboard_median_word_completion_time_ms;median_unlocked_session_duration_seconds;touch_scroll_index_change_median;app_use_diversity;gsm_neighbor_cell_transition_count",
+  "source_patients": 81,
+  "target_patients": 79,
+  "analyzed_patients": 71,
+  "excluded_for_panel_availability": 10,
+  "selected_k": 2,
+  "solution_status": "Selected among candidates with every cluster containing at least five patients.",
+  "pc1_pc2_explained_variance_percent": 60.25444581533054,
+  "mean_silhouette_selected_k": 0.1855107752803858,
+  "mean_subsample_ari_selected_k": 0.23054479637761743,
+  "technical_variables_used_to_define_clusters": false,
+  "cognitive_variables_used_to_define_pca_or_clusters": false,
+  "feature_selection_is_outcome_informed": true
+}

@@ -1,0 +1,12 @@
+metric,value
+selected_patient_count,1
+selected_patients,003
+candidate_device_day_count,106
+completed_device_day_features,24
+candidate_days_without_raw_acc,82
+failed_device_day_extractions,0
+pending_device_days,0
+patient_level_rows,1
+current_patient,
+status_counts,"{""features_calculated"": 24, ""no_raw_rows"": 82}"
+feature_count,24

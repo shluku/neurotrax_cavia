@@ -1,0 +1,7 @@
+variable,available,source,note
+Exact recorded days,False,Not present in current Phase 11 patient-level exports,"The available audit contains rows and first/last timestamps, but not a deduplicated daily recording calendar."
+Operating system/version,False,Not present in current Phase 11 patient-level exports,Do not infer this from device identifiers.
+Device type,False,Not present in current Phase 11 patient-level exports,Device counts are available; device type is not.
+Device count,True,Phase 11 midpoint patient-table status,Only counts are used in the technical audit; raw identifiers are excluded from comparison outputs.
+Source rows/events,True,Phase 11 midpoint patient-table status,Reported rows are treated as a technical intensity proxy.
+Observed timestamp span,True,Phase 11 midpoint coverage audit,Earliest-to-latest span; not continuous recording duration.

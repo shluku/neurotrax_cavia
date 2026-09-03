@@ -1,0 +1,15 @@
+exploratory_grouping,global_t1_median_cutoff,variable,unit,overall,lower_observed_t1,higher_observed_t1,n_overall,n_lower,n_higher,p_value,effect_size_cliffs_delta_higher_minus_lower,test,q_value_fdr_bh
+Median split of observed global T1,99.4,Participants,n,81,41,40,81,41,40,,,not_tested,
+Median split of observed global T1,99.4,Age,years,80.00 (77.00-83.00),80.00 (75.00-85.00),80.00 (78.00-82.25),81,41,40,0.8386293980465147,0.026829268292682926,Mann-Whitney U,0.8386293980465147
+Median split of observed global T1,99.4,Female sex,n (%),61 (75.3%),33 (80.5%),28 (70.0%),81,41,40,0.31161066959449785,,Fisher exact,0.46838462346053983
+Median split of observed global T1,99.4,Education,years,15.00 (13.00-17.00),15.00 (13.75-17.00),15.00 (12.75-17.25),80,40,40,0.7119647041062744,0.048125,Mann-Whitney U,0.7712950961151307
+Median split of observed global T1,99.4,Global cognitive T1,score,99.40 (93.00-104.00),93.00 (87.80-95.70),104.05 (101.67-107.28),81,41,40,9.80100058942904e-15,1.0,Mann-Whitney U,1.274130076625775e-13
+Median split of observed global T1,99.4,Memory T1,score,99.30 (88.80-106.30),90.30 (84.10-100.00),105.60 (99.20-111.58),81,41,40,4.2194794241125656e-07,0.6536585365853659,Mann-Whitney U,1.097064650269267e-06
+Median split of observed global T1,99.4,Executive function T1,score,99.40 (90.70-106.00),91.70 (86.30-96.80),106.20 (101.95-111.80),81,41,40,3.8968192655541914e-11,0.8536585365853658,Mann-Whitney U,2.5329325226102243e-10
+Median split of observed global T1,99.4,Processing speed T1,score,99.10 (86.75-104.90),87.80 (80.28-99.10),104.40 (96.10-111.40),71,34,37,2.8009687048120208e-06,0.6478537360890302,Mann-Whitney U,6.068765527092711e-06
+Median split of observed global T1,99.4,Attention T1,score,97.90 (87.40-104.10),92.30 (78.30-97.40),103.65 (98.50-107.45),81,41,40,3.2527048637826124e-09,0.7646341463414634,Mann-Whitney U,1.057129080729349e-08
+Median split of observed global T1,99.4,Motor T1,score,99.10 (90.00-105.15),90.30 (84.65-97.40),105.00 (100.95-108.33),79,39,40,2.140452660700437e-09,0.7833333333333333,Mann-Whitney U,9.275294863035227e-09
+Median split of observed global T1,99.4,T2 score available,n (%),61 (75.3%),27 (65.9%),34 (85.0%),81,41,40,0.07029410991977536,,Fisher exact,0.13054620413672566
+Median split of observed global T1,99.4,Usable digital features,n,41.00 (40.00-41.00),41.00 (38.00-41.00),41.00 (40.75-41.00),81,41,40,0.5904548132966904,0.06463414634146342,Mann-Whitney U,0.6978102338960886
+Median split of observed global T1,99.4,Patient-level feature missingness,fraction,0.24 (0.24-0.26),0.24 (0.24-0.30),0.24 (0.24-0.25),81,41,40,0.5624566365300941,-0.06951219512195123,Mann-Whitney U,0.6978102338960886
+Median split of observed global T1,99.4,Patient-level table coverage,fraction,0.56 (0.56-0.56),0.56 (0.50-0.56),0.56 (0.56-0.56),81,41,40,0.32426627778037376,0.11463414634146342,Mann-Whitney U,0.46838462346053983

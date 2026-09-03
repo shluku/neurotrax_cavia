@@ -1,0 +1,82 @@
+{"modality": "proximity", "Subject_ID_D": "", "status": "missing", "patient_status": "missing_no_mapped_device", "rows_in_selected_window": 0, "sample_rows": 0}
+{"modality": "proximity", "Subject_ID_D": "002", "status": "missing", "patient_status": "phase4_no_primary_or_fallback_data_in_T1_week", "rows_in_selected_window": 0, "sample_rows": 0}
+{"modality": "proximity", "Subject_ID_D": "003", "status": "calculated", "patient_status": "calculated", "rows_in_selected_window": 56, "sample_rows": 50}
+{"modality": "proximity", "Subject_ID_D": "004", "status": "calculated", "patient_status": "calculated", "rows_in_selected_window": 250, "sample_rows": 50}
+{"modality": "proximity", "Subject_ID_D": "005", "status": "missing", "patient_status": "phase4_no_primary_or_fallback_data_in_T1_week", "rows_in_selected_window": 0, "sample_rows": 0}
+{"modality": "proximity", "Subject_ID_D": "006", "status": "calculated", "patient_status": "calculated", "rows_in_selected_window": 114, "sample_rows": 50}
+{"modality": "proximity", "Subject_ID_D": "007", "status": "missing", "patient_status": "phase4_no_primary_or_fallback_data_in_T1_week", "rows_in_selected_window": 0, "sample_rows": 0}
+{"modality": "proximity", "Subject_ID_D": "010", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "011", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "012", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "013", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "014", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "015", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "018", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "019", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "020", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "021", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "022", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "023", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "024", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "025", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "026", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "028", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "029", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "030", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "031", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "032", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "034", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "035", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "036", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "037", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "038", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "039", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "040", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "041", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "042", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "043", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "044", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "045", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "046", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "048", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "049", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "050", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "052", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "053", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "055", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "056", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "057", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "058", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "060", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "061", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "062", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "064", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "066", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "067", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "068", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "069", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "070", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "071", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "072", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "073", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "074", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "075", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "076", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "077", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "078", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "079", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "080", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "081", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "082", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "083", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "084", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "085", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "086", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "087", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "089", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "090", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "091", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "092", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "093", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "095", "status": "error", "error_message": "Unread result found"}
+{"modality": "proximity", "Subject_ID_D": "096", "status": "error", "error_message": "Unread result found"}

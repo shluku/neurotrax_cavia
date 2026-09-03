@@ -1,0 +1,28 @@
+{
+  "fixed_panel": "usable_catalog_50pct",
+  "fixed_pca_scores": "output/analysis_candidates/unsupervised_phenotyping_median_span/usable_catalog_50pct/pca_patient_scores.csv",
+  "fixed_cluster_assignments_recomputed": false,
+  "fixed_pca_coordinates_recomputed": false,
+  "feature_count": 41,
+  "descriptive_catalog_feature_count": 54,
+  "analyzed_patients": 76,
+  "cluster_sizes": {
+    "0": 11,
+    "1": 65
+  },
+  "cognitive_outcomes": [
+    "Global T1",
+    "Global T2",
+    "Global T2-T1 delta",
+    "Memory T2-T1 delta",
+    "Attention T2-T1 delta",
+    "Executive function T2-T1 delta",
+    "Processing speed T2-T1 delta",
+    "Motor T2-T1 delta",
+    "Verbal T2-T1 delta",
+    "IQ T2-T1 delta"
+  ],
+  "technical_variables_used_to_define_clusters": false,
+  "cognitive_variables_used_to_define_clusters": false,
+  "exploratory_p_values_only": true
+}

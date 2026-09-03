@@ -1,0 +1,3 @@
+patient_id,local_date,number_of_devices,plugin_event_count,valid_label_event_count,high_confidence_event_count,active_land_event_count,vehicle_event_count,still_event_count,orientation_change_event_count,unknown_event_count,other_event_count,mean_confidence,max_confidence,first_event_time_local,last_event_time_local,n_observed_minutes_across_devices,dominant_movement_evidence_class
+002,2025-06-07,1,4,4,4,0,0,4,0,0,0,100.0,100.0,2025-06-07 16:14:47+0300,2025-06-07 16:15:19+0300,2,still
+002,2025-06-23,1,9,9,9,0,0,9,0,0,0,100.0,100.0,2025-06-23 13:56:46+0300,2025-06-23 13:59:52+0300,4,still

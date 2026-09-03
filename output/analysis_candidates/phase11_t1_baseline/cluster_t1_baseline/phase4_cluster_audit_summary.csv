@@ -1,0 +1,3 @@
+cluster_label,n_patients,age_mean,age_median,global_T1_mean,global_T1_median,baseline_feature_missing_fraction_mean,baseline_feature_missing_fraction_median,baseline_table_coverage_fraction_mean,baseline_table_coverage_fraction_median,device_episode_count_mean,device_episode_count_median
+0,77,79.75324675324676,80.0,97.66753246753248,99.3,0.30687830687830686,0.2407407407407407,0.5251623376623377,0.5625,1.9610389610389611,2.0
+1,4,77.5,75.5,102.97500000000001,101.0,0.17129629629629628,0.1481481481481481,0.609375,0.625,2.0,2.0

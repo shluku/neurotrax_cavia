@@ -1,0 +1,25 @@
+feature_name,feature_group,definition,interpretation
+accelerometer_raw_row_count,quality,Number of raw general-accelerometer rows returned for the mapped device and local day.,Collection volume; not a movement measure.
+accelerometer_valid_numeric_row_count,quality,"Rows containing valid numeric x, y, and z values after JSON parsing.",Usable signal count.
+accelerometer_exact_duplicate_rows_removed,quality,Duplicate rows with the same timestamp and all three signal values removed before feature calculation.,Data-integrity audit measure.
+accelerometer_valid_signal_minutes,quality,Number of local clock minutes containing at least one valid three-axis signal.,Observed time coverage; not equivalent to continuous recording.
+accelerometer_calendar_coverage_fraction,quality,Valid signal minutes divided by the number of minutes in the local calendar day.,Coarse day-level coverage indicator.
+accelerometer_observed_span_hours,quality,Elapsed time from the first to the last valid signal in the day.,Extent of the observed interval; gaps inside the interval remain possible.
+accelerometer_median_sampling_interval_ms,quality,Median positive interval between consecutive valid timestamps.,Observed timing regularity and approximate sampling interval.
+accelerometer_p95_sampling_interval_ms,quality,95th percentile of positive intervals between consecutive valid timestamps.,Tail of sampling gaps.
+accelerometer_gap_burden_fraction,quality,Seconds in gaps longer than one second divided by the 24-hour calendar day.,Conservative fragmentation indicator; it is not missingness imputed as zero movement.
+accelerometer_magnitude_median,signal_level,Median vector magnitude sqrt(x^2 + y^2 + z^2).,Includes gravity and phone orientation; not a direct body-acceleration measure.
+accelerometer_magnitude_sd,signal_level,Standard deviation of vector magnitude over valid samples.,"Overall signal variability, affected by orientation and collection context."
+accelerometer_magnitude_p95,signal_level,95th percentile of vector magnitude.,"Upper signal level, including gravity and phone-state effects."
+accelerometer_dynamic_magnitude_rms,dynamic_motion,Root-mean-square absolute deviation of magnitude from the day median magnitude.,Orientation-tolerant motion proxy; not a validated activity classifier.
+accelerometer_dynamic_magnitude_p95,dynamic_motion,95th percentile absolute deviation of magnitude from the day median magnitude.,Upper dynamic-motion proxy.
+accelerometer_low_motion_fraction,dynamic_motion,Fraction of valid samples with dynamic magnitude at or below 0.10.,Low-variation phone-signal fraction; can reflect phone placement or no use.
+accelerometer_high_motion_fraction,dynamic_motion,Fraction of valid samples with dynamic magnitude at or above 0.75.,High-variation phone-signal fraction; exploratory only.
+accelerometer_motion_bout_count,temporal_pattern,Runs of consecutive observed minutes whose median dynamic magnitude is at least 0.20.,Number of separated active-looking periods; requires adequate minute coverage.
+accelerometer_longest_observed_quiet_interval_minutes,temporal_pattern,Longest run of consecutive observed minutes below the 0.20 motion threshold.,Quiet interval among observed minutes; unobserved time is not labeled quiet.
+accelerometer_daytime_motion_minutes,circadian,Observed minutes with median dynamic magnitude at least 0.20 from 06:00 through 21:59 local time.,Daytime motion proxy.
+accelerometer_nighttime_motion_minutes,circadian,Observed minutes with median dynamic magnitude at least 0.20 from 22:00 through 05:59 local time.,Nighttime motion proxy.
+accelerometer_day_night_motion_ratio,circadian,Daytime motion minutes divided by nighttime motion minutes.,Undefined when no nighttime motion minutes are observed.
+accelerometer_hourly_motion_entropy,circadian,Shannon entropy of active-looking observed minutes across local clock hours.,Distribution of motion across the day; not a sleep measure.
+accelerometer_magnitude_jerk_median,rapid_change,Median absolute magnitude change per second for positive intervals no longer than five seconds.,Signal-change-rate proxy; not clinical tremor or motor speed.
+accelerometer_magnitude_jerk_p95,rapid_change,95th percentile absolute magnitude change per second for positive intervals no longer than five seconds.,Upper signal-change-rate proxy.
