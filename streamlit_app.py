@@ -248,6 +248,7 @@ PATHS = {
     / "output/analysis_candidates/accelerometer_all_mapped_feature_audit/accelerometer_patient_level_features.csv",
     "accelerometer_sequential_readme": ROOT
     / "output/analysis_candidates/accelerometer_patient_sequential_pipeline/README_accelerometer_patient_sequential_pipeline.md",
+    "accelerometer_sequential_protocol": ROOT / "ACC_PATIENT_SEQUENTIAL_PIPELINE_PROTOCOL.md",
     "accelerometer_sequential_summary": ROOT
     / "output/analysis_candidates/accelerometer_patient_sequential_pipeline/accelerometer_patient_sequential_run_summary.csv",
     "accelerometer_sequential_progress": ROOT
@@ -7646,6 +7647,7 @@ def accelerometer_patient_sequential_page() -> None:
     patient_days = load_csv(PATHS["accelerometer_sequential_patient_day"])
     patient_level = load_csv(PATHS["accelerometer_sequential_patient_level"])
     readme = load_text(PATHS["accelerometer_sequential_readme"])
+    protocol = load_text(PATHS["accelerometer_sequential_protocol"])
 
     if summary.empty and progress.empty:
         st.info("The patient-sequential ACC pipeline has not started yet.")
@@ -7702,10 +7704,13 @@ def accelerometer_patient_sequential_page() -> None:
             show_dataframe(status, height=520)
 
     with tabs[3]:
+        if protocol:
+            st.markdown(protocol)
         if readme:
-            st.markdown(readme)
+            with st.expander("Generated run README"):
+                st.markdown(readme)
         st.code(
-            ".venv/bin/python3 -u extract_accelerometer_patient_sequential.py --patient-id 003"
+            ".venv/bin/python3 -u extract_accelerometer_patient_sequential.py"
         )
         downloads = [
             ("Patient progress", progress, "accelerometer_patient_sequential_patient_progress.csv"),

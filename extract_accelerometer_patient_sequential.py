@@ -313,14 +313,9 @@ def run(args: argparse.Namespace) -> None:
     archive_dir.mkdir(parents=True, exist_ok=True)
     pilot.configure_output_dir(output_dir)
 
-    candidates = pilot.load_candidates(0)
-    candidates["patient_id"] = candidates["patient_id"].map(normalize_patient_id)
+    all_candidates = pilot.load_candidates(0)
+    all_candidates["patient_id"] = all_candidates["patient_id"].map(normalize_patient_id)
     requested = {normalize_patient_id(value) for value in args.patient_ids} if args.patient_ids else set()
-    if requested:
-        candidates = candidates[candidates["patient_id"].isin(requested)].copy()
-    candidates = candidates.sort_values(["patient_id", "local_date", "device_id"]).reset_index(drop=True)
-    if candidates.empty:
-        raise ValueError("No candidate movement days match the requested patient IDs")
 
     candidate_path = output_dir / "accelerometer_patient_sequential_candidates.csv"
     status_path = output_dir / "accelerometer_patient_sequential_status.csv"
@@ -332,6 +327,19 @@ def run(args: argparse.Namespace) -> None:
     summary_path = output_dir / "accelerometer_patient_sequential_run_summary.csv"
     checkpoint_path = output_dir / "accelerometer_patient_sequential_checkpoint.json"
     readme_path = output_dir / "README_accelerometer_patient_sequential_pipeline.md"
+
+    requested_candidates = all_candidates
+    if requested:
+        requested_candidates = all_candidates[all_candidates["patient_id"].isin(requested)].copy()
+    if requested_candidates.empty:
+        raise ValueError("No candidate movement days match the requested patient IDs")
+
+    existing_candidates = pd.read_csv(candidate_path, dtype=str) if candidate_path.exists() else pd.DataFrame()
+    if not existing_candidates.empty:
+        existing_candidates["patient_id"] = existing_candidates["patient_id"].map(normalize_patient_id)
+    candidates = pd.concat([existing_candidates, requested_candidates], ignore_index=True)
+    candidates = candidates.drop_duplicates("candidate_id", keep="first")
+    candidates = candidates.sort_values(["patient_id", "local_date", "device_id"]).reset_index(drop=True)
 
     atomic_write_csv(candidates, candidate_path)
     pilot.write_catalog()
@@ -348,7 +356,7 @@ def run(args: argparse.Namespace) -> None:
         )
     completed_ids |= {str(row["candidate_id"]) for row in wide_rows if row.get("candidate_id")}
     if args.force:
-        selected_ids = set(candidates["candidate_id"].astype(str))
+        selected_ids = set(requested_candidates["candidate_id"].astype(str))
         completed_ids -= selected_ids
         status_rows = [row for row in status_rows if str(row.get("candidate_id", "")) not in selected_ids]
         wide_rows = [row for row in wide_rows if str(row.get("candidate_id", "")) not in selected_ids]
