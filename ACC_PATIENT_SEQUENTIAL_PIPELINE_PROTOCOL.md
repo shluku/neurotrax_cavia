@@ -43,6 +43,14 @@ The two completed patients and all subsequent patients are stored together in
 the cumulative sequential output files. The original pilot outputs are not
 overwritten.
 
+### Pre-restart checkpoint
+
+The full-cohort extraction has **not** started. The attempted background launch
+was stopped before it processed a remaining patient. The current sequential
+manifest and status files still contain only patients 003 and 004: 283 candidate
+device-days, 109 feature days, 174 no-raw days, and zero failures. No remaining
+patient has been partially added.
+
 ## Acquisition Rule
 
 1. Read the movement dictionary and select mapped patient, device, and local date rows.
@@ -122,7 +130,19 @@ After restarting the computer:
 The command reads the cumulative manifest and status files. Completed
 patient-days are skipped automatically, so it resumes from the first pending
 candidate without reprocessing patients 003 or 004. It processes patients in
-patient ID order and does not start downstream modeling automatically.
+patient ID order, beginning with the remaining mapped patient 002, and does
+not start downstream modeling automatically.
+
+For a background run whose progress survives closing the terminal, use:
+
+```bash
+nohup .venv/bin/python3 -u extract_accelerometer_patient_sequential.py \
+  > output/analysis_candidates/accelerometer_patient_sequential_pipeline/full_cohort_extraction.log 2>&1 &
+```
+
+The output directory, status files, and the external-drive archives are the
+resume state. The background log is only an activity log; it is not the source
+of truth for completion counts.
 
 To validate or retry one patient only:
 
