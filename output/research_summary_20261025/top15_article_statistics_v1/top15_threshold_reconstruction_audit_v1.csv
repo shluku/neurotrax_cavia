@@ -1,0 +1,5 @@
+top15_row,label,historical_n,reconstructed_n,historical_rho,reconstructed_rho,historical_p,reconstructed_p,matched_threshold_scenario,threshold_match_status
+3,keyboard_18_24_median_inter_event_interval_ms → executive_function (T2_minus_T1),23,23,0.6640316205533596,0.6640316205533596,0.000549946357279,0.0005499463572790679,both_windows_min_snapshots_500,exact_reproduction
+4,keyboard_inter_event_interval_cv → executive_function (T2_minus_T1),23,23,-0.6590909090909092,-0.6590909090909092,0.0006252506102515,0.000625250610251599,both_windows_min_snapshots_500,exact_reproduction
+5,keyboard_06_12_median_inter_event_interval_ms → executive_function (T2_minus_T1),20,20,0.6917293233082705,0.6917293233082705,0.0007284845298314,0.0007284845298314555,both_windows_min_active_days_7,exact_reproduction
+7,keyboard_12_18_median_inter_event_interval_ms → executive_function (T2_minus_T1),20,20,0.6859722184996779,0.6859722184996779,0.0008402851670366,0.0008402851670366343,both_windows_min_active_days_7,exact_reproduction

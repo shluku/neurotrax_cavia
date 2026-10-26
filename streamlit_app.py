@@ -9748,6 +9748,9 @@ def top15_article_statistics_page() -> None:
     dist_path = base / "top15_reconstructable_distributions.csv"
     exact_dist_path = base / "top15_exact_distribution_summary.csv"
     exact_patient_path = base / "top15_exact_patient_level_table.csv"
+    threshold_audit_path = base / "top15_threshold_reconstruction_audit_v1.csv"
+    threshold_dist_path = base / "top15_threshold_distribution_summary_v1.csv"
+    threshold_patient_path = base / "top15_threshold_patient_level_table_v1.csv"
     readme_path = base / "README_top15_article_statistics_v1.md"
     if not reg_path.exists():
         st.error("The Top-15 workstream has not been initialized.")
@@ -9783,6 +9786,15 @@ def top15_article_statistics_page() -> None:
             with st.expander("Open exact patient-level evidence table"):
                 st.caption("Privacy-safe numeric patient-level summaries reconstructed from saved files. No raw text is included.")
                 st.dataframe(pd.read_csv(exact_patient_path), use_container_width=True, hide_index=True, height=520)
+        if threshold_audit_path.exists():
+            st.subheader("Corrected T2-reliability cohort reconstruction")
+            st.caption("Four previously flagged T2-reliability rows were reconstructed by applying the documented active-day/snapshot thresholds to saved period metrics. This is a cohort audit, not a new association search.")
+            st.dataframe(pd.read_csv(threshold_audit_path), use_container_width=True, hide_index=True)
+            if threshold_dist_path.exists():
+                st.dataframe(pd.read_csv(threshold_dist_path), use_container_width=True, hide_index=True)
+            if threshold_patient_path.exists():
+                with st.expander("Open corrected threshold-cohort patient table"):
+                    st.dataframe(pd.read_csv(threshold_patient_path), use_container_width=True, hide_index=True, height=520)
     st.subheader("Top-15 evidence register")
     st.dataframe(
         reg[["label", "estimate", "p", "q", "n", "ci_low", "ci_high", "ci_source", "analysis_phase", "coverage_adjusted_status", "reliability_status", "robustness_status", "next_action"]],
