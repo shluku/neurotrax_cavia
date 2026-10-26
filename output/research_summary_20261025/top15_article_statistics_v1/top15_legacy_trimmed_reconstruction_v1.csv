@@ -1,0 +1,3 @@
+top15_row,label,historical_n,reconstructed_n,historical_rho,reconstructed_rho,historical_p,reconstructed_p,cohort_rule,cohort_match_status
+12,keyboard_median_word_completion_time_ms → attention_T1 (T1),60,60,-0.354479271415468,-0.354479271415468,0.0054546089172586,0.005454608917258615,legacy patient table; exclude one lowest and one highest observed value for this feature,exact_reproduction
+14,keyboard_median_word_completion_time_ms → global_T1 (T1),60,60,-0.3422346970515684,-0.34223469705156845,0.0074391088869231,0.007439108886923183,legacy patient table; exclude one lowest and one highest observed value for this feature,exact_reproduction

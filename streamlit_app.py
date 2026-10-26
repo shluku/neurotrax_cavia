@@ -9754,6 +9754,8 @@ def top15_article_statistics_page() -> None:
     v2_audit_path = base / "top15_reconstruction_audit_v2.csv"
     restricted_audit_path = base / "top15_restricted_window_reconstruction_v1.csv"
     restricted_patient_path = base / "top15_restricted_window_patient_table_v1.csv"
+    legacy_audit_path = base / "top15_legacy_trimmed_reconstruction_v1.csv"
+    all_patient_path = base / "top15_all_reconstructed_patient_level_table_v1.csv"
     readme_path = base / "README_top15_article_statistics_v1.md"
     if not reg_path.exists():
         st.error("The Top-15 workstream has not been initialized.")
@@ -9805,6 +9807,13 @@ def top15_article_statistics_page() -> None:
             if restricted_patient_path.exists():
                 with st.expander("Open restricted-window patient table"):
                     st.dataframe(pd.read_csv(restricted_patient_path), use_container_width=True, hide_index=True, height=520)
+        if legacy_audit_path.exists():
+            st.subheader("Legacy trimmed-cohort reconstruction")
+            st.caption("The legacy patient table preserves the feature-specific min/max exclusion flags, allowing the historical n=60 associations to be reproduced exactly.")
+            st.dataframe(pd.read_csv(legacy_audit_path), use_container_width=True, hide_index=True)
+        if all_patient_path.exists():
+            with st.expander("Open all reconstructed patient-level evidence"):
+                st.dataframe(pd.read_csv(all_patient_path), use_container_width=True, hide_index=True, height=520)
         if v2_audit_path.exists():
             v2 = pd.read_csv(v2_audit_path)
             exact_v2 = int(v2.cohort_match_status.eq("exact_reproduction").sum())

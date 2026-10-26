@@ -47,6 +47,27 @@ for rownum, (feature, outcome, _) in specs.items():
     q.insert(0, "top15_row", rownum); q.insert(1, "label", r.label); q.insert(2, "cohort_rule", "thirds_min7_same_patients_midpoint_comparison")
     rows.append(q[["top15_row", "label", "cohort_rule", "Subject_ID_D", "feature_early", "feature_late", "feature_delta", "cognitive_t1", "cognitive_t2", "cognitive_delta", "coverage_active_days_early", "coverage_active_days_late", "coverage_snapshots_early", "coverage_snapshots_late", "coverage_valid_intervals_early", "coverage_valid_intervals_late"]])
 
+# The legacy source preserves the actual per-feature exclusion flags.  Apply
+# the documented rule (one lowest and one highest observed value per feature)
+# rather than treating the legacy trim as unrecoverable.
+legacy = pd.read_csv(ROOT / "output/analysis_candidates/keyboard_two_feature_median_timespan/keyboard_two_feature_patient_data.csv", dtype={"Subject_ID_D": str})
+legacy.Subject_ID_D = norm(legacy.Subject_ID_D)
+for rownum, outcome in [(12, "attention_T1"), (14, "global_T1")]:
+    r = TOP.iloc[rownum - 1]
+    feature = r.feature
+    flag = "excluded_extreme_" + feature
+    q = legacy.loc[~legacy[flag].astype(bool), ["Subject_ID_D", feature, outcome]].dropna().copy()
+    rho, p = spearmanr(q[feature], q[outcome])
+    exact = len(q) == int(r.n) and np.isclose(rho, float(r.estimate), atol=1e-6)
+    legacy_audit = {"top15_row": rownum, "label": r.label, "historical_n": r.n, "reconstructed_n": len(q), "historical_rho": r.estimate, "reconstructed_rho": rho, "historical_p": r.p, "reconstructed_p": p, "cohort_rule": "legacy patient table; exclude one lowest and one highest observed value for this feature", "cohort_match_status": "exact_reproduction" if exact else "reconstruction_mismatch"}
+    audits.append(legacy_audit)
+    q = q.rename(columns={feature: "feature_early", outcome: "cognitive_t1"})
+    q["feature_late"] = np.nan; q["feature_delta"] = np.nan; q["cognitive_t2"] = np.nan; q["cognitive_delta"] = np.nan
+    for col in ["coverage_active_days_early", "coverage_active_days_late", "coverage_snapshots_early", "coverage_snapshots_late", "coverage_valid_intervals_early", "coverage_valid_intervals_late"]:
+        q[col] = np.nan
+    q.insert(0, "top15_row", rownum); q.insert(1, "label", r.label); q.insert(2, "cohort_rule", "legacy_minmax_trim")
+    rows.append(q[["top15_row", "label", "cohort_rule", "Subject_ID_D", "feature_early", "feature_late", "feature_delta", "cognitive_t1", "cognitive_t2", "cognitive_delta", "coverage_active_days_early", "coverage_active_days_late", "coverage_snapshots_early", "coverage_snapshots_late", "coverage_valid_intervals_early", "coverage_valid_intervals_late"]])
+
 new_audit = pd.DataFrame(audits)
 audit = OLD.copy()
 for _, nr in pd.concat([TH.rename(columns={"historical_n": "source_n", "reconstructed_n": "reconstructed_n", "historical_rho": "source_rho", "reconstructed_rho": "reconstructed_rho", "historical_p": "source_p", "reconstructed_p": "reconstructed_p", "threshold_match_status": "cohort_match_status"}), new_audit], ignore_index=True).iterrows():
@@ -59,5 +80,7 @@ for _, nr in pd.concat([TH.rename(columns={"historical_n": "source_n", "reconstr
 audit.to_csv(OUT / "top15_reconstruction_audit_v2.csv", index=False)
 pd.concat(rows, ignore_index=True).to_csv(OUT / "top15_restricted_window_patient_table_v1.csv", index=False)
 pd.DataFrame(audits).to_csv(OUT / "top15_restricted_window_reconstruction_v1.csv", index=False)
+pd.DataFrame([a for a in audits if a["top15_row"] in (12, 14)]).to_csv(OUT / "top15_legacy_trimmed_reconstruction_v1.csv", index=False)
+pd.concat(rows, ignore_index=True).to_csv(OUT / "top15_all_reconstructed_patient_level_table_v1.csv", index=False)
 print(new_audit.to_string(index=False))
 print("exact reconstructed rows in v2:", int(audit.cohort_match_status.eq("exact_reproduction").sum()), "/", len(audit))
