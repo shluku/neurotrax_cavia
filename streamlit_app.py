@@ -9746,6 +9746,8 @@ def top15_article_statistics_page() -> None:
     checklist_path = base / "article_gap_checklist_20261026.csv"
     audit_path = base / "top15_reconstruction_audit.csv"
     dist_path = base / "top15_reconstructable_distributions.csv"
+    exact_dist_path = base / "top15_exact_distribution_summary.csv"
+    exact_patient_path = base / "top15_exact_patient_level_table.csv"
     readme_path = base / "README_top15_article_statistics_v1.md"
     if not reg_path.exists():
         st.error("The Top-15 workstream has not been initialized.")
@@ -9773,6 +9775,14 @@ def top15_article_statistics_page() -> None:
         if dist_path.exists():
             st.caption("Descriptive distributions are shown only for reconstructable saved patient-level inputs; they are not substituted for unavailable exact cohorts.")
             st.dataframe(pd.read_csv(dist_path), use_container_width=True, hide_index=True)
+        if exact_dist_path.exists():
+            st.subheader("Exact-reproduction distribution summaries")
+            st.caption("These summaries use the seven top-15 rows whose saved patient-level inputs reproduce the historical association cohort and estimate. T1 rows show the baseline feature distribution; longitudinal rows show Early, Late, and Late−Early distributions.")
+            st.dataframe(pd.read_csv(exact_dist_path), use_container_width=True, hide_index=True)
+        if exact_patient_path.exists():
+            with st.expander("Open exact patient-level evidence table"):
+                st.caption("Privacy-safe numeric patient-level summaries reconstructed from saved files. No raw text is included.")
+                st.dataframe(pd.read_csv(exact_patient_path), use_container_width=True, hide_index=True, height=520)
     st.subheader("Top-15 evidence register")
     st.dataframe(
         reg[["label", "estimate", "p", "q", "n", "ci_low", "ci_high", "ci_source", "analysis_phase", "coverage_adjusted_status", "reliability_status", "robustness_status", "next_action"]],
