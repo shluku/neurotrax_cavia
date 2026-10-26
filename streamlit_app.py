@@ -9756,6 +9756,8 @@ def top15_article_statistics_page() -> None:
     restricted_patient_path = base / "top15_restricted_window_patient_table_v1.csv"
     legacy_audit_path = base / "top15_legacy_trimmed_reconstruction_v1.csv"
     all_patient_path = base / "top15_all_reconstructed_patient_level_table_v1.csv"
+    inferential_path = base / "top15_article_inferential_audit_v1.csv"
+    gap_summary_path = base / "top15_article_gap_summary_v1.csv"
     readme_path = base / "README_top15_article_statistics_v1.md"
     if not reg_path.exists():
         st.error("The Top-15 workstream has not been initialized.")
@@ -9814,6 +9816,12 @@ def top15_article_statistics_page() -> None:
         if all_patient_path.exists():
             with st.expander("Open all reconstructed patient-level evidence"):
                 st.dataframe(pd.read_csv(all_patient_path), use_container_width=True, hide_index=True, height=520)
+        if inferential_path.exists():
+            st.subheader("Article-ready inferential audit")
+            st.caption("All 15 rows now have a CI and FDR field. Derived values are labeled by source and method; they do not overwrite historical statistics.")
+            if gap_summary_path.exists():
+                st.dataframe(pd.read_csv(gap_summary_path), use_container_width=True, hide_index=True)
+            st.dataframe(pd.read_csv(inferential_path), use_container_width=True, hide_index=True, height=620)
         if v2_audit_path.exists():
             v2 = pd.read_csv(v2_audit_path)
             exact_v2 = int(v2.cohort_match_status.eq("exact_reproduction").sum())

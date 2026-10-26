@@ -1,0 +1,5 @@
+gap,resolved_rows,total_rows,remaining,method
+confidence_intervals,15,15,0,"saved CI where available; otherwise 5,000-resample bootstrap on exact saved cohort"
+FDR_q_values,15,15,0,saved q where available; otherwise explicitly derived within the documented signal or legacy testing family
+coverage_adjustment,6,15,9,existing saved selected-six validation only
+independent_validation,0,15,15,no independent cohort or temporal validation saved
