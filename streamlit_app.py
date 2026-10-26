@@ -9759,6 +9759,7 @@ def top15_article_statistics_page() -> None:
     inferential_path = base / "top15_article_inferential_audit_v1.csv"
     gap_summary_path = base / "top15_article_gap_summary_v1.csv"
     six_signal_path = base / "six_signal_article_ready_table_v1.csv"
+    cov_join_path = base / "top15_covariate_join_audit_v1.csv"
     readme_path = base / "README_top15_article_statistics_v1.md"
     if not reg_path.exists():
         st.error("The Top-15 workstream has not been initialized.")
@@ -9827,6 +9828,10 @@ def top15_article_statistics_page() -> None:
             st.subheader("Six-signal manuscript table")
             st.caption("Discovery, recording-adjusted, leave-one-out/permutation, reliability, and corrected first/last-thirds results for the prespecified longitudinal keyboard signals.")
             st.dataframe(pd.read_csv(six_signal_path), use_container_width=True, hide_index=True, height=520)
+        if cov_join_path.exists():
+            st.subheader("Next gap-closure data availability")
+            st.caption("Saved-data join audit for the nine rows without selected-six recording-adjusted results. This precedes any new adjusted statistics.")
+            st.dataframe(pd.read_csv(cov_join_path), use_container_width=True, hide_index=True)
         if v2_audit_path.exists():
             v2 = pd.read_csv(v2_audit_path)
             exact_v2 = int(v2.cohort_match_status.eq("exact_reproduction").sum())
