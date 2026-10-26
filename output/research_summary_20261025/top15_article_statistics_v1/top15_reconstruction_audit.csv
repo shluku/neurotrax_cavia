@@ -1,0 +1,16 @@
+top15_row,label,source_n,reconstructed_n,reconstructed_rho,reconstructed_p,cohort_match_status,rho_difference,p_difference
+1,keyboard_06_12_median_inter_event_interval_ms → attention (T2_minus_T1),18,,,,unavailable_exact_patient_inputs,,
+2,keyboard_median_correction_recovery_time_ms → executive_function (T2_minus_T1),32,32.0,-0.5887096774193548,0.0003935497903806719,exact_reproduction,0.0,7.193681414441322e-17
+3,keyboard_18_24_median_inter_event_interval_ms → executive_function (T2_minus_T1),23,29.0,0.5236453201970442,0.0035540361732903807,broad_saved_inputs_threshold_cohort_not_recoverable,-0.14038630035631539,0.0030040898160113806
+4,keyboard_inter_event_interval_cv → executive_function (T2_minus_T1),23,33.0,-0.5130347593582888,0.0022651665195853234,broad_saved_inputs_threshold_cohort_not_recoverable,0.14605614973262038,0.0016399159093338236
+5,keyboard_06_12_median_inter_event_interval_ms → executive_function (T2_minus_T1),20,31.0,0.4846774193548387,0.005723212336766826,broad_saved_inputs_threshold_cohort_not_recoverable,-0.20705190395343182,0.0049947278069354265
+6,keyboard_median_correction_recovery_time_ms → attention (T2_minus_T1),18,,,,unavailable_exact_patient_inputs,,
+7,keyboard_12_18_median_inter_event_interval_ms → executive_function (T2_minus_T1),20,28.0,0.5928561708728188,0.0008854663078159199,broad_saved_inputs_threshold_cohort_not_recoverable,-0.0931160476268591,4.518114077931988e-05
+8,keyboard_median_word_completion_time_ms → global (T1),61,62.0,-0.41094787197950133,,exact_reproduction,-5.551115123125783e-17,
+9,keyboard_median_word_completion_time_ms → attention (T1),61,62.0,-0.4051551030576707,,exact_reproduction,0.0,
+10,keyboard_median_word_completion_time_ms → executive_function (T1),61,62.0,-0.3847759251744343,,exact_reproduction,0.0,
+11,keyboard_12_18_median_inter_event_interval_ms → attention (T2_minus_T1),28,28.0,0.5126625646940234,0.0052798532586369904,exact_reproduction,0.0,9.020562075079397e-17
+12,keyboard_median_word_completion_time_ms → attention_T1 (T1),60,62.0,-0.29897504382024986,0.01825074060519909,broad_legacy_patient_inputs_exact_trim_rule_not_recoverable,0.055504227595218114,0.01279613168794049
+13,keyboard_06_12_inter_event_interval_iqr_ms → executive_function (T1),63,64.0,-0.3433792875241834,,exact_reproduction,0.0,
+14,keyboard_median_word_completion_time_ms → global_T1 (T1),60,62.0,-0.3348737657030857,0.007804171024203587,broad_legacy_patient_inputs_exact_trim_rule_not_recoverable,0.007360931348482702,0.0003650621372804875
+15,keyboard_active_days → executive_function (T2_minus_T1),35,35.0,-0.43536752941361123,0.008949765802715233,exact_reproduction,-5.551115123125783e-17,3.2959746043559335e-17

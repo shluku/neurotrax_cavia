@@ -1,13 +1,13 @@
 check_id,article_task,status,required_evidence
 A1,Freeze primary and secondary evidence set,Open,"Choose primary POC, secondary findings, and sensitivity rows; define article vs supplement."
 A2,Confirm exact feature definitions and units,In progress,"Verify source code, units, windows, and interpretation for every top-15 row."
-A3,Freeze patient cohort and denominators,Open,"Record exact eligible patients, missingness, active days, snapshots, intervals, and device/app coverage."
-A4,Build patient-level feature distributions,Open,"Calculate median, IQR, range, and positive/negative change counts where applicable."
+A3,Freeze patient cohort and denominators,In progress,"Record exact eligible patients, missingness, active days, snapshots, intervals, and device/app coverage."
+A4,Build patient-level feature distributions,In progress,"Calculate median, IQR, range, and positive/negative change counts where applicable."
 A5,Complete raw association table,In progress,"Attach n, estimate, p, CI, q, testing family, and source provenance."
 A6,Complete coverage-adjusted statistics,Partial,"Use parsimonious age, sex, education, baseline cognition, and recording covariates where already defensible."
 A7,Complete reliability and sensitivity evidence,Partial,"Attach ICC, Spearman test–retest, leave-one-out, outlier, permutation, and alternate-window results."
 A8,Prepare article figures,In progress,"Forest plot, patient-level distributions, coverage plots, and candidate-specific scatter plots."
 A9,Write cautious interpretation,Open,"Separate behavior from recording proxies; classify credible, uncertain, measurement-driven, and negative findings."
 A10,Separate prediction results,Open,Report audited Ridge/Elastic Net models against matched mean baselines; do not mix with correlations.
-A11,Document limitations and missing statistics,Open,"Record missing CIs, unavailable exact cohorts, small n, FDR scope, and device/window limitations."
+A11,Document limitations and missing statistics,In progress,"Record missing CIs, unavailable exact cohorts, small n, FDR scope, and device/window limitations."
 A12,Independent validation plan,Future,"Define new cohort, frozen features, window, covariates, and external validation protocol."

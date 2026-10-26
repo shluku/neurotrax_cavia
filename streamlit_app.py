@@ -9744,6 +9744,8 @@ def top15_article_statistics_page() -> None:
     reg_path = base / "top15_article_evidence_register.csv"
     gap_path = base / "top15_analysis_phase_gap_register.csv"
     checklist_path = base / "article_gap_checklist_20261026.csv"
+    audit_path = base / "top15_reconstruction_audit.csv"
+    dist_path = base / "top15_reconstructable_distributions.csv"
     readme_path = base / "README_top15_article_statistics_v1.md"
     if not reg_path.exists():
         st.error("The Top-15 workstream has not been initialized.")
@@ -9760,6 +9762,17 @@ def top15_article_statistics_page() -> None:
         st.dataframe(checklist, use_container_width=True, hide_index=True)
     st.subheader("Article-preparation phases")
     st.dataframe(gap, use_container_width=True, hide_index=True)
+    if audit_path.exists():
+        st.subheader("Patient-level reconstruction audit")
+        audit = pd.read_csv(audit_path)
+        exact = int(audit.cohort_match_status.eq("exact_reproduction").sum())
+        broad = int(audit.cohort_match_status.str.startswith("broad_").sum())
+        unavailable = int(audit.cohort_match_status.eq("unavailable_exact_patient_inputs").sum())
+        st.caption(f"Exact saved-input reproduction: {exact}/15 · broad inputs with cohort mismatch: {broad}/15 · exact inputs unavailable: {unavailable}/15")
+        st.dataframe(audit, use_container_width=True, hide_index=True)
+        if dist_path.exists():
+            st.caption("Descriptive distributions are shown only for reconstructable saved patient-level inputs; they are not substituted for unavailable exact cohorts.")
+            st.dataframe(pd.read_csv(dist_path), use_container_width=True, hide_index=True)
     st.subheader("Top-15 evidence register")
     st.dataframe(
         reg[["label", "estimate", "p", "q", "n", "ci_low", "ci_high", "ci_source", "analysis_phase", "coverage_adjusted_status", "reliability_status", "robustness_status", "next_action"]],
