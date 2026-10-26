@@ -1,0 +1,5 @@
+metric,value,definition
+patients_with_verified_unlocked_sessions,2,at least one screen status 3 followed by status 2/0 or right censoring
+verified_sessions,60,same-device screen-unlocked sessions in two coverage-selected days
+raw_text_exported,False,keyboard text parsed only in memory and discarded
+cognitive_outcomes_used_for_selection,False,"sample selected from event coverage, not cognition"

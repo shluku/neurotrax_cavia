@@ -1,0 +1,5 @@
+group,outcome,n,score_mean,score_median,score_sd,pc1_score_pearson,pc2_score_pearson,pc1_score_spearman,pc2_score_spearman,pc1_score_slope,pc2_score_slope,score_on_pc1_pc2_r2_in_sample,line_status
+All patients,global_T2,7,95.69999999999997,95.8,14.096216986600812,-0.09845908987212956,-0.3423348753763469,-0.14285714285714288,-0.1785714285714286,-2.1166760479918945,-2.862918786545795,0.12982192127264358,standardized dominant 3D direction (descriptive)
+Cluster 0,global_T2,1,74.5,74.5,,,,,,,,,fewer than three complete observations
+Cluster 1,global_T2,2,102.5,102.5,3.676955262170039,,,,,,,,fewer than three complete observations
+Cluster 2,global_T2,4,97.60000000000001,95.19999999999999,14.40300894489296,-0.230816147669776,0.48195252734798216,0.0,0.39999999999999997,-6.171418867315985,6.546366058638483,0.6727903766662144,standardized dominant 3D direction (descriptive)

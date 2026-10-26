@@ -17,6 +17,9 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from result_explorer import render_result_explorer
+from motion_backup_dashboard import motion_backup_page
+from project_knowledge_graph import knowledge_graph_page
+from full_model_pca_dashboard import full_model_pca_page
 from supplemental_modalities.review_phase4_features import RECOMMENDED_FEATURES
 
 PATHS = {
@@ -368,6 +371,69 @@ PATHS = {
     "phase7_feature_comparison": ROOT / "output/analysis_candidates/phase7_10day_window/comparison/phase7_feature_coverage_comparison_24h_vs_10d.csv",
     "phase7_patient_comparison": ROOT / "output/analysis_candidates/phase7_10day_window/comparison/phase7_patient_feature_count_comparison_24h_vs_10d.csv",
     "phase7_table_comparison": ROOT / "output/analysis_candidates/phase7_10day_window/comparison/phase7_table_coverage_comparison_24h_vs_10d.csv",
+    "keyboard_two_feature_protocol": ROOT / "PHASE_KEYBOARD_TWO_FEATURE_MEDIAN_TIMESPAN_PROTOCOL.md",
+    "keyboard_two_feature_readme": ROOT / "output/analysis_candidates/keyboard_two_feature_median_timespan/README_keyboard_two_feature_median_timespan.md",
+    "keyboard_two_feature_data": ROOT / "output/analysis_candidates/keyboard_two_feature_median_timespan/keyboard_two_feature_patient_data.csv",
+    "keyboard_two_feature_associations": ROOT / "output/analysis_candidates/keyboard_two_feature_median_timespan/keyboard_two_feature_associations.csv",
+    "keyboard_t1_t2_delta_pca_protocol": ROOT / "PHASE_KEYBOARD_T1_T2_DELTA_PCA_PROTOCOL.md",
+    "keyboard_t1_t2_delta_pca_readme": ROOT / "output/analysis_candidates/keyboard_t1_t2_delta_pca/README_keyboard_t1_t2_delta_pca.md",
+    "keyboard_t1_t2_delta_pca_data": ROOT / "output/analysis_candidates/keyboard_t1_t2_delta_pca/keyboard_t1_t2_patient_data.csv",
+    "keyboard_t1_t2_delta_summary": ROOT / "output/analysis_candidates/keyboard_t1_t2_delta_pca/keyboard_t1_t2_delta_summary.csv",
+    "keyboard_t1_pca_scores": ROOT / "output/analysis_candidates/keyboard_t1_t2_delta_pca/keyboard_t1_pca_patient_scores.csv",
+    "keyboard_t1_pca_loadings": ROOT / "output/analysis_candidates/keyboard_t1_t2_delta_pca/keyboard_t1_pca_loadings.csv",
+    "keyboard_t1_pca_summary": ROOT / "output/analysis_candidates/keyboard_t1_t2_delta_pca/keyboard_t1_pca_summary.csv",
+    "keyboard_deep_dive_protocol": ROOT / "KEYBOARD_DEEP_DIVE_PROTOCOL.md",
+    "keyboard_deep_dive_manifest": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/run_manifest.json",
+    "keyboard_deep_dive_schema": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/keyboard_schema_columns.csv",
+    "keyboard_deep_dive_json_keys": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/keyboard_schema_json_key_audit.csv",
+    "keyboard_deep_dive_dictionary": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/keyboard_deep_dive_feature_dictionary.csv",
+    "keyboard_deep_dive_daily": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/keyboard_deep_dive_daily_features.csv",
+    "keyboard_deep_dive_windows": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/keyboard_deep_dive_window_features.csv",
+    "keyboard_deep_dive_coverage": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/keyboard_deep_dive_coverage.csv",
+    "keyboard_deep_dive_models_manifest": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/models/models_manifest.json",
+    "keyboard_deep_dive_supervised_summary": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/models/supervised_summary.csv",
+    "keyboard_deep_dive_supervised_predictions": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/models/supervised_predictions.csv",
+    "keyboard_deep_dive_supervised_metrics": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/models/supervised_fold_metrics.csv",
+    "keyboard_deep_dive_cluster_quality": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/models/unsupervised_cluster_quality.csv",
+    "keyboard_deep_dive_pca_variance": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/models/unsupervised_pca_variance.csv",
+    "keyboard_deep_dive_pca_loadings": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/models/unsupervised_pca_loadings.csv",
+    "keyboard_deep_dive_patient_scores": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/models/unsupervised_patient_scores.csv",
+    "keyboard_signal_manifest": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/signal_discovery/signal_discovery_manifest.json",
+    "keyboard_signal_associations": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/signal_discovery/signal_feature_associations.csv",
+    "keyboard_signal_top_candidates": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/signal_discovery/signal_top_candidates.csv",
+    "keyboard_signal_family_summary": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/signal_discovery/signal_family_summary.csv",
+    "keyboard_signal_family_cv": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/signal_discovery/signal_family_cv.csv",
+    "keyboard_validation_manifest": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/signal_validation/validation_manifest.json",
+    "keyboard_validation_summary": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/signal_validation/validation_summary.csv",
+    "keyboard_validation_adjusted": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/signal_validation/validation_adjusted_associations.csv",
+    "keyboard_validation_robustness": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/signal_validation/validation_robustness.csv",
+    "keyboard_validation_reliability": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/signal_validation/validation_reliability.csv",
+    "keyboard_validation_correlations": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/signal_validation/validation_feature_correlations.csv",
+    "keyboard_validation_comparability": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/signal_validation/validation_window_comparability.csv",
+    "keyboard_t2_reliability_manifest": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/t2_reliability_investigation/t2_reliability_manifest.json",
+    "keyboard_t2_coverage_summary": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/t2_reliability_investigation/t2_reliability_coverage_summary.csv",
+    "keyboard_t2_period_metrics": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/t2_reliability_investigation/t2_reliability_period_metrics.csv",
+    "keyboard_t2_signal_sensitivity": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/t2_reliability_investigation/t2_reliability_signal_sensitivity.csv",
+    "keyboard_t2_comparable_periods": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/t2_reliability_investigation/t2_reliability_comparable_periods.csv",
+    "keyboard_t2_reliability_thresholds": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/t2_reliability_investigation/t2_reliability_thresholds.csv",
+    "keyboard_thirds_manifest": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/thirds_sensitivity/thirds_manifest.json",
+    "keyboard_thirds_readme": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/thirds_sensitivity/README_keyboard_thirds_sensitivity.md",
+    "keyboard_thirds_coverage": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/thirds_sensitivity/third_coverage.csv",
+    "keyboard_thirds_eligibility": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/thirds_sensitivity/third_eligibility_summary.csv",
+    "keyboard_thirds_associations": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/thirds_sensitivity/third_associations.csv",
+    "keyboard_thirds_comparison": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/thirds_sensitivity/third_vs_midpoint_comparison_same_patients.csv",
+    "keyboard_thirds_corr": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/thirds_sensitivity/third_selected_feature_correlation_matrix.csv",
+    "keyboard_thirds_coverage_plot": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/thirds_sensitivity/third_coverage_comparison.png",
+    "keyboard_thirds_comparison_plot": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/thirds_sensitivity/third_vs_midpoint_associations.png",
+    "keyboard_thirds_corr_plot": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/thirds_sensitivity/third_selected_feature_correlations.png",
+    "keyboard_thirds_corrected_manifest": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/thirds_sensitivity_corrected_v2/corrected_manifest.json",
+    "keyboard_thirds_corrected_associations": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/thirds_sensitivity_corrected_v2/corrected_coverage_adjusted_associations.csv",
+    "keyboard_thirds_corrected_comparison": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/thirds_sensitivity_corrected_v2/corrected_vs_historical_coverage_adjusted.csv",
+    "keyboard_general_manifest": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/general_model_integration_v1/integration_manifest.json",
+    "keyboard_general_summary": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/general_model_integration_v1/model_summary.csv",
+    "keyboard_general_comparison": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/general_model_integration_v1/model_comparison.csv",
+    "keyboard_general_inventory": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/general_model_integration_v1/expanded_feature_bank_inventory.csv",
+    "keyboard_general_plot": ROOT / "output/analysis_candidates/keyboard_deep_dive_v1/general_model_integration_v1/model_comparison.png",
     "phase4_baseline_dataset": ROOT
     / "output/analysis_candidates/phase4_t1_baseline/phase4_t1_baseline_patient_dataset.csv",
     "phase4_feature_metadata": ROOT
@@ -3677,6 +3743,533 @@ def phase11_midpoint_page() -> None:
     )
 
 
+def keyboard_two_feature_page() -> None:
+    st.title("Two-Feature Keyboard Analysis")
+    st.caption("Exploratory median-timespan T1 analysis of the two preselected keyboard features across cognitive domains.")
+    data = load_csv(PATHS["keyboard_two_feature_data"])
+    associations = load_csv(PATHS["keyboard_two_feature_associations"])
+    if data.empty or associations.empty:
+        st.info("Run phase_keyboard_two_feature_median_timespan.py to create this analysis.")
+        st.markdown(load_text(PATHS["keyboard_two_feature_protocol"]))
+        return
+
+    st.warning(
+        "These features were selected after inspecting the same cohort. The plots are hypothesis-generating, "
+        "not independent validation or clinical evidence."
+    )
+    st.subheader("Feature × cognitive-domain associations")
+    st.caption("Nominal two-sided Spearman p-values are shown for exploration; no multiplicity correction is applied in this phase.")
+    st.dataframe(associations.round(4), use_container_width=True, hide_index=True)
+
+    labels = {
+        "keyboard_median_word_completion_time_ms": "Median inferred word-completion time (ms)",
+        "keyboard_inter_event_interval_iqr_ms": "Inter-keystroke interval variability (IQR, ms)",
+    }
+    outcome_options = associations[["outcome_column", "outcome_label"]].drop_duplicates()
+    selected_outcome = st.selectbox(
+        "Cognitive T1 outcome for the graphs",
+        outcome_options["outcome_column"].tolist(),
+        format_func=lambda value: outcome_options.loc[outcome_options["outcome_column"].eq(value), "outcome_label"].iloc[0],
+    )
+    selected_stats = associations[associations["outcome_column"].eq(selected_outcome)]
+    for feature, label in labels.items():
+        if feature not in data.columns:
+            continue
+        plot_data = data[["Subject_ID_D", selected_outcome, feature]].dropna().rename(
+            columns={selected_outcome: "outcome_value", feature: "feature_value"}
+        )
+        if plot_data.empty:
+            continue
+        stats = selected_stats[selected_stats["feature_name"].eq(feature)].iloc[0]
+        y_min = float(plot_data["outcome_value"].min())
+        y_max = float(plot_data["outcome_value"].max())
+        y_padding = max((y_max - y_min) * 0.08, 1.0)
+        slope = float(stats["linear_slope_outcome_per_feature_unit"])
+        chart = (
+            alt.Chart(plot_data)
+            .mark_circle(size=75, opacity=0.75)
+            .encode(
+                x=alt.X("feature_value:Q", title=label),
+                y=alt.Y(
+                    "outcome_value:Q",
+                    title=f"{stats['outcome_label']} T1 cognitive score",
+                    scale=alt.Scale(domain=[y_min - y_padding, y_max + y_padding]),
+                ),
+                tooltip=[
+                    alt.Tooltip("Subject_ID_D:N", title="Subject"),
+                    alt.Tooltip("feature_value:Q", title="Feature value", format=".2f"),
+                    alt.Tooltip("outcome_value:Q", title=f"{stats['outcome_label']} T1", format=".2f"),
+                ],
+            )
+            .properties(
+                height=420,
+                title=f"{label} vs {stats['outcome_label']} T1 | slope = {slope:.5f}",
+            )
+        )
+        trend = alt.Chart(plot_data).transform_regression("feature_value", "outcome_value").mark_line(color="#dc2626", size=3).encode(
+            x="feature_value:Q", y="outcome_value:Q"
+        )
+        st.altair_chart(chart + trend, use_container_width=True)
+        st.caption(
+            f"n={int(stats['n_observed'])}; Spearman rho={stats['spearman_rho']:.3f}; "
+            f"nominal p={stats['spearman_p_value']:.4f}; descriptive linear slope="
+            f"{slope:.5f} outcome points per feature unit; "
+            f"lowest/highest feature observations removed: {int(stats['extreme_values_removed'])}."
+        )
+
+    with st.expander("Protocol and interpretation"):
+        st.markdown(load_text(PATHS["keyboard_two_feature_protocol"]))
+    with st.expander("Patient-level plotting data"):
+        st.dataframe(data, use_container_width=True, height=360, hide_index=True)
+
+
+def keyboard_t1_t2_delta_pca_page() -> None:
+    st.title("Keyboard T1–T2 Change and T1 PCA")
+    st.caption("Exploratory paired change analysis and a two-feature standardized PCA using midpoint windows.")
+    data = load_csv(PATHS["keyboard_t1_t2_delta_pca_data"])
+    summary = load_csv(PATHS["keyboard_t1_t2_delta_summary"])
+    pca_scores = load_csv(PATHS["keyboard_t1_pca_scores"])
+    pca_loadings = load_csv(PATHS["keyboard_t1_pca_loadings"])
+    pca_summary = load_csv(PATHS["keyboard_t1_pca_summary"])
+    if data.empty or summary.empty:
+        st.info("Run phase_keyboard_t1_t2_delta_pca.py to create this analysis.")
+        st.markdown(load_text(PATHS["keyboard_t1_t2_delta_pca_protocol"]))
+        return
+    st.warning("This is a focused exploratory analysis of preselected features. It is not independent validation or a clinical result.")
+    st.subheader("Paired T1–T2 change summary")
+    st.dataframe(summary.round(5), use_container_width=True, hide_index=True)
+    labels = {
+        "keyboard_median_word_completion_time_ms": "Median inferred word-completion time (ms)",
+        "keyboard_inter_event_interval_iqr_ms": "Inter-keystroke interval variability (IQR, ms)",
+    }
+    selected_feature = st.selectbox("Keyboard feature", list(labels), format_func=lambda value: labels[value])
+    t1_col = f"{selected_feature}_T1"
+    t2_col = f"{selected_feature}_T2"
+    delta_col = f"{selected_feature}_delta"
+    paired = data[["Subject_ID_D", t1_col, t2_col, delta_col]].dropna()
+    if not paired.empty:
+        line_data = paired.melt("Subject_ID_D", value_vars=[t1_col, t2_col], var_name="timepoint", value_name="value")
+        line_data["timepoint"] = line_data["timepoint"].map({t1_col: "T1", t2_col: "T2"})
+        paired_chart = alt.Chart(line_data).mark_line(opacity=0.35).encode(
+            x=alt.X("timepoint:N", sort=["T1", "T2"], title=None),
+            y=alt.Y("value:Q", title=labels[selected_feature]),
+            detail="Subject_ID_D:N",
+            color=alt.Color("Subject_ID_D:N", legend=None),
+        ).properties(height=420, title=f"Paired {labels[selected_feature]}: T1 to T2")
+        st.altair_chart(paired_chart, use_container_width=True)
+        delta_chart = alt.Chart(paired).mark_bar().encode(
+            x=alt.X("delta:Q", bin=alt.Bin(maxbins=20), title="T2 − T1 feature change"),
+            y=alt.Y("count():Q", title="Patients"),
+            tooltip=[alt.Tooltip("count():Q", title="Patients")],
+        ).transform_calculate(delta=f"datum['{delta_col}']").properties(height=300, title="Distribution of feature change")
+        st.altair_chart(delta_chart, use_container_width=True)
+    st.subheader("Two-feature PCA at T1")
+    if not pca_scores.empty:
+        pca_chart = alt.Chart(pca_scores).mark_circle(size=80, opacity=0.8).encode(
+            x=alt.X("PC1:Q", title="PC1"), y=alt.Y("PC2:Q", title="PC2"),
+            color=alt.Color("global_T1:Q", title="Global T1"),
+            tooltip=[alt.Tooltip("Subject_ID_D:N", title="Subject"), alt.Tooltip("global_T1:Q", title="Global T1", format=".2f")],
+        ).properties(height=420, title="Standardized T1 keyboard PCA")
+        st.altair_chart(pca_chart, use_container_width=True)
+        st.dataframe(pca_summary.round(5), use_container_width=True, hide_index=True)
+        st.dataframe(pca_loadings.round(5), use_container_width=True, hide_index=True)
+        raw_3d = data[[
+            "Subject_ID_D", "global_T1",
+            "keyboard_median_word_completion_time_ms_T1",
+            "keyboard_inter_event_interval_iqr_ms_T1",
+        ]].dropna()
+        if not raw_3d.empty:
+            figure = px.scatter_3d(
+                raw_3d,
+                x="keyboard_median_word_completion_time_ms_T1",
+                y="keyboard_inter_event_interval_iqr_ms_T1",
+                z="global_T1",
+                color="global_T1",
+                hover_name="Subject_ID_D",
+                labels={
+                    "keyboard_median_word_completion_time_ms_T1": "Word completion time (ms)",
+                    "keyboard_inter_event_interval_iqr_ms_T1": "Inter-keystroke IQR (ms)",
+                    "global_T1": "Global T1",
+                },
+                title="3D T1 keyboard feature view with Global T1 overlay",
+            )
+            # A single 3D trend line is defined as the dominant centered
+            # direction of the standardized three-variable point cloud. A
+            # conventional regression with two feature predictors would be a
+            # plane, not a line.
+            trend_columns = [
+                "keyboard_median_word_completion_time_ms_T1",
+                "keyboard_inter_event_interval_iqr_ms_T1",
+                "global_T1",
+            ]
+            trend_matrix = raw_3d[trend_columns].to_numpy(dtype=float)
+            trend_mean = trend_matrix.mean(axis=0)
+            trend_scale = trend_matrix.std(axis=0, ddof=0)
+            trend_scale[trend_scale == 0] = 1.0
+            standardized = (trend_matrix - trend_mean) / trend_scale
+            _, _, vh = np.linalg.svd(standardized - standardized.mean(axis=0), full_matrices=False)
+            direction = vh[0]
+            extent = np.max(np.abs((standardized - standardized.mean(axis=0)) @ direction))
+            line_standardized = np.vstack([
+                standardized.mean(axis=0) - extent * direction,
+                standardized.mean(axis=0) + extent * direction,
+            ])
+            line_raw = line_standardized * trend_scale + trend_mean
+            figure.add_trace(
+                go.Scatter3d(
+                    x=line_raw[:, 0], y=line_raw[:, 1], z=line_raw[:, 2],
+                    mode="lines", name="Best-fit 3D trend line",
+                    line=dict(color="#111827", width=7),
+                )
+            )
+            line_word_slope = (line_raw[1, 2] - line_raw[0, 2]) / (line_raw[1, 0] - line_raw[0, 0])
+            line_interval_slope = (line_raw[1, 2] - line_raw[0, 2]) / (line_raw[1, 1] - line_raw[0, 1])
+            figure.update_layout(
+                title=(
+                    "3D T1 keyboard trend line | "
+                    f"Global T1 slope: {line_word_slope:.5f} per word-ms, "
+                    f"{line_interval_slope:.5f} per interval-IQR-ms"
+                )
+            )
+            figure.update_layout(height=650, margin=dict(l=0, r=0, t=55, b=0))
+            st.plotly_chart(figure, use_container_width=True)
+            st.caption(
+                f"The dark line is the best-fit dominant 3D trend direction. Its displayed slopes are "
+                f"{line_word_slope:.5f} Global-T1 points per word-completion millisecond and "
+                f"{line_interval_slope:.5f} Global-T1 points per interval-IQR millisecond. "
+                "Global T1 is a post-hoc overlay, not an input to the PCA."
+            )
+    with st.expander("Protocol and interpretation"):
+        st.markdown(load_text(PATHS["keyboard_t1_t2_delta_pca_protocol"]))
+
+
+def keyboard_deep_dive_page() -> None:
+    st.title("Keyboard Deep Dive")
+    st.caption("Versioned keyboard feature extraction and quality review before Feature Bank/model integration.")
+    st.info(
+        "This page is intentionally separate from the existing keyboard analyses. "
+        "It reads the new v1 outputs only; it does not run SQL, modify prior outputs, or train models."
+    )
+    manifest_path = PATHS["keyboard_deep_dive_manifest"]
+    if manifest_path.exists():
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            metric_row([
+                ("Run status", manifest.get("status", "unknown")),
+                ("Window rows", manifest.get("windows", "—")),
+                ("Daily rows", manifest.get("daily_rows", "—")),
+                ("Model integration", "No" if not manifest.get("model_integration_performed") else "Yes"),
+            ])
+        except Exception:
+            st.warning("The run manifest could not be parsed.")
+    else:
+        st.warning("The Keyboard Deep Dive extraction has not completed yet.")
+
+    tabs = st.tabs(["Protocol", "Schema audit", "Coverage", "Window features", "Daily features", "Feature dictionary", "Models", "Signal discovery", "Signal Validation", "Reliability Investigation", "Thirds Sensitivity", "General Model Integration"])
+    with tabs[0]:
+        st.markdown(load_text(PATHS["keyboard_deep_dive_protocol"]))
+    with tabs[1]:
+        st.subheader("SQL schema")
+        show_dataframe(load_csv(PATHS["keyboard_deep_dive_schema"]), height=260)
+        st.subheader("JSON key prevalence audit")
+        show_dataframe(load_csv(PATHS["keyboard_deep_dive_json_keys"]), height=260)
+    with tabs[2]:
+        coverage = load_csv(PATHS["keyboard_deep_dive_coverage"])
+        if not coverage.empty:
+            status_counts = coverage.groupby(["window_name", "window_status"], dropna=False).size().reset_index(name="n_windows")
+            show_dataframe(status_counts, height=240)
+        show_dataframe(coverage, height=430)
+    with tabs[3]:
+        windows = load_csv(PATHS["keyboard_deep_dive_windows"])
+        if not windows.empty:
+            window_choice = st.selectbox("Window", sorted(windows["window_name"].dropna().unique().tolist()))
+            show_dataframe(windows[windows["window_name"].eq(window_choice)], height=520)
+        else:
+            st.info("Window features will appear after extraction completes.")
+    with tabs[4]:
+        show_dataframe(load_csv_sample(PATHS["keyboard_deep_dive_daily"], nrows=5000), height=520)
+    with tabs[5]:
+        show_dataframe(load_csv(PATHS["keyboard_deep_dive_dictionary"]), height=520)
+    with tabs[6]:
+        model_manifest = PATHS["keyboard_deep_dive_models_manifest"]
+        if not model_manifest.exists():
+            st.info("Run keyboard_deep_dive_models.py to create the keyboard-only model outputs.")
+        else:
+            st.subheader("Supervised cross-validation summary")
+            st.caption("Participant-level repeated folds; the mean baseline is the reference. These results are exploratory and are not yet integrated into the main Feature Bank.")
+            supervised = load_csv(PATHS["keyboard_deep_dive_supervised_summary"])
+            show_dataframe(supervised, height=560)
+            if not supervised.empty:
+                st.subheader("Supervised model performance")
+                task_options = supervised["task"].dropna().astype(str).unique().tolist()
+                selected_task = st.selectbox("Outcome", task_options, key="keyboard_model_task")
+                task_summary = supervised[supervised["task"].eq(selected_task)].copy()
+                if not task_summary.empty:
+                    performance_fig = px.bar(
+                        task_summary.sort_values("rmse_mean"),
+                        x="model", y="rmse_mean", error_y="rmse_sd", color="model",
+                        labels={"rmse_mean": "Repeated-CV RMSE", "model": "Model"},
+                        title=f"Keyboard-only performance: {selected_task}",
+                    )
+                    performance_fig.update_layout(showlegend=False, height=380)
+                    st.plotly_chart(performance_fig, use_container_width=True)
+
+                predictions = load_csv(PATHS["keyboard_deep_dive_supervised_predictions"])
+                if not predictions.empty:
+                    prediction_models = predictions.loc[predictions["task"].eq(selected_task), "model"].dropna().unique().tolist()
+                    if prediction_models:
+                        selected_model = st.selectbox("Model for observed-versus-predicted plot", prediction_models, key="keyboard_model_name")
+                        plot_predictions = predictions[
+                            predictions["task"].eq(selected_task) & predictions["model"].eq(selected_model)
+                        ].copy()
+                        # Average repeated out-of-fold predictions per participant for a readable diagnostic.
+                        plot_predictions = plot_predictions.groupby(["Subject_ID_D", "actual"], as_index=False)["prediction"].mean()
+                        pred_fig = px.scatter(
+                            plot_predictions, x="actual", y="prediction", hover_name="Subject_ID_D",
+                            labels={"actual": "Observed score", "prediction": "Predicted score"},
+                            title=f"Observed versus predicted: {selected_task} / {selected_model}",
+                        )
+                        lo = float(min(plot_predictions["actual"].min(), plot_predictions["prediction"].min()))
+                        hi = float(max(plot_predictions["actual"].max(), plot_predictions["prediction"].max()))
+                        pred_fig.add_shape(type="line", x0=lo, y0=lo, x1=hi, y1=hi, line=dict(color="#111827", dash="dash"))
+                        pred_fig.update_layout(height=420)
+                        st.plotly_chart(pred_fig, use_container_width=True)
+
+            st.subheader("Unsupervised keyboard PCA and clustering")
+            cluster_quality = load_csv(PATHS["keyboard_deep_dive_cluster_quality"])
+            variance = load_csv(PATHS["keyboard_deep_dive_pca_variance"])
+            show_dataframe(cluster_quality, height=240)
+            show_dataframe(variance, height=240)
+            if not variance.empty:
+                variance_fig = px.bar(
+                    variance.head(10), x="component", y="explained_variance_percent",
+                    labels={"explained_variance_percent": "Explained variance (%)", "component": "Component"},
+                    title="Keyboard PCA explained variance",
+                )
+                variance_fig.update_layout(height=350)
+                st.plotly_chart(variance_fig, use_container_width=True)
+            loadings = load_csv(PATHS["keyboard_deep_dive_pca_loadings"])
+            if not loadings.empty and {"feature_name", "PC1", "PC2"}.issubset(loadings.columns):
+                loading_component = st.selectbox("PCA loading component", ["PC1", "PC2"], key="keyboard_pca_component")
+                loading_plot = loadings.assign(abs_loading=loadings[loading_component].abs()).nlargest(12, "abs_loading").sort_values(loading_component)
+                loading_fig = px.bar(
+                    loading_plot, x=loading_component, y="feature_name", orientation="h",
+                    color=loading_component, color_continuous_scale="RdBu_r",
+                    labels={loading_component: "Loading", "feature_name": "Keyboard feature"},
+                    title=f"Largest absolute loadings on {loading_component}",
+                )
+                loading_fig.update_layout(height=450)
+                st.plotly_chart(loading_fig, use_container_width=True)
+            scores = load_csv(PATHS["keyboard_deep_dive_patient_scores"])
+            if not scores.empty and {"PC1", "PC2", "cluster_label"}.issubset(scores.columns):
+                fig = px.scatter(
+                    scores,
+                    x="PC1",
+                    y="PC2",
+                    color="cluster_label",
+                    hover_name="Subject_ID_D",
+                    title="Keyboard-only T1 PCA and K-means clusters",
+                )
+                st.plotly_chart(fig, use_container_width=True)
+                outcome_columns = [c for c in ["global_T1", "memory_T1", "ef_T1", "processing_speed_T1", "attention_T1", "motor_T1"] if c in scores.columns]
+                if outcome_columns:
+                    selected_outcome = st.selectbox("Cognitive outcome by keyboard cluster", outcome_columns, key="keyboard_cluster_outcome")
+                    box_fig = px.box(
+                        scores, x="cluster_label", y=selected_outcome, color="cluster_label", points="all",
+                        labels={"cluster_label": "Keyboard cluster", selected_outcome: "Observed T1 score"},
+                        title=f"{selected_outcome} by keyboard-only cluster",
+                    )
+                    box_fig.update_layout(height=400, showlegend=False)
+                    st.plotly_chart(box_fig, use_container_width=True)
+    with tabs[7]:
+        signal_manifest = PATHS["keyboard_signal_manifest"]
+        if not signal_manifest.exists():
+            st.info("Signal discovery has not been run yet. Reproduce it with `.venv/bin/python3 -u keyboard_signal_discovery.py`.")
+        else:
+            st.subheader("Keyboard signal discovery")
+            st.caption("Candidate-generation analysis across T1 and T2-minus-T1. Associations use Spearman correlation, bootstrap stability, and covariate-adjusted rank correlations. These results are exploratory and are not yet Feature Bank inputs.")
+            associations = load_csv(PATHS["keyboard_signal_associations"])
+            candidates = load_csv(PATHS["keyboard_signal_top_candidates"])
+            family_summary = load_csv(PATHS["keyboard_signal_family_summary"])
+            family_cv = load_csv(PATHS["keyboard_signal_family_cv"])
+            if not associations.empty:
+                scope = st.selectbox("Analysis scope", sorted(associations["scope"].unique().tolist()), key="keyboard_signal_scope")
+                outcome_options = sorted(associations.loc[associations["scope"].eq(scope), "outcome"].unique().tolist())
+                outcome = st.selectbox("Cognitive outcome", outcome_options, key="keyboard_signal_outcome")
+                view = associations[associations["scope"].eq(scope) & associations["outcome"].eq(outcome)].copy()
+                view["abs_rho"] = view["spearman_rho"].abs()
+                st.subheader("Feature association ranking")
+                st.dataframe(view.sort_values("abs_rho", ascending=False).drop(columns=["abs_rho"]), use_container_width=True, hide_index=True)
+                chart_data = view.sort_values("spearman_rho").tail(15)
+                assoc_fig = px.bar(
+                    chart_data, x="spearman_rho", y="feature_name", orientation="h", color="family",
+                    labels={"spearman_rho": "Spearman correlation", "feature_name": "Keyboard feature"},
+                    title=f"Top keyboard associations: {scope} / {outcome}",
+                )
+                assoc_fig.update_layout(height=520)
+                st.plotly_chart(assoc_fig, use_container_width=True)
+                flagged = view[view["candidate_flag"]].sort_values("fdr_q")
+                if flagged.empty:
+                    st.info("No feature passed the current candidate rule for this outcome and scope.")
+                else:
+                    st.success(f"{len(flagged)} feature(s) passed the candidate rule for this outcome and scope.")
+                    show_dataframe(flagged, height=260)
+            if not family_summary.empty:
+                st.subheader("Feature-family overview")
+                family_view = family_summary[family_summary["scope"].eq(scope) & family_summary["outcome"].eq(outcome)]
+                show_dataframe(family_view, height=220)
+            if not family_cv.empty:
+                st.subheader("Out-of-fold family comparison")
+                cv_view = family_cv[family_cv["scope"].eq(scope) & family_cv["outcome"].eq(outcome)].sort_values("rmse_improvement", ascending=False)
+                show_dataframe(cv_view, height=220)
+    with tabs[8]:
+        validation_manifest = PATHS["keyboard_validation_manifest"]
+        if not validation_manifest.exists():
+            st.info("Signal Validation has not been run yet. Reproduce it with `.venv/bin/python3 -u keyboard_signal_validation.py`.")
+        else:
+            st.subheader("Keyboard Signal Validation — Phase 2")
+            st.caption("Validation of the six discovery associations using reliability, coverage sensitivity, leave-one-patient-out checks, outlier sensitivity, permutation tests, and feature-dependence analysis. Timing features remain text-state snapshot proxies.")
+            summary = load_csv(PATHS["keyboard_validation_summary"])
+            adjusted = load_csv(PATHS["keyboard_validation_adjusted"])
+            robustness = load_csv(PATHS["keyboard_validation_robustness"])
+            reliability = load_csv(PATHS["keyboard_validation_reliability"])
+            correlations = load_csv(PATHS["keyboard_validation_correlations"])
+            comparability = load_csv(PATHS["keyboard_validation_comparability"])
+            st.subheader("Original associations with robustness checks")
+            show_dataframe(summary, height=360)
+            if not summary.empty:
+                robustness_fig = px.scatter(
+                    summary, x="original_rho", y="outlier_filtered_rho", color="outcome", hover_name="feature_name",
+                    labels={"original_rho": "Original Spearman ρ", "outlier_filtered_rho": "After IQR outlier check ρ"},
+                    title="Outlier sensitivity of the six associations",
+                )
+                robustness_fig.add_shape(type="line", x0=-1, y0=-1, x1=1, y1=1, line=dict(color="#111827", dash="dash"))
+                robustness_fig.update_layout(height=400)
+                st.plotly_chart(robustness_fig, use_container_width=True)
+            st.subheader("Coverage-adjusted associations")
+            show_dataframe(adjusted, height=420)
+            st.subheader("Test–retest reliability")
+            if reliability.empty:
+                st.warning("No reliability estimate met the minimum available-data requirement.")
+            else:
+                show_dataframe(reliability, height=360)
+                rel_fig = px.scatter(
+                    reliability, x="icc_2_1_absolute_agreement", y="split_half_spearman_rho", color="window_name", symbol="feature_name",
+                    hover_name="feature_name", labels={"icc_2_1_absolute_agreement": "ICC(2,1)", "split_half_spearman_rho": "Spearman ρ"},
+                    title="Reliability: ICC versus split-period Spearman correlation",
+                )
+                rel_fig.update_layout(height=450)
+                st.plotly_chart(rel_fig, use_container_width=True)
+            st.subheader("Dependence among selected features")
+            show_dataframe(correlations, height=320)
+            if not correlations.empty:
+                corr_fig = px.bar(correlations.assign(pair=correlations.feature_a.str.replace("keyboard_", "", regex=False) + " ↔ " + correlations.feature_b.str.replace("keyboard_", "", regex=False)).sort_values("spearman_rho"), x="spearman_rho", y="pair", orientation="h", color="spearman_rho", color_continuous_scale="RdBu_r", title="Pairwise correlations among selected feature changes")
+                corr_fig.update_layout(height=520)
+                st.plotly_chart(corr_fig, use_container_width=True)
+            st.subheader("T1/T2 window comparability and recording intensity")
+            if not comparability.empty:
+                metric_cols = [c for c in ["duration_difference_days", "active_local_days_T1", "active_local_days_T2", "distinct_observations_in_window_T1", "distinct_observations_in_window_T2", "keyboard_valid_interval_count_T1", "keyboard_valid_interval_count_T2", "device_changed"] if c in comparability.columns]
+                show_dataframe(comparability[["Subject_ID_D", *metric_cols]], height=360)
+    with tabs[9]:
+        investigation_manifest = PATHS["keyboard_t2_reliability_manifest"]
+        if not investigation_manifest.exists():
+            st.info("The T2 reliability investigation has not been run yet. Reproduce it with `.venv/bin/python3 -u keyboard_t2_reliability_investigation.py`.")
+        else:
+            st.subheader("T2 Reliability Investigation")
+            st.caption("Predeclared coverage thresholds and comparable observed-day periods are used without outcome-based threshold optimization. Timing variables remain text-state snapshot proxies.")
+            coverage = load_csv(PATHS["keyboard_t2_coverage_summary"])
+            reliability_thresholds = load_csv(PATHS["keyboard_t2_reliability_thresholds"])
+            sensitivity = load_csv(PATHS["keyboard_t2_signal_sensitivity"])
+            comparable = load_csv(PATHS["keyboard_t2_comparable_periods"])
+            if not coverage.empty:
+                st.subheader("T1 versus T2 coverage")
+                show_dataframe(coverage, height=360)
+                plot_metrics = coverage[coverage.metric.isin(["active_days", "snapshots", "valid_intervals", "recording_intensity", "observation_span_days"])].copy()
+                if not plot_metrics.empty:
+                    cov_fig = px.bar(plot_metrics, x="metric", y="median", color="window_name", barmode="group", error_y=plot_metrics["iqr"] / 2, title="Median coverage and recording metrics")
+                    cov_fig.update_layout(height=400)
+                    st.plotly_chart(cov_fig, use_container_width=True)
+            st.subheader("Reliability under measurement thresholds")
+            show_dataframe(reliability_thresholds, height=420)
+            if not reliability_thresholds.empty:
+                rel_fig = px.scatter(reliability_thresholds, x="window_name", y="icc_2_1", color="feature_name", symbol="threshold", hover_data=["n", "spearman_rho", "spearman_p"], title="T1/T2 first–last observed-day reliability")
+                rel_fig.update_layout(height=430)
+                st.plotly_chart(rel_fig, use_container_width=True)
+            st.subheader("Six-signal sensitivity analysis")
+            show_dataframe(sensitivity, height=560)
+            st.subheader("Comparable first/last observed-period estimates")
+            show_dataframe(comparable, height=300)
+            st.warning("The calendar midpoint split was not estimable for most windows because observations were concentrated on one side of the clinical interval. First/last observed-day results are therefore the primary test–retest sensitivity analysis.")
+    with tabs[10]:
+        st.subheader("First versus last third sensitivity analysis")
+        st.caption("Exploratory sensitivity analysis using raw timestamped keyboard observations. Each valid T1–T2 interval is split into equal calendar thirds; the middle third is excluded and change is Last Third − First Third.")
+        manifest_path = PATHS["keyboard_thirds_manifest"]
+        if not manifest_path.exists():
+            st.info("The thirds sensitivity extraction is not complete yet. Run `.venv/bin/python3 -u keyboard_thirds_sensitivity.py --extract --analyze` after the SensorDB extraction finishes.")
+        else:
+            try:
+                manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+                metric_row([("Run status", manifest.get("status", "unknown")), ("Paired patients", manifest.get("paired_cognitive_patients", "—")), ("Features", manifest.get("third_feature_count", "—")), ("Models trained", "No")])
+            except Exception:
+                st.warning("The thirds manifest could not be parsed.")
+            st.warning("Technical audit note: the original thirds coverage table labeled raw database rows as snapshots. The corrected extraction logic now uses canonical distinct observations; existing thirds coverage-adjusted outputs are historical and require a separately versioned reanalysis before snapshot-denominator interpretation.")
+            corrected_manifest = PATHS["keyboard_thirds_corrected_manifest"]
+            if corrected_manifest.exists():
+                corrected = load_csv(PATHS["keyboard_thirds_corrected_associations"])
+                st.subheader("Corrected coverage-adjusted associations (v2)")
+                st.caption("Canonical distinct observations per window; separate versioned rerun. Historical outputs are preserved.")
+                show_dataframe(corrected, height=420)
+            st.markdown(load_text(PATHS["keyboard_thirds_readme"]))
+            eligibility = load_csv(PATHS["keyboard_thirds_eligibility"])
+            coverage = load_csv(PATHS["keyboard_thirds_coverage"])
+            associations = load_csv(PATHS["keyboard_thirds_associations"])
+            comparison = load_csv(PATHS["keyboard_thirds_comparison"])
+            if not eligibility.empty:
+                st.subheader("Coverage eligibility")
+                show_dataframe(eligibility, height=240)
+            if not coverage.empty:
+                st.subheader("First versus last third coverage")
+                metrics = coverage.groupby("window_name", as_index=False)[["active_days", "snapshots", "valid_intervals", "recording_intensity"]].median(numeric_only=True)
+                show_dataframe(metrics, height=220)
+                if PATHS["keyboard_thirds_coverage_plot"].exists(): st.image(str(PATHS["keyboard_thirds_coverage_plot"]), use_container_width=True)
+            if not associations.empty:
+                st.subheader("Thirds cognitive associations")
+                outcome = st.selectbox("Outcome", sorted(associations.outcome.unique()), key="keyboard_thirds_outcome")
+                show_dataframe(associations[associations.outcome.eq(outcome)].sort_values("fdr_q"), height=420)
+            if not comparison.empty:
+                st.subheader("Thirds versus 50/50 midpoint on the same patients")
+                show_dataframe(comparison, height=480)
+                if PATHS["keyboard_thirds_comparison_plot"].exists(): st.image(str(PATHS["keyboard_thirds_comparison_plot"]), use_container_width=True)
+            corr = load_csv(PATHS["keyboard_thirds_corr"])
+            if not corr.empty:
+                st.subheader("Correlation among selected feature changes")
+                show_dataframe(corr, height=360)
+                if PATHS["keyboard_thirds_corr_plot"].exists(): st.image(str(PATHS["keyboard_thirds_corr_plot"]), use_container_width=True)
+
+
+    with tabs[11]:
+        st.subheader("General cognitive model integration")
+        st.caption("Leakage-safe Ridge comparison of the existing Feature Bank and expanded 34-feature keyboard bank. T1 and T2−T1 are evaluated separately with identical repeated folds within each task.")
+        manifest_path = PATHS["keyboard_general_manifest"]
+        if not manifest_path.exists():
+            st.info("The general model integration has not completed yet.")
+        else:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            metric_row([("Status", manifest.get("status", "unknown")), ("Existing features", manifest.get("t1_existing_features", "—")), ("Keyboard features", manifest.get("keyboard_features_total", "—")), ("Outer repeats", manifest.get("outer_repeats", "—"))])
+            comparison = load_csv(PATHS["keyboard_general_comparison"])
+            summary = load_csv(PATHS["keyboard_general_summary"])
+            inventory = load_csv(PATHS["keyboard_general_inventory"])
+            if not comparison.empty:
+                st.subheader("RMSE comparison")
+                show_dataframe(comparison, height=500)
+                if PATHS["keyboard_general_plot"].exists(): st.image(str(PATHS["keyboard_general_plot"]), use_container_width=True)
+            st.subheader("Fold-level summary with uncertainty")
+            show_dataframe(summary, height=560)
+            st.subheader("Expanded Feature Bank inventory")
+            show_dataframe(inventory, height=360)
+            st.info("These are cross-validated predictive results. Signal-discovery correlations are exploratory and were not used for full-dataset feature selection.")
+
+
 def phase11_clinical_tables_page() -> None:
     root = ROOT / "output/analysis_candidates/phase11_t1_baseline/clinical_tables_baseline_severity"
     clinical = load_csv(root / "phase11_baseline_severity_clinical_table1.csv")
@@ -3892,7 +4485,7 @@ def phase_exploratory_empirical_findings_page() -> None:
             "Subject_ID_D",
             "observed_global_T1",
             "mean_baseline_prediction",
-            "equal_weight_empirical_prediction",
+            "equal_weight_empircodexical_prediction",
             "direction_constrained_ridge_prediction",
         ]
     ].rename(
@@ -7631,6 +8224,7 @@ def accelerometer_all_mapped_feature_audit_page() -> None:
 
 
 def accelerometer_patient_sequential_page() -> None:
+    st.info("The study ACC extraction is complete. Full raw-table backup progress is on the Raw Motion Backup page.")
     st.markdown(
         '<h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 0.25rem;">'
         "ACC Patient-Sequential Pipeline"
@@ -9014,92 +9608,231 @@ def files_page() -> None:
     show_dataframe(pd.DataFrame(rows), height=520)
 
 
+def research_summary_page() -> None:
+    """Review surface for the current project status and strongest saved associations."""
+    st.title("Research Summary and Findings")
+    st.caption("Saved-results review page — no SQL queries or new statistical analyses are run here.")
+    recap = ROOT / "README_RECAP_2026-10-25.md"
+    top_path = ROOT / "output/research_summary_20261025/top15_feature_cognition_associations_20261025.csv"
+    handoff = ROOT / "README_PROJECT_HANDOFF.md"
+
+    if recap.exists():
+        text = recap.read_text(encoding="utf-8")
+        # Keep the dashboard readable while preserving the full recap as a linked source.
+        st.markdown(text)
+        st.divider()
+    else:
+        st.warning("The dated recap README is not available.")
+
+    if not top_path.exists():
+        st.error("The saved top-association table is missing.")
+        return
+    top = pd.read_csv(top_path)
+    st.subheader("Top 15 saved feature–cognition associations")
+    st.info("Rows are the smallest saved p-values after excluding superseded rows and keeping one saved row per feature–outcome key. Repeated sensitivity cohorts remain exploratory and are not independent discoveries.")
+    st.dataframe(
+        top[["label", "estimate", "p", "q", "n", "ci_low", "ci_high", "analysis_phase", "coverage_adjustment"]],
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    plot_df = top.copy()
+    plot_df["label_short"] = plot_df["label"].str.replace("_", " ", regex=False).str.slice(0, 75)
+    plot_df = plot_df.sort_values("estimate")
+    fig = go.Figure()
+    with_ci = plot_df[plot_df["ci_low"].notna() & plot_df["ci_high"].notna()]
+    without_ci = plot_df[~(plot_df["ci_low"].notna() & plot_df["ci_high"].notna())]
+    if not with_ci.empty:
+        fig.add_trace(go.Scatter(
+            x=with_ci["estimate"], y=with_ci["label_short"], mode="markers",
+            name="Saved estimate with CI", marker={"size": 9, "color": "#2563eb"},
+            error_x={"type": "data", "symmetric": False,
+                     "array": (with_ci["ci_high"] - with_ci["estimate"]).clip(lower=0),
+                     "arrayminus": (with_ci["estimate"] - with_ci["ci_low"]).clip(lower=0),
+                     "thickness": 1.5, "width": 0},
+            customdata=np.c_[with_ci["p"], with_ci["q"].fillna(np.nan), with_ci["n"]],
+            hovertemplate="%{y}<br>estimate=%{x:.3f}<br>p=%{customdata[0]:.4g}<br>q=%{customdata[1]:.4g}<br>n=%{customdata[2]}<extra></extra>",
+        ))
+    if not without_ci.empty:
+        fig.add_trace(go.Scatter(
+            x=without_ci["estimate"], y=without_ci["label_short"], mode="markers",
+            name="Saved estimate; CI not saved", marker={"size": 9, "color": "#d97706", "symbol": "diamond"},
+            customdata=np.c_[without_ci["p"], without_ci["q"].fillna(np.nan), without_ci["n"]],
+            hovertemplate="%{y}<br>estimate=%{x:.3f}<br>p=%{customdata[0]:.4g}<br>q=%{customdata[1]:.4g}<br>n=%{customdata[2]}<extra></extra>",
+        ))
+    fig.add_vline(x=0, line_dash="dash", line_color="#6b7280")
+    fig.update_layout(
+        height=690, xaxis_title="Association estimate (Spearman ρ or saved partial ρ)",
+        yaxis_title="Feature → outcome", legend_title="Evidence shown",
+        margin={"l": 10, "r": 20, "t": 20, "b": 50},
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.divider()
+    st.subheader("All saved feature–cognition associations")
+    st.caption("This is the large evidence view. Confidence intervals are copied from saved outputs or recomputed from matching saved patient-level inputs where possible. Rows without exact recoverable inputs remain marked unavailable.")
+    all_path = ROOT / "output/research_summary_20261025/all_associations_with_ci_20261025.csv"
+    if all_path.exists():
+        all_assoc = pd.read_csv(all_path)
+        view = st.selectbox(
+            "Forest-plot rows",
+            ["Current unique feature–outcome rows", "All saved rows, including historical repeats", "Current rows with p < 0.05"],
+            key="all_association_forest_view",
+        )
+        current = all_assoc[~all_assoc["is_superseded"].fillna(False)].copy()
+        current = current.sort_values(["association_key", "p"], na_position="last").drop_duplicates("association_key", keep="first")
+        if view == "All saved rows, including historical repeats":
+            plot_all = all_assoc.copy()
+        elif view == "Current rows with p < 0.05":
+            plot_all = current[current["p"] < 0.05].copy()
+        else:
+            plot_all = current
+        plot_all["label"] = plot_all["feature"].astype(str).str.replace("_", " ", regex=False) + " → " + plot_all["outcome"].astype(str) + " (" + plot_all["outcome_timepoint"].astype(str) + ")"
+        table_cols = ["label", "estimate", "estimate_type", "p", "q", "n", "ci_low", "ci_high", "ci_source", "analysis_phase", "is_superseded"]
+        st.write(f"{len(plot_all):,} rows in this view")
+        st.dataframe(plot_all[table_cols], use_container_width=True, hide_index=True, height=480)
+        finite = plot_all[plot_all["estimate"].notna()].copy().sort_values("estimate")
+        if not finite.empty:
+            finite["label_short"] = finite["label"].str.slice(0, 90)
+            hfig = go.Figure()
+            for source, color, symbol, name in [
+                ("saved_source_output", "#2563eb", "circle", "Saved CI"),
+                ("recomputed_from_saved_patient_level_inputs", "#059669", "diamond", "Recomputed CI"),
+                ("unavailable_exact_patient_inputs_not_found", "#d97706", "x", "CI unavailable"),
+            ]:
+                g = finite[finite["ci_source"].eq(source)]
+                if g.empty:
+                    continue
+                has = g["ci_low"].notna() & g["ci_high"].notna()
+                if has.any():
+                    gg = g[has]
+                    hfig.add_trace(go.Scatter(
+                        x=gg["estimate"], y=gg["label_short"], mode="markers", name=name,
+                        marker={"size": 6, "color": color, "symbol": symbol},
+                        error_x={"type": "data", "symmetric": False, "array": (gg["ci_high"] - gg["estimate"]).clip(lower=0), "arrayminus": (gg["estimate"] - gg["ci_low"]).clip(lower=0), "width": 0},
+                        customdata=np.c_[gg["p"], gg["q"].fillna(np.nan), gg["n"]],
+                        hovertemplate="%{y}<br>estimate=%{x:.3f}<br>p=%{customdata[0]:.4g}<br>q=%{customdata[1]:.4g}<br>n=%{customdata[2]}<extra></extra>",
+                    ))
+                if (~has).any():
+                    gg = g[~has]
+                    hfig.add_trace(go.Scatter(
+                        x=gg["estimate"], y=gg["label_short"], mode="markers", name=name + "; no interval",
+                        marker={"size": 6, "color": color, "symbol": symbol},
+                        customdata=np.c_[gg["p"], gg["q"].fillna(np.nan), gg["n"]],
+                        hovertemplate="%{y}<br>estimate=%{x:.3f}<br>p=%{customdata[0]:.4g}<br>q=%{customdata[1]:.4g}<br>n=%{customdata[2]}<extra></extra>",
+                    ))
+            hfig.add_vline(x=0, line_dash="dash", line_color="#6b7280")
+            hfig.update_layout(height=max(700, min(14000, 22 * len(finite))), xaxis_title="Saved association estimate", yaxis_title="Feature → outcome", margin={"l": 10, "r": 20, "t": 20, "b": 50})
+            st.plotly_chart(hfig, use_container_width=True)
+    else:
+        st.warning("The full association CI table is not available yet.")
+
+    st.subheader("Source documents")
+    st.markdown(
+        f"- [Dated recap]({recap.relative_to(ROOT)})\n"
+        f"- [Complete project handoff]({handoff.relative_to(ROOT)})\n"
+        "- [Complete Master Association Table](manuscript/tables/master_association_table_20261020.csv)\n"
+        "- [Latest cross-modal decision outputs](output/analysis_candidates/cross_modal_decision_and_nonacc_v1/)"
+    )
+
+
+def top15_article_statistics_page() -> None:
+    """Focused article-statistics workspace for the current top-15 evidence set."""
+    st.title("Top-15 Article Statistics")
+    st.caption("Focused evidence workspace. Existing results are organized here; missing values are not silently inferred.")
+    base = ROOT / "output/research_summary_20261025/top15_article_statistics_v1"
+    reg_path = base / "top15_article_evidence_register.csv"
+    gap_path = base / "top15_analysis_phase_gap_register.csv"
+    checklist_path = base / "article_gap_checklist_20261026.csv"
+    readme_path = base / "README_top15_article_statistics_v1.md"
+    if not reg_path.exists():
+        st.error("The Top-15 workstream has not been initialized.")
+        return
+    reg = pd.read_csv(reg_path)
+    gap = pd.read_csv(gap_path)
+    checklist = pd.read_csv(checklist_path) if checklist_path.exists() else pd.DataFrame()
+    st.metric("Focused evidence rows", len(reg))
+    if not checklist.empty:
+        st.subheader("Current article checklist")
+        completed = int(checklist.status.isin(["Complete"]).sum())
+        partial = int(checklist.status.isin(["Partial", "In progress"]).sum())
+        st.progress((completed + 0.5 * partial) / len(checklist), text=f"{completed} complete · {partial} in progress/partial · {len(checklist) - completed - partial} open or future")
+        st.dataframe(checklist, use_container_width=True, hide_index=True)
+    st.subheader("Article-preparation phases")
+    st.dataframe(gap, use_container_width=True, hide_index=True)
+    st.subheader("Top-15 evidence register")
+    st.dataframe(
+        reg[["label", "estimate", "p", "q", "n", "ci_low", "ci_high", "ci_source", "analysis_phase", "coverage_adjusted_status", "reliability_status", "robustness_status", "next_action"]],
+        use_container_width=True,
+        hide_index=True,
+        height=620,
+    )
+    st.subheader("Current gaps")
+    st.markdown("""
+- Exact patient-level distributions are not yet assembled for every selected row.
+- Coverage-adjusted, reliability, and robustness results exist mainly for the six prespecified Keyboard Discovery signals.
+- Restricted window-comparison and legacy rows require exact-cohort verification before new descriptive statistics are written.
+- Independent validation has not been performed.
+""")
+    st.markdown(f"[Open the workstream README]({readme_path.relative_to(ROOT)})")
+
+
 PAGES = {
     "Overview": overview_page,
-    "Phase 1 Profiles": phase1_profiles_page,
-    "Phase 1 Change": phase1_change_page,
+    "Project Knowledge Graph": knowledge_graph_page,
     "NeuroTrax Columns": neurotrax_page,
     "Rich Wide Table": rich_wide_page,
+    "Phase 1 Profiles": phase1_profiles_page,
+    "Phase 1 Change": phase1_change_page,
     "Phase 2 Tables": phase2_tables_page,
     "Phase 3 algorithm implementation": phase3_algorithm_page,
     "Phase 4 T1 Baseline": phase4_baseline_page,
     "Phase 4 10-Day T1 Baseline": phase4_10day_page,
-    "Other Models": other_models_page,
-    "Suggestions": suggestions_page,
     "Phase 5 T2 Extraction": phase5_t2_page,
-    "Phase 7 10-Day Window": phase7_10day_page,
     "Phase 6 T1-T2 Decline": phase6_decline_page,
     "Phase 6 10-Day T1-T2 Decline": phase6_10day_decline_page,
+    "Phase 7 10-Day Window": phase7_10day_page,
     "Phase 11 T1 Baseline": phase11_midpoint_page,
     "Phase 11 Clinical Tables": phase11_clinical_tables_page,
-    "Exploratory Empirical Findings": phase_exploratory_empirical_findings_page,
-    "Exploratory Empirical Findings (1;4)": phase_exploratory_empirical_findings_1_4_page,
     "Phase 11 B T1 Baseline": phase11_b_page,
     "Phase 12 T1-T2 Change": phase12_midpoint_decline_page,
     "Phase 12 B T1-T2 Change": phase12_b_page,
     "Phase 111 Full-Interval Ridge": phase111_full_interval_page,
+    "Other Models": other_models_page,
+    "Two-Feature Keyboard Analysis": keyboard_two_feature_page,
+    "Keyboard T1-T2 Delta and PCA": keyboard_t1_t2_delta_pca_page,
+    "Exploratory Empirical Findings": phase_exploratory_empirical_findings_page,
+    "Exploratory Empirical Findings (1;4)": phase_exploratory_empirical_findings_1_4_page,
     "Exploratory Unsupervised Phenotyping": unsupervised_phenotyping_page,
+    "Full Model PCA": full_model_pca_page,
     "ACC Movement Feature Pilot": accelerometer_event_day_pilot_page,
     "ACC Patient-Sequential Pipeline": accelerometer_patient_sequential_page,
+    "Raw Motion Backup": motion_backup_page,
     "ACC Feature Audit": accelerometer_feature_audit_page,
     "ACC All-Mapped Feature Audit": accelerometer_all_mapped_feature_audit_page,
-    "Research Manuscript": research_manuscript_page,
     "Result Explorer": result_explorer_page,
     "R&D": rd_page,
     "Supplemental Modalities": supplemental_modalities_page,
     "SQL Samples": samples_page,
     "Files": files_page,
+    "Suggestions": suggestions_page,
+    "Research Manuscript": research_manuscript_page,
+    "Keyboard Deep Dive": keyboard_deep_dive_page,
+    "Research Summary and Findings": research_summary_page,
+    "Top-15 Article Statistics": top15_article_statistics_page,
 }
 
 
 def main() -> None:
     st.sidebar.title("NeuroTrax-SensorDB")
-    st.sidebar.markdown(
-        """
-        <style>
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(8) p {
-            font-size: 1.18rem !important;
-            font-weight: 800 !important;
-        }
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(8) {
-            padding-top: 0.18rem;
-            padding-bottom: 0.18rem;
-        }
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(9) p {
-            font-size: 1.18rem !important;
-            font-weight: 800 !important;
-        }
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(9) {
-            padding-top: 0.18rem;
-            padding-bottom: 0.18rem;
-        }
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(15) p,
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(16) p,
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(17) p,
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(18) p {
-            font-size: 1.18rem !important;
-            font-weight: 800 !important;
-        }
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(24) p {
-            font-size: 1.22rem !important;
-            font-weight: 900 !important;
-        }
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(15),
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(16),
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(17),
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(18) {
-            padding-top: 0.18rem;
-            padding-bottom: 0.18rem;
-        }
-        [data-testid="stSidebar"] [role="radiogroup"] > label:nth-child(24) {
-            padding-top: 0.22rem;
-            padding-bottom: 0.22rem;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-    page = st.sidebar.radio("View", list(PAGES.keys()))
+    st.sidebar.caption("Pages are ordered by the project timeline; the Research Summary is the current review page.")
+    requested_page = st.query_params.get("page", "")
+    page_names = list(PAGES.keys())
+    if "project_page" not in st.session_state:
+        st.session_state.project_page = requested_page if requested_page in PAGES else "Overview"
+    page = st.sidebar.radio("View", page_names, key="project_page")
+    if st.query_params.get("page") != page:
+        st.query_params["page"] = page
     st.sidebar.divider()
     st.sidebar.caption("Local dashboard over existing project outputs.")
     st.sidebar.caption("No SQL queries are executed by this app.")

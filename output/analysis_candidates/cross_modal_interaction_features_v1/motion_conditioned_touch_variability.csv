@@ -1,0 +1,361 @@
+patient_anon,device_anon,day,session_index,motion_threshold_mag_sd,stationary_or_moving,touch_event_count,touch_interval_median_ms,touch_interval_iqr_ms,touch_interval_cv,acc_samples,sensor_name,observed_sampling_median_ms
+patient_041,dev_d74f7a,2025-01-09,1,0.05,stationary,0,,,,203,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,1,0.05,moving,10,1254.0,3758.75,1.3968129361394508,203,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,1,0.15,stationary,0,,,,203,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,1,0.15,moving,10,1254.0,3758.75,1.3968129361394508,203,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,1,0.3,stationary,1,4578.0,0.0,0.0,203,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,1,0.3,moving,7,696.0,4145.0,1.4043557235240103,203,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,2,0.05,stationary,0,,,,122,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,2,0.05,moving,2,6128.5,4778.5,0.7797177123276495,122,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,2,0.15,stationary,0,,,,122,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,2,0.15,moving,2,6128.5,4778.5,0.7797177123276495,122,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,2,0.3,stationary,0,,,,122,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,2,0.3,moving,2,6128.5,4778.5,0.7797177123276495,122,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,3,0.05,stationary,0,,,,1133,accelerometer-lsm6dsm,196.0
+patient_041,dev_d74f7a,2025-01-09,3,0.05,moving,0,,,,1133,accelerometer-lsm6dsm,196.0
+patient_041,dev_d74f7a,2025-01-09,3,0.15,stationary,0,,,,1133,accelerometer-lsm6dsm,196.0
+patient_041,dev_d74f7a,2025-01-09,3,0.15,moving,0,,,,1133,accelerometer-lsm6dsm,196.0
+patient_041,dev_d74f7a,2025-01-09,3,0.3,stationary,0,,,,1133,accelerometer-lsm6dsm,196.0
+patient_041,dev_d74f7a,2025-01-09,3,0.3,moving,0,,,,1133,accelerometer-lsm6dsm,196.0
+patient_041,dev_d74f7a,2025-01-09,4,0.05,stationary,0,,,,8,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,4,0.05,moving,0,,,,8,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,4,0.15,stationary,0,,,,8,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,4,0.15,moving,0,,,,8,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,4,0.3,stationary,0,,,,8,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,4,0.3,moving,0,,,,8,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,5,0.05,stationary,0,,,,5247,accelerometer-lsm6dsm,194.0
+patient_041,dev_d74f7a,2025-01-09,5,0.05,moving,0,,,,5247,accelerometer-lsm6dsm,194.0
+patient_041,dev_d74f7a,2025-01-09,5,0.15,stationary,0,,,,5247,accelerometer-lsm6dsm,194.0
+patient_041,dev_d74f7a,2025-01-09,5,0.15,moving,0,,,,5247,accelerometer-lsm6dsm,194.0
+patient_041,dev_d74f7a,2025-01-09,5,0.3,stationary,0,,,,5247,accelerometer-lsm6dsm,194.0
+patient_041,dev_d74f7a,2025-01-09,5,0.3,moving,0,,,,5247,accelerometer-lsm6dsm,194.0
+patient_041,dev_d74f7a,2025-01-09,6,0.05,stationary,0,,,,0,accelerometer-lsm6dsm,
+patient_041,dev_d74f7a,2025-01-09,6,0.05,moving,0,,,,0,accelerometer-lsm6dsm,
+patient_041,dev_d74f7a,2025-01-09,6,0.15,stationary,0,,,,0,accelerometer-lsm6dsm,
+patient_041,dev_d74f7a,2025-01-09,6,0.15,moving,0,,,,0,accelerometer-lsm6dsm,
+patient_041,dev_d74f7a,2025-01-09,6,0.3,stationary,0,,,,0,accelerometer-lsm6dsm,
+patient_041,dev_d74f7a,2025-01-09,6,0.3,moving,0,,,,0,accelerometer-lsm6dsm,
+patient_041,dev_d74f7a,2025-01-09,7,0.05,stationary,1,4141.0,0.0,0.0,1473,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,7,0.05,moving,5,4063.0,5628.0,1.701937715035573,1473,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,7,0.15,stationary,4,19193.0,42561.25,1.1112107903336021,1473,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,7,0.15,moving,3,695.0,40716.0,1.3926168968390298,1473,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,7,0.3,stationary,7,4141.0,15820.5,1.6070307135333,1473,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,7,0.3,moving,1,695.0,0.0,0.0,1473,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,8,0.05,stationary,0,,,,610,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,8,0.05,moving,0,,,,610,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,8,0.15,stationary,0,,,,610,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,8,0.15,moving,0,,,,610,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,8,0.3,stationary,0,,,,610,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,8,0.3,moving,0,,,,610,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,9,0.05,stationary,0,,,,4342,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,9,0.05,moving,298,1142.5,1707.5,1.0949986770384352,4342,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,9,0.15,stationary,27,899.0,2128.0,1.0829885070540985,4342,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,9,0.15,moving,245,1095.0,1435.0,1.1108422157513296,4342,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,9,0.3,stationary,169,984.0,1707.0,1.192598936171546,4342,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,9,0.3,moving,106,1193.0,1455.5,0.9224378500894808,4342,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,10,0.05,stationary,0,,,,8020,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,10,0.05,moving,44,2238.0,10418.0,2.1738942187992363,8020,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,10,0.15,stationary,17,1104.0,5857.0,2.9473294887334545,8020,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,10,0.15,moving,14,1138.5,1572.5,2.824051894504483,8020,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,10,0.3,stationary,41,1686.0,10299.0,2.14315793560926,8020,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,10,0.3,moving,1,3063.0,0.0,0.0,8020,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,11,0.05,stationary,0,,,,749,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,11,0.05,moving,0,,,,749,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,11,0.15,stationary,0,,,,749,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,11,0.15,moving,0,,,,749,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,11,0.3,stationary,0,,,,749,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,11,0.3,moving,0,,,,749,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,12,0.05,stationary,0,,,,1123,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,12,0.05,moving,15,1973.0,5409.0,1.6403969820096886,1123,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,12,0.15,stationary,0,,,,1123,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,12,0.15,moving,15,1973.0,5409.0,1.6403969820096886,1123,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,12,0.3,stationary,3,4556.0,11492.5,0.9733990270864886,1123,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,12,0.3,moving,8,1187.5,1020.75,0.7708311742300645,1123,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,13,0.05,stationary,0,,,,116,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,13,0.05,moving,4,3230.5,5404.0,0.8531332544189977,116,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,13,0.15,stationary,0,,,,116,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,13,0.15,moving,4,3230.5,5404.0,0.8531332544189977,116,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,13,0.3,stationary,0,,,,116,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,13,0.3,moving,2,5567.5,4599.5,0.8261338123035473,116,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,14,0.05,stationary,0,,,,2471,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,14,0.05,moving,8,5681.5,11290.0,1.426697882949406,2471,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,14,0.15,stationary,0,,,,2471,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,14,0.15,moving,6,4771.0,3386.75,0.581724111562099,2471,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,14,0.3,stationary,0,,,,2471,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,14,0.3,moving,6,4771.0,3386.75,0.581724111562099,2471,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,15,0.05,stationary,0,,,,234,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,15,0.05,moving,2,6311.5,5478.5,0.8680186960310544,234,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,15,0.15,stationary,0,,,,234,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,15,0.15,moving,2,6311.5,5478.5,0.8680186960310544,234,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,15,0.3,stationary,0,,,,234,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,15,0.3,moving,2,6311.5,5478.5,0.8680186960310544,234,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,16,0.05,stationary,0,,,,0,accelerometer-lsm6dsm,
+patient_041,dev_d74f7a,2025-01-09,16,0.05,moving,0,,,,0,accelerometer-lsm6dsm,
+patient_041,dev_d74f7a,2025-01-09,16,0.15,stationary,0,,,,0,accelerometer-lsm6dsm,
+patient_041,dev_d74f7a,2025-01-09,16,0.15,moving,0,,,,0,accelerometer-lsm6dsm,
+patient_041,dev_d74f7a,2025-01-09,16,0.3,stationary,0,,,,0,accelerometer-lsm6dsm,
+patient_041,dev_d74f7a,2025-01-09,16,0.3,moving,0,,,,0,accelerometer-lsm6dsm,
+patient_041,dev_d74f7a,2025-01-09,17,0.05,stationary,0,,,,951,accelerometer-lsm6dsm,20.5
+patient_041,dev_d74f7a,2025-01-09,17,0.05,moving,0,,,,951,accelerometer-lsm6dsm,20.5
+patient_041,dev_d74f7a,2025-01-09,17,0.15,stationary,0,,,,951,accelerometer-lsm6dsm,20.5
+patient_041,dev_d74f7a,2025-01-09,17,0.15,moving,0,,,,951,accelerometer-lsm6dsm,20.5
+patient_041,dev_d74f7a,2025-01-09,17,0.3,stationary,0,,,,951,accelerometer-lsm6dsm,20.5
+patient_041,dev_d74f7a,2025-01-09,17,0.3,moving,0,,,,951,accelerometer-lsm6dsm,20.5
+patient_041,dev_d74f7a,2025-01-09,18,0.05,stationary,0,,,,29,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,18,0.05,moving,0,,,,29,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,18,0.15,stationary,0,,,,29,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,18,0.15,moving,0,,,,29,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,18,0.3,stationary,0,,,,29,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,18,0.3,moving,0,,,,29,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,19,0.05,stationary,0,,,,2866,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,19,0.05,moving,3,21522.0,28426.0,0.8686895457482668,2866,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,19,0.15,stationary,0,,,,2866,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,19,0.15,moving,3,21522.0,28426.0,0.8686895457482668,2866,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,19,0.3,stationary,0,,,,2866,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,19,0.3,moving,3,21522.0,28426.0,0.8686895457482668,2866,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,20,0.05,stationary,0,,,,9253,accelerometer-lsm6dsm,19.0
+patient_041,dev_d74f7a,2025-01-09,20,0.05,moving,13,16617.0,23276.0,0.8175955237737187,9253,accelerometer-lsm6dsm,19.0
+patient_041,dev_d74f7a,2025-01-09,20,0.15,stationary,0,,,,9253,accelerometer-lsm6dsm,19.0
+patient_041,dev_d74f7a,2025-01-09,20,0.15,moving,11,16617.0,16616.0,0.7821437079253237,9253,accelerometer-lsm6dsm,19.0
+patient_041,dev_d74f7a,2025-01-09,20,0.3,stationary,7,16617.0,40301.0,0.9732805029858443,9253,accelerometer-lsm6dsm,19.0
+patient_041,dev_d74f7a,2025-01-09,20,0.3,moving,4,20858.5,12526.25,0.40881664822487007,9253,accelerometer-lsm6dsm,19.0
+patient_041,dev_d74f7a,2025-01-09,21,0.05,stationary,5,5419.0,10993.0,0.9768459789318528,5248,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,21,0.05,moving,44,1456.5,3678.5,2.504980004953078,5248,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,21,0.15,stationary,30,1393.5,5893.75,2.1692847538859916,5248,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,21,0.15,moving,9,813.0,851.0,0.6901530771811583,5248,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,21,0.3,stationary,42,1572.0,5616.25,2.147485550299542,5248,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,21,0.3,moving,4,777.5,416.75,0.5683523044215373,5248,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,22,0.05,stationary,0,,,,13546,accelerometer-lsm6dsm,10.0
+patient_041,dev_d74f7a,2025-01-09,22,0.05,moving,12,1257.0,10657.25,1.446829848674661,13546,accelerometer-lsm6dsm,10.0
+patient_041,dev_d74f7a,2025-01-09,22,0.15,stationary,0,,,,13546,accelerometer-lsm6dsm,10.0
+patient_041,dev_d74f7a,2025-01-09,22,0.15,moving,12,1257.0,10657.25,1.446829848674661,13546,accelerometer-lsm6dsm,10.0
+patient_041,dev_d74f7a,2025-01-09,22,0.3,stationary,2,794.5,682.5,0.8590308370044053,13546,accelerometer-lsm6dsm,10.0
+patient_041,dev_d74f7a,2025-01-09,22,0.3,moving,8,963.0,11491.75,1.4661989634193802,13546,accelerometer-lsm6dsm,10.0
+patient_041,dev_d74f7a,2025-01-09,23,0.05,stationary,0,,,,3362,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,23,0.05,moving,8,4633.5,9978.75,1.4109956499666882,3362,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,23,0.15,stationary,0,,,,3362,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,23,0.15,moving,8,4633.5,9978.75,1.4109956499666882,3362,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,23,0.3,stationary,4,3986.5,5596.0,0.8123588438765101,3362,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,23,0.3,moving,0,,,,3362,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,24,0.05,stationary,0,,,,1134,accelerometer-lsm6dsm,25.0
+patient_041,dev_d74f7a,2025-01-09,24,0.05,moving,0,,,,1134,accelerometer-lsm6dsm,25.0
+patient_041,dev_d74f7a,2025-01-09,24,0.15,stationary,0,,,,1134,accelerometer-lsm6dsm,25.0
+patient_041,dev_d74f7a,2025-01-09,24,0.15,moving,0,,,,1134,accelerometer-lsm6dsm,25.0
+patient_041,dev_d74f7a,2025-01-09,24,0.3,stationary,0,,,,1134,accelerometer-lsm6dsm,25.0
+patient_041,dev_d74f7a,2025-01-09,24,0.3,moving,0,,,,1134,accelerometer-lsm6dsm,25.0
+patient_041,dev_d74f7a,2025-01-09,25,0.05,stationary,0,,,,2205,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,25,0.05,moving,1,67456.0,0.0,0.0,2205,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,25,0.15,stationary,0,,,,2205,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,25,0.15,moving,1,67456.0,0.0,0.0,2205,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,25,0.3,stationary,0,,,,2205,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,25,0.3,moving,1,67456.0,0.0,0.0,2205,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,26,0.05,stationary,0,,,,54,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,26,0.05,moving,0,,,,54,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,26,0.15,stationary,0,,,,54,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,26,0.15,moving,0,,,,54,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,26,0.3,stationary,0,,,,54,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,26,0.3,moving,0,,,,54,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,27,0.05,stationary,0,,,,1577,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,27,0.05,moving,22,2787.5,5373.25,1.030188348466082,1577,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,27,0.15,stationary,6,5012.5,3584.5,0.645619438807578,1577,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,27,0.15,moving,10,946.5,2727.0,1.0418846695846369,1577,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,27,0.3,stationary,16,1486.0,5450.5,1.019240864988097,1577,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,27,0.3,moving,3,1561.0,1586.0,0.6168410121326178,1577,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,28,0.05,stationary,116,1226.0,2808.5,1.5858418947943143,160175,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,28,0.05,moving,92,1029.5,4239.75,2.2044251458582553,160175,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,28,0.15,stationary,214,1444.0,3927.25,3.2344417271424732,160175,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,28,0.15,moving,18,152.0,210.25,3.8842111998091284,160175,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,28,0.3,stationary,238,1350.0,4117.5,3.0106237581285153,160175,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,28,0.3,moving,0,,,,160175,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,29,0.05,stationary,2,210.5,28.5,0.13539192399049882,1911,accelerometer-lsm6dsm,22.0
+patient_041,dev_d74f7a,2025-01-09,29,0.05,moving,16,274.0,2111.5,1.6191710431181294,1911,accelerometer-lsm6dsm,22.0
+patient_041,dev_d74f7a,2025-01-09,29,0.15,stationary,19,742.0,3835.0,1.29377079191995,1911,accelerometer-lsm6dsm,22.0
+patient_041,dev_d74f7a,2025-01-09,29,0.15,moving,2,111.0,0.0,0.0,1911,accelerometer-lsm6dsm,22.0
+patient_041,dev_d74f7a,2025-01-09,29,0.3,stationary,22,771.5,4666.0,1.2130960347611655,1911,accelerometer-lsm6dsm,22.0
+patient_041,dev_d74f7a,2025-01-09,29,0.3,moving,1,111.0,0.0,0.0,1911,accelerometer-lsm6dsm,22.0
+patient_041,dev_d74f7a,2025-01-09,30,0.05,stationary,0,,,,1919,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,30,0.05,moving,7,3215.0,11652.0,1.3339677197458117,1919,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,30,0.15,stationary,0,,,,1919,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,30,0.15,moving,7,3215.0,11652.0,1.3339677197458117,1919,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,30,0.3,stationary,0,,,,1919,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,30,0.3,moving,7,3215.0,11652.0,1.3339677197458117,1919,accelerometer-lsm6dsm,20.0
+patient_041,dev_d74f7a,2025-01-09,31,0.05,stationary,0,,,,90,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,31,0.05,moving,2,5601.0,3679.0,0.6568469916086414,90,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,31,0.15,stationary,0,,,,90,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,31,0.15,moving,2,5601.0,3679.0,0.6568469916086414,90,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,31,0.3,stationary,0,,,,90,accelerometer-lsm6dsm,200.0
+patient_041,dev_d74f7a,2025-01-09,31,0.3,moving,2,5601.0,3679.0,0.6568469916086414,90,accelerometer-lsm6dsm,200.0
+patient_039,dev_72e21d,2025-01-13,1,0.05,stationary,0,,,,2278,BMI120 Accelerometer,7.0
+patient_039,dev_72e21d,2025-01-13,1,0.05,moving,20,172.0,284.0,1.712966583872094,2278,BMI120 Accelerometer,7.0
+patient_039,dev_72e21d,2025-01-13,1,0.15,stationary,0,,,,2278,BMI120 Accelerometer,7.0
+patient_039,dev_72e21d,2025-01-13,1,0.15,moving,20,172.0,284.0,1.712966583872094,2278,BMI120 Accelerometer,7.0
+patient_039,dev_72e21d,2025-01-13,1,0.3,stationary,0,,,,2278,BMI120 Accelerometer,7.0
+patient_039,dev_72e21d,2025-01-13,1,0.3,moving,20,172.0,284.0,1.712966583872094,2278,BMI120 Accelerometer,7.0
+patient_039,dev_72e21d,2025-01-13,2,0.05,stationary,0,,,,9602,BMI120 Accelerometer,7.0
+patient_039,dev_72e21d,2025-01-13,2,0.05,moving,12,2857.0,4492.75,1.4299724755325862,9602,BMI120 Accelerometer,7.0
+patient_039,dev_72e21d,2025-01-13,2,0.15,stationary,0,,,,9602,BMI120 Accelerometer,7.0
+patient_039,dev_72e21d,2025-01-13,2,0.15,moving,12,2857.0,4492.75,1.4299724755325862,9602,BMI120 Accelerometer,7.0
+patient_039,dev_72e21d,2025-01-13,2,0.3,stationary,1,32118.0,0.0,0.0,9602,BMI120 Accelerometer,7.0
+patient_039,dev_72e21d,2025-01-13,2,0.3,moving,10,2341.0,2705.75,0.859464044051457,9602,BMI120 Accelerometer,7.0
+patient_039,dev_72e21d,2025-01-13,3,0.05,stationary,2,1087.0,269.0,0.24747010119595217,37713,BMI120 Accelerometer,14.0
+patient_039,dev_72e21d,2025-01-13,3,0.05,moving,22,6512.5,46607.5,1.4913079186056886,37713,BMI120 Accelerometer,14.0
+patient_039,dev_72e21d,2025-01-13,3,0.15,stationary,9,3027.0,55189.0,1.5933129072327492,37713,BMI120 Accelerometer,14.0
+patient_039,dev_72e21d,2025-01-13,3,0.15,moving,11,2186.0,33025.5,1.303125694183021,37713,BMI120 Accelerometer,14.0
+patient_039,dev_72e21d,2025-01-13,3,0.3,stationary,24,5578.5,35882.0,1.6275670151791395,37713,BMI120 Accelerometer,14.0
+patient_039,dev_72e21d,2025-01-13,3,0.3,moving,0,,,,37713,BMI120 Accelerometer,14.0
+patient_039,dev_72e21d,2025-01-13,4,0.05,stationary,37,1492.0,5727.0,1.5257266467466049,6664,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,4,0.05,moving,0,,,,6664,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,4,0.15,stationary,37,1492.0,5727.0,1.5257266467466049,6664,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,4,0.15,moving,0,,,,6664,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,4,0.3,stationary,37,1492.0,5727.0,1.5257266467466049,6664,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,4,0.3,moving,0,,,,6664,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,5,0.05,stationary,24,3591.0,12885.25,1.888397490690081,32998,BMI120 Accelerometer,22.0
+patient_039,dev_72e21d,2025-01-13,5,0.05,moving,21,4428.0,5091.0,1.0983578050673488,32998,BMI120 Accelerometer,22.0
+patient_039,dev_72e21d,2025-01-13,5,0.15,stationary,61,4920.0,8750.0,2.436366298377525,32998,BMI120 Accelerometer,22.0
+patient_039,dev_72e21d,2025-01-13,5,0.15,moving,0,,,,32998,BMI120 Accelerometer,22.0
+patient_039,dev_72e21d,2025-01-13,5,0.3,stationary,61,4920.0,8750.0,2.436366298377525,32998,BMI120 Accelerometer,22.0
+patient_039,dev_72e21d,2025-01-13,5,0.3,moving,0,,,,32998,BMI120 Accelerometer,22.0
+patient_039,dev_72e21d,2025-01-13,6,0.05,stationary,0,,,,1710,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,6,0.05,moving,5,1659.0,811.0,0.63497607386072,1710,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,6,0.15,stationary,0,,,,1710,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,6,0.15,moving,5,1659.0,811.0,0.63497607386072,1710,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,6,0.3,stationary,0,,,,1710,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,6,0.3,moving,3,1659.0,405.5,0.19380588059310916,1710,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,7,0.05,stationary,0,,,,1264,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,7,0.05,moving,7,659.0,462.0,1.1888922410708804,1264,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,7,0.15,stationary,0,,,,1264,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,7,0.15,moving,7,659.0,462.0,1.1888922410708804,1264,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,7,0.3,stationary,7,659.0,462.0,1.1888922410708804,1264,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,7,0.3,moving,0,,,,1264,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,8,0.05,stationary,3,10328.0,12641.5,0.8511654571666567,5953,BMI120 Accelerometer,12.0
+patient_039,dev_72e21d,2025-01-13,8,0.05,moving,0,,,,5953,BMI120 Accelerometer,12.0
+patient_039,dev_72e21d,2025-01-13,8,0.15,stationary,3,10328.0,12641.5,0.8511654571666567,5953,BMI120 Accelerometer,12.0
+patient_039,dev_72e21d,2025-01-13,8,0.15,moving,0,,,,5953,BMI120 Accelerometer,12.0
+patient_039,dev_72e21d,2025-01-13,8,0.3,stationary,3,10328.0,12641.5,0.8511654571666567,5953,BMI120 Accelerometer,12.0
+patient_039,dev_72e21d,2025-01-13,8,0.3,moving,0,,,,5953,BMI120 Accelerometer,12.0
+patient_039,dev_72e21d,2025-01-13,9,0.05,stationary,58,3042.5,6124.25,2.110014162309791,28961,BMI120 Accelerometer,11.0
+patient_039,dev_72e21d,2025-01-13,9,0.05,moving,0,,,,28961,BMI120 Accelerometer,11.0
+patient_039,dev_72e21d,2025-01-13,9,0.15,stationary,58,3042.5,6124.25,2.110014162309791,28961,BMI120 Accelerometer,11.0
+patient_039,dev_72e21d,2025-01-13,9,0.15,moving,0,,,,28961,BMI120 Accelerometer,11.0
+patient_039,dev_72e21d,2025-01-13,9,0.3,stationary,58,3042.5,6124.25,2.110014162309791,28961,BMI120 Accelerometer,11.0
+patient_039,dev_72e21d,2025-01-13,9,0.3,moving,0,,,,28961,BMI120 Accelerometer,11.0
+patient_039,dev_72e21d,2025-01-13,10,0.05,stationary,0,,,,6749,BMI120 Accelerometer,12.0
+patient_039,dev_72e21d,2025-01-13,10,0.05,moving,1,50486.0,0.0,0.0,6749,BMI120 Accelerometer,12.0
+patient_039,dev_72e21d,2025-01-13,10,0.15,stationary,0,,,,6749,BMI120 Accelerometer,12.0
+patient_039,dev_72e21d,2025-01-13,10,0.15,moving,1,50486.0,0.0,0.0,6749,BMI120 Accelerometer,12.0
+patient_039,dev_72e21d,2025-01-13,10,0.3,stationary,0,,,,6749,BMI120 Accelerometer,12.0
+patient_039,dev_72e21d,2025-01-13,10,0.3,moving,1,50486.0,0.0,0.0,6749,BMI120 Accelerometer,12.0
+patient_039,dev_72e21d,2025-01-13,11,0.05,stationary,22,1956.5,3833.5,1.4166001640618444,3457,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,11,0.05,moving,0,,,,3457,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,11,0.15,stationary,22,1956.5,3833.5,1.4166001640618444,3457,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,11,0.15,moving,0,,,,3457,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,11,0.3,stationary,22,1956.5,3833.5,1.4166001640618444,3457,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,11,0.3,moving,0,,,,3457,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,12,0.05,stationary,73,735.0,2055.0,2.1552740479005488,8059,BMI120 Accelerometer,43.0
+patient_039,dev_72e21d,2025-01-13,12,0.05,moving,60,492.0,705.0,2.4693605806374705,8059,BMI120 Accelerometer,43.0
+patient_039,dev_72e21d,2025-01-13,12,0.15,stationary,139,606.0,1376.5,2.4904522988316082,8059,BMI120 Accelerometer,43.0
+patient_039,dev_72e21d,2025-01-13,12,0.15,moving,0,,,,8059,BMI120 Accelerometer,43.0
+patient_039,dev_72e21d,2025-01-13,12,0.3,stationary,139,606.0,1376.5,2.4904522988316082,8059,BMI120 Accelerometer,43.0
+patient_039,dev_72e21d,2025-01-13,12,0.3,moving,0,,,,8059,BMI120 Accelerometer,43.0
+patient_039,dev_72e21d,2025-01-13,13,0.05,stationary,0,,,,1469,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,13,0.05,moving,10,256.5,529.5,0.8341937848760176,1469,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,13,0.15,stationary,8,239.0,396.0,0.8058455534549254,1469,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,13,0.15,moving,1,268.0,0.0,0.0,1469,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,13,0.3,stationary,10,256.5,529.5,0.8341937848760176,1469,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,13,0.3,moving,0,,,,1469,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,14,0.05,stationary,2,45696.5,42321.5,0.9261431400654317,5496,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,14,0.05,moving,4,24361.5,46855.75,0.933414158456536,5496,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,14,0.15,stationary,8,17837.0,45989.25,1.019073672167133,5496,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,14,0.15,moving,0,,,,5496,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,14,0.3,stationary,8,17837.0,45989.25,1.019073672167133,5496,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,14,0.3,moving,0,,,,5496,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,15,0.05,stationary,0,,,,1396,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,15,0.05,moving,0,,,,1396,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,15,0.15,stationary,0,,,,1396,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,15,0.15,moving,0,,,,1396,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,15,0.3,stationary,0,,,,1396,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,15,0.3,moving,0,,,,1396,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,16,0.05,stationary,0,,,,5570,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,16,0.05,moving,24,3922.5,12201.0,1.284563055359374,5570,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,16,0.15,stationary,13,3360.0,10893.0,1.1034475309086185,5570,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,16,0.15,moving,3,1622.0,12025.0,1.2473358556606327,5570,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,16,0.3,stationary,21,3360.0,10893.0,1.3713059879714917,5570,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,16,0.3,moving,1,1622.0,0.0,0.0,5570,BMI120 Accelerometer,60.0
+patient_039,dev_72e21d,2025-01-13,17,0.05,stationary,134,912.5,4988.25,2.0877524053536263,49255,BMI120 Accelerometer,59.0
+patient_039,dev_72e21d,2025-01-13,17,0.05,moving,124,489.5,3628.25,3.2353457677787714,49255,BMI120 Accelerometer,59.0
+patient_039,dev_72e21d,2025-01-13,17,0.15,stationary,276,667.0,4838.75,2.7466307265008947,49255,BMI120 Accelerometer,59.0
+patient_039,dev_72e21d,2025-01-13,17,0.15,moving,0,,,,49255,BMI120 Accelerometer,59.0
+patient_039,dev_72e21d,2025-01-13,17,0.3,stationary,284,801.0,5779.0,2.618019194456469,49255,BMI120 Accelerometer,59.0
+patient_039,dev_72e21d,2025-01-13,17,0.3,moving,0,,,,49255,BMI120 Accelerometer,59.0
+patient_039,dev_72e21d,2025-01-13,18,0.05,stationary,0,,,,1886,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,18,0.05,moving,0,,,,1886,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,18,0.15,stationary,0,,,,1886,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,18,0.15,moving,0,,,,1886,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,18,0.3,stationary,0,,,,1886,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,18,0.3,moving,0,,,,1886,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,19,0.05,stationary,49,1992.0,4955.0,1.3459462993351885,17757,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,19,0.05,moving,5,210.0,112.0,1.8723392302767339,17757,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,19,0.15,stationary,60,1998.5,5418.5,1.3057331981339833,17757,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,19,0.15,moving,0,,,,17757,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,19,0.3,stationary,60,1998.5,5418.5,1.3057331981339833,17757,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,19,0.3,moving,0,,,,17757,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,20,0.05,stationary,3,2833.0,3211.0,0.7606780057577076,1735,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,20,0.05,moving,0,,,,1735,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,20,0.15,stationary,3,2833.0,3211.0,0.7606780057577076,1735,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,20,0.15,moving,0,,,,1735,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,20,0.3,stationary,3,2833.0,3211.0,0.7606780057577076,1735,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,20,0.3,moving,0,,,,1735,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,21,0.05,stationary,29,536.0,364.0,3.8799823707797385,10586,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,21,0.05,moving,150,549.0,925.25,2.825440460374261,10586,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,21,0.15,stationary,116,470.5,496.25,3.878025355235131,10586,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,21,0.15,moving,49,668.0,775.0,1.0712955819224395,10586,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,21,0.3,stationary,178,549.0,866.5,3.061707717906599,10586,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,21,0.3,moving,2,172.0,55.0,0.31976744186046513,10586,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,22,0.05,stationary,6,4803.0,8662.75,0.856449986202846,5778,BMI120 Accelerometer,59.0
+patient_039,dev_72e21d,2025-01-13,22,0.05,moving,19,3352.0,5797.5,1.5903869455536956,5778,BMI120 Accelerometer,59.0
+patient_039,dev_72e21d,2025-01-13,22,0.15,stationary,23,3352.0,7901.0,1.6685368061349692,5778,BMI120 Accelerometer,59.0
+patient_039,dev_72e21d,2025-01-13,22,0.15,moving,1,224.0,0.0,0.0,5778,BMI120 Accelerometer,59.0
+patient_039,dev_72e21d,2025-01-13,22,0.3,stationary,28,3613.5,7256.0,1.5497654616715921,5778,BMI120 Accelerometer,59.0
+patient_039,dev_72e21d,2025-01-13,22,0.3,moving,0,,,,5778,BMI120 Accelerometer,59.0
+patient_039,dev_72e21d,2025-01-13,23,0.05,stationary,21,461.0,6416.0,2.7831047291478694,30530,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,23,0.05,moving,44,375.5,3769.0,3.021285521316201,30530,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,23,0.15,stationary,66,421.0,6140.75,3.587661313117176,30530,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,23,0.15,moving,8,2905.5,9773.75,1.1491461215336005,30530,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,23,0.3,stationary,69,481.0,8566.0,3.3557978836678415,30530,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,23,0.3,moving,7,2432.0,4977.0,1.2871957874653137,30530,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,24,0.05,stationary,5,4432.0,4783.0,1.051504958060432,25161,BMI120 Accelerometer,15.0
+patient_039,dev_72e21d,2025-01-13,24,0.05,moving,29,5092.0,13181.0,1.9830760790780484,25161,BMI120 Accelerometer,15.0
+patient_039,dev_72e21d,2025-01-13,24,0.15,stationary,18,2340.0,8231.0,1.7371207967555924,25161,BMI120 Accelerometer,15.0
+patient_039,dev_72e21d,2025-01-13,24,0.15,moving,7,3083.0,7178.5,0.9032063771060908,25161,BMI120 Accelerometer,15.0
+patient_039,dev_72e21d,2025-01-13,24,0.3,stationary,27,5031.0,10431.0,1.4251580088133253,25161,BMI120 Accelerometer,15.0
+patient_039,dev_72e21d,2025-01-13,24,0.3,moving,4,2807.0,1695.75,0.6327728834172393,25161,BMI120 Accelerometer,15.0
+patient_039,dev_72e21d,2025-01-13,25,0.05,stationary,0,,,,6965,BMI120 Accelerometer,11.0
+patient_039,dev_72e21d,2025-01-13,25,0.05,moving,45,729.0,1450.0,1.3440038806145356,6965,BMI120 Accelerometer,11.0
+patient_039,dev_72e21d,2025-01-13,25,0.15,stationary,2,1440.5,769.5,0.5341895175286359,6965,BMI120 Accelerometer,11.0
+patient_039,dev_72e21d,2025-01-13,25,0.15,moving,41,703.0,1335.0,1.4006058129680699,6965,BMI120 Accelerometer,11.0
+patient_039,dev_72e21d,2025-01-13,25,0.3,stationary,39,684.0,1025.5,1.5184795814394714,6965,BMI120 Accelerometer,11.0
+patient_039,dev_72e21d,2025-01-13,25,0.3,moving,3,2345.0,3119.0,0.8646971979899507,6965,BMI120 Accelerometer,11.0
+patient_039,dev_72e21d,2025-01-13,26,0.05,stationary,9,279.0,191.0,0.7812266571295534,15179,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,26,0.05,moving,33,969.0,5437.0,1.4122064115041548,15179,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,26,0.15,stationary,37,765.0,3411.0,1.9067422208842981,15179,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,26,0.15,moving,6,1976.5,3809.0,1.2962419383637476,15179,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,26,0.3,stationary,46,807.0,5038.0,1.751161172787715,15179,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,26,0.3,moving,0,,,,15179,BMI120 Accelerometer,42.0
+patient_039,dev_72e21d,2025-01-13,27,0.05,stationary,9,772.0,7072.0,1.1157342216810597,4639,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,27,0.05,moving,11,397.0,1866.0,2.7860143452625348,4639,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,27,0.15,stationary,22,1176.0,2473.75,1.3260273782405803,4639,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,27,0.15,moving,0,,,,4639,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,27,0.3,stationary,22,1176.0,2473.75,1.3260273782405803,4639,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,27,0.3,moving,0,,,,4639,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,28,0.05,stationary,35,3167.0,9743.0,1.5191958393125735,18404,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,28,0.05,moving,39,1619.0,6179.5,1.5872206067136654,18404,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,28,0.15,stationary,87,3167.0,7195.5,1.6266008884003789,18404,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,28,0.15,moving,0,,,,18404,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,28,0.3,stationary,87,3167.0,7195.5,1.6266008884003789,18404,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,28,0.3,moving,0,,,,18404,BMI120 Accelerometer,41.0
+patient_039,dev_72e21d,2025-01-13,29,0.05,stationary,27,1486.0,3209.5,1.6026083576925017,4281,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,29,0.05,moving,11,444.0,454.5,1.7212291486474167,4281,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,29,0.15,stationary,41,665.0,2045.0,1.7209251244538204,4281,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,29,0.15,moving,0,,,,4281,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,29,0.3,stationary,43,698.0,2604.5,1.659469973086107,4281,BMI120 Accelerometer,40.0
+patient_039,dev_72e21d,2025-01-13,29,0.3,moving,0,,,,4281,BMI120 Accelerometer,40.0

@@ -1,0 +1,6 @@
+"check","status","detail"
+"raw_text_export","pass","T1 analysis reads aggregate saved tables only; no raw text accessed"
+"raw_words_or_vocabularies","pass","No words, sets, hashes, or embeddings in T1 outputs"
+"thresholds","pass","20/50/100 token rules fixed before outcome testing"
+"T2_requirement","pass","No T2 data required or used"
+"time_of_day","limited","Saved v1 T1 output does not contain time-of-day lexical fields; none were imputed"

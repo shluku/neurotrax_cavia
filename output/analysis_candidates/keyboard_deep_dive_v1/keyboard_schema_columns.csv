@@ -1,0 +1,5 @@
+Field,Type,Null,Key,Default,Extra
+_id,int unsigned,NO,PRI,,auto_increment
+timestamp,double,NO,MUL,,
+device_id,varchar(128),NO,,,
+data,json,NO,,,

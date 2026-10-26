@@ -1,0 +1,5 @@
+output_class,reason_not_in_master,examples
+PCA/PC-score cognitive overlays,"Associates a derived component or outcome-ranked panel with cognition, not an individual observed digital feature.",full_model_pca/**/correlations.csv; unsupervised cognitive_overlay_summary.csv
+Model coefficients / feature importance,"Fitted model parameter, not a direct feature–outcome association; cannot be interpreted as a correlation.",phase4*/model*/coefficients.csv; full_model_pca/**/ridge_fold_coefficients.csv
+Technical or feature–feature associations,No cognitive outcome.,accelerometer_feature_technical_correlations.csv; validation_feature_correlations.csv
+Reliability and coverage analyses,"Assesses measurement stability or recording intensity, not direct feature–cognition association.",validation_reliability.csv; t2_reliability_thresholds.csv

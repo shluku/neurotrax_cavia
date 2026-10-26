@@ -1,0 +1,11 @@
+device_anon,day,status,sessions,acc_rows,touch_rows,keyboard_rows,app_rows,acc_cadence_ms
+dev_72e21d,2025-01-13,completed,2,11880,34,0,26,"[7.0, 7.0]"
+dev_72e21d,2025-07-08,completed,2,18967,145,19,28,"[40.0, 40.0]"
+dev_c9cc92,2025-01-13,completed,2,3673,55,0,16,"[160.0, 21.0]"
+dev_c9cc92,2025-07-10,completed,2,2664,31,0,21,"[66.5, 156.0]"
+dev_1b799d,2025-02-12,completed,2,0,19,8,16,"[null, null]"
+dev_1b799d,2026-06-22,completed,1,0,2,0,2,[null]
+dev_cc373e,2025-01-06,completed,2,16337,215,24,19,"[98.0, 20.0]"
+dev_cc373e,2025-04-20,completed,0,0,0,0,0,[]
+dev_ed3860,2025-03-02,completed,2,0,46,10,16,"[null, null]"
+dev_ed3860,2025-06-30,completed,2,0,26,0,10,"[null, null]"

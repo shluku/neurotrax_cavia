@@ -1,0 +1,6 @@
+device_anon,days,eligible_days,screen_days,touch_days,keyboard_days,app_days,repeated_all_four_days
+dev_1b799d,2,1,2,2,1,2,False
+dev_72e21d,2,2,2,2,2,2,True
+dev_c9cc92,2,2,2,2,2,2,True
+dev_cc373e,2,1,2,1,1,1,False
+dev_ed3860,2,2,2,2,2,2,True

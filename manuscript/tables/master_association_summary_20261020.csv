@@ -1,0 +1,2 @@
+direct_association_rows,direct_association_sources,p_lt_0_05_rows,fdr_q_lt_0_05_rows,fdr_q_le_0_20_rows,superseded_rows,rows_missing_p,rows_missing_q,rows_missing_any_ci_bound,scope_note
+1871,10,154,40,62,270,59,755,881,"Rows are association estimates, not independent discoveries. FDR values are comparable only within each row's stated family."

@@ -1,0 +1,5 @@
+threshold_active_days_each_third,eligible_patients,median_first_active_days,median_last_active_days,median_first_snapshots,median_last_snapshots
+0,61,8.0,6.0,5721.0,1000.0
+7,19,19.0,31.0,10815.0,19389.0
+14,7,29.0,31.0,10815.0,23852.0
+28,2,65.5,57.5,32957.5,41879.0

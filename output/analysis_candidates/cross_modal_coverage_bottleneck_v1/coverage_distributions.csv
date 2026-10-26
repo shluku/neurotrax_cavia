@@ -1,0 +1,10 @@
+metric,n_sessions,median,iqr,min,max
+acc_duration_s,17,91.548,188.612,0.0,502.995
+longest_contiguous_acc_s,17,30.23500000000053,108.59199999999939,0.0,463.7699999999972
+acc_median_interval_ms,10,40.0,69.875,7.0,160.0
+acc_p95_interval_ms,10,103.0,93.75,13.0,165.0
+acc_samples,17,1065.0,2358.0,0.0,15408.0
+touch_events,17,14.0,18.0,1.0,212.0
+keyboard_snapshots,17,0.0,0.0,0.0,24.0
+moving_bins,17,90.0,160.0,0.0,465.0
+stationary_bins,17,0.0,0.0,0.0,221.0

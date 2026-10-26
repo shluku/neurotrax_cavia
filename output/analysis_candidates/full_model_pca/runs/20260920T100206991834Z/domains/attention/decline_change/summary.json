@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "patients": 9,
+  "features": 5,
+  "dropped_features": [],
+  "pc1_pc2_percent": 99.99984924681235,
+  "selected_k": null,
+  "acceptable_cluster_solution": false,
+  "cluster_sizes": [],
+  "cluster_note": "No cluster fit: fewer than 12 patients or insufficient distinct observations.",
+  "silhouette": null,
+  "subsample_ari": null
+}

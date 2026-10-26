@@ -1,0 +1,2 @@
+group,outcome,n,score_mean,score_median,score_sd,pc1_score_pearson,pc2_score_pearson,pc1_score_spearman,pc2_score_spearman,pc1_score_slope,pc2_score_slope,score_on_pc1_pc2_r2_in_sample,line_status
+All patients,ef_delta,8,-8.05,-3.4000000000000057,11.869528814814613,-0.32176330628632555,-0.08411712709289457,-0.6190476190476191,0.04761904761904763,-0.21586783399803045,-0.18347276741922675,0.11060731634266996,standardized dominant 3D direction (descriptive)

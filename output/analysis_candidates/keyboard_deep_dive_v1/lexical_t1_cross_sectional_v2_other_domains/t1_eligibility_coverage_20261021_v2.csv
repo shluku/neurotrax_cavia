@@ -1,0 +1,5 @@
+"cohort","patients_with_valid_global_T1","patients_with_memory_T1","patients_with_motor_T1","patients_with_iq_T1","median_reliable_tokens","median_active_days","median_snapshots"
+"all_valid_T1","81","81","79","79","49","8","753"
+"min20_reliable_tokens","50","50","48","48","88.5","15.5","1792"
+"min50_reliable_tokens","40","40","38","39","125.5","24","2252.5"
+"min100_reliable_tokens","22","22","21","22","386","32.5","6815.5"

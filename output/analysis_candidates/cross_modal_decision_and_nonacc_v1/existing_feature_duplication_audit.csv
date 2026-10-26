@@ -1,0 +1,9 @@
+candidate,status,prior_output,reason
+Touch event rate per screen-active minute,existing duplicate,cross_modal_feature_discovery_v2/pilot_session_feature_table.csv,already implemented as touch_events_per_active_minute
+Touch interval median/IQR and long gaps,existing duplicate,cross_modal_feature_discovery_v2/pilot_session_feature_table.csv,"already implemented as touch_interval_median_ms, touch_interval_iqr_ms, touch_long_gap_count_gt30s"
+App transitions per active minute/distinct apps,existing duplicate,cross_modal_feature_discovery_v2/pilot_session_feature_table.csv,already implemented as app_transitions_per_active_minute and app_episode_count
+Keyboard snapshot IEI median/IQR by app,existing duplicate,cross_modal_feature_discovery_v2/pilot_session_feature_table.csv,already implemented as keyboard_interval_median_ms and keyboard_interval_iqr_ms
+App-switch recovery latency to next touch/keyboard,novel in saved outputs,phase 11 decision workstream,event-linked transition-to-next-event latency with censoring
+App-switch interaction disruption,novel in saved outputs,phase 11 decision workstream,pre/post transition comparison with matched uninterrupted controls required
+Screen-resume interaction latency,novel in saved outputs,phase 11 decision workstream,screen activation to first observed interaction latency with censoring
+Cross-modal interaction fragmentation,novel in saved outputs,phase 11 decision workstream,"alignment of touch inactivity gaps, app transitions, and keyboard interruptions"

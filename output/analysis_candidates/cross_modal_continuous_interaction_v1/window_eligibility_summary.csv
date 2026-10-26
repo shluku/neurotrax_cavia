@@ -1,0 +1,9 @@
+window_s,stage,windows,sessions,device_days,devices,touch_events
+30,all_windows,69,3,5,3,462
+30,ACC_QC,52,3,5,3,388
+30,density_eligible,30,3,5,3,382
+30,variability_eligible,28,3,5,3,378
+60,all_windows,32,3,5,3,456
+60,ACC_QC,21,3,4,3,315
+60,density_eligible,17,3,4,3,314
+60,variability_eligible,15,2,4,3,310

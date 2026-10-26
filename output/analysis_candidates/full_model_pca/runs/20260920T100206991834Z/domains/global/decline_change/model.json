@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "endpoint": "T2-T1",
+  "features": [
+    "keyboard_median_word_completion_time_ms",
+    "keyboard_inter_event_interval_iqr_ms",
+    "app_use_diversity",
+    "acc_median_accelerometer_longest_observed_quiet_interval_minutes",
+    "acc_median_accelerometer_low_motion_fraction"
+  ],
+  "blocks": {
+    "digital": [
+      "keyboard_median_word_completion_time_ms",
+      "keyboard_inter_event_interval_iqr_ms",
+      "app_use_diversity"
+    ],
+    "acc": [
+      "acc_median_accelerometer_longest_observed_quiet_interval_minutes",
+      "acc_median_accelerometer_low_motion_fraction"
+    ]
+  },
+  "log_features": [],
+  "medians": [
+    -627.0,
+    -20.0,
+    -0.05651366635160393,
+    -3.0,
+    -0.10777322822757096
+  ],
+  "center": [
+    -627.0,
+    -20.0,
+    -0.05651366635160393,
+    -3.0,
+    -0.10777322822757096
+  ],
+  "scale": [
+    469.0,
+    178.5,
+    0.33897496482507217,
+    18.25,
+    0.19820235876810358
+  ],
+  "pca_mean": [
+    -0.15092902832774907,
+    0.3187274909963986,
+    -0.025632212114704574,
+    -0.3874755381604697,
+    0.05730992080675341
+  ],
+  "components": [
+    [
+      0.8655703187903748,
+      0.22488806498146896,
+      -0.27837986383079405,
+      -0.34507165501262427,
+      0.06036212205031129
+    ],
+    [
+      0.48105641828730356,
+      -0.2601003621295659,
+      0.6290884803888565,
+      0.5452192624772939,
+      0.08897282568523641
+    ],
+    [
+      -0.12585588399169922,
+      0.1233760896542514,
+      0.46063163347828945,
+      -0.4799819051079769,
+      0.7255167165367966
+    ],
+    [
+      -0.05483192519804176,
+      0.9163433710291675,
+      0.2725471410073921,
+      0.2042254471508785,
+      -0.20326905572344006
+    ],
+    [
+      -0.02294563351629958,
+      0.1639095077214484,
+      -0.49019270641596474,
+      0.5581853153169704,
+      0.648650472536739
+    ]
+  ],
+  "cluster_centers": [],
+  "fit_patient_ids": [
+    "012",
+    "022",
+    "041",
+    "044",
+    "077",
+    "087",
+    "095"
+  ],
+  "domain": "Global",
+  "target": "global_delta",
+  "coverage_rule": "selected_panel_half",
+  "selection_uses_outcome": true,
+  "selected_features": [
+    "keyboard_median_word_completion_time_ms",
+    "acc_median_accelerometer_longest_observed_quiet_interval_minutes",
+    "keyboard_inter_event_interval_iqr_ms",
+    "acc_median_accelerometer_low_motion_fraction",
+    "app_use_diversity"
+  ]
+}

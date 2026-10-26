@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "endpoint": "T2-T1",
+  "features": [
+    "keyboard_median_word_completion_time_ms",
+    "median_unlocked_session_duration_seconds",
+    "activity_unknown_fraction",
+    "acc_median_accelerometer_hourly_motion_entropy",
+    "acc_median_accelerometer_low_motion_fraction"
+  ],
+  "blocks": {
+    "digital": [
+      "keyboard_median_word_completion_time_ms",
+      "median_unlocked_session_duration_seconds",
+      "activity_unknown_fraction"
+    ],
+    "acc": [
+      "acc_median_accelerometer_hourly_motion_entropy",
+      "acc_median_accelerometer_low_motion_fraction"
+    ]
+  },
+  "log_features": [],
+  "medians": [
+    -627.0,
+    -7.656000000000006,
+    0.0046445863691836065,
+    -0.6856120398085188,
+    -0.10777322822757096
+  ],
+  "center": [
+    -627.0,
+    -7.656000000000006,
+    0.0046445863691836065,
+    -0.6856120398085188,
+    -0.10777322822757096
+  ],
+  "scale": [
+    1.0,
+    165.26349999999996,
+    0.049833516788791415,
+    1.3470595256483258,
+    0.259666962473491
+  ],
+  "pca_mean": [
+    -55.05555555555556,
+    0.2139589873814311,
+    -0.08498832122364716,
+    0.2530105754505054,
+    -0.030604609698269638
+  ],
+  "components": [
+    [
+      0.999999880874136,
+      0.00021677731019455383,
+      0.0004250297128172356,
+      3.79248053653756e-05,
+      9.576410482303007e-05
+    ],
+    [
+      -7.555741592186364e-05,
+      0.9121858343204856,
+      -0.2677097403114325,
+      -0.30832663087417184,
+      0.03439740676685277
+    ],
+    [
+      -0.00028824334429871073,
+      0.32395840711436197,
+      0.33386056322820273,
+      0.7251852648199989,
+      0.5076360146646367
+    ],
+    [
+      -0.0003432887304376983,
+      0.02963442938147709,
+      0.7821124262051532,
+      -0.5614274381940776,
+      0.268739775929068
+    ],
+    [
+      0.00017779598574890336,
+      -0.24917806429900136,
+      -0.45295539668775897,
+      -0.25266628304202793,
+      0.8178639365358708
+    ]
+  ],
+  "cluster_centers": [],
+  "fit_patient_ids": [
+    "012",
+    "022",
+    "041",
+    "044",
+    "074",
+    "077",
+    "080",
+    "087",
+    "095"
+  ],
+  "domain": "Attention",
+  "target": "attention_delta",
+  "coverage_rule": "selected_panel_half",
+  "selection_uses_outcome": true,
+  "selected_features": [
+    "keyboard_median_word_completion_time_ms",
+    "median_unlocked_session_duration_seconds",
+    "acc_median_accelerometer_hourly_motion_entropy",
+    "activity_unknown_fraction",
+    "acc_median_accelerometer_low_motion_fraction"
+  ]
+}

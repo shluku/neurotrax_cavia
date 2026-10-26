@@ -1,0 +1,15 @@
+device_anon,date,session_index,touch_events,acc_samples,acc_duplicate_timestamps,acc_median_interval_ms,acc_p95_interval_ms,acc_gap_gt1s,acc_duration_s,sensor_identity,tolerance_ms,matched_touch_control_pairs,touch_window_median_magnitude,control_window_median_magnitude,within_session_median_difference,status
+dev_72e21d,2025-01-13,1,21,2278,0,7.0,90.0,3,45.784,retained in export metadata/QC; see checkpoint manifest source table,500,10,10.05876884446466,10.01355157746052,0.05239537147179618,estimable
+dev_72e21d,2025-01-13,1,21,2278,0,7.0,90.0,3,45.784,retained in export metadata/QC; see checkpoint manifest source table,1000,10,10.146502237550715,9.998379279947766,0.07004560702948481,estimable
+dev_72e21d,2025-01-13,2,13,9602,0,7.0,13.0,5,97.889,retained in export metadata/QC; see checkpoint manifest source table,500,8,10.029134100162885,9.988964302391928,0.032814651670339146,estimable
+dev_72e21d,2025-01-13,2,13,9602,0,7.0,13.0,5,97.889,retained in export metadata/QC; see checkpoint manifest source table,1000,8,10.015067448612218,10.038986712618282,-0.03572722630312075,estimable
+dev_72e21d,2025-07-08,1,131,11941,0,40.0,59.0,9,502.995,retained in export metadata/QC; see checkpoint manifest source table,500,95,9.913520776508728,9.912974662995195,0.00031266240692673364,estimable
+dev_72e21d,2025-07-08,1,131,11941,0,40.0,59.0,9,502.995,retained in export metadata/QC; see checkpoint manifest source table,1000,97,9.91382894086347,9.912950707065288,0.0010252534412007464,estimable
+dev_c9cc92,2025-01-13,1,52,1315,0,160.0,162.0,0,188.612,retained in export metadata/QC; see checkpoint manifest source table,500,4,9.81487541945995,9.80478605431632,0.006536034525957746,estimable
+dev_c9cc92,2025-01-13,1,52,1315,0,160.0,162.0,0,188.612,retained in export metadata/QC; see checkpoint manifest source table,1000,4,9.808974393782234,9.804763691983812,0.0036360179803871517,estimable
+dev_c9cc92,2025-01-13,2,3,2358,0,21.0,162.0,2,195.086,retained in export metadata/QC; see checkpoint manifest source table,500,3,9.689988418969055,10.0618350966144,-0.37184667764534574,estimable
+dev_c9cc92,2025-01-13,2,3,2358,0,21.0,162.0,2,195.086,retained in export metadata/QC; see checkpoint manifest source table,1000,3,9.781054590847184,9.863270616679362,-0.08221602583217802,estimable
+dev_c9cc92,2025-07-10,1,20,1065,0,66.5,165.0,9,133.627,retained in export metadata/QC; see checkpoint manifest source table,500,15,9.809132178950868,9.849689571277285,-0.030247435057107808,estimable
+dev_c9cc92,2025-07-10,1,20,1065,0,66.5,165.0,9,133.627,retained in export metadata/QC; see checkpoint manifest source table,1000,15,9.824798499980469,9.844747868433394,-0.024005304112042936,estimable
+dev_c9cc92,2025-07-10,2,11,1599,0,156.0,162.0,5,170.103,retained in export metadata/QC; see checkpoint manifest source table,500,8,9.702087144363146,9.729077292259795,-0.003364248160276695,estimable
+dev_c9cc92,2025-07-10,2,11,1599,0,156.0,162.0,5,170.103,retained in export metadata/QC; see checkpoint manifest source table,1000,9,9.705606223912046,9.72758956600611,0.000980876921040874,estimable

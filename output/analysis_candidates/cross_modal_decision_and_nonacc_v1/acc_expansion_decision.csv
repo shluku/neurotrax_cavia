@@ -1,0 +1,8 @@
+metric,value
+verified_screen_sessions,17
+sessions_with_ACC,10
+sessions_passing_ACC_gap_QC,4
+sessions_with_both_ACC_motion_states,1
+sessions_with_ACC_touch_overlap,10
+sessions_with_ACC_keyboard_overlap,2
+repeated_day_ACC_validation_decision,DEFER: expand only after new coverage source; saved repeated-day export is insufficient

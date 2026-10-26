@@ -1,0 +1,9 @@
+{
+  "status": "running",
+  "heartbeat_unix": 1789383978.714896,
+  "supervisor_pid": 20409,
+  "worker_pid": 20411,
+  "retries": 0,
+  "completed_chunks": 2,
+  "active_bytes": 17088512
+}

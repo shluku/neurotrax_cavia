@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "endpoint": "T2-T1",
+  "features": [
+    "screen_unlock_event_count",
+    "touch_click_event_count",
+    "screen_event_count",
+    "screen_on_event_count",
+    "screen_off_event_count"
+  ],
+  "blocks": {
+    "digital": [
+      "screen_unlock_event_count",
+      "touch_click_event_count",
+      "screen_event_count",
+      "screen_on_event_count",
+      "screen_off_event_count"
+    ],
+    "acc": []
+  },
+  "log_features": [],
+  "medians": [
+    -243.0,
+    -1008.0,
+    -2226.0,
+    -526.0,
+    -417.0
+  ],
+  "center": [
+    -243.0,
+    -1008.0,
+    -2226.0,
+    -526.0,
+    -417.0
+  ],
+  "scale": [
+    599.0,
+    1.0,
+    5323.0,
+    1520.0,
+    1274.0
+  ],
+  "pca_mean": [
+    -0.47857540345019484,
+    -100.77777777777777,
+    0.11701838979689816,
+    0.12719298245614033,
+    0.12506541077969652
+  ],
+  "components": [
+    [
+      -0.0007167125207341575,
+      0.9999985650670915,
+      -0.0006476318299564113,
+      -0.0010606319782424135,
+      -0.0009010103998279522
+    ],
+    [
+      0.4906475164345702,
+      0.0016548202057218965,
+      0.5146617641404478,
+      0.4706613901583795,
+      0.5223632840588053
+    ],
+    [
+      0.8704908651220488,
+      -0.0001001746112244753,
+      -0.2916302093812952,
+      -0.23064521804227514,
+      -0.3224906945550055
+    ],
+    [
+      0.031063166184163573,
+      3.685171434037501e-06,
+      -0.45638539923452237,
+      -0.4094234208758026,
+      0.7893794458287697
+    ],
+    [
+      -0.023350254504711433,
+      0.000348403949361126,
+      -0.6646706232763887,
+      0.7467609903487029,
+      0.003953489098810027
+    ]
+  ],
+  "cluster_centers": [],
+  "fit_patient_ids": [
+    "012",
+    "022",
+    "041",
+    "044",
+    "074",
+    "077",
+    "080",
+    "087",
+    "095"
+  ],
+  "domain": "Memory",
+  "target": "memory_delta",
+  "coverage_rule": "selected_panel_half",
+  "selection_uses_outcome": true,
+  "selected_features": [
+    "screen_unlock_event_count",
+    "touch_click_event_count",
+    "screen_event_count",
+    "screen_on_event_count",
+    "screen_off_event_count"
+  ]
+}

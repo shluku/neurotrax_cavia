@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "patients": 39,
+  "features": 5,
+  "dropped_features": [],
+  "pc1_pc2_percent": 63.125053130879266,
+  "selected_k": 3,
+  "acceptable_cluster_solution": true,
+  "cluster_sizes": [
+    6,
+    12,
+    21
+  ],
+  "cluster_note": "Exploratory clusters.",
+  "silhouette": 0.26793175778967776,
+  "subsample_ari": 0.7988583841512475
+}

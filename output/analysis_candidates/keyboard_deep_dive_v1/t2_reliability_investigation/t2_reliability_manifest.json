@@ -1,0 +1,33 @@
+{
+  "status": "complete",
+  "paired_patients": 60,
+  "signals": 6,
+  "predeclared_thresholds": {
+    "all_available": {},
+    "both_windows_min_active_days_7": {
+      "active_days": 7
+    },
+    "both_windows_min_active_days_14": {
+      "active_days": 14
+    },
+    "both_windows_min_active_days_28": {
+      "active_days": 28
+    },
+    "both_windows_min_valid_intervals_500": {
+      "valid_intervals": 500
+    },
+    "both_windows_min_valid_intervals_2000": {
+      "valid_intervals": 2000
+    },
+    "both_windows_min_snapshots_500": {
+      "snapshots": 500
+    },
+    "both_windows_min_snapshots_2000": {
+      "snapshots": 2000
+    }
+  },
+  "comparable_period_definition": "first or last 14 observed keyboard days in both T1 and T2; minimum 14 active days per window",
+  "bootstrap_replicates": 500,
+  "predictive_models_trained": false,
+  "existing_outputs_modified": false
+}

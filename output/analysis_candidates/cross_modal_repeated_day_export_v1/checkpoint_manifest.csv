@@ -1,0 +1,11 @@
+target,device_anon,day,status,screen_sessions_total,eligible_sessions,session_count,rows_by_modality,acc_sampling_median_ms,error
+dev_72e21d_2025-01-13,dev_72e21d,2025-01-13,completed,29,2,2,"{""accelerometer"": 11880, ""applications_foreground"": 26, ""keyboard"": 0, ""screen"": 4, ""touch"": 34}","[7.0, 7.0]",
+dev_72e21d_2025-07-08,dev_72e21d,2025-07-08,completed,21,2,2,"{""accelerometer"": 18967, ""applications_foreground"": 28, ""keyboard"": 19, ""screen"": 2, ""touch"": 145}","[40.0, 40.0]",
+dev_c9cc92_2025-01-13,dev_c9cc92,2025-01-13,completed,5,2,2,"{""accelerometer"": 3673, ""applications_foreground"": 16, ""keyboard"": 0, ""screen"": 7, ""touch"": 55}","[160.0, 21.0]",
+dev_c9cc92_2025-07-10,dev_c9cc92,2025-07-10,completed,20,2,2,"{""accelerometer"": 2664, ""applications_foreground"": 21, ""keyboard"": 0, ""screen"": 4, ""touch"": 31}","[66.5, 156.0]",
+dev_1b799d_2025-02-12,dev_1b799d,2025-02-12,completed,9,2,2,"{""accelerometer"": 0, ""applications_foreground"": 16, ""keyboard"": 8, ""screen"": 4, ""touch"": 19}","[null, null]",
+dev_1b799d_2026-06-22,dev_1b799d,2026-06-22,completed,2,1,1,"{""accelerometer"": 0, ""applications_foreground"": 2, ""keyboard"": 0, ""screen"": 1, ""touch"": 2}",[null],
+dev_cc373e_2025-01-06,dev_cc373e,2025-01-06,completed,28,2,2,"{""accelerometer"": 16337, ""applications_foreground"": 19, ""keyboard"": 24, ""screen"": 2, ""touch"": 215}","[98.0, 20.0]",
+dev_cc373e_2025-04-20,dev_cc373e,2025-04-20,completed,10,0,0,{},[],
+dev_ed3860_2025-03-02,dev_ed3860,2025-03-02,completed,18,2,2,"{""accelerometer"": 0, ""applications_foreground"": 16, ""keyboard"": 10, ""screen"": 2, ""touch"": 46}","[null, null]",
+dev_ed3860_2025-06-30,dev_ed3860,2025-06-30,completed,19,2,2,"{""accelerometer"": 0, ""applications_foreground"": 10, ""keyboard"": 0, ""screen"": 2, ""touch"": 26}","[null, null]",

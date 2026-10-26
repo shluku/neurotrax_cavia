@@ -1,0 +1,6 @@
+feature_name,0,1
+keyboard_median_word_completion_time_ms,3649.0,3231.0
+app_use_diversity,3.340889271608737,3.4967836360341384
+acc_median_accelerometer_longest_observed_quiet_interval_minutes,4.0,11.0
+acc_median_accelerometer_daytime_motion_minutes,11.0,54.0
+acc_median_accelerometer_day_night_motion_ratio,4.713541666666666,40.1875

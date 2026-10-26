@@ -1,0 +1,2 @@
+independent_patients,device_days,sessions,touch_events,observed_session_median_difference,observed_session_mean_difference,bootstrap95_low,bootstrap95_high,negative_control_n,negative_control_median,negative_control_abs_p95
+2,4,7,251,0.008016629788234475,-0.02815294372565802,-0.12663202727794232,0.04609875906146124,340,0.0008215798868986823,0.17384314996010986

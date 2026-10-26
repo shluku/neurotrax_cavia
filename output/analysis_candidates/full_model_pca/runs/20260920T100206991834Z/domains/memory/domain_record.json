@@ -1,0 +1,49 @@
+{
+  "domain": "Memory",
+  "target": "memory_T1",
+  "t2_target": "memory_T2",
+  "delta_target": "memory_delta",
+  "features": [
+    "screen_unlock_event_count",
+    "touch_click_event_count",
+    "screen_event_count",
+    "screen_on_event_count",
+    "screen_off_event_count"
+  ],
+  "selection_patients": 41,
+  "excluded_patient_ids": [
+    "002"
+  ],
+  "selection_uses_outcome": true,
+  "availability_rule": "Existing combined cohort, observed domain T1 score, >=50% of selected five features",
+  "paired_decliners": 9,
+  "baseline": {
+    "status": "complete",
+    "patients": 41,
+    "features": 5,
+    "dropped_features": [],
+    "pc1_pc2_percent": 95.99256358739834,
+    "selected_k": 2,
+    "acceptable_cluster_solution": true,
+    "cluster_sizes": [
+      25,
+      16
+    ],
+    "cluster_note": "Exploratory clusters.",
+    "silhouette": 0.4617846627513963,
+    "subsample_ari": 0.9194660769513746
+  },
+  "decline_change": {
+    "status": "complete",
+    "patients": 9,
+    "features": 5,
+    "dropped_features": [],
+    "pc1_pc2_percent": 99.9998459017266,
+    "selected_k": null,
+    "acceptable_cluster_solution": false,
+    "cluster_sizes": [],
+    "cluster_note": "No cluster fit: fewer than 12 patients or insufficient distinct observations.",
+    "silhouette": null,
+    "subsample_ari": null
+  }
+}

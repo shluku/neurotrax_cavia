@@ -1,0 +1,3 @@
+feature_name,feature_label,n_observed,missing_percent,spearman_rho,spearman_p_value,global_t1_median_cutoff,lower_t1_group_median,higher_t1_group_median,direction,source_dataset
+keyboard_median_word_completion_time_ms,Median inferred word-completion time (ms),62,23.456790123456788,-0.3348737657030857,0.007804171024203587,99.4,4080.0,3378.0,decreases as Global T1 increases,phase11_midpoint_t1_baseline_features_wide.csv
+keyboard_inter_event_interval_iqr_ms,"Inter-keystroke interval variability (IQR, ms)",66,18.51851851851852,-0.26150040302867034,0.03392978878505617,99.4,764.0,526.0,decreases as Global T1 increases,phase11_midpoint_t1_baseline_features_wide.csv

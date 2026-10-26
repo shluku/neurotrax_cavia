@@ -1,0 +1,6 @@
+device_anon,sensor_name,sensor_vendor,sensor_version,sensor_type,minimum_delay_us,resolution_raw,maximum_range_raw,metadata_found
+dev_72e21d,BMI120 Accelerometer,BOSCH,2062701,1,2500,0.0023956298828125,156.90640258789062,True
+dev_c9cc92,LSM6DSL Accelerometer,STM,15932,1,2000,0.002394201699644327,78.45320129394531,True
+dev_1b799d,LSM6DSVTR Accelerometer,STM,15933,1,2000,0.002394201699644327,78.45320129394531,True
+dev_cc373e,lsm6dso LSM6DSO Accelerometer Non-wakeup,STMicro,15933,1,2404,0.004785645287483931,156.90640258789062,True
+dev_ed3860,lsm6dso LSM6DSO Accelerometer Non-wakeup,STMicro,15933,1,2404,0.004785645287483931,156.90640258789062,True

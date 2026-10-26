@@ -1,0 +1,9 @@
+phase,status,available_evidence,missing_or_required
+1. Definition and measurement,partially complete,"Feature dictionary, protocol, source lines",Confirm exact version/window for every top-15 row
+2. Cohort and coverage,partially complete,Coverage tables and candidate outputs,Freeze denominators and exact eligible cohort per row
+3. Patient-level distributions,in progress,Some patient-level files; not all exact cohorts retained,"Median, IQR, range, positive/negative changes where applicable"
+4. Raw association reporting,available,Master Association Table and top-15 table,Write article-ready wording and testing-family context
+5. Coverage-adjusted robustness,partial,Signal Validation/T2 Reliability for selected six,No adjustment for several top-15 rows; do not invent
+6. Reliability and sensitivity,partial,"T2 reliability, LOPO, permutation and outlier outputs for selected six",No reliability/robustness for legacy or restricted window rows
+7. Article figures and interpretation,in progress,Top-15 and full forest plots,"Final forest plot labels, subgroup/coverage annotations, limitations"
+8. Independent validation,not performed,No independent cohort,Future external/temporal validation

@@ -1,0 +1,49 @@
+{
+  "domain": "Attention",
+  "target": "attention_T1",
+  "t2_target": "attention_T2",
+  "delta_target": "attention_delta",
+  "features": [
+    "keyboard_median_word_completion_time_ms",
+    "median_unlocked_session_duration_seconds",
+    "acc_median_accelerometer_hourly_motion_entropy",
+    "activity_unknown_fraction",
+    "acc_median_accelerometer_low_motion_fraction"
+  ],
+  "selection_patients": 41,
+  "excluded_patient_ids": [
+    "002"
+  ],
+  "selection_uses_outcome": true,
+  "availability_rule": "Existing combined cohort, observed domain T1 score, >=50% of selected five features",
+  "paired_decliners": 9,
+  "baseline": {
+    "status": "complete",
+    "patients": 41,
+    "features": 5,
+    "dropped_features": [],
+    "pc1_pc2_percent": 57.96411619500989,
+    "selected_k": 2,
+    "acceptable_cluster_solution": true,
+    "cluster_sizes": [
+      30,
+      11
+    ],
+    "cluster_note": "Exploratory clusters.",
+    "silhouette": 0.2536549622171721,
+    "subsample_ari": 0.7254063651895543
+  },
+  "decline_change": {
+    "status": "complete",
+    "patients": 9,
+    "features": 5,
+    "dropped_features": [],
+    "pc1_pc2_percent": 99.99984924681235,
+    "selected_k": null,
+    "acceptable_cluster_solution": false,
+    "cluster_sizes": [],
+    "cluster_note": "No cluster fit: fewer than 12 patients or insufficient distinct observations.",
+    "silhouette": null,
+    "subsample_ari": null
+  }
+}

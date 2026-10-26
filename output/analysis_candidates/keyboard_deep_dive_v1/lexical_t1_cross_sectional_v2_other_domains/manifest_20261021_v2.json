@@ -1,0 +1,12 @@
+{
+  "version": "20261021_v2_other_domains",
+  "outcomes": [
+    "memory_T1",
+    "motor_T1",
+    "iq_T1"
+  ],
+  "results": 57,
+  "p_lt_05": 3,
+  "historical_outputs_modified": false,
+  "independent_validation": false
+}

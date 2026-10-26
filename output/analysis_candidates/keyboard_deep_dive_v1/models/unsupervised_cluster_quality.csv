@@ -1,0 +1,4 @@
+k,silhouette,min_cluster_n,max_cluster_n,selected_solution
+2,0.681148636683843,10,56,False
+3,0.7637353313414457,8,47,True
+4,0.7855667377680233,1,45,False

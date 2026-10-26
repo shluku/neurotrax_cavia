@@ -1,0 +1,33 @@
+{
+  "target": "dev_72e21d_2025-07-08",
+  "device_anon": "dev_72e21d",
+  "day": "2025-07-08",
+  "status": "completed",
+  "started_at": "2026-10-22T07:02:23.550403+00:00",
+  "session_count": 2,
+  "files": [
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=72e21d/device=dev_72e21d/date=2025-07-08/modality=screen/session_01.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=72e21d/device=dev_72e21d/date=2025-07-08/modality=touch/session_01.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=72e21d/device=dev_72e21d/date=2025-07-08/modality=applications_foreground/session_01.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=72e21d/device=dev_72e21d/date=2025-07-08/modality=keyboard/session_01.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=72e21d/device=dev_72e21d/date=2025-07-08/modality=accelerometer/session_01.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=72e21d/device=dev_72e21d/date=2025-07-08/modality=screen/session_03.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=72e21d/device=dev_72e21d/date=2025-07-08/modality=touch/session_03.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=72e21d/device=dev_72e21d/date=2025-07-08/modality=applications_foreground/session_03.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=72e21d/device=dev_72e21d/date=2025-07-08/modality=accelerometer/session_03.parquet"
+  ],
+  "screen_sessions_total": 21,
+  "eligible_sessions": 2,
+  "rows_by_modality": {
+    "screen": 2,
+    "touch": 145,
+    "applications_foreground": 28,
+    "keyboard": 19,
+    "accelerometer": 18967
+  },
+  "acc_sampling_median_ms": [
+    40.0,
+    40.0
+  ],
+  "completed_at": "2026-10-22T07:02:27.314829+00:00"
+}

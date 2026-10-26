@@ -1,0 +1,66 @@
+feature_name,block,group,definition,candidate_for_pca,used_in_main_pca,t1_observed_patients
+activity_active_hour_count,Digital,activity_context_temporal_spread,Count unique local hours with at least one activity-recognition event,True,True,76.0
+activity_state_diversity,Digital,activity_context_breadth,Diversity of top activity labels in the selected window,True,True,76.0
+activity_still_fraction,Digital,activity_context_state,Fraction of top activity labels classified as still,True,True,76.0
+activity_transition_count,Digital,activity_context_variability,Count changes between consecutive top activity labels ordered by timestamp,True,True,76.0
+activity_unknown_fraction,Digital,activity_context_quality,Fraction of top activity labels classified as unknown,True,True,76.0
+app_foreground_event_count,Digital,app_use_intensity,Number of foreground app events in a defined window,True,True,74.0
+app_use_diversity,Digital,app_use_breadth,Entropy or diversity of foreground app use across observed apps,True,True,74.0
+gsm_cell_transition_count,Digital,gsm_cell_context,Count changes in consecutive cid values ordered by timestamp,True,True,76.0
+gsm_neighbor_cell_transition_count,Digital,gsm_neighbor_cell_context,Count changes between consecutive valid neighbor cid values ordered by timestamp,True,True,67.0
+keyboard_deletion_event_count,Digital,keyboard_correction_behavior,Count transitions where text length decreases,True,True,66.0
+keyboard_inter_event_interval_iqr_ms,Digital,keyboard_typing_dynamics,IQR of milliseconds between consecutive deduplicated keyboard observations,True,True,66.0
+keyboard_long_pause_count_2s,Digital,keyboard_typing_pause,Count gaps greater than 2 seconds between consecutive keyboard observations inside active typing,True,True,66.0
+keyboard_median_inter_event_interval_ms,Digital,keyboard_typing_dynamics,Median milliseconds between consecutive deduplicated keyboard observations,True,True,66.0
+keyboard_median_word_completion_time_ms,Digital,keyboard_word_timing,Infer word boundaries from space transitions and compute median word completion time,True,True,62.0
+keyboard_typing_burst_count,Digital,keyboard_typing_burst,Count typing bursts separated by gaps greater than 30 seconds,True,True,66.0
+median_unlocked_session_duration_seconds,Digital,screen_session_duration,Median paired unlocked-session duration,True,True,76.0
+message_distinct_event_count,Digital,message_communication_context,Count distinct message observations after deduplication,True,True,74.0
+night_screen_event_count,Digital,screen_nighttime_context,Count screen events during local nighttime hours 22:00-06:00,True,True,76.0
+outgoing_message_count,Digital,message_communication_context,Count distinct observations where message_type is sent,True,True,74.0
+screen_active_hour_count,Digital,screen_temporal_spread,Count unique local hours with at least one screen event,True,True,76.0
+screen_event_count,Digital,screen_interaction_context,Count all screen rows in the selected window,True,True,76.0
+screen_off_event_count,Digital,screen_interaction_context,Count rows where screen_status equals 0,True,True,76.0
+screen_on_event_count,Digital,screen_interaction_context,Count rows where screen_status equals 1,True,True,76.0
+screen_transition_count,Digital,screen_interaction_variability,Count changes between consecutive screen_status values ordered by timestamp,True,True,76.0
+screen_unlock_event_count,Digital,screen_interaction_context,Count rows where screen_status equals 3,True,True,76.0
+telephony_event_count,Digital,telephony_connectivity_context,Count all telephony rows in the selected window,True,True,76.0
+telephony_mobile_data_enabled_fraction,Digital,telephony_connectivity_context,Fraction of rows with data_enabled indicating enabled/on state,True,True,76.0
+telephony_network_type_diversity,Digital,telephony_network_context,Diversity across observed network_type values,True,True,76.0
+touch_active_hour_count,Digital,touch_temporal_spread,Count unique local hours with at least one distinct touch observation,True,True,70.0
+touch_app_diversity,Digital,touch_app_context,Diversity of touch events across touch_app values,True,True,70.0
+touch_click_event_count,Digital,touch_action_profile,Count distinct observations where touch_action is ACTION_AWARE_TOUCH_CLICKED,True,True,70.0
+touch_distinct_event_count,Digital,touch_interaction_volume,Count distinct touch observations after deduplicating repeated timestamp app action and scroll rows,True,True,70.0
+touch_scroll_direction_change_count,Digital,touch_interaction_variability,Count changes between consecutive scroll directions up and down after deduplication,True,True,70.0
+touch_scroll_event_count,Digital,touch_action_profile,Count distinct observations where touch_action contains SCROLLED,True,True,70.0
+touch_scroll_index_change_median,Digital,touch_scroll_intensity,Median absolute difference between scroll_to_index and scroll_from_index for valid scroll rows,True,True,70.0
+touch_unique_app_count,Digital,touch_app_context,Count distinct touch_app values in the selected window,True,True,70.0
+unique_foreground_apps,Digital,app_use_breadth,Number of distinct foreground apps observed in a window,True,True,74.0
+unique_gsm_cell_count,Digital,gsm_cell_context,Number of distinct cid values in the selected window,True,True,76.0
+unique_gsm_lac_count,Digital,gsm_cell_context,Number of distinct lac values in the selected window,True,True,76.0
+unique_gsm_neighbor_cell_count,Digital,gsm_neighbor_cell_context,Number of distinct valid neighbor cid values in the selected window,True,True,67.0
+unique_gsm_neighbor_lac_count,Digital,gsm_neighbor_cell_context,Number of distinct valid neighbor lac values in the selected window,True,True,67.0
+acc_median_accelerometer_raw_row_count,ACC,quality,Number of raw general-accelerometer rows returned for the mapped device and local day.,False,False,
+acc_median_accelerometer_valid_numeric_row_count,ACC,quality,"Rows containing valid numeric x, y, and z values after JSON parsing.",False,False,
+acc_median_accelerometer_exact_duplicate_rows_removed,ACC,quality,Rows discarded after a device timestamp was already represented; the sequential archive pipeline keeps the first row by database _id.,False,False,
+acc_median_accelerometer_valid_signal_minutes,ACC,quality,Number of local clock minutes containing at least one valid three-axis signal.,False,False,
+acc_median_accelerometer_calendar_coverage_fraction,ACC,quality,Valid signal minutes divided by the number of minutes in the local calendar day.,False,False,
+acc_median_accelerometer_observed_span_hours,ACC,quality,Elapsed time from the first to the last valid signal in the day.,False,False,
+acc_median_accelerometer_median_sampling_interval_ms,ACC,quality,Median positive interval between consecutive valid timestamps.,False,False,
+acc_median_accelerometer_p95_sampling_interval_ms,ACC,quality,95th percentile of positive intervals between consecutive valid timestamps.,False,False,
+acc_median_accelerometer_gap_burden_fraction,ACC,quality,Seconds in gaps longer than one second divided by the 24-hour calendar day.,False,False,
+acc_median_accelerometer_magnitude_median,ACC,signal_level,Median vector magnitude sqrt(x^2 + y^2 + z^2).,True,True,42.0
+acc_median_accelerometer_magnitude_sd,ACC,signal_level,Standard deviation of vector magnitude over valid samples.,True,True,42.0
+acc_median_accelerometer_magnitude_p95,ACC,signal_level,95th percentile of vector magnitude.,True,True,42.0
+acc_median_accelerometer_dynamic_magnitude_rms,ACC,dynamic_motion,Root-mean-square absolute deviation of magnitude from the day median magnitude.,True,True,42.0
+acc_median_accelerometer_dynamic_magnitude_p95,ACC,dynamic_motion,95th percentile absolute deviation of magnitude from the day median magnitude.,True,True,42.0
+acc_median_accelerometer_low_motion_fraction,ACC,dynamic_motion,Fraction of valid samples with dynamic magnitude at or below 0.10.,True,True,42.0
+acc_median_accelerometer_high_motion_fraction,ACC,dynamic_motion,Fraction of valid samples with dynamic magnitude at or above 0.75.,True,True,42.0
+acc_median_accelerometer_motion_bout_count,ACC,temporal_pattern,Runs of consecutive observed minutes whose median dynamic magnitude is at least 0.20.,True,True,42.0
+acc_median_accelerometer_longest_observed_quiet_interval_minutes,ACC,temporal_pattern,Longest run of consecutive observed minutes below the 0.20 motion threshold.,True,True,42.0
+acc_median_accelerometer_daytime_motion_minutes,ACC,circadian,Observed minutes with median dynamic magnitude at least 0.20 from 06:00 through 21:59 local time.,True,True,42.0
+acc_median_accelerometer_nighttime_motion_minutes,ACC,circadian,Observed minutes with median dynamic magnitude at least 0.20 from 22:00 through 05:59 local time.,True,True,42.0
+acc_median_accelerometer_day_night_motion_ratio,ACC,circadian,Daytime motion minutes divided by nighttime motion minutes.,True,True,28.0
+acc_median_accelerometer_hourly_motion_entropy,ACC,circadian,Shannon entropy of active-looking observed minutes across local clock hours.,True,True,41.0
+acc_median_accelerometer_magnitude_jerk_median,ACC,rapid_change,Median absolute magnitude change per second for positive intervals no longer than five seconds.,True,True,42.0
+acc_median_accelerometer_magnitude_jerk_p95,ACC,rapid_change,95th percentile absolute magnitude change per second for positive intervals no longer than five seconds.,True,True,42.0

@@ -1,0 +1,8 @@
+result_type,outcome,n,rho,p,ci_low,ci_high,adjusted_partial_rho,adjusted_p,adjusted_n,adjustment,q,note,comparison,exclusions,min_p,max_p,min_rho,max_rho,positive_rho_exclusions
+new_demographic_coverage_sensitivity,verbal_T1,22,0.32551579935243513,0.13932998880888647,-0.1456676928926773,0.6606164523099654,0.18012422360248448,0.4224751715621317,22,log1p(total reliable tokens); active days; age; sex; education,,,,,,,,,
+new_demographic_coverage_sensitivity,motor_T1,21,0.5441558441558442,0.01076722731945727,0.13659759326692275,0.818787805898121,0.5389610389610389,0.01170007236047807,21,log1p(total reliable tokens); active days; age; sex; education,,,,,,,,,
+historical_saved_coverage_adjusted,verbal_T1,22,0.607002,0.002739,,,,,,,0.027392,Prior v1 coverage-only partial Spearman; same MATTR-100 cohort; not independent replication.,,,,,,,
+historical_saved_coverage_adjusted,motor_T1,21,0.562338,0.007967,,,,,,,0.119506,Prior v2 coverage-only partial Spearman; same MATTR-100 cohort; not independent replication.,,,,,,,
+domain_overlap,,21,-0.059798533458950164,0.7968070468257693,-0.4639109230949631,0.36685740147447027,,,,,,Verbal and Motor scores are not materially correlated in the shared MATTR-100 eligible cohort.,Verbal T1 vs Motor T1 among MATTR-100 eligible patients,,,,,,
+leave_one_out_summary,verbal_T1,,,,,,,,,,,Leave-one-patient-out range; all re-estimated correlations retained the positive direction.,,22,0.06726303209320922,0.32432482049655137,0.22612090543443134,0.4067577206952701,22
+leave_one_out_summary,motor_T1,,,,,,,,,,,Leave-one-patient-out range; all re-estimated correlations retained the positive direction.,,21,0.0027337868790513393,0.03110521686954333,0.4827067669172932,0.6330827067669172,21

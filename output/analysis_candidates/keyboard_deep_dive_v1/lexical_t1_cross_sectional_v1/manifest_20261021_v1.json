@@ -1,0 +1,13 @@
+{
+  "version": "20261021_v1",
+  "source_tables": [
+    "/Users/ofirfizitsky/PycharmProjects/research_dbeaver/output/analysis_candidates/keyboard_deep_dive_v1/word_length_adjusted_completion_v1/word_length_patient_table_20261021_v1.csv",
+    "/Users/ofirfizitsky/PycharmProjects/research_dbeaver/output/analysis_candidates/keyboard_deep_dive_v1/word_length_adjusted_completion_v1/word_length_window_features_20261021_v1.csv"
+  ],
+  "t1_patients_with_valid_global": 81,
+  "t1_patients_with_any_reliable_tokens": 62,
+  "new_cognitive_screen": true,
+  "t2_used": false,
+  "historical_outputs_modified": false,
+  "privacy": "aggregate tables only"
+}

@@ -1,0 +1,6 @@
+feature_name,transformation,n_observed_before_imputation,missing_percent_before_imputation,imputation_value_after_transformation
+keyboard_median_word_completion_time_ms,none,4,55.55555555555556,-627.0
+telephony_network_type_diversity,none,9,0.0,-0.006140240030992394
+acc_median_accelerometer_magnitude_jerk_median,none,9,0.0,0.03580528173230735
+acc_median_accelerometer_hourly_motion_entropy,none,8,11.11111111111111,-0.6856120398085188
+acc_median_accelerometer_daytime_motion_minutes,none,9,0.0,-1.5

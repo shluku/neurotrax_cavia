@@ -1,0 +1,7 @@
+feature_family,threshold,eligible_sessions,eligible_devices,eligible_device_days,eligible_patients,median_stationary_iqr_ms,median_moving_iqr_ms,median_moving_minus_stationary_iqr_ms,median_stationary_cv,median_moving_cv,decision
+touch,0.05,1,1,1,1,1282.25,3524.0,2241.75,2.2701828253097984,1.9557267270433347,insufficient_both_state_events
+keyboard,0.05,0,0,0,0,,,,,,insufficient_both_state_events
+touch,0.15,1,1,1,1,2231.0,6103.25,3872.25,1.9679568102333531,2.9864755768089912,insufficient_both_state_events
+keyboard,0.15,0,0,0,0,,,,,,insufficient_both_state_events
+touch,0.3,1,1,1,1,3261.0,4722.0,1461.0,1.5592947036222264,2.5945625311921394,insufficient_both_state_events
+keyboard,0.3,0,0,0,0,,,,,,insufficient_both_state_events

@@ -1,0 +1,8 @@
+feature,definition,novelty_status,feasibility_status,minimum_data_requirement,sessions_ACC_touch,sessions_ACC_keyboard,sessions_ACC_app
+ACC magnitude during touch-active vs matched screen-control,session ACC magnitude in windows containing touch events vs non-touch windows,new cross-table feature,feasible_on_ACC_plus_touch_sessions,ACC+touch overlap; no dual-state requirement,10,2,10
+Motion magnitude × interaction density,within-session correlation of ACC residual magnitude and touch counts per fixed time bin,new cross-table feature,pilot-feasible_if>=3_binned_events,ACC+touch bins; rate/gap QC,10,2,10
+ACC variability conditional on app context,ACC residual SD/IQR within observed foreground-app hash episodes,new cross-table feature,feasible_on_ACC_plus_app_sessions_but_sparse,ACC+app overlap and repeated app context,10,2,10
+Touch interval variability by motion state,Phase 7 moving-minus-stationary touch IQR,new cross-table feature,blocked_by_dual_state_eligibility,both states and >=3 intervals each,10,2,10
+Keyboard snapshot interval variability by motion state,Phase 7 moving-minus-stationary keyboard snapshot IQR,new cross-table proxy,blocked_by_keyboard_coverage,keyboard events in both states,10,2,10
+Touch rate / interval summaries,existing Screen×Touch session summaries,existing single-table/session context,already_implemented,not novel,10,2,10
+App transitions / keyboard IEI,existing Screen×App and Keyboard×App summaries,existing single-table/session context,already_implemented,not novel,10,2,10

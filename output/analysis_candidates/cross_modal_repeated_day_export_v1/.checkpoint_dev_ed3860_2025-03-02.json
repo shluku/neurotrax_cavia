@@ -1,0 +1,31 @@
+{
+  "target": "dev_ed3860_2025-03-02",
+  "device_anon": "dev_ed3860",
+  "day": "2025-03-02",
+  "status": "completed",
+  "started_at": "2026-10-22T07:18:10.390280+00:00",
+  "session_count": 2,
+  "files": [
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=ed3860/device=dev_ed3860/date=2025-03-02/modality=screen/session_01.parquet",
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=ed3860/device=dev_ed3860/date=2025-03-02/modality=touch/session_01.parquet",
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=ed3860/device=dev_ed3860/date=2025-03-02/modality=applications_foreground/session_01.parquet",
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=ed3860/device=dev_ed3860/date=2025-03-02/modality=keyboard/session_01.parquet",
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=ed3860/device=dev_ed3860/date=2025-03-02/modality=screen/session_02.parquet",
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=ed3860/device=dev_ed3860/date=2025-03-02/modality=touch/session_02.parquet",
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=ed3860/device=dev_ed3860/date=2025-03-02/modality=applications_foreground/session_02.parquet"
+  ],
+  "screen_sessions_total": 18,
+  "eligible_sessions": 2,
+  "rows_by_modality": {
+    "screen": 2,
+    "touch": 46,
+    "applications_foreground": 16,
+    "keyboard": 10,
+    "accelerometer": 0
+  },
+  "acc_sampling_median_ms": [
+    null,
+    null
+  ],
+  "completed_at": "2026-10-22T07:18:12.225619+00:00"
+}

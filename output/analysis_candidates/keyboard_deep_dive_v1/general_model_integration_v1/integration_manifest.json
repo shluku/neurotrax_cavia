@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "t1_existing_features": 61,
+  "keyboard_features_total": 34,
+  "expanded_feature_count_excluding_replaced_old_keyboard": 89,
+  "t1_and_longitudinal_separate": true,
+  "outer_repeats": 3,
+  "leakage_control": "imputation, robust scaling, SelectKBest feature selection, and Ridge alpha tuning fit within each training fold",
+  "identical_folds_within_task": true,
+  "models_trained": true,
+  "existing_outputs_modified": false,
+  "outcomes": [
+    "global",
+    "memory",
+    "executive_function",
+    "processing_speed",
+    "attention",
+    "motor",
+    "verbal",
+    "iq"
+  ],
+  "baseline_duplicate_rows_removed": true,
+  "outer_folds_per_variant": 15,
+  "inner_cv_folds": 3
+}

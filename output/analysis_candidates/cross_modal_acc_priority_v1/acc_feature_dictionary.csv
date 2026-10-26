@@ -1,0 +1,12 @@
+feature,definition,units,source,eligibility,interpretation,limitations
+acceleration_magnitude_mean,mean sqrt(x^2+y^2+z^2),source sensor units,raw accelerometer,>=2 valid samples,average phone acceleration including gravity,orientation and handling confounding
+acceleration_magnitude_sd,SD of vector magnitude,source sensor units,raw accelerometer,>=2 valid samples,phone-motion variability proxy,not body movement
+acceleration_magnitude_iqr,IQR of vector magnitude,source sensor units,raw accelerometer,>=2 valid samples,robust phone-motion variability proxy,orientation and placement sensitive
+moving_fraction,fraction abs(magnitude-segment median)>0.2,proportion,raw accelerometer,>=2 valid samples,relative movement within segment,threshold exploratory and segment-specific
+jerk_magnitude,vector acceleration difference divided by actual elapsed seconds,source units per second,raw accelerometer,positive dt <=1s,abrupt phone-motion proxy,raw sampling/device differences require resampling; not tremor
+jerk_median,median jerk magnitude,source units per second,raw accelerometer,>=1 valid jerk interval,typical abruptness,not comparable across devices yet
+jerk_iqr,IQR jerk magnitude,source units per second,raw accelerometer,>=1 valid jerk interval,jerk variability,noise and sampling sensitive
+jerk_p90,90th percentile jerk magnitude,source units per second,raw accelerometer,>=1 valid jerk interval,upper-tail abruptness,orientation/handling/vehicle confounding
+sampling_median_ms,median timestamp difference,milliseconds,raw timestamp,>=2 samples,observed sampling cadence,not nominal sensor rate
+sampling_p95_ms,95th percentile timestamp difference,milliseconds,raw timestamp,>=2 samples,tail sampling gap behavior,gap handling required
+gap_fraction_gt1s,fraction intervals >1 second,proportion,raw timestamp,>=2 samples,continuity limitation,not missing movement

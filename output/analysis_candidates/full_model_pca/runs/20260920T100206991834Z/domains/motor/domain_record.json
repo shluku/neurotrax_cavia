@@ -1,0 +1,49 @@
+{
+  "domain": "Motor",
+  "target": "motor_T1",
+  "t2_target": "motor_T2",
+  "delta_target": "motor_delta",
+  "features": [
+    "keyboard_median_word_completion_time_ms",
+    "acc_median_accelerometer_magnitude_jerk_median",
+    "acc_median_accelerometer_hourly_motion_entropy",
+    "acc_median_accelerometer_daytime_motion_minutes",
+    "telephony_network_type_diversity"
+  ],
+  "selection_patients": 40,
+  "excluded_patient_ids": [
+    "002"
+  ],
+  "selection_uses_outcome": true,
+  "availability_rule": "Existing combined cohort, observed domain T1 score, >=50% of selected five features",
+  "paired_decliners": 9,
+  "baseline": {
+    "status": "complete",
+    "patients": 40,
+    "features": 5,
+    "dropped_features": [],
+    "pc1_pc2_percent": 78.521869679406,
+    "selected_k": 2,
+    "acceptable_cluster_solution": false,
+    "cluster_sizes": [
+      4,
+      36
+    ],
+    "cluster_note": "Reference only: at least one displayed cluster is smaller than five.",
+    "silhouette": 0.5843091968440108,
+    "subsample_ari": 0.9649496180490854
+  },
+  "decline_change": {
+    "status": "complete",
+    "patients": 9,
+    "features": 5,
+    "dropped_features": [],
+    "pc1_pc2_percent": 99.99965873234167,
+    "selected_k": null,
+    "acceptable_cluster_solution": false,
+    "cluster_sizes": [],
+    "cluster_note": "No cluster fit: fewer than 12 patients or insufficient distinct observations.",
+    "silhouette": null,
+    "subsample_ari": null
+  }
+}

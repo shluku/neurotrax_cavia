@@ -1,0 +1,6 @@
+feature_name,0,1
+keyboard_median_word_completion_time_ms,1841.5,3541.25
+telephony_network_type_diversity,0.8124253388945121,0.6577611037287723
+acc_median_accelerometer_magnitude_jerk_median,3.441568089145066,0.5018733050452148
+acc_median_accelerometer_hourly_motion_entropy,1.5545851693377997,1.396691246977289
+acc_median_accelerometer_daytime_motion_minutes,12.0,12.0

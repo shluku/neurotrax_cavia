@@ -1,0 +1,11 @@
+{
+  "raw_text_columns_exported": false,
+  "before_text_exported": false,
+  "current_text_exported": false,
+  "password_state_rows_exported": false,
+  "raw_package_names_exported": false,
+  "persistent_word_hashes_exported": false,
+  "device_ids_exported": false,
+  "timestamps_retained": true,
+  "acc_vectors_retained": true
+}

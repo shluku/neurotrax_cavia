@@ -1,0 +1,8 @@
+feature,status,eligible_patients,eligible_sessions,median_events_per_session,match_rate,missingness,reason
+touch_events_per_screen_active_minute,not computed,,,,,,Saved files are small review samples; SensorDB unavailable for bounded full-event query; session boundaries and censoring cannot be established.
+within_session_touch_interval_median_ms,not computed,,,,,,Saved files are small review samples; SensorDB unavailable for bounded full-event query; session boundaries and censoring cannot be established.
+within_session_touch_interval_iqr_ms,not computed,,,,,,Saved files are small review samples; SensorDB unavailable for bounded full-event query; session boundaries and censoring cannot be established.
+long_inactive_gaps_within_screen_active_session,not computed,,,,,,Saved files are small review samples; SensorDB unavailable for bounded full-event query; session boundaries and censoring cannot be established.
+foreground_app_transitions_per_screen_active_minute,not computed,,,,,,Saved files are small review samples; SensorDB unavailable for bounded full-event query; session boundaries and censoring cannot be established.
+median_observed_foreground_app_episode_duration_ms,not computed,,,,,,Saved files are small review samples; SensorDB unavailable for bounded full-event query; session boundaries and censoring cannot be established.
+keyboard_snapshot_interval_by_application,not computed,,,,,,Saved files are small review samples; SensorDB unavailable for bounded full-event query; session boundaries and censoring cannot be established.

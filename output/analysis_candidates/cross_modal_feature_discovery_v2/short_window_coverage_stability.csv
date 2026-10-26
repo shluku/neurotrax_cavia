@@ -1,0 +1,5 @@
+window_minutes,status,eligible_patients,eligible_sessions,recording_frequency_dependence,reason
+1,not computed,,,not estimable,No complete event-level synchronized episodes available.
+5,not computed,,,not estimable,No complete event-level synchronized episodes available.
+10,not computed,,,not estimable,No complete event-level synchronized episodes available.
+15,not computed,,,not estimable,No complete event-level synchronized episodes available.

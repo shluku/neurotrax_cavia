@@ -1,0 +1,6 @@
+feature_name,transformation,n_observed_before_imputation,missing_percent_before_imputation,imputation_value_after_transformation
+keyboard_median_word_completion_time_ms,none,34,12.82051282051282,3541.25
+keyboard_inter_event_interval_iqr_ms,none,37,5.128205128205128,617.5
+app_use_diversity,none,39,0.0,3.441686953975995
+acc_median_accelerometer_longest_observed_quiet_interval_minutes,log1p_nonnegative_skewed,39,0.0,1.791759469228055
+acc_median_accelerometer_low_motion_fraction,none,39,0.0,0.7810874769082696

@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "paired_cognitive_patients": 61,
+  "third_feature_count": 34,
+  "eligible_min_active_days": 7,
+  "bootstrap_replicates": 500,
+  "window_rule": "equal calendar thirds; first and last thirds only; change = last - first",
+  "existing_outputs_modified": false,
+  "models_trained": false
+}

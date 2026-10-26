@@ -1,0 +1,19 @@
+{
+  "analysis": "MATTR-100 focused validation audit",
+  "version": "20261021_v1",
+  "source": "word_length_patient_table_20261021_v1.csv",
+  "source_mode": "saved aggregate numeric table only",
+  "high_coverage_definition": "reliable_completion_count_T1 >= 100",
+  "high_n": 22,
+  "low_n": 59,
+  "raw_text_exported": false,
+  "raw_words_exported": false,
+  "patient_vocabularies_exported": false,
+  "files": [
+    "mattr100_audit_summary_20261021_v1.csv",
+    "mattr100_cohort_comparison_20261021_v1.csv",
+    "mattr100_coverage_language_application_20261021_v1.csv",
+    "mattr100_leave_one_out_20261021_v1.csv",
+    "mattr100_privacy_checks_20261021_v1.csv"
+  ]
+}

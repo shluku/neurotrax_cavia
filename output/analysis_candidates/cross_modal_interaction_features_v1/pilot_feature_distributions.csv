@@ -1,0 +1,6 @@
+feature,status,n_sessions,n_patients,median,iqr,definition
+touch_motion_coupling_proxy,proxy_estimable,6,2,4.4658843905683945,3.641486761514707,"session touch rate per minute multiplied by ACC moving fraction; coarse session proxy, not event-centered"
+stationary_touch_rate_proxy,proxy_estimable,6,2,3.200169345967389,5.871185429536343,session touch rate per minute multiplied by one minus ACC moving fraction
+touch_motion_event_centered,not_estimable_saved_outputs,0,0,,,ACC magnitude in a prespecified window around touch events versus matched no-touch windows
+motion_conditioned_touch_variability,not_estimable_saved_outputs,0,0,,,within-burst touch interval variability stratified by ACC stationary/moving bins
+app_switch_interruption_cost,not_estimable_saved_outputs,0,0,,,keyboard IEI after minus before foreground-app transitions with same-app controls

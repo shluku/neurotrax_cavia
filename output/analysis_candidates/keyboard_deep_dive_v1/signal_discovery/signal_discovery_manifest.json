@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "features_tested": 34,
+  "t1_patients": 81,
+  "paired_patients": 81,
+  "association_rows": 408,
+  "bootstrap_replicates": 500,
+  "candidate_rule": "n>=20, FDR q<=0.20, bootstrap sign stability>=0.80, CI excludes zero",
+  "existing_outputs_modified": false,
+  "main_feature_bank_modified": false
+}

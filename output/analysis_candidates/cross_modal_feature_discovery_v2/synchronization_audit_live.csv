@@ -1,0 +1,9 @@
+patient_anon,device_anon,day,table,raw_rows,deduplicated_rows,duplicate_rows_removed,timestamp_unit,local_timezone,status
+patient_39,device_039,2025-01-13,applications_foreground,395,394,1,milliseconds since epoch,Asia/Jerusalem,live bounded query verified
+patient_39,device_039,2025-01-13,keyboard,3400,3400,0,milliseconds since epoch,Asia/Jerusalem,live bounded query verified
+patient_39,device_039,2025-01-13,screen,154,154,0,milliseconds since epoch,Asia/Jerusalem,live bounded query verified
+patient_39,device_039,2025-01-13,touch,1630,1630,0,milliseconds since epoch,Asia/Jerusalem,live bounded query verified
+patient_41,device_041,2025-01-09,applications_foreground,698,349,349,milliseconds since epoch,Asia/Jerusalem,live bounded query verified
+patient_41,device_041,2025-01-09,keyboard,1832,916,916,milliseconds since epoch,Asia/Jerusalem,live bounded query verified
+patient_41,device_041,2025-01-09,screen,304,304,0,milliseconds since epoch,Asia/Jerusalem,live bounded query verified
+patient_41,device_041,2025-01-09,touch,1820,838,982,milliseconds since epoch,Asia/Jerusalem,live bounded query verified

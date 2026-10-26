@@ -1,0 +1,142 @@
+candidate,feature_order,feature_name
+Processing Speed — 10-day Ridge,1,app_foreground_event_count
+Processing Speed — 10-day Ridge,2,app_use_diversity
+Processing Speed — 10-day Ridge,3,unique_foreground_apps
+Processing Speed — 10-day Ridge,4,gsm_cell_transition_count
+Processing Speed — 10-day Ridge,5,unique_gsm_cell_count
+Processing Speed — 10-day Ridge,6,unique_gsm_lac_count
+Processing Speed — 10-day Ridge,7,keyboard_deletion_event_count
+Processing Speed — 10-day Ridge,8,keyboard_inter_event_interval_iqr_ms
+Processing Speed — 10-day Ridge,9,keyboard_long_pause_count_2s
+Processing Speed — 10-day Ridge,10,keyboard_median_inter_event_interval_ms
+Processing Speed — 10-day Ridge,11,keyboard_typing_burst_count
+Processing Speed — 10-day Ridge,12,message_distinct_event_count
+Processing Speed — 10-day Ridge,13,outgoing_message_count
+Processing Speed — 10-day Ridge,14,activity_active_hour_count
+Processing Speed — 10-day Ridge,15,activity_state_diversity
+Processing Speed — 10-day Ridge,16,activity_still_fraction
+Processing Speed — 10-day Ridge,17,activity_transition_count
+Processing Speed — 10-day Ridge,18,activity_unknown_fraction
+Processing Speed — 10-day Ridge,19,median_unlocked_session_duration_seconds
+Processing Speed — 10-day Ridge,20,night_screen_event_count
+Processing Speed — 10-day Ridge,21,screen_active_hour_count
+Processing Speed — 10-day Ridge,22,screen_event_count
+Processing Speed — 10-day Ridge,23,screen_off_event_count
+Processing Speed — 10-day Ridge,24,screen_on_event_count
+Processing Speed — 10-day Ridge,25,screen_transition_count
+Processing Speed — 10-day Ridge,26,screen_unlock_event_count
+Processing Speed — 10-day Ridge,27,telephony_event_count
+Processing Speed — 10-day Ridge,28,telephony_mobile_data_enabled_fraction
+Processing Speed — 10-day Ridge,29,telephony_network_type_diversity
+Processing Speed — 10-day Ridge,30,touch_active_hour_count
+Processing Speed — 10-day Ridge,31,touch_app_diversity
+Processing Speed — 10-day Ridge,32,touch_click_event_count
+Processing Speed — 10-day Ridge,33,touch_distinct_event_count
+Processing Speed — 10-day Ridge,34,touch_scroll_direction_change_count
+Processing Speed — 10-day Ridge,35,touch_scroll_event_count
+Processing Speed — 10-day Ridge,36,touch_scroll_index_change_median
+Processing Speed — 10-day Ridge,37,touch_unique_app_count
+Motor — 24-hour Ridge,1,app_foreground_event_count
+Motor — 24-hour Ridge,2,app_use_diversity
+Motor — 24-hour Ridge,3,unique_foreground_apps
+Motor — 24-hour Ridge,4,gsm_cell_transition_count
+Motor — 24-hour Ridge,5,unique_gsm_cell_count
+Motor — 24-hour Ridge,6,unique_gsm_lac_count
+Motor — 24-hour Ridge,7,keyboard_deletion_event_count
+Motor — 24-hour Ridge,8,keyboard_inter_event_interval_iqr_ms
+Motor — 24-hour Ridge,9,keyboard_long_pause_count_2s
+Motor — 24-hour Ridge,10,keyboard_median_inter_event_interval_ms
+Motor — 24-hour Ridge,11,keyboard_typing_burst_count
+Motor — 24-hour Ridge,12,message_distinct_event_count
+Motor — 24-hour Ridge,13,outgoing_message_count
+Motor — 24-hour Ridge,14,activity_active_hour_count
+Motor — 24-hour Ridge,15,activity_state_diversity
+Motor — 24-hour Ridge,16,activity_still_fraction
+Motor — 24-hour Ridge,17,activity_transition_count
+Motor — 24-hour Ridge,18,activity_unknown_fraction
+Motor — 24-hour Ridge,19,median_unlocked_session_duration_seconds
+Motor — 24-hour Ridge,20,night_screen_event_count
+Motor — 24-hour Ridge,21,screen_active_hour_count
+Motor — 24-hour Ridge,22,screen_event_count
+Motor — 24-hour Ridge,23,screen_off_event_count
+Motor — 24-hour Ridge,24,screen_on_event_count
+Motor — 24-hour Ridge,25,screen_transition_count
+Motor — 24-hour Ridge,26,screen_unlock_event_count
+Motor — 24-hour Ridge,27,telephony_event_count
+Motor — 24-hour Ridge,28,telephony_mobile_data_enabled_fraction
+Motor — 24-hour Ridge,29,telephony_network_type_diversity
+Motor — 24-hour Ridge,30,touch_active_hour_count
+Motor — 24-hour Ridge,31,touch_app_diversity
+Motor — 24-hour Ridge,32,touch_click_event_count
+Motor — 24-hour Ridge,33,touch_distinct_event_count
+Motor — 24-hour Ridge,34,touch_scroll_direction_change_count
+Motor — 24-hour Ridge,35,touch_scroll_event_count
+Motor — 24-hour Ridge,36,touch_scroll_index_change_median
+Motor — 24-hour Ridge,37,touch_unique_app_count
+Global — Coverage Top-10 Elastic Net,1,barometer_downward_transition_count
+Global — Coverage Top-10 Elastic Net,2,barometer_estimated_elevation_change_m
+Global — Coverage Top-10 Elastic Net,3,barometer_large_vertical_shift_count
+Global — Coverage Top-10 Elastic Net,4,barometer_pressure_range
+Global — Coverage Top-10 Elastic Net,5,barometer_pressure_sd
+Global — Coverage Top-10 Elastic Net,6,barometer_upward_transition_count
+Global — Coverage Top-10 Elastic Net,7,sensor_linear_accelerometer_active_hour_count
+Global — Coverage Top-10 Elastic Net,8,sensor_linear_accelerometer_event_count
+Global — Coverage Top-10 Elastic Net,9,sensor_linear_accelerometer_maximum_range
+Global — Coverage Top-10 Elastic Net,10,sensor_linear_accelerometer_power_ma
+Global — Coverage Top-10 Elastic Net,11,sensor_linear_accelerometer_resolution
+Global — Coverage Top-10 Elastic Net,12,significant_active_hour_count
+Global — Coverage Top-10 Elastic Net,13,significant_motion_transition_count
+Global — Coverage Top-10 Elastic Net,14,significant_moving_event_count
+Global — Coverage Top-10 Elastic Net,15,significant_moving_fraction
+Global — Coverage Top-10 Elastic Net,16,app_foreground_event_count
+Global — Coverage Top-10 Elastic Net,17,app_use_diversity
+Global — Coverage Top-10 Elastic Net,18,unique_foreground_apps
+Global — Coverage Top-10 Elastic Net,19,charging_or_plugged_event_count
+Global — Coverage Top-10 Elastic Net,20,low_battery_event_count
+Global — Coverage Top-10 Elastic Net,21,bluetooth_address_diversity_ratio
+Global — Coverage Top-10 Elastic Net,22,unique_bluetooth_addresses
+Global — Coverage Top-10 Elastic Net,23,call_event_count
+Global — Coverage Top-10 Elastic Net,24,incoming_call_count
+Global — Coverage Top-10 Elastic Net,25,missed_rejected_blocked_call_count
+Global — Coverage Top-10 Elastic Net,26,outgoing_call_count
+Global — Coverage Top-10 Elastic Net,27,total_call_duration_seconds
+Global — Coverage Top-10 Elastic Net,28,gsm_cell_transition_count
+Global — Coverage Top-10 Elastic Net,29,unique_gsm_cell_count
+Global — Coverage Top-10 Elastic Net,30,unique_gsm_lac_count
+Global — Coverage Top-10 Elastic Net,31,gsm_neighbor_cell_transition_count
+Global — Coverage Top-10 Elastic Net,32,unique_gsm_neighbor_cell_count
+Global — Coverage Top-10 Elastic Net,33,unique_gsm_neighbor_lac_count
+Global — Coverage Top-10 Elastic Net,34,keyboard_deletion_event_count
+Global — Coverage Top-10 Elastic Net,35,keyboard_inter_event_interval_iqr_ms
+Global — Coverage Top-10 Elastic Net,36,keyboard_long_pause_count_2s
+Global — Coverage Top-10 Elastic Net,37,keyboard_median_inter_event_interval_ms
+Global — Coverage Top-10 Elastic Net,38,keyboard_median_word_completion_time_ms
+Global — Coverage Top-10 Elastic Net,39,keyboard_typing_burst_count
+Global — Coverage Top-10 Elastic Net,40,location_distinct_observation_count
+Global — Coverage Top-10 Elastic Net,41,location_total_distance_km
+Global — Coverage Top-10 Elastic Net,42,message_distinct_event_count
+Global — Coverage Top-10 Elastic Net,43,outgoing_message_count
+Global — Coverage Top-10 Elastic Net,44,activity_active_hour_count
+Global — Coverage Top-10 Elastic Net,45,activity_state_diversity
+Global — Coverage Top-10 Elastic Net,46,activity_still_fraction
+Global — Coverage Top-10 Elastic Net,47,activity_transition_count
+Global — Coverage Top-10 Elastic Net,48,activity_unknown_fraction
+Global — Coverage Top-10 Elastic Net,49,median_unlocked_session_duration_seconds
+Global — Coverage Top-10 Elastic Net,50,night_screen_event_count
+Global — Coverage Top-10 Elastic Net,51,screen_active_hour_count
+Global — Coverage Top-10 Elastic Net,52,screen_event_count
+Global — Coverage Top-10 Elastic Net,53,screen_off_event_count
+Global — Coverage Top-10 Elastic Net,54,screen_on_event_count
+Global — Coverage Top-10 Elastic Net,55,screen_transition_count
+Global — Coverage Top-10 Elastic Net,56,screen_unlock_event_count
+Global — Coverage Top-10 Elastic Net,57,telephony_event_count
+Global — Coverage Top-10 Elastic Net,58,telephony_mobile_data_enabled_fraction
+Global — Coverage Top-10 Elastic Net,59,telephony_network_type_diversity
+Global — Coverage Top-10 Elastic Net,60,touch_active_hour_count
+Global — Coverage Top-10 Elastic Net,61,touch_app_diversity
+Global — Coverage Top-10 Elastic Net,62,touch_click_event_count
+Global — Coverage Top-10 Elastic Net,63,touch_distinct_event_count
+Global — Coverage Top-10 Elastic Net,64,touch_scroll_direction_change_count
+Global — Coverage Top-10 Elastic Net,65,touch_scroll_event_count
+Global — Coverage Top-10 Elastic Net,66,touch_scroll_index_change_median
+Global — Coverage Top-10 Elastic Net,67,touch_unique_app_count

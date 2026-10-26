@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "endpoint": "T2-T1",
+  "features": [
+    "keyboard_median_word_completion_time_ms",
+    "app_use_diversity",
+    "acc_median_accelerometer_longest_observed_quiet_interval_minutes",
+    "acc_median_accelerometer_daytime_motion_minutes",
+    "acc_median_accelerometer_day_night_motion_ratio"
+  ],
+  "blocks": {
+    "digital": [
+      "keyboard_median_word_completion_time_ms",
+      "app_use_diversity"
+    ],
+    "acc": [
+      "acc_median_accelerometer_longest_observed_quiet_interval_minutes",
+      "acc_median_accelerometer_daytime_motion_minutes",
+      "acc_median_accelerometer_day_night_motion_ratio"
+    ]
+  },
+  "log_features": [],
+  "medians": [
+    -627.0,
+    -0.05651366635160393,
+    -2.25,
+    -5.75,
+    -0.11068673134214402
+  ],
+  "center": [
+    -627.0,
+    -0.05651366635160393,
+    -2.25,
+    -5.75,
+    -0.11068673134214402
+  ],
+  "scale": [
+    234.5,
+    0.2978539104923248,
+    13.875,
+    29.0,
+    1.0
+  ],
+  "pca_mean": [
+    -0.26412579957356086,
+    -0.025524571466622833,
+    -0.4054054054054053,
+    -0.17241379310344826,
+    -5.533583728419876
+  ],
+  "components": [
+    [
+      -0.00031212673092331403,
+      -0.00158435394588702,
+      -0.03338143003875106,
+      -0.03559063743498701,
+      0.9988074784737134
+    ],
+    [
+      0.9693648018435573,
+      -0.13841406843211254,
+      -0.19608278466642465,
+      -0.051536127743242253,
+      -0.008306365123488585
+    ],
+    [
+      0.22382069611696104,
+      0.6365930450240619,
+      0.5176422770391461,
+      0.5247145349112698,
+      0.037077228743388375
+    ],
+    [
+      0.10024953431687836,
+      -0.18307930495197164,
+      0.7797626113616075,
+      -0.590236833642017,
+      0.004769601904228454
+    ],
+    [
+      0.013642227921911587,
+      0.7362542350356569,
+      -0.2906096430442104,
+      -0.6102232961214273,
+      -0.030284571151060896
+    ]
+  ],
+  "cluster_centers": [],
+  "fit_patient_ids": [
+    "012",
+    "022",
+    "041",
+    "044",
+    "074",
+    "077",
+    "087",
+    "095"
+  ],
+  "domain": "Executive function",
+  "target": "ef_delta",
+  "coverage_rule": "selected_panel_half",
+  "selection_uses_outcome": true,
+  "selected_features": [
+    "keyboard_median_word_completion_time_ms",
+    "acc_median_accelerometer_longest_observed_quiet_interval_minutes",
+    "app_use_diversity",
+    "acc_median_accelerometer_daytime_motion_minutes",
+    "acc_median_accelerometer_day_night_motion_ratio"
+  ]
+}

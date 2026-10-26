@@ -1,0 +1,30 @@
+{
+  "target": "dev_ed3860_2025-06-30",
+  "device_anon": "dev_ed3860",
+  "day": "2025-06-30",
+  "status": "completed",
+  "started_at": "2026-10-22T07:18:12.225803+00:00",
+  "session_count": 2,
+  "files": [
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=ed3860/device=dev_ed3860/date=2025-06-30/modality=screen/session_01.parquet",
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=ed3860/device=dev_ed3860/date=2025-06-30/modality=touch/session_01.parquet",
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=ed3860/device=dev_ed3860/date=2025-06-30/modality=applications_foreground/session_01.parquet",
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=ed3860/device=dev_ed3860/date=2025-06-30/modality=screen/session_03.parquet",
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=ed3860/device=dev_ed3860/date=2025-06-30/modality=touch/session_03.parquet",
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=ed3860/device=dev_ed3860/date=2025-06-30/modality=applications_foreground/session_03.parquet"
+  ],
+  "screen_sessions_total": 19,
+  "eligible_sessions": 2,
+  "rows_by_modality": {
+    "screen": 2,
+    "touch": 26,
+    "applications_foreground": 10,
+    "keyboard": 0,
+    "accelerometer": 0
+  },
+  "acc_sampling_median_ms": [
+    null,
+    null
+  ],
+  "completed_at": "2026-10-22T07:18:14.224711+00:00"
+}

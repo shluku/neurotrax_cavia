@@ -1,0 +1,17 @@
+{
+  "version": "20261021_v1",
+  "raw_text_persisted": false,
+  "existing_outputs_modified": false,
+  "models_trained": false,
+  "new_cognitive_screen_run": false,
+  "gate": {
+    "paired_patients_min100_tokens_each_window": 3,
+    "gate_passed": false,
+    "threshold": ">=100 reliable continuous tokens in both T1 and T2"
+  },
+  "output_directories": [
+    "/Users/ofirfizitsky/PycharmProjects/research_dbeaver/output/analysis_candidates/keyboard_deep_dive_v1/word_length_adjusted_completion_v1",
+    "/Users/ofirfizitsky/PycharmProjects/research_dbeaver/output/analysis_candidates/keyboard_deep_dive_v1/lexical_feature_feasibility_v1"
+  ],
+  "privacy": "No raw words, text, word lists, hashes, or embeddings persisted."
+}

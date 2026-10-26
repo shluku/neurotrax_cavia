@@ -1,0 +1,21 @@
+chunk_start table=accelerometer lower=10000001 upper_exclusive=15000001 at=2026-09-14T11:00:38.607636+00:00
+Traceback (most recent call last):
+  File "/Users/ofirfizitsky/PycharmProjects/research_dbeaver/backup_motion_tables_to_drive.py", line 214, in <module>
+    run(args)
+  File "/Users/ofirfizitsky/PycharmProjects/research_dbeaver/backup_motion_tables_to_drive.py", line 178, in run
+    result = dump_chunk(table, lower, upper, path, defaults, folder / "mysqldump.log")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ofirfizitsky/PycharmProjects/research_dbeaver/backup_motion_tables_to_drive.py", line 93, in dump_chunk
+    dump_rc = dump.wait()
+              ^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 2053, in _wait
+    (pid, sts) = self._try_wait(0)
+                 ^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 2011, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+chunk_start table=accelerometer lower=10000001 upper_exclusive=15000001 at=2026-09-14T11:02:28.530492+00:00

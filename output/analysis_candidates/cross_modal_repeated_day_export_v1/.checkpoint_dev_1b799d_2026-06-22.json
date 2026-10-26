@@ -1,0 +1,26 @@
+{
+  "target": "dev_1b799d_2026-06-22",
+  "device_anon": "dev_1b799d",
+  "day": "2026-06-22",
+  "status": "completed",
+  "started_at": "2026-10-22T07:17:56.482245+00:00",
+  "session_count": 1,
+  "files": [
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=1b799d/device=dev_1b799d/date=2026-06-22/modality=screen/session_02.parquet",
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=1b799d/device=dev_1b799d/date=2026-06-22/modality=touch/session_02.parquet",
+    "output/analysis_candidates/cross_modal_repeated_day_export_v1/parquet/patient=1b799d/device=dev_1b799d/date=2026-06-22/modality=applications_foreground/session_02.parquet"
+  ],
+  "screen_sessions_total": 2,
+  "eligible_sessions": 1,
+  "rows_by_modality": {
+    "screen": 1,
+    "touch": 2,
+    "applications_foreground": 2,
+    "keyboard": 0,
+    "accelerometer": 0
+  },
+  "acc_sampling_median_ms": [
+    null
+  ],
+  "completed_at": "2026-10-22T07:17:57.711110+00:00"
+}

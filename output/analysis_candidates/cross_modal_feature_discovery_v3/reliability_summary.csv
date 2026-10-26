@@ -1,0 +1,9 @@
+feature,paired_devices,spearman_early_late,icc,note
+touch_rate_per_min,5,-0.8999999999999998,not estimated; two days/device and small pilot,descriptive repeatability only; no cognitive selection
+touch_interval_median_ms,4,0.7999999999999999,not estimated; two days/device and small pilot,descriptive repeatability only; no cognitive selection
+touch_interval_iqr_ms,4,0.39999999999999997,not estimated; two days/device and small pilot,descriptive repeatability only; no cognitive selection
+app_transitions_per_min,5,0.0,not estimated; two days/device and small pilot,descriptive repeatability only; no cognitive selection
+app_distinct_count,5,0.22941573387056177,not estimated; two days/device and small pilot,descriptive repeatability only; no cognitive selection
+app_transition_fraction,4,-0.7999999999999999,not estimated; two days/device and small pilot,descriptive repeatability only; no cognitive selection
+keyboard_interval_median_ms,3,1.0,not estimated; two days/device and small pilot,descriptive repeatability only; no cognitive selection
+keyboard_interval_iqr_ms,3,0.5,not estimated; two days/device and small pilot,descriptive repeatability only; no cognitive selection

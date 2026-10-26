@@ -1,0 +1,1250 @@
+{
+  "summary": {
+    "audit_time_local": "2026-09-14T13:32:40.038101+03:00",
+    "completion_time_local": "2026-09-11T01:25:27.370691+03:00",
+    "patients": 59,
+    "patients_with_signal": 51,
+    "patients_without_signal": 8,
+    "candidate_device_days": 7374,
+    "candidate_patient_days": 7343,
+    "feature_device_days": 773,
+    "feature_patient_days": 769,
+    "no_raw_device_days": 6601,
+    "raw_rows": 2746735444,
+    "valid_rows": 620662351,
+    "duplicate_rows_removed": 2126073093,
+    "duplicate_fraction": 0.7740363556469255,
+    "multi_device_patient_days": 4,
+    "patient_day_duplicate_total_understatement": 218010.0,
+    "feature_days_per_patient_all": {
+      "n": 59,
+      "mean": 13.033898305084746,
+      "std": 18.22083508220543,
+      "min": 0.0,
+      "25%": 1.0,
+      "50%": 6.0,
+      "75%": 17.5,
+      "max": 85.0
+    },
+    "feature_days_per_patient_with_signal": {
+      "n": 51,
+      "mean": 15.07843137254902,
+      "std": 18.806215076144273,
+      "min": 1.0,
+      "25%": 3.0,
+      "50%": 7.0,
+      "75%": 20.0,
+      "max": 85.0
+    },
+    "patient_day_observed_minutes": {
+      "n": 769,
+      "mean": 662.8218465539662,
+      "std": 521.5415983341501,
+      "min": 1.0,
+      "25%": 162.0,
+      "50%": 592.0,
+      "75%": 1178.0,
+      "max": 1440.0
+    },
+    "patient_day_saved_coverage": {
+      "n": 769,
+      "mean": 0.4591564622164427,
+      "std": 0.3620963684509175,
+      "min": 0.0006944444444444,
+      "25%": 0.1125,
+      "50%": 0.3993055555555556,
+      "75%": 0.8145833333333333,
+      "max": 1.0
+    },
+    "device_day_observed_span_hours": {
+      "n": 773,
+      "mean": 11.942498971180106,
+      "std": 8.94085925931972,
+      "min": 0.0001691666666666,
+      "25%": 3.176070833333333,
+      "50%": 10.531521388888889,
+      "75%": 23.83662805555555,
+      "max": 23.999996944444444
+    },
+    "patients_by_minimum_feature_days": {
+      "1": 51,
+      "3": 39,
+      "7": 27,
+      "14": 18,
+      "30": 8
+    },
+    "archive_inventory": {
+      "expected": 7343,
+      "missing": [],
+      "empty": [],
+      "bytes": 9601894413,
+      "zstd_integrity_test": "not_performed"
+    }
+  },
+  "checks": {
+    "candidates_unique_keys": true,
+    "status_unique_keys": true,
+    "device_days_unique_keys": true,
+    "patient_days_unique_keys": true,
+    "patients_unique_keys": true,
+    "progress_unique_keys": true,
+    "long_unique_keys": true,
+    "all_candidates_have_status": true,
+    "all_statuses_success_or_no_raw": true,
+    "feature_rows_match_successful_candidates": true,
+    "checkpoint_complete": true,
+    "all_patients_complete": true,
+    "patient_rosters_match": true,
+    "long_feature_keys_complete": true,
+    "long_values_match_device_days": true,
+    "status_matches_raw_rows": true,
+    "status_matches_valid_numeric_rows": true,
+    "status_matches_duplicates_removed": true,
+    "device_row_accounting": true,
+    "no_raw_days_zero_rows": true,
+    "feature_values_finite_or_missing": true,
+    "median_accelerometer_raw_row_count": true,
+    "mean_accelerometer_raw_row_count": true,
+    "median_accelerometer_valid_numeric_row_count": true,
+    "mean_accelerometer_valid_numeric_row_count": true,
+    "median_accelerometer_exact_duplicate_rows_removed": true,
+    "mean_accelerometer_exact_duplicate_rows_removed": true,
+    "median_accelerometer_valid_signal_minutes": true,
+    "mean_accelerometer_valid_signal_minutes": true,
+    "median_accelerometer_calendar_coverage_fraction": true,
+    "mean_accelerometer_calendar_coverage_fraction": true,
+    "median_accelerometer_observed_span_hours": true,
+    "mean_accelerometer_observed_span_hours": true,
+    "median_accelerometer_median_sampling_interval_ms": true,
+    "mean_accelerometer_median_sampling_interval_ms": true,
+    "median_accelerometer_p95_sampling_interval_ms": true,
+    "mean_accelerometer_p95_sampling_interval_ms": true,
+    "median_accelerometer_gap_burden_fraction": true,
+    "mean_accelerometer_gap_burden_fraction": true,
+    "median_accelerometer_magnitude_median": true,
+    "mean_accelerometer_magnitude_median": true,
+    "median_accelerometer_magnitude_sd": true,
+    "mean_accelerometer_magnitude_sd": true,
+    "median_accelerometer_magnitude_p95": true,
+    "mean_accelerometer_magnitude_p95": true,
+    "median_accelerometer_dynamic_magnitude_rms": true,
+    "mean_accelerometer_dynamic_magnitude_rms": true,
+    "median_accelerometer_dynamic_magnitude_p95": true,
+    "mean_accelerometer_dynamic_magnitude_p95": true,
+    "median_accelerometer_low_motion_fraction": true,
+    "mean_accelerometer_low_motion_fraction": true,
+    "median_accelerometer_high_motion_fraction": true,
+    "mean_accelerometer_high_motion_fraction": true,
+    "median_accelerometer_motion_bout_count": true,
+    "mean_accelerometer_motion_bout_count": true,
+    "median_accelerometer_longest_observed_quiet_interval_minutes": true,
+    "mean_accelerometer_longest_observed_quiet_interval_minutes": true,
+    "median_accelerometer_daytime_motion_minutes": true,
+    "mean_accelerometer_daytime_motion_minutes": true,
+    "median_accelerometer_nighttime_motion_minutes": true,
+    "mean_accelerometer_nighttime_motion_minutes": true,
+    "median_accelerometer_day_night_motion_ratio": true,
+    "mean_accelerometer_day_night_motion_ratio": true,
+    "median_accelerometer_hourly_motion_entropy": true,
+    "mean_accelerometer_hourly_motion_entropy": true,
+    "median_accelerometer_magnitude_jerk_median": true,
+    "mean_accelerometer_magnitude_jerk_median": true,
+    "median_accelerometer_magnitude_jerk_p95": true,
+    "mean_accelerometer_magnitude_jerk_p95": true,
+    "patient_day_keys_match_device_days": true,
+    "device_day_rollup_count": true,
+    "patient_day_rollup_count": true,
+    "progress_candidate_device_day_count": true,
+    "progress_completed_feature_days": true,
+    "progress_candidate_days_without_raw_acc": true,
+    "source_files_unchanged": true
+  },
+  "features": [
+    {
+      "feature": "accelerometer_raw_row_count",
+      "group": "quality",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 3571827.625487646,
+        "std": 11423910.299219185,
+        "min": 33.0,
+        "25%": 481468.0,
+        "50%": 1058870.0,
+        "75%": 2572245.0,
+        "max": 204057047.0
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 2397566.6274509802,
+        "std": 4907232.326841379,
+        "min": 1000.0,
+        "25%": 330552.75,
+        "50%": 987634.0,
+        "75%": 2028544.0,
+        "max": 30357500.0
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.9054127443881245,
+      "median_absolute_mean_minus_median": 478010.30000000005
+    },
+    {
+      "feature": "accelerometer_valid_numeric_row_count",
+      "group": "quality",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 807103.1872561768,
+        "std": 792419.1302635949,
+        "min": 33.0,
+        "25%": 175209.0,
+        "50%": 621250.0,
+        "75%": 1177806.0,
+        "max": 4349327.0
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 589582.0980392157,
+        "std": 687321.983944352,
+        "min": 1000.0,
+        "25%": 63625.0,
+        "50%": 354311.0,
+        "75%": 773375.0,
+        "max": 2590021.0
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.9787291817523532,
+      "median_absolute_mean_minus_median": 86160.61176470597
+    },
+    {
+      "feature": "accelerometer_exact_duplicate_rows_removed",
+      "group": "quality",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 2764440.9401820544,
+        "std": 11294761.801410947,
+        "min": 0.0,
+        "25%": 13750.0,
+        "50%": 177500.0,
+        "75%": 1417271.0,
+        "max": 202462898.0
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 1694263.5882352942,
+        "std": 4647018.968295131,
+        "min": 0.0,
+        "25%": 77697.5,
+        "50%": 375491.0,
+        "75%": 1421812.5,
+        "max": 29533750.0
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.8510252222827072,
+      "median_absolute_mean_minus_median": 416283.8333333334
+    },
+    {
+      "feature": "accelerometer_valid_signal_minutes",
+      "group": "quality",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 662.8218465539662,
+        "std": 521.5415983341501,
+        "min": 1.0,
+        "25%": 162.0,
+        "50%": 592.0,
+        "75%": 1178.0,
+        "max": 1440.0
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 414.921568627451,
+        "std": 387.2251073025743,
+        "min": 1.0,
+        "25%": 48.25,
+        "50%": 356.0,
+        "75%": 666.75,
+        "max": 1440.0
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.975044159608678,
+      "median_absolute_mean_minus_median": 51.95833333333337
+    },
+    {
+      "feature": "accelerometer_calendar_coverage_fraction",
+      "group": "quality",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 0.4591564622164427,
+        "std": 0.3620963684509175,
+        "min": 0.0006944444444444,
+        "25%": 0.1125,
+        "50%": 0.3993055555555556,
+        "75%": 0.8145833333333333,
+        "max": 1.0
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 0.2881025326797385,
+        "std": 0.2689192676666249,
+        "min": 0.0006944444444444,
+        "25%": 0.0335069444444444,
+        "50%": 0.2472222222222222,
+        "75%": 0.4630208333333333,
+        "max": 1.0
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.9764029167987682,
+      "median_absolute_mean_minus_median": 0.036082175925925886
+    },
+    {
+      "feature": "accelerometer_observed_span_hours",
+      "group": "quality",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 11.975383933138275,
+        "std": 8.938434299985758,
+        "min": 0.0001691666666666,
+        "25%": 3.348173611111111,
+        "50%": 10.531521388888889,
+        "75%": 23.858991944444444,
+        "max": 23.999996944444444
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 7.476278363289762,
+        "std": 6.824431028234844,
+        "min": 0.0059833333333333,
+        "25%": 1.8587761111111112,
+        "50%": 6.499855277777778,
+        "75%": 11.170619166666668,
+        "max": 23.99995361111111
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.9827149321266968,
+      "median_absolute_mean_minus_median": 1.0469662500000005
+    },
+    {
+      "feature": "accelerometer_median_sampling_interval_ms",
+      "group": "quality",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 50.956436931079324,
+        "std": 58.56765575220543,
+        "min": 3.0,
+        "25%": 19.0,
+        "50%": 20.0,
+        "75%": 58.0,
+        "max": 204.0
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 39.872549019607845,
+        "std": 52.007868937042105,
+        "min": 3.5,
+        "25%": 15.75,
+        "50%": 20.0,
+        "75%": 25.5,
+        "max": 199.0
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.7623822394102855,
+      "median_absolute_mean_minus_median": 4.0
+    },
+    {
+      "feature": "accelerometer_p95_sampling_interval_ms",
+      "group": "quality",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 146.72288686605975,
+        "std": 64.96145032936644,
+        "min": 5.0,
+        "25%": 115.0,
+        "50%": 163.0,
+        "75%": 186.0,
+        "max": 339.0
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 134.3107843137255,
+        "std": 67.31761679807559,
+        "min": 20.0,
+        "25%": 75.77499999999998,
+        "50%": 161.0,
+        "75%": 183.0,
+        "max": 232.5
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.9394673241350393,
+      "median_absolute_mean_minus_median": 11.416666666666629
+    },
+    {
+      "feature": "accelerometer_gap_burden_fraction",
+      "group": "quality",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 0.04579541714829259,
+        "std": 0.10938177264852218,
+        "min": 0.0,
+        "25%": 0.0001413888888888,
+        "50%": 0.0008127314814814,
+        "75%": 0.0114399537037037,
+        "max": 0.6551645023148148
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 0.016180295025417527,
+        "std": 0.04614882436350631,
+        "min": 0.0,
+        "25%": 0.00018010127314805,
+        "50%": 0.0005083796296296,
+        "75%": 0.004620358796296201,
+        "max": 0.2639822800925926
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.6859371880792206,
+      "median_absolute_mean_minus_median": 0.0035778638599536002
+    },
+    {
+      "feature": "accelerometer_magnitude_median",
+      "group": "signal_level",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 9.818274660741372,
+        "std": 0.3187567852962878,
+        "min": 1.6212706545233564,
+        "25%": 9.75174366461566,
+        "50%": 9.809315109610996,
+        "75%": 9.872650429733277,
+        "max": 10.241178244051495
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 9.752495543555085,
+        "std": 0.5874764555028308,
+        "min": 5.6967659245286555,
+        "25%": 9.781113065795509,
+        "50%": 9.813830039776295,
+        "75%": 9.858859470575599,
+        "max": 10.220374004659742
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.9491402714932126,
+      "median_absolute_mean_minus_median": 0.005198811459788288
+    },
+    {
+      "feature": "accelerometer_magnitude_sd",
+      "group": "signal_level",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 0.657127603329204,
+        "std": 0.8720724565996962,
+        "min": 0.0059207281253553,
+        "25%": 0.2466947382269443,
+        "50%": 0.4335943368307309,
+        "75%": 0.6585341781777263,
+        "max": 4.8780385478696
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 1.1379872271592377,
+        "std": 1.472647428242127,
+        "min": 0.1693335875205322,
+        "25%": 0.3373012600005305,
+        "50%": 0.4982752619171052,
+        "75%": 0.7521963219969627,
+        "max": 4.6611077038369295
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.8312217194570136,
+      "median_absolute_mean_minus_median": 0.05071500680979185
+    },
+    {
+      "feature": "accelerometer_magnitude_p95",
+      "group": "signal_level",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 10.214118606435743,
+        "std": 0.46401020219664146,
+        "min": 9.704223676585665,
+        "25%": 9.93857182031595,
+        "50%": 10.053815169918368,
+        "75%": 10.313903746748004,
+        "max": 14.213384878969558
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 10.144416443342196,
+        "std": 0.37854221433451124,
+        "min": 9.806651088182893,
+        "25%": 9.956552915713047,
+        "50%": 10.04443708050098,
+        "75%": 10.18791102275047,
+        "max": 12.200570966590686
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.804705882352941,
+      "median_absolute_mean_minus_median": 0.05115990818684679
+    },
+    {
+      "feature": "accelerometer_dynamic_magnitude_rms",
+      "group": "dynamic_motion",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 0.6999967137291274,
+        "std": 1.050421940372426,
+        "min": 0.0060189268274887,
+        "25%": 0.2472416805609237,
+        "50%": 0.4393057221583238,
+        "75%": 0.6591843165269298,
+        "max": 6.701144962269812
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 1.2928305386134458,
+        "std": 1.8272638434847048,
+        "min": 0.1696554659673788,
+        "25%": 0.3385750546478537,
+        "50%": 0.4987062733120208,
+        "75%": 0.7529944549445005,
+        "max": 6.177878176073406
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.822262443438914,
+      "median_absolute_mean_minus_median": 0.0545372221754063
+    },
+    {
+      "feature": "accelerometer_dynamic_magnitude_p95",
+      "group": "dynamic_motion",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 1.0939655337001666,
+        "std": 2.0138726293031697,
+        "min": 0.0119561980092571,
+        "25%": 0.2440758212981554,
+        "50%": 0.4478187859039058,
+        "75%": 0.9970368589763616,
+        "max": 9.837865117668253
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 2.1863464732614046,
+        "std": 3.4939023308893047,
+        "min": 0.1153926601496904,
+        "25%": 0.3092849982949637,
+        "50%": 0.5282408835082404,
+        "75%": 1.1774549943638628,
+        "max": 9.80427686387015
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.7605429864253394,
+      "median_absolute_mean_minus_median": 0.1580957906460156
+    },
+    {
+      "feature": "accelerometer_low_motion_fraction",
+      "group": "dynamic_motion",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 0.7191904803318114,
+        "std": 0.18968347680155717,
+        "min": 0.0045,
+        "25%": 0.6002183622828784,
+        "50%": 0.7539338732599353,
+        "75%": 0.8613160259610584,
+        "max": 1.0
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 0.6756943866091081,
+        "std": 0.1844755860714885,
+        "min": 0.3011400510777077,
+        "25%": 0.5372729136730844,
+        "50%": 0.7363170731707317,
+        "75%": 0.8161094743326724,
+        "max": 0.9437556953179594
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.9558371040723982,
+      "median_absolute_mean_minus_median": 0.021981764988567853
+    },
+    {
+      "feature": "accelerometer_high_motion_fraction",
+      "group": "dynamic_motion",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 0.05871293787057422,
+        "std": 0.08394708071741581,
+        "min": 0.0,
+        "25%": 0.010790841690287,
+        "50%": 0.0295075267196836,
+        "75%": 0.0712917370265783,
+        "max": 0.965
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 0.09733103118394908,
+        "std": 0.1416437058265349,
+        "min": 0.0065755193098824,
+        "25%": 0.02029824805766775,
+        "50%": 0.032,
+        "75%": 0.08323478573865155,
+        "max": 0.6530803918663654
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.8364705882352941,
+      "median_absolute_mean_minus_median": 0.011248058507303899
+    },
+    {
+      "feature": "accelerometer_motion_bout_count",
+      "group": "temporal_pattern",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 0.21586475942782835,
+        "std": 0.6635668002189675,
+        "min": 0.0,
+        "25%": 0.0,
+        "50%": 0.0,
+        "75%": 0.0,
+        "max": 8.0
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 0.21568627450980393,
+        "std": 0.492492659445644,
+        "min": 0.0,
+        "25%": 0.0,
+        "50%": 0.0,
+        "75%": 0.0,
+        "max": 2.0
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.6848127499461726,
+      "median_absolute_mean_minus_median": 0.0416666666666666
+    },
+    {
+      "feature": "accelerometer_longest_observed_quiet_interval_minutes",
+      "group": "temporal_pattern",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 16.573472041612483,
+        "std": 38.7076734362982,
+        "min": 0.0,
+        "25%": 2.0,
+        "50%": 5.0,
+        "75%": 15.0,
+        "max": 542.0
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 6.754901960784314,
+        "std": 7.97143183438183,
+        "min": 0.0,
+        "25%": 1.5,
+        "50%": 4.0,
+        "75%": 8.0,
+        "max": 33.0
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.8898148131975222,
+      "median_absolute_mean_minus_median": 2.5555555555555554
+    },
+    {
+      "feature": "accelerometer_daytime_motion_minutes",
+      "group": "circadian",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 49.08972691807542,
+        "std": 74.59666555224752,
+        "min": 0.0,
+        "25%": 2.0,
+        "50%": 19.0,
+        "75%": 61.0,
+        "max": 567.0
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 21.235294117647058,
+        "std": 24.47659145820277,
+        "min": 0.0,
+        "25%": 2.0,
+        "50%": 10.5,
+        "75%": 29.25,
+        "max": 107.0
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.9213761515621417,
+      "median_absolute_mean_minus_median": 6.666666666666667
+    },
+    {
+      "feature": "accelerometer_nighttime_motion_minutes",
+      "group": "circadian",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 5.288686605981795,
+        "std": 23.96351153026809,
+        "min": 0.0,
+        "25%": 0.0,
+        "50%": 0.0,
+        "75%": 1.0,
+        "max": 360.0
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 0.10784313725490197,
+        "std": 0.3051839689465369,
+        "min": 0.0,
+        "25%": 0.0,
+        "50%": 0.0,
+        "75%": 0.0,
+        "max": 1.0
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.39948004794923825,
+      "median_absolute_mean_minus_median": 0.3333333333333333
+    },
+    {
+      "feature": "accelerometer_day_night_motion_ratio",
+      "group": "circadian",
+      "patient_day_distribution": {
+        "n": 203,
+        "mean": 28.180353706702206,
+        "std": 38.586488537031826,
+        "min": 0.0,
+        "25%": 1.775,
+        "50%": 10.125,
+        "75%": 41.83333333333333,
+        "max": 205.0
+      },
+      "patient_median_distribution": {
+        "n": 35,
+        "mean": 18.26562112699331,
+        "std": 23.4900441907292,
+        "min": 0.0,
+        "25%": 3.7954545454545454,
+        "50%": 8.75,
+        "75%": 25.85,
+        "max": 115.5
+      },
+      "patients_missing_of_all": 24,
+      "patients_missing_of_with_signal": 16,
+      "median_mean_spearman": 0.8610449642807114,
+      "median_absolute_mean_minus_median": 0.7677224736048291
+    },
+    {
+      "feature": "accelerometer_hourly_motion_entropy",
+      "group": "circadian",
+      "patient_day_distribution": {
+        "n": 651,
+        "mean": 1.6948892145577568,
+        "std": 1.070238628044765,
+        "min": 0.0,
+        "25%": 0.9182958340544896,
+        "50%": 1.7882985523666088,
+        "75%": 2.625327019657144,
+        "max": 3.7243619529753937
+      },
+      "patient_median_distribution": {
+        "n": 47,
+        "mean": 1.2959192087507685,
+        "std": 0.8706896427682523,
+        "min": 0.0,
+        "25%": 0.7601794426834456,
+        "50%": 1.3787834934861751,
+        "75%": 1.9964032484617218,
+        "max": 3.321176752309403
+      },
+      "patients_missing_of_all": 12,
+      "patients_missing_of_with_signal": 4,
+      "median_mean_spearman": 0.9675108808085937,
+      "median_absolute_mean_minus_median": 0.06655803753590384
+    },
+    {
+      "feature": "accelerometer_magnitude_jerk_median",
+      "group": "rapid_change",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 20.35898251383781,
+        "std": 118.64195767528817,
+        "min": 0.0076111002770926,
+        "25%": 0.2804903042755713,
+        "50%": 0.5552756122130769,
+        "75%": 1.167158567458948,
+        "max": 1085.3707676302356
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 62.46871911360415,
+        "std": 186.39263624959295,
+        "min": 0.0135625426091111,
+        "25%": 0.41792493297588507,
+        "50%": 0.6309058701078624,
+        "75%": 3.441568089145066,
+        "max": 879.6066687911278
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.6604524886877828,
+      "median_absolute_mean_minus_median": 0.3214922101386475
+    },
+    {
+      "feature": "accelerometer_magnitude_jerk_p95",
+      "group": "rapid_change",
+      "patient_day_distribution": {
+        "n": 769,
+        "mean": 127.89473934314125,
+        "std": 475.50053803918746,
+        "min": 0.0449969294296823,
+        "25%": 7.416521724790479,
+        "50%": 16.041931371695316,
+        "75%": 49.3864384354325,
+        "max": 4878.504574189215
+      },
+      "patient_median_distribution": {
+        "n": 51,
+        "mean": 350.9526836404461,
+        "std": 848.2622786085402,
+        "min": 1.3188109124233418,
+        "25%": 10.44334770196758,
+        "50%": 19.16959847555269,
+        "75%": 103.45785795301198,
+        "max": 4785.622721063988
+      },
+      "patients_missing_of_all": 8,
+      "patients_missing_of_with_signal": 0,
+      "median_mean_spearman": 0.7076018099547511,
+      "median_absolute_mean_minus_median": 9.744814324405317
+    }
+  ],
+  "patient_level_technical_correlations": [
+    {
+      "feature": "accelerometer_magnitude_median",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 51,
+      "spearman": 0.10761180785330444
+    },
+    {
+      "feature": "accelerometer_magnitude_median",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 51,
+      "spearman": 0.11109351851500367
+    },
+    {
+      "feature": "accelerometer_magnitude_median",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 51,
+      "spearman": 0.12114354341733899
+    },
+    {
+      "feature": "accelerometer_magnitude_sd",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 51,
+      "spearman": -0.39422866428249786
+    },
+    {
+      "feature": "accelerometer_magnitude_sd",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 51,
+      "spearman": -0.37669485230780186
+    },
+    {
+      "feature": "accelerometer_magnitude_sd",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 51,
+      "spearman": -0.35460290567564134
+    },
+    {
+      "feature": "accelerometer_magnitude_p95",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 51,
+      "spearman": 0.006535681286746453
+    },
+    {
+      "feature": "accelerometer_magnitude_p95",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 51,
+      "spearman": -0.022454109691704086
+    },
+    {
+      "feature": "accelerometer_magnitude_p95",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 51,
+      "spearman": -0.1651916255343311
+    },
+    {
+      "feature": "accelerometer_dynamic_magnitude_rms",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 51,
+      "spearman": -0.397269571547859
+    },
+    {
+      "feature": "accelerometer_dynamic_magnitude_rms",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 51,
+      "spearman": -0.38045229405056685
+    },
+    {
+      "feature": "accelerometer_dynamic_magnitude_rms",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 51,
+      "spearman": -0.3556893948542722
+    },
+    {
+      "feature": "accelerometer_dynamic_magnitude_p95",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 51,
+      "spearman": -0.4180566689737609
+    },
+    {
+      "feature": "accelerometer_dynamic_magnitude_p95",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 51,
+      "spearman": -0.4237760500484717
+    },
+    {
+      "feature": "accelerometer_dynamic_magnitude_p95",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 51,
+      "spearman": -0.43178890774087414
+    },
+    {
+      "feature": "accelerometer_low_motion_fraction",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 51,
+      "spearman": 0.37575628731231864
+    },
+    {
+      "feature": "accelerometer_low_motion_fraction",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 51,
+      "spearman": 0.3862469030032647
+    },
+    {
+      "feature": "accelerometer_low_motion_fraction",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 51,
+      "spearman": 0.4326490450072903
+    },
+    {
+      "feature": "accelerometer_high_motion_fraction",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 51,
+      "spearman": -0.47134062613098554
+    },
+    {
+      "feature": "accelerometer_high_motion_fraction",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 51,
+      "spearman": -0.4747957710616783
+    },
+    {
+      "feature": "accelerometer_high_motion_fraction",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 51,
+      "spearman": -0.4342335083927935
+    },
+    {
+      "feature": "accelerometer_motion_bout_count",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 51,
+      "spearman": -0.47219615713778446
+    },
+    {
+      "feature": "accelerometer_motion_bout_count",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 51,
+      "spearman": -0.5182517058465616
+    },
+    {
+      "feature": "accelerometer_motion_bout_count",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 51,
+      "spearman": -0.4459633777778351
+    },
+    {
+      "feature": "accelerometer_longest_observed_quiet_interval_minutes",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 51,
+      "spearman": 0.4291336353120341
+    },
+    {
+      "feature": "accelerometer_longest_observed_quiet_interval_minutes",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 51,
+      "spearman": 0.5578369075068658
+    },
+    {
+      "feature": "accelerometer_longest_observed_quiet_interval_minutes",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 51,
+      "spearman": 0.6945120530501212
+    },
+    {
+      "feature": "accelerometer_daytime_motion_minutes",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 51,
+      "spearman": 0.45103908875708787
+    },
+    {
+      "feature": "accelerometer_daytime_motion_minutes",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 51,
+      "spearman": 0.6024884211596575
+    },
+    {
+      "feature": "accelerometer_daytime_motion_minutes",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 51,
+      "spearman": 0.7672175392447229
+    },
+    {
+      "feature": "accelerometer_nighttime_motion_minutes",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 51,
+      "spearman": 0.05612779903592305
+    },
+    {
+      "feature": "accelerometer_nighttime_motion_minutes",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 51,
+      "spearman": 0.14761623609408736
+    },
+    {
+      "feature": "accelerometer_nighttime_motion_minutes",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 51,
+      "spearman": 0.30122786267717716
+    },
+    {
+      "feature": "accelerometer_day_night_motion_ratio",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 35,
+      "spearman": -0.16307796325870158
+    },
+    {
+      "feature": "accelerometer_day_night_motion_ratio",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 35,
+      "spearman": 0.09132292199718504
+    },
+    {
+      "feature": "accelerometer_day_night_motion_ratio",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 35,
+      "spearman": 0.4368959237988514
+    },
+    {
+      "feature": "accelerometer_hourly_motion_entropy",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 47,
+      "spearman": 0.45364814052788227
+    },
+    {
+      "feature": "accelerometer_hourly_motion_entropy",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 47,
+      "spearman": 0.6056241256974164
+    },
+    {
+      "feature": "accelerometer_hourly_motion_entropy",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 47,
+      "spearman": 0.7711368491437457
+    },
+    {
+      "feature": "accelerometer_magnitude_jerk_median",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 51,
+      "spearman": -0.5056529528864043
+    },
+    {
+      "feature": "accelerometer_magnitude_jerk_median",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 51,
+      "spearman": -0.5284864446390192
+    },
+    {
+      "feature": "accelerometer_magnitude_jerk_median",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 51,
+      "spearman": -0.5382195768642538
+    },
+    {
+      "feature": "accelerometer_magnitude_jerk_p95",
+      "covariate": "completed_patient_day_count",
+      "paired_patients": 51,
+      "spearman": -0.41374493479153235
+    },
+    {
+      "feature": "accelerometer_magnitude_jerk_p95",
+      "covariate": "total_valid_signal_minutes",
+      "paired_patients": 51,
+      "spearman": -0.42911795517674
+    },
+    {
+      "feature": "accelerometer_magnitude_jerk_p95",
+      "covariate": "median_daily_coverage_fraction",
+      "paired_patients": 51,
+      "spearman": -0.4815410580456782
+    }
+  ],
+  "multi_device_patient_days": [
+    {
+      "patient_id": "020",
+      "local_date": "2025-07-08",
+      "device_count": 2,
+      "source_device_day_count": 2,
+      "plugin_event_count": 816,
+      "accelerometer_raw_row_count": 1047975.0,
+      "accelerometer_valid_numeric_row_count": 1047955.0,
+      "accelerometer_exact_duplicate_rows_removed": 10.0,
+      "accelerometer_valid_signal_minutes": 642.0,
+      "accelerometer_calendar_coverage_fraction": 0.2229166666666666,
+      "accelerometer_observed_span_hours": 5.375148333333333,
+      "accelerometer_median_sampling_interval_ms": 55.0,
+      "accelerometer_p95_sampling_interval_ms": 147.8,
+      "accelerometer_gap_burden_fraction": 0.0019555902777777,
+      "accelerometer_magnitude_median": 9.821181139961215,
+      "accelerometer_magnitude_sd": 2.042865945271988,
+      "accelerometer_magnitude_p95": 10.22489442636833,
+      "accelerometer_dynamic_magnitude_rms": 2.2251297084826844,
+      "accelerometer_dynamic_magnitude_p95": 5.239206372803362,
+      "accelerometer_low_motion_fraction": 0.5598214287418691,
+      "accelerometer_high_motion_fraction": 0.1351097780386654,
+      "accelerometer_motion_bout_count": 2.0,
+      "accelerometer_longest_observed_quiet_interval_minutes": 6.0,
+      "accelerometer_daytime_motion_minutes": 32.0,
+      "accelerometer_nighttime_motion_minutes": 2.0,
+      "accelerometer_day_night_motion_ratio": 16.0,
+      "accelerometer_hourly_motion_entropy": 2.9364208439042434,
+      "accelerometer_magnitude_jerk_median": 9.836615058722955,
+      "accelerometer_magnitude_jerk_p95": 701.7837229148644,
+      "duplicate_rows_sum_from_device_days": 20
+    },
+    {
+      "patient_id": "044",
+      "local_date": "2025-07-10",
+      "device_count": 2,
+      "source_device_day_count": 2,
+      "plugin_event_count": 28,
+      "accelerometer_raw_row_count": 2365185.0,
+      "accelerometer_valid_numeric_row_count": 1984685.0,
+      "accelerometer_exact_duplicate_rows_removed": 190250.0,
+      "accelerometer_valid_signal_minutes": 1243.0,
+      "accelerometer_calendar_coverage_fraction": 0.4315972222222222,
+      "accelerometer_observed_span_hours": 11.263571944444443,
+      "accelerometer_median_sampling_interval_ms": 67.5,
+      "accelerometer_p95_sampling_interval_ms": 104.0,
+      "accelerometer_gap_burden_fraction": 0.0411298668981481,
+      "accelerometer_magnitude_median": 10.011711290640353,
+      "accelerometer_magnitude_sd": 1.7159037065482112,
+      "accelerometer_magnitude_p95": 10.250033316669008,
+      "accelerometer_dynamic_magnitude_rms": 1.819152202143905,
+      "accelerometer_dynamic_magnitude_p95": 5.06944381905945,
+      "accelerometer_low_motion_fraction": 0.5075332072985868,
+      "accelerometer_high_motion_fraction": 0.0721925991229188,
+      "accelerometer_motion_bout_count": 2.0,
+      "accelerometer_longest_observed_quiet_interval_minutes": 287.0,
+      "accelerometer_daytime_motion_minutes": 491.0,
+      "accelerometer_nighttime_motion_minutes": 120.0,
+      "accelerometer_day_night_motion_ratio": 3.966666666666667,
+      "accelerometer_hourly_motion_entropy": 1.72991417985327,
+      "accelerometer_magnitude_jerk_median": 0.5231052259240075,
+      "accelerometer_magnitude_jerk_p95": 706.736123019296,
+      "duplicate_rows_sum_from_device_days": 380500
+    },
+    {
+      "patient_id": "060",
+      "local_date": "2025-07-10",
+      "device_count": 2,
+      "source_device_day_count": 2,
+      "plugin_event_count": 278,
+      "accelerometer_raw_row_count": 1178085.0,
+      "accelerometer_valid_numeric_row_count": 1122585.0,
+      "accelerometer_exact_duplicate_rows_removed": 27750.0,
+      "accelerometer_valid_signal_minutes": 629.0,
+      "accelerometer_calendar_coverage_fraction": 0.2184027777777777,
+      "accelerometer_observed_span_hours": 5.829960416666666,
+      "accelerometer_median_sampling_interval_ms": 14.0,
+      "accelerometer_p95_sampling_interval_ms": 94.0,
+      "accelerometer_gap_burden_fraction": 0.0274496238425925,
+      "accelerometer_magnitude_median": 9.788564396185258,
+      "accelerometer_magnitude_sd": 2.589349821525108,
+      "accelerometer_magnitude_p95": 9.890098945030404,
+      "accelerometer_dynamic_magnitude_rms": 3.077783946990506,
+      "accelerometer_dynamic_magnitude_p95": 4.96504697026634,
+      "accelerometer_low_motion_fraction": 0.7372324846019704,
+      "accelerometer_high_motion_fraction": 0.1825553682370203,
+      "accelerometer_motion_bout_count": 0.0,
+      "accelerometer_longest_observed_quiet_interval_minutes": 45.0,
+      "accelerometer_daytime_motion_minutes": 78.0,
+      "accelerometer_nighttime_motion_minutes": 0.0,
+      "accelerometer_day_night_motion_ratio": null,
+      "accelerometer_hourly_motion_entropy": 1.1987259283896776,
+      "accelerometer_magnitude_jerk_median": 442.2258977221548,
+      "accelerometer_magnitude_jerk_p95": 1205.9749683663388,
+      "duplicate_rows_sum_from_device_days": 55500
+    },
+    {
+      "patient_id": "091",
+      "local_date": "2025-07-08",
+      "device_count": 2,
+      "source_device_day_count": 2,
+      "plugin_event_count": 246,
+      "accelerometer_raw_row_count": 5000.0,
+      "accelerometer_valid_numeric_row_count": 5000.0,
+      "accelerometer_exact_duplicate_rows_removed": 0.0,
+      "accelerometer_valid_signal_minutes": 3.0,
+      "accelerometer_calendar_coverage_fraction": 0.0010416666666666,
+      "accelerometer_observed_span_hours": 0.0127794444444444,
+      "accelerometer_median_sampling_interval_ms": 10.0,
+      "accelerometer_p95_sampling_interval_ms": 71.04999999999995,
+      "accelerometer_gap_burden_fraction": 0.0,
+      "accelerometer_magnitude_median": 9.909259942936863,
+      "accelerometer_magnitude_sd": 0.8061017007520159,
+      "accelerometer_magnitude_p95": 10.885941221504746,
+      "accelerometer_dynamic_magnitude_rms": 0.8073823601942778,
+      "accelerometer_dynamic_magnitude_p95": 1.5036498074330673,
+      "accelerometer_low_motion_fraction": 0.3964999999999999,
+      "accelerometer_high_motion_fraction": 0.141875,
+      "accelerometer_motion_bout_count": 0.0,
+      "accelerometer_longest_observed_quiet_interval_minutes": 1.0,
+      "accelerometer_daytime_motion_minutes": 1.0,
+      "accelerometer_nighttime_motion_minutes": 0.0,
+      "accelerometer_day_night_motion_ratio": null,
+      "accelerometer_hourly_motion_entropy": 0.0,
+      "accelerometer_magnitude_jerk_median": 6.7999357440923225,
+      "accelerometer_magnitude_jerk_p95": 85.6127094711427,
+      "duplicate_rows_sum_from_device_days": 0
+    }
+  ],
+  "source_sha256": {
+    "accelerometer_patient_sequential_candidates.csv": "eb9ac35a6a38536afbd29daca5f306618e6d19bd6f35989f1cd9fc5be367a4da",
+    "accelerometer_patient_sequential_device_day_features.csv": "d26c1b57299fcd9f7d4f2ce143de97a695d3df552fcde7728a0b8c0599c2d2c3",
+    "accelerometer_patient_sequential_features_long.csv": "93e640609d16fb496e0f976b618499a9ce280c5ed0fa106825e055579028c363",
+    "accelerometer_patient_sequential_patient_day_features.csv": "0b69f4d6f2ee6bfb333dab4b5a9ba389bdb002bbc9aa89f75d5c82add0315259",
+    "accelerometer_patient_sequential_patient_level_features.csv": "41ac28a091860e24a9f16a0b61fa555d2d4932d965a003cdafa423025220db47",
+    "accelerometer_patient_sequential_patient_progress.csv": "28821b595ad18bfb52f3df85f1a40faa176228f59a12a70b11b335bd48cbc7ae",
+    "accelerometer_patient_sequential_run_summary.csv": "f1148e6db7895dbf2e3d993d7ae9e72cc1a16f7b5cfb11e0bd973fe3af50b59a",
+    "accelerometer_patient_sequential_status.csv": "c2de56318c4d8e0aa5c7db29008e3cfe4e68b4f25cdfe0f733e29f4adad03340",
+    "accelerometer_plugin_event_day_feature_catalog.csv": "fb9540d1e62cb0723f933a25a097e145283474578b10fb3cbd909921533f6858",
+    "accelerometer_patient_sequential_checkpoint.json": "8bc5a4083069dbd54dab482ef7cf95591c428da5648e1048ee82e359bacb6b6c"
+  }
+}

@@ -1,0 +1,6 @@
+feature_name,transformation,n_observed_before_imputation,missing_percent_before_imputation,imputation_value_after_transformation
+keyboard_median_word_completion_time_ms,none,4,55.55555555555556,-627.0
+median_unlocked_session_duration_seconds,none,9,0.0,-7.656000000000006
+activity_unknown_fraction,none,9,0.0,0.0046445863691836065
+acc_median_accelerometer_hourly_motion_entropy,none,8,11.11111111111111,-0.6856120398085188
+acc_median_accelerometer_low_motion_fraction,none,9,0.0,-0.10777322822757096

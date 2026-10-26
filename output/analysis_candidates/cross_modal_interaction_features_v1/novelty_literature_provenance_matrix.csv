@@ -1,0 +1,7 @@
+feature_family,phase4_feature,existing_duplicate,literature_provenance,current_status
+Touch–Motion Coupling,event-centered ACC magnitude contrast around touch vs matched non-touch periods,No,Inspired by synchronized keyboard/accelerometer interaction studies; exact project implementation is new,Blocked at event-level ACC retrieval; coarse session proxy retained separately
+Motion-Conditioned Touch Variability,touch interval IQR/CV separately in stationary and moving ACC bins,No,Novel project hypothesis,Not estimable from saved summaries
+App-Switch Interruption Cost,post-transition minus pre-transition keyboard IEI with uninterrupted same-app control windows,No,Novel project hypothesis; uses existing app and keyboard streams,Not estimable from saved summaries
+Screen×Touch rate/intervals,"touch rate, median/IQR intervals in screen sessions",Yes,Phase 2/3 implementation,Excluded from novelty shortlist
+Screen×App transitions,app transition rate/fraction/distinct apps,Yes,Phase 2/3 implementation,Excluded from novelty shortlist
+Keyboard×App IEI,same-app keyboard snapshot IEI median/IQR,Yes,Phase 2/3 implementation,Excluded from novelty shortlist

@@ -1,0 +1,8 @@
+json_key,n_rows_with_key,sample_rows,percent_sample_rows
+before_text,500,500,100.0
+current_text,500,500,100.0
+device_id,500,500,100.0
+is_password,500,500,100.0
+package_name,500,500,100.0
+timestamp,500,500,100.0
+__parse_errors__,0,500,0.0

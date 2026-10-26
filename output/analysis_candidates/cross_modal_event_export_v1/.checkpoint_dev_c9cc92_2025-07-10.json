@@ -1,0 +1,32 @@
+{
+  "target": "dev_c9cc92_2025-07-10",
+  "device_anon": "dev_c9cc92",
+  "day": "2025-07-10",
+  "status": "completed",
+  "started_at": "2026-10-22T07:02:30.600348+00:00",
+  "session_count": 2,
+  "files": [
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=c9cc92/device=dev_c9cc92/date=2025-07-10/modality=screen/session_01.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=c9cc92/device=dev_c9cc92/date=2025-07-10/modality=touch/session_01.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=c9cc92/device=dev_c9cc92/date=2025-07-10/modality=applications_foreground/session_01.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=c9cc92/device=dev_c9cc92/date=2025-07-10/modality=accelerometer/session_01.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=c9cc92/device=dev_c9cc92/date=2025-07-10/modality=screen/session_02.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=c9cc92/device=dev_c9cc92/date=2025-07-10/modality=touch/session_02.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=c9cc92/device=dev_c9cc92/date=2025-07-10/modality=applications_foreground/session_02.parquet",
+    "output/analysis_candidates/cross_modal_event_export_v1/parquet/patient=c9cc92/device=dev_c9cc92/date=2025-07-10/modality=accelerometer/session_02.parquet"
+  ],
+  "screen_sessions_total": 20,
+  "eligible_sessions": 2,
+  "rows_by_modality": {
+    "screen": 4,
+    "touch": 31,
+    "applications_foreground": 21,
+    "keyboard": 0,
+    "accelerometer": 2664
+  },
+  "acc_sampling_median_ms": [
+    66.5,
+    156.0
+  ],
+  "completed_at": "2026-10-22T07:02:32.487524+00:00"
+}

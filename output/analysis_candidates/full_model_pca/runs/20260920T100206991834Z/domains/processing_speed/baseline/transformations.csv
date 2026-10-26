@@ -1,0 +1,6 @@
+feature_name,transformation,n_observed_before_imputation,missing_percent_before_imputation,imputation_value_after_transformation
+telephony_network_type_diversity,none,36,0.0,0.6667462860476909
+touch_click_event_count,log1p_nonnegative_skewed,34,5.555555555555555,7.697362452625461
+activity_active_hour_count,none,36,0.0,1384.5
+acc_median_accelerometer_magnitude_median,none,36,0.0,9.838289907468113
+acc_median_accelerometer_low_motion_fraction,none,36,0.0,0.7699273145768529

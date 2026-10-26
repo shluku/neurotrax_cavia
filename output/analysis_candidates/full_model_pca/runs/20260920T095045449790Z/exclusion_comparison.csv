@@ -1,0 +1,5 @@
+analysis,run,patients,features,pc1_pc2_percent,cluster_sizes,silhouette,subsample_ari,acceptable_cluster_solution
+Combined T1,Original run,42,56,80.62938375706,"[41, 1]",0.8529041847094577,0.8508291767059671,False
+Combined T1,Current rerun,41,56,50.257268586133684,"[6, 35]",0.37391281051143666,0.7648386152447604,True
+Decline change,Original run,9,56,97.65890016933,[],,,False
+Decline change,Current rerun,9,56,97.65890016933,[],,,False

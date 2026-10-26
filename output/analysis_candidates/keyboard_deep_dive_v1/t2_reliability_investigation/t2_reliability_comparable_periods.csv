@@ -1,0 +1,13 @@
+scenario,feature_name,outcome,n,rho,p,ci_low,ci_high,fdr_q
+first14_observed_days,keyboard_median_correction_recovery_time_ms_first14_delta,executive_function,10,,,,,
+first14_observed_days,keyboard_12_18_median_inter_event_interval_ms_first14_delta,executive_function,10,,,,,
+first14_observed_days,keyboard_inter_event_interval_cv_first14_delta,executive_function,10,,,,,
+first14_observed_days,keyboard_18_24_median_inter_event_interval_ms_first14_delta,executive_function,10,,,,,
+first14_observed_days,keyboard_06_12_median_inter_event_interval_ms_first14_delta,executive_function,10,,,,,
+first14_observed_days,keyboard_12_18_median_inter_event_interval_ms_first14_delta,attention,10,,,,,
+last14_observed_days,keyboard_median_correction_recovery_time_ms_last14_delta,executive_function,10,,,,,
+last14_observed_days,keyboard_12_18_median_inter_event_interval_ms_last14_delta,executive_function,10,,,,,
+last14_observed_days,keyboard_inter_event_interval_cv_last14_delta,executive_function,10,,,,,
+last14_observed_days,keyboard_18_24_median_inter_event_interval_ms_last14_delta,executive_function,9,,,,,
+last14_observed_days,keyboard_06_12_median_inter_event_interval_ms_last14_delta,executive_function,10,,,,,
+last14_observed_days,keyboard_12_18_median_inter_event_interval_ms_last14_delta,attention,10,,,,,

@@ -1,0 +1,337 @@
+domain,feature_name,coefficient_mean,coefficient_sd,n_folds,direction_stability,absolute_mean_coefficient,rank,selected,target,selection_patients,block
+Global,keyboard_median_word_completion_time_ms,-0.15090395922794056,0.3237091584438715,100,1.0,0.15090395922794056,1,True,global_T1,41,Digital
+Global,acc_median_accelerometer_longest_observed_quiet_interval_minutes,0.09694359587161587,0.1975488751088177,100,0.93,0.09694359587161587,2,True,global_T1,41,ACC
+Global,keyboard_inter_event_interval_iqr_ms,-0.08668290548878277,0.19324504932068434,100,0.98,0.08668290548878277,3,True,global_T1,41,Digital
+Global,acc_median_accelerometer_low_motion_fraction,-0.0782687938496587,0.21390089216038433,100,1.0,0.0782687938496587,4,True,global_T1,41,ACC
+Global,app_use_diversity,0.07734333351287055,0.16544180238484132,100,0.98,0.07734333351287055,5,True,global_T1,41,Digital
+Global,activity_active_hour_count,-0.07543026927821461,0.17387948069282996,100,1.0,0.07543026927821461,6,False,global_T1,41,Digital
+Global,screen_unlock_event_count,-0.07401452206050824,0.17441677711447226,100,1.0,0.07401452206050824,7,False,global_T1,41,Digital
+Global,acc_median_accelerometer_daytime_motion_minutes,0.07297186699110537,0.16692599876336822,100,0.83,0.07297186699110537,8,False,global_T1,41,ACC
+Global,telephony_network_type_diversity,0.06795527351996751,0.16327341243921561,100,0.99,0.06795527351996751,9,False,global_T1,41,Digital
+Global,acc_median_accelerometer_hourly_motion_entropy,0.06105246648608126,0.1366727434871764,100,0.95,0.06105246648608126,10,False,global_T1,41,ACC
+Global,touch_click_event_count,-0.057895775600878385,0.19269576872395217,100,0.8,0.057895775600878385,11,False,global_T1,41,Digital
+Global,screen_on_event_count,-0.05722264253422669,0.1200582506675873,100,1.0,0.05722264253422669,12,False,global_T1,41,Digital
+Global,gsm_cell_transition_count,0.05614583840875386,0.10710436795023752,100,1.0,0.05614583840875386,13,False,global_T1,41,Digital
+Global,touch_scroll_index_change_median,-0.05208495322589892,0.16899910098605547,100,0.82,0.05208495322589892,14,False,global_T1,41,Digital
+Global,acc_median_accelerometer_day_night_motion_ratio,0.04948315796741471,0.09676251149927931,100,0.95,0.04948315796741471,15,False,global_T1,41,ACC
+Global,screen_off_event_count,-0.047168227418250545,0.10374851194880592,100,0.98,0.047168227418250545,16,False,global_T1,41,Digital
+Global,screen_event_count,-0.04579656329476803,0.10045847710694039,100,0.97,0.04579656329476803,17,False,global_T1,41,Digital
+Global,telephony_event_count,0.04221554664790257,0.08509597685903539,100,0.96,0.04221554664790257,18,False,global_T1,41,Digital
+Global,unique_gsm_cell_count,0.041337686518706354,0.08916531102284084,100,0.92,0.041337686518706354,19,False,global_T1,41,Digital
+Global,screen_active_hour_count,0.04092968745321439,0.09006903247084137,100,1.0,0.04092968745321439,20,False,global_T1,41,Digital
+Global,unique_gsm_lac_count,0.03818924141663835,0.08736092449508841,100,0.85,0.03818924141663835,21,False,global_T1,41,Digital
+Global,acc_median_accelerometer_magnitude_median,0.037739501233509665,0.11688989531761144,100,0.9,0.037739501233509665,22,False,global_T1,41,ACC
+Global,touch_active_hour_count,0.03539749676030755,0.07727676666141335,100,1.0,0.03539749676030755,23,False,global_T1,41,Digital
+Global,acc_median_accelerometer_magnitude_jerk_p95,-0.03170923975919827,0.1240137028090053,100,0.91,0.03170923975919827,24,False,global_T1,41,ACC
+Global,night_screen_event_count,-0.030336757194384747,0.0644760144609837,100,0.92,0.030336757194384747,25,False,global_T1,41,Digital
+Global,acc_median_accelerometer_magnitude_sd,0.030306462565914304,0.07594019755212995,100,0.94,0.030306462565914304,26,False,global_T1,41,ACC
+Global,acc_median_accelerometer_dynamic_magnitude_rms,0.029828998691209033,0.07538105811216637,100,0.93,0.029828998691209033,27,False,global_T1,41,ACC
+Global,unique_gsm_neighbor_cell_count,-0.028674505825069647,0.10972814465942125,100,0.88,0.028674505825069647,28,False,global_T1,41,Digital
+Global,activity_unknown_fraction,0.028653120263401458,0.0998127727551688,100,0.57,0.028653120263401458,29,False,global_T1,41,Digital
+Global,keyboard_deletion_event_count,0.028253459053577287,0.05934243894326339,100,0.99,0.028253459053577287,30,False,global_T1,41,Digital
+Global,outgoing_message_count,0.025599671876139797,0.09733878122284945,100,0.95,0.025599671876139797,31,False,global_T1,41,Digital
+Global,unique_gsm_neighbor_lac_count,-0.024207729394127058,0.12598082597200858,100,0.74,0.024207729394127058,32,False,global_T1,41,Digital
+Global,app_foreground_event_count,-0.02401879535395481,0.06709669397016413,100,0.81,0.02401879535395481,33,False,global_T1,41,Digital
+Global,acc_median_accelerometer_dynamic_magnitude_p95,0.022355544350107816,0.05325591240555981,100,0.71,0.022355544350107816,34,False,global_T1,41,ACC
+Global,keyboard_median_inter_event_interval_ms,-0.022202704490294663,0.07411838843983785,100,0.78,0.022202704490294663,35,False,global_T1,41,Digital
+Global,message_distinct_event_count,0.02083769396451403,0.07320185196120294,100,0.95,0.02083769396451403,36,False,global_T1,41,Digital
+Global,activity_state_diversity,0.020289655567049637,0.1017739730167142,100,0.56,0.020289655567049637,37,False,global_T1,41,Digital
+Global,acc_median_accelerometer_nighttime_motion_minutes,-0.020228654338398152,0.17774799537883948,100,0.8,0.020228654338398152,38,False,global_T1,41,ACC
+Global,keyboard_long_pause_count_2s,0.01998332091107993,0.04250881327824942,100,0.98,0.01998332091107993,39,False,global_T1,41,Digital
+Global,screen_transition_count,0.019635108160932,0.04626982280765201,100,0.98,0.019635108160932,40,False,global_T1,41,Digital
+Global,acc_median_accelerometer_motion_bout_count,-0.019052551279092965,0.11603410767147715,100,0.66,0.019052551279092965,41,False,global_T1,41,ACC
+Global,touch_distinct_event_count,-0.01809735323304604,0.08795074846387825,100,0.57,0.01809735323304604,42,False,global_T1,41,Digital
+Global,touch_unique_app_count,0.01800966059325958,0.07552283534386908,100,0.82,0.01800966059325958,43,False,global_T1,41,Digital
+Global,activity_transition_count,-0.017045021456001744,0.06856964711133585,100,0.82,0.017045021456001744,44,False,global_T1,41,Digital
+Global,median_unlocked_session_duration_seconds,-0.01679665726847816,0.1739612827975481,100,0.54,0.01679665726847816,45,False,global_T1,41,Digital
+Global,keyboard_typing_burst_count,0.016754903818636188,0.038725216366610575,100,0.98,0.016754903818636188,46,False,global_T1,41,Digital
+Global,unique_foreground_apps,0.016555537516352373,0.06068645172459586,100,0.86,0.016555537516352373,47,False,global_T1,41,Digital
+Global,acc_median_accelerometer_high_motion_fraction,0.014959283578958813,0.03958115288144627,100,0.65,0.014959283578958813,48,False,global_T1,41,ACC
+Global,gsm_neighbor_cell_transition_count,-0.013820767037260031,0.05764386769929702,100,0.79,0.013820767037260031,49,False,global_T1,41,Digital
+Global,touch_scroll_direction_change_count,0.01354411227341374,0.02461382714972777,100,0.98,0.01354411227341374,50,False,global_T1,41,Digital
+Global,telephony_mobile_data_enabled_fraction,-0.010578646795671024,0.057078581240725644,100,0.68,0.010578646795671024,51,False,global_T1,41,Digital
+Global,activity_still_fraction,0.01013042208561487,0.04303204855160156,100,0.64,0.01013042208561487,52,False,global_T1,41,Digital
+Global,acc_median_accelerometer_magnitude_p95,0.008332510399488345,0.033453181772011675,100,0.59,0.008332510399488345,53,False,global_T1,41,ACC
+Global,touch_scroll_event_count,0.008229446885347696,0.02565243563089961,100,0.88,0.008229446885347696,54,False,global_T1,41,Digital
+Global,acc_median_accelerometer_magnitude_jerk_median,-0.004239408774882966,0.05713252070199606,100,0.54,0.004239408774882966,55,False,global_T1,41,ACC
+Global,touch_app_diversity,0.00422292843934147,0.08805459709655783,100,0.56,0.00422292843934147,56,False,global_T1,41,Digital
+Memory,screen_unlock_event_count,-0.6719535869196716,1.0502103316133926,100,1.0,0.6719535869196716,1,True,memory_T1,41,Digital
+Memory,touch_click_event_count,-0.6273402851637381,1.4471705650472695,100,0.76,0.6273402851637381,2,True,memory_T1,41,Digital
+Memory,screen_event_count,-0.602246928495958,0.8637252186430975,100,1.0,0.602246928495958,3,True,memory_T1,41,Digital
+Memory,screen_on_event_count,-0.5956456055673933,0.8300483262819287,100,1.0,0.5956456055673933,4,True,memory_T1,41,Digital
+Memory,screen_off_event_count,-0.5887050327141613,0.8256105131453804,100,1.0,0.5887050327141613,5,True,memory_T1,41,Digital
+Memory,acc_median_accelerometer_hourly_motion_entropy,-0.5493741131404114,0.9364932713875257,100,0.99,0.5493741131404114,6,False,memory_T1,41,ACC
+Memory,unique_gsm_neighbor_lac_count,-0.5157644223696419,1.0123200832646517,100,0.97,0.5157644223696419,7,False,memory_T1,41,Digital
+Memory,activity_still_fraction,-0.5093973678419212,0.8839329187950649,100,0.97,0.5093973678419212,8,False,memory_T1,41,Digital
+Memory,outgoing_message_count,0.4260860453796546,0.7692022958170197,100,1.0,0.4260860453796546,9,False,memory_T1,41,Digital
+Memory,acc_median_accelerometer_magnitude_jerk_median,-0.42511356825592506,0.8690282525144222,100,0.9,0.42511356825592506,10,False,memory_T1,41,ACC
+Memory,activity_state_diversity,0.4235689332526437,0.9131343756031871,100,0.84,0.4235689332526437,11,False,memory_T1,41,Digital
+Memory,app_foreground_event_count,-0.42152349136071865,0.7712393051226077,100,0.97,0.42152349136071865,12,False,memory_T1,41,Digital
+Memory,activity_active_hour_count,-0.4154190796184862,0.569494697046261,100,1.0,0.4154190796184862,13,False,memory_T1,41,Digital
+Memory,acc_median_accelerometer_low_motion_fraction,-0.41410415716292326,0.8753883884586237,100,0.91,0.41410415716292326,14,False,memory_T1,41,ACC
+Memory,acc_median_accelerometer_magnitude_jerk_p95,-0.3858220013273153,0.6243632597381539,100,1.0,0.3858220013273153,15,False,memory_T1,41,ACC
+Memory,keyboard_long_pause_count_2s,0.37657738547311936,0.6336042846157823,100,1.0,0.37657738547311936,16,False,memory_T1,41,Digital
+Memory,keyboard_deletion_event_count,0.36694822173565333,0.6184124345420271,100,1.0,0.36694822173565333,17,False,memory_T1,41,Digital
+Memory,telephony_mobile_data_enabled_fraction,-0.3621362617928839,0.6169470450277699,100,0.97,0.3621362617928839,18,False,memory_T1,41,Digital
+Memory,unique_foreground_apps,0.3565137363057092,0.5786482082854519,100,1.0,0.3565137363057092,19,False,memory_T1,41,Digital
+Memory,message_distinct_event_count,0.33953146963920305,0.5733497993515042,100,1.0,0.33953146963920305,20,False,memory_T1,41,Digital
+Memory,touch_active_hour_count,0.33100943567089397,0.5048991182656543,100,1.0,0.33100943567089397,21,False,memory_T1,41,Digital
+Memory,activity_unknown_fraction,0.32079769278698905,0.9976352253282337,100,0.63,0.32079769278698905,22,False,memory_T1,41,Digital
+Memory,keyboard_typing_burst_count,0.31459327762061706,0.5335299455895052,100,1.0,0.31459327762061706,23,False,memory_T1,41,Digital
+Memory,touch_unique_app_count,0.31260737413794576,0.5532009433203582,100,0.96,0.31260737413794576,24,False,memory_T1,41,Digital
+Memory,median_unlocked_session_duration_seconds,-0.3096785823945525,0.8613572801061208,100,0.58,0.3096785823945525,25,False,memory_T1,41,Digital
+Memory,acc_median_accelerometer_nighttime_motion_minutes,-0.2698796200814225,0.6184288720320946,100,0.82,0.2698796200814225,26,False,memory_T1,41,ACC
+Memory,keyboard_median_word_completion_time_ms,-0.24433201025534695,0.49349489485945836,100,0.92,0.24433201025534695,27,False,memory_T1,41,Digital
+Memory,keyboard_inter_event_interval_iqr_ms,-0.24139887366151258,0.5377765096981251,100,0.92,0.24139887366151258,28,False,memory_T1,41,Digital
+Memory,touch_scroll_direction_change_count,0.2408469400518544,0.40807165596796113,100,1.0,0.2408469400518544,29,False,memory_T1,41,Digital
+Memory,acc_median_accelerometer_longest_observed_quiet_interval_minutes,0.2407281081315078,0.5622670459443376,100,0.75,0.2407281081315078,30,False,memory_T1,41,ACC
+Memory,telephony_network_type_diversity,0.24008349618964503,0.4566964923751902,100,0.94,0.24008349618964503,31,False,memory_T1,41,Digital
+Memory,screen_active_hour_count,0.23116380045140275,0.39343053961245866,100,1.0,0.23116380045140275,32,False,memory_T1,41,Digital
+Memory,screen_transition_count,0.23033043921101687,0.46928081808650196,100,0.9,0.23033043921101687,33,False,memory_T1,41,Digital
+Memory,gsm_cell_transition_count,0.2077251214091679,0.27172629585280283,100,1.0,0.2077251214091679,34,False,memory_T1,41,Digital
+Memory,touch_scroll_event_count,0.2043085175850562,0.35188510223069264,100,0.99,0.2043085175850562,35,False,memory_T1,41,Digital
+Memory,acc_median_accelerometer_dynamic_magnitude_p95,0.17721649275787643,0.34624220402014005,100,0.81,0.17721649275787643,36,False,memory_T1,41,ACC
+Memory,unique_gsm_cell_count,0.16040461715954918,0.261169909859359,100,0.95,0.16040461715954918,37,False,memory_T1,41,Digital
+Memory,unique_gsm_neighbor_cell_count,-0.1567191830155101,0.3516480188018792,100,0.89,0.1567191830155101,38,False,memory_T1,41,Digital
+Memory,gsm_neighbor_cell_transition_count,-0.1560442067306088,0.46397568968253594,100,0.81,0.1560442067306088,39,False,memory_T1,41,Digital
+Memory,app_use_diversity,0.13541162911914487,0.34544038295057117,100,0.86,0.13541162911914487,40,False,memory_T1,41,Digital
+Memory,acc_median_accelerometer_magnitude_sd,0.12952102764858636,0.2972068701759274,100,0.83,0.12952102764858636,41,False,memory_T1,41,ACC
+Memory,acc_median_accelerometer_motion_bout_count,-0.1276005435278891,0.43149809755788426,100,0.77,0.1276005435278891,42,False,memory_T1,41,ACC
+Memory,touch_app_diversity,0.12485746436916882,0.44529067656838695,100,0.81,0.12485746436916882,43,False,memory_T1,41,Digital
+Memory,acc_median_accelerometer_dynamic_magnitude_rms,0.12430995666395994,0.291147587611563,100,0.82,0.12430995666395994,44,False,memory_T1,41,ACC
+Memory,touch_distinct_event_count,-0.11376780754045196,0.4014128379399326,100,0.74,0.11376780754045196,45,False,memory_T1,41,Digital
+Memory,acc_median_accelerometer_day_night_motion_ratio,0.09893882327940597,0.5235727351678916,100,0.62,0.09893882327940597,46,False,memory_T1,41,ACC
+Memory,night_screen_event_count,-0.09476478053810874,0.487846565006871,100,0.83,0.09476478053810874,47,False,memory_T1,41,Digital
+Memory,keyboard_median_inter_event_interval_ms,0.08045342651916046,0.4201186479892403,100,0.6,0.08045342651916046,48,False,memory_T1,41,Digital
+Memory,unique_gsm_lac_count,0.07957891977135702,0.24072988918342386,100,0.79,0.07957891977135702,49,False,memory_T1,41,Digital
+Memory,acc_median_accelerometer_high_motion_fraction,0.07284400446673717,0.15117895369637196,100,0.8,0.07284400446673717,50,False,memory_T1,41,ACC
+Memory,activity_transition_count,0.045927719528322836,0.5344163078376455,100,0.8,0.045927719528322836,51,False,memory_T1,41,Digital
+Memory,acc_median_accelerometer_magnitude_median,-0.034136965613015255,0.5367852113229735,100,0.52,0.034136965613015255,52,False,memory_T1,41,ACC
+Memory,touch_scroll_index_change_median,-0.03003202326696908,0.36536453523269113,100,0.74,0.03003202326696908,53,False,memory_T1,41,Digital
+Memory,telephony_event_count,0.020592889977512744,0.20189834667219111,100,0.73,0.020592889977512744,54,False,memory_T1,41,Digital
+Memory,acc_median_accelerometer_magnitude_p95,-0.018844320695549744,0.22615701174225714,100,0.63,0.018844320695549744,55,False,memory_T1,41,ACC
+Memory,acc_median_accelerometer_daytime_motion_minutes,0.010713841884222626,0.3954153561251903,100,0.75,0.010713841884222626,56,False,memory_T1,41,ACC
+Executive function,keyboard_median_word_completion_time_ms,-0.7083857829271335,0.6433399011118603,100,1.0,0.7083857829271335,1,True,ef_T1,41,Digital
+Executive function,acc_median_accelerometer_longest_observed_quiet_interval_minutes,0.47267841988181986,0.40708495007365747,100,0.99,0.47267841988181986,2,True,ef_T1,41,ACC
+Executive function,app_use_diversity,0.4463714824107292,0.40263692249860966,100,0.99,0.4463714824107292,3,True,ef_T1,41,Digital
+Executive function,acc_median_accelerometer_daytime_motion_minutes,0.3953641099066792,0.3745833854037734,100,0.96,0.3953641099066792,4,True,ef_T1,41,ACC
+Executive function,acc_median_accelerometer_day_night_motion_ratio,0.3886744958281724,0.40156514850045927,100,1.0,0.3886744958281724,5,True,ef_T1,41,ACC
+Executive function,acc_median_accelerometer_hourly_motion_entropy,0.3651588931873366,0.3743221386205404,100,1.0,0.3651588931873366,6,False,ef_T1,41,ACC
+Executive function,screen_unlock_event_count,-0.3213333903000584,0.3028895320009466,100,1.0,0.3213333903000584,7,False,ef_T1,41,Digital
+Executive function,night_screen_event_count,-0.3114323206156875,0.3098087104830191,100,0.99,0.3114323206156875,8,False,ef_T1,41,Digital
+Executive function,acc_median_accelerometer_magnitude_median,0.30252185601662485,0.29476201810747893,100,0.99,0.30252185601662485,9,False,ef_T1,41,ACC
+Executive function,activity_active_hour_count,-0.29386121196634174,0.3218362806747818,100,0.99,0.29386121196634174,10,False,ef_T1,41,Digital
+Executive function,touch_scroll_index_change_median,-0.28645434595439134,0.35093993561274545,100,0.97,0.28645434595439134,11,False,ef_T1,41,Digital
+Executive function,keyboard_inter_event_interval_iqr_ms,-0.276925081978044,0.30126467459896,100,0.99,0.276925081978044,12,False,ef_T1,41,Digital
+Executive function,screen_on_event_count,-0.24682168490422746,0.2265826118809561,100,1.0,0.24682168490422746,13,False,ef_T1,41,Digital
+Executive function,app_foreground_event_count,-0.23407125407812462,0.270851808829441,100,0.96,0.23407125407812462,14,False,ef_T1,41,Digital
+Executive function,acc_median_accelerometer_low_motion_fraction,-0.22518957352677288,0.271947069726561,100,0.91,0.22518957352677288,15,False,ef_T1,41,ACC
+Executive function,screen_off_event_count,-0.20877667053422827,0.19303120064152807,100,1.0,0.20877667053422827,16,False,ef_T1,41,Digital
+Executive function,screen_event_count,-0.19533515101825344,0.1928171193316837,100,0.98,0.19533515101825344,17,False,ef_T1,41,Digital
+Executive function,touch_click_event_count,-0.18352929530184478,0.2612176553763905,100,0.84,0.18352929530184478,18,False,ef_T1,41,Digital
+Executive function,telephony_mobile_data_enabled_fraction,-0.1701779590473895,0.21371577936488784,100,0.95,0.1701779590473895,19,False,ef_T1,41,Digital
+Executive function,keyboard_median_inter_event_interval_ms,-0.1691452056961954,0.19405515090210979,100,0.93,0.1691452056961954,20,False,ef_T1,41,Digital
+Executive function,touch_app_diversity,-0.15783337379004364,0.20311663100768126,100,0.91,0.15783337379004364,21,False,ef_T1,41,Digital
+Executive function,gsm_neighbor_cell_transition_count,-0.1516303781988898,0.20889504664108066,100,0.81,0.1516303781988898,22,False,ef_T1,41,Digital
+Executive function,acc_median_accelerometer_nighttime_motion_minutes,-0.1367658908465804,0.2426098338005228,100,0.8,0.1367658908465804,23,False,ef_T1,41,ACC
+Executive function,gsm_cell_transition_count,0.13620722853725603,0.12482084538257389,100,1.0,0.13620722853725603,24,False,ef_T1,41,Digital
+Executive function,acc_median_accelerometer_motion_bout_count,-0.13560611503472525,0.21286218953336347,100,0.82,0.13560611503472525,25,False,ef_T1,41,ACC
+Executive function,outgoing_message_count,0.1338294198685047,0.20664789166798703,100,0.85,0.1338294198685047,26,False,ef_T1,41,Digital
+Executive function,activity_unknown_fraction,0.11705831302617963,0.18929052870218646,100,0.86,0.11705831302617963,27,False,ef_T1,41,Digital
+Executive function,unique_gsm_neighbor_cell_count,-0.1161809895416858,0.17736564793307152,100,0.75,0.1161809895416858,28,False,ef_T1,41,Digital
+Executive function,unique_gsm_cell_count,0.10062734617719407,0.11901540775242313,100,0.93,0.10062734617719407,29,False,ef_T1,41,Digital
+Executive function,unique_gsm_lac_count,0.09493904445984322,0.11068334070481314,100,0.94,0.09493904445984322,30,False,ef_T1,41,Digital
+Executive function,screen_active_hour_count,0.08305047883949855,0.0993177139727783,100,0.91,0.08305047883949855,31,False,ef_T1,41,Digital
+Executive function,touch_distinct_event_count,-0.08273751442605368,0.12392106074699397,100,0.88,0.08273751442605368,32,False,ef_T1,41,Digital
+Executive function,acc_median_accelerometer_high_motion_fraction,-0.08142707248852163,0.08637044933238956,100,0.92,0.08142707248852163,33,False,ef_T1,41,ACC
+Executive function,activity_state_diversity,0.0812167379387711,0.16330285428228336,100,0.82,0.0812167379387711,34,False,ef_T1,41,Digital
+Executive function,keyboard_deletion_event_count,0.07474225757200059,0.11724253593118532,100,0.91,0.07474225757200059,35,False,ef_T1,41,Digital
+Executive function,touch_active_hour_count,0.07446535524480867,0.08537701183845987,100,0.89,0.07446535524480867,36,False,ef_T1,41,Digital
+Executive function,median_unlocked_session_duration_seconds,-0.07062098504213847,0.33633508769231624,100,0.6,0.07062098504213847,37,False,ef_T1,41,Digital
+Executive function,telephony_network_type_diversity,0.06555846069589139,0.18580572352771227,100,0.79,0.06555846069589139,38,False,ef_T1,41,Digital
+Executive function,acc_median_accelerometer_dynamic_magnitude_p95,-0.0643226957099736,0.07985279128455328,100,0.9,0.0643226957099736,39,False,ef_T1,41,ACC
+Executive function,telephony_event_count,0.06267179201639944,0.093067942935368,100,0.86,0.06267179201639944,40,False,ef_T1,41,Digital
+Executive function,activity_transition_count,-0.05535497132972169,0.20726722830654581,100,0.53,0.05535497132972169,41,False,ef_T1,41,Digital
+Executive function,activity_still_fraction,0.05534187628058959,0.12504396687993932,100,0.67,0.05534187628058959,42,False,ef_T1,41,Digital
+Executive function,acc_median_accelerometer_magnitude_jerk_p95,-0.04746752935326168,0.13046605002154224,100,0.78,0.04746752935326168,43,False,ef_T1,41,ACC
+Executive function,keyboard_long_pause_count_2s,0.03821892036517941,0.07484755421491167,100,0.74,0.03821892036517941,44,False,ef_T1,41,Digital
+Executive function,unique_gsm_neighbor_lac_count,-0.038026315181909014,0.1201444166416517,100,0.56,0.038026315181909014,45,False,ef_T1,41,Digital
+Executive function,acc_median_accelerometer_magnitude_p95,-0.03748999710914217,0.10215723304850435,100,0.81,0.03748999710914217,46,False,ef_T1,41,ACC
+Executive function,keyboard_typing_burst_count,0.035870386444126136,0.06589489475753697,100,0.78,0.035870386444126136,47,False,ef_T1,41,Digital
+Executive function,unique_foreground_apps,-0.034598632555891705,0.12031757710070835,100,0.67,0.034598632555891705,48,False,ef_T1,41,Digital
+Executive function,acc_median_accelerometer_dynamic_magnitude_rms,-0.02318397277946311,0.10609840671249231,100,0.74,0.02318397277946311,49,False,ef_T1,41,ACC
+Executive function,message_distinct_event_count,0.021960099079742657,0.0650876343364779,100,0.52,0.021960099079742657,50,False,ef_T1,41,Digital
+Executive function,acc_median_accelerometer_magnitude_sd,-0.020988842594318352,0.10666370445997804,100,0.74,0.020988842594318352,51,False,ef_T1,41,ACC
+Executive function,touch_scroll_event_count,-0.017767126295157823,0.0515686553316733,100,0.67,0.017767126295157823,52,False,ef_T1,41,Digital
+Executive function,screen_transition_count,0.014590242872557781,0.06910484193525201,100,0.56,0.014590242872557781,53,False,ef_T1,41,Digital
+Executive function,touch_scroll_direction_change_count,0.01440086196955464,0.04544948004339152,100,0.53,0.01440086196955464,54,False,ef_T1,41,Digital
+Executive function,acc_median_accelerometer_magnitude_jerk_median,-0.009663912935943972,0.06265349617825447,100,0.57,0.009663912935943972,55,False,ef_T1,41,ACC
+Executive function,touch_unique_app_count,0.0007771518435929209,0.11534050560490074,100,0.66,0.0007771518435929209,56,False,ef_T1,41,Digital
+Processing speed,telephony_network_type_diversity,0.6229378939014857,0.8582783790013583,100,1.0,0.6229378939014857,1,True,processing_speed_T1,36,Digital
+Processing speed,acc_median_accelerometer_magnitude_median,0.5744664930562636,0.9187540856685046,100,1.0,0.5744664930562636,2,True,processing_speed_T1,36,ACC
+Processing speed,acc_median_accelerometer_low_motion_fraction,-0.5295176395772898,0.6783128609770707,100,1.0,0.5295176395772898,3,True,processing_speed_T1,36,ACC
+Processing speed,touch_click_event_count,-0.5255690448815254,0.863468237316981,100,0.91,0.5255690448815254,4,True,processing_speed_T1,36,Digital
+Processing speed,activity_active_hour_count,-0.40478541198160833,0.6230496279671798,100,1.0,0.40478541198160833,5,True,processing_speed_T1,36,Digital
+Processing speed,acc_median_accelerometer_longest_observed_quiet_interval_minutes,0.40379153760944964,0.46499528379883526,100,1.0,0.40379153760944964,6,False,processing_speed_T1,36,ACC
+Processing speed,keyboard_inter_event_interval_iqr_ms,-0.3935966222384205,0.5283553725401615,100,0.98,0.3935966222384205,7,False,processing_speed_T1,36,Digital
+Processing speed,keyboard_median_word_completion_time_ms,-0.3929645994019,0.6009489103769187,100,0.97,0.3929645994019,8,False,processing_speed_T1,36,Digital
+Processing speed,touch_app_diversity,0.3905021451538959,0.6412208442344388,100,0.91,0.3905021451538959,9,False,processing_speed_T1,36,Digital
+Processing speed,screen_unlock_event_count,-0.3880951719814816,0.5975963720761401,100,1.0,0.3880951719814816,10,False,processing_speed_T1,36,Digital
+Processing speed,touch_scroll_index_change_median,-0.3542462041485862,0.5342420972256066,100,0.98,0.3542462041485862,11,False,processing_speed_T1,36,Digital
+Processing speed,acc_median_accelerometer_day_night_motion_ratio,0.3539956685810248,0.4566706386462066,100,1.0,0.3539956685810248,12,False,processing_speed_T1,36,ACC
+Processing speed,telephony_mobile_data_enabled_fraction,0.31250392346140854,0.518710087688693,100,0.95,0.31250392346140854,13,False,processing_speed_T1,36,Digital
+Processing speed,acc_median_accelerometer_motion_bout_count,-0.3084002332640749,0.5616820345723461,100,0.89,0.3084002332640749,14,False,processing_speed_T1,36,ACC
+Processing speed,app_foreground_event_count,-0.28414547717751226,0.439727843077058,100,0.96,0.28414547717751226,15,False,processing_speed_T1,36,Digital
+Processing speed,touch_distinct_event_count,-0.2839552455113863,0.4582947194825834,100,0.97,0.2839552455113863,16,False,processing_speed_T1,36,Digital
+Processing speed,median_unlocked_session_duration_seconds,-0.2807216589463041,0.4986855879237606,100,0.84,0.2807216589463041,17,False,processing_speed_T1,36,Digital
+Processing speed,acc_median_accelerometer_daytime_motion_minutes,0.28005903395758236,0.38548678906799005,100,0.95,0.28005903395758236,18,False,processing_speed_T1,36,ACC
+Processing speed,acc_median_accelerometer_hourly_motion_entropy,0.2494138960973193,0.47361527208885246,100,0.95,0.2494138960973193,19,False,processing_speed_T1,36,ACC
+Processing speed,acc_median_accelerometer_dynamic_magnitude_p95,0.2404862339332756,0.342319276522326,100,0.95,0.2404862339332756,20,False,processing_speed_T1,36,ACC
+Processing speed,activity_unknown_fraction,-0.23918434442528955,0.3144223226515571,100,0.99,0.23918434442528955,21,False,processing_speed_T1,36,Digital
+Processing speed,gsm_cell_transition_count,0.20948777186158066,0.24548764196989312,100,1.0,0.20948777186158066,22,False,processing_speed_T1,36,Digital
+Processing speed,acc_median_accelerometer_magnitude_jerk_median,-0.19907380367564123,0.43132353356708536,100,0.81,0.19907380367564123,23,False,processing_speed_T1,36,ACC
+Processing speed,gsm_neighbor_cell_transition_count,0.18901824338397094,0.32903958291753,100,0.91,0.18901824338397094,24,False,processing_speed_T1,36,Digital
+Processing speed,outgoing_message_count,0.1868165097318656,0.4440587705606926,100,0.8,0.1868165097318656,25,False,processing_speed_T1,36,Digital
+Processing speed,activity_transition_count,-0.17849126276634883,0.25639358649613114,100,0.97,0.17849126276634883,26,False,processing_speed_T1,36,Digital
+Processing speed,unique_gsm_cell_count,0.16749180891505833,0.19797618092959846,100,0.98,0.16749180891505833,27,False,processing_speed_T1,36,Digital
+Processing speed,acc_median_accelerometer_high_motion_fraction,0.16274731532080428,0.21861581872830488,100,0.91,0.16274731532080428,28,False,processing_speed_T1,36,ACC
+Processing speed,screen_on_event_count,-0.1584370647738179,0.2192567609755584,100,0.99,0.1584370647738179,29,False,processing_speed_T1,36,Digital
+Processing speed,unique_gsm_lac_count,0.14475493822962895,0.18529373841688881,100,0.92,0.14475493822962895,30,False,processing_speed_T1,36,Digital
+Processing speed,acc_median_accelerometer_nighttime_motion_minutes,-0.14423861362290005,0.4818527482021637,100,0.76,0.14423861362290005,31,False,processing_speed_T1,36,ACC
+Processing speed,screen_transition_count,0.1380978647895887,0.28083105776381084,100,0.8,0.1380978647895887,32,False,processing_speed_T1,36,Digital
+Processing speed,message_distinct_event_count,0.12208106233487566,0.2581491522823963,100,0.73,0.12208106233487566,33,False,processing_speed_T1,36,Digital
+Processing speed,screen_event_count,-0.11533660069973811,0.1836226916705842,100,0.95,0.11533660069973811,34,False,processing_speed_T1,36,Digital
+Processing speed,touch_scroll_event_count,-0.1140469702638089,0.19074585256459464,100,0.95,0.1140469702638089,35,False,processing_speed_T1,36,Digital
+Processing speed,screen_active_hour_count,0.10825786658163164,0.20627919262843075,100,0.85,0.10825786658163164,36,False,processing_speed_T1,36,Digital
+Processing speed,telephony_event_count,0.09719839372922247,0.26272136830334214,100,0.95,0.09719839372922247,37,False,processing_speed_T1,36,Digital
+Processing speed,night_screen_event_count,0.09382689979822686,0.37661752068384885,100,0.58,0.09382689979822686,38,False,processing_speed_T1,36,Digital
+Processing speed,app_use_diversity,0.09287842268919048,0.2974018786713261,100,0.7,0.09287842268919048,39,False,processing_speed_T1,36,Digital
+Processing speed,acc_median_accelerometer_magnitude_jerk_p95,-0.08972378024379754,0.4383384443764592,100,0.85,0.08972378024379754,40,False,processing_speed_T1,36,ACC
+Processing speed,screen_off_event_count,-0.08752447283945212,0.17660134387451876,100,0.88,0.08752447283945212,41,False,processing_speed_T1,36,Digital
+Processing speed,touch_scroll_direction_change_count,-0.0826705104481013,0.1441184535631832,100,0.86,0.0826705104481013,42,False,processing_speed_T1,36,Digital
+Processing speed,keyboard_median_inter_event_interval_ms,-0.07735342475940869,0.39278577778474955,100,0.85,0.07735342475940869,43,False,processing_speed_T1,36,Digital
+Processing speed,touch_active_hour_count,0.07499327956863369,0.1280488221239081,100,0.8,0.07499327956863369,44,False,processing_speed_T1,36,Digital
+Processing speed,acc_median_accelerometer_magnitude_p95,0.06780257558133909,0.15180737797427674,100,0.82,0.06780257558133909,45,False,processing_speed_T1,36,ACC
+Processing speed,acc_median_accelerometer_magnitude_sd,0.057533447738002286,0.19243540851387436,100,0.75,0.057533447738002286,46,False,processing_speed_T1,36,ACC
+Processing speed,acc_median_accelerometer_dynamic_magnitude_rms,0.057506360196610255,0.19564218251639132,100,0.78,0.057506360196610255,47,False,processing_speed_T1,36,ACC
+Processing speed,activity_state_diversity,0.0538068291438792,0.3060802665713844,100,0.65,0.0538068291438792,48,False,processing_speed_T1,36,Digital
+Processing speed,unique_gsm_neighbor_lac_count,0.051892247536608045,0.30178637356724614,100,0.62,0.051892247536608045,49,False,processing_speed_T1,36,Digital
+Processing speed,unique_foreground_apps,0.039141408493387965,0.14060322585738183,100,0.56,0.039141408493387965,50,False,processing_speed_T1,36,Digital
+Processing speed,unique_gsm_neighbor_cell_count,-0.02739978401380798,0.35213323192911694,100,0.73,0.02739978401380798,51,False,processing_speed_T1,36,Digital
+Processing speed,activity_still_fraction,-0.022809669234555047,0.44146521488304213,100,0.8,0.022809669234555047,52,False,processing_speed_T1,36,Digital
+Processing speed,keyboard_long_pause_count_2s,0.021697037577274755,0.09622681390995273,100,0.59,0.021697037577274755,53,False,processing_speed_T1,36,Digital
+Processing speed,touch_unique_app_count,-0.018546307196520416,0.1633963911347753,100,0.65,0.018546307196520416,54,False,processing_speed_T1,36,Digital
+Processing speed,keyboard_deletion_event_count,0.005704934280387834,0.11238819286671065,100,0.61,0.005704934280387834,55,False,processing_speed_T1,36,Digital
+Processing speed,keyboard_typing_burst_count,0.0008432158502238759,0.1020862666117125,100,0.66,0.0008432158502238759,56,False,processing_speed_T1,36,Digital
+Attention,keyboard_median_word_completion_time_ms,-0.8808211102900652,0.9580187628754813,100,1.0,0.8808211102900652,1,True,attention_T1,41,Digital
+Attention,median_unlocked_session_duration_seconds,-0.6718097842729348,0.7395996758800695,100,1.0,0.6718097842729348,2,True,attention_T1,41,Digital
+Attention,acc_median_accelerometer_hourly_motion_entropy,0.5011829326549503,0.5767282180425687,100,1.0,0.5011829326549503,3,True,attention_T1,41,ACC
+Attention,activity_unknown_fraction,0.43659446106229277,0.5032173747316023,100,1.0,0.43659446106229277,4,True,attention_T1,41,Digital
+Attention,acc_median_accelerometer_low_motion_fraction,-0.4268805678499902,0.4770955721056546,100,1.0,0.4268805678499902,5,True,attention_T1,41,ACC
+Attention,activity_active_hour_count,-0.3902468503842801,0.44899246468161536,100,1.0,0.3902468503842801,6,False,attention_T1,41,Digital
+Attention,acc_median_accelerometer_longest_observed_quiet_interval_minutes,0.3768747115325391,0.39023592272793545,100,1.0,0.3768747115325391,7,False,attention_T1,41,ACC
+Attention,touch_scroll_index_change_median,-0.3719689512328725,0.48173187347443003,100,1.0,0.3719689512328725,8,False,attention_T1,41,Digital
+Attention,gsm_neighbor_cell_transition_count,-0.31765502922645444,0.4502786744130485,100,0.8,0.31765502922645444,9,False,attention_T1,41,Digital
+Attention,acc_median_accelerometer_magnitude_median,0.31082656290980837,0.3736014957970569,100,1.0,0.31082656290980837,10,False,attention_T1,41,ACC
+Attention,acc_median_accelerometer_daytime_motion_minutes,0.2671438324920555,0.2735107585834423,100,0.99,0.2671438324920555,11,False,attention_T1,41,ACC
+Attention,app_foreground_event_count,-0.2605819473209928,0.39178135423835136,100,0.79,0.2605819473209928,12,False,attention_T1,41,Digital
+Attention,outgoing_message_count,0.2579944462314906,0.3653390047905921,100,0.99,0.2579944462314906,13,False,attention_T1,41,Digital
+Attention,night_screen_event_count,-0.2324732149844325,0.2889234991425011,100,0.91,0.2324732149844325,14,False,attention_T1,41,Digital
+Attention,touch_app_diversity,-0.22006478907406454,0.3052356485854968,100,0.93,0.22006478907406454,15,False,attention_T1,41,Digital
+Attention,app_use_diversity,0.21283725981310256,0.3473008045599037,100,0.8,0.21283725981310256,16,False,attention_T1,41,Digital
+Attention,telephony_network_type_diversity,0.18214629508709967,0.32720473737310335,100,0.81,0.18214629508709967,17,False,attention_T1,41,Digital
+Attention,touch_click_event_count,-0.17409912956886814,0.2510045253618585,100,0.76,0.17409912956886814,18,False,attention_T1,41,Digital
+Attention,screen_unlock_event_count,-0.1648551444329409,0.24488618183529143,100,0.86,0.1648551444329409,19,False,attention_T1,41,Digital
+Attention,unique_gsm_lac_count,0.15878246880629704,0.16264660397396496,100,0.99,0.15878246880629704,20,False,attention_T1,41,Digital
+Attention,unique_gsm_cell_count,0.1563338576532362,0.16723949200152902,100,0.99,0.1563338576532362,21,False,attention_T1,41,Digital
+Attention,gsm_cell_transition_count,0.13901656429793582,0.1483295811893548,100,0.97,0.13901656429793582,22,False,attention_T1,41,Digital
+Attention,screen_transition_count,0.13857822618135487,0.1489626368559974,100,1.0,0.13857822618135487,23,False,attention_T1,41,Digital
+Attention,telephony_mobile_data_enabled_fraction,-0.13819515681624925,0.25298254566384043,100,0.88,0.13819515681624925,24,False,attention_T1,41,Digital
+Attention,unique_gsm_neighbor_lac_count,0.1346465118639233,0.192551249681069,100,0.94,0.1346465118639233,25,False,attention_T1,41,Digital
+Attention,screen_active_hour_count,0.12794241922383784,0.14068165193068166,100,1.0,0.12794241922383784,26,False,attention_T1,41,Digital
+Attention,activity_transition_count,-0.11141761377603782,0.2283030322125618,100,0.79,0.11141761377603782,27,False,attention_T1,41,Digital
+Attention,acc_median_accelerometer_magnitude_jerk_p95,-0.10909888858283015,0.21100837291983407,100,0.83,0.10909888858283015,28,False,attention_T1,41,ACC
+Attention,activity_state_diversity,0.09911486115224946,0.2080987622952191,100,0.85,0.09911486115224946,29,False,attention_T1,41,Digital
+Attention,telephony_event_count,0.08234687899970584,0.13750988561271926,100,0.89,0.08234687899970584,30,False,attention_T1,41,Digital
+Attention,touch_distinct_event_count,-0.07684479817870397,0.13519641265455712,100,0.62,0.07684479817870397,31,False,attention_T1,41,Digital
+Attention,touch_active_hour_count,0.07541560032151227,0.0914559602120121,100,0.98,0.07541560032151227,32,False,attention_T1,41,Digital
+Attention,unique_gsm_neighbor_cell_count,0.07502396434683542,0.16632372984560193,100,0.86,0.07502396434683542,33,False,attention_T1,41,Digital
+Attention,activity_still_fraction,-0.0694713179745423,0.14334324033474713,100,0.83,0.0694713179745423,34,False,attention_T1,41,Digital
+Attention,keyboard_median_inter_event_interval_ms,-0.06758187613387459,0.18042821131559725,100,0.89,0.06758187613387459,35,False,attention_T1,41,Digital
+Attention,acc_median_accelerometer_day_night_motion_ratio,0.0649905616865242,0.31875419369451474,100,0.67,0.0649905616865242,36,False,attention_T1,41,ACC
+Attention,keyboard_inter_event_interval_iqr_ms,-0.06439463134422181,0.29641845600243555,100,0.78,0.06439463134422181,37,False,attention_T1,41,Digital
+Attention,acc_median_accelerometer_magnitude_p95,-0.06292890147947572,0.11480860369933998,100,0.8,0.06292890147947572,38,False,attention_T1,41,ACC
+Attention,screen_on_event_count,-0.044129415645227835,0.12520109458502762,100,0.52,0.044129415645227835,39,False,attention_T1,41,Digital
+Attention,keyboard_long_pause_count_2s,0.038353580607217566,0.07403425660710568,100,0.88,0.038353580607217566,40,False,attention_T1,41,Digital
+Attention,acc_median_accelerometer_high_motion_fraction,-0.03615319892970531,0.07452137904209996,100,0.71,0.03615319892970531,41,False,attention_T1,41,ACC
+Attention,touch_unique_app_count,-0.03104551033922346,0.13409637796241883,100,0.5,0.03104551033922346,42,False,attention_T1,41,Digital
+Attention,keyboard_deletion_event_count,0.0274308016815019,0.07677476846362448,100,0.86,0.0274308016815019,43,False,attention_T1,41,Digital
+Attention,message_distinct_event_count,-0.02273347540477477,0.06944224259756039,100,0.62,0.02273347540477477,44,False,attention_T1,41,Digital
+Attention,screen_event_count,0.02031288860688326,0.10851795988483354,100,0.75,0.02031288860688326,45,False,attention_T1,41,Digital
+Attention,unique_foreground_apps,-0.02027542108650835,0.14237860766115507,100,0.5,0.02027542108650835,46,False,attention_T1,41,Digital
+Attention,acc_median_accelerometer_dynamic_magnitude_rms,-0.01972292533826179,0.13309382601330033,100,0.54,0.01972292533826179,47,False,attention_T1,41,ACC
+Attention,acc_median_accelerometer_magnitude_sd,-0.017222803231180594,0.132833333200347,100,0.54,0.017222803231180594,48,False,attention_T1,41,ACC
+Attention,acc_median_accelerometer_dynamic_magnitude_p95,-0.01628430741760337,0.07668651537061967,100,0.58,0.01628430741760337,49,False,attention_T1,41,ACC
+Attention,touch_scroll_event_count,-0.01503995751277299,0.09771925214212872,100,0.62,0.01503995751277299,50,False,attention_T1,41,Digital
+Attention,touch_scroll_direction_change_count,0.014716255739428521,0.06687078049058831,100,0.78,0.014716255739428521,51,False,attention_T1,41,Digital
+Attention,acc_median_accelerometer_motion_bout_count,0.013737381829936186,0.17608337762694518,100,0.71,0.013737381829936186,52,False,attention_T1,41,ACC
+Attention,screen_off_event_count,0.012242642289095926,0.0937063393388737,100,0.72,0.012242642289095926,53,False,attention_T1,41,Digital
+Attention,acc_median_accelerometer_magnitude_jerk_median,-0.0074558849169164155,0.1737670448864479,100,0.67,0.0074558849169164155,54,False,attention_T1,41,ACC
+Attention,keyboard_typing_burst_count,-0.003469012630712075,0.06174564065105636,100,0.69,0.003469012630712075,55,False,attention_T1,41,Digital
+Attention,acc_median_accelerometer_nighttime_motion_minutes,0.00181642963120923,0.22440925778277654,100,0.71,0.00181642963120923,56,False,attention_T1,41,ACC
+Motor,keyboard_median_word_completion_time_ms,-0.5560666673472345,0.7151888364460891,100,1.0,0.5560666673472345,1,True,motor_T1,40,Digital
+Motor,acc_median_accelerometer_magnitude_jerk_median,-0.4896540913651677,0.6529949310492366,100,0.98,0.4896540913651677,2,True,motor_T1,40,ACC
+Motor,acc_median_accelerometer_hourly_motion_entropy,0.46852765949488223,0.7571876828222346,100,1.0,0.46852765949488223,3,True,motor_T1,40,ACC
+Motor,acc_median_accelerometer_daytime_motion_minutes,0.40839962073898206,0.4406314753520269,100,1.0,0.40839962073898206,4,True,motor_T1,40,ACC
+Motor,telephony_network_type_diversity,0.39944384726836046,0.6927904371400105,100,0.99,0.39944384726836046,5,True,motor_T1,40,Digital
+Motor,acc_median_accelerometer_magnitude_jerk_p95,-0.36887391858075297,0.4949009409673175,100,0.86,0.36887391858075297,6,False,motor_T1,40,ACC
+Motor,acc_median_accelerometer_day_night_motion_ratio,0.3518453539309138,0.42399291177264037,100,0.98,0.3518453539309138,7,False,motor_T1,40,ACC
+Motor,keyboard_median_inter_event_interval_ms,-0.33387568769175296,0.42442509399283446,100,0.98,0.33387568769175296,8,False,motor_T1,40,Digital
+Motor,acc_median_accelerometer_longest_observed_quiet_interval_minutes,0.32782822468736256,0.38075727018318956,100,0.99,0.32782822468736256,9,False,motor_T1,40,ACC
+Motor,touch_scroll_index_change_median,-0.3147296465712639,0.3849384997535189,100,0.99,0.3147296465712639,10,False,motor_T1,40,Digital
+Motor,gsm_neighbor_cell_transition_count,-0.3143909011538023,0.34261450615633976,100,0.98,0.3143909011538023,11,False,motor_T1,40,Digital
+Motor,unique_gsm_neighbor_cell_count,-0.28617212859437424,0.49546381059919414,100,0.88,0.28617212859437424,12,False,motor_T1,40,Digital
+Motor,median_unlocked_session_duration_seconds,0.27970136859276623,0.6655450533289302,100,0.86,0.27970136859276623,13,False,motor_T1,40,Digital
+Motor,screen_active_hour_count,0.26453414027667965,0.3020803369487669,100,1.0,0.26453414027667965,14,False,motor_T1,40,Digital
+Motor,activity_state_diversity,0.23949050864700505,0.5622957385900289,100,0.83,0.23949050864700505,15,False,motor_T1,40,Digital
+Motor,app_use_diversity,0.2393732358686031,0.33400365443590363,100,0.98,0.2393732358686031,16,False,motor_T1,40,Digital
+Motor,telephony_mobile_data_enabled_fraction,0.22502786350631226,0.3408813749309776,100,0.94,0.22502786350631226,17,False,motor_T1,40,Digital
+Motor,keyboard_inter_event_interval_iqr_ms,-0.20822737093326915,0.3670183375173088,100,0.92,0.20822737093326915,18,False,motor_T1,40,Digital
+Motor,touch_app_diversity,-0.19811666092888702,0.3643598405871122,100,0.97,0.19811666092888702,19,False,motor_T1,40,Digital
+Motor,acc_median_accelerometer_magnitude_p95,-0.19656061495123503,0.41857117588688836,100,0.87,0.19656061495123503,20,False,motor_T1,40,ACC
+Motor,screen_unlock_event_count,-0.18954695498060908,0.37823523387652547,100,0.74,0.18954695498060908,21,False,motor_T1,40,Digital
+Motor,outgoing_message_count,0.18144884037074901,0.4874352248752715,100,0.93,0.18144884037074901,22,False,motor_T1,40,Digital
+Motor,screen_on_event_count,-0.17322553097201202,0.2715107282409835,100,0.75,0.17322553097201202,23,False,motor_T1,40,Digital
+Motor,acc_median_accelerometer_motion_bout_count,-0.1637166357258182,0.35650206516947686,100,0.86,0.1637166357258182,24,False,motor_T1,40,ACC
+Motor,touch_active_hour_count,0.1627081926819985,0.15149882191853517,100,1.0,0.1627081926819985,25,False,motor_T1,40,Digital
+Motor,acc_median_accelerometer_magnitude_median,-0.15593552337847053,0.3288024182534681,100,0.82,0.15593552337847053,26,False,motor_T1,40,ACC
+Motor,acc_median_accelerometer_low_motion_fraction,-0.14690793204817104,0.3869970319894073,100,0.68,0.14690793204817104,27,False,motor_T1,40,ACC
+Motor,acc_median_accelerometer_magnitude_sd,0.14156332911921776,0.29499172880303737,100,0.63,0.14156332911921776,28,False,motor_T1,40,ACC
+Motor,acc_median_accelerometer_dynamic_magnitude_rms,0.13620077215149057,0.2851736368697884,100,0.62,0.13620077215149057,29,False,motor_T1,40,ACC
+Motor,keyboard_typing_burst_count,0.13562154032049248,0.13431584126122698,100,0.98,0.13562154032049248,30,False,motor_T1,40,Digital
+Motor,unique_gsm_neighbor_lac_count,-0.1281483019709525,0.2725225179559773,100,0.8,0.1281483019709525,31,False,motor_T1,40,Digital
+Motor,keyboard_deletion_event_count,0.12752457681485574,0.17418106868663294,100,0.96,0.12752457681485574,32,False,motor_T1,40,Digital
+Motor,message_distinct_event_count,0.11586459315886245,0.18476783247989598,100,0.99,0.11586459315886245,33,False,motor_T1,40,Digital
+Motor,screen_off_event_count,-0.10743748206468885,0.20607553111384452,100,0.65,0.10743748206468885,34,False,motor_T1,40,Digital
+Motor,activity_still_fraction,0.1062354724226465,0.24970734912427037,100,0.8,0.1062354724226465,35,False,motor_T1,40,Digital
+Motor,screen_event_count,-0.10589571513168959,0.17688115810677293,100,0.7,0.10589571513168959,36,False,motor_T1,40,Digital
+Motor,activity_transition_count,-0.09456532106077502,0.23966863612030503,100,0.81,0.09456532106077502,37,False,motor_T1,40,Digital
+Motor,keyboard_long_pause_count_2s,0.08658883730498403,0.13085545108413613,100,0.95,0.08658883730498403,38,False,motor_T1,40,Digital
+Motor,activity_active_hour_count,-0.08339050306418468,0.2745891997263007,100,0.81,0.08339050306418468,39,False,motor_T1,40,Digital
+Motor,gsm_cell_transition_count,0.08245280492762488,0.13037881546426747,100,0.96,0.08245280492762488,40,False,motor_T1,40,Digital
+Motor,app_foreground_event_count,-0.07500375757425408,0.3199837909043679,100,0.64,0.07500375757425408,41,False,motor_T1,40,Digital
+Motor,screen_transition_count,0.0746175127730717,0.15124891241438412,100,0.93,0.0746175127730717,42,False,motor_T1,40,Digital
+Motor,telephony_event_count,0.07019598095786982,0.22624173474838932,100,0.82,0.07019598095786982,43,False,motor_T1,40,Digital
+Motor,unique_gsm_lac_count,0.06465155269441991,0.14674310553187295,100,0.88,0.06465155269441991,44,False,motor_T1,40,Digital
+Motor,acc_median_accelerometer_nighttime_motion_minutes,0.06340089627443236,0.13557352404535636,100,0.85,0.06340089627443236,45,False,motor_T1,40,ACC
+Motor,unique_gsm_cell_count,0.0569540471161994,0.1605881308395382,100,0.9,0.0569540471161994,46,False,motor_T1,40,Digital
+Motor,night_screen_event_count,0.05168848955262221,0.2910980189266082,100,0.76,0.05168848955262221,47,False,motor_T1,40,Digital
+Motor,activity_unknown_fraction,0.04815249016051673,0.36837766337624045,100,0.66,0.04815249016051673,48,False,motor_T1,40,Digital
+Motor,touch_click_event_count,-0.046839621171984855,0.2500515166418285,100,0.62,0.046839621171984855,49,False,motor_T1,40,Digital
+Motor,touch_unique_app_count,0.04611164391729854,0.17585286852283952,100,0.72,0.04611164391729854,50,False,motor_T1,40,Digital
+Motor,unique_foreground_apps,0.03859519458966398,0.124225478288123,100,0.86,0.03859519458966398,51,False,motor_T1,40,Digital
+Motor,touch_distinct_event_count,-0.026945742656116902,0.17807377862445517,100,0.72,0.026945742656116902,52,False,motor_T1,40,Digital
+Motor,touch_scroll_event_count,-0.015103259663172181,0.1929522595122554,100,0.78,0.015103259663172181,53,False,motor_T1,40,Digital
+Motor,touch_scroll_direction_change_count,0.007540978056547938,0.15973265537805134,100,0.83,0.007540978056547938,54,False,motor_T1,40,Digital
+Motor,acc_median_accelerometer_high_motion_fraction,-0.006619617579437504,0.17725538963312068,100,0.54,0.006619617579437504,55,False,motor_T1,40,ACC
+Motor,acc_median_accelerometer_dynamic_magnitude_p95,-0.0032248729981724,0.14197242878046912,100,0.65,0.0032248729981724,56,False,motor_T1,40,ACC

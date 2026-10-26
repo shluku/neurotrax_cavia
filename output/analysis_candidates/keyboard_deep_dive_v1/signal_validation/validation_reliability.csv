@@ -1,0 +1,11 @@
+method,window_name,feature_name,n_patients,first_half_days_median,second_half_days_median,icc_2_1_absolute_agreement,split_half_spearman_rho,split_half_p
+first_last_14_observed_days,T1,keyboard_06_12_median_inter_event_interval_ms,16,14.0,14.0,0.8355610049150906,0.85,3.0522600677849776e-05
+first_last_14_observed_days,T1,keyboard_12_18_median_inter_event_interval_ms,16,14.0,14.0,0.8850571811452931,0.9205882352941176,4.3204104274523157e-07
+first_last_14_observed_days,T1,keyboard_18_24_median_inter_event_interval_ms,15,14.0,14.0,0.9215108774584383,0.8821428571428571,1.3558210624788728e-05
+first_last_14_observed_days,T1,keyboard_inter_event_interval_cv,16,14.0,14.0,0.8160810022276465,0.8617647058823529,1.780518441981504e-05
+first_last_14_observed_days,T1,keyboard_median_correction_recovery_time_ms,16,14.0,14.0,0.4136557209528684,0.7323529411764707,0.0012549581661522625
+first_last_14_observed_days,T2,keyboard_06_12_median_inter_event_interval_ms,18,14.0,14.0,-0.016174960206350654,0.26109391124871,0.2953326016338096
+first_last_14_observed_days,T2,keyboard_12_18_median_inter_event_interval_ms,18,14.0,14.0,0.4155027387362525,0.6037151702786379,0.00797846721118263
+first_last_14_observed_days,T2,keyboard_18_24_median_inter_event_interval_ms,18,14.0,14.0,0.2632720186689803,0.4220846233230134,0.08101904869498931
+first_last_14_observed_days,T2,keyboard_inter_event_interval_cv,18,14.0,14.0,0.3888145756175811,0.5149638802889577,0.028748754882630352
+first_last_14_observed_days,T2,keyboard_median_correction_recovery_time_ms,18,14.0,14.0,0.24396730347445006,0.4489164086687306,0.06165736262614079

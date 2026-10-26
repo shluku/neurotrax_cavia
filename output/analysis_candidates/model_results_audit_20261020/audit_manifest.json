@@ -1,0 +1,59 @@
+{
+  "audit_date": "2026-10-20",
+  "purpose": "Recalculate metrics only from row-aligned saved predictions; no model fit was run.",
+  "historical_pooled_metric_problem": "Historical scripts used np.tile(y, n_repeats) while saved test predictions are ordered by randomized outer test folds. Those vectors are not patient-aligned.",
+  "corrected_metric_method": "Use each prediction row's saved actual outcome and prediction from the same row. Aggregate as repeated-OOF pooled rows and separately as per-repeat summaries.",
+  "candidates": [
+    {
+      "candidate": "Processing Speed \u2014 10-day Ridge",
+      "short_name": "processing_speed_10day_ridge",
+      "historical_metrics_path": "/Users/ofirfizitsky/PycharmProjects/research_dbeaver/output/analysis_candidates/phase4_10day_t1_baseline/model_t1_cognitive_domains/phase4_t1_cognitive_domain_metrics.csv",
+      "filter_column": "domain",
+      "filter_value": "Processing speed",
+      "actual_column": "actual_T1",
+      "target_column": "processing_speed_T1",
+      "model_column": "ridge_prediction",
+      "model": "ridge",
+      "feature_scope": "37 fixed rows where primary_model_recommendation = include_primary",
+      "expected_n": "71",
+      "expected_repeats": "20",
+      "source_script": "phase4_model_t1_cognitive_domains.py",
+      "historical_domain": "Processing speed",
+      "historical_cohort_size": "None"
+    },
+    {
+      "candidate": "Motor \u2014 24-hour Ridge",
+      "short_name": "motor_24hour_ridge",
+      "historical_metrics_path": "/Users/ofirfizitsky/PycharmProjects/research_dbeaver/output/analysis_candidates/phase4_t1_baseline/model_t1_cognitive_domains/phase4_t1_cognitive_domain_metrics.csv",
+      "filter_column": "domain",
+      "filter_value": "Motor",
+      "actual_column": "actual_T1",
+      "target_column": "motor_T1",
+      "model_column": "ridge_prediction",
+      "model": "ridge",
+      "feature_scope": "37 fixed rows where primary_model_recommendation = include_primary",
+      "expected_n": "79",
+      "expected_repeats": "20",
+      "source_script": "phase4_model_t1_cognitive_domains.py",
+      "historical_domain": "Motor",
+      "historical_cohort_size": "None"
+    },
+    {
+      "candidate": "Global \u2014 Coverage Top-10 Elastic Net",
+      "short_name": "global_coverage_top10_elastic_net",
+      "historical_metrics_path": "/Users/ofirfizitsky/PycharmProjects/research_dbeaver/output/analysis_candidates/phase4_10day_t1_baseline/suggestions/suggestions_10day_coverage_metrics.csv",
+      "filter_column": "cohort_size",
+      "filter_value": "10",
+      "actual_column": "actual_global_T1",
+      "target_column": "global_T1",
+      "model_column": "elastic_net_prediction",
+      "model": "elastic_net",
+      "feature_scope": "all 67 metadata feature rows; cohort ranked by feature missingness/table coverage before modelling",
+      "expected_n": "10",
+      "expected_repeats": "10",
+      "source_script": "suggestions_10day_coverage_models.py + other_models_phase4_10day.py",
+      "historical_domain": "None",
+      "historical_cohort_size": "10"
+    }
+  ]
+}

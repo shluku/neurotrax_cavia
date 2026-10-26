@@ -1,0 +1,4 @@
+device_anon,acc_days,days,acc_rows,touch_rows,keyboard_rows,sessions,repeated_acc_days
+dev_72e21d,2,2,30847,179,19,4,True
+dev_c9cc92,2,2,6337,86,0,4,True
+dev_cc373e,1,1,16337,215,24,2,False

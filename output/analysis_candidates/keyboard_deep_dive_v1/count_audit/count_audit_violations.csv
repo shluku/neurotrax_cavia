@@ -1,0 +1,1 @@
+Subject_ID_D,window_name,raw_rows_in_window,distinct_observations_in_window,keyboard_valid_interval_count,duplicate_rows_removed,json_parse_errors,window_status,interval_minus_observations,invariant_ok,source

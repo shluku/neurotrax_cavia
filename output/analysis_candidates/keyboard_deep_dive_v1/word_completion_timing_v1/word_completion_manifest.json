@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "windows": 141,
+  "daily_rows": 2657,
+  "patients_with_T1": 81,
+  "patients_with_T2": 60,
+  "privacy": "raw text retained only in memory; no words exported",
+  "timing_interpretation": "observable snapshot timing, not keystroke timing",
+  "historical_outputs_modified": false,
+  "model_integration": false
+}

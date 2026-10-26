@@ -1,0 +1,6 @@
+feature_name,transformation,n_observed_before_imputation,missing_percent_before_imputation,imputation_value_after_transformation
+telephony_network_type_diversity,none,8,0.0,-0.0050027082648605725
+touch_click_event_count,none,3,62.5,-1008.0
+activity_active_hour_count,none,8,0.0,-589.5
+acc_median_accelerometer_magnitude_median,none,8,0.0,-0.014658849354394654
+acc_median_accelerometer_low_motion_fraction,none,8,0.0,-0.1289838709740928

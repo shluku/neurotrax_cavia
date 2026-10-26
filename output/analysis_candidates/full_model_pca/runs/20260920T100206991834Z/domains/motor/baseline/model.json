@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "endpoint": "T1",
+  "features": [
+    "keyboard_median_word_completion_time_ms",
+    "telephony_network_type_diversity",
+    "acc_median_accelerometer_magnitude_jerk_median",
+    "acc_median_accelerometer_hourly_motion_entropy",
+    "acc_median_accelerometer_daytime_motion_minutes"
+  ],
+  "blocks": {
+    "digital": [
+      "keyboard_median_word_completion_time_ms",
+      "telephony_network_type_diversity"
+    ],
+    "acc": [
+      "acc_median_accelerometer_magnitude_jerk_median",
+      "acc_median_accelerometer_hourly_motion_entropy",
+      "acc_median_accelerometer_daytime_motion_minutes"
+    ]
+  },
+  "log_features": [
+    "acc_median_accelerometer_magnitude_jerk_median",
+    "acc_median_accelerometer_daytime_motion_minutes"
+  ],
+  "medians": [
+    3433.5,
+    0.6862068148805256,
+    0.4506966558744967,
+    1.414599000468403,
+    2.5649493574615367
+  ],
+  "center": [
+    3433.5,
+    0.6862068148805256,
+    0.4506966558744967,
+    1.414599000468403,
+    2.5649493574615367
+  ],
+  "scale": [
+    1558.375,
+    0.8561149154355792,
+    0.2102486070454715,
+    1.1355727088233607,
+    1.791759469228055
+  ],
+  "pca_mean": [
+    0.1983717012914093,
+    0.05600289415636943,
+    0.3775119861660343,
+    0.015948014406266683,
+    0.073007976752871
+  ],
+  "components": [
+    [
+      -0.05968151501739741,
+      0.001240684905360001,
+      0.9971944991509024,
+      -0.0033882674758227774,
+      -0.04503585208349426
+    ],
+    [
+      -0.4525100202175078,
+      -0.1283955197728007,
+      0.0022314399313410993,
+      0.6502233040148402,
+      0.5966187624412094
+    ],
+    [
+      0.8834696919446717,
+      0.0029784187732857376,
+      0.06478022456710635,
+      0.4009274683155697,
+      0.23352327526801456
+    ],
+    [
+      -0.059482080125597414,
+      0.9915311058049681,
+      -0.00042691006346233545,
+      0.07055037281347751,
+      0.09138058332483694
+    ],
+    [
+      0.08726960482950293,
+      -0.019241789054743108,
+      0.03743650346715228,
+      -0.6414654975955324,
+      0.7610087340034578
+    ]
+  ],
+  "cluster_centers": [
+    [
+      4.946234573150079,
+      0.15731315976700155,
+      -0.032709941183478246,
+      0.14073953957336074,
+      -0.17807342745792404
+    ],
+    [
+      -0.5495816192388977,
+      -0.017479239974111292,
+      0.003634437909275382,
+      -0.015637726619262243,
+      0.019785936384213807
+    ]
+  ],
+  "fit_patient_ids": [
+    "003",
+    "004",
+    "005",
+    "006",
+    "007",
+    "010",
+    "011",
+    "012",
+    "013",
+    "015",
+    "019",
+    "020",
+    "021",
+    "022",
+    "023",
+    "030",
+    "032",
+    "035",
+    "038",
+    "041",
+    "044",
+    "045",
+    "046",
+    "053",
+    "057",
+    "060",
+    "067",
+    "070",
+    "071",
+    "072",
+    "073",
+    "074",
+    "077",
+    "078",
+    "080",
+    "083",
+    "087",
+    "093",
+    "095",
+    "096"
+  ],
+  "domain": "Motor",
+  "target": "motor_T1",
+  "coverage_rule": "selected_panel_half",
+  "selection_uses_outcome": true,
+  "selected_features": [
+    "keyboard_median_word_completion_time_ms",
+    "acc_median_accelerometer_magnitude_jerk_median",
+    "acc_median_accelerometer_hourly_motion_entropy",
+    "acc_median_accelerometer_daytime_motion_minutes",
+    "telephony_network_type_diversity"
+  ]
+}

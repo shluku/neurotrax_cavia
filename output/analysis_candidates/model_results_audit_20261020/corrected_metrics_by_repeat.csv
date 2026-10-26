@@ -1,0 +1,101 @@
+candidate,short_name,repeat,model,n_patients,rmse,mae,r2
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,1,mean_baseline,71,13.661128475268303,11.165302340357934,-0.01914952869142761
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,1,ridge,71,12.846159179193513,10.509899032165633,0.0988203939767045
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,2,mean_baseline,71,13.743690522968738,11.275589501923823,-0.03150536512421698
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,2,ridge,71,13.230221614037573,10.548551847167666,0.044129641096392835
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,3,mean_baseline,71,13.567254416710327,11.144680804122984,-0.005191239227434696
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,3,ridge,71,11.743073465956003,9.353626642179144,0.2469421978617682
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,4,mean_baseline,71,13.762466520248385,11.287688852412725,-0.03432568058740437
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,4,ridge,71,12.177002608356943,9.598168738462293,0.19026007184874105
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,5,mean_baseline,71,13.56063062333353,11.110344082036079,-0.004209971604214102
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,5,ridge,71,12.185464547745056,9.95482620707477,0.1891342856156073
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,6,mean_baseline,71,13.981191668149158,11.50529713367927,-0.06746374980209713
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,6,ridge,71,12.32483175326313,9.960636949843414,0.1704802023891412
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,7,mean_baseline,71,13.736869410130051,11.326898231494228,-0.030481729084107956
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,7,ridge,71,13.732172223435631,11.215492836807233,-0.029777123490982715
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,8,mean_baseline,71,13.61342729644653,11.193568869356492,-0.01204473364517833
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,8,ridge,71,12.872548221155542,10.333027624168958,0.09511412001998454
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,9,mean_baseline,71,13.645384811893717,11.12448815701225,-0.016801860036765648
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,9,ridge,71,13.089044223088617,10.36430127053676,0.06442065175224909
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,10,mean_baseline,71,13.651600176105383,11.22019838328215,-0.01772836130972899
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,10,ridge,71,11.58175540488618,9.356583774986259,0.267490039796204
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,11,mean_baseline,71,13.658922280778741,11.207864732253167,-0.01882038157550525
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,11,ridge,71,12.413524412356804,10.414993592610214,0.15849836916735138
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,12,mean_baseline,71,13.70023243941097,11.26984935931378,-0.024992358515764312
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,12,ridge,71,13.410951129947259,10.604841218291236,0.017836214930875505
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,13,mean_baseline,71,13.704035361069987,11.320855836775037,-0.02556147391698138
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,13,ridge,71,13.450158194993872,11.100774870702045,0.012085086921267307
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,14,mean_baseline,71,13.65655439585959,11.257625136785624,-0.018467170647375797
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,14,ridge,71,12.022507861199664,9.648900137538078,0.21067674871891262
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,15,mean_baseline,71,13.984610396829764,11.449730841187474,-0.06798585338262986
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,15,ridge,71,12.497052465670693,10.217383176407118,0.1471356858822458
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,16,mean_baseline,71,13.540049416417943,11.090617388541778,-0.00116407059794299
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,16,ridge,71,12.495519697532556,10.277624751879461,0.1473448813038848
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,17,mean_baseline,71,13.991750570365838,11.438252320943205,-0.0690767026558079
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,17,ridge,71,13.43925069443214,10.502162216029994,0.013686750337471021
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,18,mean_baseline,71,13.932478851172341,11.36567210279219,-0.060038262676714194
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,18,ridge,71,14.121770516608171,11.012561112727623,-0.08903805594645586
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,19,mean_baseline,71,13.663103750723442,11.243952751597305,-0.0194442695821051
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,19,ridge,71,14.166423149319334,11.250934655933852,-0.09593595831516022
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,20,mean_baseline,71,13.609849560374073,11.17816548413287,-0.011512853894722896
+Processing Speed — 10-day Ridge,processing_speed_10day_ridge,20,ridge,71,15.202479188165693,11.369951696880849,-0.2620994915075652
+Motor — 24-hour Ridge,motor_24hour_ridge,1,mean_baseline,79,10.681266377638357,8.935061595840867,-0.037622949650945925
+Motor — 24-hour Ridge,motor_24hour_ridge,1,ridge,79,10.066619818115486,8.470953931965287,0.07835979690499084
+Motor — 24-hour Ridge,motor_24hour_ridge,2,mean_baseline,79,10.544162216555913,8.790149688567409,-0.011156165166716248
+Motor — 24-hour Ridge,motor_24hour_ridge,2,ridge,79,9.919699506080384,8.376590587907497,0.10506579051291987
+Motor — 24-hour Ridge,motor_24hour_ridge,3,mean_baseline,79,10.859495458294607,9.106219547418121,-0.07253969074762212
+Motor — 24-hour Ridge,motor_24hour_ridge,3,ridge,79,10.347356496435891,8.863948439177321,0.026237824696550338
+Motor — 24-hour Ridge,motor_24hour_ridge,4,mean_baseline,79,10.740884854130975,8.988345137633114,-0.049238452921797515
+Motor — 24-hour Ridge,motor_24hour_ridge,4,ridge,79,10.487567984493545,8.875868513895304,-0.0003308325327431305
+Motor — 24-hour Ridge,motor_24hour_ridge,5,mean_baseline,79,10.675153318342492,8.936426624974883,-0.036435593156089574
+Motor — 24-hour Ridge,motor_24hour_ridge,5,ridge,79,10.10825952974769,8.546719883426034,0.07071945601160823
+Motor — 24-hour Ridge,motor_24hour_ridge,6,mean_baseline,79,10.609435548180693,8.823877335744424,-0.02371398068991315
+Motor — 24-hour Ridge,motor_24hour_ridge,6,ridge,79,10.202718627515173,8.605136713282356,0.05327052968571555
+Motor — 24-hour Ridge,motor_24hour_ridge,7,mean_baseline,79,10.651913763288228,8.88304952782801,-0.03192791375208759
+Motor — 24-hour Ridge,motor_24hour_ridge,7,ridge,79,10.136172364978895,8.53337068680709,0.06558016011924417
+Motor — 24-hour Ridge,motor_24hour_ridge,8,mean_baseline,79,10.631733095098328,8.876371935905166,-0.02802152318122131
+Motor — 24-hour Ridge,motor_24hour_ridge,8,ridge,79,10.045796867642737,8.472386536579975,0.08216870594087466
+Motor — 24-hour Ridge,motor_24hour_ridge,9,mean_baseline,79,10.68424547465457,8.917986173899935,-0.03820183428919344
+Motor — 24-hour Ridge,motor_24hour_ridge,9,ridge,79,10.237113264546172,8.504243795460154,0.04687668434458547
+Motor — 24-hour Ridge,motor_24hour_ridge,10,mean_baseline,79,10.642412221563113,8.934870403857746,-0.030087768714578633
+Motor — 24-hour Ridge,motor_24hour_ridge,10,ridge,79,10.208577240916311,8.46875515197038,0.05218295398579276
+Motor — 24-hour Ridge,motor_24hour_ridge,11,mean_baseline,79,10.903481964826309,9.130422757183045,-0.08124595529362644
+Motor — 24-hour Ridge,motor_24hour_ridge,11,ridge,79,9.85421775798759,8.263427351997144,0.11684204152756217
+Motor — 24-hour Ridge,motor_24hour_ridge,12,mean_baseline,79,10.63790064151375,8.938339172694391,-0.029214594800169635
+Motor — 24-hour Ridge,motor_24hour_ridge,12,ridge,79,10.12354645950675,8.57185183038549,0.06790659030350077
+Motor — 24-hour Ridge,motor_24hour_ridge,13,mean_baseline,79,10.782166180650915,9.075048975286316,-0.05731920079417474
+Motor — 24-hour Ridge,motor_24hour_ridge,13,ridge,79,10.114211937388534,8.421248382405155,0.0696246908372753
+Motor — 24-hour Ridge,motor_24hour_ridge,14,mean_baseline,79,10.761680422305368,8.93439823186659,-0.05330527471445401
+Motor — 24-hour Ridge,motor_24hour_ridge,14,ridge,79,10.351738336108914,8.651922767916293,0.025412923536883625
+Motor — 24-hour Ridge,motor_24hour_ridge,15,mean_baseline,79,10.502220917458583,8.764063441832429,-0.0031280530840918086
+Motor — 24-hour Ridge,motor_24hour_ridge,15,ridge,79,10.21827663119371,8.696310977921987,0.0503810153658405
+Motor — 24-hour Ridge,motor_24hour_ridge,16,mean_baseline,79,10.568860789465463,8.830974984930682,-0.015898763649434322
+Motor — 24-hour Ridge,motor_24hour_ridge,16,ridge,79,9.759309203430936,8.246537113581107,0.13377197037021227
+Motor — 24-hour Ridge,motor_24hour_ridge,17,mean_baseline,79,10.531482481448748,8.811397428169581,-0.008725723925356865
+Motor — 24-hour Ridge,motor_24hour_ridge,17,ridge,79,10.820058537020131,9.023196618167386,-0.06476384881546382
+Motor — 24-hour Ridge,motor_24hour_ridge,18,mean_baseline,79,10.600828091962349,8.861200899136026,-0.0220535721214441
+Motor — 24-hour Ridge,motor_24hour_ridge,18,ridge,79,10.478134665695258,8.876350127931309,0.001467905884799392
+Motor — 24-hour Ridge,motor_24hour_ridge,19,mean_baseline,79,10.650504272929394,8.869781620454088,-0.031654836773329365
+Motor — 24-hour Ridge,motor_24hour_ridge,19,ridge,79,9.810405177835069,8.292700593135311,0.12467775469515896
+Motor — 24-hour Ridge,motor_24hour_ridge,20,mean_baseline,79,10.902999531437825,9.097933619650394,-0.08115027620473958
+Motor — 24-hour Ridge,motor_24hour_ridge,20,ridge,79,10.424162026716692,8.668258993245967,0.011728245545329474
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,1,mean_baseline,10,10.091630195364871,7.570000000000002,-0.14954945192630076
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,1,elastic_net,10,7.642125786974299,6.687128856995922,0.3407754580381598
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,2,mean_baseline,10,10.283965067035188,7.467500000000001,-0.19378519642270642
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,2,elastic_net,10,8.654374538118736,7.040080085663488,0.1545724884494455
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,3,mean_baseline,10,10.79045585227983,8.2375,-0.31426998005465534
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,3,elastic_net,10,6.849264938091563,5.460906088349591,0.47046711623078785
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,4,mean_baseline,10,10.282050500751296,7.707499999999999,-0.19334074370062315
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,4,elastic_net,10,6.753261068814604,5.791939306578134,0.485207653238077
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,5,mean_baseline,10,10.353224135504847,7.637500000000003,-0.20991883023429914
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,5,elastic_net,10,7.754632369517455,5.874899116181787,0.3212225109646585
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,6,mean_baseline,10,10.824650687204645,8.367500000000001,-0.3226129925806025
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,6,elastic_net,10,10.15644038947531,8.8433835682053,-0.16436207500403954
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,7,mean_baseline,10,11.273167811223251,8.707500000000001,-0.4344880920533545
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,7,elastic_net,10,10.068757877065885,7.975361957148147,-0.14434453170176842
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,8,mean_baseline,10,10.192432854819307,7.397499999999999,-0.17262924685158176
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,8,elastic_net,10,7.017241592672049,5.7086461310930074,0.4441752755615169
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,9,mean_baseline,10,10.085720103195412,7.620000000000002,-0.14820339511085123
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,9,elastic_net,10,7.591378909475872,5.860045285772746,0.349501436953915
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,10,mean_baseline,10,10.358357133252358,8.017500000000002,-0.21111885258392116
+Global — Coverage Top-10 Elastic Net,global_coverage_top10_elastic_net,10,elastic_net,10,7.292277124183575,5.896099981694517,0.39975115551058094

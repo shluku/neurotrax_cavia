@@ -1,0 +1,6 @@
+feature_name,0,1,2
+keyboard_median_word_completion_time_ms,2237.0,5269.5,3254.5
+keyboard_inter_event_interval_iqr_ms,320.875,1096.125,526.0
+app_use_diversity,3.630483377414864,3.474791433860688,3.337716129942552
+acc_median_accelerometer_longest_observed_quiet_interval_minutes,28.25,5.0,4.0
+acc_median_accelerometer_low_motion_fraction,0.5732756640910838,0.7744146203184263,0.8138662109807395

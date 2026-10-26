@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "signals": 6,
+  "paired_patients": 60,
+  "bootstrap_replicates": 500,
+  "permutation_replicates": 2000,
+  "reliability_method": "calendar midpoint split where both halves have observations; otherwise first and last 14 observed keyboard days when at least 28 days are available; median daily feature value; ICC(2,1) absolute agreement and Spearman",
+  "device_change_available": true,
+  "predictive_models_trained": false,
+  "existing_outputs_modified": false
+}

@@ -1,0 +1,6 @@
+candidate,patients,devices,days,sessions,events,repeated_day_patients,qualifying_definition
+app_switch_recovery_touch,5,5,9,17,110,4,verified same-device exported screen session; observed transitions
+app_switch_recovery_keyboard,4,4,4,4,22,0,verified same-device exported screen session; observed transitions
+screen_resume_any,5,5,9,17,17,4,verified same-device exported screen session; sessions
+app_switch_disruption,5,5,9,17,137,4,verified same-device exported screen session; transitions; matched controls not established
+cross_modal_fragmentation,5,5,9,17,17,4,verified same-device exported screen session; sessions

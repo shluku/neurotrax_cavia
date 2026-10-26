@@ -1,0 +1,6 @@
+feature_name,0,1
+keyboard_median_word_completion_time_ms,3306.0,4395.25
+median_unlocked_session_duration_seconds,138.548,393.0465
+activity_unknown_fraction,0.2170443079206874,0.1613150280819197
+acc_median_accelerometer_hourly_motion_entropy,1.6804820237218403,1.0737910761085425
+acc_median_accelerometer_low_motion_fraction,0.758743523110859,0.8184307692307692

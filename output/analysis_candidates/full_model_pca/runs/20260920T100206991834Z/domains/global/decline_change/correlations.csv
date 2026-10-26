@@ -1,0 +1,7 @@
+variable,role,component,n,spearman_rho
+global_T1,Cognitive overlay,PC1,7,0.7500000000000002
+global_T1,Cognitive overlay,PC2,7,-0.5714285714285715
+global_T2,Cognitive overlay,PC1,7,0.8571428571428573
+global_T2,Cognitive overlay,PC2,7,-0.42857142857142866
+global_delta,Cognitive overlay,PC1,7,-0.14414999403128945
+global_delta,Cognitive overlay,PC2,7,0.2522624895547565

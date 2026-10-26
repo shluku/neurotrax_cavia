@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "endpoint": "T2-T1",
+  "features": [
+    "keyboard_median_word_completion_time_ms",
+    "telephony_network_type_diversity",
+    "acc_median_accelerometer_magnitude_jerk_median",
+    "acc_median_accelerometer_hourly_motion_entropy",
+    "acc_median_accelerometer_daytime_motion_minutes"
+  ],
+  "blocks": {
+    "digital": [
+      "keyboard_median_word_completion_time_ms",
+      "telephony_network_type_diversity"
+    ],
+    "acc": [
+      "acc_median_accelerometer_magnitude_jerk_median",
+      "acc_median_accelerometer_hourly_motion_entropy",
+      "acc_median_accelerometer_daytime_motion_minutes"
+    ]
+  },
+  "log_features": [],
+  "medians": [
+    -627.0,
+    -0.006140240030992394,
+    0.03580528173230735,
+    -0.6856120398085188,
+    -1.5
+  ],
+  "center": [
+    -627.0,
+    -0.006140240030992394,
+    0.03580528173230735,
+    -0.6856120398085188,
+    -1.5
+  ],
+  "scale": [
+    1.0,
+    0.2254978043029399,
+    9.176638552197467,
+    1.3470595256483258,
+    27.0
+  ],
+  "pca_mean": [
+    -55.05555555555556,
+    0.34462666952224125,
+    24.398482478934618,
+    0.2530105754505054,
+    -0.25308641975308643
+  ],
+  "components": [
+    [
+      0.9999993335301572,
+      0.00019994962879152237,
+      0.001123636571788653,
+      3.790214068738951e-05,
+      -0.00017018715927861138
+    ],
+    [
+      -0.0011247953430892621,
+      -0.009976141188567156,
+      0.999597746332541,
+      -0.011725286987957245,
+      -0.023792322593159002
+    ],
+    [
+      -0.00015491701716234082,
+      0.887595824190307,
+      0.02056482154311016,
+      0.3123784176944498,
+      0.33789116761800503
+    ],
+    [
+      0.0001885437479940515,
+      -0.445964111276617,
+      0.01929398045925318,
+      0.40012417856169813,
+      0.8004026236544182
+    ],
+    [
+      -9.070088212042203e-05,
+      -0.11484816481040594,
+      -0.0028130767315326173,
+      0.8615003668586076,
+      -0.49458982532480233
+    ]
+  ],
+  "cluster_centers": [],
+  "fit_patient_ids": [
+    "012",
+    "022",
+    "041",
+    "044",
+    "074",
+    "077",
+    "080",
+    "087",
+    "095"
+  ],
+  "domain": "Motor",
+  "target": "motor_delta",
+  "coverage_rule": "selected_panel_half",
+  "selection_uses_outcome": true,
+  "selected_features": [
+    "keyboard_median_word_completion_time_ms",
+    "acc_median_accelerometer_magnitude_jerk_median",
+    "acc_median_accelerometer_hourly_motion_entropy",
+    "acc_median_accelerometer_daytime_motion_minutes",
+    "telephony_network_type_diversity"
+  ]
+}

@@ -1,0 +1,8 @@
+metric,value
+devices_with_live_queries,2
+synchronized_segments,6
+segments_with_at_least_50_acc_samples,6
+segments_with_jerk,6
+gravity_like_median_magnitude_segments,6
+keyboard_associated_segments,3
+days_per_device_max,2

@@ -1,0 +1,6 @@
+panel,status,patients,features,dropped_features,pc1_pc2_percent,selected_k,acceptable_cluster_solution,cluster_sizes,cluster_note,silhouette,subsample_ari,cluster_ari_vs_main
+Combined median (main),complete,41,56,[],50.257268586133684,2,True,"[6, 35]",Exploratory clusters.,0.37391281051143666,0.7648386152447604,1.0
+"Digital only, same patients",complete,41,41,[],56.86817004891161,3,True,"[8, 6, 27]",Exploratory clusters.,0.25660011244378483,0.93164491818227,0.425569176882662
+"ACC only, same patients",complete,41,15,[],67.01781208899101,2,False,"[4, 37]",Reference only: at least one displayed cluster is smaller than five.,0.5499434254101747,0.8460440155475495,0.4755401901469317
+Mean ACC across days,complete,41,56,[],49.316273216735574,2,True,"[8, 33]",Exploratory clusters.,0.29534202016065153,0.8113335538098586,0.7697624190064795
+One best-covered device per day,complete,41,56,[],50.257268586133684,2,True,"[6, 35]",Exploratory clusters.,0.37391281051143666,0.7648386152447604,1.0

@@ -1,0 +1,4 @@
+feature_name,outcome,n,spearman_rho,spearman_p
+word_completion_median_delta,ef_delta,27,-0.14468864468864467,0.47149333148811273
+word_completion_iqr_delta,ef_delta,27,-0.007326007326007325,0.971070143380233
+snapshot_IEI_delta,ef_delta,28,0.5928561708728188,0.0008854663078159199

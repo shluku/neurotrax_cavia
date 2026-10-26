@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "feature_count": 34,
+  "t1_patients": 81,
+  "paired_patients": 81,
+  "supervised": {
+    "tasks": 12,
+    "fold_metric_rows": 1200
+  },
+  "unsupervised": {
+    "status": "complete",
+    "n_patients": 66,
+    "n_features": 34,
+    "selected_k": 3,
+    "pc1_pc2_percent": 99.95384736390355,
+    "acceptable_cluster_solution": true
+  },
+  "keyboard_only": true,
+  "existing_outputs_modified": false,
+  "model_integration_into_main_bank": false
+}

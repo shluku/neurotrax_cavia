@@ -1,0 +1,6 @@
+feature_name,transformation,n_observed_before_imputation,missing_percent_before_imputation,imputation_value_after_transformation
+screen_unlock_event_count,none,9,0.0,-243.0
+touch_click_event_count,none,3,66.66666666666666,-1008.0
+screen_event_count,none,9,0.0,-2226.0
+screen_on_event_count,none,9,0.0,-526.0
+screen_off_event_count,none,9,0.0,-417.0

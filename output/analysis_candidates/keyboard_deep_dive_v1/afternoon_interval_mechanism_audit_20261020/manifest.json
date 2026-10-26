@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "cohort_n": 28,
+  "feature": "keyboard_12_18_median_inter_event_interval_ms",
+  "saved_discovery_rho": 0.5928561708728188,
+  "saved_discovery_p": 0.0008854663078159199,
+  "raw_text_saved": false,
+  "package_names_saved": false,
+  "device_ids_saved": false,
+  "new_analyses_exploratory": true,
+  "existing_outputs_modified": false
+}

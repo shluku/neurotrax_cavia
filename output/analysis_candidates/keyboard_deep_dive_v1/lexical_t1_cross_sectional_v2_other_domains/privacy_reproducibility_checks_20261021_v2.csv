@@ -1,0 +1,5 @@
+"check","status","detail"
+"historical_preservation","pass","separate v2 directory; v1 unchanged"
+"t2_use","pass","no T2 fields used"
+"thresholds","pass","same fixed 20/50/100 thresholds as v1"
+"raw_text","pass","saved aggregate tables only; no raw text/words accessed"

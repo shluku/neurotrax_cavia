@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "cohort_n": 19,
+  "features": 34,
+  "outcomes": 8,
+  "bootstrap_replicates": 500,
+  "snapshot_definition": "canonical distinct_observations_in_window",
+  "historical_outputs_overwritten": false,
+  "models_trained": false
+}

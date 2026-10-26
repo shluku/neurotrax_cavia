@@ -1,0 +1,2 @@
+"family","status","gate_passed","paired_patients_min100_tokens_each","reason"
+"word_length_adjusted_and_lexical","not_run","false","","No cognitive screen run because the prespecified paired-token feasibility gate was not met; this is not a null cognitive result."

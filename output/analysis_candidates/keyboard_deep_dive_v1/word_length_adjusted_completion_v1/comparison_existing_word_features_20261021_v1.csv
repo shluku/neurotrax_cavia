@@ -1,0 +1,4 @@
+"existing_feature","new_feature","comparison","limitation"
+"word_completion_iqr_ms","length_adjusted_iqr_equal_group_median_ms","same snapshot completion candidates; new feature equalizes length groups","both remain observable snapshot timing"
+"word_completion_iqr_ms","length_residual_iqr_ms","same candidates after within-window length adjustment","residual model is descriptive and requires ≥20 candidates"
+"word_completion_count/high_confidence_fraction","word_ttr/MATTR/MTLD","new lexical metrics use only reliable completed tokens and report quantity","language/app mix and text quantity can dominate"

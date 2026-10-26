@@ -1,0 +1,49 @@
+{
+  "domain": "Executive function",
+  "target": "ef_T1",
+  "t2_target": "ef_T2",
+  "delta_target": "ef_delta",
+  "features": [
+    "keyboard_median_word_completion_time_ms",
+    "acc_median_accelerometer_longest_observed_quiet_interval_minutes",
+    "app_use_diversity",
+    "acc_median_accelerometer_daytime_motion_minutes",
+    "acc_median_accelerometer_day_night_motion_ratio"
+  ],
+  "selection_patients": 41,
+  "excluded_patient_ids": [
+    "002"
+  ],
+  "selection_uses_outcome": true,
+  "availability_rule": "Existing combined cohort, observed domain T1 score, >=50% of selected five features",
+  "paired_decliners": 8,
+  "baseline": {
+    "status": "complete",
+    "patients": 39,
+    "features": 5,
+    "dropped_features": [],
+    "pc1_pc2_percent": 70.52511182242668,
+    "selected_k": 2,
+    "acceptable_cluster_solution": true,
+    "cluster_sizes": [
+      29,
+      10
+    ],
+    "cluster_note": "Exploratory clusters.",
+    "silhouette": 0.3910489405553059,
+    "subsample_ari": 0.9001625171617696
+  },
+  "decline_change": {
+    "status": "complete",
+    "patients": 8,
+    "features": 5,
+    "dropped_features": [],
+    "pc1_pc2_percent": 98.15752590516765,
+    "selected_k": null,
+    "acceptable_cluster_solution": false,
+    "cluster_sizes": [],
+    "cluster_note": "No cluster fit: fewer than 12 patients or insufficient distinct observations.",
+    "silhouette": null,
+    "subsample_ari": null
+  }
+}

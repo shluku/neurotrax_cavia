@@ -1,0 +1,3 @@
+source,status,evidence,jerk_calculated,next_step
+accelerometer,blocked,"Archived pilot has dense raw sample (~3,202 rows/5 min) but no keyboard/app episode event-level join; live DB unavailable.",False,bounded same-device query; deduplicate timestamps; estimate sampling; choose raw vs gravity-compensated signal before jerk.
+linear_accelerometer,blocked,No rows in checked T1-week windows.,False,do not treat missing as zero; locate a protocol-valid raw window first.

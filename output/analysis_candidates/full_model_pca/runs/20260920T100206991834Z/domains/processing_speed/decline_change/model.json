@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "endpoint": "T2-T1",
+  "features": [
+    "telephony_network_type_diversity",
+    "touch_click_event_count",
+    "activity_active_hour_count",
+    "acc_median_accelerometer_magnitude_median",
+    "acc_median_accelerometer_low_motion_fraction"
+  ],
+  "blocks": {
+    "digital": [
+      "telephony_network_type_diversity",
+      "touch_click_event_count",
+      "activity_active_hour_count"
+    ],
+    "acc": [
+      "acc_median_accelerometer_magnitude_median",
+      "acc_median_accelerometer_low_motion_fraction"
+    ]
+  },
+  "log_features": [],
+  "medians": [
+    -0.0050027082648605725,
+    -1008.0,
+    -589.5,
+    -0.014658849354394654,
+    -0.1289838709740928
+  ],
+  "center": [
+    -0.0050027082648605725,
+    -1008.0,
+    -589.5,
+    -0.014658849354394654,
+    -0.1289838709740928
+  ],
+  "scale": [
+    0.17903099607202413,
+    1.0,
+    805.5,
+    0.06123158890751412,
+    0.24409324925693376
+  ],
+  "pca_mean": [
+    0.654251810179266,
+    -113.375,
+    0.14494103041589074,
+    0.17158533346498778,
+    -0.016952092296339233
+  ],
+  "components": [
+    [
+      0.0025553408823649417,
+      0.9999966572094485,
+      0.0002281568588144634,
+      -0.00029883031887362313,
+      -0.00012019896821868679
+    ],
+    [
+      0.9749041601737896,
+      -0.0024386837697843978,
+      -0.14468037161977554,
+      0.1151879098241487,
+      -0.12391637016801606
+    ],
+    [
+      0.008959795116958626,
+      0.00022871396919554995,
+      0.23834320783749807,
+      0.8061251945199144,
+      0.5415481103275539
+    ],
+    [
+      0.08880444467875476,
+      -0.0004867711963159444,
+      0.9182129799430572,
+      -0.013311109327066865,
+      -0.3857736013410913
+    ],
+    [
+      0.2039334239048944,
+      -0.0006701754415604972,
+      0.28132717030929427,
+      -0.5802729023998088,
+      0.7365793178372387
+    ]
+  ],
+  "cluster_centers": [],
+  "fit_patient_ids": [
+    "012",
+    "022",
+    "041",
+    "044",
+    "074",
+    "080",
+    "087",
+    "095"
+  ],
+  "domain": "Processing speed",
+  "target": "processing_speed_delta",
+  "coverage_rule": "selected_panel_half",
+  "selection_uses_outcome": true,
+  "selected_features": [
+    "telephony_network_type_diversity",
+    "acc_median_accelerometer_magnitude_median",
+    "acc_median_accelerometer_low_motion_fraction",
+    "touch_click_event_count",
+    "activity_active_hour_count"
+  ]
+}

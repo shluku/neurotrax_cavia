@@ -1,0 +1,11 @@
+{
+  "version": "20261021_v1",
+  "new_analyses": "candidate-specific descriptive distributions and exploratory OLS-per-feature-IQR summaries only",
+  "historical_outputs_overwritten": false,
+  "generated_at": "2026-10-21T15:44:13.553Z",
+  "files": [
+    "candidate_evidence_completeness_table_20261021_v1.csv",
+    "candidate_evidence_descriptive_distributions_20261021_v1.csv",
+    "candidate_evidence_source_index_20261021_v1.csv"
+  ]
+}

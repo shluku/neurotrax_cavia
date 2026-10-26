@@ -1,0 +1,103 @@
+{
+  "status": "complete",
+  "created_at": "2026-09-20T09:28:13.082079+00:00",
+  "run_id": "20260920T092803389833Z",
+  "seed": 20260826,
+  "pandas_version": "3.0.0",
+  "sklearn_version": "1.9.0",
+  "source_hashes": {
+    "baseline": {
+      "path": "output/analysis_candidates/phase11_t1_baseline/phase11_t1_baseline_patient_dataset.csv",
+      "sha256": "d035bb9f1a52b4daf0dfbbde48e66d55b79733e31b20f7ea1c2cdf6baca35ec6"
+    },
+    "digital_loadings": {
+      "path": "output/analysis_candidates/unsupervised_phenotyping_median_span/usable_catalog_50pct/pca_loadings.csv",
+      "sha256": "48091ce9af98bb649af5605464a120665a2b565eae07fb1127c473d732c1bdb5"
+    },
+    "digital_metadata": {
+      "path": "output/analysis_candidates/phase11_t1_baseline/phase11_t1_baseline_feature_metadata.csv",
+      "sha256": "009c414d4a4563b2c8fa95e9f91206075bb4209170bdcb5a47c0cb50b44ca62e"
+    },
+    "t2": {
+      "path": "output/analysis_candidates/phase12_midpoint_t2_decline/phase12_midpoint_t2_decline_features_wide.csv",
+      "sha256": "e10da12754a1d6e650433f212c7aae9e857f9ae2976c7bc130ef87ebf3357d51"
+    },
+    "t1_windows": {
+      "path": "output/analysis_candidates/phase11_midpoint_t1_baseline/phase11_midpoint_t1_baseline_patient_table_status.csv",
+      "sha256": "2c4b33508327133d9a320a532e30e9bca0e2d6f89b39c76ff13cecdfa657abde"
+    },
+    "t2_windows": {
+      "path": "output/analysis_candidates/phase12_midpoint_t2_decline/phase12_midpoint_t2_decline_patient_table_status.csv",
+      "sha256": "ebeb30f5918c6c01380372fbea5212bd697e6d7627b3d6cf04aa35c94372ecbf"
+    },
+    "acc_days": {
+      "path": "output/analysis_candidates/accelerometer_patient_sequential_pipeline/accelerometer_patient_sequential_device_day_features.csv",
+      "sha256": "d26c1b57299fcd9f7d4f2ce143de97a695d3df552fcde7728a0b8c0599c2d2c3"
+    },
+    "acc_catalog": {
+      "path": "output/analysis_candidates/accelerometer_patient_sequential_pipeline/accelerometer_plugin_event_day_feature_catalog.csv",
+      "sha256": "fb9540d1e62cb0723f933a25a097e145283474578b10fb3cbd909921533f6858"
+    },
+    "completion_audit": {
+      "path": "output/analysis_candidates/accelerometer_patient_sequential_pipeline/completion_audit/completion_audit.json",
+      "sha256": "06c81914064b20ffe0e00ed395d44d2f1bf9737c197d2a58d1c16ab0f8ef5aeb"
+    },
+    "protocol": {
+      "path": "FULL_MODEL_PCA_PROTOCOL.md",
+      "sha256": "703871c8e3831feb00980b83defbbad38a1b39d38b100ba2036c01d3109eba62"
+    },
+    "implementation": {
+      "path": "full_model_pca.py",
+      "sha256": "c6f415f4c6911375f90d8efd785f9c8949fd2bdecd0a547b12459653b2581b7d"
+    },
+    "original_method": {
+      "path": "unsupervised_phenotyping.py",
+      "sha256": "6826e588036c4ad1175c8904c78aa6631679d96d49bac23dfc1c12fc83b1eb6b"
+    }
+  },
+  "source_files_unchanged": true,
+  "source_patients": 81,
+  "t1_patients_with_acc": 42,
+  "t2_patients_with_acc": 32,
+  "observed_global_decliners": 15,
+  "paired_decliners": 9,
+  "baseline": {
+    "status": "complete",
+    "patients": 42,
+    "features": 56,
+    "dropped_features": [],
+    "pc1_pc2_percent": 80.62938375706,
+    "selected_k": 2,
+    "acceptable_cluster_solution": false,
+    "cluster_sizes": [
+      41,
+      1
+    ],
+    "cluster_note": "Reference only: at least one displayed cluster is smaller than five.",
+    "silhouette": 0.8529041847094577,
+    "subsample_ari": 0.8508291767059671
+  },
+  "decline_change": {
+    "status": "complete",
+    "patients": 9,
+    "features": 56,
+    "dropped_features": [],
+    "pc1_pc2_percent": 97.65890016933,
+    "selected_k": null,
+    "acceptable_cluster_solution": false,
+    "cluster_sizes": [],
+    "cluster_note": "No cluster fit: fewer than 12 patients or insufficient distinct observations.",
+    "silhouette": null,
+    "subsample_ari": null
+  },
+  "clinical_rule": "global_T2 < global_T1; valid ordered dates; saved Phase 11/12 windows",
+  "aggregation": "Median over fully contained single-device local days; no raw queries",
+  "limitations": [
+    "Exploratory representation; no validated cognitive prediction or disease subtypes.",
+    "T1 windows extend toward midpoint, so features are not prospective measurements available at T1.",
+    "ACC day selection depends on the plugin dictionary; unobserved days are not zero movement.",
+    "Whole days crossing window boundaries are excluded; multi-device days are excluded in the main run.",
+    "Motion duration and entropy can depend on collection intensity; see the technical audit.",
+    "Decline-only results are conditional on observed global decline, with a small paired sample."
+  ]
+}

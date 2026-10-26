@@ -1,0 +1,6 @@
+"check","result","implementation"
+"raw_text_export","pass","text and tokens are local variables only; no raw text/words/hashes in staged payload"
+"password_exclusion","pass","is_password truthy rows excluded before transition inspection"
+"patient_vocab_export","pass","unique set discarded after aggregate window summaries"
+"raw_logging","pass","progress logs include only patient/window IDs and numeric counts"
+"snapshot_overlap","measured","exact previous.current versus next.before continuity count exported"

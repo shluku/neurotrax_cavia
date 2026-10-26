@@ -1,0 +1,8 @@
+"feature_name","family","definition","units","privacy","status"
+"length_adjusted_iqr_equal_group_median_ms","word_length_adjusted","Median of within-length-group completion-time IQRs across 2–3, 4–5, 6–8, 9+ character groups with data","ms","aggregate only","exploratory"
+"length_residual_iqr_ms","word_length_adjusted","IQR of residuals from within-window duration ~ length + length², only with ≥20 reliable completions","ms","aggregate only","exploratory"
+"word_ttr","lexical","unique normalized observable completed tokens / reliable completed tokens","ratio","aggregate only","feasibility"
+"word_mattr_50","lexical","mean type-token ratio over fixed 50-token moving windows","ratio","aggregate only","feasibility"
+"word_mattr_100","lexical","mean type-token ratio over fixed 100-token moving windows","ratio","aggregate only","feasibility"
+"word_mtld","lexical","MTLD factor-based lexical-diversity estimate, only when ≥100 tokens","tokens per factor","aggregate only","feasibility"
+"word_repetition_rate","lexical","1 − unique normalized token count / token count","ratio","aggregate only","feasibility"

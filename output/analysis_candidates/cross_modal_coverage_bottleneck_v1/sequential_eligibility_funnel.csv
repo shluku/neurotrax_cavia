@@ -1,0 +1,10 @@
+feature_target,stage,sessions_remaining,devices_remaining,device_days_remaining,touch_events_remaining,keyboard_snapshots_remaining,exclusion_reason_at_stage
+none,verified_screen_session,17,5,9,573,61,none_selected_verified
+missing,ACC_present,10,3,5,480,43,missing_ACC_recording
+missing,ACC_plus_touch_synchronized,10,3,5,480,43,missing_touch_or_ACC_overlap
+insufficient,ACC_sampling_gap_QC,4,3,3,281,24,insufficient_ACC_samples_or_gaps
+no,both_motion_states,1,1,1,14,0,no_stationary_or_moving_variation
+insufficient,touch_minimum_intervals,0,0,0,0,0,insufficient_touch_intervals_in_both_states
+missing,ACC_plus_keyboard_synchronized,2,2,2,343,43,missing_keyboard_or_ACC_overlap
+insufficient,keyboard_ACC_sampling_gap_QC,1,1,1,212,24,insufficient_ACC_samples_or_gaps
+insufficient,keyboard_both_state_minimum,0,0,0,0,0,insufficient_keyboard_intervals_in_both_states
