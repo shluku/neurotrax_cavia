@@ -37,6 +37,14 @@ The 15-row display is a selected evidence set, not a new testing family. Its q-v
 
 The dataset is ready for a transparent descriptive results table and cautious exploratory interpretation. It is not ready for a claim of a validated digital biomarker. The strongest candidate remains afternoon snapshot IEI change versus Executive Function change because it has saved coverage-adjusted and reliability evidence, although its corrected thirds sensitivity is weaker and T2 reliability is limited. The restricted morning/Attention association has the largest effect but is a small post hoc sensitivity result with poor T2 reliability. The legacy word-completion results are nominal baseline associations with reconstructed CIs and post hoc q-values, but no technical adjustment or independent validation.
 
+## Six-signal article-ready results
+
+The six prespecified longitudinal signals all retained the original direction under leave-one-patient-out analysis, and their 2,000-permutation p-values ranged from .0010 to .0085 after within-six-signal FDR correction. The afternoon IEI/Executive Function signal had the strongest balance of effect and technical evidence: discovery rho=.592856 (n=28, p=.000885, q=.090318, 95% bootstrap CI [.217589,.832254]); after age, sex, education, baseline Executive Function, recording-rate, valid-interval-rate, and device-change adjustment, partial rho=.507994 (p=.022209, q=.133256, CI [.102805,.785821]). Its T2 first/last-14-day reliability was ICC=.415503 (n=18), and its corrected first/last-thirds estimate was partial rho=.496090 (n=19, p=.071200, q=.835982, CI [-.502230,.904992]).
+
+Correction-recovery time/Executive Function began at rho=-.588710 (n=32, q=.080284) but attenuated to partial rho=-.303181 (p=.149828, q=.196180) after recording adjustment and was null in corrected thirds (partial rho=.014196, q=.973978). Morning, afternoon, and evening timing and IEI-CV signals showed similar attenuation or weak corrected-thirds support. The morning IEI/Attention restricted midpoint result was larger (rho=.783686, n=18, p=.000119, q=.004765), but it is a small window-selected sensitivity result with T2 ICC=-.016175 and corrected-thirds q=.835982; it should be supplementary rather than the primary POC.
+
+The complete six-signal table, including all discovery, adjusted, robustness, reliability, and corrected-thirds fields, is `six_signal_article_ready_table_v1.csv`. These results are correlations among patient-level snapshot-derived features and cognitive scores; they are separate from the audited cross-validated predictive models.
+
 ## Next required work before submission
 
 1. Freeze the primary POC and classify the remaining findings as supplementary exploratory results.
@@ -44,4 +52,3 @@ The dataset is ready for a transparent descriptive results table and cautious ex
 3. Write a candidate-specific limitations paragraph covering coverage, device/app composition, window selection, snapshot semantics, and multiplicity.
 4. Separate correlation results from cross-validated prediction results and report the audited model baseline comparison independently.
 5. Prespecify an independent or temporal validation protocol before any confirmatory analysis.
-

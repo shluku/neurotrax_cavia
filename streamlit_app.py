@@ -9758,6 +9758,7 @@ def top15_article_statistics_page() -> None:
     all_patient_path = base / "top15_all_reconstructed_patient_level_table_v1.csv"
     inferential_path = base / "top15_article_inferential_audit_v1.csv"
     gap_summary_path = base / "top15_article_gap_summary_v1.csv"
+    six_signal_path = base / "six_signal_article_ready_table_v1.csv"
     readme_path = base / "README_top15_article_statistics_v1.md"
     if not reg_path.exists():
         st.error("The Top-15 workstream has not been initialized.")
@@ -9822,6 +9823,10 @@ def top15_article_statistics_page() -> None:
             if gap_summary_path.exists():
                 st.dataframe(pd.read_csv(gap_summary_path), use_container_width=True, hide_index=True)
             st.dataframe(pd.read_csv(inferential_path), use_container_width=True, hide_index=True, height=620)
+        if six_signal_path.exists():
+            st.subheader("Six-signal manuscript table")
+            st.caption("Discovery, recording-adjusted, leave-one-out/permutation, reliability, and corrected first/last-thirds results for the prespecified longitudinal keyboard signals.")
+            st.dataframe(pd.read_csv(six_signal_path), use_container_width=True, hide_index=True, height=520)
         if v2_audit_path.exists():
             v2 = pd.read_csv(v2_audit_path)
             exact_v2 = int(v2.cohort_match_status.eq("exact_reproduction").sum())
