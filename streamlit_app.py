@@ -9751,6 +9751,9 @@ def top15_article_statistics_page() -> None:
     threshold_audit_path = base / "top15_threshold_reconstruction_audit_v1.csv"
     threshold_dist_path = base / "top15_threshold_distribution_summary_v1.csv"
     threshold_patient_path = base / "top15_threshold_patient_level_table_v1.csv"
+    v2_audit_path = base / "top15_reconstruction_audit_v2.csv"
+    restricted_audit_path = base / "top15_restricted_window_reconstruction_v1.csv"
+    restricted_patient_path = base / "top15_restricted_window_patient_table_v1.csv"
     readme_path = base / "README_top15_article_statistics_v1.md"
     if not reg_path.exists():
         st.error("The Top-15 workstream has not been initialized.")
@@ -9795,6 +9798,18 @@ def top15_article_statistics_page() -> None:
             if threshold_patient_path.exists():
                 with st.expander("Open corrected threshold-cohort patient table"):
                     st.dataframe(pd.read_csv(threshold_patient_path), use_container_width=True, hide_index=True, height=520)
+        if restricted_audit_path.exists():
+            st.subheader("Restricted-window cohort reconstruction")
+            st.caption("The two same-patient 50/50 midpoint comparison rows were reconstructed from the saved ≥7-active-day thirds cohort and saved midpoint window features.")
+            st.dataframe(pd.read_csv(restricted_audit_path), use_container_width=True, hide_index=True)
+            if restricted_patient_path.exists():
+                with st.expander("Open restricted-window patient table"):
+                    st.dataframe(pd.read_csv(restricted_patient_path), use_container_width=True, hide_index=True, height=520)
+        if v2_audit_path.exists():
+            v2 = pd.read_csv(v2_audit_path)
+            exact_v2 = int(v2.cohort_match_status.eq("exact_reproduction").sum())
+            st.metric("Top-15 rows exactly reconstructable", f"{exact_v2}/15")
+            st.dataframe(v2, use_container_width=True, hide_index=True)
     st.subheader("Top-15 evidence register")
     st.dataframe(
         reg[["label", "estimate", "p", "q", "n", "ci_low", "ci_high", "ci_source", "analysis_phase", "coverage_adjusted_status", "reliability_status", "robustness_status", "next_action"]],
