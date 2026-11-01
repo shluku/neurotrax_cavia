@@ -1,0 +1,4 @@
+feature_name,outcome,family,spearman_p,fdr_q,q_by_outcome,q_by_family_outcome,is_lead_signal
+keyboard_median_correction_recovery_time_ms,executive_function,Corrections,0.0003935497903806,0.080284157237657,0.0133806928729404,0.0023612987422836,True
+keyboard_inter_event_interval_cv,executive_function,Timing and variability,0.0022651665195853,0.154031323331802,0.02567188722196673,0.0203864986762677,True
+keyboard_12_18_median_inter_event_interval_ms,executive_function,Circadian,0.0008854663078159,0.0903175633972238,0.015052927232870298,0.0070837304625272,True

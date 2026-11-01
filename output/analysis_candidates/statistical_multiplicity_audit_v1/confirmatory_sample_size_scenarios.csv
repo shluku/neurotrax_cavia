@@ -1,0 +1,25 @@
+assumed_absolute_r,alpha_rule,power,required_independent_n_approx
+0.25,"FWER .05, one primary",0.8,124
+0.25,"FWER .05, one primary",0.9,165
+0.25,"FWER .05, 3 primary hypotheses Bonferroni",0.8,164
+0.25,"FWER .05, 3 primary hypotheses Bonferroni",0.9,211
+0.3,"FWER .05, one primary",0.8,85
+0.3,"FWER .05, one primary",0.9,113
+0.3,"FWER .05, 3 primary hypotheses Bonferroni",0.8,113
+0.3,"FWER .05, 3 primary hypotheses Bonferroni",0.9,145
+0.35,"FWER .05, one primary",0.8,62
+0.35,"FWER .05, one primary",0.9,82
+0.35,"FWER .05, 3 primary hypotheses Bonferroni",0.8,82
+0.35,"FWER .05, 3 primary hypotheses Bonferroni",0.9,105
+0.4,"FWER .05, one primary",0.8,47
+0.4,"FWER .05, one primary",0.9,62
+0.4,"FWER .05, 3 primary hypotheses Bonferroni",0.8,62
+0.4,"FWER .05, 3 primary hypotheses Bonferroni",0.9,79
+0.45,"FWER .05, one primary",0.8,37
+0.45,"FWER .05, one primary",0.9,48
+0.45,"FWER .05, 3 primary hypotheses Bonferroni",0.8,48
+0.45,"FWER .05, 3 primary hypotheses Bonferroni",0.9,61
+0.5,"FWER .05, one primary",0.8,30
+0.5,"FWER .05, one primary",0.9,38
+0.5,"FWER .05, 3 primary hypotheses Bonferroni",0.8,38
+0.5,"FWER .05, 3 primary hypotheses Bonferroni",0.9,48

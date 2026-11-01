@@ -1,0 +1,16 @@
+outcome_a,outcome_b,spearman_rho
+global,memory,0.40716354061444926
+global,processing_speed,0.4067930863876049
+global,motor,0.3717221483906518
+memory,processing_speed,-0.02717379008320512
+memory,motor,0.11243639215922349
+executive_function,global,0.4876046180977521
+executive_function,memory,0.08701975197651973
+executive_function,processing_speed,0.0017195348223406157
+executive_function,motor,0.18523320299508858
+attention,global,0.4061747985024607
+attention,memory,0.09269518087545471
+attention,executive_function,0.4835459777717879
+attention,processing_speed,0.25028284408124524
+attention,motor,0.13257053953736875
+motor,processing_speed,0.23660496207709425

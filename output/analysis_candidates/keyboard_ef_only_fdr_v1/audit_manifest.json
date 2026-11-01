@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "source_file": "output/analysis_candidates/keyboard_deep_dive_v1/signal_discovery/signal_feature_associations.csv",
+  "tests_in_slice": 34,
+  "unique_features": 34,
+  "valid_p_values": 34,
+  "excluded_for_significance": 0,
+  "bh_programmatic_verification": true,
+  "new_results_label": "post_hoc_domain_specific_exploratory_fdr",
+  "original_204_test_fdr_preserved": true
+}

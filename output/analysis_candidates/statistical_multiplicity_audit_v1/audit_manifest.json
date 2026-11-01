@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "source_discovery_rows": 408,
+  "original_longitudinal_tests": 204,
+  "features_tested": 34,
+  "saved_window_feature_columns_reconstructed": 39,
+  "outcomes": [
+    "global",
+    "memory",
+    "executive_function",
+    "attention",
+    "processing_speed",
+    "motor"
+  ],
+  "bh_reproduction_max_abs_difference": 1.459943277382081e-14,
+  "duplicate_hypothesis_rows": 0,
+  "maxT_permutations": 1000,
+  "historical_results_overwritten": false,
+  "post_selection_analyses_labeled_separately": true
+}

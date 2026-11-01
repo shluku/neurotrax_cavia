@@ -9671,7 +9671,9 @@ def research_summary_page() -> None:
     st.divider()
     st.subheader("All saved feature–cognition associations")
     st.caption("This is the large evidence view. Confidence intervals are copied from saved outputs or recomputed from matching saved patient-level inputs where possible. Rows without exact recoverable inputs remain marked unavailable.")
-    all_path = ROOT / "output/research_summary_20261025/all_associations_with_ci_20261025.csv"
+    dated_all_path = ROOT / "output/research_summary_20261025/all_associations_with_ci_20261029.csv"
+    legacy_all_path = ROOT / "output/research_summary_20261025/all_associations_with_ci_20261025.csv"
+    all_path = dated_all_path if dated_all_path.exists() else legacy_all_path
     if all_path.exists():
         all_assoc = pd.read_csv(all_path)
         view = st.selectbox(
@@ -9761,6 +9763,7 @@ def top15_article_statistics_page() -> None:
     six_signal_path = base / "six_signal_article_ready_table_v1.csv"
     cov_join_path = base / "top15_covariate_join_audit_v1.csv"
     remaining_adj_path = base / "top15_remaining_coverage_adjusted_v1.csv"
+    restricted_robust_path = base / "top15_restricted_legacy_robustness_v1.csv"
     readme_path = base / "README_top15_article_statistics_v1.md"
     if not reg_path.exists():
         st.error("The Top-15 workstream has not been initialized.")
@@ -9837,6 +9840,10 @@ def top15_article_statistics_page() -> None:
             st.subheader("Remaining-row coverage-adjusted results")
             st.caption("Parsimonious saved-data partial Spearman analyses for the nine rows outside the selected-six validation set. q-values are within this new adjustment family.")
             st.dataframe(pd.read_csv(remaining_adj_path), use_container_width=True, hide_index=True, height=620)
+        if restricted_robust_path.exists():
+            st.subheader("Restricted and legacy robustness")
+            st.caption("Exploratory leave-one-patient-out, IQR outlier, and permutation checks for the four rows outside the selected-six validation set.")
+            st.dataframe(pd.read_csv(restricted_robust_path), use_container_width=True, hide_index=True)
         if v2_audit_path.exists():
             v2 = pd.read_csv(v2_audit_path)
             exact_v2 = int(v2.cohort_match_status.eq("exact_reproduction").sum())
@@ -9857,6 +9864,117 @@ def top15_article_statistics_page() -> None:
 - Independent validation has not been performed.
 """)
     st.markdown(f"[Open the workstream README]({readme_path.relative_to(ROOT)})")
+
+
+def keyboard_feature_summary_page() -> None:
+    """Readable summary of the five leading longitudinal keyboard features."""
+    st.title("Five Leading Keyboard Features")
+    st.caption("A focused, hopeful summary of the most interpretable longitudinal keyboard signals in the current discovery workstream.")
+
+    base = ROOT / "output/analysis_candidates/keyboard_ef_only_fdr_v1"
+    all_path = base / "ef_only_fdr_all_34_tests.csv"
+    headline_path = base / "ef_only_fdr_headline_comparison.csv"
+    if not all_path.exists():
+        st.error("The saved keyboard feature summary is not available yet.")
+        return
+
+    results = pd.read_csv(all_path)
+    headline = pd.read_csv(headline_path) if headline_path.exists() else results[results["ef_only_q_lt_0_05"]].copy()
+    headline = headline.sort_values("ef_only_bh_q").head(5).copy()
+
+    st.markdown(
+        """
+These five features form a coherent, interpretable starting point for the next stage of the project. Together they describe **recovery after correction** and the **pace, regularity, and time-of-day pattern of digital activity**. The signal is encouraging because it is concentrated in measurable behavioral dynamics rather than in an opaque black-box score.
+
+The right interpretation today is **promising discovery evidence**: strong enough to motivate a tightly prespecified validation study, but not yet a validated clinical biomarker.
+"""
+    )
+
+    descriptions = {
+        "keyboard_median_correction_recovery_time_ms": (
+            "Correction-recovery time",
+            "How quickly the observed text stream returns to its prior pattern after a correction-related disruption. It is a recovery-dynamics measure, not a direct measure of individual keystrokes.",
+        ),
+        "keyboard_12_18_median_inter_event_interval_ms": (
+            "Afternoon activity spacing",
+            "The typical interval between adjacent recorded text-state events during the afternoon. It captures the temporal pace of observable digital activity in a defined daily window.",
+        ),
+        "keyboard_inter_event_interval_cv": (
+            "Activity-spacing variability",
+            "The relative variability of intervals between recorded text-state events. Lower or higher values reflect how consistently activity is spaced over time, beyond simple activity volume.",
+        ),
+        "keyboard_18_24_median_inter_event_interval_ms": (
+            "Evening activity spacing",
+            "The typical interval between adjacent recorded text-state events in the evening. It adds a later-day view of timing and rhythm to the overall signal.",
+        ),
+        "keyboard_06_12_median_inter_event_interval_ms": (
+            "Morning activity spacing",
+            "The typical interval between adjacent recorded text-state events in the morning. It provides an early-day timing counterpart to the afternoon and evening measures.",
+        ),
+    }
+
+    for _, row in headline.iterrows():
+        feature = str(row["feature_name"])
+        friendly, explanation = descriptions.get(feature, (feature.replace("_", " ").title(), "Saved longitudinal keyboard timing feature."))
+        direction = "positive" if row["spearman_rho"] > 0 else "negative"
+        st.subheader(friendly)
+        st.write(explanation)
+        st.caption(
+            f"Observed direction: {direction} association · ρ={row['spearman_rho']:.3f} · n={int(row['n'])} · "
+            f"95% bootstrap interval [{row['bootstrap_ci_low']:.3f}, {row['bootstrap_ci_high']:.3f}]"
+        )
+
+    st.divider()
+    st.subheader("The five-feature pattern")
+    plot = headline.copy()
+    plot["label"] = plot["feature_name"].map(lambda x: descriptions.get(x, (x, ""))[0])
+    plot = plot.sort_values("spearman_rho")
+    fig = go.Figure(go.Scatter(
+        x=plot["spearman_rho"],
+        y=plot["label"],
+        mode="markers",
+        marker={"size": 11, "color": "#2563eb"},
+        error_x={
+            "type": "data",
+            "symmetric": False,
+            "array": (plot["bootstrap_ci_high"] - plot["spearman_rho"]).clip(lower=0),
+            "arrayminus": (plot["spearman_rho"] - plot["bootstrap_ci_low"]).clip(lower=0),
+            "width": 0,
+        },
+        customdata=np.c_[plot["n"], plot["ef_only_bh_q"]],
+        hovertemplate="%{y}<br>ρ=%{x:.3f}<br>n=%{customdata[0]}<br>exploratory q=%{customdata[1]:.3f}<extra></extra>",
+    ))
+    fig.add_vline(x=0, line_dash="dash", line_color="#6b7280")
+    fig.update_layout(
+        height=360,
+        xaxis_title="Spearman ρ (saved longitudinal association)",
+        yaxis_title="",
+        margin={"l": 10, "r": 20, "t": 20, "b": 50},
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.subheader("Evidence snapshot")
+    display = headline[["feature_name", "family", "spearman_rho", "n", "spearman_p", "original_204_test_bh_q", "ef_only_bh_q"]].copy()
+    display["feature_name"] = display["feature_name"].map(lambda x: descriptions.get(x, (x, ""))[0])
+    display = display.rename(columns={
+        "feature_name": "Feature",
+        "family": "Feature family",
+        "spearman_rho": "Spearman ρ",
+        "n": "n",
+        "spearman_p": "Original p",
+        "original_204_test_bh_q": "Original 204-test q",
+        "ef_only_bh_q": "Domain-specific exploratory q",
+    })
+    st.dataframe(display, use_container_width=True, hide_index=True)
+
+    st.info(
+        "Method note: this page summarizes the five features that cleared the project’s post-hoc, domain-specific exploratory FDR sensitivity review. "
+        "Snapshot-derived intervals are not direct keypress times, and recording cadence, device/app composition, and active-day coverage remain important validation questions."
+    )
+    st.markdown(
+        "**What comes next:** freeze these five definitions, prespecify a smaller primary set, apply the same quality and coverage rules to new participants, and test whether the pattern reproduces before making confirmatory claims."
+    )
+    st.markdown(f"[Open the complete EF-only FDR audit]({(base / 'README_ef_only_fdr.md').relative_to(ROOT)})")
 
 
 PAGES = {
@@ -9901,6 +10019,7 @@ PAGES = {
     "Research Manuscript": research_manuscript_page,
     "Keyboard Deep Dive": keyboard_deep_dive_page,
     "Research Summary and Findings": research_summary_page,
+    "Five Leading Keyboard Features": keyboard_feature_summary_page,
     "Top-15 Article Statistics": top15_article_statistics_page,
 }
 
