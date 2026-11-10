@@ -1,0 +1,24 @@
+source_modality,definition_version_records,count_semantics,original_source
+keyboard,372,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+accelerometer,163,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+touch,102,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+screen,99,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+plugin_google_activity_recognition,77,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+applications_foreground,45,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+gsm_neighbor,40,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+calls,40,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+gsm,39,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+telephony,39,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+light,38,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+significant,34,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+proximity,34,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+messages,27,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+locations,18,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+barometer,18,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+sensor_linear_accelerometer,17,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+battery,16,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+bluetooth,13,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+aware_log,10,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+cross_modality_recording_coverage,3,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+distinct,1,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv
+active,1,"feature-definition/version rows, not independent biomarkers",manuscript/tables/complete_feature_dictionary_20261021_v1.csv

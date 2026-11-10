@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 610" role="img" aria-label="Feature definition version counts by modality">
+<rect width="1120" height="610" fill="white"/>
+<text x="40" y="47" font-size="26" fill="#172439" font-weight="bold" font-family="Arial">Feature-bank breadth: definition/version records by modality</text>
+<text x="40" y="76" font-size="15" fill="#566479" font-family="Arial">Selected categories from the original 1,246-row dictionary; these are NOT independent biomarkers</text>
+<text x="40" y="112" font-size="15" fill="#24394d" font-family="Arial">keyboard</text>
+<rect x="370" y="99" width="630.0" height="20" rx="3" fill="#28648f"/>
+<text x="1008.0" y="114" font-size="14" fill="#314356" font-family="Arial">372</text>
+<text x="40" y="148" font-size="15" fill="#24394d" font-family="Arial">accelerometer</text>
+<rect x="370" y="135" width="276.0" height="20" rx="3" fill="#28648f"/>
+<text x="654.0" y="150" font-size="14" fill="#314356" font-family="Arial">163</text>
+<text x="40" y="184" font-size="15" fill="#24394d" font-family="Arial">touch</text>
+<rect x="370" y="171" width="172.7" height="20" rx="3" fill="#28648f"/>
+<text x="550.7" y="186" font-size="14" fill="#314356" font-family="Arial">102</text>
+<text x="40" y="220" font-size="15" fill="#24394d" font-family="Arial">screen</text>
+<rect x="370" y="207" width="167.7" height="20" rx="3" fill="#28648f"/>
+<text x="545.7" y="222" font-size="14" fill="#314356" font-family="Arial">99</text>
+<text x="40" y="256" font-size="15" fill="#24394d" font-family="Arial">plugin google activity recognition</text>
+<rect x="370" y="243" width="130.4" height="20" rx="3" fill="#28648f"/>
+<text x="508.4" y="258" font-size="14" fill="#314356" font-family="Arial">77</text>
+<text x="40" y="292" font-size="15" fill="#24394d" font-family="Arial">applications foreground</text>
+<rect x="370" y="279" width="76.2" height="20" rx="3" fill="#28648f"/>
+<text x="454.2" y="294" font-size="14" fill="#314356" font-family="Arial">45</text>
+<text x="40" y="328" font-size="15" fill="#24394d" font-family="Arial">gsm neighbor</text>
+<rect x="370" y="315" width="67.7" height="20" rx="3" fill="#28648f"/>
+<text x="445.7" y="330" font-size="14" fill="#314356" font-family="Arial">40</text>
+<text x="40" y="364" font-size="15" fill="#24394d" font-family="Arial">calls</text>
+<rect x="370" y="351" width="67.7" height="20" rx="3" fill="#28648f"/>
+<text x="445.7" y="366" font-size="14" fill="#314356" font-family="Arial">40</text>
+<text x="40" y="400" font-size="15" fill="#24394d" font-family="Arial">gsm</text>
+<rect x="370" y="387" width="66.0" height="20" rx="3" fill="#28648f"/>
+<text x="444.0" y="402" font-size="14" fill="#314356" font-family="Arial">39</text>
+<text x="40" y="436" font-size="15" fill="#24394d" font-family="Arial">telephony</text>
+<rect x="370" y="423" width="66.0" height="20" rx="3" fill="#28648f"/>
+<text x="444.0" y="438" font-size="14" fill="#314356" font-family="Arial">39</text>
+<text x="40" y="472" font-size="15" fill="#24394d" font-family="Arial">light</text>
+<rect x="370" y="459" width="64.4" height="20" rx="3" fill="#28648f"/>
+<text x="442.4" y="474" font-size="14" fill="#314356" font-family="Arial">38</text>
+<text x="40" y="508" font-size="15" fill="#24394d" font-family="Arial">significant</text>
+<rect x="370" y="495" width="57.6" height="20" rx="3" fill="#28648f"/>
+<text x="435.6" y="510" font-size="14" fill="#314356" font-family="Arial">34</text>
+<text x="40" y="568" font-size="13" fill="#687b8e" font-family="Arial">A feature can appear multiple times across versions and analysis outputs. Source: complete_feature_dictionary_20261021_v1.csv</text>
+</svg>

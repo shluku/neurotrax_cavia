@@ -1,0 +1,18 @@
+{
+  "report_asset_version": "v0.2",
+  "original_keyboard_feature_count": 34,
+  "keyboard_dictionary_rows": 42,
+  "lexical_extension_rows": 7,
+  "ef_q_lt_0_05": 5,
+  "master_definition_rows": 1246,
+  "original_research_chronology_workstreams": 40,
+  "input_files": [
+    "output/analysis_candidates/keyboard_ef_only_fdr_v1/ef_only_fdr_all_34_tests.csv",
+    "output/analysis_candidates/keyboard_deep_dive_v1/keyboard_deep_dive_feature_dictionary.csv",
+    "manuscript/tables/complete_feature_dictionary_20261021_v1.csv",
+    "manuscript/tables/research_review_chronology_20261020.csv",
+    "output/analysis_candidates/keyboard_deep_dive_v1/lexical_feature_feasibility_v1/feature_dictionary_20261021_v1.csv"
+  ],
+  "no_patient_level_data_exported": true,
+  "new_statistical_tests_run": false
+}

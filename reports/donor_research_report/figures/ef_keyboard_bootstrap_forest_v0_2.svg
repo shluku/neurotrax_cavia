@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 570" role="img" aria-label="Spearman correlations and saved bootstrap intervals for five exploratory Executive Function keyboard findings">
+<rect width="1120" height="570" fill="#ffffff"/>
+<text x="40" y="48" fill="#172439" font-size="27" font-family="Arial" font-weight="bold">Executive Function × longitudinal keyboard change</text>
+<text x="40" y="80" fill="#566479" font-size="16" font-family="Arial">Five highest EF-only BH results; 95% bootstrap intervals copied from discovery output</text>
+<line x1="335.0" y1="118" x2="335.0" y2="455" stroke="#dfe5eb" stroke-width="1" />
+<text x="335.0" y="490" fill="#566479" text-anchor="middle" font-family="Arial" font-size="15">-1</text>
+<line x1="500.0" y1="118" x2="500.0" y2="455" stroke="#dfe5eb" stroke-width="1" />
+<text x="500.0" y="490" fill="#566479" text-anchor="middle" font-family="Arial" font-size="15">-0.5</text>
+<line x1="665.0" y1="118" x2="665.0" y2="455" stroke="#dfe5eb" stroke-width="1" />
+<text x="665.0" y="490" fill="#566479" text-anchor="middle" font-family="Arial" font-size="15">0</text>
+<line x1="830.0" y1="118" x2="830.0" y2="455" stroke="#dfe5eb" stroke-width="1" />
+<text x="830.0" y="490" fill="#566479" text-anchor="middle" font-family="Arial" font-size="15">0.5</text>
+<line x1="995.0" y1="118" x2="995.0" y2="455" stroke="#dfe5eb" stroke-width="1" />
+<text x="995.0" y="490" fill="#566479" text-anchor="middle" font-family="Arial" font-size="15">1</text>
+<text x="40" y="160" font-size="17" font-family="Arial" fill="#26374b">Correction recovery</text>
+<line x1="413.6" y1="155" x2="561.9" y2="155" stroke="#a95650" stroke-width="3"/>
+<line x1="413.6" y1="147" x2="413.6" y2="163" stroke="#a95650" stroke-width="2"/>
+<line x1="561.9" y1="147" x2="561.9" y2="163" stroke="#a95650" stroke-width="2"/>
+<circle cx="470.7" cy="155" r="7" fill="#a95650" stroke="white" stroke-width="2"/>
+<text x="1007" y="160" font-size="14" font-family="Arial" fill="#30435b">n=32</text>
+<text x="40" y="229" font-size="17" font-family="Arial" fill="#26374b">Afternoon (12–18) IEI</text>
+<line x1="736.8" y1="224" x2="939.6" y2="224" stroke="#225e94" stroke-width="3"/>
+<line x1="736.8" y1="216" x2="736.8" y2="232" stroke="#225e94" stroke-width="2"/>
+<line x1="939.6" y1="216" x2="939.6" y2="232" stroke="#225e94" stroke-width="2"/>
+<circle cx="860.6" cy="224" r="7" fill="#225e94" stroke="white" stroke-width="2"/>
+<text x="1007" y="229" font-size="14" font-family="Arial" fill="#30435b">n=28</text>
+<text x="40" y="298" font-size="17" font-family="Arial" fill="#26374b">IEI coefficient of variation</text>
+<line x1="423.8" y1="293" x2="590.7" y2="293" stroke="#a95650" stroke-width="3"/>
+<line x1="423.8" y1="285" x2="423.8" y2="301" stroke="#a95650" stroke-width="2"/>
+<line x1="590.7" y1="285" x2="590.7" y2="301" stroke="#a95650" stroke-width="2"/>
+<circle cx="495.7" cy="293" r="7" fill="#a95650" stroke="white" stroke-width="2"/>
+<text x="1007" y="298" font-size="14" font-family="Arial" fill="#30435b">n=33</text>
+<text x="40" y="367" font-size="17" font-family="Arial" fill="#26374b">Evening (18–24) IEI</text>
+<line x1="732.9" y1="362" x2="911.0" y2="362" stroke="#225e94" stroke-width="3"/>
+<line x1="732.9" y1="354" x2="732.9" y2="370" stroke="#225e94" stroke-width="2"/>
+<line x1="911.0" y1="354" x2="911.0" y2="370" stroke="#225e94" stroke-width="2"/>
+<circle cx="837.8" cy="362" r="7" fill="#225e94" stroke="white" stroke-width="2"/>
+<text x="1007" y="367" font-size="14" font-family="Arial" fill="#30435b">n=29</text>
+<text x="40" y="436" font-size="17" font-family="Arial" fill="#26374b">Morning (06–12) IEI</text>
+<line x1="731.0" y1="431" x2="905.2" y2="431" stroke="#225e94" stroke-width="3"/>
+<line x1="731.0" y1="423" x2="731.0" y2="439" stroke="#225e94" stroke-width="2"/>
+<line x1="905.2" y1="423" x2="905.2" y2="439" stroke="#225e94" stroke-width="2"/>
+<circle cx="824.9" cy="431" r="7" fill="#225e94" stroke="white" stroke-width="2"/>
+<text x="1007" y="436" font-size="14" font-family="Arial" fill="#30435b">n=31</text>
+<text x="665" y="525" font-size="17" font-family="Arial" fill="#30435b" text-anchor="middle">Spearman ρ (Late − Early vs T2 − T1)</text>
+<text x="40" y="556" font-size="13" font-family="Arial" fill="#67778b">Exploratory; n=28–33. Intervals are unadjusted bootstrap CIs, not simultaneous or corrected intervals. Snapshot timing ≠ keypress timing.</text>
+</svg>
