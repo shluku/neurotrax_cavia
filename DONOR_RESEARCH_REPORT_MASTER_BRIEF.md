@@ -1,6 +1,6 @@
 # Dementia Digital Phenotyping — Donor Research Report: Master Brief and Evidence Protocol
 
-**Status:** Planning reference v1 — 2026-11-10  
+**Status:** Planning reference v2 — 2026-11-10  
 **Audience:** research donors, scientific collaborators, project investigators  
 **Purpose:** Create a comprehensive, evidence-traceable and accessible narrative of the full research program, from its earliest database work to the latest analyses. This document is the specification for the report, **not the report itself**.
 
@@ -16,13 +16,13 @@ We will build this through a staged, roughly one-month collaborative research-do
 
 1. **Never invent evidence.** Every result must trace to a saved output, code version, sample, and analytic specification. Every paper must be bibliographically verified and linked to the exact feature it supports.
 2. **Distinguish:** published precedent; our original/modified feature definition; hypothesis; observed association; technical feasibility; adjusted sensitivity; independent validation; clinical utility.
-3. **Literature provenance is feature-specific.** A generic digital-health paper is not sufficient proof that a particular metric was derived from it. If we cannot establish historical provenance, label it 'retrospective scientific support', not 'paper originally used to select the feature'. If no credible support exists, label 'novel exploratory definition / evidence gap'.
+3. **Feature-specific literature with researcher-approved historical provenance.** The lead researcher decides which publication was actually used to select or build each feature. A paper explicitly confirmed by the researcher is recorded as part of the original research rationale even if earlier code or notes do not contain the citation. Bibliographic identity and the paper's actual claims still require scientific verification. For uncertain matches, request researcher review rather than inventing an association. Do not use retrospective/after-the-fact labels in the donor report.
 4. **No selective statistical narration.** Preserve original screening multiplicity, EF-only post-hoc FDR, sample sizes, direction, p/q, confidence intervals where saved, and sensitivity to recording/device effects. Do not claim the EF-only q<0.05 is independent confirmation.
 5. **Do not interpret snapshots as physical keypresses, smartphone movement as gait/tremor, or incomplete logging as inactivity.** Cognitive score changes overlapping feature windows do not establish prospective prediction.
 6. **Separate engineering accomplishments from clinical discoveries.** Large data volume, a large feature bank, many tests and working sensor joins do not themselves imply predictive success.
 7. **Show substantial labor through meaningful workstreams and reproducible artifacts**, not through excessive chronological command logs or thousands of repetitive tables.
 8. **Protect participants.** No row-level text, identifiers, raw message content, secrets, or individual case reconstruction in donor materials. Check permissions before sharing repository paths or exports.
-9. **Avoid 'retrofit' certainty.** The literature audit may uncover papers now that were not used at original feature-selection time.
+9. **Lead-researcher approval governs historical inclusion.** Candidate references found during literature searches remain pending until the researcher confirms whether they formed part of the feature-selection rationale. Once approved, present them straightforwardly as cited research support. Do not independently infer historical use from the date the citation was entered into the archive.
 10. **Version the report and the evidence ledger.** Record the date of the frozen evidence snapshot; any later analysis belongs in an update.
 
 ## 3. Verified starting points in the local repository (initial reconnaissance only)
@@ -56,7 +56,7 @@ MySQL SensorDB tables, device-to-patient mapping, timestamps, timezone, privacy 
 ### D. Feature development history — the main body
 For each **feature family** and each retained/high-priority feature, answer:
 - Clinical construct and research motivation
-- Original publication used (if demonstrable), exact feature definition in paper, DOI and population
+- Publication identified and approved by the lead researcher as part of feature-selection rationale; exact published feature definition, DOI and population
 - What our specific raw tables can measure
 - Algorithmic extraction, units, observation window, exclusions, minimum signal/event thresholds
 - Changes between versions, technical limitations and missingness
@@ -64,6 +64,24 @@ For each **feature family** and each retained/high-priority feature, answer:
 - Analyses and validation actually run, results, residual uncertainty
 
 Organize by: keyboard cadence/intervals; correction/deletion/text growth and reconstructed word completion; lexical diversity/word-length-aware measures; screen and touch; foreground apps and switching; calls/messages/telephony; GPS/connectivity/social/communications; activity recognition and accelerometer/motion; and genuinely cross-table event-linked interactions. Only include families actually evidenced in repository.
+
+### D1. Dedicated Keyboard Deep Dive — expanded feature catalog
+
+Treat the keyboard as a standalone, detailed case study within feature development, **not** a few rows mixed into the general feature list. Reconstruct the evolution from the earliest keyboard features through the expanded Deep Dive and later lexical work.
+
+For each keyboard feature and version, preserve these fields:
+- Precise feature name/ID, algorithm and code location; observed event vs inferred proxy.
+- Source snapshot fields and continuity rules; text-change length, word-length controls, correction/deletion heuristics, language, password exclusion and privacy restrictions.
+- Time-of-day definition, early/late T1–T2 window assignment, per-patient sample and coverage thresholds.
+- Verified research paper (with lead-researcher inclusion approval) and how our feature differs from the published method.
+- The reason the feature was **proposed, tested, retained, revised, deprioritized or discarded**; reproducible source for the decision.
+- Exact results for relevant cognitive outcomes, versions, n, rho/p/q/CI, and test family.
+- Validation evidence: missingness/coverage, device and app changes, sampling cadence, thirds/repeated-day windows, leave-one-out, technical adjustments, alternative feature definitions.
+- Clear interpretation of what the measure does **not** capture (snapshot cadence is not a keypress; reconstructed word times are estimates).
+
+Suggested subcatalog: overall and circadian inter-event timing (median/IQR/CV); typing engagement and snapshot frequency; bursts, pauses and fragmentation; corrections/deletions and recovery; word-completion reconstruction and word-length-stratified/residual duration; vocabulary diversity (MATTR, MTLD, TTR and coverage gates); focused PCA/composites and keyboard model features.
+
+Create `KEYBOARD_DEEP_DIVE_FEATURE_CATALOG.csv` alongside the general ledger, plus a `KEYBOARD_DEEP_DIVE_RESEARCH_HISTORY.md` that narrates successive versions, their purposes and actual outcomes. Do not collapse distinct feature versions merely because their display names are similar. Reconcile historical discrepancies from code and outputs before presenting results.
 
 ### E. Statistical discovery and evidence hierarchy
 All major analysis scopes, family sizes, p-values, BH-FDR, permutation/multiplicity audit, technical and demographic adjustments, bootstrap and sensitivity windows, subject retention, feature quality thresholds, differences between discovery and post-selection results. A clear table of a few flagship results with n, rho/effect, p, q, adjusted outcome, and interpretation.
@@ -86,11 +104,12 @@ Build these intermediate machine-readable files **before** drafting outcome clai
 
 1. `SOURCE_INVENTORY.csv`: path, file class, version/date, role, scope, patient-level vs aggregate, status, authoritative/derived, sensitivity flags, last verified.
 2. `RESEARCH_CHRONOLOGY.csv`: milestone/date, question, tools, outputs, result, lesson/decision, evidence paths.
-3. `FEATURE_PROVENANCE_LEDGER.csv`: feature ID/version; exact formula; unit; raw source; window; eligibility; paper originally used (verified or unknown); supporting paper found later; DOI/PMID; published exact definition vs inspiration; implementation code; QC; status.
-4. `LITERATURE_VERIFICATION.csv`: citation, publication year, DOI, verification status, study population, instruments/sensors, exact feature, actual result, scope of relevance, supported claim, limitations, linked feature IDs.
-5. `ANALYSIS_EVIDENCE_LEDGER.csv`: analysis ID, hypothesis, patient n, cohort, original selection scope, feature, outcome, rho/effect, p, q/family, CI, adjustment, sensitivity, reproducibility, interpretation, source path.
-6. `VALIDATION_AND_FAILURE_REGISTER.csv`: hypothesis/feature, test type, criteria, results, pass/fail/inconclusive, technical vs scientific explanation, future action.
-7. `REPORT_CLAIM_AUDIT.csv`: paragraph/claim ID, exact supporting evidence path and citation, verification status, reviewer notes, approved wording.
+3. `FEATURE_PROVENANCE_LEDGER.csv`: feature ID/version; exact formula; unit; raw source; window; eligibility; literature reference and DOI/PMID; literature relevance (direct implementation/adaptation/conceptual); lead-researcher approval status and review date; implementation code; QC; retention decision and rationale.
+4. `KEYBOARD_DEEP_DIVE_FEATURE_CATALOG.csv` and `KEYBOARD_DEEP_DIVE_RESEARCH_HISTORY.md`: full standalone keyboard feature/version catalog, selection rationale, extraction logic, original-paper linkage approved by the researcher, results and validation chronology.
+5. `LITERATURE_VERIFICATION.csv`: citation, publication year, DOI, verification status, study population, instruments/sensors, exact feature, actual result, scope of relevance, supported claim, limitations, linked feature IDs.
+6. `ANALYSIS_EVIDENCE_LEDGER.csv`: analysis ID, hypothesis, patient n, cohort, original selection scope, feature, outcome, rho/effect, p, q/family, CI, adjustment, sensitivity, reproducibility, interpretation, source path.
+7. `VALIDATION_AND_FAILURE_REGISTER.csv`: hypothesis/feature, test type, criteria, results, pass/fail/inconclusive, technical vs scientific explanation, future action.
+8. `REPORT_CLAIM_AUDIT.csv`: paragraph/claim ID, exact supporting evidence path and citation, verification status, reviewer notes, approved wording.
 
 Each ledger needs explicit `not_checked`, `missing`, `verified`, `uncertain` statuses; no blanks silently interpreted as favorable evidence.
 
@@ -112,16 +131,16 @@ These are **starting checkpoints**, not a substitute for an audit of the underly
 
 1. Search internal protocols, Streamlit source/data, feature dictionaries, code comments, archived notes, literature files, commit history, and research discussions for citations and historical selection reasons.
 2. For each candidate paper, verify title/authors/year/DOI and consult original methods/results; do not infer feature precedent from paper title alone.
-3. Categorize paper-to-feature relationship: `direct operational reproduction`, `adapted methodology`, `conceptual support only`, `retrospective support`, `no validated supporting precedent`.
+3. Categorize paper-to-feature relationship: `direct operational reproduction`, `adapted methodology`, `conceptual support only`, `no validated supporting precedent`; separately record `lead_researcher_approved`, `pending_review` or `not_approved` for historical inclusion.
 4. Differentiate disease/population specificity (dementia/MCI vs depression/healthy adults/mixed cohorts).
-5. Cite a paper for a specific claim only when that claim is supported by it. Where a feature was newly invented, describe it as a hypothesis and retain novelty, rather than fabricating an origin.
+5. Cite a paper for a specific claim only when that claim is supported by it. The researcher may confirm an originally used publication even when not discoverable in archived files; record that confirmation. If no original publication is approved for a genuinely new feature, describe it as an internally developed hypothesis rather than fabricating a paper-to-feature mapping.
 6. If multiple studies justify one family, cite the strongest directly applicable publications and briefly explain limitations in transferring the methods.
 
 ## 8. Work plan for iterative sessions (approximately four weeks)
 
 **Week 1: evidence inventory and historical reconstruction.** Audit repository and Streamlit page by page; discover hidden artifacts, data sources, feature dictionary, chronological decisions, outstanding missing files and sensitive material. Freeze version and produce inventory/chronology and open questions.
 
-**Week 2: feature/provenance and literature verification.** Trace every retained or investigated major family to original code and known historical paper, conduct focused external literature search for unsupported families, assemble reproducible feature-to-paper mapping and a narrative selection funnel.
+**Week 2: feature/provenance and literature verification.** Trace every retained or investigated major family to original code and researcher-confirmed publications. For missing citations, propose suitable papers for the researcher's decision; verify each accepted citation's methods and relationship to the feature. Assemble a reproducible feature-to-paper map and the historical feature-selection funnel.
 
 **Week 3: results, validation and statistics.** Reconcile cohort/sample counts, compute the final selected evidence table only from verified outputs, audit original FDR vs domain-only follow-up, summarize model validation, confounding tests and negative results. Identify what was technically validated versus statistically or clinically validated.
 
@@ -130,8 +149,9 @@ These are **starting checkpoints**, not a substitute for an audit of the underly
 ## 9. Acceptance criteria for final report
 
 - Every quoted number can be located in an original source output and is labeled with its cohort, time window and analysis version.
-- Every claimed literature-derived feature has verified feature-specific source support; gaps are stated.
+- Every claimed literature-derived feature has a verified feature-specific source and the researcher's approval for inclusion in the selection history; unresolved candidates stay in an internal review list.
 - All major scientific workstreams and meaningful engineering/analysis achievements are represented without exhaustive irrelevant debugging.
+- The keyboard Deep Dive is broken down to individual feature/version definitions, paper approval, selection decisions, and validation history rather than summarized as a single feature family.
 - The story explicitly shows the evolution from many candidate ideas to a small set of promising, qualified signals, including reasons for non-retention.
 - Negative experiments, QC failures and technical corrections are presented fairly, as evidence of rigor rather than hidden.
 - Exploratory statistical significance is not misrepresented as validated clinical or predictive performance.
@@ -140,6 +160,6 @@ These are **starting checkpoints**, not a substitute for an audit of the underly
 
 ## 10. Immediate next action
 
-Perform a **read-only comprehensive repository/Streamlit inventory** and build the first three ledgers. In particular, locate any feature-by-feature citations or selection rules embedded in Streamlit or its backing tables, and explicitly mark original citations that cannot be recovered. Do not begin writing the final donor narrative until inventory completeness is assessed.
+Perform a **read-only comprehensive repository/Streamlit inventory** and build the first three ledgers. In particular, locate feature-by-feature citations and selection rules in Streamlit or its backing tables, and prepare unresolved references for lead-researcher review before entering them into the report. Do not begin writing the final donor narrative until inventory completeness is assessed.
 
 **Decision to remember:** This project needs an evidence-based research history and scientific provenance audit first, a polished donor summary second.
